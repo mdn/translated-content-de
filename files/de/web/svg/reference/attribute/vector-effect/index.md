@@ -2,17 +2,17 @@
 title: vector-effect
 slug: Web/SVG/Reference/Attribute/vector-effect
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Die **`vector-effect`**-Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet wird. Vektoreffekte werden vor allen anderen Kompositionsoperationen angewendet, d.h. vor Filtern, Masken und Clips.
+Die Eigenschaft **`vector-effect`** legt fest, welcher Vektoreffekt beim Zeichnen eines Objekts verwendet wird. Vektoreffekte werden vor allen anderen Compositing-Vorgängen angewendet, also vor Filtern, Masken und Clipping.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `vector-effect` auch ein CSS-Eigenschaftsgegenstück: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `vector-effect` auch eine entsprechende CSS-Eigenschaft: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -28,40 +28,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Verwendungshinweise
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code>none</code> | <code>non-scaling-stroke</code> |
-        <code>non-scaling-size</code> | <code>non-rotation</code> |
-        <code>fixed-position</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>none</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>diskret</td>
-    </tr>
-  </tbody>
-</table>
-
-- `none`
-  - : Dieser Wert legt fest, dass kein Vektoreffekt angewendet wird, d.h. das Standard-Rendeverhalten wird verwendet. Dies bedeutet, dass die Geometrie einer Form zunächst mit einer angegebenen Farbe gefüllt und dann der Umriss mit einer angegebenen Farbe gestrichen wird.
-- `non-scaling-stroke`
-  - : Dieser Wert ändert die Art und Weise, wie ein Objekt gestrichen wird. Normalerweise umfasst das Streichen das Berechnen des Umrisses einer Form im aktuellen Benutzerkoordinatensystem und das Füllen dieses Umrisses mit der Strichfarbe (Farbe oder Verlauf). Der resultierende visuelle Effekt dieses Wertes ist, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformem Skalieren und Schertransformationen) und vom Zoom-Level abhängt.
-
-> [!NOTE]
-> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation`, und `fixed-position`, aber diese haben keine Implementierungen und werden als gefährdet betrachtet.
-
 ## Beispiele
 
-### Festlegen von `vector-effect` als `non-scaling-stroke`
+### `vector-effect` auf `non-scaling-stroke` setzen
 
 ```html
 <svg viewBox="0 0 500 240">
@@ -93,7 +62,38 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 #### Ergebnis
 
-{{EmbedLiveSample("Festlegen von vector-effect als non-scaling-stroke", 550, 330)}}
+{{EmbedLiveSample("Setting vector-effect as non-scaling-stroke", 550, 330)}}
+
+## Verwendungshinweise
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code>none</code> | <code>non-scaling-stroke</code> |
+        <code>non-scaling-size</code> | <code>non-rotation</code> |
+        <code>fixed-position</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>none</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>diskret</td>
+    </tr>
+  </tbody>
+</table>
+
+- `none`
+  - : Dieser Wert legt fest, dass kein Vektoreffekt angewendet wird. Stattdessen wird das standardmäßige Rendering-Verhalten verwendet: Zuerst wird die Geometrie einer Form mit der angegebenen Füllung ausgefüllt, anschließend wird ihre Kontur mit der angegebenen Farbe oder einem Farbverlauf gezeichnet.
+- `non-scaling-stroke`
+  - : Dieser Wert ändert, wie die Kontur eines Objekts gezeichnet wird. Normalerweise wird dazu der Umriss der Kontur anhand des Pfads der Form im aktuellen Benutzerkoordinatensystem berechnet und mit der Konturfarbe oder einem Farbverlauf ausgefüllt. Der sichtbare Effekt dieses Werts besteht darin, dass die Konturbreite nicht von den Transformationen des Elements (einschließlich ungleichmäßiger Skalierung und Scherung) oder der Zoomstufe abhängt.
+
+> [!NOTE]
+> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation` und `fixed-position`. Diese sind jedoch nicht implementiert und gelten als gefährdet.
 
 ## Spezifikationen
 
@@ -105,4 +105,4 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Siehe auch
 
-- CSS {{cssxref("vector-effect")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("vector-effect")}}

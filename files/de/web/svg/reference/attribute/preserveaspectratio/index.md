@@ -2,12 +2,12 @@
 title: preserveAspectRatio
 slug: Web/SVG/Reference/Attribute/preserveAspectRatio
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 04a0e78cf3119afe2a99e6449f6b74976654d69d
 ---
 
-Das Attribut **`preserveAspectRatio`** gibt an, wie ein Element mit einer viewBox und einem bestimmten {{Glossary("aspect_ratio", "Seitenverhältnis")}} in einen Viewport mit einem anderen Seitenverhältnis eingepasst werden muss.
+Das Attribut **`preserveAspectRatio`** legt fest, wie ein Element mit einer viewBox und einem bestimmten {{Glossary("aspect_ratio", "Seitenverhältnis")}} in einen Viewport mit einem anderen Seitenverhältnis eingepasst werden muss.
 
-Das Seitenverhältnis eines SVG-Bildes wird durch das Attribut {{SVGAttr('viewBox')}} definiert. Wenn `viewBox` nicht gesetzt ist, hat das Attribut `preserveAspectRatio` daher keine Auswirkung auf die Skalierung des SVGs. Eine Ausnahme ist das Element {{SVGElement('image')}}, bei dem sich `preserveAspectRatio` wie unten beschrieben anders verhält.
+Das Seitenverhältnis eines SVG-Bildes wird durch das Attribut {{SVGAttr('viewBox')}} definiert. Wenn `viewBox` nicht gesetzt ist, hat `preserveAspectRatio` daher keine Auswirkung auf die Skalierung des SVGs (außer beim Element {{SVGElement('image')}}, bei dem sich `preserveAspectRatio` wie unten beschrieben anders verhält).
 
 ## Syntax
 
@@ -15,81 +15,240 @@ Das Seitenverhältnis eines SVG-Bildes wird durch das Attribut {{SVGAttr('viewBo
 preserveAspectRatio="<align> [<meet or slice>]"
 ```
 
-Der Wert des Attributs `preserveAspectRatio` besteht aus bis zu zwei Schlüsselwörtern: einem erforderlichen Ausrichtungswert und einem optionalen Schlüsselwort `meet` oder `slice`.
+Der Wert des Attributs `preserveAspectRatio` besteht aus bis zu zwei Schlüsselwörtern: einem erforderlichen Ausrichtungswert und dem optionalen Schlüsselwort `meet` oder `slice`.
 
-Der Ausrichtungswert gibt an, ob eine gleichmäßige Skalierung erzwungen werden soll und, falls ja, welche Ausrichtung verwendet wird, wenn das Seitenverhältnis der {{ SVGAttr("viewBox") }} nicht mit dem des Viewports übereinstimmt. `xMidYMid` ist der Standardwert. Der Ausrichtungswert muss eines der folgenden Schlüsselwörter sein:
+Der Ausrichtungswert legt fest, ob eine gleichmäßige Skalierung erzwungen wird und, falls ja, welche Ausrichtung verwendet wird, wenn das Seitenverhältnis von {{ SVGAttr("viewBox") }} nicht mit dem des Viewports übereinstimmt. `xMidYMid` ist der Standardwert. Der Ausrichtungswert muss eines der folgenden Schlüsselwörter sein:
 
 - `none`
-  - : Erzwingt keine gleichmäßige Skalierung. Skaliert den grafischen Inhalt des Elements bei Bedarf ungleichmäßig, sodass sein Begrenzungsrahmen genau dem Rechteck des Viewports entspricht. Wenn `<align>` den Wert `none` hat, wird der optionale Wert `<meetOrSlice>` ignoriert.
+  - : Erzwingt keine gleichmäßige Skalierung. Der grafische Inhalt des Elements wird bei Bedarf ungleichmäßig skaliert, sodass der Begrenzungsrahmen des Elements genau mit dem Rechteck des Viewports übereinstimmt. Beachten Sie: Wenn `<align>` den Wert `none` hat, wird der optionale Wert `<meetOrSlice>` ignoriert.
 
 - `xMinYMin`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet `<min-x>` der {{ SVGAttr("viewBox") }} des Elements am kleinsten X-Wert des Viewports aus.
-    Richtet `<min-y>` der {{ SVGAttr("viewBox") }} des Elements am kleinsten Y-Wert des Viewports aus.
+    Richtet `<min-x>` von {{ SVGAttr("viewBox") }} des Elements am kleinsten X-Wert des Viewports aus.
+    Richtet `<min-y>` von {{ SVGAttr("viewBox") }} des Elements am kleinsten Y-Wert des Viewports aus.
 
 - `xMidYMin`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet den mittleren X-Wert der {{ SVGAttr("viewBox") }} des Elements am mittleren X-Wert des Viewports aus.
-    Richtet `<min-y>` der {{ SVGAttr("viewBox") }} des Elements am kleinsten Y-Wert des Viewports aus.
+    Richtet den mittleren X-Wert von {{ SVGAttr("viewBox") }} des Elements am mittleren X-Wert des Viewports aus.
+    Richtet `<min-y>` von {{ SVGAttr("viewBox") }} des Elements am kleinsten Y-Wert des Viewports aus.
 
 - `xMaxYMin`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet `<min-x>+<width>` der {{ SVGAttr("viewBox") }} des Elements am maximalen X-Wert des Viewports aus.
-    Richtet `<min-y>` der {{ SVGAttr("viewBox") }} des Elements am kleinsten Y-Wert des Viewports aus.
+    Richtet `<min-x>+<width>` von {{ SVGAttr("viewBox") }} des Elements am größten X-Wert des Viewports aus.
+    Richtet `<min-y>` von {{ SVGAttr("viewBox") }} des Elements am kleinsten Y-Wert des Viewports aus.
 
 - `xMinYMid`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet `<min-x>` der {{ SVGAttr("viewBox") }} des Elements am kleinsten X-Wert des Viewports aus.
-    Richtet den mittleren Y-Wert der {{ SVGAttr("viewBox") }} des Elements am mittleren Y-Wert des Viewports aus.
+    Richtet `<min-x>` von {{ SVGAttr("viewBox") }} des Elements am kleinsten X-Wert des Viewports aus.
+    Richtet den mittleren Y-Wert von {{ SVGAttr("viewBox") }} des Elements am mittleren Y-Wert des Viewports aus.
 
 - `xMidYMid`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet den mittleren X-Wert der {{ SVGAttr("viewBox") }} des Elements am mittleren X-Wert des Viewports aus.
-    Richtet den mittleren Y-Wert der {{ SVGAttr("viewBox") }} des Elements am mittleren Y-Wert des Viewports aus. Dies ist der Standardwert.
+    Richtet den mittleren X-Wert von {{ SVGAttr("viewBox") }} des Elements am mittleren X-Wert des Viewports aus.
+    Richtet den mittleren Y-Wert von {{ SVGAttr("viewBox") }} des Elements am mittleren Y-Wert des Viewports aus. Dies ist der Standardwert.
 
 - `xMaxYMid`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet `<min-x>+<width>` der {{ SVGAttr("viewBox") }} des Elements am maximalen X-Wert des Viewports aus.
-    Richtet den mittleren Y-Wert der {{ SVGAttr("viewBox") }} des Elements am mittleren Y-Wert des Viewports aus.
+    Richtet `<min-x>+<width>` von {{ SVGAttr("viewBox") }} des Elements am größten X-Wert des Viewports aus.
+    Richtet den mittleren Y-Wert von {{ SVGAttr("viewBox") }} des Elements am mittleren Y-Wert des Viewports aus.
 
 - `xMinYMax`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet `<min-x>` der {{ SVGAttr("viewBox") }} des Elements am kleinsten X-Wert des Viewports aus.
-    Richtet `<min-y>+<height>` der {{ SVGAttr("viewBox") }} des Elements am maximalen Y-Wert des Viewports aus.
+    Richtet `<min-x>` von {{ SVGAttr("viewBox") }} des Elements am kleinsten X-Wert des Viewports aus.
+    Richtet `<min-y>+<height>` von {{ SVGAttr("viewBox") }} des Elements am größten Y-Wert des Viewports aus.
 
 - `xMidYMax`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet den mittleren X-Wert der {{ SVGAttr("viewBox") }} des Elements am mittleren X-Wert des Viewports aus.
-    Richtet `<min-y>+<height>` der {{ SVGAttr("viewBox") }} des Elements am maximalen Y-Wert des Viewports aus.
+    Richtet den mittleren X-Wert von {{ SVGAttr("viewBox") }} des Elements am mittleren X-Wert des Viewports aus.
+    Richtet `<min-y>+<height>` von {{ SVGAttr("viewBox") }} des Elements am größten Y-Wert des Viewports aus.
 
 - `xMaxYMax`
   - : Erzwingt eine gleichmäßige Skalierung.
-    Richtet `<min-x>+<width>` der {{ SVGAttr("viewBox") }} des Elements am maximalen X-Wert des Viewports aus.
-    Richtet `<min-y>+<height>` der {{ SVGAttr("viewBox") }} des Elements am maximalen Y-Wert des Viewports aus.
+    Richtet `<min-x>+<width>` von {{ SVGAttr("viewBox") }} des Elements am größten X-Wert des Viewports aus.
+    Richtet `<min-y>+<height>` von {{ SVGAttr("viewBox") }} des Elements am größten Y-Wert des Viewports aus.
 
-Die folgenden zwei Schlüsselwörter bestimmen, wie das SVG relativ zu den Grenzen seines Containers skaliert wird. Die Angabe von `meet` oder `slice` ist optional; falls ein Wert angegeben wird, muss es genau eines dieser beiden Schlüsselwörter sein. `meet` ist der Standardwert.
+Die folgenden beiden Schlüsselwörter bestimmen, wie das SVG im Verhältnis zu den Grenzen seines Containers skaliert wird. Die Angabe von `meet` oder `slice` ist optional. Wenn Sie einen Wert angeben, muss es eines dieser beiden Schlüsselwörter sein. `meet` ist der Standardwert.
 
 - `meet`
   - : Skaliert die Grafik so, dass:
     - das Seitenverhältnis erhalten bleibt;
-    - die gesamte {{ SVGAttr("viewBox") }} innerhalb des Viewports sichtbar ist;
+    - die gesamte {{ SVGAttr("viewBox") }} im Viewport sichtbar ist;
     - die {{ SVGAttr("viewBox") }} so weit wie möglich vergrößert wird, ohne die anderen Kriterien zu verletzen.
 
-    Wenn das Seitenverhältnis der Grafik nicht mit dem des Viewports übereinstimmt, reicht ein Teil des Viewports über die Grenzen der {{ SVGAttr("viewBox") }} hinaus. Der Bereich, in dem die {{ SVGAttr("viewBox") }} zeichnet, ist also kleiner als der Viewport.
+    Wenn das Seitenverhältnis der Grafik nicht mit dem des Viewports übereinstimmt, reicht ein Teil des Viewports über die Grenzen der {{ SVGAttr("viewBox") }} hinaus. Der Bereich, in dem die {{ SVGAttr("viewBox") }} dargestellt wird, ist also kleiner als der Viewport.
 
 - `slice`
   - : Skaliert die Grafik so, dass:
     - das Seitenverhältnis erhalten bleibt;
-    - der gesamte Viewport von der {{ SVGAttr("viewBox") }} ausgefüllt wird;
+    - der gesamte Viewport von der {{ SVGAttr("viewBox") }} abgedeckt wird;
     - die {{ SVGAttr("viewBox") }} so weit wie möglich verkleinert wird, ohne die anderen Kriterien zu verletzen.
 
-    Wenn das Seitenverhältnis der {{ SVGAttr("viewBox") }} nicht mit dem des Viewports übereinstimmt, reicht ein Teil der {{ SVGAttr("viewBox") }} über die Grenzen des Viewports hinaus. Der Bereich, in dem die {{ SVGAttr("viewBox") }} zeichnet, ist also größer als der Viewport.
+    Wenn das Seitenverhältnis der {{ SVGAttr("viewBox") }} nicht mit dem des Viewports übereinstimmt, reicht ein Teil der {{ SVGAttr("viewBox") }} über die Grenzen des Viewports hinaus. Der Bereich, in dem die {{ SVGAttr("viewBox") }} dargestellt wird, ist also größer als der Viewport.
+
+## Elemente
+
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+
+- {{SVGElement("svg")}}
+- {{SVGElement("symbol")}}
+- {{SVGElement("image")}}
+- {{SVGElement("feImage")}}
+- {{SVGElement("marker")}}
+- {{SVGElement("pattern")}}
+- {{SVGElement("view")}}
+
+### feImage
+
+Bei {{SVGElement('feImage')}} legt `preserveAspectRatio` fest, wie das referenzierte Bild in das vom Element `<feImage>` definierte Rechteck eingepasst wird.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+### image
+
+Bei {{SVGElement('image')}} legt `preserveAspectRatio` fest, wie das referenzierte Bild in das vom Element `<image>` definierte Rechteck eingepasst wird.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+### marker
+
+Bei {{SVGElement('marker')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um das Element an den Viewport anzupassen.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+### pattern
+
+Bei {{SVGElement('pattern')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um das Element an den Viewport anzupassen.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+### svg
+
+Bei {{SVGElement('svg')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um das Element an den Viewport anzupassen.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+### symbol
+
+Bei {{SVGElement('symbol')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um das Element an den Viewport anzupassen.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+### view
+
+Bei {{SVGElement('view')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um das Element an den Viewport anzupassen.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>xMidYMid</code> <code>meet</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiele
 
 ### `meet` verwenden, wenn width > height
 
-Dieses Beispiel zeigt die Verwendung von `meet`, wenn `width` des Elements größer als `height` ist. Es zeigt drei Varianten mit den unterschiedlichen Ausrichtungswerten `xMidYMid`, `xMinYMid` und `xMaxYMid`.
+Dieses Beispiel zeigt die Verwendung von `meet`, wenn `width` des Elements größer als `height` ist. Es zeigt drei Varianten mit den Ausrichtungswerten `xMidYMid`, `xMinYMid` und `xMaxYMid`.
 
 ```css hidden
 html,
@@ -182,7 +341,7 @@ rect:active {
 
 ### `slice` verwenden, wenn width > height
 
-Dieses Beispiel zeigt die Verwendung von `slice`, wenn `width` des Elements größer als `height` ist. Es zeigt drei Varianten mit den unterschiedlichen Ausrichtungswerten `xMidYMin`, `xMidYMid` und `xMidYMax`.
+Dieses Beispiel zeigt die Verwendung von `slice`, wenn `width` des Elements größer als `height` ist. Es zeigt drei Varianten mit den Ausrichtungswerten `xMidYMin`, `xMidYMid` und `xMidYMax`.
 
 ```css hidden
 html,
@@ -275,7 +434,7 @@ rect:active {
 
 ### `meet` verwenden, wenn height > width
 
-Dieses Beispiel zeigt die Verwendung von `meet`, wenn `height` des Elements größer als `width` ist. Es zeigt drei Varianten mit den unterschiedlichen Ausrichtungswerten `xMidYMin`, `xMidYMid` und `xMidYMax`.
+Dieses Beispiel zeigt die Verwendung von `meet`, wenn `height` des Elements größer als `width` ist. Es zeigt drei Varianten mit den Ausrichtungswerten `xMidYMin`, `xMidYMid` und `xMidYMax`.
 
 ```css hidden
 html,
@@ -368,7 +527,7 @@ rect:active {
 
 ### `slice` verwenden, wenn height > width
 
-Dieses Beispiel zeigt die Verwendung von `slice`, wenn `height` des Elements größer als `width` ist. Es zeigt drei Varianten mit den unterschiedlichen Ausrichtungswerten `xMinYMid`, `xMidYMid` und `xMaxYMid`.
+Dieses Beispiel zeigt die Verwendung von `slice`, wenn `height` des Elements größer als `width` ist. Es zeigt drei Varianten mit den Ausrichtungswerten `xMinYMid`, `xMidYMid` und `xMaxYMid`.
 
 ```css hidden
 html,
@@ -522,165 +681,6 @@ rect:active {
 ```
 
 {{EmbedLiveSample('Using the none alignment value', '100%', 200)}}
-
-## Elemente
-
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
-
-- {{SVGElement("svg")}}
-- {{SVGElement("symbol")}}
-- {{SVGElement("image")}}
-- {{SVGElement("feImage")}}
-- {{SVGElement("marker")}}
-- {{SVGElement("pattern")}}
-- {{SVGElement("view")}}
-
-### feImage
-
-Für {{SVGElement('feImage')}} legt `preserveAspectRatio` fest, wie das referenzierte Bild in das durch das Element `<feImage>` definierte Rechteck eingepasst wird.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### image
-
-Für {{SVGElement('image')}} legt `preserveAspectRatio` fest, wie das referenzierte Bild in das durch das Element `<image>` definierte Rechteck eingepasst wird.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### marker
-
-Für {{SVGElement('marker')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um den Viewport des Elements auszufüllen.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### pattern
-
-Für {{SVGElement('pattern')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um den Viewport des Elements auszufüllen.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### svg
-
-Für {{SVGElement('svg')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um den Viewport des Elements auszufüllen.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### symbol
-
-Für {{SVGElement('symbol')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um den Viewport des Elements auszufüllen.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### view
-
-Für {{SVGElement('view')}} gibt `preserveAspectRatio` an, ob eine gleichmäßige Skalierung erforderlich ist, um den Viewport des Elements auszufüllen.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><strong>&#x3C;align> &#x3C;meetOrSlice>?</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>xMidYMid</code> <code>meet</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Spezifikationen
 

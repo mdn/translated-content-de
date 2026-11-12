@@ -1,12 +1,12 @@
 ---
-title: "`progress()` CSS-Funktion"
+title: CSS-Funktion `progress()`
 short-title: progress()
 slug: Web/CSS/Reference/Values/progress
 l10n:
-  sourceCommit: d35a7643766c8f8d1d92044ca771dbf8dc843906
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die **`progress()`**-Funktion von [CSS](/de/docs/Web/CSS) gibt einen {{cssxref("number")}}-Wert zurück, der die Position eines Wertes (der Fortschrittswert) relativ zu zwei anderen Werten (dem Anfangs- und dem Endwert des Fortschritts) darstellt.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`progress()`** gibt einen {{cssxref("number")}}-Wert zurück, der die Position eines Werts (des Fortschrittswerts) relativ zu zwei anderen Werten (dem Start- und dem Endwert des Fortschritts) angibt.
 
 ## Syntax
 
@@ -38,50 +38,50 @@ progress(calc(20 + 30), 0, 100)
 
 ### Parameter
 
-Die `progress()`-Funktion nimmt ein optionales Schlüsselwort gefolgt von drei durch Kommata getrennten {{cssxref("&lt;calc-sum>")}}-Ausdrücken als Parameter an:
+Die Funktion `progress()` verwendet als Parameter ein optionales Schlüsselwort, gefolgt von drei durch Kommas getrennten {{cssxref("&lt;calc-sum>")}}-Ausdrücken:
 
 ```plain
 progress(no-clamp? <calc-sum>, <calc-sum>, <calc-sum>)
 ```
 
-Diese sind:
+Dabei handelt es sich um:
 
 - `no-clamp` {{optional_inline}}
-  - : Ein Schlüsselwort, das verhindert, dass der Rückgabewert auf den Bereich von `0` bis `1` beschränkt wird. Es wird vor dem Fortschrittswert geschrieben und nicht durch ein Komma getrennt. Siehe [Begrenzung des Rückgabewertes](#begrenzung_des_rückgabewertes).
-- Fortschritt
+  - : Ein Schlüsselwort, das verhindert, dass der Rückgabewert auf den Bereich von `0` bis `1` begrenzt wird. Es steht vor dem Fortschrittswert und wird nicht von einem Komma gefolgt. Siehe [Begrenzung des Rückgabewerts](#begrenzung_des_rückgabewerts).
+- Fortschrittswert
   - : Der Wert, dessen Position relativ zu den beiden anderen Werten berechnet werden soll.
-- Fortschrittsanfang
+- Startwert des Fortschritts
   - : Die untere Fortschrittsgrenze.
-- Fortschrittsende
+- Endwert des Fortschritts
   - : Die obere Fortschrittsgrenze.
 
 ### Rückgabewert
 
-Ein {{cssxref("&lt;number>")}}, der die Position des Fortschrittswertes relativ zu den anderen beiden Werten darstellt. Dies wird wie folgt berechnet:
+Ein {{cssxref("&lt;number>")}}-Wert, der die Position des Fortschrittswerts relativ zu den beiden anderen Werten angibt. Er wird wie folgt berechnet:
 
 ```plain
 (progress - progress start) / (progress end - progress start)
 ```
 
-Befindet sich der Fortschrittswert zwischen dem Anfangs- und dem Endwert des Fortschritts, liegt der Rückgabewert zwischen `0` und `1`, was einem Prozentsatz entspricht.
+Liegt der Fortschrittswert zwischen dem Start- und dem Endwert, liegt der Rückgabewert zwischen `0` und `1` und stellt damit einen prozentualen Anteil dar.
 
-Wenn das Schlüsselwort `no-clamp` eingeschlossen ist, kann der Rückgabewert jede Zahl sein. Andernfalls wird der Rückgabewert auf den Bereich `0` bis `1` beschränkt.
+Wenn das Schlüsselwort `no-clamp` angegeben ist, kann der Rückgabewert eine beliebige Zahl sein. Andernfalls wird er auf den Bereich von `0` bis `1` begrenzt.
 
 ## Beschreibung
 
-Die CSS-`progress()`-Funktion bietet eine Möglichkeit, ein Fortschrittsverhältnis zu berechnen, was nützlich ist für Anwendungsfälle wie Fortschrittsbalken-Animationen oder Kästchen, die beim Breiterwerden verblassen, um ihren Inhalt zu enthüllen.
+Mit der CSS-Funktion `progress()` lässt sich ein Fortschrittsverhältnis berechnen. Das ist beispielsweise für Animationen von Fortschrittsbalken oder für Boxen nützlich, die beim Breiterwerden eingeblendet werden und so ihren Inhalt sichtbar machen.
 
-Die einfachste mögliche Verwendung könnte so aussehen:
+Die einfachste Verwendung könnte so aussehen:
 
 ```css
 opacity: progress(5, 0, 10);
 ```
 
-In diesem Fall wäre der berechnete Wert von {{cssxref("opacity")}} `0.5`, da 5 zwischen `0` und `10` liegt.
+In diesem Fall wäre der berechnete Wert von {{cssxref("opacity")}} gleich `0.5`, da 5 genau zwischen `0` und `10` liegt.
 
-### Begrenzung des Rückgabewertes
+### Begrenzung des Rückgabewerts
 
-Standardmäßig wird der Rückgabewert auf den Bereich `0` bis `1` beschränkt, so dass ein Fortschrittswert außerhalb der Fortschrittsanfangs- und Endgrenzen den nächstgelegenen Grenzwert zurückgibt:
+Standardmäßig wird der Rückgabewert auf den Bereich von `0` bis `1` begrenzt. Ein Fortschrittswert außerhalb der Grenzen durch den Start- und Endwert liefert daher den nächstgelegenen Grenzwert:
 
 ```css
 /* Computes to 1, not 1.5 */
@@ -91,7 +91,7 @@ scale: progress(15, 0, 10);
 scale: progress(-5, 0, 10);
 ```
 
-Indem das Schlüsselwort `no-clamp` vor dem Fortschrittswert angegeben wird, entfällt diese Einschränkung, so dass die Funktion über die Grenzen hinaus extrapoliert anstatt an ihnen zu stoppen:
+Wenn das Schlüsselwort `no-clamp` vor dem Fortschrittswert steht, entfällt diese Einschränkung. Die Funktion extrapoliert dann über die Grenzen hinaus, statt an ihnen zu stoppen:
 
 ```css
 /* Computes to 1.5 */
@@ -101,48 +101,48 @@ scale: progress(no-clamp 15, 0, 10);
 scale: progress(no-clamp -5, 0, 10);
 ```
 
-Beachten Sie, dass `no-clamp` ein Schlüsselwort und kein separater Parameter ist, daher wird es nicht durch ein Komma getrennt.
+Beachten Sie, dass `no-clamp` ein Schlüsselwort und kein separater Parameter ist. Daher folgt darauf kein Komma.
 
-### Erlaubte Einheitstypen
+### Zulässige Einheitentypen
 
-Die Parameter einer `progress()`-Funktion können mathematische Ausdrücke oder einfache Werte sein. Die Werte (oder die Ergebnisse der Ausdrücke) können jeden {{cssxref("&lt;number>")}}, {{cssxref("&lt;dimension>")}} oder {{cssxref("&lt;percentage>")}} Wert annehmen. Sie können unterschiedliche Einheiten haben, aber sie müssen alle vom gleichen Typ sein, andernfalls ist die Funktion ungültig.
+Die Parameter einer `progress()`-Funktion können mathematische Ausdrücke oder einfache Werte sein. Die Werte beziehungsweise Ergebnisse der Ausdrücke können vom Typ {{cssxref("&lt;number>")}}, {{cssxref("&lt;dimension>")}} oder {{cssxref("&lt;percentage>")}} sein. Sie dürfen unterschiedliche Einheiten haben, müssen aber alle denselben Typ aufweisen. Andernfalls ist die Funktion ungültig.
 
-Das vorherige Beispiel ist gültig — alle seine Parameter sind einheitenlose `<number>`-Werte:
+Das vorherige Beispiel ist gültig: Alle Parameter sind einheitenlose `<number>`-Werte:
 
 ```css example-good
 progress(5, 0, 10)
 ```
 
-Das nächste Beispiel ist ebenfalls gültig — alle seine Parameter haben {{cssxref("&lt;length>")}}-Einheiten. Im Hintergrund werden die berechneten Werte für die Berechnung verwendet. Vorausgesetzt, die {{cssxref("font-size")}} beträgt zum Zeitpunkt der Berechnung `16px`, wird `3em` auf `48px` aufgelöst, was `48%` des Weges zwischen `0px` und `100px` entspricht, so dass der Rückgabewert `0.48` beträgt.
+Auch das nächste Beispiel ist gültig: Alle Parameter haben {{cssxref("&lt;length>")}}-Einheiten. Für die Berechnung werden die berechneten Werte verwendet. Wenn {{cssxref("font-size")}} zum Zeitpunkt der Berechnung `16px` beträgt, wird `3em` zu `48px` aufgelöst. Das entspricht `48%` der Strecke zwischen `0px` und `100px`, sodass der Rückgabewert `0.48` beträgt.
 
 ```css example-good
 progress(3em, 0px, 100px)
 ```
 
-Die letzten Beispiele in diesem Abschnitt sind jedoch nicht gültig. Die Typen stimmen nicht überein, daher machen die resultierenden Berechnungen keinen Sinn.
+Die letzten beiden Beispiele in diesem Abschnitt sind dagegen ungültig. Die Typen stimmen nicht überein, sodass die entsprechenden Berechnungen keinen Sinn ergeben.
 
 ```css example-bad
 progress(3s, 0px, 100px)
 progress(3em, 0, 100)
 ```
 
-### Schaffen einheitenloser Werte
+### Einheitenlose Werte erzeugen
 
-Die `progress()`-Funktion gibt einheitenlose Werte aus, daher kann sie zum Entfernen von Einheiten von Werten in ähnlicher Weise wie der [`tan(atan2())`-Trick](https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j) verwendet werden. Beachten Sie jedoch, dass dies aufgrund der Aktualisierungen des Verhaltens bezüglich [CSS typisierte Arithmetik](/de/docs/Web/CSS/Guides/Values_and_units/Using_typed_arithmetic) auch durch einfache Division erreicht werden kann.
+Die Funktion `progress()` gibt einheitenlose Werte zurück. Sie kann daher ebenso wie der [`tan(atan2())`-Trick](https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j) verwendet werden, um Einheiten von Werten zu entfernen. Beachten Sie jedoch, dass dies aufgrund der Änderungen am Verhalten der [typisierten Arithmetik in CSS](/de/docs/Web/CSS/Guides/Values_and_units/Using_typed_arithmetic) auch durch eine einfache Division möglich ist.
 
-### Kombinieren von `progress()` mit anderen Funktionen und benutzerdefinierten Eigenschaften
+### `progress()` mit anderen Funktionen und benutzerdefinierten Eigenschaften kombinieren
 
-Da `progress()` stets einen einheitenlosen Wert zurückgibt, ist es üblich, sie mit einer anderen mathematischen Funktion wie {{cssxref("calc()")}} zu kombinieren, um den gewünschten Wert und die Einheiten auszugeben. Sie können auch [CSS-Benutzereigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) innerhalb von `progress()`-Funktionen verwenden — was sinnvoll ist, denn oft möchte man dieselben Werte an mehreren Stellen setzen und/oder sie auf Benutzereigenschaften basieren lassen, die über JavaScript gesetzt werden.
+Da `progress()` immer einen einheitenlosen Wert zurückgibt, wird die Funktion häufig mit einer anderen mathematischen Funktion wie {{cssxref("calc()")}} kombiniert, um einen Wert mit den gewünschten Einheiten zu erhalten. Sie können auch [benutzerdefinierte CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) innerhalb von `progress()`-Funktionen verwenden. Das ist sinnvoll, wenn dieselben Werte an mehreren Stellen benötigt werden oder auf benutzerdefinierten Eigenschaften beruhen sollen, die per JavaScript gesetzt werden.
 
-Das folgende Beispiel berechnet, welcher Prozentsatz der Ansichtsbreite zwischen einer Mindestbreite von `320px` und einer Höchstbreite von `1200px` liegt. Die `calc()`-Funktion wird verwendet, um den `progress()`-Rückgabewert mit `600px` zu multiplizieren, um ihn in einen Pixelwert zu konvertieren, der die Hälfte des Fortschrittswerts der Ansichtsbreite zwischen `320px` und `1200px` beträgt.
+Im folgenden Beispiel wird berechnet, wie weit die Breite des Viewports zwischen einer Mindestbreite von `320px` und einer Höchstbreite von `1200px` liegt. Die Funktion `calc()` multipliziert den Rückgabewert von `progress()` mit `600px` und wandelt ihn so in einen Pixelwert um, der der Hälfte des Fortschrittswerts der Viewport-Breite zwischen `320px` und `1200px` entspricht.
 
 ```css
 width: calc(progress(100vw, 320px, 1200px) * 600px);
 ```
 
-Wenn die Ansichtsbreite beispielsweise `700px` beträgt, wird der Fortschrittswert als `((700 - 320) / (1200 - 320))` = `0.431818` berechnet. Die Breite wird dann als `0.431818 * 600px` berechnet, was `259.1px` ergibt.
+Wenn die Viewport-Breite beispielsweise `700px` beträgt, wird der Fortschrittswert als `((700 - 320) / (1200 - 320))` = `0.431818` berechnet. Die Breite ergibt sich dann aus `0.431818 * 600px`, also `259.1px`.
 
-Das nächste Beispiel ist eine Aktualisierung des vorherigen, bei dem wir Benutzereigenschaften für die Fortschritts-, Fortschrittsanfangs- und Fortschrittsendwerte verwendet haben.
+Das nächste Beispiel ist eine überarbeitete Version des vorherigen. Darin verwenden wir benutzerdefinierte Eigenschaften für den Fortschrittswert sowie dessen Start- und Endwert.
 
 ```css
 width: calc(
@@ -155,9 +155,9 @@ width: calc(
 );
 ```
 
-Es ist möglich, `progress()`-Funktionen zu verwenden, um einzelne Werte innerhalb anderer Funktionen und Komponentwerte innerhalb von Kurzschreibweiseigenschaften zu berechnen, vorausgesetzt, Ihre Funktionen geben gültige Typen für diese Werte zurück.
+Mit `progress()`-Funktionen lassen sich einzelne Werte innerhalb anderer Funktionen und Komponentenwerte innerhalb von Werten für Kurzschreibweise-Eigenschaften berechnen, sofern die Funktionen für diese Werte gültige Typen zurückgeben.
 
-Dies kann in einigen komplexen Ausdrücken resultieren. Zum Beispiel berechnen wir hier die ersten beiden Kanäle einer [`rgb()`-Farbe](/de/docs/Web/CSS/Reference/Values/color_value/rgb), die proportional zur gleichen Breitenproportion wie zuvor sind:
+Dabei können komplexe Ausdrücke entstehen. Hier berechnen wir beispielsweise die ersten beiden Kanäle einer [`rgb()`](/de/docs/Web/CSS/Reference/Values/color_value/rgb)-Farbe proportional zum selben Breitenverhältnis wie zuvor:
 
 ```css
 background-color: rgb(
@@ -187,13 +187,13 @@ background-color: rgb(
 
 ## Beispiele
 
-### Grundlegende Nutzung von `progress()`
+### Grundlegende Verwendung von `progress()`
 
-In diesem Beispiel zeigen wir die grundlegende Nutzung der `progress()`-Funktion, um eine Fortschrittsbalken-`Breite` als Prozentsatz gleich dem Fortschrittsverhältnis der `Breite` des übergeordneten Elements zwischen meiner `min-width` und `max-width` festzulegen.
+In diesem Beispiel verwenden wir die Funktion `progress()`, um die `width` eines Fortschrittsbalkens auf einen Prozentwert zu setzen. Dieser entspricht dem Fortschrittsverhältnis der `width` seines Elternelements zwischen dessen `min-width` und `max-width`.
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("section")}}-Element, das unseren Inhalt darstellt, und ein {{htmlelement("div")}}-Element, das den Breitenfortschrittsbalken darstellt.
+Unser HTML enthält ein {{htmlelement("section")}}-Element für den Inhalt und ein {{htmlelement("div")}}-Element für den Breiten-Fortschrittsbalken.
 
 ```html live-sample___basic
 <section>
@@ -203,7 +203,7 @@ Unser HTML enthält ein {{htmlelement("section")}}-Element, das unseren Inhalt d
 
 #### CSS
 
-In unserem CSS setzen wir zuerst einige Benutzereigenschaften auf unser `<section>`-Element, um seine `min-width`, `max-width` und `width` darzustellen. Dann setzen wir diese Eigenschaften auf die entsprechenden Werte der Benutzereigenschaften und geben unserem `<section>` einen festen {{cssxref("background-color")}}, um es sichtbar zu machen.
+In unserem CSS setzen wir zunächst einige benutzerdefinierte Eigenschaften auf dem `<section>`-Element, die dessen `min-width`, `max-width` und `width` repräsentieren. Anschließend setzen wir diese Eigenschaften auf die entsprechenden Werte der benutzerdefinierten Eigenschaften und geben dem `<section>`-Element eine deckende {{cssxref("background-color")}}, damit es sichtbar ist.
 
 ```css hidden live-sample___basic
 html {
@@ -231,7 +231,7 @@ section {
 }
 ```
 
-Jetzt zu unserem `<div>` — wir geben ihm zuerst eine `Höhe` und eine dunkle `Hintergrundfarbe`, damit es sich von unserem `<section>`-Element abhebt. Dann berechnen wir seine `Breite`, indem wir eine `progress()`-Funktion verwenden, um das Fortschrittsverhältnis der Breite zwischen der minimalen und maximalen Breite zu berechnen, und anschließend eine `calc()`-Funktion verwenden, um den `progress()`-Rückgabewert mit `100%` zu multiplizieren, um einen Prozentsatz zurückzugeben.
+Nun zum `<div>`: Wir geben ihm zunächst eine `height` und eine dunkle `background-color`, damit es sich vom `<section>`-Element abhebt. Anschließend berechnen wir seine `width`: Mit `progress()` ermitteln wir das Verhältnis der Breite zwischen Mindest- und Höchstbreite und multiplizieren den Rückgabewert mit `calc()` mit `100%`, um einen Prozentwert zu erhalten.
 
 ```css live-sample___basic
 .progress {
@@ -251,23 +251,23 @@ Jetzt zu unserem `<div>` — wir geben ihm zuerst eine `Höhe` und eine dunkle `
 
 #### Ergebnis
 
-Diese Demo wird wie folgt gerendert:
+Die Demo wird wie folgt dargestellt:
 
 {{EmbedLiveSample("basic", "100%", "150")}}
 
-Die Breite des `<div>` beträgt `75%` der `<section>`-Breite, da `min-width` `400px` ist, `max-width` `700px` und die `width` `600px`, was `75%` der Strecke zwischen den vorherigen zwei Werten entspricht.
+Die Breite des `<div>` beträgt `75%` der Breite des `<section>`-Elements: `min-width` ist `400px`, `max-width` ist `700px` und `width` ist `600px`, was `75%` der Strecke zwischen den ersten beiden Werten entspricht.
 
-### Effekte beim Ändern der Containergröße
+### Auswirkungen der Größenänderung eines Containers
 
-Dieses Beispiel zeigt einige umfangreichere Anwendungen der `progress()`-Funktion und resultiert in einigen unterhaltsamen Effekten, während das Browserfenster in der Größe verändert wird.
+Dieses Beispiel zeigt einige komplexere Verwendungen der Funktion `progress()`, die beim Ändern der Größe des Browserfensters interessante Effekte erzeugen.
 
-Dieses Beispiel funktioniert viel besser, wenn es in voller Größe in einem Desktop-Browser-Tab gerendert wird. Daher haben wir es nicht in einem eingebetteten Live-Beispiel auf dieser Seite gerendert. Stattdessen können Sie es live unter [CSS `progress()` Funktion Demo](https://mdn.github.io/dom-examples/css-progress/) sehen (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-progress) an).
+Das Beispiel funktioniert deutlich besser, wenn es in voller Größe in einem Desktop-Browsertab dargestellt wird. Deshalb ist es auf dieser Seite nicht als eingebettetes Live-Beispiel zu sehen. Stattdessen können Sie es in der [Demo zur CSS-Funktion `progress()`](https://mdn.github.io/dom-examples/css-progress/) ausprobieren. Sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-progress) an.
 
-Öffnen Sie das Live-Beispiel in einem separaten Tab und versuchen Sie, die Browserfensterbreite zu vergrößern und zu verkleinern, um den Effekt zu sehen. Lassen Sie dies offen, damit Sie darauf zurückgreifen können, während Sie die Erklärung unten lesen.
+Öffnen Sie das Live-Beispiel in einem separaten Tab und vergrößern und verkleinern Sie die Breite des Browserfensters, um den Effekt zu sehen. Lassen Sie den Tab geöffnet, damit Sie beim Lesen der folgenden Erläuterung darauf zurückgreifen können.
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("article")}}-Element, das den Rest unseres Inhalts enthält, und zwei {{htmlelement("section")}}-Elemente — eines für das Hintergrundbild und das andere, um unseren Inhalt zu enthalten. Die `<section class="content">` enthält ebenfalls ein `<div class="progress">`, das eine Breitenfortschrittsleiste darstellt, ähnlich wie in unserer vorherigen Demo. Wir haben den restlichen Inhalt zur Kürze ausgelassen.
+Unser HTML enthält ein {{htmlelement("article")}}-Element, das den restlichen Inhalt umfasst, sowie zwei {{htmlelement("section")}}-Elemente: eines für ein Hintergrundbild und eines für den Inhalt. Das Element `<section class="content">` enthält außerdem ein `<div class="progress">`, das wie in der vorherigen Demo einen Breiten-Fortschrittsbalken darstellt. Der Kürze halber haben wir den übrigen Inhalt weggelassen.
 
 ```html
 <article>
@@ -279,35 +279,11 @@ Unser HTML enthält ein {{htmlelement("article")}}-Element, das den Rest unseres
 </article>
 ```
 
-#### JavaScript
-
-In unserem Skript holen wir zunächst eine Referenz zu unserem `<article>`-Element. Dann definieren wir eine Funktion namens `setContainerWidth()`, die die Client-Breite des `<article>` über [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) abruft und eine Benutzereigenschaft darauf setzt, die `--container-width` genannt wird, die gleich der abgerundeten Client-Breite ist, wobei `px` hinzugefügt wird.
-
-Wir setzen dann einen [`resize`](/de/docs/Web/API/Window/resize_event)-Ereignislistener auf das `Window`-Objekt, der `setContainerWidth()` ausführt, wenn das Browserfenster in der Größe verändert wird. Wir führen es auch einmal aus, um die `--container-width` Benutzereigenschaft auf dem `<article>`-Element festzulegen, sobald die Seite geladen wird.
-
-```js
-const articleElem = document.querySelector("article");
-
-function setContainerWidth() {
-  const clientWidth = articleElem.getBoundingClientRect().width;
-  articleElem.style.setProperty(
-    "--container-width",
-    `${Math.floor(clientWidth)}px`,
-  );
-}
-
-window.addEventListener("resize", setContainerWidth);
-
-setContainerWidth();
-```
-
-Mit dieser Einrichtung können wir nun einige Eigenschaften basierend auf der `--container-width` festlegen, so dass Teile unseres Designs sich dynamisch ändern, wenn das Fenster in der Größe verändert wird.
-
 #### CSS
 
-Der folgende Abschnitt erklärt nur das CSS, das relevant dafür ist, wie wir die `progress()`-Funktion im Demo-Beispiel verwendet haben. Für das vollständige CSS siehe den [CSS-Quellcode](https://github.com/mdn/dom-examples/blob/main/css-progress/index.css).
+Im folgenden Abschnitt wird nur das CSS erläutert, das für die Verwendung der Funktion `progress()` in der Demo relevant ist. Diese Styles verwenden die benutzerdefinierte Eigenschaft `--container-width`, die durch das später gezeigte JavaScript gesetzt wird. Das vollständige CSS finden Sie im [CSS-Quellcode](https://github.com/mdn/dom-examples/blob/main/css-progress/index.css).
 
-Wir zentrieren zuerst den `<article>` innerhalb des `<body>` mithilfe von [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout), dann setzen wir einige Benutzereigenschaften darauf, um die `min-width` und `max-width` Werte zu repräsentieren, die wir anderswo verwenden werden. Wir zielen dann auf das `<article>`-Element ab, wobei wir ihm {{cssxref("min-width")}} und {{cssxref("max-width")}} Werte geben, die den zuvor festgelegten Benutzereigenschaften entsprechen. Wir setzen seine {{cssxref("position")}} auf `relative`, damit wir seinen Inhalt relativ dazu positionieren können, dann geben wir ihm eine prozentuale {{cssxref("width")}}, eine feste {{cssxref("height")}} und einen {{cssxref("border")}}.
+Zunächst zentrieren wir das `<article>` mithilfe von [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) innerhalb des `<body>`. Dann setzen wir darauf benutzerdefinierte Eigenschaften für die Werte von `min-width` und `max-width`, die wir an anderer Stelle verwenden. Anschließend weisen wir dem `<article>`-Element für {{cssxref("min-width")}} und {{cssxref("max-width")}} die zuvor festgelegten Werte der benutzerdefinierten Eigenschaften zu. Wir setzen seine {{cssxref("position")}} auf `relative`, damit wir seinen Inhalt relativ zu ihm positionieren können, und geben ihm eine prozentuale {{cssxref("width")}}, eine feste {{cssxref("height")}} und einen {{cssxref("border")}}.
 
 ```css
 body {
@@ -329,9 +305,9 @@ article {
 }
 ```
 
-Nun zu unserem `progress` `<div>`. Wir setzen seine `Breite` gleich einem Prozentsatz basierend auf dem Fortschrittsverhältnis der `--container-width` Benutzereigenschaft, die auf dem `<article>`-Element über JavaScript gesetzt wurde, zwischen seiner `min-width` und `max-width` (wir verwenden hier die gleichen Benutzereigenschaften für die zweiten und dritten `progress()`-Parameter wie für die `<article>` `min-width` und `max-width`).
+Nun zum `progress`-`<div>`: Wir setzen seine `width` auf einen Prozentwert, der auf dem Verhältnis des per JavaScript auf dem `<article>`-Element gesetzten Werts von `--container-width` zwischen dessen `min-width` und `max-width` beruht. Für den zweiten und dritten Parameter von `progress()` verwenden wir dieselben benutzerdefinierten Eigenschaften wie für `min-width` und `max-width` des `<article>`-Elements.
 
-Wir geben ihm zudem eine `Höhe` und {{cssxref("background-color")}} und positionieren ihn dann absolut in der oberen linken Ecke des `<article>`.
+Außerdem geben wir ihm eine `height` und eine {{cssxref("background-color")}} und positionieren es absolut in der oberen linken Ecke des `<article>`-Elements.
 
 ```css
 .progress {
@@ -351,7 +327,7 @@ Wir geben ihm zudem eine `Höhe` und {{cssxref("background-color")}} und positio
 }
 ```
 
-Als Nächstes betrachten wir unser `background` `<section>`. Wir positionieren es absolut relativ zu unserem `<article>`, setzen {{cssxref("inset", "inset: 0")}} darauf, damit es die gleiche Größe annimmt und oben darüber liegt. Wir setzen dann ein sehr breites {{cssxref("background-image")}} darauf, und positionieren das Hintergrundbild, indem wir der {{cssxref("background-position-x")}}-Eigenschaft den gleichen Wert geben, wie wir ihn auch der `width`-Eigenschaft des Fortschrittsbalkens gegeben haben. Dies hat den Effekt, dass das Hintergrundbild, wenn Sie die Browserfensterbreite vergrößern, nach links verschoben wird, was einen schönen Bildscroll-Effekt ergibt.
+Als Nächstes betrachten wir das `background`-`<section>`. Wir positionieren es absolut relativ zum `<article>` und setzen {{cssxref("inset", "inset: 0")}}, damit es dieselbe Größe annimmt und darüberliegt. Dann geben wir ihm ein recht breites {{cssxref("background-image")}} und positionieren das Hintergrundbild, indem wir der Eigenschaft {{cssxref("background-position-x")}} denselben Wert zuweisen wie der `width`-Eigenschaft des Fortschrittsbalkens. Wenn Sie die Breite des Browserfensters vergrößern, verschiebt sich das Hintergrundbild dadurch nach links und erzeugt einen ansprechenden Scrolleffekt.
 
 ```css
 .background {
@@ -369,10 +345,10 @@ Als Nächstes betrachten wir unser `background` `<section>`. Wir positionieren e
 }
 ```
 
-Wir positionieren die `content` `<section>` absolut, sodass sie über der `background` `<section>` liegt, und geben ihr etwas {{cssxref("padding")}}. Dann variieren wir zwei Eigenschaftswerte, während das Browserfenster in der Größe verändert wird, indem wir das gleiche Fortschrittsverhältnis wie zuvor verwenden:
+Wir positionieren das `content`-`<section>` absolut, sodass es über dem `background`-`<section>` liegt, und geben ihm etwas {{cssxref("padding")}}. Mit demselben Fortschrittsverhältnis wie zuvor verändern wir beim Anpassen der Browserfenstergröße zwei Eigenschaftswerte:
 
-- Wir variieren die R- und G-Komponenten der `background-color`, indem wir das Fortschrittsverhältnis jeweils mit 255 multiplizieren, um einen proportionalen Kanalwert zu erhalten. Wenn das Fenster breiter wird, wird die Hintergrundfarbe weniger blau und mehr weiß, was es so aussehen lässt, als ob die Szene von Nacht zu Tag wechselt (der Farbwert hat eine Opazität von `0.5`, sodass er wie eine Tönung für das darunterliegende Bild wirkt).
-- Wir variieren die {{cssxref("opacity")}}, sodass der Inhalt ein wenig verblasst, wenn das Fenster breiter wird.
+- Wir verändern die R- und G-Komponenten der `background-color`, indem wir das Fortschrittsverhältnis jeweils mit 255 multiplizieren. So erhalten wir proportionale Kanalwerte. Je breiter das Fenster wird, desto weniger blau und desto weißer wird die Hintergrundfarbe. Dadurch wirkt es, als würde die Szene von der Nacht zum Tag übergehen. Der Farbwert hat eine Deckkraft von `0.5` und legt sich daher wie eine Tönung über das darunterliegende Bild.
+- Wir verändern {{cssxref("opacity")}}, sodass der Inhalt bei zunehmender Fensterbreite etwas eingeblendet wird.
 
 ```css
 .content {
@@ -412,6 +388,30 @@ Wir positionieren die `content` `<section>` absolut, sodass sie über der `backg
 }
 ```
 
+#### JavaScript
+
+In unserem Skript holen wir zunächst eine Referenz auf das `<article>`-Element. Dann definieren wir eine Funktion namens `setContainerWidth()`. Sie ermittelt über [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) die Client-Breite des `<article>`-Elements und setzt darauf die benutzerdefinierte Eigenschaft `--container-width`. Deren Wert entspricht der abgerundeten Client-Breite mit angehängtem `px`.
+
+Anschließend registrieren wir für das `Window`-Objekt einen Event-Listener für das [`resize`](/de/docs/Web/API/Window/resize_event)-Ereignis, der `setContainerWidth()` ausführt, wenn sich die Größe des Browserfensters ändert. Wir führen die Funktion auch einmal beim Laden der Seite aus, um die benutzerdefinierte Eigenschaft `--container-width` auf dem `<article>`-Element zu setzen.
+
+```js
+const articleElem = document.querySelector("article");
+
+function setContainerWidth() {
+  const clientWidth = articleElem.getBoundingClientRect().width;
+  articleElem.style.setProperty(
+    "--container-width",
+    `${Math.floor(clientWidth)}px`,
+  );
+}
+
+window.addEventListener("resize", setContainerWidth);
+
+setContainerWidth();
+```
+
+Dadurch bleibt `--container-width` für die oben beschriebenen CSS-Berechnungen aktuell, sodass sich Teile des Designs dynamisch anpassen, wenn sich die Fenstergröße ändert.
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -422,7 +422,7 @@ Wir positionieren die `content` `<section>` absolut, sodass sie über der `backg
 
 ## Siehe auch
 
-- [CSS-Werte- und Einheitenmodul](/de/docs/Web/CSS/Guides/Values_and_units)
-- [Containereigenschaftenabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries)
+- [Modul für CSS-Werte und -Einheiten](/de/docs/Web/CSS/Guides/Values_and_units)
+- [Container-Style-Queries](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries)
 - [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [Feature Queries](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries)

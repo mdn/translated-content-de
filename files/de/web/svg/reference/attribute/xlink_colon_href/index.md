@@ -2,13 +2,13 @@
 title: xlink:href
 slug: Web/SVG/Reference/Attribute/xlink:href
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`xlink:href`** Attribut definiert eine Referenz auf eine Ressource als eine Referenz- [IRI](/de/docs/Web/SVG/Guides/Content_type#iri). Die genaue Bedeutung dieses Links hängt vom Kontext jedes Elements ab, das ihn verwendet.
+Das Attribut **`xlink:href`** definiert einen Verweis auf eine Ressource als Referenz-[IRI](/de/docs/Web/SVG/Guides/Content_type#iri). Die genaue Bedeutung dieses Verweises hängt vom jeweiligen Element ab, das ihn verwendet.
 
 > [!NOTE]
-> SVG 2 hat die Notwendigkeit des `xlink`-Namensraums entfernt, daher sollten Sie anstelle von `xlink:href` {{SVGAttr("href")}} verwenden. Wenn Sie frühere Browserversionen unterstützen müssen, kann das veraltete `xlink:href` Attribut zusätzlich zum `href` Attribut als Fallback verwendet werden, z.B., `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
+> SVG 2 hat die Notwendigkeit des `xlink`-Namensraums beseitigt. Verwenden Sie daher {{SVGAttr("href")}} anstelle von `xlink:href`. Wenn Sie ältere Browserversionen unterstützen müssen, können Sie das veraltete Attribut `xlink:href` zusätzlich zum Attribut `href` als Fallback verwenden, z. B. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -28,29 +28,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("use")}}
 
-## Beispiel
-
-```css hidden
-html,
-body,
-svg {
-  height: 100%;
-}
-```
-
-```html
-<svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-  <a xlink:href="https://developer.mozilla.org/">
-    <text x="10" y="25">MDN Web Docs</text>
-  </a>
-</svg>
-```
-
-{{EmbedLiveSample("Example", "320", "100")}}
-
 ## a
 
-Für {{SVGElement("a")}} definiert `xlink:href` den Ort des referenzierten Objekts.
+Für {{SVGElement("a")}} definiert `xlink:href` die Position des referenzierten Objekts.
 
 <table class="properties">
   <tbody>
@@ -75,15 +55,15 @@ Für {{SVGElement("a")}} definiert `xlink:href` den Ort des referenzierten Objek
 
 ## animate, animateMotion, animateTransform, set
 
-Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}} und {{SVGElement("set")}} definiert `xlink:href` die Referenz auf das Element, das das Ziel dieser Animation ist und deshalb im Laufe der Zeit modifiziert wird.
+Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}} und {{SVGElement("set")}} definiert `xlink:href` den Verweis auf das Zielelement der Animation, das sich dadurch im Zeitverlauf verändert.
 
-Das Ziel-Element muss Teil des aktuellen SVG-Dokumentfragments sein.
+Das Zielelement muss Teil des aktuellen SVG-Dokumentfragments sein.
 
-Der Wert muss auf genau ein Ziel-Element zeigen, das fähig ist, das Ziel der gegebenen Animation zu sein.
+Der Wert muss auf genau ein Zielelement verweisen, das als Ziel der jeweiligen Animation geeignet ist.
 
-Wenn das `xlink:href` Attribut nicht bereitgestellt wird, wird das Ziel-Element das unmittelbare Elternelement des aktuellen Animationselements sein.
+Wenn das Attribut `xlink:href` nicht angegeben ist, ist das unmittelbar übergeordnete Element des aktuellen Animationselements das Zielelement.
 
-Beziehen Sie sich auf die Beschreibungen der einzelnen Animationselemente für etwaige Beschränkungen, welche Arten von Elementen Ziele bestimmter Animationstypen sein können.
+Welche Einschränkungen für die Zielelemente bestimmter Animationstypen gelten, erfahren Sie in den Beschreibungen der einzelnen Animationselemente.
 
 <table class="properties">
   <tbody>
@@ -108,7 +88,7 @@ Beziehen Sie sich auf die Beschreibungen der einzelnen Animationselemente für e
 
 ## feImage
 
-Für {{SVGElement("feImage")}} definiert `xlink:href` die Referenz auf die Bildquelle.
+Für {{SVGElement("feImage")}} definiert `xlink:href` den Verweis auf die Bildquelle.
 
 <table class="properties">
   <tbody>
@@ -133,7 +113,7 @@ Für {{SVGElement("feImage")}} definiert `xlink:href` die Referenz auf die Bildq
 
 ## filter
 
-Für {{SVGElement("filter")}} definiert `xlink:href` die Referenz auf ein anderes `<filter>` Element innerhalb des aktuellen SVG-Dokumentfragments. Alle Attribute, die auf dem referenzierten `<filter>` Element definiert sind und nicht auf diesem Element definiert sind, werden von diesem Element geerbt. Wenn dieses Element keine definierten Filterknoten hat und das referenzierte Element welche hat (möglicherweise aufgrund seines eigenen `xlink:href` Attributs), erbt dieses Element die definierten Filterknoten vom referenzierten `<filter>` Element. Die Vererbung kann indirekt auf beliebigem Niveau erfolgen; wenn das referenzierte `<filter>` Element Attribute oder seine Filterknotenspezifikation aufgrund seines eigenen `xlink:href` Attributs erbt, kann das aktuelle Element diese Attribute oder Filterknotenspezifikationen erben.
+Für {{SVGElement("filter")}} definiert `xlink:href` den Verweis auf ein anderes `<filter>`-Element innerhalb des aktuellen SVG-Dokumentfragments. Alle Attribute, die für das referenzierte `<filter>`-Element, aber nicht für dieses Element definiert sind, werden von diesem Element geerbt. Wenn für dieses Element keine Filterknoten definiert sind, für das referenzierte Element jedoch schon (möglicherweise aufgrund seines eigenen Attributs `xlink:href`), erbt dieses Element die Filterknoten des referenzierten `<filter>`-Elements. Die Vererbung kann über beliebig viele Ebenen indirekt erfolgen: Wenn das referenzierte `<filter>`-Element aufgrund seines eigenen Attributs `xlink:href` Attribute oder Filterknotendefinitionen erbt, kann das aktuelle Element diese ebenfalls erben.
 
 <table class="properties">
   <tbody>
@@ -158,7 +138,7 @@ Für {{SVGElement("filter")}} definiert `xlink:href` die Referenz auf ein andere
 
 ## image
 
-Für {{SVGElement("image")}} definiert `xlink:href` den Ort des referenzierten Bildes.
+Für {{SVGElement("image")}} definiert `xlink:href` die Position des referenzierten Bildes.
 
 <table class="properties">
   <tbody>
@@ -183,7 +163,7 @@ Für {{SVGElement("image")}} definiert `xlink:href` den Ort des referenzierten B
 
 ## linearGradient
 
-Für {{SVGElement("linearGradient")}} definiert `xlink:href` die Referenz auf ein anderes `<linearGradient>` oder {{SVGElement("radialGradient")}} Element innerhalb des aktuellen SVG-Dokumentfragments. Alle `<linearGradient>` Attribute, die auf dem referenzierten Element definiert sind und nicht auf diesem Element definiert sind, werden von diesem Element geerbt. Wenn dieses Element keine definierten Farbverläufe hat und das referenzierte Element welche hat (möglicherweise aufgrund seines eigenen `xlink:href` Attributs), erbt dieses Element den Farbverlauf vom referenzierten Element. Die Vererbung kann indirekt auf beliebigem Niveau erfolgen; wenn das referenzierte Element Attribute oder Farbverläufe aufgrund seines eigenen `xlink:href` Attributs erbt, kann das aktuelle Element diese Attribute oder Farbverläufe erben.
+Für {{SVGElement("linearGradient")}} definiert `xlink:href` den Verweis auf ein anderes `<linearGradient>`- oder {{SVGElement("radialGradient")}}-Element innerhalb des aktuellen SVG-Dokumentfragments. Alle `<linearGradient>`-Attribute, die für das referenzierte Element, aber nicht für dieses Element definiert sind, werden von diesem Element geerbt. Wenn für dieses Element keine Verlaufsstopps definiert sind, für das referenzierte Element jedoch schon (möglicherweise aufgrund seines eigenen Attributs `xlink:href`), erbt dieses Element die Verlaufsstopps des referenzierten Elements. Die Vererbung kann über beliebig viele Ebenen indirekt erfolgen: Wenn das referenzierte Element aufgrund seines eigenen Attributs `xlink:href` Attribute oder Verlaufsstopps erbt, kann das aktuelle Element diese ebenfalls erben.
 
 <table class="properties">
   <tbody>
@@ -208,7 +188,7 @@ Für {{SVGElement("linearGradient")}} definiert `xlink:href` die Referenz auf ei
 
 ## mpath
 
-Für {{SVGElement("mpath")}} definiert `xlink:href` die Referenz auf das {{SVGElement("path")}} Element, das den Bewegungspfad definiert.
+Für {{SVGElement("mpath")}} definiert `xlink:href` den Verweis auf das {{SVGElement("path")}}-Element, das den Bewegungspfad festlegt.
 
 <table class="properties">
   <tbody>
@@ -233,7 +213,7 @@ Für {{SVGElement("mpath")}} definiert `xlink:href` die Referenz auf das {{SVGEl
 
 ## pattern
 
-Für {{SVGElement("pattern")}} definiert `xlink:href` die Referenz auf ein anderes `<pattern>` Element innerhalb des aktuellen SVG-Dokumentfragments. Alle Attribute, die auf dem referenzierten Element definiert sind und nicht auf diesem Element definiert sind, werden von diesem Element geerbt. Wenn dieses Element keine Kinder hat und das referenzierte Element welche hat (möglicherweise aufgrund seines eigenen `xlink:href` Attributs), erbt dieses Element die Kinder vom referenzierten Element. Die Vererbung kann indirekt auf beliebigem Niveau erfolgen; wenn das referenzierte Element Attribute oder Kinder aufgrund seines eigenen `xlink:href` Attributs erbt, kann das aktuelle Element diese Attribute oder Kinder erben.
+Für {{SVGElement("pattern")}} definiert `xlink:href` den Verweis auf ein anderes `<pattern>`-Element innerhalb des aktuellen SVG-Dokumentfragments. Alle Attribute, die für das referenzierte Element, aber nicht für dieses Element definiert sind, werden von diesem Element geerbt. Wenn dieses Element keine Kindelemente hat, das referenzierte Element jedoch schon (möglicherweise aufgrund seines eigenen Attributs `xlink:href`), erbt dieses Element die Kindelemente des referenzierten Elements. Die Vererbung kann über beliebig viele Ebenen indirekt erfolgen: Wenn das referenzierte Element aufgrund seines eigenen Attributs `xlink:href` Attribute oder Kindelemente erbt, kann das aktuelle Element diese ebenfalls erben.
 
 <table class="properties">
   <tbody>
@@ -258,7 +238,7 @@ Für {{SVGElement("pattern")}} definiert `xlink:href` die Referenz auf ein ander
 
 ## radialGradient
 
-Für {{SVGElement("radialGradient")}} definiert `xlink:href` die Referenz auf ein anderes {{SVGElement("linearGradient")}} oder `<radialGradient>` Element innerhalb des aktuellen SVG-Dokumentfragments. Alle `<radialGradient>` Attribute, die auf dem referenzierten Element definiert sind und nicht auf diesem Element definiert sind, werden von diesem Element geerbt. Wenn dieses Element keine definierten Farbverläufe hat und das referenzierte Element welche hat (möglicherweise aufgrund seines eigenen `xlink:href` Attributs), erbt dieses Element den Farbverlauf vom referenzierten Element. Die Vererbung kann indirekt auf beliebigem Niveau erfolgen; wenn das referenzierte Element Attribute oder Farbverläufe aufgrund seines eigenen `xlink:href` Attributs erbt, kann das aktuelle Element diese Attribute oder Farbverläufe erben.
+Für {{SVGElement("radialGradient")}} definiert `xlink:href` den Verweis auf ein anderes {{SVGElement("linearGradient")}}- oder `<radialGradient>`-Element innerhalb des aktuellen SVG-Dokumentfragments. Alle `<radialGradient>`-Attribute, die für das referenzierte Element, aber nicht für dieses Element definiert sind, werden von diesem Element geerbt. Wenn für dieses Element keine Verlaufsstopps definiert sind, für das referenzierte Element jedoch schon (möglicherweise aufgrund seines eigenen Attributs `xlink:href`), erbt dieses Element die Verlaufsstopps des referenzierten Elements. Die Vererbung kann über beliebig viele Ebenen indirekt erfolgen: Wenn das referenzierte Element aufgrund seines eigenen Attributs `xlink:href` Attribute oder Verlaufsstopps erbt, kann das aktuelle Element diese ebenfalls erben.
 
 <table class="properties">
   <tbody>
@@ -283,7 +263,7 @@ Für {{SVGElement("radialGradient")}} definiert `xlink:href` die Referenz auf ei
 
 ## script
 
-Für {{SVGElement("script")}} definiert `xlink:href` eine Referenz auf eine externe Ressource, die den Skript-Code enthält.
+Für {{SVGElement("script")}} definiert `xlink:href` einen Verweis auf eine externe Ressource, die den Skriptcode enthält.
 
 <table class="properties">
   <tbody>
@@ -308,7 +288,7 @@ Für {{SVGElement("script")}} definiert `xlink:href` eine Referenz auf eine exte
 
 ## textPath
 
-Für {{SVGElement("textPath")}} definiert `xlink:href` eine Referenz auf das {{SVGElement("path")}} Element, auf dem die Glyphen gerendert werden.
+Für {{SVGElement("textPath")}} definiert `xlink:href` einen Verweis auf das {{SVGElement("path")}}-Element, entlang dessen die Glyphen gerendert werden.
 
 <table class="properties">
   <tbody>
@@ -333,7 +313,7 @@ Für {{SVGElement("textPath")}} definiert `xlink:href` eine Referenz auf das {{S
 
 ## use
 
-Für {{SVGElement("use")}} definiert `xlink:href` den Ort des referenzierten Objekts.
+Für {{SVGElement("use")}} definiert `xlink:href` die Position des referenzierten Objekts.
 
 <table class="properties">
   <tbody>
@@ -355,6 +335,26 @@ Für {{SVGElement("use")}} definiert `xlink:href` den Ort des referenzierten Obj
     </tr>
   </tbody>
 </table>
+
+## Beispiel
+
+```css hidden
+html,
+body,
+svg {
+  height: 100%;
+}
+```
+
+```html
+<svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+  <a xlink:href="https://developer.mozilla.org/">
+    <text x="10" y="25">MDN Web Docs</text>
+  </a>
+</svg>
+```
+
+{{EmbedLiveSample("Example", "320", "100")}}
 
 ## Spezifikationen
 

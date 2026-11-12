@@ -2,14 +2,40 @@
 title: maskUnits
 slug: Web/SVG/Reference/Attribute/maskUnits
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`maskUnits`**-Attribut gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("mask") }}-Elements verwendet werden soll.
+Das Attribut **`maskUnits`** gibt an, welches Koordinatensystem für die Geometrieeigenschaften des Elements {{ SVGElement("mask") }} verwendet wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit dem folgenden SVG-Element verwenden:
 
 - {{SVGElement('mask')}}
+
+## mask
+
+Für {{SVGElement('mask')}} legt `maskUnits` das Koordinatensystem für die Geometrieattribute ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `userSpaceOnUse`
+  - : Dieser Wert gibt an, dass sich alle Koordinaten der Geometrieattribute auf das Benutzerkoordinatensystem beziehen, das beim Erstellen der Maske festgelegt war.
+- `objectBoundingBox`
+  - : Dieser Wert gibt an, dass alle Koordinaten der Geometrieattribute Bruchteile oder Prozentwerte der Begrenzungsbox des Elements darstellen, auf das die Maske angewendet wird. Die Begrenzungsbox lässt sich so betrachten, als wäre der Inhalt von {{ SVGElement("mask") }} an eine {{ SVGAttr("viewBox") }} mit dem Wert `"0 0 1 1"` gebunden.
 
 ## Beispiel
 
@@ -62,32 +88,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", '100%', 200)}}
-
-## mask
-
-Für {{SVGElement('mask')}} definiert `maskUnits` das verwendete Koordinatensystem für die Geometrieattribute ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute sich auf das Benutzerkoordinatensystem beziehen, das beim Erstellen der Maske definiert wurde.
-- `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute Bruchteile oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das die Maske angewendet wird. Ein Begrenzungsrahmen könnte als das gleiche wie beim Binden des Inhalts der {{ SVGElement("mask") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} betrachtet werden.
 
 ## Spezifikationen
 

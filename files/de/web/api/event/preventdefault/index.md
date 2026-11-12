@@ -1,23 +1,23 @@
 ---
-title: "Event: preventDefault()-Methode"
+title: "Event: Methode preventDefault()"
 short-title: preventDefault()
 slug: Web/API/Event/preventDefault
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`preventDefault()`**-Methode des [`Event`](/de/docs/Web/API/Event)-Interfaces teilt dem {{Glossary("user_agent", "User-Agent")}} mit, dass das Ereignis explizit behandelt wird, sodass die Standardaktion, wie z.B. das Scrollen der Seite, die Navigation von Links oder das Einfügen von Text, nicht ausgeführt werden soll.
+Die Methode **`preventDefault()`** der Schnittstelle [`Event`](/de/docs/Web/API/Event) teilt dem {{Glossary("user_agent", "User Agent")}} mit, dass das Ereignis ausdrücklich behandelt wird. Daher soll die Standardaktion des Ereignisses – etwa das Scrollen der Seite, das Folgen eines Links oder das Einfügen von Text – nicht ausgeführt werden.
 
-Das Ereignis wird weiterhin wie gewohnt propagiert, es sei denn, einer seiner Ereignis-Listener ruft [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) oder [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation) auf, von denen beide die Propagation sofort beenden.
+Das Ereignis wird weiterhin wie gewohnt weitergegeben, sofern nicht einer seiner Event Listener [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) oder [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation) aufruft. Beide Methoden beenden die Weitergabe sofort.
 
-Wie unten erwähnt, hat das Aufrufen von **`preventDefault()`** bei einem nicht abbrechbaren Ereignis, wie einem, das über [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wurde, ohne `cancelable: true` anzugeben, keine Wirkung.
+Wie unten erläutert, hat der Aufruf von **`preventDefault()`** bei einem Ereignis, das nicht abgebrochen werden kann, keine Wirkung. Das gilt beispielsweise für ein Ereignis, das über [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wurde, ohne `cancelable: true` anzugeben.
 
-Wenn ein passiver Listener `preventDefault()` aufruft, passiert nichts und es kann eine Konsolenwarnung generiert werden.
+Wenn ein passiver Listener `preventDefault()` aufruft, geschieht nichts. Möglicherweise wird eine Warnung in der Konsole ausgegeben.
 
 > [!NOTE]
-> Suchen Sie nach besseren Alternativen, als `preventDefault()` zu verwenden, um Standardaktionen zu blockieren. Sie können z.B. das `disabled`- oder `readonly`-Attribut bei einem Formularelement verwenden, um dessen Interaktion zu verhindern, [HTML-Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nutzen, um ungültige Eingaben abzulehnen, oder die {{cssxref("overflow")}}-Eigenschaft verwenden, um das Scrollen zu verhindern.
+> Suchen Sie nach besseren Alternativen zu `preventDefault()`, um Standardaktionen zu unterbinden. Beispielsweise können Sie bei einem Formularsteuerelement das Attribut `disabled` oder `readonly` verwenden, um eine Interaktion damit zu verhindern, mit der [HTML-Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) ungültige Eingaben zurückweisen oder mit der Eigenschaft {{cssxref("overflow")}} das Scrollen verhindern.
 
 ## Syntax
 
@@ -31,13 +31,26 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Blockieren der Standard-Click-Handhabung
+### Standardverhalten beim Klicken verhindern
 
-Das Umschalten eines Kontrollkästchens ist die Standardaktion des Klickens auf ein Kontrollkästchen. Dieses Beispiel zeigt, wie verhindert werden kann, dass das passiert:
+Beim Klicken auf eine Checkbox wird ihr Zustand standardmäßig umgeschaltet. Dieses Beispiel zeigt, wie Sie das verhindern:
+
+#### HTML
+
+```html
+<p>Please click on the checkbox control.</p>
+
+<form>
+  <label for="id-checkbox">Checkbox:</label>
+  <input type="checkbox" id="id-checkbox" />
+</form>
+
+<div id="output-box"></div>
+```
 
 #### JavaScript
 
@@ -53,28 +66,15 @@ function checkboxClick(event) {
 }
 ```
 
-#### HTML
-
-```html
-<p>Please click on the checkbox control.</p>
-
-<form>
-  <label for="id-checkbox">Checkbox:</label>
-  <input type="checkbox" id="id-checkbox" />
-</form>
-
-<div id="output-box"></div>
-```
-
-#### Resultat
+#### Ergebnis
 
 {{EmbedLiveSample("Blocking_default_click_handling")}}
 
 ## Hinweise
 
-Das Aufrufen von `preventDefault()` während einer beliebigen Phase des Ereignisflusses hebt das Ereignis auf, was bedeutet, dass keine Standardaktion, die normalerweise von der Implementierung als Ergebnis des Ereignisses ausgeführt wird, stattfinden wird.
+Ein Aufruf von `preventDefault()` in einer beliebigen Phase des Ereignisablaufs bricht das Ereignis ab. Dadurch wird eine Standardaktion, die die Implementierung normalerweise als Reaktion auf das Ereignis ausführen würde, nicht ausgeführt.
 
-Sie können [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) verwenden, um zu prüfen, ob das Ereignis abbrechbar ist. Das Aufrufen von `preventDefault()` bei einem nicht abbrechbaren Ereignis hat keine Wirkung.
+Mit [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) können Sie prüfen, ob das Ereignis abgebrochen werden kann. Bei einem Ereignis, das nicht abgebrochen werden kann, hat der Aufruf von `preventDefault()` keine Wirkung.
 
 ## Spezifikationen
 

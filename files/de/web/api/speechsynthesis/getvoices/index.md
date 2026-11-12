@@ -1,16 +1,14 @@
 ---
-title: "SpeechSynthesis: Methode getVoices()"
+title: "SpeechSynthesis: getVoices()-Methode"
 short-title: getVoices()
 slug: Web/API/SpeechSynthesis/getVoices
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`getVoices()`**-Methode des
-[`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces gibt eine Liste von
-[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten zurück, die alle verfügbaren Stimmen auf dem aktuellen Gerät repräsentieren.
+Die Methode **`getVoices()`** der Schnittstelle [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) gibt eine Liste von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten zurück, die alle auf dem aktuellen Gerät verfügbaren Stimmen repräsentieren.
 
 ## Syntax
 
@@ -24,9 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste (Array) von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten.
+Eine Liste (ein Array) von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten.
 
 ## Beispiele
+
+### HTML
+
+```html
+<select id="voiceSelect"></select>
+```
 
 ### JavaScript
 
@@ -59,12 +63,6 @@ if (
 ) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
-```
-
-### HTML
-
-```html
-<select id="voiceSelect"></select>
 ```
 
 {{EmbedLiveSample("Examples", 400, 25)}}

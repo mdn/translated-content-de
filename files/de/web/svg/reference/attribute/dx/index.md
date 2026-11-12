@@ -2,10 +2,10 @@
 title: dx
 slug: Web/SVG/Reference/Attribute/dx
 l10n:
-  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`dx`**-Attribut gibt eine Verschiebung entlang der x-Achse der Position eines Elements oder seines Inhalts an.
+Das Attribut **`dx`** gibt eine Verschiebung der Position eines Elements oder seines Inhalts entlang der x-Achse an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -14,7 +14,129 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('text')}}
 - {{SVGElement('tspan')}}
 
-## Beispiel
+## feDropShadow
+
+Bei {{SVGElement('feDropShadow')}} definiert `dx` den Versatz des Schlagschattens entlang der x-Achse. Die Einheit, in der der Attributwert interpretiert wird, wird durch das Attribut {{SVGAttr('primitiveUnits')}} des Elements {{SVGElement('filter')}} festgelegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>2</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## feOffset
+
+Bei {{SVGElement('feOffset')}} definiert `dx` den Versatz der Eingabegrafik des Filters entlang der x-Achse. Die Einheit, in der der Attributwert interpretiert wird, wird durch das Attribut {{SVGAttr('primitiveUnits')}} des Elements {{SVGElement('filter')}} festgelegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## text
+
+Bei {{SVGElement('text')}} definiert `dx` eine Verschiebung aller Glyphen entlang der x-Achse, wenn das Attribut einen einzigen Wert enthält.
+
+Bei mehreren Werten definiert `dx` für jede einzelne Glyphe eine Verschiebung entlang der x-Achse relativ zur vorhergehenden Glyphe. Gibt es weniger Werte als Glyphen, wird für die übrigen Glyphen der Wert `0` verwendet. Gibt es mehr Werte als Glyphen, werden die überzähligen Werte ignoriert.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        Liste von (<strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
+            >&#x3C;length></a
+          ></strong
+        >
+        |
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
+            >&#x3C;percentage></a
+          ></strong
+        >)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## tspan
+
+Bei {{SVGElement('tspan')}} definiert `dx` eine Verschiebung aller alternativen Glyphen entlang der x-Achse, wenn das Attribut einen einzigen Wert enthält.
+
+Bei mehreren Werten definiert `dx` für jede einzelne Glyphe eine Verschiebung entlang der x-Achse relativ zur vorhergehenden Glyphe. Gibt es weniger Werte als Glyphen, wird für die übrigen Glyphen der Wert `0` verwendet. Gibt es mehr Werte als Glyphen, werden die überzähligen Werte ignoriert.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        Liste von (<strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
+            >&#x3C;length></a
+          ></strong
+        >
+        |
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
+            >&#x3C;percentage></a
+          ></strong
+        >)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## Beispiele
+
+### Text verschieben
 
 ```css hidden
 html,
@@ -47,94 +169,9 @@ line {
 }
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Shifting text", '100%', 200)}}
 
-## feDropShadow
-
-Für {{SVGElement('feDropShadow')}} definiert `dx` den x-Versatz des fallenden Schattens. Die Einheit zur Bestimmung des Werts des Attributs wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>2</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-## feOffset
-
-Für {{SVGElement('feOffset')}} definiert `dx` den x-Versatz der Filtereingabe-Grafik. Die Einheit zur Bestimmung des Werts des Attributs wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>0</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-## text
-
-Bei {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle Glyphen.
-
-Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        Liste von (<strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-### Beispiel
+### Mehrere Werte
 
 ```css hidden
 html,
@@ -171,42 +208,7 @@ line {
 }
 ```
 
-{{EmbedLiveSample('text', '100%', 100)}}
-
-## tspan
-
-Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle alternierenden Glyphen.
-
-Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        Liste von (<strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
+{{EmbedLiveSample('Multiple values', '100%', 100)}}
 
 ## Spezifikationen
 

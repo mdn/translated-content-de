@@ -2,14 +2,40 @@
 title: maskContentUnits
 slug: Web/SVG/Reference/Attribute/maskContentUnits
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das Attribut **`maskContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("mask") }}-Elements verwendet werden soll.
+Das Attribut **`maskContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("mask") }}-Elements verwendet wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut mit dem folgenden SVG-Element verwenden:
 
 - {{SVGElement('mask')}}
+
+## mask
+
+Für {{SVGElement("mask")}} legt `maskContentUnits` das Koordinatensystem fest, das für den Inhalt des Elements verwendet wird.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>userSpaceOnUse</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `userSpaceOnUse`
+  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des {{SVGElement('mask')}}-Elements auf das Benutzerkoordinatensystem beziehen, das beim Erstellen der Maske festgelegt wurde.
+- `objectBoundingBox`
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}}-Elements relativ zur Begrenzungsbox des Elements sind, auf das die Maske angewendet wird. Die Begrenzungsbox kann so betrachtet werden, als wäre der Inhalt von {{ SVGElement("mask") }} an eine {{ SVGAttr("viewBox") }} mit dem Wert `"0 0 1 1"` gebunden.
 
 ## Beispiel
 
@@ -50,32 +76,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", '100%', 200)}}
-
-## Maske
-
-Für {{SVGElement("mask")}} definiert `maskContentUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>userSpaceOnUse</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, wie es beim Erstellen der Maske definiert wurde.
-- `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('mask')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das die Maske angewendet wird. Ein Begrenzungsrahmen kann so betrachtet werden, als wäre der Inhalt des {{ SVGElement("mask") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden.
 
 ## Spezifikationen
 

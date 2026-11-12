@@ -1,14 +1,14 @@
 ---
-title: "Window: matchMedia() Methode"
+title: "Window: matchMedia()-Methode"
 short-title: matchMedia()
 slug: Web/API/Window/matchMedia
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die **`matchMedia()`** Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück, das anschließend verwendet werden kann, um festzustellen, ob das [`document`](/de/docs/Web/API/Document) der [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using)-Zeichenfolge entspricht. Zudem kann das Dokument überwacht werden, um zu erkennen, wann es dieser Media Query entspricht (oder nicht mehr entspricht).
+Die Methode **`matchMedia()`** der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück. Mit diesem lässt sich feststellen, ob das [`document`](/de/docs/Web/API/Document) mit einem [Media-Query](/de/docs/Web/CSS/Guides/Media_queries/Using)-String übereinstimmt. Außerdem kann damit überwacht werden, wann das Dokument mit dem Media Query übereinstimmt oder nicht mehr übereinstimmt.
 
 ## Syntax
 
@@ -19,35 +19,25 @@ matchMedia(mediaQueryString)
 ### Parameter
 
 - `mediaQueryString`
-  - : Ein String, der die Media Query angibt, die in ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt geparst werden soll.
+  - : Ein String, der das Media Query angibt, das in eine [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) umgewandelt werden soll.
 
-    Genau wie in CSS muss jede [Media Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) in Klammern innerhalb des Ausdrucks eingeschlossen sein. Zum Beispiel: `matchMedia("(width <= 600px)")` oder `matchMedia("(orientation: landscape)")` sind korrekt, während `matchMedia("width < 600px")` oder `matchMedia("orientation: landscape")` nicht funktionieren. Schlüsselwörter für Medientypen (`all`, `print`, `screen`) und logische Operatoren (`and`, `or`, `not`, `only`) müssen nicht in Klammern eingeschlossen werden.
+    Wie in CSS muss jedes [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) innerhalb des Ausdrucks in Klammern stehen. Beispielsweise funktionieren `matchMedia("(width <= 600px)")` und `matchMedia("(orientation: landscape)")`, während `matchMedia("width < 600px")` und `matchMedia("orientation: landscape")` nicht funktionieren. Schlüsselwörter für Medientypen (`all`, `print`, `screen`) und logische Operatoren (`and`, `or`, `not`, `only`) müssen nicht in Klammern stehen.
 
 ### Rückgabewert
 
-Ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt für die Media Query. Nutzen Sie die Eigenschaften und Ereignisse dieses Objekts, um Übereinstimmungen zu erkennen und die Änderungen dieser Übereinstimmungen über die Zeit zu überwachen.
+Ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt für das Media Query. Mit den Eigenschaften und Ereignissen dieses Objekts können Sie Übereinstimmungen erkennen und Änderungen daran im Zeitverlauf überwachen.
 
 ## Verwendungshinweise
 
-Sie können die zurückgegebene Media Query sowohl für sofortige als auch für ereignisgesteuerte Überprüfungen verwenden, um festzustellen, ob das Dokument der Media Query entspricht.
+Mit dem zurückgegebenen Media Query können Sie sowohl einmalig als auch ereignisgesteuert prüfen, ob das Dokument damit übereinstimmt.
 
-Um eine einmalige, sofortige Überprüfung durchzuführen, ob das Dokument der Media Query entspricht, schauen Sie sich den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft an, der `true` ist, wenn das Dokument die Anforderungen der Media Query erfüllt.
+Für eine einmalige Prüfung sehen Sie sich den Wert der Eigenschaft [`matches`](/de/docs/Web/API/MediaQueryList/matches) an. Er ist `true`, wenn das Dokument die Anforderungen des Media Query erfüllt.
 
-Wenn Sie ständig informiert werden möchten, ob das Dokument der Media Query entspricht oder nicht, können Sie statt dessen das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis beobachten, das an das Objekt übermittelt wird. Im Artikel zu [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) gibt es [ein gutes Beispiel hierfür](/de/docs/Web/API/Window/devicePixelRatio#monitoring_screen_resolution_or_zoom_level_changes).
+Wenn Sie fortlaufend darüber informiert werden möchten, ob das Dokument mit dem Media Query übereinstimmt, können Sie stattdessen das Ereignis [`change`](/de/docs/Web/API/MediaQueryList/change_event) des Objekts überwachen. Ein [anschauliches Beispiel dafür](/de/docs/Web/API/Window/devicePixelRatio#monitoring_screen_resolution_or_zoom_level_changes) finden Sie im Artikel zu [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
 
 ## Beispiele
 
-Dieses Beispiel führt die Media Query `(width <= 600px)` durch und zeigt den Wert der `matches`-Eigenschaft des resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an. Dadurch wird die Ausgabe "true" anzeigen, wenn das Viewport kleiner oder gleich 600 Pixel breit ist, und "false" zeigen, wenn das Fenster breiter ist.
-
-### JavaScript
-
-```js
-let mql = window.matchMedia("(width <= 600px)");
-
-document.querySelector(".mq-value").innerText = mql.matches;
-```
-
-Der JavaScript-Code übergibt die zu vergleichende Media Query an `matchMedia()` zur Kompilierung und setzt dann den [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft des Ergebnisses, so dass angezeigt wird, ob das Dokument der Media Query entspricht, zu dem Zeitpunkt, als die Seite geladen wurde.
+Dieses Beispiel führt das Media Query `(width <= 600px)` aus und zeigt den Wert der Eigenschaft `matches` der resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an. Die Ausgabe lautet „true“, wenn der Viewport höchstens 600 Pixel breit ist, und „false“, wenn das Fenster breiter ist.
 
 ### HTML
 
@@ -55,7 +45,7 @@ Der JavaScript-Code übergibt die zu vergleichende Media Query an `matchMedia()`
 <span class="mq-value"></span>
 ```
 
-Ein einfaches `<span>`, um die Ausgabe zu erhalten.
+Ein einfaches `<span>` für die Ausgabe.
 
 ```css hidden
 .mq-value {
@@ -69,11 +59,21 @@ Ein einfaches `<span>`, um die Ausgabe zu erhalten.
 }
 ```
 
+### JavaScript
+
+```js
+let mql = window.matchMedia("(width <= 600px)");
+
+document.querySelector(".mq-value").innerText = mql.matches;
+```
+
+Der JavaScript-Code übergibt das zu prüfende Media Query an `matchMedia()`, um es zu verarbeiten. Anschließend setzt er die Eigenschaft [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der Eigenschaft [`matches`](/de/docs/Web/API/MediaQueryList/matches) des Ergebnisses. So wird angezeigt, ob das Dokument zum Zeitpunkt des Ladens der Seite mit dem Media Query übereinstimmt.
+
 ### Ergebnis
 
 {{EmbedLiveSample("Examples", "100%", "60")}}
 
-Sehen Sie [Testen von Media Queries programmatisch](/de/docs/Web/CSS/Guides/Media_queries/Testing) für zusätzliche Codebeispiele.
+Weitere Codebeispiele finden Sie unter [Media Queries programmatisch testen](/de/docs/Web/CSS/Guides/Media_queries/Testing).
 
 ## Spezifikationen
 
@@ -86,5 +86,5 @@ Sehen Sie [Testen von Media Queries programmatisch](/de/docs/Web/CSS/Guides/Medi
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
-- [Verwenden von Media Queries aus dem Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
+- [Media Queries im Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

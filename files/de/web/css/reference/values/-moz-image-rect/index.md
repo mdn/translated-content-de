@@ -1,14 +1,14 @@
 ---
-title: "`-moz-image-rect()` CSS-Funktion"
+title: CSS-Funktion `-moz-image-rect()`
 short-title: -moz-image-rect()
 slug: Web/CSS/Reference/Values/-moz-image-rect
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{Non-standard_Header}}
 
-Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("background-image")}} ermöglicht es Ihnen, einen Teil eines größeren Bildes als Hintergrund zu verwenden.
+Mit dem Wert **`-moz-image-rect`** für die [CSS](/de/docs/Web/CSS)-Eigenschaft {{CSSxRef("background-image")}} können Sie einen Ausschnitt eines größeren Bildes als Hintergrund verwenden.
 
 ## Syntax
 
@@ -19,31 +19,44 @@ Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("backgroun
 ### Werte
 
 - {{CSSxRef("url_value", "&lt;url&gt;")}}
-  - : Die URI des Bildes, aus dem das Teilbild genommen wird.
+  - : Die URI des Bildes, aus dem der Ausschnitt entnommen wird.
 - `top`
-  - : Die obere Kante, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der obere Rand des Ausschnitts innerhalb des angegebenen Bildes, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}.
 - `right`
-  - : Die rechte Kante, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der rechte Rand des Ausschnitts innerhalb des angegebenen Bildes, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}.
 - `bottom`
-  - : Die untere Kante, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der untere Rand des Ausschnitts innerhalb des angegebenen Bildes, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}.
 - `left`
-  - : Die linke Kante, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der linke Rand des Ausschnitts innerhalb des angegebenen Bildes, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}.
 
 ## Beschreibung
 
-Diese Eigenschaft ermöglicht es Ihnen zum Beispiel, verschiedene Teile eines größeren Bildes als Hintergründe in verschiedenen Teilen Ihres Inhalts zu verwenden.
+Mit dieser Eigenschaft können Sie beispielsweise verschiedene Teile eines größeren Bildes als Hintergründe für unterschiedliche Bereiche Ihres Inhalts verwenden.
 
-Die Syntax für das Rechteck ähnelt der Funktion [`rect()`](/de/docs/Web/CSS/Reference/Values/shape#syntax), die einen CSS-Typ {{CSSxRef("&lt;shape&gt;")}} generiert. Alle vier Werte sind relativ zur oberen linken Ecke des Bildes.
+Die Syntax für das Rechteck ähnelt der Funktion [`rect()`](/de/docs/Web/CSS/Reference/Values/shape#syntax), die einen CSS-Wert vom Typ {{CSSxRef("&lt;shape&gt;")}} erzeugt. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
 
 ## Beispiele
 
-Dieses Beispiel lädt ein Bild und verwendet es in vier Segmenten, um das Firefox-Logo in vier {{HTMLElement("div")}} Blöcken darzustellen. Ein Klick auf ihren Container bewirkt, dass die vier Segmente sich durch Austauschen der {{CSSxRef("background-image")}} Eigenschaftswerte in den vier {{HTMLElement("div")}} Blöcken drehen.
+Dieses Beispiel lädt ein Bild und verwendet vier Ausschnitte daraus, um das Firefox-Logo in vier {{HTMLElement("div")}}-Blöcken darzustellen. Wenn Sie auf den umgebenden Container klicken, rotieren die vier Ausschnitte, indem die Werte der Eigenschaft {{CSSxRef("background-image")}} zwischen den vier {{HTMLElement("div")}}-Blöcken getauscht werden.
+
+### HTML
+
+Wir fügen einen Container mit vier Boxen ein:
+
+```html
+<div id="container">
+  <div id="box1">Top left</div>
+  <div id="box2">Top right</div>
+  <div id="box3">Bottom left</div>
+  <div id="box4">Bottom right</div>
+</div>
+```
 
 ### CSS
 
-Das CSS definiert einen Container-Stil und dann die Stile für die vier Kästchen, die das komplette Bild darstellen.
+Das CSS definiert zunächst einen Stil für den Container und anschließend die Stile für die vier Boxen, aus denen sich das vollständige Bild zusammensetzt. Dadurch werden die vier Ausschnitte unseres Bildes in einem Raster aus zwei mal zwei Boxen angeordnet. Diese vier Ausschnitte befinden sich alle in einem größeren {{HTMLElement("div")}}-Block, dessen Hauptzweck darin besteht, Klickereignisse zu empfangen und an unseren JavaScript-Code weiterzugeben.
 
-Der Container sieht folgendermaßen aus:
+Der Container sieht so aus:
 
 ```css
 #container {
@@ -58,7 +71,7 @@ Der Container sieht folgendermaßen aus:
 }
 ```
 
-Dann werden die vier Boxen definiert, die die Segmente des Bildes darstellen. Betrachten wir sie nacheinander.
+Anschließend werden die vier Boxen definiert, die die Ausschnitte des Bildes darstellen. Sehen wir sie uns nacheinander an.
 
 ```css
 #box1 {
@@ -71,7 +84,7 @@ Dann werden die vier Boxen definiert, die die Segmente des Bildes darstellen. Be
 }
 ```
 
-Dies ist die oberste linke Ecke des Bildes. Es definiert ein Rechteck, das das obere linke Viertel des Bildes in der Datei `firefox.jpg` enthält.
+Dies ist die obere linke Ecke des Bildes. Hier wird ein Rechteck definiert, das das obere linke Viertel des Bildes in der Datei `firefox.jpg` enthält.
 
 ```css
 #box2 {
@@ -86,7 +99,7 @@ Dies ist die oberste linke Ecke des Bildes. Es definiert ein Rechteck, das das o
 
 Dies definiert die obere rechte Ecke des Bildes.
 
-Die anderen Ecken folgen einem ähnlichen Muster:
+Die übrigen Ecken folgen einem ähnlichen Muster:
 
 ```css
 #box3 {
@@ -107,24 +120,9 @@ Die anderen Ecken folgen einem ähnlichen Muster:
 }
 ```
 
-### HTML
-
-Wir fügen einen Container mit vier Boxen hinzu:
-
-```html
-<div id="container">
-  <div id="box1">Top left</div>
-  <div id="box2">Top right</div>
-  <div id="box3">Bottom left</div>
-  <div id="box4">Bottom right</div>
-</div>
-```
-
-Dies platziert die vier Segmente unseres Bildes in einem zwei-zu-zwei-Box-Raster. Diese vier Segmente sind alle in einem größeren {{HTMLElement("div")}} Block enthalten, dessen Hauptzweck es ist, Klickereignisse zu empfangen und sie an unseren JavaScript-Code zu übergeben.
-
 ### JavaScript
 
-Dieser Code behandelt das Klickereignis, wenn der Container einen Mausklick empfängt.
+Dieser Code verarbeitet das Klickereignis, wenn der Container mit der Maus angeklickt wird.
 
 ```js
 function rotate() {
@@ -148,15 +146,15 @@ function rotate() {
 document.getElementById("container").addEventListener("click", rotate);
 ```
 
-Dies verwendet [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle), um den Stil jedes Elements abzurufen und ihn zum nachfolgenden Element zu verschieben. Beachten Sie, dass vor Beginn eine Kopie des Stils der letzten Box gespeichert wird, da dieser durch den Stil des dritten Elements überschrieben wird. Durch das Kopieren der Werte der {{CSSxRef("background-image")}} Eigenschaft von einem Element zum nächsten bei jedem Mausklick erzielen wir den gewünschten Effekt.
+Dabei wird [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) verwendet, um den Stil jedes Elements abzurufen und ihn dem jeweils nächsten Element zuzuweisen. Beachten Sie, dass zuvor eine Kopie des Stils der letzten Box gespeichert wird, da dieser durch den Stil des dritten Elements überschrieben wird. Indem bei jedem Mausklick die Werte der Eigenschaft {{CSSxRef("background-image")}} von einem Element zum nächsten kopiert werden, erzielen wir den gewünschten Effekt.
 
-### Wie es aussieht
+### So sieht es aus
 
 {{EmbedLiveSample("Examples","400","400")}}
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Nicht Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -164,5 +162,5 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [CSS Hintergründe und Rahmen Modul](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [Mozilla-CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- [Modul „CSS Backgrounds and Borders“](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)

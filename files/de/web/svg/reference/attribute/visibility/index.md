@@ -1,19 +1,19 @@
 ---
-title: Sichtbarkeit
+title: visibility
 slug: Web/SVG/Reference/Attribute/visibility
 l10n:
-  sourceCommit: 27bb49e1849433e05c964c8a645c448f184380ce
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`visibility`**-Attribut ermöglicht Ihnen die Steuerung der Sichtbarkeit von grafischen Elementen. Mit einem Wert von `hidden` oder `collapse` wird das aktuelle Grafikelement unsichtbar.
+Mit dem Attribut **`visibility`** können Sie die Sichtbarkeit grafischer Elemente steuern. Mit dem Wert `hidden` oder `collapse` ist das betreffende grafische Element unsichtbar.
 
 > [!NOTE]
-> Wenn das `visibility`-Attribut für ein Textelement auf `hidden` gesetzt ist, ist der Text unsichtbar, nimmt aber dennoch Platz in den Textlayout-Berechnungen ein.
+> Wenn das Attribut `visibility` bei einem Textelement auf `hidden` gesetzt ist, ist der Text unsichtbar, belegt aber bei der Berechnung des Textlayouts weiterhin Platz.
 
-Abhängig vom Wert des Attributs {{SVGAttr("pointer-events")}} könnten Grafikelemente, die ihr `visibility`-Attribut auf `hidden` gesetzt haben, dennoch Ereignisse empfangen.
+Abhängig vom Wert des Attributs {{SVGAttr("pointer-events")}} können grafische Elemente, deren Attribut `visibility` auf `hidden` gesetzt ist, weiterhin Events empfangen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `visibility` auch ein CSS-Eigenschaftsgegenstück: {{cssxref("visibility")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `visibility` auch eine entsprechende CSS-Eigenschaft: {{cssxref("visibility")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
@@ -36,34 +36,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
 - `<video>`
-
-## Verwendungshinweise
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code>visible</code> | <code>hidden</code> | <code>collapse</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>visible</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `visible`
-  - : Dieser Wert gibt an, dass das Element dargestellt wird.
-- `hidden`
-  - : Dieser Wert gibt an, dass das Element nicht dargestellt wird. Es ist zwar weiterhin Teil des Renderbaums, d.h. es kann je nach Attribut {{SVGAttr("pointer-events")}} Ereignisse empfangen, kann je nach Attribut {{SVGAttr("tabindex")}} den Fokus erhalten, trägt zu Berechnungen des Begrenzungsrahmens und der Pfadbeschneidung bei und beeinflusst das Textlayout.
-- `collapse`
-  - : Dieser Wert entspricht `hidden`.
 
 ## Beispiele
 
@@ -98,7 +70,7 @@ svg {
 
 ### Beispiel 2
 
-Das folgende Beispiel schaltet die CSS-`visibility` des SVG-Bildpfads um.
+Das folgende Beispiel schaltet die CSS-Eigenschaft `visibility` des SVG-Bildpfads um.
 
 #### HTML
 
@@ -155,6 +127,34 @@ button.addEventListener("click", (evt) => {
 
 {{EmbedLiveSample("Example 2", "100%", "80")}}
 
+## Verwendungshinweise
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code>visible</code> | <code>hidden</code> | <code>collapse</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>visible</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `visible`
+  - : Dieser Wert gibt an, dass das Element gezeichnet wird.
+- `hidden`
+  - : Dieser Wert gibt an, dass das Element nicht gezeichnet wird. Es bleibt jedoch Teil des Rendering-Baums. Das heißt, es kann abhängig vom Attribut {{SVGAttr("pointer-events")}} Pointer-Events empfangen und abhängig vom Attribut {{SVGAttr("tabindex")}} den Fokus erhalten. Außerdem fließt es in die Berechnung der Begrenzungsbox und von Clipping-Pfaden ein und beeinflusst das Textlayout.
+- `collapse`
+  - : Dieser Wert entspricht `hidden`.
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -165,5 +165,5 @@ button.addEventListener("click", (evt) => {
 
 ## Siehe auch
 
-- {{SVGAttr("display")}}-Attribut
-- CSS {{cssxref("visibility")}}-Eigenschaft
+- Attribut {{SVGAttr("display")}}
+- CSS-Eigenschaft {{cssxref("visibility")}}

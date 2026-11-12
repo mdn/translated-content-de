@@ -2,15 +2,57 @@
 title: specularExponent
 slug: Web/SVG/Reference/Attribute/specularExponent
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das Attribut **`specularExponent`** steuert den Fokus der Lichtquelle. Je größer der Wert, desto heller das Licht.
+Das Attribut **`specularExponent`** steuert die Bündelung der Lichtquelle. Je größer der Wert, desto heller ist das Licht.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feSpotLight")}}
+
+## feSpecularLighting
+
+Für {{SVGElement("feSpecularLighting")}} definiert `specularExponent` den Exponenten des spiegelnden Anteils.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("number")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>1</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## feSpotLight
+
+Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponenten, der die Bündelung der Lichtquelle steuert.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("number")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>1</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiel
 
@@ -47,52 +89,10 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## feSpecularLighting
-
-Für {{SVGElement("feSpecularLighting")}} definiert `specularExponent` den Exponentenwert für den spekulären Term.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("number")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>1</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## feSpotLight
-
-Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwert, der den Fokus der Lichtquelle steuert.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("number")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>1</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
 ## Spezifikationen
 
 {{Specifications}}
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Beleuchtungsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

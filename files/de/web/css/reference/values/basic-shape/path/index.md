@@ -3,12 +3,12 @@ title: CSS-Funktion `path()`
 short-title: path()
 slug: Web/CSS/Reference/Values/basic-shape/path
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`path()`** nimmt eine Zeichenfolge entgegen, die einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) beschreibt. Sie wird in den Modulen [CSS Shapes](/de/docs/Web/CSS/Guides/Shapes) und [CSS Motion Path](/de/docs/Web/CSS/Guides/Motion_path) verwendet, um eine Form zu zeichnen. Die Funktion `path()` liefert einen Wert des Datentyps {{cssxref("basic-shape")}}. Sie kann in den CSS-Eigenschaften {{cssxref("offset-path")}} und {{cssxref("clip-path")}} sowie im SVG-Attribut [`d`](/de/docs/Web/SVG/Reference/Attribute/d) verwendet werden.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`path()`** akzeptiert eine Zeichenfolge für einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path). Sie wird in den Modulen [CSS Shapes](/de/docs/Web/CSS/Guides/Shapes) und [CSS Motion Path](/de/docs/Web/CSS/Guides/Motion_path) verwendet, um eine Form zu zeichnen. Die Funktion `path()` liefert einen Wert des Datentyps {{cssxref("basic-shape")}}. Sie kann in den CSS-Eigenschaften {{cssxref("offset-path")}} und {{cssxref("clip-path")}} sowie im SVG-Attribut [`d`](/de/docs/Web/SVG/Reference/Attribute/d) verwendet werden.
 
-Die Verwendung von `path()` unterliegt einigen Einschränkungen. Der Pfad muss als einzelne Zeichenfolge definiert werden. Daher lässt sich mit Variablen (den [`var()`](/de/docs/Web/CSS/Reference/Values/var)-Funktionen) kein benutzerdefinierter Pfad erstellen. Außerdem werden alle Längen im Pfad implizit in [Pixeln](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`px`) angegeben; andere Einheiten können nicht verwendet werden. Die Funktion [`shape()`](/de/docs/Web/CSS/Reference/Values/basic-shape/shape) bietet mehr Flexibilität als `path()`.
+Die Verwendung der Funktion `path()` unterliegt einigen Einschränkungen. Der Pfad muss als einzelne Zeichenfolge definiert werden. Daher lässt sich ein benutzerdefinierter Pfad nicht mithilfe von Variablen ([`var()`](/de/docs/Web/CSS/Reference/Values/var)-Funktionen) erstellen. Außerdem werden alle Längen im Pfad implizit in [Pixeln](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`px`) angegeben; andere Einheiten können nicht verwendet werden. Die Funktion [`shape()`](/de/docs/Web/CSS/Reference/Values/basic-shape/shape) bietet mehr Flexibilität als `path()`.
 
 {{InteractiveExample("CSS Demo: path()")}}
 
@@ -60,19 +60,19 @@ path(evenodd,"M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80")
 
 - [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) {{optional_inline}}
   - : Legt fest, welche Bereiche des Pfads innerhalb der Form liegen. Mögliche Werte sind:
-    - `nonzero`: Ein Punkt gilt als innerhalb der Form liegend, wenn ein von ihm ausgehender Strahl mehr Pfadsegmente von links nach rechts als von rechts nach links kreuzt. Die resultierende Anzahl ist dann ungleich null. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
+    - `nonzero`: Ein Punkt gilt als innerhalb der Form liegend, wenn ein von ihm ausgehender Strahl mehr Pfadsegmente von links nach rechts als von rechts nach links schneidet. Daraus ergibt sich ein Wert ungleich null. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
 
-    - `evenodd`: Ein Punkt gilt als innerhalb der Form liegend, wenn ein von ihm ausgehender Strahl eine ungerade Anzahl von Pfadsegmenten kreuzt. Der Strahl ist dann öfter in die Form eingetreten, als er sie verlassen hat.
+    - `evenodd`: Ein Punkt gilt als innerhalb der Form liegend, wenn ein von ihm ausgehender Strahl eine ungerade Anzahl von Pfadsegmenten schneidet. Das bedeutet, dass der Strahl häufiger in die Form eingetreten ist, als er sie verlassen hat.
 
     > [!WARNING]
-    > `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt. Seine Verwendung macht die Eigenschaft ungültig.
+    > `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt. Seine Verwendung macht den Eigenschaftswert ungültig.
 
 - {{cssxref("string")}}
-  - : Eine in Anführungszeichen eingeschlossene [Datenzeichenfolge](/de/docs/Web/SVG/Reference/Attribute/d), die einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) definiert. Sie enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixeleinheiten verwenden. Ein leerer Pfad ist ungültig.
+  - : Eine in Anführungszeichen eingeschlossene [Datenzeichenfolge](/de/docs/Web/SVG/Reference/Attribute/d), die einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) definiert. Die SVG-Pfaddatenzeichenfolge enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixeleinheiten verwenden. Ein leerer Pfad ist ungültig.
 
 ### Rückgabewert
 
-Gibt einen Wert des Typs {{cssxref("basic-shape")}} zurück.
+Gibt einen {{cssxref("basic-shape")}}-Wert zurück.
 
 ## Formale Syntax
 
@@ -80,9 +80,9 @@ Gibt einen Wert des Typs {{cssxref("basic-shape")}} zurück.
 
 ## Beispiele
 
-### Eine `path()`-Funktion als Wert für `offset-path` verwenden
+### Eine `path()`-Funktion als `offset-path`-Wert verwenden
 
-Im folgenden Beispiel wird eine `path()`-Funktion als Wert für {{cssxref("offset-path")}} angegeben. Sie erstellt einen elliptischen Pfad, entlang dessen sich ein Ball bewegt.
+Im folgenden Beispiel wird eine `path()`-Funktion als Wert für {{cssxref("offset-path")}} verwendet, um einen elliptischen Pfad zu erstellen, entlang dessen sich ein Ball bewegt.
 
 ```html
 <div id="path">
@@ -137,9 +137,17 @@ btn.addEventListener("click", () => {
 
 ### Den Wert des SVG-Pfad-Attributs d ändern
 
-Mit `path()` lässt sich der Wert des SVG-[Attributs `d`](/de/docs/Web/SVG/Reference/Attribute/d) ändern. In CSS kann dafür auch `none` festgelegt werden.
+Mit `path()` lässt sich der Wert des SVG-[Attributs `d`](/de/docs/Web/SVG/Reference/Attribute/d) ändern. In CSS kann dieser Wert auch auf `none` gesetzt werden.
 
-Wenn `d` als CSS-Eigenschaft unterstützt wird, wird das „V“-Symbol beim Bewegen des Mauszeigers darüber vertikal gespiegelt.
+Wenn `d` als CSS-Eigenschaft unterstützt wird, wird das „V“-Symbol vertikal gespiegelt, sobald Sie den Mauszeiger darüber bewegen.
+
+#### HTML
+
+```html
+<svg id="svg_css_ex1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path fill="none" stroke="red" d="M20,20 L50,80 L80,20" />
+</svg>
+```
 
 #### CSS
 
@@ -154,14 +162,6 @@ svg {
 #svg_css_ex1:hover path {
   d: path("M20,80 L50,20 L80,80");
 }
-```
-
-#### HTML
-
-```html
-<svg id="svg_css_ex1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <path fill="none" stroke="red" d="M20,20 L50,80 L80,20" />
-</svg>
 ```
 
 #### Ergebnis

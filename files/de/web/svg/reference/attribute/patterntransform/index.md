@@ -2,14 +2,46 @@
 title: patternTransform
 slug: Web/SVG/Reference/Attribute/patternTransform
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`patternTransform`**-Attribut definiert eine Liste von [Transformationsdefinitionen](/de/docs/Web/SVG/Reference/Attribute/transform#transform_functions), die auf ein Musterkachel angewendet werden.
+Das Attribut **`patternTransform`** definiert eine Liste von [Transformationen](/de/docs/Web/SVG/Reference/Attribute/transform#transform_functions), die auf eine Musterkachel angewendet werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('pattern')}}
+
+## Elemente
+
+Sie können dieses Attribut mit den SVG-Elementen verwenden, die in den folgenden Abschnitten beschrieben werden.
+
+### `<pattern>`
+
+Für {{SVGElement('pattern')}} definiert `patternTransform` eine Liste von [Transformationen](/de/docs/Web/SVG/Reference/Attribute/transform#transform_functions), die auf eine Musterkachel angewendet werden.
+
+> [!NOTE]
+> Seit SVG2 kann auch die CSS-Eigenschaft {{ cssxref('transform') }} verwendet werden. Allerdings ist der aktuelle Stand der Implementierung nicht besonders gut. Aus Gründen der Abwärtskompatibilität wird dringend empfohlen, weiterhin das Attribut `patternTransform` zu verwenden.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <a href="/de/docs/Web/SVG/Reference/Attribute/transform#transform_functions"
+          >&#x3C;transform-list></a
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>Identitätstransformation</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiele
 
@@ -41,42 +73,6 @@ svg {
 
 {{EmbedLiveSample("Examples", '100%', 300)}}
 
-## Elemente
-
-Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
-
-### `<pattern>`
-
-Für {{SVGElement('pattern')}} definiert `patternTransform` eine Liste von [Transformationsdefinitionen](/de/docs/Web/SVG/Reference/Attribute/transform#transform_functions), die auf ein Musterkachel angewendet werden.
-
-> [!NOTE]
-> Ab SVG2 ist es auch erlaubt, die CSS-Eigenschaft {{ cssxref('transform') }} zu verwenden. Der aktuelle Stand der Implementierung ist jedoch nicht sehr gut. Aus Gründen der Abwärtskompatibilität wird dringend empfohlen, weiterhin das `patternTransform`-Attribut zu verwenden.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <a href="/de/docs/Web/SVG/Reference/Attribute/transform#transform_functions"
-          >&#x3C;transform-list></a
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>Identitätstransformation</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### Transformationsfunktionen
-
-Um mehr über die Definition von Transformationsfunktionen zu erfahren, lesen Sie die Definition des {{ SVGAttr("transform") }}-Attributs.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -84,3 +80,7 @@ Um mehr über die Definition von Transformationsfunktionen zu erfahren, lesen Si
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- {{ SVGAttr("transform") }}

@@ -2,42 +2,14 @@
 title: xChannelSelector
 slug: Web/SVG/Reference/Attribute/xChannelSelector
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`xChannelSelector`**-Attribut gibt an, welcher Farbkanal von {{SVGAttr("in2")}} verwendet werden soll, um die Pixel in {{SVGAttr("in")}} entlang der x-Achse zu verschieben.
+Das Attribut **`xChannelSelector`** gibt an, welcher Farbkanal aus {{SVGAttr("in2")}} verwendet wird, um die Pixel in {{SVGAttr("in")}} entlang der x-Achse zu verschieben.
 
 ## Elemente
 
-Sie können dieses Attribut mit dem {{SVGElement("feDisplacementMap")}} SVG-Element verwenden.
-
-## Verwendungshinweise
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>R</code> | <code>G</code> | <code>B</code> | <code>A</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>A</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `R`
-  - : Dieses Schlüsselwort gibt an, dass der rote Farbkanal des im {{SVGAttr("in2")}} definierten Eingabebildes verwendet wird, um die Pixel des im {{SVGAttr("in")}} definierten Eingabebildes entlang der x-Achse zu verschieben.
-- `G`
-  - : Dieses Schlüsselwort gibt an, dass der grüne Farbkanal des im {{SVGAttr("in2")}} definierten Eingabebildes verwendet wird, um die Pixel des im {{SVGAttr("in")}} definierten Eingabebildes entlang der x-Achse zu verschieben.
-- `B`
-  - : Dieses Schlüsselwort gibt an, dass der blaue Farbkanal des im {{SVGAttr("in2")}} definierten Eingabebildes verwendet wird, um die Pixel des im {{SVGAttr("in")}} definierten Eingabebildes entlang der x-Achse zu verschieben.
-- `A`
-  - : Dieses Schlüsselwort gibt an, dass der Alphakanal des im {{SVGAttr("in2")}} definierten Eingabebildes verwendet wird, um die Pixel des im {{SVGAttr("in")}} definierten Eingabebildes entlang der x-Achse zu verschieben.
+Sie können dieses Attribut mit dem SVG-Element {{SVGElement("feDisplacementMap")}} verwenden.
 
 ## Beispiele
 
@@ -90,6 +62,34 @@ svg {
 ```
 
 {{EmbedLiveSample("Examples", "480", "200")}}
+
+## Hinweise zur Verwendung
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>R</code> | <code>G</code> | <code>B</code> | <code>A</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>A</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `R`
+  - : Dieses Schlüsselwort legt fest, dass der rote Farbkanal des durch {{SVGAttr("in2")}} definierten Eingabebilds verwendet wird, um die Pixel des durch {{SVGAttr("in")}} definierten Eingabebilds entlang der x-Achse zu verschieben.
+- `G`
+  - : Dieses Schlüsselwort legt fest, dass der grüne Farbkanal des durch {{SVGAttr("in2")}} definierten Eingabebilds verwendet wird, um die Pixel des durch {{SVGAttr("in")}} definierten Eingabebilds entlang der x-Achse zu verschieben.
+- `B`
+  - : Dieses Schlüsselwort legt fest, dass der blaue Farbkanal des durch {{SVGAttr("in2")}} definierten Eingabebilds verwendet wird, um die Pixel des durch {{SVGAttr("in")}} definierten Eingabebilds entlang der x-Achse zu verschieben.
+- `A`
+  - : Dieses Schlüsselwort legt fest, dass der Alphakanal des durch {{SVGAttr("in2")}} definierten Eingabebilds verwendet wird, um die Pixel des durch {{SVGAttr("in")}} definierten Eingabebilds entlang der x-Achse zu verschieben.
 
 ## Spezifikationen
 

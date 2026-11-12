@@ -2,10 +2,10 @@
 title: cy
 slug: Web/SVG/Reference/Attribute/cy
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`cy`**-Attribut definiert die Koordinate der y-Achse eines Mittelpunktes.
+Das Attribut **`cy`** definiert die y-Koordinate eines Mittelpunkts.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -16,7 +16,80 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 > [!NOTE]
 > Als _Geometrieeigenschaft_ kann {{cssxref("cy")}} auch als CSS-Eigenschaft für `<circle>` und `<ellipse>` verwendet werden.
 
-## Beispiel
+## circle
+
+Für {{SVGElement('circle')}} definiert `cy` die y-Koordinate des Mittelpunkts der Form.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("length-percentage")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+> [!NOTE]
+> Die y-Koordinate des Mittelpunkts von `<circle>` kann auch mit der _Geometrieeigenschaft_ {{cssxref("cy")}} definiert werden. Wird die CSS-Eigenschaft `cy` festgelegt, hat ihr Wert Vorrang vor dem Wert des Attributs `cy`.
+
+## ellipse
+
+Für {{SVGElement('ellipse')}} definiert `cy` die y-Koordinate des Mittelpunkts der Form.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("length-percentage")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+> [!NOTE]
+> Die y-Koordinate des Mittelpunkts von `<ellipse>` kann auch mit der _Geometrieeigenschaft_ {{cssxref("cy")}} definiert werden. Wird die CSS-Eigenschaft `cy` festgelegt, hat ihr Wert Vorrang vor dem Wert des Attributs `cy`.
+
+## radialGradient
+
+Für {{SVGElement('radialGradient')}} definiert `cy` die y-Koordinate des Endkreises des radialen Farbverlaufs.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong><a href="/de/docs/Web/SVG/Guides/Content_type#length">&#x3C;length></a></strong>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>50%</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## Beispiele
+
+### Verwendung mit verschiedenen Elementen
 
 ```css hidden
 html,
@@ -39,80 +112,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 300)}}
+{{EmbedLiveSample("Usage with various elements", '100%', 300)}}
 
-## Kreis
-
-Für {{SVGElement('circle')}} definiert `cy` die y-Achsen-Koordinate des Mittelpunktes der Form.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("length-percentage")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>0</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-> [!NOTE]
-> Die y-Achsen-Koordinate des Mittelpunktes des `<circle>` kann auch mit der {{cssxref("cy")}} _Geometrieeigenschaft_ definiert werden. Wenn es in CSS gesetzt ist, überschreibt der Wert der `cy`-Eigenschaft den Wert des `cy`-Attributs.
-
-## Ellipse
-
-Für {{SVGElement('ellipse')}} definiert `cy` die y-Achsen-Koordinate des Mittelpunktes der Form.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("length-percentage")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>0</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-> [!NOTE]
-> Die y-Achsen-Koordinate des Mittelpunktes der `<ellipse>` kann auch mit der {{cssxref("cy")}} _Geometrieeigenschaft_ definiert werden. Wenn es in CSS gesetzt ist, überschreibt der Wert der `cy`-Eigenschaft den Wert des `cy`-Attributs.
-
-## RadialGradient
-
-Für {{SVGElement('radialGradient')}} definiert `cy` die y-Achsen-Koordinate des Endkreises für den radialen Verlauf.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong><a href="/de/docs/Web/SVG/Guides/Content_type#length">&#x3C;length></a></strong>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>50%</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-### Beispiel
+### Verwendung mit radialGradient
 
 ```css hidden
 html,
@@ -168,7 +170,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample('radialGradient', 150, '100%')}}
+{{EmbedLiveSample('Usage with radialGradient', 150, '100%')}}
 
 ## Spezifikationen
 

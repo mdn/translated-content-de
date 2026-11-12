@@ -3,10 +3,10 @@ title: "`-webkit-text-stroke-width` CSS property"
 short-title: -webkit-text-stroke-width
 slug: Web/CSS/Reference/Properties/-webkit-text-stroke-width
 l10n:
-  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-webkit-text-stroke-width`** legt die Breite der Kontur für Text fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-webkit-text-stroke-width`** legt die Breite der Kontur von Text fest.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-webkit-text-stroke-width`** legt die
 
 ### Werte
 
-Diese Eigenschaft wird als folgender Wert angegeben:
+Diese Eigenschaft wird durch den folgenden Wert angegeben:
 
 - `<line-width>`
   - : Die Breite der Kontur.
@@ -47,7 +47,15 @@ Diese Eigenschaft wird als folgender Wert angegeben:
 
 ## Beispiele
 
-### Variierende Konturbreiten
+### Unterschiedliche Konturbreiten
+
+#### HTML
+
+```html
+<p id="thin">Thin stroke</p>
+<p id="medium">Medium stroke</p>
+<p id="thick">Thick stroke</p>
+```
 
 #### CSS
 
@@ -71,14 +79,6 @@ p {
 }
 ```
 
-#### HTML
-
-```html
-<p id="thin">Thin stroke</p>
-<p id="medium">Medium stroke</p>
-<p id="thick">Thick stroke</p>
-```
-
 #### Ergebnisse
 
 {{EmbedLiveSample("Varying_stroke_widths", "450px", "230px")}}
@@ -94,7 +94,7 @@ p {
 ## Siehe auch
 
 - [Einführung in Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks-Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [CSS-Tricks-Artikel zur Erläuterung dieser Funktion](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke")}}
 - {{cssxref("-webkit-text-fill-color")}}

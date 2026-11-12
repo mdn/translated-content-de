@@ -2,14 +2,14 @@
 title: slope
 slug: Web/SVG/Reference/Attribute/slope
 l10n:
-  sourceCommit: 8d0c8728f49f2a0577ca17910f2149d6dd36b37e
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie z.B. Helligkeit.
+Das Attribut **`slope`** definiert Werte für lineare Filter, beispielsweise für die Helligkeit.
 
-Das `slope`-Attribut wird von untergeordneten Elementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt, einschließlich der `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
+Das Attribut `slope` wird von untergeordneten Elementen der Filterprimitive {{SVGElement("feComponentTransfer")}} unterstützt, darunter die `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
 
-Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionselementen verwenden, wenn `type="linear"` gesetzt ist:
+Sie können dieses Attribut mit den folgenden SVG-Elementen für Komponenten-Transferfunktionen verwenden, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncR")}}
 - {{SVGElement("feFuncG")}}
@@ -17,39 +17,11 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionse
 - {{SVGElement("feFuncA")}}
 
 > [!NOTE]
-> Ursprünglich wurde das `slope`-Attribut innerhalb von `<font-face>` verwendet, um den vertikalen Strichwinkel einer Schriftart anzugeben. Diese Anwendungsfall ist veraltet.
-
-## Verwendungshinweise
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number"
-            >&#x3C;number></a
-          ></code
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>1</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `<number>`
-  - : Dieser Wert gibt die Steigung der linearen Komponenten-Transferfunktionen an.
+> Ursprünglich wurde das Attribut `slope` innerhalb von `<font-face>` verwendet, um den Winkel der vertikalen Striche einer Schriftart anzugeben. Diese Verwendung ist veraltet.
 
 ## Beispiele
 
-In diesem Beispiel hat ein Verlaufsrechteck zwei Textelemente, auf die lineare Filter angewendet sind. Die Steigungen der Filtertransferfunktionen jedes Filters unterscheiden sich.
+In diesem Beispiel werden auf zwei Textelemente in einem Feld mit Farbverlauf lineare Filter angewendet. Die Steigungen der Transferfunktionen der beiden Filter unterscheiden sich.
 
 ```html
 <svg
@@ -113,6 +85,34 @@ In diesem Beispiel hat ein Verlaufsrechteck zwei Textelemente, auf die lineare F
 ```
 
 {{EmbedLiveSample('Examples', 300, 200)}}
+
+## Verwendungshinweise
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number"
+            >&#x3C;number></a
+          ></code
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>1</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `<number>`
+  - : Dieser Wert gibt die Steigung der linearen Komponenten-Transferfunktionen an.
 
 ## Spezifikationen
 

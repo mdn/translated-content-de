@@ -3,21 +3,21 @@ title: "`scrollbar-width` CSS property"
 short-title: scrollbar-width
 slug: Web/CSS/Reference/Properties/scrollbar-width
 l10n:
-  sourceCommit: 2e2dfb27a085911dd64aa4798d4a1071660c2397
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die **`scrollbar-width`**-Eigenschaft ermöglicht es dem Autor, die gewünschte Dicke der Scrollleisten eines Elements festzulegen, wenn diese angezeigt werden.
+Mit der Eigenschaft **`scrollbar-width`** können Autoren die gewünschte Breite der Scrollleisten eines Elements festlegen, wenn diese angezeigt werden.
 
-Der Zweck der `scrollbar-width`-Eigenschaft besteht darin, den Platz zu optimieren, den die Scrollleiste auf einer Seite oder einem Element einnimmt; der Zweck ist nicht ästhetischer Natur. Die vordefinierten Schlüsselwortwerte von `scrollbar-width` geben dem Benutzeragenten an, ob eine normale oder kleinere Scrollleiste gerendert werden soll. Vermeiden Sie die Verwendung von `none`, da das Ausblenden einer Scrollleiste die [Zugänglichkeit](#zugänglichkeit) beeinträchtigt.
-
-> [!NOTE]
-> Für Elemente, die nur programmatisch und nicht durch direkte Benutzerinteraktion scrollbar sind, verwenden Sie die {{cssxref("overflow")}}-Eigenschaft mit einem Wert von `hidden` anstelle von `scrollbar-width: none`.
+`scrollbar-width` dient dazu, den Platzbedarf der Scrollleiste auf einer Seite oder in einem Element zu optimieren, nicht dazu, ihr Aussehen zu gestalten. Die vordefinierten Schlüsselwortwerte von `scrollbar-width` geben dem User Agent vor, ob eine normale oder eine schmalere Scrollleiste dargestellt werden soll. Vermeiden Sie `none`, da das Ausblenden einer Scrollleiste die [Barrierefreiheit](#barrierefreiheit) beeinträchtigt.
 
 > [!NOTE]
-> Browser ignorieren die nicht-standardmäßige {{cssxref("::-webkit-scrollbar")}}-Familie von Pseudoelementen bei jedem Element, dessen _berechneter_ `scrollbar-width`-Wert etwas anderes als `auto` ist.
-> Im Gegensatz zu {{cssxref("scrollbar-color")}} wird `scrollbar-width` nicht vererbt, sodass der Wert eines Vorfahren seine Nachkommen nicht beeinflusst.
-> Wenn Sie `scrollbar-width: auto` auf ein Element setzen, wird dessen `::-webkit-scrollbar-*`-Stil wiederhergestellt.
-> Siehe [Hinzufügen eines Fallbacks für Scrollleistenstile](/de/docs/Web/CSS/Reference/Selectors/::-webkit-scrollbar#adding_a_fallback_for_scrollbar_styles).
+> Verwenden Sie für Elemente, die nur programmgesteuert und nicht durch direkte Benutzerinteraktion gescrollt werden können, die Eigenschaft {{cssxref("overflow")}} mit dem Wert `hidden` statt `scrollbar-width: none`.
+
+> [!NOTE]
+> Browser ignorieren die nicht standardisierte Pseudoelement-Familie {{cssxref("::-webkit-scrollbar")}} bei jedem Element, dessen _berechneter_ `scrollbar-width`-Wert nicht `auto` ist.
+> Anders als {{cssxref("scrollbar-color")}} wird `scrollbar-width` nicht vererbt; der Wert eines Vorfahren wirkt sich daher nicht auf seine Nachfahren aus.
+> Wenn Sie für ein Element `scrollbar-width: auto` festlegen, wird dessen `::-webkit-scrollbar-*`-Styling wiederhergestellt.
+> Siehe [Fallback für Scrollleisten-Stile hinzufügen](/de/docs/Web/CSS/Reference/Selectors/::-webkit-scrollbar#adding_a_fallback_for_scrollbar_styles).
 
 ## Syntax
 
@@ -38,25 +38,25 @@ scrollbar-width: unset;
 ### Werte
 
 - `auto`
-  - : Die Standardbreite der Scrollleiste für die Plattform.
+  - : Die standardmäßige Scrollleistenbreite der Plattform.
 - `thin`
-  - : Eine dünne Scrollleistenvariante auf Plattformen, die diese Option bieten, oder eine dünnere Scrollleiste als die Standardplattform-Scrollleistenbreite.
+  - : Eine schmale Variante der Scrollleistenbreite auf Plattformen, die diese Option anbieten, oder eine Scrollleiste, die schmaler ist als die standardmäßige Scrollleiste der Plattform.
 - `none`
-  - : Keine Scrollleiste wird angezeigt, jedoch bleibt das Element scrollbar.
+  - : Es wird keine Scrollleiste angezeigt; das Element bleibt jedoch scrollbar.
 
 > [!NOTE]
-> Benutzeragenten müssen jeden `scrollbar-width`-Wert anwenden, der auf das Wurzelelement gesetzt ist, auf den Viewport.
+> User Agents müssen jeden auf dem Wurzelelement festgelegten `scrollbar-width`-Wert auf den Viewport anwenden.
 
-## Zugänglichkeit
+## Barrierefreiheit
 
-Verwenden Sie diese Eigenschaft mit Vorsicht – das Setzen von `scrollbar-width` auf `thin` oder `none` kann es schwierig oder unmöglich machen, Inhalte zu scrollen, wenn der Autor keinen alternativen Scrollmechanismus bereitstellt. Während Wischgesten oder Mausräder das Scrollen solcher Inhalte ermöglichen können, haben einige Geräte keine alternative Scrollmöglichkeit.
+Verwenden Sie diese Eigenschaft mit Vorsicht: Wenn `scrollbar-width` auf `thin` oder `none` gesetzt wird, können Inhalte schwer oder gar nicht scrollbar sein, sofern kein alternativer Scrollmechanismus bereitgestellt wird. Wischgesten oder Mausräder können das Scrollen solcher Inhalte ermöglichen, doch auf manchen Geräten gibt es keine alternative Möglichkeit zum Scrollen.
 
-Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um die grundlegende Tastaturzugänglichkeit zu fördern, und dies sollte auch das Scrollen von Inhaltsbereichen umfassen. Mit der Einführung von WCAG 2.1 rät das Kriterium 2.5.5 (Zielgröße), dass Touch-Ziele mindestens 44px in Breite und Höhe haben sollten (obwohl das Problem bei hochauflösenden Bildschirmen verstärkt wird; umfassende Tests werden empfohlen).
+Das WCAG-Kriterium 2.1.1 (Tastatur) enthält seit Langem Anforderungen an die grundlegende Zugänglichkeit per Tastatur. Dazu sollte auch das Scrollen von Inhaltsbereichen gehören. Das mit WCAG 2.1 eingeführte Kriterium 2.5.5 (Zielgröße) empfiehlt, dass Touch-Ziele mindestens 44px breit und hoch sein sollten. Auf hochauflösenden Bildschirmen verschärft sich das Problem; gründliches Testen ist daher ratsam.
 
-- [MDN Verständnis von WCAG, Leitfaden 2.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.1_—_keyboard_accessible_make_all_functionality_available_from_a_keyboard)
-- [MDN Verständnis von WCAG, Leitfaden 2.5 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.5_input_modalities_make_it_easier_for_users_to_operate_functionality_through_various_inputs_beyond_keyboard)
-- [Verständnis des Erfolgskriteriums 2.1.1 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
-- [Verständnis des Erfolgskriteriums 2.5.5 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
+- [MDN: WCAG verstehen – Erläuterungen zu Richtlinie 2.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.1_—_keyboard_accessible_make_all_functionality_available_from_a_keyboard)
+- [MDN: WCAG verstehen – Erläuterungen zu Richtlinie 2.5](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.5_input_modalities_make_it_easier_for_users_to_operate_functionality_through_various_inputs_beyond_keyboard)
+- [Erfolgskriterium 2.1.1 verstehen | W3C: WCAG 2.1 verstehen](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
+- [Erfolgskriterium 2.5.5 verstehen | W3C: WCAG 2.1 verstehen](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
 
 ## Formale Definition
 
@@ -68,18 +68,7 @@ Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um die grundlegen
 
 ## Beispiele
 
-### Größenanpassung von Überlauf-Scrollleisten
-
-#### CSS
-
-```css
-.scroller {
-  width: 300px;
-  height: 100px;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-}
-```
+### Breite von Scrollleisten bei überlaufendem Inhalt festlegen
 
 #### HTML
 
@@ -91,6 +80,17 @@ Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um die grundlegen
   fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber
   earthnut pea peanut soko zucchini.
 </div>
+```
+
+#### CSS
+
+```css
+.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
 ```
 
 #### Ergebnis
@@ -107,8 +107,8 @@ Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um die grundlegen
 
 ## Siehe auch
 
-- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS Scrollleisten-Styling](/de/docs/Web/CSS/Guides/Scrollbars_styling) Modul
+- Modul [CSS overflow](/de/docs/Web/CSS/Guides/Overflow)
+- Modul [CSS scrollbars styling](/de/docs/Web/CSS/Guides/Scrollbars_styling)
 - {{CSSxRef("overflow")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("scrollbar-color")}}

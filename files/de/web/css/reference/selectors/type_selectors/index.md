@@ -1,11 +1,11 @@
 ---
-title: Typ-Selektoren
+title: Typselektoren
 slug: Web/CSS/Reference/Selectors/Type_selectors
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Der CSS **Typ-Selektor** wählt Elemente anhand des Knotennamens aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS-**Typselektor** wählt Elemente anhand ihres Knotennamens aus. Mit anderen Worten: Er wählt alle Elemente eines bestimmten Typs innerhalb eines Dokuments aus.
 
 ```css
 /* All <a> elements. */
@@ -14,11 +14,11 @@ a {
 }
 ```
 
-Typ-Selektoren können mit Namespaces versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces wie HTML mit eingebettetem SVG oder MathML enthalten, oder XML, das mehrere Vokabulare mischt.
+Typselektoren können bei Verwendung von {{CSSXref("@namespace")}} mit einem Namensraum versehen werden. Das ist nützlich bei Dokumenten mit mehreren Namensräumen, etwa HTML mit eingebettetem SVG oder MathML, oder bei XML, das mehrere Vokabulare kombiniert.
 
-- `ns|h1` - wählt `<h1>`-Elemente im Namespace _ns_
-- `*|h1` - wählt alle `<h1>`-Elemente
-- `|h1` - wählt alle `<h1>`-Elemente ohne einen deklarierten Namespace
+- `ns|h1` – wählt `<h1>`-Elemente im Namensraum _ns_ aus
+- `*|h1` – wählt alle `<h1>`-Elemente aus
+- `|h1` – wählt alle `<h1>`-Elemente ohne deklarierten Namensraum aus
 
 ## Syntax
 
@@ -28,14 +28,6 @@ element { style properties }
 
 ## Beispiele
 
-### CSS
-
-```css
-span {
-  background-color: skyblue;
-}
-```
-
 ### HTML
 
 ```html
@@ -44,13 +36,21 @@ span {
 <span>Here's a span with more text.</span>
 ```
 
+### CSS
+
+```css
+span {
+  background-color: skyblue;
+}
+```
+
 ### Ergebnis
 
 {{EmbedLiveSample('Examples', '100%', 150)}}
 
-### Namespaces
+### Namensräume
 
-In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace auswählen.
+In diesem Beispiel wählt der Selektor nur `<h1>`-Elemente im Beispielnamensraum aus.
 
 ```css
 @namespace example url("http://www.example.com/");

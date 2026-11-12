@@ -2,10 +2,10 @@
 title: Namespace-Trennzeichen
 slug: Web/CSS/Reference/Selectors/Namespace_separator
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Das **Namespace-Trennzeichen** (`|`) trennt den Selektor vom Namespace und identifiziert den {{Glossary("namespace", "Namespace")}} oder dessen Fehlen für einen Typselektor.
+Das **Namespace-Trennzeichen** (`|`) trennt den Selektor vom Namespace. Es kennzeichnet den {{Glossary("namespace", "Namespace")}} eines Typselektors oder zeigt an, dass kein Namespace vorhanden ist.
 
 ```css
 /* Links in the namespace named myNameSpace */
@@ -22,11 +22,11 @@ myNameSpace|a {
 }
 ```
 
-[Typselektoren](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und der [Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) ermöglichen eine optionale Namespace-Komponente. Wenn ein Namespace zuvor über {{CSSXref("@namespace")}} deklariert wurde, können diese Selektoren durch Voranstellen des Namens des Namespaces, getrennt durch das Namespace-Trennzeichen (`|`), namespaced werden. Dies ist nützlich bei Dokumenten, die mehrere Namespaces enthalten, wie z.B. HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+[Typselektoren](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und der [Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) können optional einen Namespace enthalten. Wenn ein Namespace zuvor mit {{CSSXref("@namespace")}} deklariert wurde, können Sie diesen Selektoren den Namen des Namespace voranstellen, getrennt durch das Namespace-Trennzeichen (`|`). Das ist nützlich für Dokumente mit mehreren Namespaces, etwa HTML mit eingebettetem SVG oder MathML oder XML, das mehrere Vokabulare kombiniert.
 
-- `ns|h1` - passt auf `<h1>`-Elemente im Namespace `ns`
-- `*|h1` - passt auf alle `<h1>`-Elemente
-- `|h1` - passt auf alle `<h1>`-Elemente außerhalb eines deklarierten oder implizierten Namespaces
+- `ns|h1` – trifft auf `<h1>`-Elemente im Namespace `ns` zu
+- `*|h1` – trifft auf alle `<h1>`-Elemente zu
+- `|h1` – trifft auf alle `<h1>`-Elemente außerhalb aller deklarierten oder impliziten Namespaces zu
 
 ## Syntax
 
@@ -36,15 +36,15 @@ namespace|element { style properties }
 
 ## Beispiele
 
-Standardmäßig haben alle Elemente in einem HTML- oder SVG-Element einen Namespace, da der `http://www.w3.org/1999/xhtml` und `http://www.w3.org/2000/svg` Namespace impliziert sind. Die Methode [`document.createElementNS`](/de/docs/Web/API/Document/createElementNS) kann verwendet werden, um Elemente ohne Namespace zu erstellen, indem ein leerer String für den Namespace-Parameter verwendet wird.
+Standardmäßig haben alle HTML- und SVG-Elemente einen Namespace: Für HTML ist `http://www.w3.org/1999/xhtml` implizit, für SVG `http://www.w3.org/2000/svg`. Mit der Methode [`document.createElementNS`](/de/docs/Web/API/Document/createElementNS) können Sie Elemente ohne Namespace erstellen, indem Sie für den Namespace-Parameter eine leere Zeichenfolge angeben.
 
-### Beispiel eines benannten Namespaces
+### Beispiel mit benannten Namespaces
 
 In diesem Beispiel befinden sich alle Elemente in einem Namespace.
 
 #### HTML
 
-In dem HTML oder innerhalb des SVG werden keine Namespaces explizit deklariert.
+Weder im HTML noch innerhalb des SVG werden Namespaces ausdrücklich deklariert.
 
 ```html
 <p>This paragraph <a href="#">has a link</a>.</p>
@@ -58,7 +58,7 @@ In dem HTML oder innerhalb des SVG werden keine Namespaces explizit deklariert.
 
 #### CSS
 
-Das CSS deklariert zwei Namespaces, dann werden Stile global auf Links angewendet (`a`), auf Links ohne Namespace (`|a`), auf Links in einem beliebigen oder keinem Namespace (`*|a`), und dann auf zwei verschiedene benannte Namespaces (`svgNamespace|a` und `htmlNameSpace|a`).
+Das CSS deklariert zwei Namespaces und weist dann Links allgemein (`a`), Links ohne Namespace (`|a`), Links in einem beliebigen oder keinem Namespace (`*|a`) sowie Links in zwei verschiedenen benannten Namespaces (`svgNamespace|a` und `htmlNameSpace|a`) Stile zu.
 
 ```css
 @namespace svgNamespace url("http://www.w3.org/2000/svg");
@@ -93,18 +93,18 @@ htmlNameSpace|a {
 
 {{EmbedLiveSample("Named_namespace_example", "100%", 100)}}
 
-Der Selektor `|a`, ein Link ohne Namespace, passt auf keine Links. Im HTML bedeutet `http://www.w3.org/1999/xhtml`, dass das gesamte HTML in einem Namespace liegt, auch wenn keiner explizit deklariert ist. Im SVG, selbst wenn nicht explizit festgelegt, ist der `http://www.w3.org/2000/svg` Namespace ebenfalls impliziert. Das bedeutet, dass der gesamte Inhalt in mindestens einem Namespace ist.
+Der Selektor `|a` für Links ohne Namespace trifft auf keinen Link zu. In HTML ist `http://www.w3.org/1999/xhtml` implizit. Daher befinden sich alle HTML-Elemente in einem Namespace, auch wenn keiner ausdrücklich deklariert wurde. Für SVG ist entsprechend `http://www.w3.org/2000/svg` implizit, selbst wenn dieser Namespace nicht ausdrücklich festgelegt wurde. Somit befindet sich der gesamte Inhalt in einem Namespace.
 
-### Standard- und kein Namespace
+### Standard-Namespace und kein Namespace
 
-In diesem Beispiel verwenden wir JavaScript, um ein Element ohne Namespace zu erstellen und es dem Dokument hinzuzufügen. Wir setzen den SVG-Namespace als Standard-Namespace, indem wir den unbenannten Namespace mit `@namespace` definieren.
+In diesem Beispiel erstellen wir mit JavaScript ein Element ohne Namespace und fügen es dem Dokument hinzu. Mit `@namespace` definieren wir einen unbenannten Namespace und legen so den SVG-Namespace als Standard-Namespace fest.
 
 > [!NOTE]
-> Wenn ein Standard-, oder unbenannter, Namespace definiert ist, gelten Universalselektoren und Typselektoren nur für Elemente in diesem Namespace.
+> Wenn ein Standard-Namespace, also ein unbenannter Namespace, definiert ist, gelten Universal- und Typselektoren nur für Elemente in diesem Namespace.
 
 #### HTML
 
-In dem HTML oder innerhalb des SVG werden keine Namespaces explizit deklariert.
+Weder im HTML noch innerhalb des SVG werden Namespaces ausdrücklich deklariert.
 
 ```html
 <p><a href="#">A link</a> in the implied HTML namespace.</p>
@@ -116,22 +116,9 @@ In dem HTML oder innerhalb des SVG werden keine Namespaces explizit deklariert.
 </svg>
 ```
 
-#### JavaScript
-
-Mit JavaScript verwenden wir [`document.createElementNS`](/de/docs/Web/API/Document/createElementNS), um einen Ankerlink ohne Namespace zu erstellen und dann den Link hinzuzufügen.
-
-```js
-// create 'no namespace' anchor
-const a = document.createElementNS("", "a");
-a.href = "#";
-a.appendChild(document.createTextNode("Link created without a namespace"));
-
-document.body.appendChild(a);
-```
-
 #### CSS
 
-Wir deklarieren einen Namespace mit {{cssxref("@namespace")}}. Durch das Weglassen des Namens für den Namespace erstellt die `@namespace`-Deklaration einen Standard-Namespace.
+Wir deklarieren mit {{cssxref("@namespace")}} einen Namespace. Da wir keinen Namen für den Namespace angeben, erzeugt die `@namespace`-Deklaration einen Standard-Namespace.
 
 ```css
 /* By omitting a name, this sets SVG as the default namespace */
@@ -162,13 +149,26 @@ p {
 }
 ```
 
+#### JavaScript
+
+Mit [`document.createElementNS`](/de/docs/Web/API/Document/createElementNS) erstellen wir in JavaScript einen Link ohne Namespace und fügen ihn anschließend hinzu.
+
+```js
+// create 'no namespace' anchor
+const a = document.createElementNS("", "a");
+a.href = "#";
+a.appendChild(document.createTextNode("Link created without a namespace"));
+
+document.body.appendChild(a);
+```
+
 #### Ergebnis
 
 {{EmbedLiveSample("Default_namespace_and_no_namespace", "100%", 100)}}
 
-Der Selektor ohne Namespace-Trennzeichen, das `a`, passte nur auf die SVG-`<a>`-Elemente, da SVG als Standard-Namespace gesetzt wurde.
+Der Selektor ohne Namespace-Trennzeichen, `a`, traf nur auf die SVG-Elemente `<a>` zu, da SVG als Standard-Namespace festgelegt wurde.
 
-Der Selektor ohne Namespace, das `|a`, passte auf das mit JavaScript definierte und angehängte `<a>`, da dieser Knoten der einzige ist, der keinen Standard-Namespace hat.
+Der Selektor ohne Namespace, `|a`, traf auf das mit JavaScript erstellte und hinzugefügte Element `<a>` zu, da dieses Element als einziges keinen Namespace hat.
 
 ## Spezifikationen
 
@@ -183,6 +183,6 @@ Der Selektor ohne Namespace, das `|a`, passte auf das mit JavaScript definierte 
 - {{cssxref("@namespace")}}
 - Methode [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS)
 - Eigenschaft [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)
-- [CSS Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors)
-- [CSS Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors)
-- [CSS Selektormodul](/de/docs/Web/CSS/Guides/Selectors)
+- [CSS-Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors)
+- [CSS-Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors)
+- [CSS-Selektoren-Modul](/de/docs/Web/CSS/Guides/Selectors)

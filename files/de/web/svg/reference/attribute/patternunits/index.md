@@ -2,14 +2,44 @@
 title: patternUnits
 slug: Web/SVG/Reference/Attribute/patternUnits
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 04a0e78cf3119afe2a99e6449f6b74976654d69d
 ---
 
-Das Attribut **`patternUnits`** gibt an, welches Koordinatensystem für die geometrischen Eigenschaften des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
+Das Attribut **`patternUnits`** gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("pattern") }}-Elements verwendet wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit dem folgenden SVG-Element verwenden:
 
 - {{SVGElement('pattern')}}
+
+## Elemente
+
+Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
+
+### `<pattern>`
+
+Für {{SVGElement('pattern')}} legt `patternUnits` das Koordinatensystem für die Geometrieeigenschaften ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `userSpaceOnUse`
+  - : Dieser Wert gibt an, dass sich alle Koordinaten der Geometrieeigenschaften auf das Benutzerkoordinatensystem beziehen, wie es zum Zeitpunkt der Anwendung des Musters definiert war.
+- `objectBoundingBox`
+  - : Dieser Wert gibt an, dass alle Koordinaten der Geometrieeigenschaften Bruchteile oder Prozentwerte des Begrenzungsrahmens des Elements darstellen, auf das das Muster angewendet wird. Der Begrenzungsrahmen kann so betrachtet werden, als wäre der Inhalt von {{ SVGElement("pattern") }} an eine {{ SVGAttr("viewBox") }} mit dem Wert `"0 0 1 1"` gebunden.
 
 ## Beispiele
 
@@ -54,36 +84,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Examples", '100%', 200)}}
-
-## Elemente
-
-Dieses Attribut kann mit den im Folgenden beschriebenen SVG-Elementen verwendet werden.
-
-### `<pattern>`
-
-Für {{SVGElement('pattern')}} definiert `patternUnits` das verwendete Koordinatensystem für die geometrischen Eigenschaften ({{ SVGAttr("x") }}, {{ SVGAttr("y") }}, {{ SVGAttr("width") }} und {{ SVGAttr("height") }}) des Elements.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `userSpaceOnUse`
-  - : Dieser Wert zeigt an, dass sich alle Koordinaten für die geometrischen Eigenschaften auf das Nutzerkoordinatensystem beziehen, wie es definiert wurde, als das Muster angewendet wurde.
-- `objectBoundingBox`
-  - : Dieser Wert zeigt an, dass alle Koordinaten für die geometrischen Eigenschaften Brüche oder Prozentsätze der Begrenzungsbox des Elements darstellen, auf das das Muster angewendet wird. Eine Begrenzungsbox könnte als dasselbe betrachtet werden, als wäre der Inhalt des {{ SVGElement("pattern") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden.
 
 ## Spezifikationen
 

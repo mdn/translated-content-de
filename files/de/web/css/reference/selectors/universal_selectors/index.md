@@ -1,11 +1,11 @@
 ---
-title: Universelle Selektoren
+title: Universalselektoren
 slug: Web/CSS/Reference/Selectors/Universal_selectors
 l10n:
-  sourceCommit: ca0d81a57fd36cf5da9621c44171d0f333f3f3e1
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Der CSS **universelle Selektor** (`*`) wählt Elemente jeden Typs aus.
+Der CSS-**Universalselektor** (`*`) erfasst Elemente jedes Typs.
 
 ```css
 /* Selects all elements */
@@ -14,17 +14,17 @@ Der CSS **universelle Selektor** (`*`) wählt Elemente jeden Typs aus.
 }
 ```
 
-Der universelle Selektor ist ein spezieller [Typ-Selektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namensräume wie HTML mit eingebettetem SVG oder MathML oder XML enthalten, das mehrere Vokabulare mischt.
+Der Universalselektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und kann daher bei Verwendung von {{CSSXref("@namespace")}} mit einem Namespace versehen werden. Das ist nützlich bei Dokumenten mit mehreren Namespaces, etwa HTML mit eingebettetem SVG oder MathML oder XML, das mehrere Vokabulare kombiniert.
 
-- `ns|*` - wählt alle Elemente im Namensraum _ns_ aus
-- `*|*` - wählt alle Elemente aus
-- `|*` - wählt alle Elemente ohne erklärten Namensraum aus
+- `ns|*` – erfasst alle Elemente im Namespace _ns_
+- `*|*` – erfasst alle Elemente
+- `|*` – erfasst alle Elemente ohne deklarierten Namespace
 
 > [!NOTE]
-> Der universelle Selektor (`*`) wählt **nur Elemente** aus.
-> Er wählt **nicht** direkt Pseudo-Elemente aus.
+> Der Universalselektor (`*`) erfasst **nur Elemente**.
+> Er erfasst für sich genommen **keine** Pseudoelemente direkt.
 >
-> Um beispielsweise alle {{cssxref("::before")}} Pseudo-Elemente auf einer Seite zu wählen, müssten Sie einen Selektor wie `*::before` verwenden. Dies funktioniert, weil das `*` alle Elemente auswählt und das `::before` Pseudo-Element auf allen Elementen verfügbar ist.
+> Um beispielsweise alle {{cssxref("::before")}}-Pseudoelemente auf einer Seite zu erfassen, müssen Sie einen Selektor wie `*::before` verwenden. Das funktioniert, weil `*` alle Elemente erfasst und das Pseudoelement `::before` für alle Elemente verfügbar ist.
 
 ## Syntax
 
@@ -32,9 +32,20 @@ Der universelle Selektor ist ein spezieller [Typ-Selektor](/de/docs/Web/CSS/Refe
 * { style properties }
 ```
 
-Das Sternchen ist bei einfachen Selektoren optional. Beispielsweise sind `*.warning` und `.warning` gleichwertig.
+Bei einfachen Selektoren ist das Sternchen optional. Beispielsweise sind `*.warning` und `.warning` gleichwertig.
 
 ## Beispiele
+
+### HTML
+
+```html
+<p class="warning">
+  <span lang="en-us">A green span</span> in a red paragraph.
+</p>
+<p id="maincontent" lang="en-gb">
+  <span class="warning">A red span</span> in a green paragraph.
+</p>
+```
 
 ### CSS
 
@@ -61,24 +72,13 @@ Das Sternchen ist bei einfachen Selektoren optional. Beispielsweise sind `*.warn
 }
 ```
 
-### HTML
-
-```html
-<p class="warning">
-  <span lang="en-us">A green span</span> in a red paragraph.
-</p>
-<p id="maincontent" lang="en-gb">
-  <span class="warning">A red span</span> in a green paragraph.
-</p>
-```
-
 ### Ergebnis
 
 {{EmbedLiveSample('Examples')}}
 
 ### Namespaces
 
-In diesem Beispiel wählt der Selektor nur Elemente im Beispiel-Namensraum aus.
+In diesem Beispiel erfasst der Selektor nur Elemente im Beispiel-Namespace.
 
 ```css
 @namespace example url("http://www.example.com/");
@@ -97,5 +97,5 @@ example|* {
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
-- [Lernen Sie CSS: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- Modul [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
+- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

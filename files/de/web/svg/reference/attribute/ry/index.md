@@ -2,15 +2,95 @@
 title: ry
 slug: Web/SVG/Reference/Attribute/ry
 l10n:
-  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`ry`**-Attribut definiert einen Radius auf der y-Achse.
+Das Attribut **`ry`** definiert einen Radius auf der y-Achse.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("ellipse")}}
 - {{SVGElement("rect")}}
+
+## ellipse
+
+Bei {{SVGElement('ellipse')}} definiert `ry` den y-Radius der Form. Ist der Wert kleiner oder gleich null, wird die Ellipse nicht gezeichnet.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
+            >&#x3C;length></a
+          ></strong
+        >
+        |
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
+            >&#x3C;percentage></a
+          ></strong
+        >
+        | <code>auto</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>auto</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+> [!NOTE]
+> Der y-Radius von `<ellipse>` kann auch mit der {{cssxref("ry")}}-_Geometrieeigenschaft_ definiert werden. Wenn die `ry`-Eigenschaft in CSS festgelegt ist, hat ihr Wert Vorrang vor dem Wert des `ry`-Attributs.
+
+## rect
+
+Bei {{SVGElement('rect')}} definiert `ry` den Radius auf der y-Achse der Ellipse, mit der die Ecken des Rechtecks abgerundet werden.
+
+Wie der Wert des `ry`-Attributs interpretiert wird, hängt sowohl vom Attribut {{SVGAttr("rx")}} als auch von der Breite des Rechtecks ab:
+
+- Wenn für `ry`, aber nicht für {{SVGAttr("rx")}} ein gültiger Wert angegeben ist (oder umgekehrt), betrachtet der Browser den fehlenden Wert als gleich dem angegebenen Wert.
+- Wenn weder `ry` noch {{SVGAttr("rx")}} einen gültigen Wert hat, zeichnet der Browser ein Rechteck mit rechtwinkligen Ecken.
+- Wenn `ry` größer als die halbe Breite des Rechtecks ist, verwendet der Browser als Wert für `ry` die halbe Breite des Rechtecks.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
+            >&#x3C;length></a
+          ></strong
+        >
+        |
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
+            >&#x3C;percentage></a
+          ></strong
+        >
+        | <code>auto</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>auto</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+> [!NOTE]
+> Die vertikale Krümmung der Ecken von `<rect>` kann auch mit der {{cssxref("ry")}}-_Geometrieeigenschaft_ definiert werden. Wenn die `ry`-Eigenschaft in CSS festgelegt ist, hat ihr Wert Vorrang vor dem Wert des `ry`-Attributs.
 
 ## Beispiel
 
@@ -36,90 +116,10 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## ellipse
-
-Für {{SVGElement('ellipse')}} definiert `ry` den y-Radius der Form. Mit einem Wert kleiner oder gleich null wird die Ellipse überhaupt nicht gezeichnet.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >
-        | <code>auto</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>auto</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-> [!NOTE]
-> Der y-Radius der `<ellipse>` kann auch mit der {{cssxref("ry")}} _Geometrieeigenschaft_ definiert werden. Wenn er in CSS gesetzt ist, überschreibt der Wert der `ry`-Eigenschaft den Wert des `ry`-Attributs.
-
-## rect
-
-Für {{SVGElement('rect')}} definiert `ry` den y-Achsen-Radius der Ellipse, die zum Abrunden der Ecken des Rechtecks verwendet wird.
-
-Die Interpretation des Wertes des `ry`-Attributs hängt sowohl vom {{SVGAttr("rx")}}-Attribut als auch von der Breite des Rechtecks ab:
-
-- Wenn ein korrekt angegebener Wert für `ry` bereitgestellt wird, aber nicht für {{SVGAttr("rx")}} (oder umgekehrt), betrachtet der Browser den fehlenden Wert als gleich dem definierten.
-- Wenn weder `ry` noch {{SVGAttr("rx")}} einen korrekt angegebenen Wert haben, zeichnet der Browser ein Rechteck mit rechteckigen Ecken.
-- Wenn `ry` größer als die Hälfte der Breite des Rechtecks ist, betrachtet der Browser den Wert von `ry` als die Hälfte der Breite des Rechtecks.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >
-        | <code>auto</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>auto</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-> [!NOTE]
-> Die vertikale Krümmung der Ecken des `<rect>` kann auch mit der {{cssxref("ry")}} _Geometrieeigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `ry`-Eigenschaft den Wert des `ry`-Attributs.
-
 ## Spezifikationen
 
 {{Specifications}}
 
 ## Siehe auch
 
-- CSS {{cssxref("ry")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("ry")}}

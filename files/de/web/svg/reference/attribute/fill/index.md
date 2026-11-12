@@ -2,13 +2,13 @@
 title: fill
 slug: Web/SVG/Reference/Attribute/fill
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das Attribut **`fill`** hat zwei unterschiedliche Bedeutungen. Bei Formen und Text ist es ein Präsentationsattribut, das die Farbe (_oder eine andere SVG-Farbquelle wie einen Farbverlauf oder ein Muster_) festlegt, mit der das Element gezeichnet wird. Bei Animationen legt es den Endzustand der Animation fest.
+Das Attribut **`fill`** hat zwei unterschiedliche Bedeutungen. Bei Formen und Text ist es ein Präsentationsattribut, das die Farbe (_oder einen beliebigen SVG-Paint-Server wie einen Farbverlauf oder ein Muster_) festlegt, mit der das Element gefüllt wird. Bei Animationen legt es den Endzustand der Animation fest.
 
 > [!NOTE]
-> Wenn `fill` als Präsentationsattribut verwendet wird, gibt es auch eine entsprechende CSS-Eigenschaft: {{cssxref("fill")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Bei Verwendung als Präsentationsattribut hat `fill` auch eine entsprechende CSS-Eigenschaft: {{cssxref("fill")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Das SVG-Präsentationsattribut `fill` und die CSS-Eigenschaft {{cssxref("fill")}} können mit den folgenden SVG-Elementen verwendet werden:
 
@@ -22,12 +22,341 @@ Das SVG-Präsentationsattribut `fill` und die CSS-Eigenschaft {{cssxref("fill")}
 - {{SVGElement('textPath')}}
 - {{SVGElement('tspan')}}
 
-Mit dem SVG-Attribut `fill` kann der Endzustand einer Animation für die folgenden SVG-Elemente festgelegt werden:
+Das SVG-Attribut `fill` kann bei den folgenden SVG-Elementen verwendet werden, um den Endzustand der Animation festzulegen:
 
 - {{SVGElement('animate')}}
 - {{SVGElement('animateMotion')}}
 - {{SVGElement('animateTransform')}}
 - {{SVGElement('set')}}.
+
+## animate
+
+Bei {{SVGElement('animate')}} legt `fill` den Endzustand der Animation fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
+        >) | <code>remove</code> (<em
+          >Zustand des ersten Animationsframes beibehalten</em
+        >)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>remove</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
+
+## animateMotion
+
+Bei {{SVGElement('animateMotion')}} legt `fill` den Endzustand der Animation fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
+        >) | <code>remove</code> (<em
+          >Zustand des ersten Animationsframes beibehalten</em
+        >)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>remove</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
+
+## animateTransform
+
+Bei {{SVGElement('animateTransform')}} legt `fill` den Endzustand der Animation fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
+        >) | <code>remove</code> (<em
+          >Zustand des ersten Animationsframes beibehalten</em
+        >)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>remove</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
+
+## circle
+
+Bei {{SVGElement('circle')}} ist `fill` ein Präsentationsattribut, das die Farbe des Kreises festlegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## ellipse
+
+Bei {{SVGElement('ellipse')}} ist `fill` ein Präsentationsattribut, das die Farbe der Ellipse festlegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## path
+
+Bei {{SVGElement('path')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form festlegt. (_Das Innere wird durch das Attribut {{SVGAttr('fill-rule')}} oder die Eigenschaft {{cssxref("fill-rule")}} definiert._)
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## polygon
+
+Bei {{SVGElement('polygon')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form festlegt. (_Das Innere wird durch das Attribut {{SVGAttr('fill-rule')}} oder die Eigenschaft {{cssxref("fill-rule")}} definiert._)
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## polyline
+
+Bei {{SVGElement('polyline')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form festlegt. (_Das Innere wird durch das Attribut {{SVGAttr('fill-rule')}} oder die Eigenschaft {{cssxref("fill-rule")}} definiert._)
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## rect
+
+Bei {{SVGElement('rect')}} ist `fill` ein Präsentationsattribut, das die Farbe des Rechtecks festlegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## set
+
+Bei {{SVGElement('set')}} legt `fill` den Endzustand der Animation fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
+        >) | <code>remove</code> (<em
+          >Zustand des ersten Animationsframes beibehalten</em
+        >)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>remove</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
+
+## text
+
+Bei {{SVGElement('text')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes festlegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## textPath
+
+Bei {{SVGElement('textPath')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes festlegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## tspan
+
+Bei {{SVGElement('tspan')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes festlegt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>black</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiele
 
@@ -76,9 +405,9 @@ svg {
 
 ### Beispiel für `context-fill`
 
-In diesem Beispiel definieren wir drei Formen mit {{SVGElement('path')}}-Elementen, für die jeweils unterschiedliche Farben für [`stroke`](/de/docs/Web/SVG/Reference/Attribute/stroke) und `fill` festgelegt sind. Außerdem definieren wir mithilfe des {{SVGElement('marker')}}-Elements ein {{SVGElement('circle')}}-Element als Markierung. Die Markierung wird über die CSS-Eigenschaft `marker` auf jede Form angewendet.
+In diesem Beispiel definieren wir drei Formen mithilfe von {{SVGElement('path')}}-Elementen, denen jeweils unterschiedliche Farben für [`stroke`](/de/docs/Web/SVG/Reference/Attribute/stroke) und `fill` zugewiesen sind. Außerdem definieren wir ein {{SVGElement('circle')}}-Element über das {{SVGElement('marker')}}-Element als Marker. Der Marker wird über die CSS-Eigenschaft `marker` auf jede Form angewendet.
 
-Für das {{SVGElement('circle')}}-Element sind `stroke="context-stroke"` und `fill="context-fill"` festgelegt. Da es als Markierung im Kontext der Formen verwendet wird, bewirken diese Attribute, dass es jeweils die für das {{SVGElement('path')}}-Element festgelegten Werte für `fill` und `stroke` übernimmt.
+Für das {{SVGElement('circle')}}-Element sind `stroke="context-stroke"` und `fill="context-fill"` festgelegt. Da es als Marker im Kontext der Formen verwendet wird, bewirken diese Attribute, dass es jeweils die für das {{SVGElement('path')}}-Element festgelegten Werte von `fill` und `stroke` übernimmt.
 
 ```html-nolint
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90">
@@ -107,336 +436,7 @@ Die Ausgabe sieht wie folgt aus:
 {{EmbedLiveSample("context-fill_example", '100%', 220)}}
 
 > [!NOTE]
-> Elemente können auch `context-stroke` und `context-fill` verwenden, um Werte für `stroke` und `fill` zu übernehmen, wenn sie von {{SVGElement('use')}}-Elementen referenziert werden.
-
-## animate
-
-Für {{SVGElement('animate')}} legt `fill` den Endzustand der Animation fest.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
-        >) | <code>remove</code> (<em
-          >Zustand des ersten Animationsframes beibehalten</em
-        >)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>remove</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Nein</td>
-    </tr>
-  </tbody>
-</table>
-
-## animateMotion
-
-Für {{SVGElement('animateMotion')}} legt `fill` den Endzustand der Animation fest.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
-        >) | <code>remove</code> (<em
-          >Zustand des ersten Animationsframes beibehalten</em
-        >)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>remove</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Nein</td>
-    </tr>
-  </tbody>
-</table>
-
-## animateTransform
-
-Für {{SVGElement('animateTransform')}} legt `fill` den Endzustand der Animation fest.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
-        >) | <code>remove</code> (<em
-          >Zustand des ersten Animationsframes beibehalten</em
-        >)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>remove</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Nein</td>
-    </tr>
-  </tbody>
-</table>
-
-## circle
-
-Für {{SVGElement('circle')}} ist `fill` ein Präsentationsattribut, das die Farbe des Kreises festlegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## ellipse
-
-Für {{SVGElement('ellipse')}} ist `fill` ein Präsentationsattribut, das die Farbe der Ellipse festlegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## path
-
-Für {{SVGElement('path')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form festlegt. (_Das Innere wird durch das Attribut {{SVGAttr('fill-rule')}} oder die Eigenschaft {{cssxref("fill-rule")}} bestimmt._)
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## polygon
-
-Für {{SVGElement('polygon')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form festlegt. (_Das Innere wird durch das Attribut {{SVGAttr('fill-rule')}} oder die Eigenschaft {{cssxref("fill-rule")}} bestimmt._)
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## polyline
-
-Für {{SVGElement('polyline')}} ist `fill` ein Präsentationsattribut, das die Farbe des Inneren der Form festlegt. (_Das Innere wird durch das Attribut {{SVGAttr('fill-rule')}} oder die Eigenschaft {{cssxref("fill-rule")}} bestimmt._)
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## rect
-
-Für {{SVGElement('rect')}} ist `fill` ein Präsentationsattribut, das die Farbe des Rechtecks festlegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## set
-
-Für {{SVGElement('set')}} legt `fill` den Endzustand der Animation fest.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <code>freeze</code> (<em>Zustand des letzten Animationsframes beibehalten</em
-        >) | <code>remove</code> (<em
-          >Zustand des ersten Animationsframes beibehalten</em
-        >)
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>remove</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Nein</td>
-    </tr>
-  </tbody>
-</table>
-
-## text
-
-Für {{SVGElement('text')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes festlegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## textPath
-
-Für {{SVGElement('textPath')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes festlegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## tspan
-
-Für {{SVGElement('tspan')}} ist `fill` ein Präsentationsattribut, das die Farbe des Textes festlegt.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#paint">&#x3C;paint></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>black</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
+> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke`- und `fill`-Werte zu übernehmen, wenn sie von {{SVGElement('use')}}-Elementen referenziert werden.
 
 ## Spezifikationen
 

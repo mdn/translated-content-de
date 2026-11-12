@@ -2,12 +2,12 @@
 title: to
 slug: Web/SVG/Reference/Attribute/to
 l10n:
-  sourceCommit: ab279632b84d201ae9ddd3db3981bf0b01573371
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`to`**-Attribut gibt den Endwert des Attributs an, das während der Animation geändert wird.
+Das Attribut **`to`** gibt den Endwert des Attributs an, das während der Animation verändert wird.
 
-Der Wert des Attributs wird sich zwischen dem Wert des {{SVGAttr("from")}}-Attributs und diesem Wert ändern.
+Der Wert des Attributs ändert sich zwischen dem Wert des Attributs {{SVGAttr("from")}} und diesem Wert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -15,6 +15,54 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("set")}}
+
+## animate, animateMotion, animateTransform
+
+Bei {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement("animateTransform")}} gibt `to` den Endwert der Animation an.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>&#x3C;value></code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>Keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
+
+Der genaue Werttyp dieses Attributs hängt vom Wert des Attributs ab, das animiert wird.
+
+Wenn über das Attribut {{SVGAttr("values")}} eine Liste von Werten definiert ist, wird das Attribut `to` ignoriert.
+
+## set
+
+Beim Element {{SVGElement("set")}} gibt `to` den Wert an, den das Attribut während der Laufzeit des Elements hat.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>&#x3C;value></code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>Keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
+
+Der genaue Werttyp dieses Attributs hängt vom Wert des Attributs ab, das animiert wird.
 
 ## Beispiel
 
@@ -41,54 +89,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", "200", "200")}}
-
-## animate, animateMotion, animateTransform
-
-Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement("animateTransform")}} gibt `to` den Endwert der Animation an.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>&#x3C;value></code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Nein</td>
-    </tr>
-  </tbody>
-</table>
-
-Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
-
-Wenn eine Liste von Werten über das {{SVGAttr("values")}}-Attribut definiert ist, wird das `to`-Attribut ignoriert.
-
-## set
-
-Für das {{SVGElement("set")}}-Element gibt `to` den Wert für das Attribut während der Dauer des Elements an.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>&#x3C;value></code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Nein</td>
-    </tr>
-  </tbody>
-</table>
-
-Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
 
 ## Spezifikationen
 

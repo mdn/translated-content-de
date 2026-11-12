@@ -1,14 +1,14 @@
 ---
-title: CSS-Pseudoklasse `:current`
+title: "`:current` CSS-Pseudoklasse"
 short-title: :current
 slug: Web/CSS/Reference/Selectors/:current
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{SeeCompatTable}}
 
-Der [CSS](/de/docs/Web/CSS)-[Pseudoklassenselektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:current`** repräsentiert ein Element oder ein übergeordnetes Element eines Elements, das gerade angezeigt oder hervorgehoben wird.
+Der **`:current`**-[Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) in [CSS](/de/docs/Web/CSS) repräsentiert ein Element oder den Vorfahren eines Elements, das gerade angezeigt oder hervorgehoben wird.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Der [CSS](/de/docs/Web/CSS)-[Pseudoklassenselektor](/de/docs/Web/CSS/Reference/S
 
 ## Beschreibung
 
-Die Pseudoklasse `:current` wird verwendet, um das „gerade angezeigte“ Element aus einer Reihe von Elementen auszuwählen.
+Die Pseudoklasse `:current` wird verwendet, um das „derzeit angezeigte“ Element aus einer Reihe von Elementen auszuwählen.
 
-„Aktuell“ kann sich dabei auf die Zeit beziehen: Mit `:current` lassen sich die gerade angezeigten Untertitel (dargestellt mit [WebVTT](/de/docs/Web/API/WebVTT_API)) eines abgespielten Videos auswählen.
+„Derzeit“ kann sich dabei auf einen Zeitpunkt beziehen: Mit `:current` lassen sich die gerade angezeigten Bildunterschriften oder Untertitel auswählen, die einem abgespielten Video zugeordnet sind und durch [WebVTT](/de/docs/Web/API/WebVTT_API) repräsentiert werden.
 
-Die Pseudoklasse kann sich auch auf das gerade hervorgehobene Element einer Reihe beziehen. Beispielsweise lässt sich `:current` mit dem [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) `::search-text` kombinieren, um das aktuell ausgewählte Suchergebnis der Browserfunktion „Auf Seite suchen“ gezielt zu gestalten.
+Es kann sich auch auf das gerade hervorgehobene Element innerhalb einer Reihe beziehen. Beispielsweise lässt sich `:current` mit dem [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) `::search-text` kombinieren, um das aktuell ausgewählte Suchergebnis der Browserfunktion „Auf Seite suchen“ gezielt zu gestalten.
 
 Zum Beispiel:
 
@@ -51,7 +51,7 @@ Dieses Beispiel zeigt, wie Sie mit `::search-text` und `:current` benutzerdefini
 
 #### HTML
 
-Das HTML besteht aus einem einfachen Textabsatz. Der HTML-Quelltext wird hier nicht gezeigt, um das Beispiel kurz zu halten und die Navigation zwischen den Suchergebnissen im dargestellten Beispiel zu erleichtern.
+Das HTML besteht aus einem einfachen Textabsatz. Der HTML-Quelltext wird hier nicht gezeigt, um das Beispiel kurz zu halten und die Navigation durch die Suchergebnisse im gerenderten Beispiel zu erleichtern.
 
 ```html hidden live-sample___custom-search-results
 <p>
@@ -132,17 +132,9 @@ Das Beispiel wird wie folgt dargestellt:
 
 {{EmbedLiveSample("custom-search-results", "100%", 300)}}
 
-Verwenden Sie die Suchfunktion des Browsers, um ein Wort zu finden, das im Beispieltext mehrfach vorkommt, etwa „aliquam“, „amet“ oder „tortor“. Wechseln Sie zwischen den vorherigen und nächsten Ergebnissen, um die Gestaltung durch `:current` zu sehen.
+Verwenden Sie die Suchfunktion Ihres Browsers, um ein Wort zu finden, das im Beispieltext mehrfach vorkommt, etwa „aliquam“, „amet“ oder „tortor“. Wechseln Sie zwischen den vorherigen und nächsten Ergebnissen, um die Gestaltung mit `:current` zu sehen.
 
 ### Gerade angezeigte WebVTT-Untertitel gestalten
-
-#### CSS
-
-```css
-:current(p, span) {
-  background-color: yellow;
-}
-```
 
 #### HTML
 
@@ -157,6 +149,14 @@ Verwenden Sie die Suchfunktion des Browsers, um ein Wort zu finden, das im Beisp
     src="subtitles.vtt"
     default />
 </video>
+```
+
+#### CSS
+
+```css
+:current(p, span) {
+  background-color: yellow;
+}
 ```
 
 #### WebVTT

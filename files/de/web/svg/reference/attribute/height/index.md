@@ -2,10 +2,10 @@
 title: height
 slug: Web/SVG/Reference/Attribute/height
 l10n:
-  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`height`** Attribut definiert die vertikale Länge eines Elements im Benutzerkoordinatensystem.
+Das Attribut **`height`** definiert die vertikale Länge eines Elements im Benutzerkoordinatensystem.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -35,30 +35,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('svg')}}
 - {{SVGElement('use')}}
 
-## Beispiel
-
-```css hidden
-html,
-body,
-svg {
-  height: 100%;
-}
-```
-
-```html
-<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- With a height of 0 or less, nothing will be rendered -->
-  <rect y="0" x="0" width="90" height="0" />
-  <rect y="0" x="100" width="90" height="60" />
-  <rect y="0" x="200" width="90" height="100%" />
-</svg>
-```
-
-{{EmbedLiveSample("Example", '100%', 200)}}
-
 ## feBlend
 
-Für {{SVGElement('feBlend')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feBlend')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -89,7 +68,7 @@ Für {{SVGElement('feBlend')}} definiert `height` die vertikale Länge des Rende
 
 ## feColorMatrix
 
-Für {{SVGElement('feColorMatrix')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feColorMatrix')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -120,7 +99,7 @@ Für {{SVGElement('feColorMatrix')}} definiert `height` die vertikale Länge des
 
 ## feComponentTransfer
 
-Für {{SVGElement('feComponentTransfer')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feComponentTransfer')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -151,7 +130,7 @@ Für {{SVGElement('feComponentTransfer')}} definiert `height` die vertikale Län
 
 ## feComposite
 
-Für {{SVGElement('feComposite')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feComposite')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -182,7 +161,7 @@ Für {{SVGElement('feComposite')}} definiert `height` die vertikale Länge des R
 
 ## feConvolveMatrix
 
-Für {{SVGElement('feConvolveMatrix')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feConvolveMatrix')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -213,7 +192,7 @@ Für {{SVGElement('feConvolveMatrix')}} definiert `height` die vertikale Länge 
 
 ## feDiffuseLighting
 
-Für {{SVGElement('feDiffuseLighting')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feDiffuseLighting')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -244,7 +223,7 @@ Für {{SVGElement('feDiffuseLighting')}} definiert `height` die vertikale Länge
 
 ## feDisplacementMap
 
-Für {{SVGElement('feDisplacementMap')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feDisplacementMap')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -275,7 +254,7 @@ Für {{SVGElement('feDisplacementMap')}} definiert `height` die vertikale Länge
 
 ## feDropShadow
 
-Für {{SVGElement('feDropShadow')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feDropShadow')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -306,7 +285,7 @@ Für {{SVGElement('feDropShadow')}} definiert `height` die vertikale Länge des 
 
 ## feFlood
 
-Für {{SVGElement('feFlood')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feFlood')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -337,7 +316,7 @@ Für {{SVGElement('feFlood')}} definiert `height` die vertikale Länge des Rende
 
 ## feGaussianBlur
 
-Für {{SVGElement('feGaussianBlur')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feGaussianBlur')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -368,7 +347,7 @@ Für {{SVGElement('feGaussianBlur')}} definiert `height` die vertikale Länge de
 
 ## feImage
 
-Für {{SVGElement('feImage')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feImage')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -399,7 +378,7 @@ Für {{SVGElement('feImage')}} definiert `height` die vertikale Länge des Rende
 
 ## feMerge
 
-Für {{SVGElement('feMerge')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feMerge')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -430,7 +409,7 @@ Für {{SVGElement('feMerge')}} definiert `height` die vertikale Länge des Rende
 
 ## feMorphology
 
-Für {{SVGElement('feMorphology')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feMorphology')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -461,7 +440,7 @@ Für {{SVGElement('feMorphology')}} definiert `height` die vertikale Länge des 
 
 ## feOffset
 
-Für {{SVGElement('feOffset')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feOffset')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -492,7 +471,7 @@ Für {{SVGElement('feOffset')}} definiert `height` die vertikale Länge des Rend
 
 ## feSpecularLighting
 
-Für {{SVGElement('feSpecularLighting')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feSpecularLighting')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -523,7 +502,7 @@ Für {{SVGElement('feSpecularLighting')}} definiert `height` die vertikale Läng
 
 ## feTile
 
-Für {{SVGElement('feTile')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feTile')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -554,7 +533,7 @@ Für {{SVGElement('feTile')}} definiert `height` die vertikale Länge des Render
 
 ## feTurbulence
 
-Für {{SVGElement('feTurbulence')}} definiert `height` die vertikale Länge des Renderbereichs des Primitivs.
+Für {{SVGElement('feTurbulence')}} definiert `height` die vertikale Länge des Renderbereichs der Filterprimitive.
 
 <table class="properties">
   <tbody>
@@ -637,7 +616,7 @@ Für {{SVGElement('foreignObject')}} definiert `height` die vertikale Länge des
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><code>auto</code> (behandelt als <code>0</code>)</td>
+      <td><code>auto</code> (wird wie <code>0</code> behandelt)</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -647,11 +626,11 @@ Für {{SVGElement('foreignObject')}} definiert `height` die vertikale Länge des
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `height` eine _Geometrieeigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für `<foreignObject>` verwendet werden kann.
+> Ab SVG2 ist `height` eine _Geometrieeigenschaft_. Das bedeutet, dass dieses Attribut für `<foreignObject>` auch als CSS-Eigenschaft verwendet werden kann.
 
 ## image
 
-Für {{SVGElement('image')}} definiert `height` die vertikale Länge für das Bild.
+Für {{SVGElement('image')}} definiert `height` die vertikale Länge des Bildes.
 
 <table class="properties">
   <tbody>
@@ -672,7 +651,7 @@ Für {{SVGElement('image')}} definiert `height` die vertikale Länge für das Bi
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><code>auto</code> (behandelt als die intrinsische Höhe des Bildes)</td>
+      <td><code>auto</code> (wird wie die intrinsische Höhe des Bildes behandelt)</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -682,11 +661,11 @@ Für {{SVGElement('image')}} definiert `height` die vertikale Länge für das Bi
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `height` eine _Geometrieeigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für Bilder verwendet werden kann.
+> Ab SVG2 ist `height` eine _Geometrieeigenschaft_. Das bedeutet, dass dieses Attribut für Bilder auch als CSS-Eigenschaft verwendet werden kann.
 
 ## mask
 
-Für {{SVGElement('mask')}} definiert `height` die vertikale Länge seines Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das {{SVGAttr('maskUnits')}} Attribut beeinflusst.
+Für {{SVGElement('mask')}} definiert `height` die vertikale Länge ihres Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das Attribut {{SVGAttr('maskUnits')}} beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -717,7 +696,7 @@ Für {{SVGElement('mask')}} definiert `height` die vertikale Länge seines Wirku
 
 ## pattern
 
-Für {{SVGElement('pattern')}} definiert `height` die vertikale Länge des Fliesenmusters. Die genaue Wirkung dieses Attributs wird durch die {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} Attribute beeinflusst.
+Für {{SVGElement('pattern')}} definiert `height` die vertikale Länge der Musterkachel. Die genaue Wirkung dieses Attributs wird durch die Attribute {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -742,7 +721,7 @@ Für {{SVGElement('pattern')}} definiert `height` die vertikale Länge des Flies
 
 ## rect
 
-Für {{SVGElement('rect')}} definiert `height` die vertikale Länge für das Rechteck.
+Für {{SVGElement('rect')}} definiert `height` die vertikale Länge des Rechtecks.
 
 <table class="properties">
   <tbody>
@@ -763,7 +742,7 @@ Für {{SVGElement('rect')}} definiert `height` die vertikale Länge für das Rec
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><code>auto</code> (behandelt als <code>0</code>)</td>
+      <td><code>auto</code> (wird wie <code>0</code> behandelt)</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -773,14 +752,14 @@ Für {{SVGElement('rect')}} definiert `height` die vertikale Länge für das Rec
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `height` eine _Geometrieeigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für Rechtecke verwendet werden kann.
+> Ab SVG2 ist `height` eine _Geometrieeigenschaft_. Das bedeutet, dass dieses Attribut für Rechtecke auch als CSS-Eigenschaft verwendet werden kann.
 
 ## svg
 
-Für {{SVGElement('svg')}} definiert `height` die vertikale Länge für den Renderbereich des SVG-Viewports.
+Für {{SVGElement('svg')}} definiert `height` die vertikale Länge des Renderbereichs des SVG-Viewports.
 
 > [!NOTE]
-> In einem HTML-Dokument, falls sowohl die {{SVGAttr('viewBox')}} als auch die `height` Attribute weggelassen werden, [wird das svg-Element mit einer Höhe von `150px` gerendert](https://svgwg.org/specs/integration/#svg-css-sizing)
+> Wenn in einem HTML-Dokument sowohl das Attribut {{SVGAttr('viewBox')}} als auch das Attribut `height` fehlen, [wird das svg-Element mit einer Höhe von `150px` gerendert](https://svgwg.org/specs/integration/#svg-css-sizing).
 
 <table class="properties">
   <tbody>
@@ -801,7 +780,7 @@ Für {{SVGElement('svg')}} definiert `height` die vertikale Länge für den Rend
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><code>auto</code> (behandelt als <code>100%</code>)</td>
+      <td><code>auto</code> (wird wie <code>100%</code> behandelt)</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -811,11 +790,11 @@ Für {{SVGElement('svg')}} definiert `height` die vertikale Länge für den Rend
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `height` eine _Geometrieeigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für `<svg>` verwendet werden kann.
+> Ab SVG2 ist `height` eine _Geometrieeigenschaft_. Das bedeutet, dass dieses Attribut für `<svg>` auch als CSS-Eigenschaft verwendet werden kann.
 
 ## use
 
-Für {{SVGElement('use')}} definiert `height` die vertikale Länge für das referenzierte Element.
+Für {{SVGElement('use')}} definiert `height` die vertikale Länge des referenzierten Elements.
 
 <table class="properties">
   <tbody>
@@ -836,7 +815,7 @@ Für {{SVGElement('use')}} definiert `height` die vertikale Länge für das refe
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><code>auto</code> (behandelt als <code>0</code>)</td>
+      <td><code>auto</code> (wird wie <code>0</code> behandelt)</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -846,10 +825,31 @@ Für {{SVGElement('use')}} definiert `height` die vertikale Länge für das refe
 </table>
 
 > [!NOTE]
-> `height` hat keine Wirkung auf `use`-Elemente, es sei denn, das referenzierte Element hat eine [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox) - also haben sie nur eine Wirkung, wenn `use` auf ein `svg` oder `symbol`-Element verweist.
+> `height` hat auf `use`-Elemente keine Auswirkung, es sei denn, das referenzierte Element hat eine [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox). Das Attribut wirkt sich also nur aus, wenn `use` auf ein `svg`- oder `symbol`-Element verweist.
 
 > [!NOTE]
-> Ab SVG2 ist `height` eine _Geometrieeigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für benutzte Elemente verwendet werden kann.
+> Ab SVG2 ist `height` eine _Geometrieeigenschaft_. Das bedeutet, dass dieses Attribut für verwendete Elemente auch als CSS-Eigenschaft verwendet werden kann.
+
+## Beispiel
+
+```css hidden
+html,
+body,
+svg {
+  height: 100%;
+}
+```
+
+```html
+<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- With a height of 0 or less, nothing will be rendered -->
+  <rect y="0" x="0" width="90" height="0" />
+  <rect y="0" x="100" width="90" height="60" />
+  <rect y="0" x="200" width="90" height="100%" />
+</svg>
+```
+
+{{EmbedLiveSample("Example", '100%', 200)}}
 
 ## Spezifikationen
 
@@ -857,4 +857,4 @@ Für {{SVGElement('use')}} definiert `height` die vertikale Länge für das refe
 
 ## Siehe auch
 
-- CSS {{cssxref("height")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("height")}}

@@ -2,15 +2,22 @@
 title: cursor
 slug: Web/SVG/Reference/Attribute/cursor
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das `cursor`-Attribut gibt den Mauszeiger an, der angezeigt wird, wenn der Mauszeiger über ein Element bewegt wird.
+Das Attribut `cursor` legt fest, welcher Mauszeiger angezeigt wird, wenn sich der Mauszeiger über einem Element befindet.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `cursor` auch ein entsprechendes CSS-Attribut: {{cssxref("cursor")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `cursor` auch eine entsprechende CSS-Eigenschaft: {{cssxref("cursor")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-## Verwendungskontext
+## Elemente
+
+Die folgenden Elemente können das Attribut `cursor` verwenden:
+
+- [Containerelemente](/de/docs/Web/SVG/Reference/Element#container_elements)
+- [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
+
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -34,13 +41,6 @@ Das `cursor`-Attribut gibt den Mauszeiger an, der angezeigt wird, wenn der Mausz
   </tbody>
 </table>
 
-## Elemente
-
-Die folgenden Elemente können das `cursor`-Attribut verwenden
-
-- [Container-Elemente](/de/docs/Web/SVG/Reference/Element#container_elements)
-- [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -51,4 +51,4 @@ Die folgenden Elemente können das `cursor`-Attribut verwenden
 
 ## Siehe auch
 
-- CSS {{cssxref("cursor")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("cursor")}}

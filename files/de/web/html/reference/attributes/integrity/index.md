@@ -1,49 +1,49 @@
 ---
-title: "`integrity` HTML-Attribut"
+title: HTML-Attribut `integrity`
 short-title: integrity
 slug: Web/HTML/Reference/Attributes/integrity
 l10n:
-  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
+  sourceCommit: d16355b5ec024c990cff93dc36232c95d944bfce
 ---
 
-Das **`integrity`**-Attribut bietet Entwicklern einen Mechanismus, um zu gewährleisten, dass ein verlinktes Skript oder Stylesheet einen bestimmten Inhalt haben muss. Der Browser überprüft, ob die Ressource tatsächlich diesen Inhalt hat, und verweigert das Laden der Ressource, wenn sie nicht übereinstimmt.
+Das Attribut **`integrity`** bietet Entwicklern eine Möglichkeit festzulegen, welchen Inhalt ein eingebundenes Skript oder Stylesheet haben muss. Der Browser prüft, ob die Ressource tatsächlich diesen Inhalt hat, und lädt sie andernfalls nicht.
 
-Dies ist eine Verteidigungsmaßnahme gegen einen [Supply-Chain-Angriff](/de/docs/Web/Security/Attacks/Supply_chain_attacks), bei dem ein Angreifer Zugriff auf die Domain erhält, die das Skript oder Stylesheet bereitstellt, und die erwartete Ressource durch eine bösartige ersetzt.
+Dies schützt vor einem [Supply-Chain-Angriff](/de/docs/Web/Security/Attacks/Supply_chain_attacks), bei dem ein Angreifer Zugriff auf die Domain erhält, die das Skript oder Stylesheet bereitstellt, und die erwartete Ressource durch eine schädliche ersetzt.
+
+## Werte
+
+Der Wert dieses Attributs besteht aus einer durch Leerraum getrennten Liste von Komponenten. Jede Komponente hat eine der folgenden Formen:
+
+- `sha256-HASH_VALUE`
+- `sha384-HASH_VALUE`
+- `sha512-HASH_VALUE`
+
+Der Teil vor `-` bezeichnet jeweils die verwendete {{Glossary("hash_function", "Hashfunktion")}}. `HASH_VALUE` ist die {{Glossary("base64", "Base64")}}-Kodierung des Ergebnisses, das beim Hashen der Ressource mit der angegebenen Hashfunktion entsteht.
 
 ## Beschreibung
 
 Das Attribut kann nur auf {{htmlelement("script")}}- oder {{htmlelement("link")}}-Elemente angewendet werden.
 
-Das Attribut besteht aus einer oder mehreren Komponenten, von denen jede aus Folgendem besteht:
+Es besteht aus einer oder mehreren Komponenten, die jeweils Folgendes enthalten:
 
-- Einem Identifikator für eine {{Glossary("hash_function", "kryptografische Hash-Funktion")}}. Drei Hash-Funktionen werden unterstützt. In aufsteigender Reihenfolge ihrer Stärke sind dies: SHA-256, SHA-384 und SHA-512.
-- Dem Ergebnis der Hash-Berechnung des Ressourceninhalts mit der angegebenen Hash-Funktion.
+- Eine Kennung für eine {{Glossary("hash_function", "kryptografische Hashfunktion")}}. Drei Hashfunktionen werden unterstützt: SHA-256, SHA-384 und SHA-512, in dieser Reihenfolge mit zunehmender Stärke.
+- Das Ergebnis des Hashens des Ressourceninhalts mit der angegebenen Hashfunktion.
 
-Wenn der Browser eine Ressource mit gesetztem `integrity`-Attribut herunterlädt, wählt er zuerst die Gruppe von Hashes aus, die mit der stärksten vorhandenen Hash-Funktion generiert wurden. Das heißt, wenn das Attribut Werte enthält, die mit SHA-256 und SHA-384 generiert wurden, werden nur die mit SHA-384 generierten Hashes verwendet.
+Wenn der Browser eine Ressource herunterlädt, für die das Attribut `integrity` gesetzt ist, wählt er zunächst die Hashwerte aus, die mit der stärksten im Attribut vertretenen Hashfunktion erzeugt wurden. Enthält das Attribut beispielsweise Werte für SHA-256 und SHA-384, verwendet er nur die mit SHA-384 erzeugten Hashwerte.
 
-Der Browser berechnet dann den Hash der Ressourceninhalte mit der angegebenen Funktion und vergleicht das Ergebnis mit allen angegebenen Werten: Wenn der tatsächliche Wert mit einem der angegebenen Werte übereinstimmt, lädt der Browser die Ressource, andernfalls verweigert er das Laden der Ressource.
+Anschließend berechnet der Browser mit der entsprechenden Funktion den Hashwert des Ressourceninhalts und vergleicht das Ergebnis mit allen ausgewählten Werten. Stimmt der berechnete Wert mit einem davon überein, lädt der Browser die Ressource. Andernfalls lädt er sie nicht.
 
-Für weitere Details siehe unseren Leitfaden zur [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
-
-## Werte
-
-Der Wert dieses Attributs besteht aus einer durch Leerzeichen getrennten Liste von Komponenten, die jede der folgenden Formen haben kann:
-
-- `sha256-HASH_WERT`
-- `sha384-HASH_WERT`
-- `sha512-HASH_WERT`
-
-In jedem Fall identifiziert der Teil vor dem `-` die verwendete {{Glossary("hash_function", "Hash-Funktion")}}, und `HASH_WERT` ist die {{Glossary("base64", "base64")}}-Kodierung des Ergebnisses der Hash-Berechnung der Ressource mit der angegebenen Hash-Funktion.
+Weitere Einzelheiten finden Sie in unserem Leitfaden zur [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
 
 ## Beispiele
 
-### Integrieren verschiedener Hash-Funktionen
+### Verschiedene Hashfunktionen angeben
 
-Das folgende {{htmlelement("script")}}-Element enthält ein `integrity`-Attribut mit drei Werten: einem, der mit SHA-256 berechnet wurde, einem, der mit SHA-384 berechnet wurde, und einem, der mit SHA-512 berechnet wurde.
+Das folgende {{htmlelement("script")}}-Element enthält ein `integrity`-Attribut mit drei Werten: einem mit SHA-256 berechneten, einem mit SHA-384 berechneten und einem mit SHA-512 berechneten Wert.
 
-Der Browser wird den Wert auswählen, der mit dem stärksten Algorithmus berechnet wurde, den der Browser unterstützt. Da alle modernen Browser SHA-512 unterstützen, bedeutet dies, dass der Browser den `sha512-` Wert auswählt. Er wird dann die Dateiinhalte mit SHA-512 hashen und das Ergebnis mit dem `sha512-` Wert vergleichen und die Datei nur laden, wenn sie übereinstimmen.
+Der Browser wählt den Wert aus, der mit dem stärksten von ihm unterstützten Algorithmus berechnet wurde. Da alle modernen Browser SHA-512 unterstützen, wählt er den `sha512-`-Wert aus. Er hasht den Dateiinhalt mit SHA-512, vergleicht das Ergebnis mit dem `sha512-`-Wert und lädt die Datei nur, wenn beide übereinstimmen.
 
-Das Bereitstellen mehrerer Werte ermöglicht es einer Website, mit Browsern zu arbeiten, die möglicherweise nicht alle Hash-Funktionen unterstützen.
+Mehrere Werte ermöglichen es in diesem Fall, dass eine Website auch mit Browsern funktioniert, die möglicherweise nicht alle Hashfunktionen unterstützen.
 
 ```html
 <script
@@ -55,15 +55,15 @@ Das Bereitstellen mehrerer Werte ermöglicht es einer Website, mit Browsern zu a
   crossorigin="anonymous"></script>
 ```
 
-Beachten Sie, dass wir in diesem und den nachfolgenden Beispielen die Beispiel-Hash-Werte aus Gründen der Kürze gekürzt haben.
+Beachten Sie, dass die beispielhaften Hashwerte hier und in den folgenden Beispielen der Kürze halber gekürzt wurden.
 
-### Integrieren verschiedener Hash-Werte
+### Verschiedene Hashwerte angeben
 
-Das folgende {{htmlelement("script")}}-Element enthält ein `integrity`-Attribut mit zwei verschiedenen Werten, die beide mit dem SHA-512-Algorithmus berechnet wurden. Diese verschiedenen Werte spiegeln alternative Inhalte für die verlinkte Datei wider.
+Das folgende {{htmlelement("script")}}-Element enthält ein `integrity`-Attribut mit zwei unterschiedlichen Werten, die beide mit dem SHA-512-Algorithmus berechnet wurden. Die unterschiedlichen Werte stehen für alternative Inhalte der eingebundenen Datei.
 
-Wenn der SHA-512-Hash der verlinkten Datei mit einem der angegebenen Werte übereinstimmt, wird der Browser sie laden.
+Wenn der SHA-512-Hashwert der eingebundenen Datei mit einem der angegebenen Werte übereinstimmt, lädt der Browser sie.
 
-Dies ermöglicht es dem Server bei `cdn.example.com`, mit einer von zwei Versionen der Datei zu antworten.
+So kann der Server unter `cdn.example.com` eine von zwei Versionen der Datei ausliefern.
 
 ```html
 <script
@@ -74,13 +74,13 @@ Dies ermöglicht es dem Server bei `cdn.example.com`, mit einer von zwei Version
   crossorigin="anonymous"></script>
 ```
 
-### Einfügen von `integrity` auf `<link>`-Elementen
+### `integrity` bei `<link>`-Elementen verwenden
 
-Das folgende {{htmlelement("link")}}-Element lädt ein Stylesheet und enthält ein `integrity`-Attribut mit sechs Werten, die zwei mögliche Inhalte für die verlinkte Datei widerspiegeln, jeweils berechnet mit drei verschiedenen Hash-Funktionen.
+Das folgende {{htmlelement("link")}}-Element lädt ein Stylesheet und enthält ein `integrity`-Attribut mit sechs Werten. Diese stehen für zwei mögliche Inhalte der eingebundenen Datei, für die jeweils mit drei verschiedenen Hashfunktionen Werte berechnet wurden.
 
-Der Browser wird die Gruppe von Werten auswählen, die mit der stärksten unterstützten Hash-Funktion berechnet wurden: in modernen Browsern werden dies die beiden `sha512-` Werte sein.
+Der Browser wählt die Werte aus, die mit der stärksten von ihm unterstützten Hashfunktion berechnet wurden. In modernen Browsern sind das die beiden `sha512-`-Werte.
 
-Er wird dann den Hash der heruntergeladenen Datei mit SHA-512 berechnen und das Ergebnis mit beiden `sha512-` Werten vergleichen: Wenn einer davon übereinstimmt, wird der Browser die Ressource laden.
+Anschließend berechnet er mit SHA-512 den Hashwert der heruntergeladenen Datei und vergleicht das Ergebnis mit beiden `sha512-`-Werten. Stimmt es mit einem davon überein, lädt der Browser die Ressource.
 
 ```html
 <link

@@ -2,18 +2,26 @@
 title: xml:lang
 slug: Web/SVG/Reference/Attribute/xml:lang
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das Attribut **`xml:lang`** gibt die Hauptsprache an, die in Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
+Das Attribut **`xml:lang`** gibt die primäre Sprache an, die im Inhalt und in Attributen mit Textinhalt bestimmter Elemente verwendet wird.
 
-Es ist ein universelles Attribut, das in allen XML-Dialekten erlaubt ist, um die natürliche menschliche Sprache zu kennzeichnen, die ein Element enthält.
+Es ist ein universelles Attribut, das in allen XML-Dialekten zulässig ist, um die natürliche Sprache zu kennzeichnen, die ein Element enthält.
 
-Es gibt auch ein {{SVGAttr("lang")}} Attribut (ohne Namensraum). Wenn beide definiert sind, wird das Attribut mit Namensraum verwendet und das ohne wird ignoriert.
+Es gibt außerdem ein Attribut {{SVGAttr("lang")}} (ohne Namespace). Wenn beide definiert sind, wird das Attribut mit Namespace verwendet und das ohne Namespace ignoriert.
 
 ## Elemente
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
+
+## Beispiele
+
+```html
+<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <text xml:lang="en-US">This is some English text</text>
+</svg>
+```
 
 ## Verwendungshinweise
 
@@ -35,17 +43,9 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </table>
 
 - `<language-tag>`
-  - : Dieser Wert gibt die für das Element verwendete Sprache als gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} an.
+  - : Dieser Wert gibt die für das Element verwendete Sprache als gültigen {{Glossary("BCP_47_language_tag", "BCP-47-Sprach-Tag")}} an.
 
-    Die gebräuchlichste Syntax ist ein Wert, der aus einem kleinen zweistelligen Teil für die Sprache und einem großen zweistelligen Teil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z. B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
-
-## Beispiele
-
-```html
-<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-  <text xml:lang="en-US">This is some English text</text>
-</svg>
-```
+    Die gebräuchlichste Syntax besteht aus einem zweiteiligen Wert: einem kleingeschriebenen Teil mit zwei Zeichen für die Sprache und einem großgeschriebenen Teil mit zwei Zeichen für die Region oder das Land, getrennt durch einen Bindestrich, z. B. `en-US` für amerikanisches Englisch oder `de-AT` für österreichisches Deutsch.
 
 ## Spezifikationen
 
@@ -57,5 +57,5 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 ## Siehe auch
 
-- [XML-Spezifikation von `xml:lang`](https://www.w3.org/TR/xml/#sec-lang-tag)
-- {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}}
+- [XML-Spezifikation für `xml:lang`](https://www.w3.org/TR/xml/#sec-lang-tag)
+- {{Glossary("BCP_47_language_tag", "BCP-47-Sprach-Tag")}}

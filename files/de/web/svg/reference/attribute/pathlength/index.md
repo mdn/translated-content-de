@@ -2,12 +2,12 @@
 title: pathLength
 slug: Web/SVG/Reference/Attribute/pathLength
 l10n:
-  sourceCommit: 28f2781de2dbb8e81be94c87ff81fd0442cb4736
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`pathLength`** Attribut ermöglicht es den Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten anzugeben. Dieser Wert wird dann verwendet, um die Entfernungsberechnungen des Browsers mit denen des Autors zu kalibrieren, indem alle Entfernungsberechnungen mit dem Verhältnis `pathLength` / (_berechneter Wert der Pfadlänge_) skaliert werden.
+Mit dem Attribut **`pathLength`** können Sie die Gesamtlänge eines Pfads in Benutzereinheiten angeben. Dieser Wert wird verwendet, um die Entfernungsberechnungen des Browsers an die angegebene Länge anzupassen. Dazu werden alle Entfernungsberechnungen mit dem Verhältnis `pathLength` / (_berechnete Pfadlänge_) skaliert.
 
-Dies kann die tatsächlich gerenderten Längen von Pfaden beeinflussen, einschließlich Textpfade, Animationspfade und verschiedene Stroke-Operationen. Grundsätzlich alle Berechnungen, die die Länge des Pfades erfordern. Zum Beispiel wird {{SVGAttr('stroke-dasharray')}} davon ausgehen, dass der Anfang des Pfades 0 ist und der Endpunkt der im `pathLength` Attribut definierte Wert ist.
+Dies kann sich auf die tatsächlich dargestellten Längen von Pfaden auswirken, unter anderem bei Textpfaden, Animationspfaden und verschiedenen Operationen für Konturlinien. Im Grunde betrifft es alle Berechnungen, die die Pfadlänge benötigen. {{SVGAttr('stroke-dasharray')}} geht beispielsweise davon aus, dass der Anfang des Pfads bei 0 liegt und sein Endpunkt dem im Attribut `pathLength` angegebenen Wert entspricht.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -20,7 +20,182 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('rect')}}
 
 > [!NOTE]
-> Das `pathLength` Attribut hat auch ein entsprechendes CSS-Eigenschaft: [`path-length`](/de/docs/Web/CSS/Reference/Properties/path-length). Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Zum Attribut `pathLength` gibt es auch eine entsprechende CSS-Eigenschaft: [`path-length`](/de/docs/Web/CSS/Reference/Properties/path-length). Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+
+## circle
+
+Bei {{SVGElement('circle')}} können Sie mit `pathLength` die Gesamtlänge des Kreises in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## ellipse
+
+Bei {{SVGElement('ellipse')}} können Sie mit `pathLength` die Gesamtlänge der Ellipse in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## line
+
+Bei {{SVGElement('line')}} können Sie mit `pathLength` die Gesamtlänge der Linie in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## path
+
+Bei {{SVGElement('path')}} können Sie mit `pathLength` die Gesamtlänge des Pfads in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## polygon
+
+Bei {{SVGElement('polygon')}} können Sie mit `pathLength` die Gesamtlänge der Form in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## polyline
+
+Bei {{SVGElement('polyline')}} können Sie mit `pathLength` die Gesamtlänge der Form in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## rect
+
+Bei {{SVGElement('rect')}} können Sie mit `pathLength` die Gesamtlänge des Rechtecks in Benutzereinheiten angeben.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><em>keiner</em></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiel
 
@@ -61,181 +236,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", '100%', 200)}}
-
-## circle
-
-Für {{SVGElement('circle')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für den Kreis in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## ellipse
-
-Für {{SVGElement('ellipse')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Ellipse in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## line
-
-Für {{SVGElement('line')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Linie in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## path
-
-Für {{SVGElement('path')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## polygon
-
-Für {{SVGElement('polygon')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## polyline
-
-Für {{SVGElement('polyline')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## rect
-
-Für {{SVGElement('rect')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für das Rechteck in Benutzereinheiten anzugeben.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#number">&#x3C;number></a></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><em>none</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Spezifikationen
 

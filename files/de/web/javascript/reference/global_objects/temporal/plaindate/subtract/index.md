@@ -3,12 +3,12 @@ title: Temporal.PlainDate.prototype.subtract()
 short-title: subtract()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/subtract
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die **`subtract()`** Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum um eine angegebene Zeitspanne (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umgewandelt werden kann) rückwärts verschoben darstellt.
+Die Methode **`subtract()`** von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum um eine angegebene Dauer zurückversetzt darstellt. Die Dauer muss in eine von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} unterstützte Form konvertierbar sein.
 
-Wenn Sie zwei Daten subtrahieren und eine Zeitspanne erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/PlainDate/since", "since()")}} oder {{jsxref("Temporal/PlainDate/until", "until()")}}.
+Wenn Sie zwei Datumswerte voneinander subtrahieren und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/PlainDate/since", "since()")}} oder {{jsxref("Temporal/PlainDate/until", "until()")}}.
 
 ## Syntax
 
@@ -20,32 +20,32 @@ subtract(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Zeitspanne darstellt, die von diesem Datum subtrahiert werden soll. Sie wird mit demselben Algorithmus in ein `Temporal.Duration`-Objekt umgewandelt wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}.
+  - : Eine Zeichenfolge, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine von diesem Datum abzuziehende Dauer darstellt. Der Wert wird mit demselben Algorithmus wie bei {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthält:
+  - : Ein Objekt mit der folgenden Eigenschaft:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt. Mögliche Werte sind:
-        - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [eingeklemmt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+      - : Eine Zeichenfolge, die das Verhalten festlegt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
+        - `"constrain"` (Standardwert)
+          - : Die Datumskomponente wird auf den [gültigen Bereich begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate`-Objekt, das das Datum darstellt, das durch das ursprüngliche `PlainDate` minus die Zeitspanne angegeben wird.
-
-## Beschreibung
-
-Das Subtrahieren einer Zeitspanne entspricht dem [Addieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/add) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), daher gelten alle gleichen Überlegungen.
+Ein neues `Temporal.PlainDate`-Objekt, das das durch das ursprüngliche `PlainDate` angegebene Datum abzüglich der Dauer darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, was ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche sind.
+  - : Wird ausgelöst, wenn das Ergebnis außerhalb des [darstellbaren Bereichs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt. Dieser umfasst ±(10<sup>8</sup> + 1) Tage beziehungsweise ungefähr ±273.972,6 Jahre, gerechnet ab der Unix-Epoche.
+
+## Beschreibung
+
+Das Subtrahieren einer Dauer entspricht dem [Addieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/add) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated). Daher gelten dieselben Überlegungen.
 
 ## Beispiele
 
-### Eine Zeitspanne subtrahieren
+### Eine Dauer subtrahieren
 
 ```js
 const start = Temporal.PlainDate.from("2022-01-01");
@@ -53,7 +53,7 @@ const end = start.subtract({ years: 1, months: 2, weeks: 3, days: 4 });
 console.log(end.toString()); // 2020-10-07
 ```
 
-Für weitere Beispiele siehe {{jsxref("Temporal/PlainDate/add", "add()")}}.
+Weitere Beispiele finden Sie unter {{jsxref("Temporal/PlainDate/add", "add()")}}.
 
 ## Spezifikationen
 

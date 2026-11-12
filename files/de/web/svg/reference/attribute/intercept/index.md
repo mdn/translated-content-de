@@ -2,41 +2,19 @@
 title: intercept
 slug: Web/SVG/Reference/Attribute/intercept
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`intercept`**-Attribut definiert den Schnittpunkt der linearen Funktion der Farbkomponentenübertragungen, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
+Das Attribut **`intercept`** definiert den Achsenabschnitt der linearen Funktion zur Übertragung von Farbkomponenten, wenn das Attribut {{SVGAttr("type")}} auf `linear` gesetzt ist.
 
-Die `linear`-Funktion ist definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, das `intercept` einen Basiswert für das Ergebnis liefert und die [`slope`](/de/docs/Web/SVG/Reference/Attribute/slope) ein Skalierungsfaktor ist.
+Die Funktion `linear` ist als `slope * color + intercept` definiert. Dabei ist `color` der Farbwert, `intercept` liefert einen Basiswert für das Ergebnis und [`slope`](/de/docs/Web/SVG/Reference/Attribute/slope) ist ein Skalierungsfaktor.
 
-Das `intercept`-Attribut wird von den Kinderelementen des {{SVGElement("feComponentTransfer")}}-Filterprimitives unterstützt und wird mit den folgenden SVG-Komponententransformations-Funktionselementen verwendet, wenn `type="linear"` gesetzt ist:
+Das Attribut `intercept` wird von Kindelementen der Filterprimitive {{SVGElement("feComponentTransfer")}} unterstützt. Es wird mit den folgenden SVG-Elementen für Komponentenübertragungsfunktionen verwendet, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
 - {{SVGElement("feFuncG")}}
 - {{SVGElement("feFuncR")}}
-
-## Verwendungshinweise
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("number")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>0</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `<number>`
-  - : Dieser Wert gibt den Schnittpunkt der linearen Komponententransformationsfunktionen an.
 
 ## Beispiel
 
@@ -97,6 +75,28 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", "480", "200")}}
+
+## Hinweise zur Verwendung
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("number")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `<number>`
+  - : Dieser Wert gibt den Achsenabschnitt der linearen Komponentenübertragungsfunktionen an.
 
 ## Spezifikationen
 

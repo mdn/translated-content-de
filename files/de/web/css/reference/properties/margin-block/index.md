@@ -3,10 +3,10 @@ title: CSS-Eigenschaft `margin-block`
 short-title: margin-block
 slug: Web/CSS/Reference/Properties/margin-block
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`margin-block`** von [CSS](/de/docs/Web/CSS) definiert die logischen Blockanfangs- und Blockend-Außenabstände eines Elements. Diese werden abhängig vom Schreibmodus, der Schreibrichtung und der Textorientierung des Elements auf physische Außenabstände abgebildet.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`margin-block`** definiert die logischen Außenabstände eines Elements am Anfang und Ende der Blockachse. Welchen physischen Außenabständen diese entsprechen, hängt vom Schreibmodus, der Schreibrichtung und der Textausrichtung des Elements ab.
 
 {{InteractiveExample("CSS Demo: margin-block")}}
 
@@ -65,9 +65,9 @@ writing-mode: vertical-lr;
 }
 ```
 
-## Bestandteileigenschaften
+## Zugehörige Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("margin-block-start")}}
 - {{cssxref("margin-block-end")}}
@@ -94,12 +94,12 @@ margin-block: revert-layer;
 margin-block: unset;
 ```
 
-Diese Eigenschaft entspricht den Eigenschaften {{CSSxRef("margin-top")}} und {{CSSxRef("margin-bottom")}} oder den Eigenschaften {{CSSxRef("margin-right")}} und {{CSSxRef("margin-left")}}, abhängig von den für {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}} und {{CSSxRef("text-orientation")}} definierten Werten.
+Abhängig von den für {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}} und {{CSSxRef("text-orientation")}} festgelegten Werten entspricht diese Eigenschaft entweder {{CSSxRef("margin-top")}} und {{CSSxRef("margin-bottom")}} oder {{CSSxRef("margin-right")}} und {{CSSxRef("margin-left")}}.
 
-Die Eigenschaft `margin-block` kann mit einem oder zwei Werten angegeben werden.
+Für die Eigenschaft `margin-block` können ein oder zwei Werte angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, wendet er denselben Außenabstand auf **Anfang und Ende** an.
-- Wenn **zwei** Werte angegeben werden, gilt der erste Außenabstand für den **Anfang**, der zweite für das **Ende**.
+- Wird **ein** Wert angegeben, gilt derselbe Außenabstand **am Anfang und am Ende**.
+- Werden **zwei** Werte angegeben, gilt der erste für den Außenabstand **am Anfang** und der zweite für den Außenabstand **am Ende**.
 
 ### Werte
 
@@ -115,7 +115,18 @@ Die Eigenschaft `margin-block` akzeptiert dieselben Werte wie die Eigenschaft {{
 
 ## Beispiele
 
-### Außenabstände für Blockanfang und Blockende festlegen
+### Außenabstände am Anfang und Ende der Blockachse festlegen
+
+#### HTML
+
+```html
+<div>
+  <p>Example text</p>
+</div>
+<div class="verticalExample">
+  <p>Example text</p>
+</div>
+```
 
 #### CSS
 
@@ -138,17 +149,6 @@ p {
 }
 ```
 
-#### HTML
-
-```html
-<div>
-  <p>Example text</p>
-</div>
-<div class="verticalExample">
-  <p>Example text</p>
-</div>
-```
-
 #### Ergebnis
 
 {{EmbedLiveSample("Setting_block_start_and_end_margins", 140, 200)}}
@@ -163,6 +163,6 @@ p {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die zugeordneten physischen Eigenschaften: {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}
+- [Logische CSS-Eigenschaften und -Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die entsprechenden physischen Eigenschaften: {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}
 - {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}}, {{CSSxRef("text-orientation")}}

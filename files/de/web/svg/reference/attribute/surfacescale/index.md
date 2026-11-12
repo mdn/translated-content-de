@@ -2,15 +2,57 @@
 title: surfaceScale
 slug: Web/SVG/Reference/Attribute/surfaceScale
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`surfaceScale`**-Attribut repräsentiert die Höhe der Oberfläche für eine Lichtfilterprimitive.
+Das Attribut **`surfaceScale`** gibt die Höhe der Oberfläche für eine Beleuchtungsfilter-Primitive an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDiffuseLighting")}}
 - {{SVGElement("feSpecularLighting")}}
+
+## feDiffuseLighting
+
+Für {{SVGElement("feDiffuseLighting")}} definiert `surfaceScale` die Höhe der Oberfläche.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("number")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>1</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+## feSpecularLighting
+
+Für {{SVGElement("feSpecularLighting")}} definiert `surfaceScale` die Höhe der Oberfläche.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>{{cssxref("number")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>1</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiel
 
@@ -46,48 +88,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", "420", "200")}}
-
-## feSpecularLighting
-
-Für {{SVGElement("feSpecularLighting")}} definiert `surfaceScale` die Höhe der Oberfläche.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("number")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>1</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## feDiffuseLighting
-
-Für {{SVGElement("feDiffuseLighting")}} definiert `surfaceScale` die Höhe der Oberfläche.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>{{cssxref("number")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>1</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Spezifikationen
 

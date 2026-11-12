@@ -2,15 +2,15 @@
 title: clip-rule
 slug: Web/SVG/Reference/Attribute/clip-rule
 l10n:
-  sourceCommit: 8d0c8728f49f2a0577ca17910f2149d6dd36b37e
+  sourceCommit: 04a0e78cf3119afe2a99e6449f6b74976654d69d
 ---
 
-Das `clip-rule` Attribut gilt nur für Grafikelemente, die innerhalb eines {{ SVGElement("clipPath") }} Elements enthalten sind. Das `clip-rule` Attribut funktioniert im Wesentlichen wie das {{ SVGAttr("fill-rule") }} Attribut, mit dem Unterschied, dass es für {{ SVGElement("clipPath") }} Definitionen angewendet wird.
+Das Attribut `clip-rule` gilt nur für Grafikelemente innerhalb eines {{ SVGElement("clipPath") }}-Elements. Es funktioniert im Wesentlichen wie das Attribut {{ SVGAttr("fill-rule") }}, wird jedoch auf {{ SVGElement("clipPath") }}-Definitionen angewendet.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `clip-rule` auch ein CSS-Äquivalent: {{cssxref("clip-rule")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `clip-rule` auch eine entsprechende CSS-Eigenschaft: {{cssxref("clip-rule")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Der folgende Codeausschnitt führt dazu, dass eine evenodd-Zuschneidungsregel auf den Clipping-Pfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }} Element angegeben ist, das die Zuschneideform definiert:
+Das folgende Codefragment bewirkt, dass die Clipping-Regel `evenodd` auf den Clipping-Pfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }}-Element angegeben ist, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -21,7 +21,7 @@ Der folgende Codeausschnitt führt dazu, dass eine evenodd-Zuschneidungsregel au
 </g>
 ```
 
-während der folgende Codeausschnitt keine evenodd-Zuschneidungsregel anwendet, weil `clip-rule` auf dem verweisenden Element angegeben ist, nicht auf dem Objekt, das die Zuschneideform definiert:
+Das folgende Codefragment bewirkt dagegen **nicht**, dass die Clipping-Regel `evenodd` angewendet wird, da `clip-rule` auf dem referenzierenden Element und nicht auf dem Objekt angegeben ist, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -32,29 +32,11 @@ während der folgende Codeausschnitt keine evenodd-Zuschneidungsregel anwendet, 
 </g>
 ```
 
-## Verwendungshinweise
+## Elemente
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>nonzero | evenodd | inherit</td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td>nonzero</td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
+Die folgenden Elemente können das Attribut `clip-rule` verwenden, jedoch nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }}-Elements befinden.
 
-- nonzero
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }} Eigenschaft.
-- evenodd
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }} Eigenschaft.
+- [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
 
 ## Beispiel
 
@@ -81,11 +63,29 @@ während der folgende Codeausschnitt keine evenodd-Zuschneidungsregel anwendet, 
 
 {{ EmbedLiveSample('Example', '100%', '110') }}
 
-## Elemente
+## Verwendungshinweise
 
-Die folgenden Elemente können das `clip-rule` Attribut verwenden, aber nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }} Elements befinden.
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>nonzero | evenodd | inherit</td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td>nonzero</td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
-- [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
+- nonzero
+  - : Siehe die Beschreibung der Eigenschaft {{ SVGAttr("fill-rule") }}.
+- evenodd
+  - : Siehe die Beschreibung der Eigenschaft {{ SVGAttr("fill-rule") }}.
 
 ## Spezifikationen
 
@@ -98,4 +98,4 @@ Die folgenden Elemente können das `clip-rule` Attribut verwenden, aber nur, wen
 ## Siehe auch
 
 - {{ SVGElement("clipPath") }}
-- CSS {{cssxref("clip-rule")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("clip-rule")}}

@@ -3,10 +3,10 @@ title: "`text-emphasis-color` CSS property"
 short-title: text-emphasis-color
 slug: Web/CSS/Reference/Properties/text-emphasis-color
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzschreibweise gesetzt werden.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-emphasis-color`** legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit der Kurzschreibweise {{cssxref("text-emphasis")}} festgelegt werden.
 
 {{InteractiveExample("CSS Demo: text-emphasis-color")}}
 
@@ -64,10 +64,10 @@ text-emphasis-color: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein `<color>`-Wert angegeben:
+Diese Eigenschaft wird als ein einzelner `<color>`-Wert angegeben:
 
 - `<color>`
-  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird `currentColor` als Standard verwendet.
+  - : Legt die Farbe der Hervorhebungszeichen fest. Wenn keine Farbe angegeben ist, wird standardmäßig `currentColor` verwendet.
 
 ## Formale Definition
 
@@ -81,6 +81,14 @@ Diese Eigenschaft wird als ein `<color>`-Wert angegeben:
 
 ### Hervorhebung mit einer Farbe und einem benutzerdefinierten Zeichen
 
+#### HTML
+
+```html
+<p>Here's an example:</p>
+
+<em>This has emphasis marks!</em>
+```
+
 #### CSS
 
 ```css
@@ -88,14 +96,6 @@ em {
   text-emphasis-color: green;
   text-emphasis-style: "*";
 }
-```
-
-#### HTML
-
-```html
-<p>Here's an example:</p>
-
-<em>This has emphasis marks!</em>
 ```
 
 #### Ergebnis
@@ -112,6 +112,6 @@ em {
 
 ## Siehe auch
 
-- Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Die anderen mit Hervorhebungszeichen verbundenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}} und {{cssxref("text-emphasis-position")}}.
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}} und {{cssxref("column-rule-color")}}.
+- Der Datentyp {{cssxref("&lt;color&gt;")}}
+- Die anderen Eigenschaften für Hervorhebungszeichen: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}} und {{cssxref("text-emphasis-position")}}.
+- Weitere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}} und {{cssxref("column-rule-color")}}

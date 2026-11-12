@@ -2,17 +2,82 @@
 title: r
 slug: Web/SVG/Reference/Attribute/r
 l10n:
-  sourceCommit: 7c90842660507d716c4e9deac52c1ed3bb465fb3
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`r`** Attribut definiert den Radius eines Kreises.
+Das Attribut **`r`** definiert den Radius eines Kreises.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("radialGradient")}}
 
-Prozentangaben beziehen sich auf die normierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
+Prozentangaben beziehen sich auf die normierte Diagonale des aktuellen SVG-Viewports. Sie wird wie folgt berechnet: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
+
+## circle
+
+Bei {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit seine Größe. Bei einem Wert kleiner oder gleich null wird der Kreis nicht gezeichnet.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
+            >&#x3C;length></a
+          ></strong
+        >
+        |
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
+            >&#x3C;percentage></a
+          ></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+> [!NOTE]
+> Der Radius eines `<circle>` kann auch mit der _Geometrie-Eigenschaft_ {{cssxref("r")}} definiert werden.
+
+## radialGradient
+
+Bei {{ SVGElement("radialGradient") }} definiert `r` den Radius des Endkreises des radialen Farbverlaufs.
+
+Der Farbverlauf wird so gezeichnet, dass der Farbverlaufsstopp bei **100 %** auf den Umfang dieses Endkreises abgebildet wird. Bei einem Wert kleiner oder gleich null wird der Bereich einfarbig mit der Farbe und Deckkraft des letzten {{ SVGElement("stop") }} des Farbverlaufs gefüllt.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <strong
+          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
+            >&#x3C;length></a
+          ></strong
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>50%</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Beispiel
 
@@ -50,71 +115,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", '100%', 200)}}
-
-## circle
-
-Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und somit seine Größe. Bei einem Wert kleiner oder gleich null wird der Kreis überhaupt nicht gezeichnet.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>0</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-> [!NOTE]
-> Die Radiusgröße eines `<circle>` kann auch mit der {{cssxref("r")}} _Geometrieeigenschaft_ definiert werden.
-
-## radialGradient
-
-Für {{ SVGElement("radialGradient") }} definiert `r` den Radius des Endkreises für den radialen Verlauf.
-
-Der Verlauf wird so gezeichnet, dass der **100%** Verlaufsstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich in einer einzigen Farbe unter Verwendung der Farbe und Deckkraft des letzten {{ SVGElement("stop") }} des Verlaufs eingefärbt wird.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Guides/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>50%</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Spezifikationen
 

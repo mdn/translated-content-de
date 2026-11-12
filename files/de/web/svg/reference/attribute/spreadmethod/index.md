@@ -2,51 +2,21 @@
 title: spreadMethod
 slug: Web/SVG/Reference/Attribute/spreadMethod
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das Attribut **`spreadMethod`** bestimmt, wie eine Form über die definierten Ränder eines Gradienten hinaus gefüllt wird.
+Das Attribut **`spreadMethod`** bestimmt, wie eine Form über die festgelegten Grenzen eines Farbverlaufs hinaus gefüllt wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
 
-## Nutzungshinweise
+## Beispiele
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>pad</code> | <code>reflect</code> | <code>repeat</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Anfangswert</th>
-      <td><code>pad</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
+### spreadMethod bei linearen Farbverläufen
 
-- `pad`
-  - : Dieser Wert gibt an, dass die endgültige Farbe des Gradienten die Form über die Ränder des Gradienten hinaus füllt.
-- `reflect`
-  - : Dieser Wert gibt an, dass der Gradient sich in umgekehrter Richtung über seine Ränder hinaus wiederholt.
-- `repeat`
-  - : Dieser Wert gibt an, dass der Gradient in der ursprünglichen Reihenfolge über seine Ränder hinaus wiederholt wird.
-
-### Definition der Ränder eines Gradienten
-
-Standardmäßig erreicht ein Gradient die Ränder der zu füllenden Form. Um die Effekte dieses Attributs zu sehen, müssen Sie die Größe des Gradienten kleiner als die Form festlegen.
-
-Im Falle eines linearen Gradienten können die Ränder als Rechteck durch die Attribute `x1`, `x2`, `y1` und `y2` definiert werden. Im Falle eines radialen Gradienten können die Ränder als äußere und innere Kreise durch die Attribute `cx`, `cy` und `r` (äußere) und `fx`, `fy` und `fr` (innere) definiert werden.
-
-## Beispiele für spreadMethod mit linearen Gradienten
-
-### SVG
+#### SVG
 
 ```html
 <svg width="220" height="150" xmlns="http://www.w3.org/2000/svg">
@@ -75,15 +45,15 @@ Im Falle eines linearen Gradienten können die Ränder als Rechteck durch die At
 </svg>
 ```
 
-### Ergebnis
+#### Ergebnis
 
-{{EmbedLiveSample('Examples_of_spreadMethod_with_linear_gradients')}}
+{{EmbedLiveSample('spreadMethod with linear gradients')}}
 
-Beachten Sie, dass das mittlere Drittel jedes Gradienten gleich ist. Die äußeren Drittel zeigen den Unterschied zwischen den drei Spread-Methoden.
+Beachten Sie, dass das mittlere Drittel jedes Farbverlaufs gleich ist. Die äußeren Drittel zeigen den Unterschied zwischen den drei Methoden.
 
-## Beispiele für spreadMethod mit radialen Gradienten
+### spreadMethod bei radialen Farbverläufen
 
-### SVG
+#### SVG
 
 ```html
 <svg width="340" height="120" xmlns="http://www.w3.org/2000/svg">
@@ -141,9 +111,41 @@ Beachten Sie, dass das mittlere Drittel jedes Gradienten gleich ist. Die äußer
 </svg>
 ```
 
-### Ergebnis
+#### Ergebnis
 
-{{EmbedLiveSample('Examples_of_spreadMethod_with_radial_gradients')}}
+{{EmbedLiveSample('spreadMethod with radial gradients')}}
+
+## Verwendungshinweise
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>pad</code> | <code>reflect</code> | <code>repeat</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Initialwert</th>
+      <td><code>pad</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `pad`
+  - : Dieser Wert gibt an, dass die letzte Farbe des Farbverlaufs die Form über die Grenzen des Farbverlaufs hinaus füllt.
+- `reflect`
+  - : Dieser Wert gibt an, dass sich der Farbverlauf über seine Grenzen hinaus in umgekehrter Reihenfolge wiederholt.
+- `repeat`
+  - : Dieser Wert gibt an, dass sich der Farbverlauf über seine Grenzen hinaus in der ursprünglichen Reihenfolge wiederholt.
+
+### Grenzen eines Farbverlaufs festlegen
+
+Standardmäßig reicht ein Farbverlauf bis an die Grenzen der gefüllten Form. Um die Auswirkungen dieses Attributs zu sehen, müssen Sie den Farbverlauf kleiner als die Form festlegen.
+
+Bei einem linearen Farbverlauf können die Grenzen durch die Attribute `x1`, `x2`, `y1` und `y2` als Rechteck festgelegt werden. Bei einem radialen Farbverlauf können die Grenzen durch die Attribute `cx`, `cy` und `r` für den äußeren Kreis sowie `fx`, `fy` und `fr` für den inneren Kreis festgelegt werden.
 
 ## Spezifikationen
 

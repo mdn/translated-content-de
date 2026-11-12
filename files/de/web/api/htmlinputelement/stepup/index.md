@@ -1,27 +1,27 @@
 ---
-title: "HTMLInputElement: stepUp() Methode"
+title: "HTMLInputElement: Methode stepUp()"
 short-title: stepUp()
 slug: Web/API/HTMLInputElement/stepUp
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen Typs eines {{HTMLElement("input")}} Elements um den Wert des [`step`](/de/docs/Web/HTML/Reference/Attributes/step) Attributs oder den Standardwert von `step`, falls das `step` Attribut nicht explizit gesetzt ist. Wenn die Methode aufgerufen wird, erhöht sie den [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) um ([`step`](/de/docs/Web/HTML/Reference/Elements/input#step) \* n), wobei `n` standardmäßig auf `1` gesetzt ist, wenn nicht angegeben, und [`step`](/de/docs/Web/HTML/Reference/Attributes/step) standardmäßig den Standardwert für `step` hat, wenn nicht angegeben.
+Die Methode **`HTMLInputElement.stepUp()`** erhöht den Wert eines numerischen {{HTMLElement("input")}}-Elements um den Wert des Attributs [`step`](/de/docs/Web/HTML/Reference/Attributes/step) oder um den Standardwert für `step`, wenn das Attribut nicht ausdrücklich gesetzt ist. Beim Aufruf erhöht die Methode den [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) um ([`step`](/de/docs/Web/HTML/Reference/Elements/input#step) \* n). Dabei ist `n` standardmäßig `1`, wenn kein Wert angegeben wird, und [`step`](/de/docs/Web/HTML/Reference/Attributes/step) entspricht dem Standardwert für `step`, wenn das Attribut nicht angegeben ist.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th>Input-Typ</th>
-      <th>Standardwert für Step</th>
-      <th>Beispiel für Step-Deklaration</th>
+      <th>Standardwert für step</th>
+      <th>Beispiel für die Angabe von step</th>
     </tr>
     <tr>
       <td>{{HTMLElement("input/date", "date")}}</td>
       <td><code>1</code> (Tag)</td>
       <td>
-        7 Tage (eine Woche) Schritte:<br />
+        Schritte von 7 Tagen (einer Woche):<br />
         <code>&#x3C;input type="date" min="2019-12-25" step="7"></code>
       </td>
     </tr>
@@ -29,7 +29,7 @@ Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen T
       <td>{{HTMLElement("input/month", "month")}}</td>
       <td><code>1</code> (Monat)</td>
       <td>
-        12 Monate (ein Jahr) Schritte:<br />
+        Schritte von 12 Monaten (einem Jahr):<br />
         <code>&#x3C;input type="month" min="2019-12" step="12"></code>
       </td>
     </tr>
@@ -37,7 +37,7 @@ Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen T
       <td>{{HTMLElement("input/week", "week")}}</td>
       <td><code>1</code> (Woche)</td>
       <td>
-        Zwei Wochen Schritte:<br />
+        Schritte von zwei Wochen:<br />
         <code>&#x3C;input type="week" min="2019-W23" step="2"></code>
       </td>
     </tr>
@@ -45,7 +45,7 @@ Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen T
       <td>{{HTMLElement("input/time", "time")}}</td>
       <td><code>60</code> (Sekunden)</td>
       <td>
-        900 Sekunden (15 Minuten) Schritte:<br />
+        Schritte von 900 Sekunden (15 Minuten):<br />
         <code>&#x3C;input type="time" min="09:00" step="900"></code>
       </td>
     </tr>
@@ -55,7 +55,7 @@ Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen T
       </td>
       <td><code>1</code> (Tag)</td>
       <td>
-        Gleicher Wochentag:<br />
+        Derselbe Wochentag:<br />
         <code>&#x3C;input type="datetime-local" min="019-12-25T19:30"
           step="7"></code>
       </td>
@@ -64,7 +64,7 @@ Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen T
       <td>{{HTMLElement("input/number", "number")}}</td>
       <td><code>1</code></td>
       <td>
-        0.1 Schritte<br />
+        Schritte von 0,1:<br />
         <code>&#x3C;input type="number" min="0" step="0.1" max="10"></code>
       </td>
     </tr>
@@ -72,18 +72,18 @@ Die **`HTMLInputElement.stepUp()`** Methode erhöht den Wert eines numerischen T
       <td>{{HTMLElement("input/range", "range")}}</td>
       <td><code>1</code></td>
       <td>
-        Erhöhungen um 2:<br />
+        Schritte von 2:<br />
         <code>&#x3C;input type="range" min="0" step="2" max="10"></code>
       </td>
     </tr>
   </thead>
 </table>
 
-Die Methode ändert, wenn sie aufgerufen wird, den Wert des Formkontrolls um den im `step` Attribut angegebenen Wert, multipliziert mit dem Parameter, innerhalb der auf das Formkontroll angewendeten Einschränkungen. Der Standardwert für den Parameter ist `1`, wenn kein Wert übergeben wird. Die Methode wird den Wert nicht über den gesetzten [`max`](/de/docs/Web/HTML/Reference/Attributes/max) Wert hinaus erhöhen oder die durch das [`step`](/de/docs/Web/HTML/Reference/Attributes/step) Attribut festgelegten Einschränkungen missachten.
+Beim Aufruf ändert die Methode den Wert des Formularelements um den Wert des Attributs `step`, multipliziert mit dem übergebenen Parameter. Dabei gelten die für das Formularelement festgelegten Einschränkungen. Wenn kein Parameter übergeben wird, ist sein Standardwert `1`. Die Methode lässt weder zu, dass der Wert den festgelegten Wert von [`max`](/de/docs/Web/HTML/Reference/Attributes/max) überschreitet, noch, dass er gegen die durch das Attribut [`step`](/de/docs/Web/HTML/Reference/Attributes/step) festgelegten Einschränkungen verstößt.
 
-Wenn der Wert vor dem Aufruf der `stepUp()` Methode ungültig ist - zum Beispiel, wenn er nicht den durch das step Attribut festgelegten Einschränkungen entspricht - wird der Aufruf der `stepUp()` Methode einen Wert zurückgeben, der den Einschränkungen der Formkontrolls entspricht.
+Ist der Wert vor dem Aufruf von `stepUp()` ungültig – etwa weil er nicht den durch das Attribut `step` festgelegten Einschränkungen entspricht –, führt der Aufruf zu einem Wert, der die Einschränkungen des Formularelements erfüllt.
 
-Wenn das Formkontroll nicht zeit-, daten- oder zahlenbasiert ist und daher das `step` Attribut nicht unterstützt (siehe die Liste der unterstützten Eingabetypen in der obigen Tabelle), oder wenn der step-Wert auf `any` gesetzt ist, wird eine `InvalidStateError` Ausnahme ausgelöst.
+Wenn das Formularelement weder einen Zeit-, Datums- noch einen numerischen Wert enthält und daher das Attribut `step` nicht unterstützt (siehe die Liste der unterstützten Input-Typen in der Tabelle oben), oder wenn der Wert von `step` auf `any` gesetzt ist, wird eine `InvalidStateError`-Ausnahme ausgelöst.
 
 ## Syntax
 
@@ -95,7 +95,7 @@ stepUp(stepIncrement)
 ### Parameter
 
 - `stepIncrement` {{optional_inline}}
-  - : Ein numerischer Wert. Wenn kein Parameter übergeben wird, ist `stepIncrement` standardmäßig `1`.
+  - : Ein numerischer Wert. Wenn kein Parameter übergeben wird, ist der Standardwert für `stepIncrement` `1`.
 
 ### Rückgabewert
 
@@ -103,7 +103,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um den {{HTMLElement("input/number", "number")}} Eingabetyp zu erhöhen:
+Klicken Sie in diesem Beispiel auf die Schaltfläche, um den Wert des {{HTMLElement("input/number", "number")}}-Eingabefelds zu erhöhen:
 
 ### HTML
 
@@ -122,6 +122,14 @@ Klicken Sie auf die Schaltfläche in diesem Beispiel, um den {{HTMLElement("inpu
   <input type="number" step="1" id="incrementInput" min="0" max="25" />
 </p>
 <input type="button" value="Increment" id="theButton" />
+```
+
+### CSS
+
+```css
+input:invalid {
+  border: red solid 3px;
+}
 ```
 
 ### JavaScript
@@ -147,21 +155,13 @@ function stepOnUp() {
 }
 ```
 
-### CSS
-
-```css
-input:invalid {
-  border: red solid 3px;
-}
-```
-
 ### Ergebnis
 
 {{EmbedLiveSample("Examples")}}
 
-Beachten Sie, dass die Methode, wenn kein Parameter an die `stepUp` Methode übergeben wird, standardmäßig `1` verwendet. Jeder andere Wert ist ein Multiplikator des `step` Attributwerts, der in diesem Fall `5` ist. Wenn Sie `4` als `stepIncrement` übergeben, wird die Eingabe um `4 * 5` oder `20` erhöht. Wenn der Parameter `0` ist, wird die Zahl nicht erhöht. Die stepUp Methode wird nicht zulassen, dass die Eingabe den Bereich überschreitet, in diesem Fall wird sie bei `400` stoppen und übergebene Fließkommazahlen abrunden.
+Wenn Sie der Methode `stepUp` keinen Parameter übergeben, verwendet sie standardmäßig `1`. Jeder andere Wert ist ein Multiplikator für den Wert des Attributs `step`, der hier `5` beträgt. Wenn Sie `4` als `stepIncrement` übergeben, erhöht `stepUp` den Eingabewert um `4 * 5`, also um `20`. Bei einem Parameterwert von `0` wird die Zahl nicht erhöht. `stepUp` lässt nicht zu, dass der Eingabewert den zulässigen Bereich verlässt: In diesem Fall stoppt die Erhöhung bei `400`. Als Parameter übergebene Fließkommazahlen werden abgerundet.
 
-Versuchen Sie, den Schritterhöhungswert auf `1.2` zu setzen. Was passiert, wenn Sie die Methode aufrufen?
+Versuchen Sie, den Eingabewert für die Schrittweite auf `1.2` zu setzen. Was passiert, wenn Sie die Methode aufrufen?
 
 Versuchen Sie, den Wert auf `4` zu setzen, was ungültig ist. Was passiert, wenn Sie die Methode aufrufen?
 
@@ -178,6 +178,4 @@ Versuchen Sie, den Wert auf `4` zu setzen, was ungültig ist. Was passiert, wenn
 - {{HTMLElement("input")}}
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`HTMLInputElement.stepDown`](/de/docs/Web/API/HTMLInputElement/stepDown)
-- [`step`](/de/docs/Web/HTML/Reference/Attributes/step),
-  [`min`](/de/docs/Web/HTML/Reference/Attributes/min) und
-  [`max`](/de/docs/Web/HTML/Reference/Attributes/max) Attribute
+- Die Attribute [`step`](/de/docs/Web/HTML/Reference/Attributes/step), [`min`](/de/docs/Web/HTML/Reference/Attributes/min) und [`max`](/de/docs/Web/HTML/Reference/Attributes/max)

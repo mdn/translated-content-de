@@ -3,12 +3,12 @@ title: "Element: dblclick-Ereignis"
 short-title: dblclick
 slug: Web/API/Element/dblclick_event
 l10n:
-  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{APIRef("UI Events")}}
 
-Das Ereignis **`dblclick`** wird ausgelöst, wenn die Taste eines Zeigegeräts (z. B. die primäre Maustaste) doppelt angeklickt wird, also wenn sie innerhalb sehr kurzer Zeit zweimal schnell auf demselben Element betätigt wird.
+Das **`dblclick`**-Ereignis wird ausgelöst, wenn die Taste eines Zeigegeräts (beispielsweise die primäre Maustaste) doppelt angeklickt wird. Das bedeutet, dass innerhalb sehr kurzer Zeit zweimal schnell hintereinander auf dasselbe Element geklickt wird.
 
 `dblclick` wird nach zwei [`click`](/de/docs/Web/API/Element/click_event)-Ereignissen ausgelöst (und damit nach zwei Paaren von [`mousedown`](/de/docs/Web/API/Element/mousedown_event)- und [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignissen).
 
@@ -20,7 +20,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("dblclick", (event) => { })
 ```
 
-Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
 
 ```js-nolint
 ondblclick = (event) => { }
@@ -28,23 +28,13 @@ ondblclick = (event) => { }
 
 ## Ereignistyp
 
-Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
+Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Es erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MouseEvent")}}
 
 ## Beispiele
 
 Dieses Beispiel ändert die Größe einer Karte, wenn Sie darauf doppelklicken.
-
-### JavaScript
-
-```js
-const card = document.querySelector("aside");
-
-card.addEventListener("dblclick", (e) => {
-  card.classList.toggle("large");
-});
-```
 
 ### HTML
 
@@ -72,6 +62,16 @@ aside {
 .large {
   transform: scale(1.3);
 }
+```
+
+### JavaScript
+
+```js
+const card = document.querySelector("aside");
+
+card.addEventListener("dblclick", (e) => {
+  card.classList.toggle("large");
+});
 ```
 
 ### Ergebnis

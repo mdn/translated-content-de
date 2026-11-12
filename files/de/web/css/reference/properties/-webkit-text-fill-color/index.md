@@ -3,10 +3,10 @@ title: "`-webkit-text-fill-color` CSS property"
 short-title: -webkit-text-fill-color
 slug: Web/CSS/Reference/Properties/-webkit-text-fill-color
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Füllfarbe der Zeichen eines Textes. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
+Die **`-webkit-text-fill-color`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Füllfarbe ([color](/de/docs/Web/CSS/Reference/Values/color_value)) von Textzeichen fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der Eigenschaft {{cssxref("color")}} verwendet.
 
 ## Syntax
 
@@ -26,10 +26,10 @@ Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt d
 
 ### Werte
 
-Diese Eigenschaft wird als ein `<color>` Wert angegeben:
+Diese Eigenschaft wird durch einen einzelnen `<color>`-Wert angegeben:
 
 - `<color>`
-  - : Die Vordergrund-Füllfarbe des Textelements.
+  - : Die Füllfarbe des Textinhalts im Vordergrund des Elements.
 
 ## Formale Definition
 
@@ -41,7 +41,13 @@ Diese Eigenschaft wird als ein `<color>` Wert angegeben:
 
 ## Beispiele
 
-### Ändern der Füllfarbe
+### Füllfarbe ändern
+
+#### HTML
+
+```html
+<p>This text is green.</p>
+```
 
 #### CSS
 
@@ -53,13 +59,7 @@ p {
 }
 ```
 
-#### HTML
-
-```html
-<p>This text is green.</p>
-```
-
-#### Ergebnisse
+#### Ergebnis
 
 {{EmbedLiveSample("Changing_the_fill_color", "380px", "60px")}}
 
@@ -73,8 +73,8 @@ p {
 
 ## Siehe auch
 
-- [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [Einführung in Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
+- [CSS-Tricks-Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke")}}

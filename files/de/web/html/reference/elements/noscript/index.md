@@ -1,16 +1,23 @@
 ---
-title: "`<noscript>` HTML noscript-Element"
+title: Das HTML-Element `<noscript>`
 short-title: <noscript>
 slug: Web/HTML/Reference/Elements/noscript
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 4b8ea679f2d55adbc1234f44583ca23a9729fbdc
 ---
 
-Das **`<noscript>`**-[HTML](/de/docs/Web/HTML)-Element definiert einen Abschnitt von HTML, der eingefügt wird, wenn ein Skripttyp auf der Seite nicht unterstützt wird oder wenn das Scripting im Browser momentan ausgeschaltet ist.
+Das [HTML](/de/docs/Web/HTML)-Element **`<noscript>`** definiert einen HTML-Abschnitt, der eingefügt wird, wenn ein auf der Seite verwendeter Skripttyp nicht unterstützt wird oder Skripting im Browser derzeit deaktiviert ist.
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+
+## Verwendungshinweise
+
+Je nachdem, ob Skripting aktiviert ist, repräsentiert das `<noscript>`-Element seine Kindelemente unterschiedlich:
+
+- Wenn Skripting deaktiviert ist, repräsentiert das `<noscript>`-Element seine Kindelemente als [HTML-Inhalt](/de/docs/Web/API/HTMLElement).
+- Wenn Skripting aktiviert ist, repräsentiert das `<noscript>`-Element seine Kindelemente als [Text](/de/docs/Web/API/Text).
 
 ## Beispiele
 
@@ -22,22 +29,15 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 <p>Rocks!</p>
 ```
 
-### Ergebnis mit aktiviertem Scripting
+### Ergebnis bei aktiviertem Skripting
 
 Rocks!
 
-### Ergebnis mit deaktiviertem Scripting
+### Ergebnis bei deaktiviertem Skripting
 
 [Externer Link](https://www.mozilla.org/)
 
 Rocks!
-
-## Nutzungshinweise
-
-Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob Scripting aktiviert ist:
-
-- Wenn Scripting deaktiviert ist, stellt das `<noscript>`-Element seine Kinder als [HTML-Inhalt](/de/docs/Web/API/HTMLElement) dar.
-- Wenn Scripting aktiviert ist, stellt das `<noscript>`-Element seine Kinder als [Text](/de/docs/Web/API/Text) dar.
 
 ## Technische Zusammenfassung
 
@@ -57,46 +57,45 @@ Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Formulierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Zulässiger Inhalt</th>
       <td>
-        Wenn Scripting deaktiviert ist und wenn es ein Nachkomme des
-        {{HTMLElement("head")}}-Elements ist: in beliebiger Reihenfolge null oder mehr
-        {{HTMLElement("link")}}-Elemente, null oder mehr
-        {{HTMLElement("style")}}-Elemente und null oder mehr
-        {{HTMLElement("meta")}}-Elemente.<br />Wenn Scripting deaktiviert ist und es
-        kein Nachkomme des
-        {{HTMLElement("head")}}-Elements ist: jeder
+        Wenn Skripting deaktiviert ist und sich das Element innerhalb eines
+        {{HTMLElement("head")}}-Elements befindet: in beliebiger Reihenfolge
+        beliebig viele {{HTMLElement("link")}}-Elemente,
+        {{HTMLElement("style")}}-Elemente und {{HTMLElement("meta")}}-Elemente.<br />Wenn Skripting
+        deaktiviert ist und sich das Element nicht innerhalb eines
+        {{HTMLElement("head")}}-Elements befindet: beliebiger
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
-          >transparente Inhalt</a
-        >, aber kein <code>&#x3C;noscript></code>-Element darf unter den
-        Nachkommen sein.<br />Andernfalls: Flussinhalt oder Phraseninhalt.
+          >transparenter Inhalt</a
+        >, wobei sich unter seinen Nachkommen kein <code>&#x3C;noscript></code>-Element
+        befinden darf.<br />Andernfalls: Flussinhalt oder Formulierungsinhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Nicht zulässig; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
-        > akzeptiert, wenn es keinen übergeordneten
-        <code>&#x3C;noscript></code>-Element gibt, oder in einem
-        {{HTMLElement("head")}}-Element (aber nur für ein HTML-Dokument), auch hier
-        wenn es keinen übergeordneten
-        <code>&#x3C;noscript></code>-Element gibt.
+          >Formulierungsinhalt</a
+        > akzeptiert, sofern sich unter den Vorfahren kein
+        <code>&#x3C;noscript></code>-Element befindet; außerdem ein
+        {{HTMLElement("head")}}-Element (jedoch nur in einem HTML-Dokument),
+        ebenfalls sofern sich unter den Vorfahren kein
+        <code>&#x3C;noscript></code>-Element befindet.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -104,8 +103,8 @@ Das `<noscript>`-Element stellt seine Kinder unterschiedlich dar, je nachdem, ob
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Keine <code>role</code> zulässig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

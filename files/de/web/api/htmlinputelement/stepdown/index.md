@@ -1,20 +1,20 @@
 ---
-title: "HTMLInputElement: stepDown() Methode"
+title: "HTMLInputElement: Methode stepDown()"
 short-title: stepDown()
 slug: Web/API/HTMLInputElement/stepDown
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLInputElement.stepDown()`**-Methode verringert den Wert eines numerischen Typs eines {{HTMLElement("input")}}-Elements um den Wert des [`step`](/de/docs/Web/HTML/Reference/Attributes/step)-Attributs oder bis zu `n` Vielfachen des step-Attributs, wenn eine Zahl als Parameter übergeben wird.
+Die Methode **`HTMLInputElement.stepDown()`** verringert den Wert eines numerischen {{HTMLElement("input")}}-Elements um den Wert des Attributs [`step`](/de/docs/Web/HTML/Reference/Attributes/step). Wird eine Zahl als Parameter übergeben, verringert sie den Wert um bis zu `n` Vielfache des `step`-Werts.
 
-Die Methode, wenn sie aufgerufen wird, verringert den [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) um ([`step`](/de/docs/Web/HTML/Reference/Elements/input#step) \* n), wobei n standardmäßig 1 ist, wenn nicht spezifiziert, und [`step`](/de/docs/Web/HTML/Reference/Attributes/step) standardmäßig den Standardwert für `step` verwendet, wenn nicht spezifiziert.
+Beim Aufruf verringert die Methode den [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) um ([`step`](/de/docs/Web/HTML/Reference/Elements/input#step) \* n). Wenn `n` nicht angegeben wird, ist der Standardwert `1`. Wenn [`step`](/de/docs/Web/HTML/Reference/Attributes/step) nicht angegeben wird, gilt dessen Standardwert.
 
-Gültig für alle numerischen, Datums- und Uhrzeit-Eingabetypen, die das step-Attribut unterstützen, einschließlich {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}}, und {{HTMLElement("input/range", "range")}}.
+Die Methode ist für alle numerischen, Datums- und Zeiteingabetypen gültig, die das Attribut `step` unterstützen, darunter {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}}.
 
-Angenommen, `<input id="myTime" type="time" max="17:00" step="900" value="17:00">`, das Aufrufen von `myTime.stepDown(3)` ändert den Wert auf 16:15, indem die Zeit um `3 * 900`, also 45 Minuten, verringert wird. `myTime.stepDown()`, ohne Parameter, würde zu `16:45` führen, da `n` standardmäßig auf `1` gesetzt ist.
+Bei `<input id="myTime" type="time" max="17:00" step="900" value="17:00">` ändert der Aufruf von `myTime.stepDown(3)` den Wert in `16:15`: Die Zeit wird um `3 * 900`, also 45 Minuten, verringert. `myTime.stepDown()` ohne Parameter würde `16:45` ergeben, da `n` standardmäßig `1` ist.
 
 ```html
 <!-- decrements by intervals of 900 seconds (15 minute) -->
@@ -27,7 +27,7 @@ Angenommen, `<input id="myTime" type="time" max="17:00" step="900" value="17:00"
 <input type="month" max="2019-12" step="12" />
 ```
 
-Das Aufrufen von `stepDown` bei `<input type="time" max="17:00" step="900">` würde den Wert jedoch nicht auf `17:00` setzen, wie man es erwarten könnte — und wie es für `stepUp` der Fall ist, wenn die Eingabe `<input type="time" min="17:00" step="900">` ist. Stattdessen setzt der erste Aufruf von `stepDown` den Anfangswert auf `23:45`, obwohl das `max`-Attribut gesetzt ist. Der zweite Aufruf setzt den Wert auf `17:00`. Und der dritte Aufruf setzt den Wert auf `16:45`.
+Ein Aufruf von `stepDown` für `<input type="time" max="17:00" step="900">` setzt den Wert jedoch nicht wie erwartet auf `17:00` – anders als `stepUp` bei `<input type="time" min="17:00" step="900">`. Stattdessen setzt der erste Aufruf von `stepDown` den Anfangswert auf `23:45`, obwohl das Attribut `max` gesetzt ist. Der zweite Aufruf setzt den Wert auf `17:00`, der dritte auf `16:45`.
 
 ```js
 let input1 = document.createElement("input");
@@ -51,11 +51,11 @@ input2.stepDown();
 console.log(input2.value); // "16:45"
 ```
 
-Die Methode, wenn sie aufgerufen wird, ändert den Wert des Formular-Steuerelements um den im `step`-Attribut angegebenen Wert, multipliziert mit dem Parameter, innerhalb der im Formular-Steuerelement festgelegten Grenzen. Der Standardwert für den Parameter, wenn keiner übergeben wird, ist 1. Die Methode wird den Wert nicht unter den [`min`](/de/docs/Web/HTML/Reference/Attributes/min)-Wert setzen oder die durch das [`step`](/de/docs/Web/HTML/Reference/Attributes/step)-Attribut festgelegten Einschränkungen verletzen. Ein negativer Wert für `n` wird den Wert inkrementieren, aber nicht über den [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Wert hinaus inkrementieren.
+Beim Aufruf ändert die Methode den Wert des Formularsteuerelements um den Wert des Attributs `step`, multipliziert mit dem Parameter. Dabei berücksichtigt sie die für das Formularsteuerelement festgelegten Grenzen. Wird kein Parameter übergeben, ist dessen Standardwert `1`. Die Methode verringert den Wert nicht unter den durch [`min`](/de/docs/Web/HTML/Reference/Attributes/min) festgelegten Wert und verletzt nicht die durch das Attribut [`step`](/de/docs/Web/HTML/Reference/Attributes/step) festgelegten Einschränkungen. Ein negativer Wert für `n` erhöht den Wert, jedoch nicht über den durch [`max`](/de/docs/Web/HTML/Reference/Attributes/max) festgelegten Wert hinaus.
 
-Wenn der Wert vor dem Aufrufen der `stepDown()`-Methode ungültig ist, zum Beispiel, wenn er nicht den durch das `step`-Attribut gesetzten Einschränkungen entspricht, wird das Aufrufen der `stepDown()`-Methode einen Wert zurückgeben, der den Formularsteuerungsbeschränkungen entspricht.
+Ist der Wert vor dem Aufruf von `stepDown()` ungültig, weil er beispielsweise nicht den durch das Attribut `step` festgelegten Einschränkungen entspricht, ergibt der Aufruf einen Wert, der den Einschränkungen des Formularsteuerelements entspricht.
 
-Wenn das Formular-Steuerelement nicht zeit-, datums- oder numerisch ist und daher das `step`-Attribut nicht unterstützt (siehe die Liste der unterstützten Eingabetypen oben) oder wenn der `step`-Wert auf `any` gesetzt ist, wird eine `InvalidStateError`-Ausnahme ausgelöst.
+Wenn das Formularsteuerelement weder ein Zeit-, Datums- noch ein numerischer Eingabetyp ist und daher das Attribut `step` nicht unterstützt (siehe die Liste der unterstützten Eingabetypen oben), oder wenn der Wert von `step` auf `any` gesetzt ist, wird eine `InvalidStateError`-Ausnahme ausgelöst.
 
 ## Syntax
 
@@ -67,9 +67,9 @@ stepDown(stepDecrement)
 ### Parameter
 
 - `stepDecrement` {{optional_inline}}
-  - : Ein numerischer Wert. Wenn kein Parameter übergeben wird, verwendet _stepDecrement_ standardmäßig 1.
+  - : Ein numerischer Wert. Wird kein Parameter übergeben, ist der Standardwert für _stepDecrement_ `1`.
 
-    Wenn der Wert ein Gleitkomma ist, wird der Wert verringert, als ob [`Math.floor(stepDecrement)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) übergeben wurde. Wenn der Wert negativ ist, wird der Wert statt verringert, inkrementiert.
+    Ist der Wert eine Gleitkommazahl, wird er so verringert, als wäre [`Math.floor(stepDecrement)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) übergeben worden. Ist der Wert negativ, wird der Wert erhöht statt verringert.
 
 ### Rückgabewert
 
@@ -78,15 +78,15 @@ Keiner ({{jsxref("undefined")}}).
 ## Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird in einem der folgenden Fälle geworfen:
-    - wenn die Methode für den aktuellen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Wert nicht anwendbar ist,
-    - wenn das Element keinen [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Wert hat,
-    - wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) nicht in eine Zahl umgewandelt werden kann,
-    - wenn der resultierende Wert über dem [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) oder unter dem [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) liegt.
+  - : Wird in einem der folgenden Fälle ausgelöst:
+    - Die Methode ist für den aktuellen Wert von [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) nicht anwendbar.
+    - Das Element hat keinen Wert für [`step`](/de/docs/Web/HTML/Reference/Elements/input#step).
+    - Der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) kann nicht in eine Zahl umgewandelt werden.
+    - Der resultierende Wert liegt über [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) oder unter [`min`](/de/docs/Web/HTML/Reference/Elements/input#min).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um den Eingabetyp {{HTMLElement("input/number", "number")}} zu verringern:
+Klicken Sie in diesem Beispiel auf die Schaltfläche, um den Wert eines {{HTMLElement("input/number", "number")}}-Eingabefelds zu verringern:
 
 ### HTML
 
@@ -105,6 +105,14 @@ Klicken Sie auf die Schaltfläche in diesem Beispiel, um den Eingabetyp {{HTMLEl
   <input type="number" step="1" id="decrementInput" min="-2" max="15" />
 </p>
 <input type="button" value="Decrement" id="theButton" />
+```
+
+### CSS
+
+```css
+input:invalid {
+  border: red solid 3px;
+}
 ```
 
 ### JavaScript
@@ -130,23 +138,15 @@ function stepOnDown() {
 }
 ```
 
-### CSS
-
-```css
-input:invalid {
-  border: red solid 3px;
-}
-```
-
 ### Ergebnis
 
 {{EmbedLiveSample("Examples")}}
 
-Beachten Sie, dass, wenn Sie keinen Parameter an die `stepDown()`-Methode übergeben, diese standardmäßig auf 1 gesetzt ist. Jeder andere Wert ist ein Vielfaches des `step`-Attributwertes, was in diesem Fall 5 ist. Wenn wir `4` als `stepDecrement` übergeben, wird die Eingabe um `4 * 5`, also `20`, verringert. Wenn der Parameter `0` ist, wird die Zahl nicht verringert. Die `stepDown()`-Methode wird nicht zulassen, dass die Eingabe außerhalb des Bereichs geht, in diesem Fall stoppt sie, wenn sie 0 erreicht und rundet Gleitkommawerte ab, die als Parameter übergeben werden.
+Wenn Sie der Methode `stepDown()` keinen Parameter übergeben, verwendet sie standardmäßig `1`. Jeder andere Wert ist ein Multiplikator für den Wert des Attributs `step`, der hier `5` beträgt. Wenn wir `4` als `stepDecrement` übergeben, verringert `stepDown` den Eingabewert um `4 * 5`, also `20`. Ist der Parameter `0`, wird die Zahl nicht verringert. Die Methode `stepDown()` lässt nicht zu, dass der Eingabewert den gültigen Bereich verlässt: In diesem Fall stoppt sie bei `0`. Als Parameter übergebene Gleitkommazahlen werden abgerundet.
 
-Versuchen Sie, das Schritt-Abnahme-Eingabefeld auf `1.2` zu setzen. Was passiert, wenn Sie die Methode aufrufen?
+Setzen Sie den Eingabewert für die Schrittverringerung auf `1.2`. Was geschieht, wenn Sie die Methode aufrufen?
 
-Versuchen Sie, den Wert auf `44` zu setzen, was ungültig ist. Was passiert, wenn Sie die Methode aufrufen?
+Setzen Sie den Wert auf `44`, was kein gültiger Wert ist. Was geschieht, wenn Sie die Methode aufrufen?
 
 ## Spezifikationen
 
@@ -161,6 +161,4 @@ Versuchen Sie, den Wert auf `44` zu setzen, was ungültig ist. Was passiert, wen
 - {{HTMLElement("input")}}
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`HTMLInputElement.stepUp()`](/de/docs/Web/API/HTMLInputElement/stepUp)
-- [`step`](/de/docs/Web/HTML/Reference/Attributes/step),
-  [`min`](/de/docs/Web/HTML/Reference/Attributes/min) und
-  [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attribute
+- Die Attribute [`step`](/de/docs/Web/HTML/Reference/Attributes/step), [`min`](/de/docs/Web/HTML/Reference/Attributes/min) und [`max`](/de/docs/Web/HTML/Reference/Attributes/max)

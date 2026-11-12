@@ -2,48 +2,24 @@
 title: transform-origin
 slug: Web/SVG/Reference/Attribute/transform-origin
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`transform-origin`** SVG-Attribut legt den Ursprung für die Transformationen eines Elements fest.
+Das SVG-Attribut **`transform-origin`** legt den Ursprung für die Transformationen eines Elements fest.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `transform-origin` auch ein entsprechendes CSS-Attribut: {{cssxref("transform-origin")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
-
-## Verwendungsnotizen
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <td><strong>Werte</strong></td>
-      <td>Siehe {{cssxref("transform-origin", "", "#formal_syntax")}}</td>
-    </tr>
-    <tr>
-      <td><strong>Standardwert</strong></td>
-      <td><code>0 0</code></td>
-    </tr>
-    <tr>
-      <td><strong>Animierbar</strong></td>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-> [!NOTE]
-> Der Standardwert von `transform-origin` ist `0 0` für alle SVG-Elemente mit Ausnahme von Wurzel-`<svg>`-Elementen und `<svg>`-Elementen, die ein direktes Kind von einem [`foreignObject`](/de/docs/Web/SVG/Reference/Element/foreignObject) sind. Diese Elemente haben `transform-origin: 50% 50%`, wie im normalen CSS.
-
-Angegebene Längen, Prozentsätze und Schlüsselwörter (`left`, `center`, `right`, `top`, und `bottom`) beziehen sich alle auf das [Referenzfeld](/de/docs/Web/CSS/Reference/Properties/transform-box). Da der Standardwert für `transform-box` `view-box` ist, sind die Koordinaten des Transformationsursprungs relativ zur `viewBox` des SVG-Elements, es sei denn, das Element selbst hat ein zugeordnetes CSS-Layout-Feld.
+> Als Präsentationsattribut hat `transform-origin` auch eine entsprechende CSS-Eigenschaft: {{cssxref("transform-origin")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Beispiele
 
-Die folgenden Beispiele demonstrieren die Drehung eines rechteckigen Kastens um 30° um verschiedene `transform-origin`s.
-Das SVG wird in jedem Fall mit dem ursprünglichen Kasten in gestrichelter roter Umrandung deklariert, gefolgt vom gedrehten Kasten in limettengrün, und dann der `transform-origin` als roter Fadenkreuzmarker.
+Die folgenden Beispiele zeigen, wie ein rechteckiger Kasten um 30° um verschiedene `transform-origin`-Punkte gedreht wird.
+In jedem Fall wird das SVG mit dem ursprünglichen Kasten als gestrichelte rote Kontur dargestellt, gefolgt vom gedrehten Kasten in Hellgrün und dem `transform-origin` als roter Fadenkreuzmarkierung.
 
-### Standard transform-origin
+### Standardmäßiger transform-origin
 
-Standardmäßig hat `transform-origin` den Wert `0 0`, was es am Ursprung der `viewBox` platziert. Unten erweitern wir die `viewBox` auf negative Werte, damit Sie den vollständigen Fadenkreuzmarker sehen können, und beachten auch, dass es nicht immer die obere linke Ecke des `<svg>`-Elements sein muss.
+Standardmäßig hat `transform-origin` den Wert `0 0` und liegt damit am Ursprung der `viewBox`. Im folgenden Beispiel erweitern wir die `viewBox` auf negative Werte, damit Sie die gesamte Fadenkreuzmarkierung sehen können. Beachten Sie auch, dass der Ursprung nicht immer in der oberen linken Ecke des `<svg>`-Elements liegt.
 
 ```html
 <svg
@@ -78,9 +54,9 @@ Standardmäßig hat `transform-origin` den Wert `0 0`, was es am Ursprung der `v
 
 {{ EmbedLiveSample('default_transform-origin', 400, 310) }}
 
-### Center transform-origin
+### Zentrierter transform-origin
 
-Unten setzen wir `transform-origin` auf `center`, was den Ursprung im Zentrum der `viewBox` platziert, jedoch nicht im Zentrum des Elementes, das transformiert wird.
+Im folgenden Beispiel setzen wir `transform-origin` auf `center`. Dadurch liegt der Ursprung in der Mitte der `viewBox`, jedoch nicht in der Mitte des transformierten Elements.
 
 ```html
 <svg
@@ -118,7 +94,7 @@ Unten setzen wir `transform-origin` auf `center`, was den Ursprung im Zentrum de
 
 ### transform-origin relativ zum transformierten Element
 
-Um `transform-origin` relativ zum transformierten Element zu machen, können Sie die `transform-box`-Eigenschaft verwenden. Unten setzen wir `transform-box` auf `fill-box`, was den `transform-origin` relativ zur Begrenzungsbox des transformierten Elements macht.
+Damit `transform-origin` relativ zum transformierten Element ist, können Sie die Eigenschaft `transform-box` verwenden. Im folgenden Beispiel setzen wir `transform-box` auf `fill-box`. Dadurch bezieht sich `transform-origin` auf die Bounding-Box des transformierten Elements.
 
 ```html
 <svg
@@ -161,7 +137,31 @@ Um `transform-origin` relativ zum transformierten Element zu machen, können Sie
 
 {{ EmbedLiveSample('transform-origin relative to the transformed element', 400, 310) }}
 
-Siehe CSS {{cssxref("transform-origin")}} für weitere Beispiele.
+Weitere Beispiele finden Sie unter CSS {{cssxref("transform-origin")}}.
+
+## Hinweise zur Verwendung
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <td><strong>Werte</strong></td>
+      <td>Siehe {{cssxref("transform-origin", "", "#formal_syntax")}}</td>
+    </tr>
+    <tr>
+      <td><strong>Standardwert</strong></td>
+      <td><code>0 0</code></td>
+    </tr>
+    <tr>
+      <td><strong>Animierbar</strong></td>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+> [!NOTE]
+> Der Standardwert von `transform-origin` ist für alle SVG-Elemente `0 0`, außer für `<svg>`-Wurzelelemente und `<svg>`-Elemente, die direkte Kinder eines [`foreignObject`](/de/docs/Web/SVG/Reference/Element/foreignObject) sind. Für diese Elemente gilt wie bei normalem CSS `transform-origin: 50% 50%`.
+
+Angegebene Längen, Prozentwerte und Schlüsselwörter (`left`, `center`, `right`, `top` und `bottom`) beziehen sich alle auf die [Referenzbox](/de/docs/Web/CSS/Reference/Properties/transform-box). Da der Standardwert von `transform-box` `view-box` ist, beziehen sich die Koordinaten des Transformationsursprungs auf die `viewBox` des SVG-Elements, sofern das Element selbst keine zugehörige CSS-Layoutbox hat.
 
 ## Spezifikationen
 
@@ -173,4 +173,4 @@ Siehe CSS {{cssxref("transform-origin")}} für weitere Beispiele.
 
 ## Siehe auch
 
-- CSS {{cssxref("transform-origin")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("transform-origin")}}

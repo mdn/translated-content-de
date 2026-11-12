@@ -2,14 +2,40 @@
 title: clipPathUnits
 slug: Web/SVG/Reference/Attribute/clipPathUnits
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`clipPathUnits`**-Attribut gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("clipPath") }}-Elements verwendet werden soll.
+Das Attribut **`clipPathUnits`** gibt an, welches Koordinatensystem für den Inhalt des Elements {{ SVGElement("clipPath") }} verwendet wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('clipPath')}}
+
+## clipPath
+
+Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das Koordinatensystem für den Inhalt des Elements.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>userSpaceOnUse</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- userSpaceOnUse
+  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des Elements {{SVGElement('clipPath')}} auf das Benutzerkoordinatensystem beziehen, das bei der Erstellung des Beschneidungspfads festgelegt war.
+- objectBoundingBox
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des Elements {{SVGElement('clipPath')}} relativ zur Begrenzungsbox des Elements sind, auf das der Beschneidungspfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems in der oberen linken Ecke der Begrenzungsbox liegt und Breite und Höhe der Begrenzungsbox jeweils als eine Einheit gelten.
 
 ## Beispiel
 
@@ -48,32 +74,6 @@ svg {
 ```
 
 {{EmbedLiveSample("Example", '100%', 200)}}
-
-## clipPath
-
-Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>userSpaceOnUse</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- userSpaceOnUse
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, wie es definiert wurde, als der Clipping-Pfad erstellt wurde.
-- objectBoundingBox
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements relativ zur Begrenzungsbox des Elements sind, auf das der Clipping-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als eine Länge von einem Einheitenwert betrachtet werden.
 
 ## Spezifikationen
 

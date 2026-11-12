@@ -1,11 +1,11 @@
 ---
-title: Kind-Kombinator
+title: Kindkombinator
 slug: Web/CSS/Reference/Selectors/Child_combinator
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Der **Kind-Kombinator** (`>`) wird zwischen zwei CSS-Selektoren platziert. Er erfasst nur jene Elemente, die vom zweiten Selektor erfasst werden und die direkten Kinder der Elemente sind, die vom ersten Selektor erfasst werden.
+Der **Kindkombinator** (`>`) steht zwischen zwei CSS-Selektoren. Er erfasst nur die Elemente, die dem zweiten Selektor entsprechen und direkte Kinder von Elementen sind, die dem ersten Selektor entsprechen.
 
 ```css
 /* List items that are children of the "my-things" list */
@@ -14,7 +14,7 @@ ul.my-things > li {
 }
 ```
 
-Elemente, die vom zweiten Selektor erfasst werden, müssen die unmittelbaren Kinder der Elemente sein, die vom ersten Selektor erfasst werden. Dies ist strenger als der [Nachfahren-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator), der alle Elemente erfasst, die vom zweiten Selektor erfasst werden, für die es ein Vorfahren-Element gibt, das vom ersten Selektor erfasst wird, unabhängig von der Anzahl der "Sprünge" im DOM.
+Elemente, die dem zweiten Selektor entsprechen, müssen unmittelbare Kinder der Elemente sein, die dem ersten Selektor entsprechen. Das ist strenger als beim [Nachfahrenkombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator): Dieser erfasst alle Elemente, die dem zweiten Selektor entsprechen und einen Vorfahren haben, der dem ersten Selektor entspricht – unabhängig davon, wie viele Ebenen im DOM dazwischenliegen.
 
 ## Syntax
 
@@ -24,18 +24,6 @@ selector1 > selector2 { /* style properties */ }
 ```
 
 ## Beispiele
-
-### CSS
-
-```css
-span {
-  background-color: aqua;
-}
-
-div > span {
-  background-color: yellow;
-}
-```
 
 ### HTML
 
@@ -47,6 +35,18 @@ div > span {
   </span>
 </div>
 <span>Span #3, not in the div at all.</span>
+```
+
+### CSS
+
+```css
+span {
+  background-color: aqua;
+}
+
+div > span {
+  background-color: yellow;
+}
 ```
 
 ### Ergebnis
@@ -63,4 +63,4 @@ div > span {
 
 ## Siehe auch
 
-- [Nachfahren-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator)
+- [Nachfahrenkombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator)

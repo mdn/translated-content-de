@@ -1,11 +1,11 @@
 ---
-title: Direkt-Nachfolger-Kombinator
+title: Kombinator für unmittelbar folgende Geschwisterelemente
 slug: Web/CSS/Reference/Selectors/Next-sibling_combinator
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
 ---
 
-Der **Direkt-Nachfolger-Kombinator** (`+`) trennt zwei Selektoren und wählt das zweite Element nur aus, wenn es _unmittelbar_ auf das erste Element folgt und beide Kinder desselben übergeordneten [`Elements`](/de/docs/Web/API/Element) sind.
+Der **Kombinator für unmittelbar folgende Geschwisterelemente** (`+`) trennt zwei Selektoren und wählt das zweite Element nur dann aus, wenn es _unmittelbar_ auf das erste Element folgt und beide Kinder desselben übergeordneten [`element`](/de/docs/Web/API/Element) sind.
 
 ```css
 /* Paragraphs that come immediately after any image */
@@ -23,20 +23,9 @@ former_element + target_element { style properties }
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man den nächsten Nachbarn auswählt, wenn dieser nächste Nachbar von einem bestimmten Typ ist.
-
-#### CSS
-
-Wir stylen nur das `<li>`, das unmittelbar nach einem `<li>` kommt, das das erste seiner Art ist:
-
-```css
-li:first-of-type + li {
-  color: red;
-  font-weight: bold;
-}
-```
+Dieses Beispiel zeigt, wie Sie das unmittelbar folgende Geschwisterelement auswählen, wenn es einem bestimmten Typ entspricht.
 
 #### HTML
 
@@ -48,24 +37,24 @@ li:first-of-type + li {
 </ul>
 ```
 
-#### Ergebnis
-
-{{EmbedLiveSample("Basic usage", "100%", 100)}}
-
-### Auswahl eines vorherigen Nachbarn
-
-Der Direkt-Nachfolger-Kombinator kann innerhalb des funktionalen Selektors {{cssxref(":has()")}} verwendet werden, um den vorherigen Nachbarn auszuwählen.
-
 #### CSS
 
-Wir stylen nur das `<li>`, das einen nächsten Nachbarn hat, der ein `<li>` ist, das das letzte seiner Art ist:
+Wir formatieren nur das `<li>`, das unmittelbar auf ein `<li>` folgt, das das erste Element seines Typs ist:
 
 ```css
-li:has(+ li:last-of-type) {
+li:first-of-type + li {
   color: red;
   font-weight: bold;
 }
 ```
+
+#### Ergebnis
+
+{{EmbedLiveSample("Basic usage", "100%", 100)}}
+
+### Ein vorheriges Geschwisterelement auswählen
+
+Der Kombinator für unmittelbar folgende Geschwisterelemente kann innerhalb des funktionalen Selektors {{cssxref(":has()")}} verwendet werden, um das vorherige Geschwisterelement auszuwählen.
 
 #### HTML
 
@@ -76,6 +65,17 @@ li:has(+ li:last-of-type) {
   <li>Three!</li>
   <li>Four</li>
 </ul>
+```
+
+#### CSS
+
+Wir formatieren nur das `<li>`, dessen unmittelbar folgendes Geschwisterelement ein `<li>` ist, das das letzte Element seines Typs ist:
+
+```css
+li:has(+ li:last-of-type) {
+  color: red;
+  font-weight: bold;
+}
 ```
 
 #### Ergebnis
@@ -92,4 +92,4 @@ li:has(+ li:last-of-type) {
 
 ## Siehe auch
 
-- [Benachbarter Nachfolger-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator)
+- [Kombinator für nachfolgende Geschwisterelemente](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator)

@@ -2,17 +2,47 @@
 title: patternContentUnits
 slug: Web/SVG/Reference/Attribute/patternContentUnits
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 04a0e78cf3119afe2a99e6449f6b74976654d69d
 ---
 
-Das Attribut **`patternContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
+Das Attribut **`patternContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des Elements {{ SVGElement("pattern") }} verwendet wird.
 
 > [!NOTE]
-> Dieses Attribut hat keine Auswirkung, wenn das Attribut {{ SVGAttr("viewBox") }} auf dem {{ SVGElement("pattern") }}-Element angegeben ist.
+> Dieses Attribut hat keine Wirkung, wenn für das Element {{ SVGElement("pattern") }} das Attribut {{ SVGAttr("viewBox") }} angegeben ist.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit dem folgenden SVG-Element verwenden:
 
 - {{SVGElement('pattern')}}
+
+## Elemente
+
+Sie können dieses Attribut mit dem SVG-Element verwenden, das im folgenden Abschnitt beschrieben wird.
+
+### `<pattern>`
+
+Für {{SVGElement('pattern')}} legt `patternContentUnits` das Koordinatensystem für den Inhalt des Elements fest.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td><code>userSpaceOnUse</code></td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+- `userSpaceOnUse`
+  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des Elements {{SVGElement('pattern')}} auf das Benutzerkoordinatensystem beziehen, wie es beim Erstellen der Musterkachel festgelegt wurde.
+- `objectBoundingBox`
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des Elements {{SVGElement('pattern')}} relativ zur Bounding Box des Elements sind, auf das das Muster angewendet wird. Die Bounding Box kann so betrachtet werden, als wäre der Inhalt von {{ SVGElement("pattern") }} für eine Musterkachel mit einer Breite und Höhe von jeweils 100 % an eine {{ SVGAttr("viewBox") }} mit dem Wert `"0 0 1 1"` gebunden.
 
 ## Beispiele
 
@@ -63,36 +93,6 @@ svg {
 ```
 
 {{EmbedLiveSample('Examples', 150, '100%')}}
-
-## Elemente
-
-Sie können dieses Attribut mit den SVG-Elementen verwenden, die in den untenstehenden Abschnitten beschrieben sind.
-
-### `<pattern>`
-
-Für {{SVGElement('pattern')}} definiert `patternContentUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
-
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Wert</th>
-      <td><code>userSpaceOnUse</code> | <code>objectBoundingBox</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>userSpaceOnUse</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-- `userSpaceOnUse`
-  - : Dieser Wert zeigt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements zum Benutzerkoordinatensystem gehören, wie es bei der Erstellung der Mustervorlage definiert wurde.
-- `objectBoundingBox`
-  - : Dieser Wert zeigt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als dasselbe betrachtet werden, als ob der Inhalt des {{ SVGElement("pattern") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} für eine Mustervorlage mit einer Breite und Höhe von 100% gebunden wäre.
 
 ## Spezifikationen
 

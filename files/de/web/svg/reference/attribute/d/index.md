@@ -2,45 +2,21 @@
 title: d
 slug: Web/SVG/Reference/Attribute/d
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 09ba70170e8962533f9566c7c6b6b047ed0eb090
 ---
 
-Das **`d`** Attribut definiert einen Pfad, der gezeichnet werden soll.
+Das Attribut **`d`** definiert einen zu zeichnenden Pfad.
 
-Eine Pfaddefinition ist eine Liste von [Pfadbefehlen](#pfadbefehle), wobei jeder Befehl aus einem Befehlsbuchstaben und Zahlen besteht, die die Befehlsparameter darstellen. Die Befehle werden [unten detailliert beschrieben](#pfadbefehle).
+Eine Pfaddefinition ist eine Liste von [Pfadbefehlen](#pfadbefehle). Jeder Befehl besteht aus einem Befehlsbuchstaben und Zahlen, die seine Parameter darstellen.
+Die Befehle werden [weiter unten ausführlich beschrieben](#pfadbefehle).
 
-Dieses Attribut wird mit dem SVG [`<path>`](#path) Element verwendet.
+Dieses Attribut wird mit dem SVG-Element [`<path>`](#path) verwendet.
 
-`d` ist ein Präsentationsattribut und kann daher auch [als CSS-Eigenschaft verwendet werden](#verwendung_von_d_als_css-eigenschaft).
-
-## Beispiel
-
-```css hidden
-html,
-body,
-svg {
-  height: 100%;
-}
-```
-
-```html
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <path
-    fill="none"
-    stroke="red"
-    d="M 10,30
-       A 20,20 0,0,1 50,30
-       A 20,20 0,0,1 90,30
-       Q 90,60 50,90
-       Q 10,60 10,30 z" />
-</svg>
-```
-
-{{EmbedLiveSample('Example', '100%', 200)}}
+`d` ist ein Präsentationsattribut und kann daher auch [als CSS-Eigenschaft verwendet werden](#d_als_css-eigenschaft_verwenden).
 
 ## path
 
-Für {{SVGElement('path')}} ist `d` ein String, der eine Reihe von Pfadbefehlen enthält, die den zu zeichnenden Pfad definieren.
+Für {{SVGElement('path')}} ist `d` eine Zeichenfolge mit einer Reihe von Pfadbefehlen, die den zu zeichnenden Pfad definieren.
 
 <table class="properties">
   <tbody>
@@ -61,11 +37,13 @@ Für {{SVGElement('path')}} ist `d` ein String, der eine Reihe von Pfadbefehlen 
   </tbody>
 </table>
 
-## Verwendung von d als CSS-Eigenschaft
+## d als CSS-Eigenschaft verwenden
 
-`d` ist ein Präsentationsattribut und kann daher auch mit CSS modifiziert werden. Die Eigenschaft nimmt entweder {{cssxref("basic-shape/path")}} oder `none`.
+`d` ist ein Präsentationsattribut und kann daher auch mit CSS geändert werden.
+Die Eigenschaft akzeptiert entweder {{cssxref("basic-shape/path")}} oder `none`.
 
-Das folgende Beispiel zeigt, wie Sie möglicherweise einen neuen Pfad beim Hover über ein Element anwenden. Der neue Pfad ist derselbe wie der alte, fügt jedoch eine Linie über das Herz hinzu.
+Das folgende Beispiel zeigt, wie Sie beim Bewegen des Mauszeigers über ein Element einen neuen Pfad anwenden können.
+Der neue Pfad entspricht dem alten, fügt aber eine Linie quer durch das Herz hinzu.
 
 ```css
 html,
@@ -98,40 +76,40 @@ svg {
 
 {{EmbedLiveSample('Using d as a CSS Property', '100%', 200)}}
 
-Für ein Beispiel zur `<path>`-Animation siehe die CSS {{cssxref("d")}} Eigenschaftsreferenzseite.
+Ein Beispiel für die Animation eines `<path>` finden Sie auf der Referenzseite zur CSS-Eigenschaft {{cssxref("d")}}.
 
 ## Pfadbefehle
 
-Pfadbefehle sind Anweisungen, die einen zu zeichnenden Pfad definieren. Jeder Befehl besteht aus einem Befehlsbuchstaben und Zahlen, die die Befehlsparameter darstellen.
+Pfadbefehle sind Anweisungen, die einen zu zeichnenden Pfad definieren. Jeder Befehl besteht aus einem Befehlsbuchstaben und Zahlen, die seine Parameter darstellen.
 
-SVG definiert 6 Arten von Pfadbefehlen, insgesamt 20 Befehle:
+SVG definiert 6 Arten von Pfadbefehlen mit insgesamt 20 Befehlen:
 
-- [MoveTo](#moveto_pfadbefehle): `M`, `m`
-- [LineTo](#lineto_pfadbefehle): `L`, `l`, `H`, `h`, `V`, `v`
-- [Kubische Bézier-Kurve](#kubische_bézier-kurve): `C`, `c`, `S`, `s`
-- [Quadratische Bézier-Kurve](#quadratische_bézier-kurve): `Q`, `q`, `T`, `t`
-- [Elliptische Bogenkurve](#elliptische_bogenkurve): `A`, `a`
+- [MoveTo](#moveto-pfadbefehle): `M`, `m`
+- [LineTo](#lineto-pfadbefehle): `L`, `l`, `H`, `h`, `V`, `v`
+- [Kubische Bézierkurve](#kubische_bézierkurve): `C`, `c`, `S`, `s`
+- [Quadratische Bézierkurve](#quadratische_bézierkurve): `Q`, `q`, `T`, `t`
+- [Elliptischer Bogen](#elliptischer_bogen): `A`, `a`
 - [ClosePath](#closepath): `Z`, `z`
 
 > [!NOTE]
-> Befehle sind _groß-/kleinschreibungssensitiv_. Ein Befehl in Großbuchstaben gibt absolute Koordinaten an, während ein Befehl in Kleinbuchstaben Koordinaten relativ zur aktuellen Position angibt.
+> Bei Befehlen wird zwischen Groß- und Kleinschreibung unterschieden. Ein Großbuchstabe gibt absolute Koordinaten an, ein Kleinbuchstabe dagegen Koordinaten relativ zur aktuellen Position.
 
-Es ist immer möglich, einen negativen Wert als Argument für einen Befehl anzugeben:
+Als Argument für einen Befehl kann immer ein negativer Wert angegeben werden:
 
-- negative Winkel werden im Uhrzeigersinn sein;
-- _absolute_ negative _x_- und _y_-Werte werden als negative Koordinaten interpretiert;
-- _relative_ negative _x_-Werte bewegen sich nach links und relative negative _y_-Werte bewegen sich nach oben.
+- Negative Winkel verlaufen gegen den Uhrzeigersinn.
+- Negative _absolute_ _x_- und _y_-Werte werden als negative Koordinaten interpretiert.
+- Negative _relative_ _x_-Werte verschieben die Position nach links, negative relative _y_-Werte nach oben.
 
-### MoveTo Pfadbefehle
+### MoveTo-Pfadbefehle
 
-_MoveTo_-Anweisungen können als das Aufnehmen des Zeicheninstruments gedacht werden, um es woanders abzulegen—mit anderen Worten, Sie bewegen den _aktuellen Punkt_ (_P<sub>o</sub>_; {_x<sub>o</sub>_, _y<sub>o</sub>_}). Es wird keine Linie zwischen _P<sub>o</sub>_ und dem neuen _aktuellen Punkt_ (_P<sub>n</sub>_; {_x<sub>n</sub>_, _y<sub>n</sub>_}) gezeichnet.
+_MoveTo_-Anweisungen lassen sich so verstehen, als würde man das Zeichenwerkzeug anheben und an einer anderen Stelle wieder absetzen. Mit anderen Worten: Sie verschieben den _aktuellen Punkt_ (_P<sub>o</sub>_; {_x<sub>o</sub>_, _y<sub>o</sub>_}). Zwischen _P<sub>o</sub>_ und dem neuen _aktuellen Punkt_ (_P<sub>n</sub>_; {_x<sub>n</sub>_, _y<sub>n</sub>_}) wird keine Linie gezeichnet.
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <th scope="col">Befehl</th>
       <th scope="col">Parameter</th>
-      <th scope="col">Anmerkungen</th>
+      <th scope="col">Hinweise</th>
     </tr>
     <tr>
       <th scope="row">M</th>
@@ -142,11 +120,11 @@ _MoveTo_-Anweisungen können als das Aufnehmen des Zeicheninstruments gedacht we
       </td>
       <td>
         <p>
-          Bewegen Sie den <em>aktuellen Punkt</em> zur Koordinate
+          Verschiebt den <em>aktuellen Punkt</em> zur Koordinate
           <code><var>x</var></code
           >,<code><var>y</var></code
-          >. Jegliches nachfolgende Koordinatenpaar(e) wird als Parameter für
-          implizite absolute LineTo (<code>L</code>) Befehl(e) interpretiert
+          >. Jedes nachfolgende Koordinatenpaar wird als Parameter eines
+          impliziten absoluten LineTo-Befehls (<code>L</code>) interpretiert
           (<em>siehe unten</em>).
         </p>
         <p>
@@ -166,12 +144,12 @@ _MoveTo_-Anweisungen können als das Aufnehmen des Zeicheninstruments gedacht we
       </td>
       <td>
         <p>
-          Bewegen Sie den <em>aktuellen Punkt</em>, indem Sie die zuletzt
-          bekannte Position des Pfades um <code><var>dx</var></code> entlang der
-          x-Achse und um <code><var>dy</var></code> entlang der y-Achse
-          verschieben. Jegliches nachfolgende Koordinatenpaar(e) wird als
-          Parameter für implizite relative LineTo (<code>l</code>) Befehl(e)
-          interpretiert (<em>siehe unten</em>).
+          Verschiebt den <em>aktuellen Punkt</em>, indem die letzte bekannte
+          Position des Pfads um <code><var>dx</var></code> entlang der x-Achse
+          und um <code><var>dy</var></code> entlang der y-Achse verschoben wird.
+          Jedes nachfolgende Koordinatenpaar wird als Parameter eines impliziten
+          relativen LineTo-Befehls (<code>l</code>) interpretiert
+          (<em>siehe unten</em>).
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>n</sub></var> = {<var
@@ -217,27 +195,27 @@ svg {
 
 {{EmbedLiveSample('MoveTo_path_commands', '100%', 200)}}
 
-### LineTo Pfadbefehle
+### LineTo-Pfadbefehle
 
-_LineTo_-Anweisungen zeichnen eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o</sub>_; {_x<sub>o</sub>_, _y<sub>o</sub>_}) zum _Endpunkt_ (_P<sub>n</sub>_; {_x<sub>n</sub>_, _y<sub>n</sub>_}), basierend auf den angegebenen Parametern. Der _Endpunkt_ (_P<sub>n</sub>_) wird dann der _aktuelle Punkt_ für den nächsten Befehl (_P<sub>o</sub>′_).
+_LineTo_-Anweisungen zeichnen anhand der angegebenen Parameter eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o</sub>_; {_x<sub>o</sub>_, _y<sub>o</sub>_}) zum _Endpunkt_ (_P<sub>n</sub>_; {_x<sub>n</sub>_, _y<sub>n</sub>_}). Der _Endpunkt_ (_P<sub>n</sub>_) wird anschließend zum _aktuellen Punkt_ für den nächsten Befehl (_P<sub>o</sub>′_).
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <th scope="col">Befehl</th>
       <th scope="col">Parameter</th>
-      <th scope="col">Anmerkungen</th>
+      <th scope="col">Hinweise</th>
     </tr>
     <tr>
       <th scope="row">L</th>
       <td>(<code>x</code>, <code>y</code>)+</td>
       <td>
         <p>
-          Zeichnen Sie eine Linie vom <em>aktuellen Punkt</em> zum
+          Zeichnet eine Linie vom <em>aktuellen Punkt</em> zum
           <em>Endpunkt</em>, der durch <code><var>x</var></code
-          >,<code><var>y</var></code> angegeben ist. Jegliches nachfolgende
-          Koordinatenpaar(e) wird als Parameter für implizite absolute LineTo
-          (<code>L</code>) Befehl(e) interpretiert.
+          >,<code><var>y</var></code
+          > angegeben wird. Jedes nachfolgende Koordinatenpaar wird als Parameter
+          eines impliziten absoluten LineTo-Befehls (<code>L</code>) interpretiert.
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>o</sub>′</var> =
@@ -256,13 +234,13 @@ _LineTo_-Anweisungen zeichnen eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o<
       </td>
       <td>
         <p>
-          Zeichnen Sie eine Linie vom <em>aktuellen Punkt</em> zum
-          <em>Endpunkt</em>, der der <em>aktuelle Punkt</em> ist, verschoben
-          um <code><var>dx</var></code> entlang der x-Achse und
-          <code><var>dy</var></code> entlang der y-Achse. Jegliches
-          nachfolgende Koordinatenpaar(e) wird als Parameter für implizite
-          relative LineTo (<code>l</code>) Befehl(e) interpretiert (<em>siehe
-          unten</em>).
+          Zeichnet eine Linie vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>. Dieser ergibt sich, indem der <em>aktuelle Punkt</em>
+          um <code><var>dx</var></code> entlang der x-Achse und um
+          <code><var>dy</var></code> entlang der y-Achse verschoben wird. Jedes
+          nachfolgende Koordinatenpaar wird als Parameter eines impliziten
+          relativen LineTo-Befehls (<code>l</code>) interpretiert
+          (<em>siehe unten</em>).
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>o</sub>′</var> =
@@ -281,12 +259,12 @@ _LineTo_-Anweisungen zeichnen eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o<
       </td>
       <td>
         <p>
-          Zeichnen Sie eine horizontale Linie vom <em>aktuellen Punkt</em> zum
-          <em>Endpunkt</em>, der durch den Parameter
-          <code><var>x</var></code> und den <em>aktuellen Punkt</em>
-          <code>y</code> Koordinate angegeben ist. Jeglicher nachfolgende Wert
-          wird als Parameter für implizite absolute horizontale LineTo
-          (<code>H</code>) Befehl(e) interpretiert.
+          Zeichnet eine horizontale Linie vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>. Dieser wird durch den Parameter
+          <code><var>x</var></code> und die <code>y</code>-Koordinate des
+          <em>aktuellen Punkts</em> bestimmt. Jeder nachfolgende Wert wird als
+          Parameter eines impliziten absoluten horizontalen LineTo-Befehls
+          (<code>H</code>) interpretiert.
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>o</sub>′</var> =
@@ -304,12 +282,13 @@ _LineTo_-Anweisungen zeichnen eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o<
       </td>
       <td>
         <p>
-          Zeichnen Sie eine horizontale Linie vom <em>aktuellen Punkt</em> zum
-          <em>Endpunkt</em>, der durch den <em>aktuellen Punkt</em>
-          verschoben um <code><var>dx</var></code> entlang der x-Achse und den
-          <em>aktuellen Punkt</em> <code>y</code> Koordinate angegeben ist.
-          Jeglicher nachfolgende Wert wird als Parameter für implizite relative
-          horizontale LineTo (<code>h</code>) Befehl(e) interpretiert.
+          Zeichnet eine horizontale Linie vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>. Dessen x-Koordinate ergibt sich, indem der
+          <em>aktuelle Punkt</em> um <code><var>dx</var></code> entlang der
+          x-Achse verschoben wird; seine <code>y</code>-Koordinate entspricht
+          der des <em>aktuellen Punkts</em>. Jeder nachfolgende Wert wird als
+          Parameter eines impliziten relativen horizontalen LineTo-Befehls
+          (<code>h</code>) interpretiert.
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>o</sub>′</var> =
@@ -328,12 +307,12 @@ _LineTo_-Anweisungen zeichnen eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o<
       </td>
       <td>
         <p>
-          Zeichnen Sie eine vertikale Linie vom <em>aktuellen Punkt</em> zum
-          <em>Endpunkt</em>, der durch den Parameter
-          <code><var>y</var></code> und den <em>aktuellen Punkt</em>
-          <code>x</code> Koordinate angegeben ist. Jegliche nachfolgende Werte
-          werden als Parameter für implizite absolute vertikale LineTo
-          (<code>V</code>) Befehl(e) interpretiert.
+          Zeichnet eine vertikale Linie vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>. Dieser wird durch den Parameter
+          <code><var>y</var></code> und die <code>x</code>-Koordinate des
+          <em>aktuellen Punkts</em> bestimmt. Jeder nachfolgende Wert wird als
+          Parameter eines impliziten absoluten vertikalen LineTo-Befehls
+          (<code>V</code>) interpretiert.
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>o</sub>′</var> =
@@ -351,12 +330,13 @@ _LineTo_-Anweisungen zeichnen eine gerade Linie vom _aktuellen Punkt_ (_P<sub>o<
       </td>
       <td>
         <p>
-          Zeichnen Sie eine vertikale Linie vom <em>aktuellen Punkt</em> zum
-          <em>Endpunkt</em>, der durch den <em>aktuellen Punkt</em> verschoben
-          um <code><var>dy</var></code> entlang der y-Achse und den <em>aktuellen
-          Punkt</em> <code>x</code> Koordinate angegeben ist. Jeglicher
-          nachfolgende Wert wird als Parameter für implizite relative vertikale
-          LineTo (<code>v</code>) Befehl(e) interpretiert.
+          Zeichnet eine vertikale Linie vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>. Dessen y-Koordinate ergibt sich, indem der
+          <em>aktuelle Punkt</em> um <code><var>dy</var></code> entlang der
+          y-Achse verschoben wird; seine <code>x</code>-Koordinate entspricht
+          der des <em>aktuellen Punkts</em>. Jeder nachfolgende Wert wird als
+          Parameter eines impliziten relativen vertikalen LineTo-Befehls
+          (<code>v</code>) interpretiert.
         </p>
         <p>
           <strong>Formel:</strong> <var>P<sub>o</sub>′</var> =
@@ -403,29 +383,29 @@ svg {
 
 {{EmbedLiveSample('LineTo_path_commands', '100%', 200)}}
 
-### Kubische Bézier-Kurve
+### Kubische Bézierkurve
 
-_Kubische {{Glossary("Bezier_curve", "Bézier-Kurven")}}_ sind glatte Kurvendefinitionen mit vier Punkten:
+_Kubische {{Glossary("Bezier_curve", "Bézierkurven")}}_ sind glatte Kurven, die durch vier Punkte definiert werden:
 
 - Startpunkt (aktueller Punkt)
   - : (_P<sub>o</sub>_ = {_x<sub>o</sub>_, _y<sub>o</sub>_})
 - Endpunkt
   - : (_P<sub>n</sub>_ = {_x<sub>n</sub>_, _y<sub>n</sub>_})
-- Startkontrollpunkt
+- Anfangskontrollpunkt
   - : (_P<sub>cs</sub>_ = {_x<sub>cs</sub>_, _y<sub>cs</sub>_})
-    (steuert die Krümmung in der Nähe des Startpunktes der Kurve)
+    (steuert die Krümmung nahe dem Anfang der Kurve)
 - Endkontrollpunkt
   - : (_P<sub>ce</sub>_ = {_x<sub>ce</sub>_, _y<sub>ce</sub>_})
-    (steuert die Krümmung in der Nähe des Endpunktes der Kurve)
+    (steuert die Krümmung nahe dem Ende der Kurve)
 
-Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ für den nächsten Befehl (_P<sub>o</sub>′_).
+Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) zum _aktuellen Punkt_ für den nächsten Befehl (_P<sub>o</sub>′_).
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <th scope="col">Befehl</th>
       <th scope="col">Parameter</th>
-      <th scope="col">Anmerkungen</th>
+      <th scope="col">Hinweise</th>
     </tr>
     <tr>
       <th scope="row">C</th>
@@ -440,17 +420,17 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
       </td>
       <td>
         <p>
-          Zeichnen Sie eine kubische Bézier-Kurve vom <em>aktuellen
-          Punkt</em> zum <em>Endpunkt</em>, angegeben durch
-          <code><var>x</var></code
-          >,<code><var>y</var></code>. Der <em>Startkontrollpunkt</em> ist
-          angegeben durch <code><var>x1</var></code
-          >,<code><var>y1</var></code> und der <em>Endkontrollpunkt</em> ist
-          angegeben durch <code><var>x2</var></code
+          Zeichnet eine kubische Bézierkurve vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>, der durch <code><var>x</var></code
+          >,<code><var>y</var></code
+          > angegeben wird. Der <em>Anfangskontrollpunkt</em> wird durch
+          <code><var>x1</var></code
+          >,<code><var>y1</var></code> und der <em>Endkontrollpunkt</em> durch
+          <code><var>x2</var></code
           >,<code><var>y2</var></code
-          >. Jegliches nachfolgende Triplet von Koordinatenpaaren wird als
-          Parameter für implizite absolute kubische Bézier-Kurve
-          (<code>C</code>) Befehl(e) interpretiert.
+          > angegeben. Jedes nachfolgende Tripel von Koordinatenpaaren wird als
+          Parameter eines impliziten absoluten Befehls für eine kubische
+          Bézierkurve (<code>C</code>) interpretiert.
         </p>
         <dl>
           <dt>Formeln:</dt>
@@ -480,19 +460,21 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
       </td>
       <td>
         <p>
-          Zeichnen Sie eine kubische Bézier-Kurve vom <em>aktuellen
-          Punkt</em> zum <em>Endpunkt</em>, der der <em>aktuelle Punkt</em> ist,
-          verschoben um <code><var>dx</var></code> entlang der x-Achse und
-          <code><var>dy</var></code> entlang der y-Achse. Der
-          <em>Startkontrollpunkt</em> ist der <em>aktuelle Punkt</em> (Startpunkt
-          der Kurve), verschoben um <code><var>dx1</var></code> entlang der
-          x-Achse und <code><var>dy1</var></code> entlang der y-Achse. Der
-          <em>Endkontrollpunkt</em> ist der <em>aktuelle Punkt</em> (Startpunkt
-          der Kurve), verschoben um <code><var>dx2</var></code> entlang der
-          x-Achse und <code><var>dy2</var></code> entlang der y-Achse. Jegliches
-          nachfolgende Triplet von Koordinatenpaaren wird als Parameter für
-          implizite relative kubische Bézier-Kurve (<code>c</code>) Befehl(e)
-          interpretiert.
+          Zeichnet eine kubische Bézierkurve vom <em>aktuellen Punkt</em> zum
+          <em>Endpunkt</em>. Dieser ergibt sich, indem der <em>aktuelle Punkt</em>
+          um <code><var>dx</var></code> entlang der x-Achse und um
+          <code><var>dy</var></code> entlang der y-Achse verschoben wird. Der
+          <em>Anfangskontrollpunkt</em> ergibt sich, indem der
+          <em>aktuelle Punkt</em> (der Startpunkt der Kurve) um
+          <code><var>dx1</var></code> entlang der x-Achse und um
+          <code><var>dy1</var></code> entlang der y-Achse verschoben wird. Der
+          <em>Endkontrollpunkt</em> ergibt sich, indem der
+          <em>aktuelle Punkt</em> (der Startpunkt der Kurve) um
+          <code><var>dx2</var></code> entlang der x-Achse und um
+          <code><var>dy2</var></code> entlang der y-Achse verschoben wird. Jedes
+          nachfolgende Tripel von Koordinatenpaaren wird als Parameter eines
+          impliziten relativen Befehls für eine kubische Bézierkurve
+          (<code>c</code>) interpretiert.
         </p>
         <dl>
           <dt>Formeln:</dt>
@@ -523,18 +505,20 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
         >)+
       </td>
       <td>
-        Zeichnen Sie eine glatte kubische Bézier-Kurve vom <em>aktuellen
-        Punkt</em> zum <em>Endpunkt</em>, der durch <code><var>x</var></code
-        >,<code><var>y</var></code> angegeben ist. Der
-        <em>Endkontrollpunkt</em> ist angegeben durch <code><var>x2</var></code
+        Zeichnet eine glatte kubische Bézierkurve vom <em>aktuellen Punkt</em>
+        zum <em>Endpunkt</em>, der durch <code><var>x</var></code
+        >,<code><var>y</var></code
+        > angegeben wird. Der <em>Endkontrollpunkt</em> wird durch
+        <code><var>x2</var></code
         >,<code><var>y2</var></code
-        >. Der <em>Startkontrollpunkt</em> ist die Spiegelung des
-        <em>Endkontrollpunkts</em> des vorherigen Kurvenbefehls über den <em>aktuellen Punkt</em>. Wenn der
-        vorherige Befehl keine kubische Bézier-Kurve war, ist der
-        <em>Startkontrollpunkt</em> derselbe wie der Startpunkt der Kurve
-        (<em>aktueller Punkt</em>). Jegliche nachfolgende Paar(e) von
-        Koordinatenpaaren werden als Parameter für implizite absolute glatte
-        kubische Bézier-Kurven (<code>S</code>) Befehle interpretiert.
+        > angegeben. Der <em>Anfangskontrollpunkt</em> ist die Spiegelung des
+        <em>Endkontrollpunkts</em> des vorherigen Kurvenbefehls am
+        <em>aktuellen Punkt</em>. War der vorherige Befehl kein Befehl für eine
+        kubische Bézierkurve, stimmt der <em>Anfangskontrollpunkt</em> mit dem
+        Startpunkt der Kurve (<em>aktueller Punkt</em>) überein. Jedes
+        nachfolgende Paar von Koordinatenpaaren wird als Parameter eines
+        impliziten absoluten Befehls für eine glatte kubische Bézierkurve
+        (<code>S</code>) interpretiert.
       </td>
     </tr>
     <tr>
@@ -547,20 +531,22 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
         >)+
       </td>
       <td>
-        Zeichnen Sie eine glatte kubische Bézier-Kurve vom <em>aktuellen
-        Punkt</em> zum <em>Endpunkt</em>, der der <em>aktuelle Punkt</em> ist,
-        verschoben um <code><var>dx</var></code> entlang der x-Achse und
-        <code><var>dy</var></code> entlang der y-Achse. Der
-        <em>Endkontrollpunkt</em> ist der <em>aktuelle Punkt</em> (Startpunkt
-        der Kurve), verschoben um <code><var>dx2</var></code> entlang der
-        x-Achse und <code><var>dy2</var></code> entlang der y-Achse. Der
-        <em>Startkontrollpunkt</em> ist die Spiegelung des
-        <em>Endkontrollpunkts</em> des vorherigen Kurvenbefehls über den <em>aktuellen Punkt</em>. Wenn der
-        vorherige Befehl keine kubische Bézier-Kurve war, ist der
-        <em>Startkontrollpunkt</em> derselbe wie der Startpunkt der Kurve
-        (<em>aktueller Punkt</em>). Jegliche nachfolgende Paar(e) von
-        Koordinatenpaaren werden als Parameter für implizite relative glatte
-        kubische Bézier-Kurven (<code>s</code>) Befehle interpretiert.
+        Zeichnet eine glatte kubische Bézierkurve vom <em>aktuellen Punkt</em>
+        zum <em>Endpunkt</em>. Dieser ergibt sich, indem der
+        <em>aktuelle Punkt</em> um <code><var>dx</var></code> entlang der
+        x-Achse und um <code><var>dy</var></code> entlang der y-Achse
+        verschoben wird. Der <em>Endkontrollpunkt</em> ergibt sich, indem der
+        <em>aktuelle Punkt</em> (der Startpunkt der Kurve) um
+        <code><var>dx2</var></code> entlang der x-Achse und um
+        <code><var>dy2</var></code> entlang der y-Achse verschoben wird. Der
+        <em>Anfangskontrollpunkt</em> ist die Spiegelung des
+        <em>Endkontrollpunkts</em> des vorherigen Kurvenbefehls am
+        <em>aktuellen Punkt</em>. War der vorherige Befehl kein Befehl für eine
+        kubische Bézierkurve, stimmt der <em>Anfangskontrollpunkt</em> mit dem
+        Startpunkt der Kurve (<em>aktueller Punkt</em>) überein. Jedes
+        nachfolgende Paar von Koordinatenpaaren wird als Parameter eines
+        impliziten relativen Befehls für eine glatte kubische Bézierkurve
+        (<code>s</code>) interpretiert.
       </td>
     </tr>
   </tbody>
@@ -630,9 +616,9 @@ svg {
 
 {{EmbedLiveSample('Cubic_Bézier_Curve', '100%', 200)}}
 
-### Quadratische Bézier-Kurve
+### Quadratische Bézierkurve
 
-_Quadratische {{Glossary("Bezier_curve", "Bézier-Kurven")}}_ sind glatte Kurvendefinitionen mit drei Punkten:
+_Quadratische {{Glossary("Bezier_curve", "Bézierkurven")}}_ sind glatte Kurven, die durch drei Punkte definiert werden:
 
 - Startpunkt (aktueller Punkt)
   - : _P<sub>o</sub>_ = {_x<sub>o</sub>_, _y<sub>o</sub>_}
@@ -640,16 +626,16 @@ _Quadratische {{Glossary("Bezier_curve", "Bézier-Kurven")}}_ sind glatte Kurven
   - : _P<sub>n</sub>_ = {_x<sub>n</sub>_, _y<sub>n</sub>_}
 - Kontrollpunkt
   - : _P<sub>c</sub>_ = {_x<sub>c</sub>_, _y<sub>c</sub>_}
-    (steuert Krümmung)
+    (steuert die Krümmung)
 
-Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ für den nächsten Befehl (_P<sub>o</sub>′_).
+Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) zum _aktuellen Punkt_ für den nächsten Befehl (_P<sub>o</sub>′_).
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <th scope="col">Befehl</th>
       <th scope="col">Parameter</th>
-      <th scope="col">Anmerkungen</th>
+      <th scope="col">Hinweise</th>
     </tr>
     <tr>
       <th scope="row">Q</th>
@@ -662,14 +648,15 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
       </td>
       <td>
         <p>
-          Zeichnen Sie eine quadratische Bézier-Kurve vom <em>aktuellen
-          Punkt</em> zum <em>Endpunkt</em>, der durch <code><var>x</var></code
-          >,<code><var>y</var></code> angegeben ist. Der
-          <em>Kontrollpunkt</em> ist angegeben durch <code><var>x1</var></code
+          Zeichnet eine quadratische Bézierkurve vom <em>aktuellen Punkt</em>
+          zum <em>Endpunkt</em>, der durch <code><var>x</var></code
+          >,<code><var>y</var></code
+          > angegeben wird. Der <em>Kontrollpunkt</em> wird durch
+          <code><var>x1</var></code
           >,<code><var>y1</var></code
-          >. Jegliches nachfolgende Paar(e) von Koordinatenpaaren wird als
-          Parameter für implizite absolute quadratische Bézier-Kurve
-          (<code>Q</code>) Befehl(e) interpretiert.
+          > angegeben. Jedes nachfolgende Paar von Koordinatenpaaren wird als
+          Parameter eines impliziten absoluten Befehls für eine quadratische
+          Bézierkurve (<code>Q</code>) interpretiert.
         </p>
         <dl>
           <dt><strong>Formeln:</strong></dt>
@@ -695,16 +682,17 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
       </td>
       <td>
         <p>
-          Zeichnen Sie eine quadratische Bézier-Kurve vom <em>aktuellen
-          Punkt</em> zum <em>Endpunkt</em>, der der <em>aktuelle Punkt</em> ist,
-          verschoben um <code><var>dx</var></code> entlang der x-Achse und
-          <code><var>dy</var></code> entlang der y-Achse. Der
-          <em>Kontrollpunkt</em> ist der <em>aktuelle Punkt</em> (Startpunkt der
-          Kurve), verschoben um <code><var>dx1</var></code> entlang der x-Achse
-          und <code><var>dy1</var></code> entlang der y-Achse. Jegliches
-          nachfolgende Paar(e) von Koordinatenpaaren wird als Parameter für
-          implizite relative quadratische Bézier-Kurve (<code>q</code>)
-          Befehl(e) interpretiert.
+          Zeichnet eine quadratische Bézierkurve vom <em>aktuellen Punkt</em>
+          zum <em>Endpunkt</em>. Dieser ergibt sich, indem der
+          <em>aktuelle Punkt</em> um <code><var>dx</var></code> entlang der
+          x-Achse und um <code><var>dy</var></code> entlang der y-Achse
+          verschoben wird. Der <em>Kontrollpunkt</em> ergibt sich, indem der
+          <em>aktuelle Punkt</em> (der Startpunkt der Kurve) um
+          <code><var>dx1</var></code> entlang der x-Achse und um
+          <code><var>dy1</var></code> entlang der y-Achse verschoben wird. Jedes
+          nachfolgende Paar von Koordinatenpaaren wird als Parameter eines
+          impliziten relativen Befehls für eine quadratische Bézierkurve
+          (<code>q</code>) interpretiert.
         </p>
         <dl>
           <dt>Formeln:</dt>
@@ -731,17 +719,18 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
       </td>
       <td>
         <p>
-          Zeichnen Sie eine glatte quadratische Bézier-Kurve vom
+          Zeichnet eine glatte quadratische Bézierkurve vom
           <em>aktuellen Punkt</em> zum <em>Endpunkt</em>, der durch
           <code><var>x</var></code
-          >,<code><var>y</var></code> angegeben ist. Der
-          <em>Kontrollpunkt</em> ist die Spiegelung des
-          <em>Kontrollpunkts</em> des vorherigen Kurvenbefehls über den <em>aktuellen Punkt</em>. Wenn der
-          vorherige Befehl keine quadratische Bézier-Kurve war, ist der
-          <em>Kontrollpunkt</em> derselbe wie der Startpunkt der Kurve
-          (<em>aktueller Punkt</em>). Jegliche nachfolgende Paar(e) von
-          Koordinatenpaaren werden als Parameter für implizite absolute glatte
-          quadratische Bézier-Kurven (<code>T</code>) Befehle interpretiert.
+          >,<code><var>y</var></code
+          > angegeben wird. Der <em>Kontrollpunkt</em> ist die Spiegelung des
+          <em>Kontrollpunkts</em> des vorherigen Kurvenbefehls am
+          <em>aktuellen Punkt</em>. War der vorherige Befehl kein Befehl für
+          eine quadratische Bézierkurve, stimmt der <em>Kontrollpunkt</em> mit
+          dem Startpunkt der Kurve (<em>aktueller Punkt</em>) überein. Jedes
+          nachfolgende Koordinatenpaar wird als Parameter eines impliziten
+          absoluten Befehls für eine glatte quadratische Bézierkurve
+          (<code>T</code>) interpretiert.
         </p>
         <dl>
           <dt>Formel:</dt>
@@ -763,17 +752,18 @@ Nach dem Zeichnen wird der _Endpunkt_ (_P<sub>n</sub>_) der _aktuelle Punkt_ fü
       </td>
       <td>
         <p>
-          Zeichnen Sie eine glatte quadratische Bézier-Kurve vom
-          <em>aktuellen Punkt</em> zum <em>Endpunkt</em>, der der
-          <em>aktuelle Punkt</em> ist, verschoben um <code><var>dx</var></code>
-          entlang der x-Achse und <code><var>dy</var></code> entlang der
-          y-Achse. Der <em>Kontrollpunkt</em> ist die Spiegelung des
-          <em>Kontrollpunkts</em> des vorherigen Kurvenbefehls über den <em>aktuellen Punkt</em>. Wenn der
-          vorherige Befehl keine quadratische Bézier-Kurve war, ist der
-          <em>Kontrollpunkt</em> derselbe wie der Startpunkt der Kurve
-          (<em>aktueller Punkt</em>). Jegliche nachfolgende Paar(e) von
-          Koordinatenpaaren werden als Parameter für implizite relative glatte
-          quadratische Bézier-Kurven (<code>t</code>) Befehle interpretiert.
+          Zeichnet eine glatte quadratische Bézierkurve vom
+          <em>aktuellen Punkt</em> zum <em>Endpunkt</em>. Dieser ergibt sich,
+          indem der <em>aktuelle Punkt</em> um <code><var>dx</var></code>
+          entlang der x-Achse und um <code><var>dy</var></code> entlang der
+          y-Achse verschoben wird. Der <em>Kontrollpunkt</em> ist die Spiegelung
+          des <em>Kontrollpunkts</em> des vorherigen Kurvenbefehls am
+          <em>aktuellen Punkt</em>. War der vorherige Befehl kein Befehl für
+          eine quadratische Bézierkurve, stimmt der <em>Kontrollpunkt</em> mit
+          dem Startpunkt der Kurve (<em>aktueller Punkt</em>) überein. Jedes
+          nachfolgende Koordinatenpaar wird als Parameter eines impliziten
+          relativen Befehls für eine glatte quadratische Bézierkurve
+          (<code>t</code>) interpretiert.
         </p>
         <dl>
           <dt>Formeln:</dt>
@@ -855,16 +845,16 @@ svg {
 
 {{EmbedLiveSample('Quadratic_Bézier_Curve', '100%', 200)}}
 
-### Elliptische Bogenkurve
+### Elliptischer Bogen
 
-_Elliptische Bogenkurven_ sind Kurven, die als Teil einer Ellipse definiert sind. Es ist manchmal einfacher, hochgradig regelmäßige Kurven mit einem elliptischen Bogen zu zeichnen als mit einer Bézier-Kurve.
+_Elliptische Bögen_ sind Kurven, die als Teil einer Ellipse definiert werden. Stark regelmäßige Kurven lassen sich mit einem elliptischen Bogen mitunter leichter zeichnen als mit einer Bézierkurve.
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <th scope="col">Befehl</th>
       <th scope="col">Parameter</th>
-      <th scope="col">Anmerkungen</th>
+      <th scope="col">Hinweise</th>
     </tr>
     <tr>
       <th scope="row">A</th>
@@ -877,44 +867,44 @@ _Elliptische Bogenkurven_ sind Kurven, die als Teil einer Ellipse definiert sind
       </td>
       <td>
         <p>
-          Zeichnen Sie eine Bogenkurve vom aktuellen Punkt zur Koordinate
+          Zeichnet einen Bogen vom aktuellen Punkt zur Koordinate
           <code><var>x</var></code
           >,<code><var>y</var></code
-          >. Der Mittelpunkt der Ellipse, die verwendet wird, um den Bogen zu zeichnen, wird
-          automatisch basierend auf den anderen Parametern des Befehls bestimmt:
+          >. Der Mittelpunkt der Ellipse, mit der der Bogen gezeichnet wird,
+          wird anhand der übrigen Befehlsparameter automatisch bestimmt:
         </p>
         <ul>
           <li>
             <code><var>rx</var></code> und <code><var>ry</var></code> sind die
-            beiden Radien der Ellipse;
+            beiden Radien der Ellipse.
           </li>
           <li>
-            <code><var>angle</var></code> repräsentiert eine Rotation (in Grad)
-            der Ellipse relativ zur x-Achse;
+            <code><var>angle</var></code> gibt die Drehung der Ellipse relativ
+            zur x-Achse in Grad an.
           </li>
           <li>
-            <code><var>large-arc-flag</var></code> und
-            <code><var>sweep-flag</var></code> ermöglichen es Ihnen, auszuwählen,
-            welchen Bogen Sie zeichnen möchten; 4 mögliche Bögen können mit den
-            anderen Parametern gezeichnet werden.
+            Mit <code><var>large-arc-flag</var></code> und
+            <code><var>sweep-flag</var></code> können Sie auswählen, welcher
+            Bogen gezeichnet wird. Mit den übrigen Parametern sind vier
+            mögliche Bögen definiert.
             <ul>
               <li>
-                <code><var>large-arc-flag</var></code> ermöglicht die Wahl
-                zwischen großem Bogen (<code>1</code>) oder kleinem Bogen
-                (<code>0</code>),
+                Mit <code><var>large-arc-flag</var></code> wählen Sie zwischen
+                einem großen Bogen (<code>1</code>) und einem kleinen Bogen
+                (<code>0</code>).
               </li>
               <li>
-                <code><var>sweep-flag</var></code> ermöglicht die Wahl zwischen
-                im Uhrzeigersinn drehendem Bogen (<code>1</code>) oder gegen den
-                Uhrzeigersinn drehendem Bogen (<code>0</code>)
+                Mit <code><var>sweep-flag</var></code> wählen Sie zwischen
+                einem im Uhrzeigersinn verlaufenden Bogen (<code>1</code>) und
+                einem gegen den Uhrzeigersinn verlaufenden Bogen (<code>0</code>).
               </li>
             </ul>
           </li>
         </ul>
         Die Koordinate <code><var>x</var></code
         >,<code><var>y</var></code> wird zum neuen aktuellen Punkt für den
-        nächsten Befehl. Alle nachfolgenden Parametersätze werden als implizite
-        absolute Bogekurve (<code>A</code>) Befehle betrachtet.
+        nächsten Befehl. Jeder nachfolgende Parametersatz gilt als impliziter
+        absoluter Bogenbefehl (<code>A</code>).
       </td>
     </tr>
     <tr>
@@ -928,46 +918,45 @@ _Elliptische Bogenkurven_ sind Kurven, die als Teil einer Ellipse definiert sind
       </td>
       <td>
         <p>
-          Zeichnen Sie eine Bogenkurve vom aktuellen Punkt zu einem Punkt, für
-          den die Koordinaten diejenigen des aktuellen Punktes sind, verschoben
-          um <code><var>dx</var></code> entlang der x-Achse und
-          <code><var>dy</var></code> entlang der y-Achse. Der Mittelpunkt der
-          Ellipse, die verwendet wird, um den Bogen zu zeichnen, wird automatisch
-          basierend auf den anderen Parametern des Befehls bestimmt:
+          Zeichnet einen Bogen vom aktuellen Punkt zu einem Punkt, dessen
+          Koordinaten sich ergeben, indem der aktuelle Punkt um
+          <code><var>dx</var></code> entlang der x-Achse und um
+          <code><var>dy</var></code> entlang der y-Achse verschoben wird. Der
+          Mittelpunkt der Ellipse, mit der der Bogen gezeichnet wird, wird
+          anhand der übrigen Befehlsparameter automatisch bestimmt:
         </p>
         <ul>
           <li>
             <code><var>rx</var></code> und <code><var>ry</var></code> sind die
-            beiden Radien der Ellipse;
+            beiden Radien der Ellipse.
           </li>
           <li>
-            <code><var>angle</var></code> repräsentiert eine Rotation (in Grad)
-            der Ellipse relativ zur x-Achse;
+            <code><var>angle</var></code> gibt die Drehung der Ellipse relativ
+            zur x-Achse in Grad an.
           </li>
           <li>
-            <code><var>large-arc-flag</var></code> und
-            <code><var>sweep-flag</var></code> ermöglichen es Ihnen, auszuwählen,
-            welchen Bogen Sie zeichnen möchten; 4 mögliche Bögen können mit den
-            anderen Parametern gezeichnet werden.
+            Mit <code><var>large-arc-flag</var></code> und
+            <code><var>sweep-flag</var></code> können Sie auswählen, welcher
+            Bogen gezeichnet wird. Mit den übrigen Parametern sind vier
+            mögliche Bögen definiert.
             <ul>
               <li>
-                <code><var>large-arc-flag</var></code> ermöglicht die Wahl
-                zwischen großem Bogen (<code>1</code>) oder kleinem Bogen
-                (<code>0</code>),
+                Mit <code><var>large-arc-flag</var></code> wählen Sie zwischen
+                einem großen Bogen (<code>1</code>) und einem kleinen Bogen
+                (<code>0</code>).
               </li>
               <li>
-                <code><var>sweep-flag</var></code> ermöglicht die Wahl zwischen
-                im Uhrzeigersinn drehendem Bogen (<code>1</code>) oder gegen den
-                Uhrzeigersinn drehendem Bogen (<code>0</code>)
+                Mit <code><var>sweep-flag</var></code> wählen Sie zwischen
+                einem im Uhrzeigersinn verlaufenden Bogen (<code>1</code>) und
+                einem gegen den Uhrzeigersinn verlaufenden Bogen (<code>0</code>).
               </li>
             </ul>
           </li>
         </ul>
-        Der aktuelle Punkt erhält seine X- und Y-Koordinaten, die für den
-        nächsten Befehl um <code><var>dx</var></code> und
-        <code><var>dy</var></code> verschoben werden. Alle nachfolgenden
-        Parametersätze werden als implizite relative Bogekurve (<code>a</code>)
-        Befehle betrachtet.
+        Für den nächsten Befehl werden die X- und Y-Koordinaten des aktuellen
+        Punkts um <code><var>dx</var></code> beziehungsweise
+        <code><var>dy</var></code> verschoben. Jeder nachfolgende Parametersatz
+        gilt als impliziter relativer Bogenbefehl (<code>a</code>).
       </td>
     </tr>
   </tbody>
@@ -1016,30 +1005,30 @@ svg {
 
 ### ClosePath
 
-_ClosePath_-Anweisungen zeichnen eine gerade Linie von der _aktuellen Position_ zum ersten Punkt im Pfad.
+_ClosePath_-Anweisungen zeichnen eine gerade Linie von der _aktuellen Position_ zum ersten Punkt des Pfads.
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <th scope="col">Befehl</th>
       <th scope="col">Parameter</th>
-      <th scope="col">Anmerkungen</th>
+      <th scope="col">Hinweise</th>
     </tr>
     <tr>
       <th scope="row">Z, z</th>
       <td></td>
       <td>
-        Schließen Sie den aktuellen Unterpfad, indem Sie den letzten Punkt des
-        Pfades mit seinem Anfangspunkt verbinden. Wenn die beiden Punkte
-        unterschiedliche Koordinaten haben, wird eine gerade Linie zwischen
-        diesen beiden Punkten gezeichnet.
+        Schließt den aktuellen Teilpfad, indem der letzte Punkt des Pfads mit
+        seinem Anfangspunkt verbunden wird. Liegen die beiden Punkte an
+        unterschiedlichen Koordinaten, wird eine gerade Linie zwischen ihnen
+        gezeichnet.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Das Erscheinungsbild einer mit _ClosePath_ geschlossenen Form kann anders sein als das einer Form, die durch das Zeichnen einer Linie zur Herkunft geschlossen wird, mit einem anderen Befehl, da die Linienenden miteinander verbunden werden (entsprechend der {{SVGAttr('stroke-linejoin')}} Einstellung), anstatt nur an den gleichen Koordinaten gesetzt zu werden.
+> Eine mit _ClosePath_ geschlossene Form kann anders aussehen als eine Form, die mit einem der anderen Befehle durch eine Linie zum Anfangspunkt geschlossen wird. Bei _ClosePath_ werden die Linienenden gemäß der Einstellung {{SVGAttr('stroke-linejoin')}} miteinander verbunden, statt lediglich an denselben Koordinaten zu liegen.
 
 #### Beispiele
 
@@ -1085,6 +1074,31 @@ svg {
 
 {{EmbedLiveSample('ClosePath', '100%', 200)}}
 
+## Beispiel
+
+```css hidden
+html,
+body,
+svg {
+  height: 100%;
+}
+```
+
+```html
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path
+    fill="none"
+    stroke="red"
+    d="M 10,30
+       A 20,20 0,0,1 50,30
+       A 20,20 0,0,1 90,30
+       Q 90,60 50,90
+       Q 10,60 10,30 z" />
+</svg>
+```
+
+{{EmbedLiveSample('Example', '100%', 200)}}
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -1095,5 +1109,5 @@ svg {
 
 ## Siehe auch
 
-- SVG {{SVGElement("path")}} Element
-- CSS {{cssxref("d")}} Eigenschaft
+- SVG-Element {{SVGElement("path")}}
+- CSS-Eigenschaft {{cssxref("d")}}
