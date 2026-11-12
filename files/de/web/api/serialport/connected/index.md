@@ -1,22 +1,26 @@
 ---
-title: "SerialPort: connected Eigenschaft"
+title: "SerialPort: connected-Eigenschaft"
 short-title: connected
 slug: Web/API/SerialPort/connected
 l10n:
-  sourceCommit: 6fe7a18b80e55d9d25dcc16dfb010eec09460bb8
+  sourceCommit: dcef271d72ac6af79454379af98cdb670c417eb5
 ---
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`connected`** schreibgeschützte Eigenschaft der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der Port [logisch verbunden](/de/docs/Web/API/SerialPort/connect_event#description) mit dem Gerät ist.
+Die schreibgeschützte Eigenschaft **`connected`** der Schnittstelle [`SerialPort`](/de/docs/Web/API/SerialPort) gibt einen booleschen Wert zurück, der angibt, ob der Port [logisch mit dem Gerät verbunden](/de/docs/Web/API/SerialPort/connect_event#description) ist.
+
+## Wert
+
+Ein boolescher Wert — `true`, wenn der Port logisch verbunden ist, andernfalls `false`.
 
 ## Beschreibung
 
-Wenn ein drahtloses Gerät außerhalb der Reichweite des Hosts gerät, wird ein von einer Web-App geöffneter drahtloser serieller Port automatisch geschlossen, auch wenn er logisch verbunden bleibt. In solchen Fällen könnte die Web-App versuchen, den Port mit [`SerialPort.open()`](/de/docs/Web/API/SerialPort/open) erneut zu öffnen.
+Wenn ein drahtloses Gerät die Reichweite des Hosts verlässt, wird jeder von einer Web-App geöffnete drahtlose serielle Port automatisch geschlossen, obwohl er logisch verbunden bleibt. In solchen Fällen könnte die Web-App versuchen, den Port mit [`SerialPort.open()`](/de/docs/Web/API/SerialPort/open) erneut zu öffnen.
 
-War das drahtlose Gerät jedoch absichtlich getrennt (zum Beispiel, wenn der Benutzer sich entschied, es über die Systemsteuerung des Betriebssystems zu trennen), sollte die Web-App darauf verzichten, den Port erneut zu öffnen, um eine erneute Verbindung mit dem drahtlosen Gerät zu vermeiden.
+Wenn die Verbindung zum drahtlosen Gerät jedoch absichtlich getrennt wurde (beispielsweise durch den Benutzer über die Systemsteuerung des Betriebssystems), sollte die Web-App den Port nicht erneut öffnen, um eine erneute Verbindung mit dem drahtlosen Gerät zu vermeiden.
 
-Das folgende Code-Snippet zeigt, wie die `connected`-Eigenschaft verwendet werden kann, um zwischen diesen beiden Fällen zu unterscheiden:
+Der folgende Ausschnitt zeigt, wie sich mit der Eigenschaft `connected` zwischen diesen beiden Fällen unterscheiden lässt:
 
 ```js
 const ports = await navigator.serial.getPorts();
@@ -33,15 +37,11 @@ for (const port of ports) {
 }
 ```
 
-## Wert
-
-Ein boolescher Wert — `true`, wenn der Port logisch verbunden ist, und `false`, wenn nicht.
-
 ## Beispiele
 
-### Protokollierung, wenn ein Port verbunden ist
+### Protokollieren, wenn ein Port verbunden ist
 
-Das folgende Snippet ruft [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) auf, wenn der Benutzer einen {{htmlelement("button")}} drückt, und fordert ihn auf, einen seriellen Port zu wählen, zu dem er eine Verbindung herstellen möchte. Dann wird eine Meldung in die Konsole protokolliert, die den Verbindungsstatus meldet:
+Der folgende Ausschnitt ruft [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) auf, wenn der Benutzer auf einen {{htmlelement("button")}} klickt. Daraufhin wird er aufgefordert, einen seriellen Port für die Verbindung auszuwählen. Anschließend wird eine Meldung über den Verbindungsstatus in der Konsole ausgegeben:
 
 ```js
 requestPortButton.addEventListener("click", async () => {
@@ -50,9 +50,9 @@ requestPortButton.addEventListener("click", async () => {
 });
 ```
 
-### Protokollierung des Verbindungsstatus beim Verbinden und Trennen
+### Verbindungsstatus beim Verbinden und Trennen protokollieren
 
-Sie können das folgende Snippet verwenden, um den Verbindungsstatus zu protokollieren, wenn die [`connect`](/de/docs/Web/API/SerialPort/connect_event)- und [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event)-Ereignisse ausgelöst werden:
+Mit dem folgenden Ausschnitt können Sie den Verbindungsstatus protokollieren, wenn die Ereignisse [`connect`](/de/docs/Web/API/SerialPort/connect_event) und [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) ausgelöst werden:
 
 ```js
 navigator.serial.addEventListener("connect", ({ target: port }) => {

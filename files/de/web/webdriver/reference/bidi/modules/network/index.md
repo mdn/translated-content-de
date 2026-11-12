@@ -1,12 +1,17 @@
 ---
-title: network Modul
+title: Modul `network`
 short-title: network
 slug: Web/WebDriver/Reference/BiDi/Modules/network
 l10n:
-  sourceCommit: fbf733732bf531a1be40a0c646bcbc4b31618476
+  sourceCommit: fd6a5b07ff0cee3eed0540c09e2f49145541dc76
 ---
 
-Das **`network`** Modul enthält Befehle und Ereignisse im Zusammenhang mit Netzwerk-Anfragen.
+Das Modul **`network`** enthält Befehle und Ereignisse zum Überwachen und Steuern der Netzwerkanfragen und -antworten des Browsers.
+
+## Befehle
+
+- [`network.setCacheBehavior`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/network/setCacheBehavior)
+- [`network.setExtraHeaders`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/network/setExtraHeaders)
 
 ## Spezifikationen
 

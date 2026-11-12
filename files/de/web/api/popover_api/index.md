@@ -2,106 +2,106 @@
 title: Popover API
 slug: Web/API/Popover_API
 l10n:
-  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
+  sourceCommit: f81527232ae480626f8cec10a7d2775a698be30a
 ---
 
 {{DefaultAPISidebar("Popover API")}}
 
-Die **Popover API** bietet Entwicklern einen standardisierten, konsistenten und flexiblen Mechanismus zum Anzeigen von Popover-Inhalten über anderen Seiteninhalten. Popover-Inhalte können entweder über HTML-Attribute oder über JavaScript gesteuert werden.
+Die **Popover API** bietet Entwicklern einen standardisierten, konsistenten und flexiblen Mechanismus, um Popover-Inhalte über anderen Seiteninhalten anzuzeigen. Popover-Inhalte lassen sich entweder über HTML-Attribute oder über JavaScript steuern.
 
 ## Konzepte und Verwendung
 
-Ein sehr verbreitetes Muster im Web besteht darin, Inhalte über anderen Inhalten anzuzeigen, um die Aufmerksamkeit des Benutzers auf bestimmte wichtige Informationen oder Maßnahmen zu lenken, die ergriffen werden müssen. Diese Inhalte können mehrere unterschiedliche Namen haben — Overlays, Popups, Popovers, Dialoge usw. Wir werden sie in der Dokumentation als Popovers bezeichnen. Im Allgemeinen können diese sein:
+Ein häufiges Muster im Web besteht darin, Inhalte über anderen Inhalten anzuzeigen, um die Aufmerksamkeit auf wichtige Informationen oder erforderliche Aktionen zu lenken. Solche Inhalte werden unterschiedlich bezeichnet – etwa als Overlays, Popups, Popovers oder Dialoge. In dieser Dokumentation bezeichnen wir sie als Popovers. Grundsätzlich können sie sein:
 
-- **modal**, was bedeutet, dass während ein Popover angezeigt wird, der Rest der Seite nicht interaktiv ist, bis das Popover in irgendeiner Weise verarbeitet wird (zum Beispiel, indem eine wichtige Entscheidung getroffen wird).
-- **nicht-modal**, was bedeutet, dass der Rest der Seite interaktiv bleiben kann, während das Popover angezeigt wird.
+- **modal**: Während ein Popover angezeigt wird, ist der Rest der Seite nicht interaktiv, bis eine Aktion am Popover erfolgt, beispielsweise eine wichtige Entscheidung getroffen wird.
+- **nicht modal**: Der Rest der Seite bleibt interaktiv, während das Popover angezeigt wird.
 
-Popovers, die mithilfe der Popover API erstellt werden, sind immer nicht-modal. Wenn Sie ein modales Popover erstellen möchten, ist ein {{htmlelement("dialog")}}-Element der richtige Weg. Es gibt erhebliche Überschneidungen zwischen den beiden — Sie könnten beispielsweise ein Popover erstellen wollen, das bestehen bleibt, es aber mithilfe von HTML steuern. Sie können ein `<dialog>`-Element in ein Popover umwandeln (`<dialog popover>` ist vollkommen gültig), wenn Sie die Popover-Steuerung mit den Dialogsemantiken kombinieren möchten.
+Mit der Popover API erstellte Popovers sind immer nicht modal. Wenn Sie ein modales Popover erstellen möchten, verwenden Sie ein {{htmlelement("dialog")}}-Element. Die beiden Ansätze überschneiden sich erheblich: Sie können beispielsweise ein Popover erstellen, das geöffnet bleibt, aber über HTML gesteuert wird. Ein `<dialog>`-Element kann auch als Popover verwendet werden (`<dialog popover>` ist gültig), wenn Sie die Popover-Steuerung mit der Semantik eines Dialogs kombinieren möchten.
 
-Typische Anwendungsfälle für die Popover API sind benutzerinteraktive Elemente wie Aktionsmenüs, benutzerdefinierte "Toast"-Benachrichtigungen, Formularvorschläge, Inhaltswähler oder Lehr-UI.
+Typische Anwendungsfälle für die Popover API sind interaktive Elemente wie Aktionsmenüs, benutzerdefinierte „Toast“-Benachrichtigungen, Vorschläge für Formularelemente, Auswahloberflächen für Inhalte oder Hilfen zur Bedienung der Benutzeroberfläche.
 
-Sie können Popovers auf verschiedene Weise erstellen:
+Sie können Popovers auf verschiedene Arten erstellen:
 
-- Über eine Reihe neuer HTML-Attribute. Ein einfaches Popover mit einer Umschalttaste kann mit dem folgenden Code erstellt werden:
+- Über eine Reihe neuer HTML-Attribute. Ein einfaches Popover mit einer Schaltfläche zum Umschalten lässt sich mit folgendem Code erstellen:
 
   ```html
   <button popovertarget="mypopover">Toggle the popover</button>
   <div id="mypopover" popover>Popover content</div>
   ```
 
-- Über eine JavaScript-API. Zum Beispiel kann [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) verwendet werden, um ein Popover zwischen angezeigt und verborgen umzuschalten.
+- Über eine JavaScript-API. Beispielsweise können Sie mit [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) ein Popover abwechselnd ein- und ausblenden.
 
-Die Popover API stellt auch Ereignisse zur Verfügung, um auf das Umschalten eines Popovers zu reagieren, und CSS-Funktionen zur Unterstützung beim Styling von Popovers. Siehe [Verwendung der Popover API](/de/docs/Web/API/Popover_API/Using) für einen detaillierten Leitfaden zur API.
+Die Popover API bietet außerdem Events, mit denen Sie auf das Ein- und Ausblenden eines Popovers reagieren können, sowie CSS-Funktionen zur Gestaltung von Popovers. Eine ausführliche Anleitung zur API finden Sie unter [Verwendung der Popover API](/de/docs/Web/API/Popover_API/Using).
 
-Ein verwandtes Feature — **Interest Invokers** — kann verwendet werden, um Popovers bei Hover/Fokus ohne Verwendung von JavaScript anzuzeigen. Lesen Sie [Verwendung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers), um mehr zu erfahren.
+Eine verwandte Funktion – **Interest Invokers** – ermöglicht es, Popovers bei Hover oder Fokus ohne JavaScript anzuzeigen. Weitere Informationen finden Sie unter [Verwendung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers).
 
 ## HTML-Attribute
 
 - [`interestfor`](/de/docs/Web/HTML/Reference/Elements/button#interestfor) {{experimental_inline}}
-  - : Definiert ein HTML-{{htmlelement("a")}}, {{htmlelement("button")}} oder {{htmlelement("area")}}-Element oder ein SVG- [`<a>`](/de/docs/Web/SVG/Reference/Element/a)-Element als Interest Invoker. Sein Wert ist die `id` des Zielelements, das in irgendeiner Weise beeinflusst wird (normalerweise angezeigt oder verborgen), wenn Interesse am Invoker-Element gezeigt oder verloren geht.
+  - : Definiert ein HTML-Element {{htmlelement("a")}}, {{htmlelement("button")}} oder {{htmlelement("area")}} oder ein SVG-Element [`<a>`](/de/docs/Web/SVG/Reference/Element/a) als Interest Invoker. Der Wert ist die `id` des Zielelements, auf das sich ein gezeigtes oder verlorenes Interesse am Invoker-Element auswirkt – normalerweise, indem es ein- oder ausgeblendet wird.
 - [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)
-  - : Ein globales Attribut, das ein Element in ein Popover-Element verwandelt und als Wert einen Popover-Zustand (`"auto"`, `"hint"` oder `"manual"`) annimmt.
+  - : Ein globales Attribut, das ein Element zu einem Popover-Element macht. Als Wert wird ein Popover-Zustand (`"auto"`, `"hint"` oder `"manual"`) angegeben.
 - [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)
-  - : Verwandelt ein {{htmlelement("button")}}- oder {{htmlelement("input")}}-Element in eine Popover-Steuertaste und nimmt die ID des zu steuernden Popover-Elements als Wert an.
+  - : Macht ein {{htmlelement("button")}}- oder {{htmlelement("input")}}-Element zu einer Schaltfläche zur Steuerung eines Popovers. Als Wert wird die ID des zu steuernden Popover-Elements angegeben.
 - [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction)
-  - : Gibt die Aktion an, die (`"hide"`, `"show"` oder `"toggle"`) am vom Steuer-{{htmlelement("button")}} oder {{htmlelement("input")}} beeinflussten Popover-Element ausgeführt werden soll.
+  - : Gibt die Aktion (`"hide"`, `"show"` oder `"toggle"`) an, die ein steuerndes {{htmlelement("button")}}- oder {{htmlelement("input")}}-Element am Popover-Element ausführen soll.
 
 ## CSS-Funktionen
 
 - {{cssxref("::backdrop")}}
-  - : Das `::backdrop`-Pseudo-Element ist ein Vollbild-Element, das direkt hinter Popover-Elementen platziert wird und Effekte auf den Seiteninhalt hinter dem/den Popover(s) hinzugefügt, wenn gewünscht (zum Beispiel, um es zu verwischen).
-- {{cssxref("interest-delay")}}, {{cssxref("interest-delay-start")}}, und {{cssxref("interest-delay-end")}} {{experimental_inline}}
-  - : Die `interest-delay`-Kurzschreibweise und ihre zugehörigen `interest-delay-start` und `interest-delay-end` Langschreibweisen können verwendet werden, um eine Verzögerung zwischen der Anzeige oder dem Verlust von Interesse und der Reaktion des Browsers auf diese Änderung hinzugefügt werden.
+  - : Das Pseudoelement `::backdrop` erstreckt sich über den gesamten Bildschirm und liegt direkt hinter Popover-Elementen. Damit lassen sich bei Bedarf Effekte auf den Seiteninhalt hinter den Popovers anwenden, beispielsweise eine Unschärfe.
+- {{cssxref("interest-delay")}}, {{cssxref("interest-delay-start")}} und {{cssxref("interest-delay-end")}} {{experimental_inline}}
+  - : Mit der Kurzschreibweise `interest-delay` und den zugehörigen Einzel-Eigenschaften `interest-delay-start` und `interest-delay-end` lässt sich eine Verzögerung zwischen dem Anzeigen oder Verlieren von Interesse durch den Benutzer und der Reaktion des Browsers auf diese Änderung festlegen.
 - {{cssxref(":interest-source")}} und {{cssxref(":interest-target")}}
-  - : Diese Selektoren können verwendet werden, um Stil nur auf den Interest Invoker und sein zugehöriges Zielelement anzuwenden, wenn Interesse angezeigt wird.
+  - : Mit diesen Selektoren können Sie den Interest Invoker beziehungsweise sein zugehöriges Zielelement nur dann gestalten, wenn Interesse angezeigt wird.
 - {{cssxref(":popover-open")}}
-  - : Die `:popover-open`-Pseudo-Klasse passt auf ein Popover-Element nur, wenn es sich im angezeigten Zustand befindet — es kann verwendet werden, um Popover-Elemente zu stylen, wenn sie angezeigt werden.
+  - : Die Pseudoklasse `:popover-open` trifft nur dann auf ein Popover-Element zu, wenn es angezeigt wird. Sie können damit angezeigte Popover-Elemente gestalten.
 
 ## Schnittstellen
 
 - [`InterestEvent`](/de/docs/Web/API/InterestEvent) {{experimental_inline}}
-  - : Das Ereignisobjekt für die [`interest`](/de/docs/Web/API/HTMLElement/interest_event)- und [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event)-Ereignisse. Dies umfasst eine `source`-Eigenschaft, die eine Referenz auf das zugehörige Interest Invoker-Element enthält.
+  - : Das Event-Objekt für die Events [`interest`](/de/docs/Web/API/HTMLElement/interest_event) und [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event). Es enthält eine `source`-Eigenschaft mit einer Referenz auf das zugehörige Interest-Invoker-Element.
 - [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)
-  - : Stellt ein Ereignis dar, das ausgelöst wird, wenn ein Popover-Element zwischen angezeigt und verborgen gewechselt wird. Es ist das Ereignisobjekt für die [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)- und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignisse, die auf Popovers ausgelöst werden, wenn sich ihr Zustand ändert.
+  - : Repräsentiert ein Event, das ausgelöst wird, wenn ein Popover-Element zwischen dem angezeigten und dem ausgeblendeten Zustand wechselt. Es ist das Event-Objekt für die Events [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event), die bei einer Zustandsänderung von Popovers ausgelöst werden.
 
-## Erweiterungen zu anderen Schnittstellen
-
-### Instanzeigenschaften
-
-- [`interestForElement`](/de/docs/Web/API/HTMLButtonElement/interestForElement) {{experimental_inline}}
-  - : Ruft eine Referenz auf das Element ab oder setzt es, das von einem Interest Invoker anvisiert wird. Wenn ein HTML- oder SVG-Interest Invoker ein Zielelement in seinem `interestfor`-Attribut referenziert, wird dieses Element in der äquivalenten `interestForElement`-Eigenschaft des DOM-Objekts referenziert. Verfügbar in den Schnittstellen [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement), [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) und [`SVGAElement`](/de/docs/Web/API/SVGAElement).
-- [`HTMLElement.popover`](/de/docs/Web/API/HTMLElement/popover)
-  - : Ruft den Popover-Zustand eines Elements über JavaScript ab und setzt ihn (`"auto"`, `"hint"` oder `"manual"`), und kann zur Feature-Erkennung verwendet werden. Widerspiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover).
-- [`HTMLButtonElement.popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement) und [`HTMLInputElement.popoverTargetElement`](/de/docs/Web/API/HTMLInputElement/popoverTargetElement)
-  - : Ruft das Popover-Element ab und setzt es, das von der Steuertaste kontrolliert wird. Das JavaScript-Äquivalent des HTML-Attributs [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget).
-- [`HTMLButtonElement.popoverTargetAction`](/de/docs/Web/API/HTMLButtonElement/popoverTargetAction) und [`HTMLInputElement.popoverTargetAction`](/de/docs/Web/API/HTMLInputElement/popoverTargetAction)
-  - : Ruft die Aktion ab, die (`"hide"`, `"show"` oder `"toggle"`) am vom Steuerknopf kontrollierten Popover-Element ausgeführt werden soll, und setzt sie. Widerspiegelt den Wert des HTML-Attributs [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction).
+## Erweiterungen anderer Schnittstellen
 
 ### Instanzmethoden
 
 - [`HTMLElement.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover)
-  - : Verbirgt ein Popover-Element, indem es aus der obersten Ebene entfernt und mit `display: none` gestylt wird.
+  - : Blendet ein Popover-Element aus, indem es aus der obersten Ebene entfernt und mit `display: none` gestaltet wird.
 - [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover)
-  - : Zeigt ein Popover-Element, indem es zur obersten Ebene hinzugefügt wird.
+  - : Zeigt ein Popover-Element an, indem es der obersten Ebene hinzugefügt wird.
 - [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover)
-  - : Schaltet ein Popover-Element zwischen den angezeigten und verborgenen Zuständen um.
+  - : Wechselt den Zustand eines Popover-Elements zwischen angezeigt und ausgeblendet.
 
-### Ereignisse
+### Instanzeigenschaften
 
-- [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) Ereignis
-  - : Wird unmittelbar bevor der Zustand eines Popover-Elements zwischen angezeigt und verborgen oder umgekehrt wechselt, ausgelöst.
-    Kann verwendet werden, um zu verhindern, dass ein Popover sich öffnet, oder um andere Elemente zu aktualisieren, die durch den Popover-Zustand ausgelöst werden müssen.
-- [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignis
-  - : Wird unmittelbar nachdem der Zustand eines Popover-Elements zwischen angezeigt und verborgen oder umgekehrt gewechselt hat, ausgelöst.
+- [`interestForElement`](/de/docs/Web/API/HTMLButtonElement/interestForElement) {{experimental_inline}}
+  - : Ruft eine Referenz auf das Zielelement eines Interest Invokers ab oder legt sie fest. Wenn ein HTML- oder SVG-Interest-Invoker über sein `interestfor`-Attribut auf ein Zielelement verweist, wird dieses Element über die `interestForElement`-Eigenschaft des entsprechenden DOM-Objekts referenziert. Verfügbar für die Schnittstellen [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement), [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) und [`SVGAElement`](/de/docs/Web/API/SVGAElement).
+- [`HTMLElement.popover`](/de/docs/Web/API/HTMLElement/popover)
+  - : Ruft den Popover-Zustand eines Elements (`"auto"`, `"hint"` oder `"manual"`) über JavaScript ab oder legt ihn fest und kann zur Funktionserkennung verwendet werden. Spiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) wider.
+- [`HTMLButtonElement.popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement) und [`HTMLInputElement.popoverTargetElement`](/de/docs/Web/API/HTMLInputElement/popoverTargetElement)
+  - : Ruft das von der Steuerschaltfläche gesteuerte Popover-Element ab oder legt es fest. Dies ist das JavaScript-Äquivalent des HTML-Attributs [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget).
+- [`HTMLButtonElement.popoverTargetAction`](/de/docs/Web/API/HTMLButtonElement/popoverTargetAction) und [`HTMLInputElement.popoverTargetAction`](/de/docs/Web/API/HTMLInputElement/popoverTargetAction)
+  - : Ruft die Aktion (`"hide"`, `"show"` oder `"toggle"`) ab, die die Steuerschaltfläche am Popover-Element ausführt, oder legt sie fest. Spiegelt den Wert des HTML-Attributs [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction) wider.
+
+### Events
+
+- Event [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)
+  - : Wird unmittelbar vor dem Wechsel des Zustands eines Popover-Elements von angezeigt zu ausgeblendet oder umgekehrt ausgelöst.
+    Kann verwendet werden, um das Öffnen eines Popovers zu verhindern oder andere Elemente zu aktualisieren, die auf den Popover-Zustand reagieren sollen.
+- Event [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)
+  - : Wird unmittelbar nach dem Wechsel des Zustands eines Popover-Elements von angezeigt zu ausgeblendet oder umgekehrt ausgelöst.
 - [`interest`](/de/docs/Web/API/HTMLElement/interest_event) {{experimental_inline}}
-  - : Wird am Zielelement eines Interest Invokers ausgelöst, wenn Interesse angezeigt wird, wodurch Code als Antwort ausgeführt werden kann.
+  - : Wird auf dem Zielelement eines Interest Invokers ausgelöst, wenn Interesse angezeigt wird. Dadurch kann als Reaktion darauf Code ausgeführt werden.
 - [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event) {{experimental_inline}}
-  - : Wird am Zielelement eines Interest Invokers ausgelöst, wenn Interesse verloren geht, wodurch Code als Antwort ausgeführt werden kann.
+  - : Wird auf dem Zielelement eines Interest Invokers ausgelöst, wenn Interesse verloren geht. Dadurch kann als Reaktion darauf Code ausgeführt werden.
 
 ## Beispiele
 
-- Sehen Sie sich unsere Sammlung von [Popover API-Beispielen](https://mdn.github.io/dom-examples/popover-api/) an.
-- Sehen Sie sich unsere Sammlung von [Interest Invoker-Beispielen](https://mdn.github.io/dom-examples/interest-invokers/) an.
+- Sehen Sie sich unsere Sammlung von [Beispielen zur Popover API](https://mdn.github.io/dom-examples/popover-api/) an.
+- Sehen Sie sich unsere Sammlung von [Beispielen für Interest Invokers](https://mdn.github.io/dom-examples/interest-invokers/) an.
 
 ## Spezifikationen
 
@@ -113,8 +113,8 @@ Ein verwandtes Feature — **Interest Invokers** — kann verwendet werden, um P
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globales HTML-Attribut
-- [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget) HTML-Attribut
-- [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction) HTML-Attribut
-- {{cssxref("::backdrop")}} CSS-Pseudo-Element
-- {{cssxref(":popover-open")}} CSS-Pseudo-Klasse
+- Globales HTML-Attribut [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)
+- HTML-Attribut [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)
+- HTML-Attribut [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction)
+- CSS-Pseudoelement {{cssxref("::backdrop")}}
+- CSS-Pseudoklasse {{cssxref(":popover-open")}}

@@ -2,80 +2,80 @@
 title: Compute Pressure API
 slug: Web/API/Compute_Pressure_API
 l10n:
-  sourceCommit: 4f8c4b31478742a2a39fdb03993d08fc1c90bbea
+  sourceCommit: f81527232ae480626f8cec10a7d2775a698be30a
 ---
 
 {{DefaultAPISidebar("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die **Compute Pressure API** ist eine JavaScript-API, die es Ihnen ermöglicht, den Druck von Systemressourcen wie der CPU zu beobachten.
+Die **Compute Pressure API** ist eine JavaScript-API, mit der Sie die Auslastung von Systemressourcen wie der CPU beobachten können.
 
-## Anwendungsfälle
+## Konzepte und Verwendung
 
-In Echtzeitanwendungen, wie z.B. Videokonferenz-Web-Apps, ermöglicht Ihnen die Compute Pressure API zu erkennen, welchem Druck das System derzeit ausgesetzt ist. Das System wird mit jeglichem Stress so gut es geht umgehen, aber eine Zusammenarbeit zwischen System und App ist nützlich, um den Druck bestmöglich zu bewältigen. Diese API benachrichtigt Sie über hochrangige Änderungen des Druckzustands, sodass Sie Ihre Arbeitslasten anpassen und trotzdem eine angenehme Benutzererfahrung bieten können. Das Signal wird proaktiv gesendet, wenn der Systemdrucktrend entweder steigt oder nachlässt, um eine rechtzeitige Anpassung zu ermöglichen.
+Schnelle und angenehm zu nutzende Webanwendungen sollten ihre Arbeitslast anpassen, wenn die Rechenressourcen des Systems (nahezu) vollständig ausgelastet sind. Die Compute Pressure API soll eine schlechte Nutzererfahrung in der Webanwendung verhindern, statt sie nur abzumildern. Sie soll außerdem dazu beitragen, dass das Gerät nicht zu heiß oder zu laut wird und der Akku sich nicht übermäßig schnell entlädt. Daher empfiehlt es sich, diese API gegenüber Feedbackmechanismen oder einzelnen Leistungsanpassungen zu bevorzugen, etwa einer Verringerung der Häufigkeit von [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame). Solche Maßnahmen können eine schlechte Nutzererfahrung zwar abmildern, aber nicht vorausschauend vermeiden. Um die Leistung von Nutzersitzungen nachträglich zu messen und zu analysieren, eignet sich die API [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming) besser. Mit ihr lassen sich Aufgaben untersuchen, die den UI-Thread mindestens 50 Millisekunden lang beanspruchen (siehe auch die [Performance API](/de/docs/Web/API/Performance_API) für weitere APIs zur Leistungsmessung).
 
-Sie können diese Druckwechselsignale z.B. nutzen, um die Videoqualität zu reduzieren oder zu erhöhen oder die Anzahl der gleichzeitig angezeigten Videostreams zu verringern, um zu vermeiden, dass Videoruckler auftreten, Audioschnitten zu hören sind oder andere kritische Teile der Anwendung verzögert werden. Die Servicequalität Ihrer Web-App kann auch durch Druck von äußeren Faktoren und Anwendungen zu unerwarteten Zeiten variieren, aber idealerweise führt dies nicht zu einem totalen Systemausfall, Eingabeverzögerung oder Unansprechbarkeit. Stattdessen wird die Menge der aktivierten Funktionen und deren Qualitätsniveau gegen den Ressourcendruck des Geräts des Endnutzers abgewogen. Dies ist ähnlich wie bei Druck auf das Netzwerk, bei dem eine Streaming-App sich an die verfügbare Bandbreite anpasst.
+### Anwendungsfälle
+
+In Echtzeitanwendungen wie Webanwendungen für Videokonferenzen können Sie mit der Compute Pressure API erkennen, welcher Belastung das System gerade ausgesetzt ist. Das System bewältigt diese Belastung so gut wie möglich; eine Zusammenarbeit zwischen System und Anwendung hilft jedoch, optimal darauf zu reagieren. Die API informiert Sie über Änderungen des übergeordneten Belastungszustands, damit Sie die Arbeitslast anpassen und weiterhin eine angenehme Nutzererfahrung bieten können. Das Signal wird vorausschauend bereitgestellt, wenn die Systembelastung tendenziell zu- oder abnimmt, sodass eine rechtzeitige Anpassung möglich ist.
+
+Sie können diese Signale beispielsweise nutzen, um die Videoqualität oder die Anzahl gleichzeitig angezeigter Videostreams zu verringern oder zu erhöhen. So lassen sich ausgelassene Videoframes, Aussetzer beim Ton und Verzögerungen in anderen wichtigen Teilen der Anwendung vermeiden. Die Dienstqualität Ihrer Webanwendung kann auch durch externe Faktoren und andere Anwendungen zu unerwarteten Zeiten schwanken. Idealerweise führt das aber weder zu einem vollständigen Systemausfall noch zu verzögerten Eingaben oder dazu, dass das System nicht mehr reagiert. Stattdessen werden die aktivierten Funktionen und ihre Qualitätsstufen auf die Ressourcenbelastung des Endgeräts abgestimmt. Das ähnelt der Anpassung einer Streaming-Anwendung an die verfügbare Bandbreite bei einer belasteten Netzwerkverbindung.
 
 Weitere Anwendungsfälle sind:
 
-- Web-Spiele, bei denen Sie die Qualität und Anzahl der 3D-Assets ausbalancieren, die Bildrate, Auflösung, Tiefenschärfe usw. ändern können, um niedrige Latenzen und eine stabile Bildrate sicherzustellen.
-- Benutzeroberflächen, bei denen Sie Platzhalter statt echter Daten rendern können, während das System unter Druck steht, und die echten Inhalte rendern, sobald der Druck nachlässt.
+- Webspiele, bei denen Sie Qualität und Anzahl der 3D-Assets anpassen oder Framerate, Auflösung, Schärfentiefe usw. ändern können, um eine geringe Latenz und eine stabile Framerate sicherzustellen.
+- Benutzeroberflächen, bei denen Sie während einer hohen Systembelastung Platzhalter statt echter Daten anzeigen und die eigentlichen Inhalte darstellen können, sobald die Belastung nachgelassen hat.
 
-## Konzepte und Nutzung
+### Arten von Belastungsquellen
 
-Schnelle und ansprechende Webanwendungen sollten die Arbeitslasten ausbalancieren, wenn die Rechenressourcen des Systems mit (nahezu) voller Kapazität genutzt werden. Ziel der Compute Pressure API ist es, schlechte Benutzererfahrungen nicht nur zu mildern, sondern zu verhindern, dass das Gerät des Benutzers zu heiß, zu laut wird oder die Batterie in unakzeptabler Geschwindigkeit entladen wird. Daher wird empfohlen, diese API gegenüber Rückmeldemechanismen oder einzelnen Leistungsanpassungen (z.B. durch das Absenken der Frequenz von [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)) zu bevorzugen, bei denen schlechte Benutzererfahrungen möglicherweise gemildert, jedoch nicht proaktiv vermieden werden. Um die Leistung von Benutzersitzungen im Nachhinein zu messen und zu segmentieren, eignet sich die [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming) API besser zur Analyse von Aufgaben, die den UI-Thread 50 Millisekunden oder länger belegen (siehe auch [Performance API](/de/docs/Web/API/Performance_API) für zusätzliche Leistungsmesstools).
+In Ihrer Webanwendung oder auf Ihrer Website konkurrieren verschiedene Aufgaben um die Rechenzeit unterschiedlicher Verarbeitungseinheiten (CPU, GPU und anderer spezialisierter Verarbeitungseinheiten). Die aktuelle Version der Spezifikation der Compute Pressure API definiert zwei Haupttypen von Quellen, die Sie abfragen können, um Informationen über die Belastung zu erhalten:
 
-### Druckquellentypen
+- `"thermals"` steht für den allgemeinen thermischen Zustand des gesamten Systems.
+- `"cpu"` steht für die durchschnittliche Belastung der zentralen Verarbeitungseinheit (CPU) über alle ihre Kerne hinweg. Dieser Zustand kann auch durch andere Anwendungen und Websites als die beobachtende Website beeinflusst werden.
 
-In Ihrer Web-App oder Webseite konkurrieren verschiedene Aufgaben um die Prozesszeit unterschiedlicher Verarbeitungseinheiten (CPU, GPU und andere spezialisierte Verarbeitungseinheiten). Die aktuelle Version der Compute Pressure API-Spezifikation definiert zwei Hauptquellenarten, die abgefragt werden können, um Druckinformationen zu sammeln:
-
-- `"thermals"` steht für den globalen thermischen Zustand des gesamten Systems.
-- `"cpu"` steht für den durchschnittlichen Druck der zentralen Verarbeitungseinheit (CPU) über all ihre Kerne hinweg. Dieser Zustand kann von anderen Apps und Webseiten als der beobachtenden beeinflusst werden.
-
-Die Liste der unterstützten Quellen variiert je nach Browser, Betriebssystem und Hardware und entwickelt sich weiter. Verwenden Sie den statischen Hinweis [`PressureObserver.knownSources`](/de/docs/Web/API/PressureObserver/knownSources_static), um zu sehen, welche Quellentypen in Ihrem Browser verfügbar sind. Beachten Sie, dass die Verfügbarkeit auch durch Ihr Betriebssystem und Ihre Hardware variieren kann. Rufen Sie [`observe()`](/de/docs/Web/API/PressureObserver/observe) auf und prüfen Sie auf einen `NotSupportedError`, um festzustellen, ob Druckbeobachtung möglich ist.
+Die Liste der unterstützten Quellen variiert je nach Browser, Betriebssystem und Hardware und entwickelt sich weiter. Nutzen Sie den statischen Hinweis [`PressureObserver.knownSources`](/de/docs/Web/API/PressureObserver/knownSources_static), um zu sehen, welche Quelltypen Ihrem Browser zur Verfügung stehen. Beachten Sie, dass die Verfügbarkeit auch von Ihrem Betriebssystem und Ihrer Hardware abhängen kann. Rufen Sie [`observe()`](/de/docs/Web/API/PressureObserver/observe) auf und prüfen Sie, ob ein `NotSupportedError` auftritt, um festzustellen, ob eine Beobachtung der Belastung möglich ist.
 
 Die Compute Pressure API ist in den folgenden Kontexten verfügbar:
 
-- [`Window`](/de/docs/Web/API/Window) (Haupt-Thread)
+- [`Window`](/de/docs/Web/API/Window) (Hauptthread)
 - [`Worker`](/de/docs/Web/API/Worker)
 - [`SharedWorker`](/de/docs/Web/API/SharedWorker)
-- {{HTMLElement("iframe")}} (sofern eine geeignete [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/compute-pressure) vorhanden ist)
+- {{HTMLElement("iframe")}} (wenn eine geeignete [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/compute-pressure) bereitgestellt wird)
 
-### Druckzustände
+### Belastungszustände
 
-Die Compute Pressure API stellt hochrangige Druckzustände bereit, die die Komplexitäten von Systemengpässen abstrahieren, die mit niedrigrangigen Metriken wie Prozessortaktfrequenz und Auslastung nicht adäquat erklärt werden können. Tatsächlich sind Metriken zur CPU-Auslastung oft [irreführend](https://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html). Daher verwendet die Compute Pressure API lesbare Druckzustände mit den folgenden Bedeutungen (siehe auch die [Spezifikation](https://w3c.github.io/compute-pressure/#pressure-states)):
+Die Compute Pressure API stellt übergeordnete Belastungszustände bereit. Sie abstrahieren die Komplexität von Systemengpässen, die sich mit einfachen Metriken wie Prozessortakt und Auslastung nicht angemessen beschreiben lassen. Tatsächlich sind Metriken zur CPU-Auslastung häufig [irreführend](https://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html). Deshalb verwendet die Compute Pressure API verständliche Belastungszustände mit folgender Bedeutung (siehe auch die [Spezifikation](https://w3c.github.io/compute-pressure/#pressure-states)):
 
-- ⚪ `"nominal"`: Die Bedingungen des Zielgeräts sind auf einem akzeptablen Niveau ohne spürbare negative Auswirkungen auf den Benutzer.
-- 🟢 `"fair"`: Der Druck, die Temperatur und/oder der Energieverbrauch des Zielgeräts sind leicht erhöht, was möglicherweise zu einer verkürzten Batterielaufzeit führt, sowie zum Aktivieren und Hören von Lüftern (oder Systemen mit Lüftern). Abgesehen davon läuft das Zielgerät einwandfrei und kann zusätzliche Aufgaben übernehmen.
-- 🟡 `"serious"`: Der Druck, die Temperatur und/oder der Energieverbrauch des Zielgeräts ist durchgängig stark erhöht. Das System kann als Gegenmaßnahme gedrosselt werden, um die Thermik zu reduzieren.
-- 🔴 `"critical"`: Die Temperatur des Zielgeräts oder Systems ist deutlich erhöht und es muss heruntergekühlt werden, um potenzielle Probleme zu vermeiden.
+- ⚪ `"nominal"`: Das Zielgerät befindet sich in einem akzeptablen Zustand, ohne spürbare negative Auswirkungen für die Nutzer.
+- 🟢 `"fair"`: Belastung, Temperatur und/oder Energieverbrauch des Zielgeräts sind leicht erhöht. Dies kann die Akkulaufzeit verkürzen und dazu führen, dass Lüfter aktiv und hörbar werden. Ansonsten funktioniert das Zielgerät einwandfrei und kann zusätzliche Aufgaben übernehmen.
+- 🟡 `"serious"`: Belastung, Temperatur und/oder Energieverbrauch des Zielgeräts sind dauerhaft stark erhöht. Das System drosselt möglicherweise seine Leistung, um die Temperatur zu senken.
+- 🔴 `"critical"`: Die Temperatur des Zielgeräts oder Systems ist deutlich erhöht. Es muss abkühlen, um mögliche Probleme zu vermeiden.
 
-Die beitragenden Faktoren (d.h. die zugrunde liegenden Systemmetriken) für die oben genannten Druckzustände sind nicht von der Spezifikation definiert und können je nach zugrunde liegender Hardware und Plattformverhalten variieren. Die Spezifikation verlangt jedoch, dass die Änderung der beitragenden Faktoren erheblich sein muss, um ein ständiges Hin- und Herwechseln zwischen den Zuständen zu vermeiden. Das bedeutet, Sie können davon ausgehen, dass die API nicht zu oft unterschiedliche Zustände meldet, da sie nicht nur auf eine einzige schwankende Systemmetrik reagiert.
+Die Faktoren, die zu diesen Belastungszuständen beitragen – also die zugrunde liegenden Systemmetriken –, werden von der Spezifikation nicht festgelegt und können je nach Hardware und Plattformverhalten variieren. Die Spezifikation verlangt jedoch, dass sich diese Faktoren wesentlich ändern müssen, bevor ein anderer Zustand gemeldet wird. Dadurch soll ein ständiger Wechsel zwischen Zuständen vermieden werden. Sie können daher davon ausgehen, dass die API nicht übermäßig häufig unterschiedliche Zustände meldet, weil sie nicht auf jede Schwankung einer einzelnen Systemmetrik reagiert.
 
-### Sicherheits- und Datenschutzüberlegungen
+### Sicherheits- und Datenschutzaspekte
 
-Die Compute Pressure API ist durch die [Policy gesteuert](/de/docs/Web/HTTP/Guides/Permissions_Policy) durch die `"compute-pressure"`-Direktive. Ihre Standard-Erlaubnisliste ist `'self'`, was die Nutzung in gleichartigen eingebetteten Frames erlaubt, aber Drittanbieterinhalte daran hindert, das Feature zu nutzen.
+Die Compute Pressure API wird über die Direktive `"compute-pressure"` durch eine [Richtlinie gesteuert](/de/docs/Web/HTTP/Guides/Permissions_Policy). Ihre standardmäßige Zulassungsliste ist `'self'`. Damit ist die Verwendung in eingebetteten Frames desselben Ursprungs erlaubt, während Inhalte von Drittanbietern die Funktion nicht verwenden können.
 
 ## Referenz
 
 ### Schnittstellen
 
-Die folgenden Schnittstellen sind in der Compute Pressure API vorhanden und die API-Oberfläche ähnelt anderen Beobachtern wie [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver), [`MutationObserver`](/de/docs/Web/API/MutationObserver) oder [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
+Die Compute Pressure API umfasst die folgenden Schnittstellen. Ihr Aufbau ähnelt dem anderer Observer wie [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver), [`MutationObserver`](/de/docs/Web/API/MutationObserver) oder [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
 - [`PressureObserver`](/de/docs/Web/API/PressureObserver) {{experimental_inline}}
-  - : Benachrichtigt, wenn sich der Druck des Systems für eine angegebene Anzahl von Quellen (z.B. die CPU) bei einem vordefinierten Abtastintervall ändert.
+  - : Benachrichtigt in einem festgelegten Abtastintervall über Änderungen der Systembelastung für eine bestimmte Anzahl von Quellen (z. B. die CPU).
 - [`PressureRecord`](/de/docs/Web/API/PressureRecord)
-  - : Beschreibt den Drucktrend zu einem bestimmten Übergangsmoment.
+  - : Beschreibt den Belastungstrend zu einem bestimmten Zeitpunkt eines Zustandswechsels.
 
 ### Permissions-Policy-Direktive
 
-- {{httpheader("Permissions-Policy")}}; die {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}}-Direktive
+- {{httpheader("Permissions-Policy")}}; die Direktive {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}}
   - : Steuert den Zugriff auf die Compute Pressure API.
 
 ## Beispiele
 
-### Aktuellen Druck protokollieren
+### Aktuelle Belastung protokollieren
 
-Dieses Beispiel erstellt einen [`PressureObserver`](/de/docs/Web/API/PressureObserver) und ergreift Maßnahmen, wann immer es zu einer Druckänderung kommt. Das Abtastintervall ist auf 1000ms eingestellt, was bedeutet, dass es höchstens einmal pro Sekunde Aktualisierungen gibt.
+Dieses Beispiel erstellt einen [`PressureObserver`](/de/docs/Web/API/PressureObserver) und reagiert auf jede Änderung der Belastung. Das Abtastintervall ist auf 1000 ms eingestellt. Aktualisierungen erfolgen somit höchstens einmal pro Sekunde.
 
 ```js
 function callback(records) {
@@ -110,4 +110,4 @@ try {
 
 ## Siehe auch
 
-- [Compute Pressure-Demo](https://w3c.github.io/compute-pressure/demo/), die Mandelbrot-Mengen und Workers verwendet, um künstlichen Druck zu Testzwecken zu erzeugen.
+- [Demo zur Compute Pressure API](https://w3c.github.io/compute-pressure/demo/), die Mandelbrot-Mengen und Worker verwendet, um zu Testzwecken künstliche Belastung zu erzeugen.

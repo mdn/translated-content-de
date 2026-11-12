@@ -2,65 +2,88 @@
 title: User-Agent Client Hints API
 slug: Web/API/User-Agent_Client_Hints_API
 l10n:
-  sourceCommit: 2dcdbed09ec5ca28a73d82e259601459c468508c
+  sourceCommit: f81527232ae480626f8cec10a7d2775a698be30a
 ---
 
 {{DefaultAPISidebar("User-Agent Client Hints API")}}{{SeeCompatTable}}
 
-Die **User-Agent Client Hints API** erweitert [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints), um eine Methode bereitzustellen, mit der Browser- und Plattforminformationen über User-Agent-Response- und -Request-Header sowie eine JavaScript-API offengelegt werden können.
+Die **User-Agent Client Hints API** erweitert [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) um eine Möglichkeit, Informationen über Browser und Plattform über User-Agent-Response- und Request-Header sowie über eine JavaScript-API bereitzustellen.
 
 ## Konzepte und Verwendung
 
-Das Parsen des User-Agent-Strings war historisch gesehen die Methode, um Informationen über den Browser oder das Gerät des Nutzers zu erhalten. Ein typischer User-Agent-String sieht aus wie das folgende Beispiel, das Chrome 92 auf Windows identifiziert:
+Traditionell wurden Informationen über den Browser oder das Gerät einer Person durch das Parsen des User-Agent-Strings gewonnen. Ein typischer User-Agent-String sieht wie im folgenden Beispiel aus und identifiziert Chrome 92 unter Windows:
 
 ```plain
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36
 ```
 
-User-Agent Client Hints zielt darauf ab, diese Informationen auf eine datenschutzfreundlichere Weise bereitzustellen, indem ein Modell erzwungen wird, bei dem der Server eine Reihe von Informationen anfordert und der Browser entscheidet, was zurückgegeben wird. Dieses Vorgehen bedeutet, dass ein User-Agent Einstellungen bereitstellen könnte, die einem Nutzer erlauben, einige der Informationen zu verbergen, die sie durch solche Anfragen identifizieren könnten.
+User-Agent Client Hints sollen diese Informationen auf eine Weise bereitstellen, die die Privatsphäre besser schützt: Der Server fordert bestimmte Informationen an, und der Browser entscheidet, welche davon er zurückgibt. Dieser Ansatz ermöglicht Einstellungen, mit denen Nutzer bestimmte Informationen verbergen können, anhand derer sie bei solchen Anfragen wiedererkannt werden könnten.
 
-Um zu entscheiden, was zurückgegeben werden soll, sind die über diese API zugänglichen Informationen in zwei Gruppen unterteilt: **niedrige Entropie** und **hohe Entropie**. Hinweise mit niedriger Entropie geben nicht viele Informationen preis, die API macht diese mit jeder Anfrage leicht zugänglich. Hinweise mit hoher Entropie haben das Potenzial, mehr Informationen preiszugeben, und sind daher so beschränkt, dass der Browser eine Entscheidung treffen kann, ob sie bereitgestellt werden. Diese Entscheidung könnte potenziell auf Nutzereinstellungen oder einer Anfrage um Erlaubnis basieren.
+Damit der Browser entscheiden kann, was er zurückgibt, werden die über diese API zugänglichen Informationen in zwei Gruppen unterteilt: Hinweise mit **niedriger Entropie** und Hinweise mit **hoher Entropie**. Hinweise mit niedriger Entropie geben nur wenige Informationen preis und sind über die API bei jeder Anfrage leicht zugänglich. Hinweise mit hoher Entropie können mehr Informationen preisgeben. Ihr Zugriff ist daher so eingeschränkt, dass der Browser entscheiden kann, ob er sie bereitstellt. Diese Entscheidung kann beispielsweise von Nutzereinstellungen abhängen oder eine Berechtigungsanfrage erfordern.
 
 ### Anwendungsfälle für User-Agent Client Hints
 
-Mögliche Anwendungsfälle umfassen:
+Mögliche Anwendungsfälle sind:
 
-- Bereitstellung benutzerdefinierter Polyfills, um Nutzern zu helfen, deren Browser ein Web-Plattform-Feature fehlt.
-- Umgehung von Browser-Fehlern.
-- Erfassung von Browser-Analysen.
-- Anpassung von Inhalten basierend auf User-Agent-Informationen.
-  Dies umfasst das Bereitstellen verschiedener Inhalte für mobile Geräte, insbesondere Geräte, die als leistungsschwach identifiziert wurden.
-  Es könnte auch die Anpassung des Designs umfassen, um die Schnittstellen an das Betriebssystem des Nutzers anzupassen oder Links zu Betriebssystem-spezifischen anbieten.
-- Bereitstellung einer Benachrichtigung, wenn sich ein Nutzer von einem anderen Browser oder Gerät einloggt, als Sicherheitsfunktion.
-- Bereitstellung des richtigen Binärprogramms auf einer Website, die einen Download anbietet.
-- Sammeln von Informationen über den Browser und das Gerät, um Anwendungsfehler zu identifizieren.
-- Blockierung von Spammern, Bots und Crawlern.
+- Nutzern angepasste Polyfills bereitzustellen, wenn ihrem Browser eine bestimmte Webplattformfunktion fehlt.
+- Browserfehler zu umgehen.
+- Browseranalysen zu erfassen.
+- Inhalte anhand von User-Agent-Informationen anzupassen.
+  Dazu gehört, mobilen Geräten unterschiedliche Inhalte bereitzustellen, insbesondere Geräten, die als leistungsschwach erkannt wurden.
+  Auch das Design kann an das Betriebssystem angepasst werden, etwa durch entsprechende Benutzeroberflächen oder Links zu betriebssystemspezifischen Versionen.
+- Als Sicherheitsfunktion eine Benachrichtigung anzuzeigen, wenn sich eine Person über einen anderen Browser oder ein anderes Gerät anmeldet.
+- Auf einer Website mit Downloads die passende ausführbare Binärdatei bereitzustellen.
+- Informationen über Browser und Gerät zu sammeln, um Anwendungsfehler zu erkennen.
+- Spammer, Bots und Crawler zu blockieren.
 
 ## Schnittstellen
 
 - [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)
-  - : Bietet Eigenschaften und Methoden, um auf Daten über den Browser und das Betriebssystem des Nutzers zuzugreifen.
+  - : Stellt Eigenschaften und Methoden für den Zugriff auf Daten über den Browser und das Betriebssystem der Nutzer bereit.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen anderer Schnittstellen
 
 - [`Navigator.userAgentData`](/de/docs/Web/API/Navigator/userAgentData) {{ReadOnlyInline}}
-  - : Gibt ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData) Objekt zurück, das Zugriff auf Informationen über den Browser und das Betriebssystem des Nutzers gibt.
+  - : Gibt ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Objekt zurück, das Zugriff auf Informationen über den Browser und das Betriebssystem der Nutzer bietet.
 - [`WorkerNavigator.userAgentData`](/de/docs/Web/API/WorkerNavigator/userAgentData) {{ReadOnlyInline}}
-  - : Gibt ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData) Objekt zurück, das Zugriff auf Informationen über den Browser und das Betriebssystem des Nutzers gibt.
+  - : Gibt ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Objekt zurück, das Zugriff auf Informationen über den Browser und das Betriebssystem der Nutzer bietet.
+
+## Sicherheitsaspekte
+
+Websites, die eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) festlegen können (über den HTTP-Header {{HTTPHeader("Permissions-Policy")}} oder das Attribut [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow) des {{HTMLElement("iframe")}}-Elements), können die Verwendung der User-Agent Client Hints API mit der Direktive {{HTTPHeader("Permissions-Policy/ch-ua-high-entropy-values", "ch-ua-high-entropy-values")}} einschränken.
+
+Wenn die Berechtigung nicht erteilt wird, gibt [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) nur Daten mit niedriger Entropie zurück, etwa `brands`, `mobile` und `platform`.
+
+Die folgende Richtlinie würde beispielsweise nur der aktuellen Origin und zwei weiteren ausdrücklich angegebenen Origins erlauben, Daten mit hoher Entropie abzurufen.
+
+```http
+Permissions-Policy: ch-ua-high-entropy-values=("self https://a.example.com" "https://b.example.com")
+```
+
+Anschließend könnten Sie eine der beiden anderen Origins einbetten:
+
+```html
+<iframe src="https://a.example.com" allow="ch-ua-high-entropy-values"></iframe>
+```
+
+Die standardmäßige Allowlist für `ch-ua-high-entropy-values` ist `*`. Damit dürfen alle Inhalte im aktuellen Dokument und in sämtlichen verschachtelten Browsing-Kontexten `getHighEntropyValues()` verwenden.
+
+> [!NOTE]
+> Der Zugriff auf einzelne Merkmale mit hoher Entropie lässt sich über jeweils eigene [Permissions Policies](https://wicg.github.io/client-hints-infrastructure/#policy-controlled-features) steuern.
 
 ## Beispiele
 
-### Abrufen der Marken
+### Marken abrufen
 
-Das folgende Beispiel druckt den Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) in die Konsole.
+Das folgende Beispiel gibt den Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) auf der Konsole aus.
 
 ```js
 console.log(navigator.userAgentData.brands);
 ```
 
-### Rückgabe von Werten mit hoher Entropie
+### Werte mit hoher Entropie abrufen
 
-Im folgenden Beispiel wird eine Reihe von Hinweisen angefordert, indem die Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) verwendet wird. Wenn das Versprechen erfüllt ist, werden diese Informationen in die Konsole gedruckt.
+Im folgenden Beispiel werden mit der Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) mehrere Hinweise angefordert. Sobald das Promise erfüllt ist, werden diese Informationen auf der Konsole ausgegeben.
 
 ```js
 navigator.userAgentData
@@ -76,29 +99,6 @@ navigator.userAgentData
   });
 ```
 
-## Sicherheitsüberlegungen
-
-Websites, die das Setzen einer [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) (über den HTTP-{{HTTPHeader("Permissions-Policy")}}-Header oder das {{HTMLElement("iframe")}}-Attribut [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow)) unterstützen, können die Möglichkeit einschränken, die User-Agent Client Hints API zu verwenden, indem sie die Direktive {{HTTPHeader("Permissions-Policy/ch-ua-high-entropy-values", "ch-ua-high-entropy-values")}} verwenden.
-
-Insbesondere wenn die Erlaubnis nicht erteilt wird, wird [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) nur Daten mit niedriger Entropie wie `brands`, `mobile` und `platform` zurückgeben.
-
-Zum Beispiel würde die folgende Richtlinie nur dem aktuellen Ursprung und zwei anderen spezifischen Ursprüngen erlauben, Daten mit hoher Entropie abzurufen.
-
-```http
-Permissions-Policy: ch-ua-high-entropy-values=("self https://a.example.com" "https://b.example.com")
-```
-
-Sie könnten dann einen der beiden anderen Ursprünge einbetten:
-
-```html
-<iframe src="https://a.example.com" allow="ch-ua-high-entropy-values"></iframe>
-```
-
-Die Standardzugriffsliste für `ch-ua-high-entropy-values` ist `*`, was jedem Inhalt innerhalb des aktuellen Dokuments und aller verschachtelten Browsing-Kontexte erlaubt, `getHighEntropyValues()` zu verwenden.
-
-> [!NOTE]
-> Der Zugriff auf einzelne Merkmale mit hoher Entropie kann mit ihren eigenen [individuellen Berechtigungsrichtlinien](https://wicg.github.io/client-hints-infrastructure/#policy-controlled-features) gesteuert werden.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -109,5 +109,5 @@ Die Standardzugriffsliste für `ch-ua-high-entropy-values` ist `*`, was jedem In
 
 ## Siehe auch
 
-- [Verbesserung der Nutzerprivatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints)
-- [Migration zu User-Agent Client Hints](https://web.dev/articles/migrate-to-ua-ch)
+- [Verbesserung der Privatsphäre von Nutzern und der Entwicklungserfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints)
+- [Zu User-Agent Client Hints migrieren](https://web.dev/articles/migrate-to-ua-ch)

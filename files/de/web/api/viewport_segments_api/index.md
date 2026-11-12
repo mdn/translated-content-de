@@ -2,45 +2,45 @@
 title: Viewport Segments API
 slug: Web/API/Viewport_segments_API
 l10n:
-  sourceCommit: 9be502ee0f8b030908e59d30884190281acb8054
+  sourceCommit: f81527232ae480626f8cec10a7d2775a698be30a
 ---
 
 {{DefaultAPISidebar("Viewport Segments API")}}{{seecompattable}}
 
-Die **Viewport Segments API** ermöglicht es Entwicklern, die Position und Abmessungen logisch getrennter Viewport-Segmente mithilfe von CSS und JavaScript zu erfassen. _Viewport-Segmente_ entstehen, wenn der Viewport durch eine oder mehrere Hardware-Eigenschaften wie ein Falz oder ein Scharnier zwischen separaten Displays unterteilt wird. Mit der Viewport Segments API können Entwickler responsive Designs erstellen, die für verschiedene Größen und Anordnungen von Viewport-Segmenten optimiert sind.
+Die **Viewport Segments API** ermöglicht es Entwicklern, mit CSS und JavaScript auf die Position und Abmessungen logisch getrennter Viewport-Segmente zuzugreifen. _Viewport-Segmente_ entstehen, wenn der Viewport durch ein oder mehrere Hardwaremerkmale geteilt wird, etwa durch eine Falte oder ein Scharnier zwischen getrennten Displays. Mit der Viewport Segments API können Entwickler responsive Designs erstellen, die für unterschiedliche Größen und Anordnungen von Viewport-Segmenten optimiert sind.
 
 ## Konzepte und Verwendung
 
-Geräte mit mehreren Displays, die als verschiedene Segmente derselben Displayfläche fungieren sollen (denken Sie an faltbare oder klappbare Smartphones), stellen Entwickler vor einige einzigartige Designherausforderungen. Sie können Ihr Layout für das Display als eine Einheit optimieren, aber wie können Sie sicherstellen, dass Designelemente genau auf die verschiedenen Segmente passen und nicht in zwei Teile zerschnitten werden? Und wie können Sie verhindern, dass Inhalte durch den physischen Falz/Scharnier verdeckt werden?
+Geräte mit mehreren Displays, die als verschiedene Segmente einer gemeinsamen Anzeigefläche dienen sollen – etwa Smartphones mit faltbarem Bildschirm oder Scharnier –, stellen Entwickler vor besondere Herausforderungen bei der Gestaltung. Sie können Ihr Layout für die Anzeigefläche als Ganzes optimieren. Doch wie stellen Sie sicher, dass Designelemente auf die verschiedenen Segmente passen und nicht in zwei Teile getrennt werden? Und wie verhindern Sie, dass Inhalte durch die physische Falte oder Verbindungsstelle verdeckt werden?
 
-Es kann wichtig sein zu wissen, ob der Bildschirm eines Benutzergerätes einen Falz oder eine Verbindung hat, welche Größe die verschiedenen Segmente haben, ob sie gleich groß sind und die Ausrichtung der Segmente (ob sie nebeneinander oder übereinander angeordnet sind). Die Viewport Segments API ermöglicht den Zugriff auf die segmentierten Geräteinformationen des Benutzers mit CSS und JavaScript-Funktionen, die den Zugriff auf die Position und die Abmessungen jedes Viewport-Segments innerhalb eines Displays ermöglichen, einschließlich {{cssxref("@media")}}-Funktionen zur Erkennung unterschiedlicher horizontaler und vertikaler Bereichslayouts.
+Es kann wichtig sein zu wissen, ob der Bildschirm eines Benutzergeräts eine Falte oder Verbindungsstelle hat, wie groß die verschiedenen Segmente sind, ob sie gleich groß sind und wie sie angeordnet sind (nebeneinander oder übereinander). Die Viewport Segments API ermöglicht den Zugriff auf Informationen über segmentierte Geräte mit CSS- und JavaScript-Funktionen. Diese geben Aufschluss über die Position und Abmessungen jedes Viewport-Segments innerhalb einer Anzeigefläche. Dazu gehören {{cssxref("@media")}}-Features, mit denen sich unterschiedliche horizontale und vertikale Anordnungen erkennen lassen.
 
-Eine Erklärung, wie die API funktioniert, finden Sie unter [Verwendung der Viewport Segments API](/de/docs/Web/API/Viewport_segments_API/Using).
+Eine Erklärung der Funktionsweise der API finden Sie unter [Die Viewport Segments API verwenden](/de/docs/Web/API/Viewport_segments_API/Using).
+
+## CSS-Features
+
+- {{cssxref("@media/horizontal-viewport-segments", "horizontal-viewport-segments")}}-`@media`-Feature
+  - : Erkennt, ob das Gerät eine bestimmte Anzahl horizontal angeordneter Viewport-Segmente hat.
+- {{cssxref("@media/vertical-viewport-segments", "vertical-viewport-segments")}}-`@media`-Feature
+  - : Erkennt, ob das Gerät eine bestimmte Anzahl vertikal angeordneter Viewport-Segmente hat.
+- [Umgebungsvariablen für Viewport-Segmente](/de/docs/Web/CSS/Reference/Values/env#viewport-segment-width)
+  - : Diese [Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using) ermöglichen den Zugriff auf die Kantenkoordinaten und Abmessungen jedes Viewport-Segments.
 
 ## Schnittstellen
 
 - [`Viewport`](/de/docs/Web/API/Viewport)
-  - : Repräsentiert den Viewport des Geräts. Bietet Zugriff auf die [`Viewport.segments`](/de/docs/Web/API/Viewport/segments)-Eigenschaft, die ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurückgibt, die die Position und Dimensionen jedes Viewport-Segments innerhalb eines segmentierten Displays darstellen.
+  - : Repräsentiert den Viewport des Geräts. Bietet Zugriff auf die Eigenschaft [`Viewport.segments`](/de/docs/Web/API/Viewport/segments), die ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurückgibt. Diese repräsentieren die Position und Abmessungen jedes Viewport-Segments innerhalb einer segmentierten Anzeigefläche.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen anderer Schnittstellen
 
 - [`Window.viewport`](/de/docs/Web/API/Window/viewport)
-  - : Gibt eine `Viewport`-Objektinstanz zurück, die Informationen über den aktuellen Zustand des Viewports des Geräts bietet.
-
-## CSS-Funktionen
-
-- {{cssxref("@media/horizontal-viewport-segments", "horizontal-viewport-segments")}} `@media`-Funktion
-  - : Erkennt, ob das Gerät über eine bestimmte Anzahl von Viewport-Segmenten verfügt, die horizontal angeordnet sind.
-- {{cssxref("@media/vertical-viewport-segments", "vertical-viewport-segments")}} `@media`-Funktion
-  - : Erkennt, ob das Gerät über eine bestimmte Anzahl von Viewport-Segmenten verfügt, die vertikal angeordnet sind.
-- [Viewport-Segment-Umgebungsvariablen](/de/docs/Web/CSS/Reference/Values/env#viewport-segment-width)
-  - : Diese [Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using) bieten Zugriff auf die Randkoordinaten und Dimensionen jedes Viewport-Segments.
+  - : Gibt eine `Viewport`-Objektinstanz zurück, die Informationen über den aktuellen Zustand des Geräte-Viewports bereitstellt.
 
 ## Beispiele
 
-Ein vollständiges Beispiel, das die Verwendung der oben genannten Funktionen demonstriert, finden Sie in der [Viewport-Segment-API-Demo](https://mdn.github.io/dom-examples/viewport-segments-api/).
+Ein vollständiges Beispiel für die Verwendung der oben genannten Funktionen finden Sie in der [Demo zur Viewport Segments API](https://mdn.github.io/dom-examples/viewport-segments-api/).
 
-Wenn möglich, sollten Sie die Demo auf einem faltbaren Gerät ansehen. Aktuelle Browser-Entwicklertools ermöglichen die Simulation faltbarer Geräte, jedoch wird die Emulation der verschiedenen physischen Segmente nicht unterstützt.
+Sehen Sie sich die Demo nach Möglichkeit auf einem faltbaren Gerät an. Aktuelle Entwicklertools für Browser können faltbare Geräte emulieren, bilden aber die verschiedenen physischen Segmente nicht nach.
 
 ## Spezifikationen
 
@@ -52,8 +52,8 @@ Wenn möglich, sollten Sie die Demo auf einem faltbaren Gerät ansehen. Aktuelle
 
 ## Siehe auch
 
-- [Verwendung der Viewport Segments API](/de/docs/Web/API/Viewport_segments_API/Using)
+- [Die Viewport Segments API verwenden](/de/docs/Web/API/Viewport_segments_API/Using)
 - [CSSOM View API](/de/docs/Web/API/CSSOM_view_API)
 - [Device Posture API](/de/docs/Web/API/Device_Posture_API)
-- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables) Modul
-- [Origin Trial für Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) über developer.chrome.com (2024)
+- [Modul für CSS-Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables)
+- [Origin Trial für Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)
