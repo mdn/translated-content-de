@@ -3,18 +3,16 @@ title: "`corner-top-shape` CSS property"
 short-title: corner-top-shape
 slug: Web/CSS/Reference/Properties/corner-top-shape
 l10n:
-  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{SeeCompatTable}}
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`corner-top-shape`** legt die Form der beiden Ecken an der oberen Kante einer Box innerhalb ihres {{cssxref("border-radius")}}-Bereichs fest.
 
-Die **`corner-top-shape`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Form beider Ecken an der oberen Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}}-Bereichs fest.
+Eine vollständige Beschreibung des Verhaltens von Eckformen sowie mehrere Beispiele finden Sie auf der Seite zur Kurzschreibweise {{cssxref("corner-shape")}}.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite zur {{cssxref("corner-shape")}}-Kurzschreibweise.
+## Bestandteile
 
-## Bestandteilseigenschaften
-
-Diese Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
 
 - {{cssxref("corner-top-left-shape")}}
 - {{cssxref("corner-top-right-shape")}}
@@ -44,10 +42,10 @@ corner-top-shape: unset;
 
 ### Werte
 
-Die `corner-top-shape`-Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}}-Werten angegeben:
+Die Eigenschaft `corner-top-shape` wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}}-Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, legt er die Form **beider oberen Ecken** fest.
-- Wenn **zwei Werte** verwendet werden, legt der erste die Form der **oberen linken** Ecke fest und der zweite die Form der **oberen rechten** Ecke.
+- Bei **einem Wert** legt dieser die Form **beider oberen Ecken** fest.
+- Bei **zwei Werten** legt der erste die Form der **oberen linken** Ecke und der zweite die Form der **oberen rechten** Ecke fest.
 
 ## Formale Definition
 
@@ -59,7 +57,7 @@ Die `corner-top-shape`-Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corne
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}}-Referenzseite.
+Weitere Beispiele finden Sie auf der Referenzseite zu {{cssxref("corner-shape")}}.
 
 ### Grundlegende Verwendung von `corner-top-shape`
 
@@ -73,7 +71,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-top-shape` von `scoop notch` an.
+Wir geben der Box einige grundlegende Styles, die wir der Kürze halber ausgeblendet haben. Außerdem wenden wir einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und einen `corner-top-shape`-Wert von `scoop notch` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -121,10 +119,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzschreibweise
-- {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}}, und {{cssxref("corner-right-shape")}}
-- {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}}, und {{cssxref("corner-inline-end-shape")}}
-- {{cssxref("border-radius")}} Kurzschreibweise
+- Kurzschreibweise {{cssxref("corner-shape")}}
+- {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}} und {{cssxref("corner-right-shape")}}
+- {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}} und {{cssxref("corner-inline-end-shape")}}
+- Kurzschreibweise {{cssxref("border-radius")}}
 - {{cssxref("border-top-left-radius")}} und {{cssxref("border-top-right-radius")}}
-- [CSS Ränder und Kasten-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- Modul [CSS-Rahmen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)
+- Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)

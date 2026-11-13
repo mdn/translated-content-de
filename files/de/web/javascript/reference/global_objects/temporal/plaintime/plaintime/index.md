@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainTime()-Konstruktor
+short-title: Temporal.PlainTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/PlainTime
 l10n:
-  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
+  sourceCommit: c44f591049bc129b356acb0a9ce281974c035113
 ---
 
-Der Konstruktor **`Temporal.PlainTime()`** erstellt {{jsxref("Temporal.PlainTime")}}-Objekte.
+Der **`Temporal.PlainTime()`**-Konstruktor erstellt {{jsxref("Temporal.PlainTime")}}-Objekte.
 
-Mit diesem Konstruktor können Sie Instanzen erstellen, indem Sie die zugrunde liegenden Daten direkt angeben. Wie bei allen anderen `Temporal`-Klassen sollten Sie `Temporal.PlainTime`-Objekte üblicherweise mit der statischen Methode {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} erstellen, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Mit diesem Konstruktor können Sie Instanzen erstellen, indem Sie die zugrunde liegenden Daten direkt angeben. Wie bei allen anderen `Temporal`-Klassen sollten Sie `Temporal.PlainTime`-Objekte in der Regel mit der statischen Methode {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} erstellen, die verschiedene Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -22,35 +23,35 @@ new Temporal.PlainTime(hour, minute, second, millisecond, microsecond, nanosecon
 ```
 
 > [!NOTE]
-> `Temporal.PlainTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `Temporal.PlainTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `hour` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Stundenkomponente darstellt.
+  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Stundenkomponente angibt.
 - `minute` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Minutenkomponente darstellt.
+  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Minutenkomponente angibt.
 - `second` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Sekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Sekundenkomponente angibt.
 - `millisecond` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Millisekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Millisekundenkomponente angibt.
 - `microsecond` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Mikrosekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Mikrosekundenkomponente angibt.
 - `nanosecond` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Nanosekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Nanosekundenkomponente angibt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainTime`-Objekt, das die durch die Parameter angegebene Zeit darstellt.
+Ein neues `Temporal.PlainTime`-Objekt, das die durch die Parameter angegebene Uhrzeit darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn eine der Komponenten keine endliche Zahl ist oder sie keine gültige Zeit darstellen.
+  - : Wird ausgelöst, wenn eine der Komponenten keine endliche Zahl ist oder die Komponenten keine gültige Uhrzeit darstellen.
 
 ## Beispiele
 
-### Verwendung von Temporal.PlainTime()
+### Temporal.PlainTime() verwenden
 
 ```js
 const time = new Temporal.PlainTime(12, 34, 56, 123, 456, 789);

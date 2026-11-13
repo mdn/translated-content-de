@@ -2,33 +2,33 @@
 title: CSSFunctionDeclarations
 slug: Web/API/CSSFunctionDeclarations
 l10n:
-  sourceCommit: 6ad108adad746bd7ed79b5b32d8d3e05e5ec685a
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{ APIRef("CSSOM") }}{{SeeCompatTable}}
+{{ APIRef("CSSOM") }}
 
-Das **`CSSFunctionDeclarations`**-Interface des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine zusammenhängende Folge von CSS-Deklarationen, die in einem {{cssxref("@function")}}-Körper enthalten sind.
+Das Interface **`CSSFunctionDeclarations`** des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine zusammenhängende Folge von CSS-Deklarationen innerhalb des Bodys einer {{cssxref("@function")}}-Regel.
 
-Dies kann [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) und den Wert des `results` Deskriptors innerhalb des `@function` Körpers einschließen, aber es umfasst keine Blöcke wie {{cssxref("@media")}} At-Regeln, die enthalten sein können. Ein solcher Block, der in der Mitte einer Reihe von Deklarationen enthalten ist, würde dazu führen, dass die Körperinhalte in separate `CSSFunctionDeclarations`-Objekte aufgeteilt werden, wie in unserem [Mehrere `CSSFunctionDeclarations`](#multiple_cssfunctiondeclarations)-Beispiel gezeigt wird.
+Dazu können [benutzerdefinierte CSS-Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) und der Wert des `result`-Deskriptors im `@function`-Body gehören. Blöcke wie {{cssxref("@media")}}-At-Regeln, die ebenfalls enthalten sein können, gehören jedoch nicht dazu. Ein solcher Block innerhalb einer Deklarationsfolge teilt den Inhalt des Bodys in separate `CSSFunctionDeclarations`-Objekte auf, wie unser Beispiel [Mehrere `CSSFunctionDeclarations`](#multiple_cssfunctiondeclarations) zeigt.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Dieses Interface erbt außerdem Eigenschaften von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- [`CSSFunctionDeclarations.style`](/de/docs/Web/API/CSSFunctionDeclarations/style) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt zurück, das die Deskriptoren repräsentiert, die in einem {{cssxref("@function")}}-Körper verfügbar sind.
+- [`CSSFunctionDeclarations.style`](/de/docs/Web/API/CSSFunctionDeclarations/style) {{ReadOnlyInline}}
+  - : Gibt ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt zurück, das die im Body einer {{cssxref("@function")}}-Regel verfügbaren Deskriptoren repräsentiert.
 
 ## Beispiele
 
 ### Grundlegende Verwendung von `CSSFunctionDeclarations`
 
-In diesem Beispiel definieren wir eine benutzerdefinierte CSS-Funktion und greifen dann mit der CSSOM auf ihre Deklarationen zu.
+In diesem Beispiel definieren wir eine benutzerdefinierte CSS-Funktion und greifen anschließend über das CSSOM auf ihre Deklarationen zu.
 
 #### CSS
 
-Unser CSS definiert eine benutzerdefinierte Funktion mit der {{cssxref("@function")}} At-Regel. Die Funktion heißt `--lighter()` und gibt eine aufgehellte Version einer Eingabefarbe aus. `--lighter()` akzeptiert zwei Parameter, eine {{cssxref("&lt;color&gt;")}} und eine {{cssxref("&lt;number&gt;")}}. Sie gibt eine {{cssxref("color_value/oklch", "oklch()")}}-Farbe zurück, die mit Hilfe der [relativen Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) erstellt wurde; die Eingabefarbe wird in eine `oklch()`-Farbe umgewandelt und ihr Helligkeitskanal wird um die Eingabezahl erhöht.
+Unser CSS definiert mithilfe der {{cssxref("@function")}}-At-Regel eine benutzerdefinierte Funktion. Die Funktion heißt `--lighter()` und gibt eine aufgehellte Version einer Eingabefarbe aus. `--lighter()` akzeptiert zwei Parameter: einen {{cssxref("&lt;color&gt;")}}-Wert und einen {{cssxref("&lt;number&gt;")}}-Wert. Sie gibt eine mit der [Syntax für relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) erzeugte {{cssxref("color_value/oklch", "oklch()")}}-Farbe zurück. Dabei wird die Eingabefarbe in eine `oklch()`-Farbe umgewandelt und ihr Helligkeitskanal um die eingegebene Zahl erhöht.
 
 ```css live-sample___cssfunctiondeclarations-basics
 @function --lighter(--color <color>, --lightness-adjust <number>: 0.2) returns
@@ -38,13 +38,13 @@ Unser CSS definiert eine benutzerdefinierte Funktion mit der {{cssxref("@functio
 }
 ```
 
-Wir haben auch eine lokale [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) innerhalb der Funktion, `--someVar`, eingefügt, die nicht verwendet wird, aber illustriert, was passiert, wenn mehrere Deklarationen kontinuierlich innerhalb des `@function`-Körpers verfügbar sind.
+Wir haben innerhalb der Funktion außerdem eine lokale [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) namens `--someVar` eingefügt. Sie wird nicht verwendet, zeigt aber, was geschieht, wenn mehrere Deklarationen unmittelbar aufeinanderfolgend im `@function`-Body stehen.
 
 #### JavaScript
 
-Unser Skript beginnt damit, eine Referenz auf das Stylesheet, das an unser Dokument angehängt ist, mit [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet) zu erhalten, dann eine Referenz auf die einzige Regel im Stylesheet, die `CSSFunctionRule` — über [`CSSStylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules).
+Unser Skript ruft zunächst über [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet) eine Referenz auf das Stylesheet des Dokuments ab und anschließend über [`CSSStylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) eine Referenz auf dessen einzige Regel, die `CSSFunctionRule`.
 
-Wir greifen dann auf das `CSSFunctionDeclarations`-Objekt zu, das die einzige kontinuierliche Folge von Deklarationen innerhalb der Funktion repräsentiert, indem wir [`cssRules[0]`](/de/docs/Web/API/CSSGroupingRule/cssRules) verwenden, greifen auf die Deskriptorinformationen mit [`CSSFunctionDeclarations.style`](/de/docs/Web/API/CSSFunctionDeclarations/style) zu und greifen dann auf die Länge des Deskriptors und die Stilinformationen zu. Alle diese Informationen werden in der Konsole protokolliert.
+Danach greifen wir mit [`cssRules[0]`](/de/docs/Web/API/CSSGroupingRule/cssRules) auf das `CSSFunctionDeclarations`-Objekt zu, das die einzige zusammenhängende Deklarationsfolge innerhalb der Funktion repräsentiert. Über [`CSSFunctionDeclarations.style`](/de/docs/Web/API/CSSFunctionDeclarations/style) greifen wir auf die Informationen zu dessen Deskriptoren zu und lesen anschließend die Länge und die Stilinformationen aus. Alle diese Informationen werden in der Konsole ausgegeben.
 
 ```js live-sample___cssfunctiondeclarations-basics
 // Get a CSSFunctionRule
@@ -57,18 +57,18 @@ console.log(cssFunc.cssRules[0].style.length);
 console.log(cssFunc.cssRules[0].style.result);
 ```
 
-Besonders bemerkenswert:
+Besonders hervorzuheben ist:
 
-- Die `length`-Eigenschaft ist gleich `2`, da es zwei Teile im Text des Deskriptors gibt (`--someVar: 100;` und `result: oklch(from var(--color) calc(l + var(--lightness-adjust)) c h);`).
-- Die `result`-Eigenschaft entspricht dem `result`-Deskriptor des `@function`-Körpers, der `oklch(from var(--color) calc(l + var(--lightness-adjust)) c h)` ist.
+- Die Eigenschaft `length` hat den Wert `2`, da der Deskriptortext aus zwei Teilen besteht (`--someVar: 100;` und `result: oklch(from var(--color) calc(l + var(--lightness-adjust)) c h);`).
+- Die Eigenschaft `result` entspricht dem `result`-Deskriptor des `@function`-Bodys. Dessen Wert ist `oklch(from var(--color) calc(l + var(--lightness-adjust)) c h)`.
 
 ### Mehrere `CSSFunctionDeclarations`
 
-In diesem Beispiel zeigen wir, wie eine `@media`-At-Regel, die in der Mitte einer Reihe von Deklarationen eingefügt wird, zwei `CSSFunctionDeclarations`-Objekte generiert.
+In diesem Beispiel zeigen wir, wie eine `@media`-At-Regel innerhalb einer Deklarationsfolge dazu führt, dass zwei `CSSFunctionDeclarations`-Objekte erzeugt werden.
 
 #### CSS
 
-Unser CSS zeigt ein `@function`-Beispiel aus der Spezifikation, `--bar()`, das nicht viel tut, aber eine Reihe von Deklarationen aufweist, die durch einen `@media`-Block getrennt sind.
+Unser CSS zeigt ein Beispiel für `@function` aus der Spezifikation: `--bar()`. Die Funktion erfüllt keinen besonderen Zweck, enthält aber Deklarationen, die durch einen `@media`-Block getrennt sind.
 
 ```css live-sample___multiple-cssfunctiondeclarations
 @function --bar() {
@@ -83,13 +83,13 @@ Unser CSS zeigt ein `@function`-Beispiel aus der Spezifikation, `--bar()`, das n
 
 #### JavaScript
 
-Unser Skript beginnt damit, eine Referenz auf das Stylesheet, das an unser Dokument angehängt ist, über [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet) zu erhalten, dann eine Referenz auf die einzige Regel im Stylesheet, die `CSSFunctionRule` — über [`CSSStylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules).
+Unser Skript ruft zunächst über [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet) eine Referenz auf das Stylesheet des Dokuments ab und anschließend über [`CSSStylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) eine Referenz auf dessen einzige Regel, die `CSSFunctionRule`.
 
-Wir greifen dann auf die [`CSSGroupingRule.cssRules`](/de/docs/Web/API/CSSGroupingRule/cssRules) zu und protokollieren deren Wert in der Konsole. Dies gibt ein [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Objekt zurück, das drei Objekte enthält:
+Anschließend greifen wir auf [`CSSGroupingRule.cssRules`](/de/docs/Web/API/CSSGroupingRule/cssRules) zu und geben dessen Wert in der Konsole aus. Zurückgegeben wird ein [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Objekt mit drei Objekten:
 
-- Ein `CSSFunctionDeclarations`-Objekt, das den Abschnitt `--x: 42;result: var(--y);` repräsentiert.
+- Ein `CSSFunctionDeclarations`-Objekt, das den Teil `--x: 42;result: var(--y);` repräsentiert.
 - Ein [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)-Objekt, das die `@media`-At-Regel repräsentiert.
-- Ein zweites `CSSFunctionDeclarations`-Objekt, das den Abschnitt `--y: var(--x);` repräsentiert.
+- Ein zweites `CSSFunctionDeclarations`-Objekt, das den Teil `--y: var(--x);` repräsentiert.
 
 ```js live-sample___multiple-cssfunctiondeclarations
 // Get a CSSFunctionRule
@@ -99,7 +99,7 @@ const cssFunc = document.getElementById("css-output").sheet.cssRules[0];
 console.log(cssFunc.cssRules);
 ```
 
-Wir protokollieren dann einige Details jedes `CSSFunctionDeclarations`-Objekts in der Konsole — das Objekt selbst, das [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt, das in seiner `style`-Eigenschaft enthalten ist, und die [`CSSFunctionDescriptors.result`](/de/docs/Web/API/CSSFunctionDescriptors/result) Eigenschaft.
+Danach geben wir einige Details zu jedem `CSSFunctionDeclarations`-Objekt in der Konsole aus: das Objekt selbst, das in seiner Eigenschaft `style` enthaltene [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt und die Eigenschaft [`CSSFunctionDescriptors.result`](/de/docs/Web/API/CSSFunctionDescriptors/result).
 
 ```js live-sample___multiple-cssfunctiondeclarations
 console.log(cssFunc.cssRules[0]); // First CSSFunctionDeclarations
@@ -111,7 +111,7 @@ console.log(cssFunc.cssRules[2].style); // CSSFunctionDescriptors
 console.log(cssFunc.cssRules[2].style.result);
 ```
 
-Im zweiten Fall gibt `result` eine leere Zeichenfolge zurück, weil der zweite Deklarationsabschnitt keinen `result`-Deskriptor enthält.
+Im zweiten Fall gibt `result` einen leeren String zurück, da der zweite Deklarationsteil keinen `result`-Deskriptor enthält.
 
 ## Spezifikationen
 

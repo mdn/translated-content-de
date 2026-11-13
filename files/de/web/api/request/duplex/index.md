@@ -3,25 +3,25 @@ title: "Request: duplex-Eigenschaft"
 short-title: duplex
 slug: Web/API/Request/duplex
 l10n:
-  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{APIRef("Fetch API")}}{{SeeCompatTable}}
+{{APIRef("Fetch API")}}
 
-Die schreibgeschützte Eigenschaft **`duplex`** der Schnittstelle [`Request`](/de/docs/Web/API/Request) gibt den Duplexmodus der Anfrage zurück. Dieser bestimmt, ob der Browser die gesamte Anfrage senden muss, bevor er die Antwort verarbeitet.
+Die schreibgeschützte Eigenschaft **`duplex`** der Schnittstelle [`Request`](/de/docs/Web/API/Request) gibt den Duplex-Modus der Anfrage zurück. Dieser bestimmt, ob der Browser die gesamte Anfrage senden muss, bevor er die Antwort verarbeitet.
 
-Obwohl `duplex` beim Erstellen eines `Request` als Option übergeben werden kann, ist die Eigenschaft derzeit nicht in allen Browsern auf dem resultierenden `Request`-Objekt lesbar.
+Obwohl `duplex` beim Erstellen eines `Request` als Option übergeben werden kann, ist die Eigenschaft derzeit nicht in allen Browsern als lesbare Eigenschaft des resultierenden `Request`-Objekts verfügbar.
 
 ## Wert
 
-Ein String mit dem folgenden möglichen Wert:
+Ein String mit folgendem möglichen Wert:
 
 - `"half"`
   - : Der Browser muss die gesamte Anfrage senden, bevor er die Antwort verarbeitet.
 
 ## Beispiele
 
-### Den Duplexmodus einer Anfrage prüfen
+### Duplex-Modus einer Anfrage prüfen
 
 ```js
 const stream = new ReadableStream({/* ... */});

@@ -1,30 +1,30 @@
 ---
-title: "Request: destination Eigenschaft"
+title: "Request: destination-Eigenschaft"
 short-title: destination
 slug: Web/API/Request/destination
 l10n:
-  sourceCommit: 8330e7c1afd31d53ae12c3271e96d681bba9e223
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`destination`** schreibgeschützte Eigenschaft der **[`Request`](/de/docs/Web/API/Request)**-Schnittstelle gibt einen String zurück, der den Typ des angeforderten Inhalts beschreibt.
+Die schreibgeschützte Eigenschaft **`destination`** der Schnittstelle **[`Request`](/de/docs/Web/API/Request)** gibt einen String zurück, der den Typ des angeforderten Inhalts beschreibt.
 
-Der String muss einer der folgenden sein: `audio`, `audioworklet`, `document`, `embed`, `fencedframe`, `font`, `frame`, `iframe`, `image`, `json`, `manifest`, `object`, `paintworklet`, `report`, `script`, `sharedworker`, `speculationrules`, `style`, `text`, `track`, `video`, `worker` oder `xslt`, oder der leere String, welcher der Standardwert ist.
+Der String muss einer der Werte `audio`, `audioworklet`, `document`, `embed`, `fencedframe`, `font`, `frame`, `iframe`, `image`, `json`, `manifest`, `object`, `paintworklet`, `report`, `script`, `sharedworker`, `speculationrules`, `style`, `text`, `track`, `video`, `worker` oder `xslt` oder der leere String sein. Der leere String ist der Standardwert.
 
-Die `destination` wird vom {{Glossary("user_agent", "Benutzeragenten")}} genutzt, um beispielsweise zu bestimmen, welches Regelset für CORS-Zwecke zu befolgen ist, oder wie komplexe Code-Pfade zu navigieren sind, die beeinflussen, wie bestimmte Arten von Anfragen behandelt werden.
+Der {{Glossary("user_agent", "User-Agent")}} verwendet `destination` beispielsweise, um zu bestimmen, welche Regeln für CORS gelten oder wie komplexe Codepfade durchlaufen werden, die die Verarbeitung bestimmter Anfragetypen beeinflussen.
 
-Diese Ziele variieren erheblich in ihrer Funktionsweise. Einige sind Datenspeicher, in denen die empfangenen Daten zur späteren Verarbeitung gespeichert werden. Andere basieren auf Skripten, in diesem Fall werden die empfangenen Daten an ein Skript übergeben, indem es aufgerufen wird und die Daten weitergegeben werden.
-Skriptbasierte Ziele umfassen {{HTMLElement("script")}}-Elemente sowie alle auf [`Worklet`](/de/docs/Web/API/Worklet) basierenden Ziele (einschließlich Unterklassen wie [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)) und die auf [`Worker`](/de/docs/Web/API/Worker) basierenden Ziele, einschließlich [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker).
+Diese Ziele unterscheiden sich erheblich in ihrer Funktionsweise. Bei einigen wird der empfangene Inhalt gespeichert, um ihn später zu verarbeiten. Andere sind skriptbasiert: In diesem Fall werden die empfangenen Daten an ein Skript übergeben, indem es aufgerufen wird.
+Zu den skriptbasierten Zielen gehören {{HTMLElement("script")}}-Elemente sowie alle auf [`Worklet`](/de/docs/Web/API/Worklet) basierenden Ziele (einschließlich Unterklassen wie [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)) und die auf [`Worker`](/de/docs/Web/API/Worker) basierenden Ziele, darunter [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker).
 
 ## Wert
 
-Ein String, der den Inhaltstyp angibt, der von der Anfrage angefordert wird. Dieser Typ ist wesentlich breiter als die üblichen Dokumenttypwerte (wie `"document"` oder `"manifest"`) und kann kontextuelle Hinweise wie `"image"`, `"worker"` oder `"audioworklet"` enthalten.
+Ein String, der den Typ des angeforderten Inhalts angibt. Dieser Typ ist wesentlich weiter gefasst als die üblichen Dokumenttypwerte (etwa `"document"` oder `"manifest"`) und kann kontextbezogene Angaben wie `"image"`, `"worker"` oder `"audioworklet"` enthalten.
 
 Mögliche Werte sind:
 
 - `""`
-  - : Der leere String ist der Standardwert und wird für Ziele verwendet, die keinen eigenen Wert haben. Dies ist der Wert, wenn Anfragen über die folgenden APIs (unter anderem) gestellt werden:
+  - : Der leere String ist der Standardwert und wird für Ziele verwendet, denen kein eigener Wert zugeordnet ist. Dies ist unter anderem der Wert für Anfragen, die mit den folgenden APIs gestellt werden:
     - [`<a ping>`](/de/docs/Web/HTML/Reference/Elements/a#ping)
     - [`<area ping>`](/de/docs/Web/HTML/Reference/Elements/area#ping)
     - [`Cache`](/de/docs/Web/API/Cache)
@@ -37,13 +37,13 @@ Mögliche Werte sind:
 - `"audio"`
   - : Das Ziel sind Audiodaten.
 - `"audioworklet"`
-  - : Das Ziel sind Daten, die für die Nutzung durch ein Audio Worklet abgerufen werden.
+  - : Das Ziel sind Daten, die zur Verwendung durch ein Audio-Worklet abgerufen werden.
 - `"document"`
   - : Das Ziel ist ein Dokument (HTML oder XML).
 - `"embed"`
   - : Das Ziel ist eingebetteter Inhalt.
 - `"fencedframe"`
-  - : Das Ziel ist ein [abgegrenzter Frame](/de/docs/Web/API/Fenced_frame_API).
+  - : Das Ziel ist ein [Fenced Frame](/de/docs/Web/API/Fenced_frame_API).
 - `"font"`
   - : Das Ziel ist eine Schriftart.
 - `"image"`
@@ -55,7 +55,7 @@ Mögliche Werte sind:
 - `"object"`
   - : Das Ziel ist ein Objekt.
 - `"paintworklet"`
-  - : Das Ziel ist ein Paint Worklet.
+  - : Das Ziel ist ein Paint-Worklet.
 - `"report"`
   - : Das Ziel ist ein Bericht.
 - `"script"`
@@ -64,14 +64,14 @@ Mögliche Werte sind:
   - : Das Ziel ist ein Service Worker.
 - `"sharedworker"`
   - : Das Ziel ist ein Shared Worker.
-- `"speculationrules"` {{experimental_inline}}
-  - : Das Ziel ist ein [Speculation Rules](/de/docs/Web/API/Speculation_Rules_API)-JSON-Dokument.
+- `"speculationrules"`
+  - : Das Ziel ist ein JSON-Dokument mit [Speculation Rules](/de/docs/Web/API/Speculation_Rules_API).
 - `"style"`
-  - : Das Ziel ist ein Stil.
+  - : Das Ziel ist ein Stylesheet.
 - `"text"` {{experimental_inline}}
   - : Das Ziel ist eine Textdatei.
 - `"track"`
-  - : Das Ziel ist ein HTML {{HTMLElement("track")}}.
+  - : Das Ziel ist ein HTML-{{HTMLElement("track")}}-Element.
 - `"video"`
   - : Das Ziel sind Videodaten.
 - `"worker"`
@@ -81,7 +81,7 @@ Mögliche Werte sind:
 
 ## Beispiele
 
-Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann das Ziel der Anfrage:
+Im folgenden Codeausschnitt erstellen wir mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor eine neue Anfrage für eine Bilddatei im selben Verzeichnis wie das Skript und speichern anschließend das Ziel der Anfrage:
 
 ```js
 const myRequest = new Request("flowers.jpg");
@@ -98,6 +98,6 @@ const myDestination = myRequest.destination; // returns the empty string by defa
 
 ## Siehe auch
 
-- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
+- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

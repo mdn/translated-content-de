@@ -3,14 +3,12 @@ title: "`corner-start-start-shape` CSS property"
 short-title: corner-start-start-shape
 slug: Web/CSS/Reference/Properties/corner-start-start-shape
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{SeeCompatTable}}
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`corner-start-start-shape`** legt die Form der Ecke eines Elements an der Block-Start- und Inline-Startseite innerhalb des durch {{cssxref("border-radius")}} definierten Bereichs fest.
 
-Die **`corner-start-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Form der Ecken eines Rahmens auf der Block-Start- und Inline-Start-Seite innerhalb des {{cssxref("border-radius")}} Bereichs.
-
-Für eine vollständige Beschreibung des Verhaltens der Eckenform und mehrere Beispiele, siehe die Seite zur {{cssxref("corner-shape")}} Kurzform-Eigenschaft.
+Eine ausführliche Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele finden Sie auf der Seite zur Kurzschreibweise {{cssxref("corner-shape")}}.
 
 ## Syntax
 
@@ -33,7 +31,7 @@ corner-start-start-shape: unset;
 
 ### Werte
 
-Die `corner-start-start-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes angegeben.
+Die Eigenschaft `corner-start-start-shape` wird mit einem {{cssxref("&lt;corner-shape-value>")}}-Wert angegeben.
 
 ## Formale Definition
 
@@ -45,13 +43,13 @@ Die `corner-start-start-shape` Eigenschaft wird unter Verwendung eines {{cssxref
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Weitere Beispiele finden Sie auf der Referenzseite zu {{cssxref("corner-shape")}}.
 
 ### Grundlegende Verwendung von `corner-start-start-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -59,7 +57,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `40% 10px 10px` und eine `corner-start-start-shape` von `scoop` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Außerdem wenden wir einen {{cssxref("box-shadow")}}, einen `border-radius` von `40% 10px 10px` und einen `corner-start-start-shape`-Wert von `scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -93,7 +91,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -107,10 +105,10 @@ Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
-- {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
-- {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- Kurzschreibweise {{cssxref("corner-shape")}}
+- {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}} und {{cssxref("corner-end-end-shape")}}
+- {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}} und {{cssxref("corner-bottom-right-shape")}}
+- Kurzschreibweise {{cssxref("border-radius")}}
 - {{cssxref("border-start-start-radius")}}
-- [CSS Ränder und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- Modul [CSS-Rahmen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)
+- Modul [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)

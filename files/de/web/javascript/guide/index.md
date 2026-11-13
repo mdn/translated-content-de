@@ -2,10 +2,10 @@
 title: JavaScript-Leitfaden
 slug: Web/JavaScript/Guide
 l10n:
-  sourceCommit: 696a0436bb4dd20eb4d30ac3f1d4fc5140d1eee9
+  sourceCommit: c44f591049bc129b356acb0a9ce281974c035113
 ---
 
-Der JavaScript-Leitfaden zeigt Ihnen, wie Sie [JavaScript](/de/docs/Web/JavaScript) verwenden, und gibt einen Überblick über die Sprache. Wenn Sie ausführliche Informationen zu einer Sprachfunktion benötigen, werfen Sie einen Blick in die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
+Der JavaScript-Leitfaden zeigt Ihnen, wie Sie [JavaScript](/de/docs/Web/JavaScript) verwenden, und gibt einen Überblick über die Sprache. Wenn Sie ausführliche Informationen zu einem Sprachmerkmal benötigen, sehen Sie in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) nach.
 
 Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
@@ -60,13 +60,13 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [Funktionen aufrufen](/de/docs/Web/JavaScript/Guide/Functions#calling_functions)
 - [Gültigkeitsbereiche von Funktionen und Closures](/de/docs/Web/JavaScript/Guide/Functions#function_scopes_and_closures)
 - [Argumente](/de/docs/Web/JavaScript/Guide/Functions#using_the_arguments_object) und [Parameter](/de/docs/Web/JavaScript/Guide/Functions#function_parameters)
-- [Arrow-Funktionen](/de/docs/Web/JavaScript/Guide/Functions#arrow_functions)
+- [Pfeilfunktionen](/de/docs/Web/JavaScript/Guide/Functions#arrow_functions)
 
 ## Ausdrücke und Operatoren
 
 Überblick: [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators)
 
-- [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators) und [Vergleichsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators)
+- [Zuweisungen](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators) und [Vergleiche](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators)
 - [Arithmetische Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#arithmetic_operators)
 - [Bitweise Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators) und [logische Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#logical_operators)
 - [Bedingter (ternärer) Operator](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#conditional_ternary_operator)
@@ -82,11 +82,15 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [`String`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#string_object)
 - [Template-Literale](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#template_literals)
 
-## Darstellung von Datum und Uhrzeit
+## Datums- und Zeitangaben darstellen
 
-Überblick: [Darstellung von Datum und Uhrzeit](/de/docs/Web/JavaScript/Guide/Representing_dates_times)
+Überblick: [Datums- und Zeitangaben darstellen](/de/docs/Web/JavaScript/Guide/Representing_dates_times)
 
-- [`Date`-Objekt](/de/docs/Web/JavaScript/Guide/Representing_dates_times#date_object)
+- [Zeitpunkte](/de/docs/Web/JavaScript/Guide/Representing_dates_times#instants)
+- [Datums- und Zeitangaben mit Zeitzone](/de/docs/Web/JavaScript/Guide/Representing_dates_times#zoned_date-times)
+- [Datums- und Zeitangaben, Datumsangaben und Zeitangaben ohne Zeitzone](/de/docs/Web/JavaScript/Guide/Representing_dates_times#plain_date-times_dates_and_times)
+- [Jahr-Monat- und Monat-Tag-Angaben ohne Zeitzone](/de/docs/Web/JavaScript/Guide/Representing_dates_times#plain_year-months_and_month-days)
+- [Rezeptsammlung](/de/docs/Web/JavaScript/Guide/Representing_dates_times/Cookbook)
 
 ## Reguläre Ausdrücke
 
@@ -94,7 +98,7 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 - [Einen regulären Ausdruck erstellen](/de/docs/Web/JavaScript/Guide/Regular_expressions#creating_a_regular_expression)
 - [Ein Muster für einen regulären Ausdruck schreiben](/de/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)
-  - [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
+  - [Zusicherungen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
   - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)
   - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)
   - [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)
@@ -112,9 +116,9 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [`Set`](/de/docs/Web/JavaScript/Guide/Keyed_collections#set_object)
 - [`WeakSet`](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakset_object)
 
-## Arbeiten mit Objekten
+## Mit Objekten arbeiten
 
-Überblick: [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects)
+Überblick: [Mit Objekten arbeiten](/de/docs/Web/JavaScript/Guide/Working_with_objects)
 
 - [Objekte und Eigenschaften](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties)
 - [Objekte erstellen](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects)
@@ -126,8 +130,8 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 Überblick: [Klassen verwenden](/de/docs/Web/JavaScript/Guide/Using_classes)
 
 - [Eine Klasse deklarieren](/de/docs/Web/JavaScript/Guide/Using_classes#declaring_a_class)
-- [Verschiedene Klassenfunktionen](/de/docs/Web/JavaScript/Guide/Using_classes#constructor)
-- [Extends und Vererbung](/de/docs/Web/JavaScript/Guide/Using_classes#extends_and_inheritance)
+- [Verschiedene Klassenmerkmale](/de/docs/Web/JavaScript/Guide/Using_classes#constructor)
+- [Erweiterung und Vererbung](/de/docs/Web/JavaScript/Guide/Using_classes#extends_and_inheritance)
 - [Warum Klassen?](/de/docs/Web/JavaScript/Guide/Using_classes#why_classes)
 
 ## Promises
@@ -137,8 +141,8 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [Garantien](/de/docs/Web/JavaScript/Guide/Using_promises#guarantees)
 - [Verkettung](/de/docs/Web/JavaScript/Guide/Using_promises#chaining)
 - [Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling)
-- [Komposition](/de/docs/Web/JavaScript/Guide/Using_promises#composition)
-- [Zeitlicher Ablauf](/de/docs/Web/JavaScript/Guide/Using_promises#timing)
+- [Kombination](/de/docs/Web/JavaScript/Guide/Using_promises#composition)
+- [Zeitliche Abläufe](/de/docs/Web/JavaScript/Guide/Using_promises#timing)
 
 ## Typisierte Arrays
 
@@ -174,11 +178,11 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 - [Exportieren](/de/docs/Web/JavaScript/Guide/Modules#named_exports)
 - [Importieren](/de/docs/Web/JavaScript/Guide/Modules#named_imports)
-- [Standard-Exporte und -Importe](/de/docs/Web/JavaScript/Guide/Modules#default_exports_and_imports)
+- [Standardexporte und -importe](/de/docs/Web/JavaScript/Guide/Modules#default_exports_and_imports)
 - [Namenskonflikte vermeiden](/de/docs/Web/JavaScript/Guide/Modules#avoiding_naming_conflicts)
 - [JSON-Module importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_json_modules)
 - [Dynamisches Laden von Modulen](/de/docs/Web/JavaScript/Guide/Modules#dynamic_module_loading)
-- [Top-Level-Await](/de/docs/Web/JavaScript/Guide/Modules#top-level_await)
+- [Top-Level-`await`](/de/docs/Web/JavaScript/Guide/Modules#top-level_await)
 - [Modulmetadaten](/de/docs/Web/JavaScript/Guide/Modules#module_metadata)
 - [Module im Web verwenden](/de/docs/Web/JavaScript/Guide/Modules/Modules_on_the_web)
 - [Den Modulgraphen verstehen](/de/docs/Web/JavaScript/Guide/Modules/Module_graph)
@@ -186,11 +190,11 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 ## Weiterführende Themen
 
-Nachdem Sie alle grundlegenden Funktionen von JavaScript kennengelernt haben, können Sie speziellere Funktionen erkunden oder sich eingehender mit den Mechanismen und Konzepten der Sprache befassen.
+Nachdem Sie alle grundlegenden Funktionen von JavaScript kennengelernt haben, können Sie speziellere Funktionen erkunden oder sich eingehender mit den Mechanismen und Konzepten der Sprache beschäftigen.
 
 - [Überblick über die Sprache](/de/docs/Web/JavaScript/Guide/Language_overview)
 - [Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures)
-- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
 - [Gleichheitsvergleiche und Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness)
 - [Closures](/de/docs/Web/JavaScript/Guide/Closures)

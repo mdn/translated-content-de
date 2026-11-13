@@ -1,14 +1,14 @@
 ---
-title: "CSSFunctionRule: getParameters()-Methode"
+title: "CSSFunctionRule: Methode getParameters()"
 short-title: getParameters()
 slug: Web/API/CSSFunctionRule/getParameters
 l10n:
-  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{ APIRef("CSSOM") }}{{SeeCompatTable}}
+{{ APIRef("CSSOM") }}
 
-Die **`getParameters()`**-Methode des [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule)-Interfaces gibt ein Array von Objekten zurück, die die Parameter der benutzerdefinierten Funktion darstellen.
+Die Methode **`getParameters()`** der Schnittstelle [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule) gibt ein Array von Objekten zurück, die die Parameter der benutzerdefinierten Funktion darstellen.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ Keine.
 Ein Array von Objekten mit den folgenden Eigenschaften:
 
 - `name`
-  - : Ein String, der den Namen des Funktionsparameters darstellt.
+  - : Ein String mit dem Namen des Funktionsparameters.
 - `type`
-  - : Ein String, der den Datentyp des Parameters darstellt, oder `*`, wenn kein Datentyp angegeben wurde.
+  - : Ein String mit dem Datentyp des Parameters oder `*`, wenn kein Datentyp angegeben wurde.
 - `defaultValue`
-  - : Ein String, der den Standardwert des Parameters darstellt, oder `null`, wenn kein Standardwert angegeben wurde.
+  - : Ein String mit dem Standardwert des Parameters oder `null`, wenn kein Standardwert angegeben wurde.
 
-Wenn keine Parameter in der zugehörigen {{cssxref("@function")}}-At-Regel angegeben wurden, wird ein leeres Array zurückgegeben.
+Wenn in der zugehörigen {{cssxref("@function")}}-At-Regel keine Parameter angegeben wurden, wird ein leeres Array zurückgegeben.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptreferenzseite [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule) für ein Beispiel an.
+Ein Beispiel finden Sie auf der Referenzseite zu [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule).
 
 ## Spezifikationen
 

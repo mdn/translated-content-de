@@ -2,30 +2,30 @@
 title: NavigationTransition
 slug: Web/API/NavigationTransition
 l10n:
-  sourceCommit: e37e6f1ca594cd444b243be19637171790bbb656
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
 {{APIRef("Navigation API")}}
 
-Das **`NavigationTransition`** Interface der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert eine laufende Navigation - eine Navigation, die noch nicht das Stadium [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) oder [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event) erreicht hat.
+Die **`NavigationTransition`**-Schnittstelle der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert eine laufende Navigation – eine Navigation, die das Stadium [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) oder [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event) noch nicht erreicht hat.
 
-Es wird über die Eigenschaft [`Navigation.transition`](/de/docs/Web/API/Navigation/transition) aufgerufen.
-Beachten Sie, dass diese Eigenschaft nur gefüllt ist, während der [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept)-Handler ungelöst ist (d.h. während einer [Navigationsabfangmaßnahme](/de/docs/Web/API/Navigation/navigate_event#handling_a_navigation_using_intercept)) und ansonsten `null` ist.
+Der Zugriff erfolgt über die Eigenschaft [`Navigation.transition`](/de/docs/Web/API/Navigation/transition).
+Beachten Sie, dass diese Eigenschaft nur einen Wert enthält, solange der [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept)-Handler noch nicht abgeschlossen ist (also während einer [Navigationsabfangung](/de/docs/Web/API/Navigation/navigate_event#handling_a_navigation_using_intercept)). Andernfalls ist sie `null`.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`committed`](/de/docs/Web/API/NavigationTransition/committed) {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) aktualisiert wird und die neue URL im Browser angezeigt wird, wodurch die Navigation als festgeschrieben markiert wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) aktualisiert und die neue URL im Browser angezeigt wird. Damit gilt die Navigation als übernommen.
 - [`finished`](/de/docs/Web/API/NavigationTransition/finished) {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das gleichzeitig mit dem Auslösen des [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignisses erfüllt wird oder gleichzeitig mit dem Auslösen des [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event)-Ereignisses ablehnt.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das gleichzeitig mit dem Auslösen des Ereignisses [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) erfüllt oder gleichzeitig mit dem Auslösen des Ereignisses [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event) abgelehnt wird.
 - [`from`](/de/docs/Web/API/NavigationTransition/from) {{ReadOnlyInline}}
-  - : Gibt das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, aus dem der Übergang kommt.
+  - : Gibt den [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem die Navigation ausgeht.
 - [`navigationType`](/de/docs/Web/API/NavigationTransition/navigationType) {{ReadOnlyInline}}
   - : Gibt den Typ der laufenden Navigation zurück.
-- [`to`](/de/docs/Web/API/NavigationTransition/to) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt das [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) zurück, zu dem der Übergang navigiert.
+- [`to`](/de/docs/Web/API/NavigationTransition/to) {{ReadOnlyInline}}
+  - : Gibt das [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) zurück, zu dem die Navigation führt.
 
 ## Beispiele
 
@@ -48,5 +48,5 @@ async function cleanupNavigation() {
 ## Siehe auch
 
 - [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erklärung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
-- [Navigation API Live-Demo](https://mdn.github.io/dom-examples/navigation-api/) ([Demo-Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/navigation-api))
+- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Live-Demo der Navigation API](https://mdn.github.io/dom-examples/navigation-api/) ([Quellcode der Demo ansehen](https://github.com/mdn/dom-examples/tree/main/navigation-api))

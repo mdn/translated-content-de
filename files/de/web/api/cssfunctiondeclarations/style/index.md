@@ -3,22 +3,22 @@ title: "CSSFunctionDeclarations: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSFunctionDeclarations/style
 l10n:
-  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{ APIRef("CSSOM") }}{{SeeCompatTable}}
+{{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`style`**-Eigenschaft der [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations)-Schnittstelle enthält ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt, das die im Körper der {{cssxref("@function")}}-Regel verfügbaren Deskriptoren darstellt.
+Die schreibgeschützte Eigenschaft **`style`** der Schnittstelle [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations) enthält ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt, das die im Rumpf der {{cssxref("@function")}}-Regel verfügbaren Deskriptoren repräsentiert.
 
 ## Wert
 
 Ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt.
 
-Obwohl die `style`-Eigenschaft im Sinne der Nicht-Ersetzbarkeit des `CSSFunctionDescriptors`-Objekts schreibgeschützt ist, können Sie dennoch direkt der `style`-Eigenschaft einen Wert zuweisen. Dies entspricht der Zuweisung zu ihrer [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft. Zudem können Sie das `CSSFunctionDescriptors`-Objekt mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
+Die Eigenschaft `style` ist zwar schreibgeschützt, da Sie das `CSSFunctionDescriptors`-Objekt nicht ersetzen können. Sie können `style` jedoch direkt einen Wert zuweisen. Dies entspricht einer Zuweisung an dessen Eigenschaft [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText). Sie können das `CSSFunctionDescriptors`-Objekt auch mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
 
 ## Beispiele
 
-Siehe die Hauptreferenzseite zu [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations) für Beispiele.
+Beispiele finden Sie auf der Referenzseite zu [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations).
 
 ## Spezifikationen
 

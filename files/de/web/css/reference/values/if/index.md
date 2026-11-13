@@ -3,12 +3,10 @@ title: CSS-Funktion `if()`
 short-title: if()
 slug: Web/CSS/Reference/Values/if
 l10n:
-  sourceCommit: 7484d45816002fbf082a59c5d95c38a1eb2b2e4b
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{SeeCompatTable}}
-
-Mit der **[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) `if()`** können für eine Eigenschaft abhängig vom Ergebnis einer bedingten Prüfung unterschiedliche Werte festgelegt werden. Die Prüfung kann auf einer [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries), einer [Media-Query](/de/docs/Web/CSS/Guides/Media_queries/Using) oder einer [Feature-Query](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries) basieren.
+Mit der **CSS-**[**Funktion**](/de/docs/Web/CSS/Reference/Values/Functions) **`if()`** können für eine Eigenschaft unterschiedliche Werte festgelegt werden, abhängig vom Ergebnis einer Bedingungsprüfung. Die Prüfung kann auf einer [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries), einer [Media-Query](/de/docs/Web/CSS/Guides/Media_queries/Using) oder einer [Feature-Query](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries) basieren.
 
 ## Syntax
 
@@ -49,7 +47,7 @@ if(
 
 ### Parameter
 
-Der Parameter ist eine durch Semikolons getrennte Liste von `<if-branch>`-Einträgen. Jeder `<if-branch>` besteht aus einer `<if-condition>`, gefolgt von einem Doppelpunkt und einem `<value>`:
+Der Parameter ist eine durch Semikolons getrennte Liste von `<if-branch>`-Ausdrücken. Jeder `<if-branch>` besteht aus einer `<if-condition>`, gefolgt von einem Doppelpunkt und einem `<value>`:
 
 ```plain
 <if-branch> = <if-condition> : <value>;
@@ -61,7 +59,7 @@ Der Parameter ist eine durch Semikolons getrennte Liste von `<if-branch>`-Eintr�
       - : Eine [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries), [Media-Query](/de/docs/Web/CSS/Guides/Media_queries/Using) oder [Feature-Query](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries).
 
     - `else`
-      - : Ein Schlüsselwort für eine `<if-condition>`, die immer als wahr ausgewertet wird.
+      - : Ein Schlüsselwort für eine `<if-condition>`, deren Auswertung immer `true` ergibt.
 
 - `<value>`
   - : Ein Eigenschaftswert.
@@ -74,15 +72,15 @@ Ein Wert oder {{Glossary("guaranteed_invalid_value", "guaranteed-invalid")}}.
 
 Die CSS-Funktion `if()` ermöglicht bedingte Logik in CSS-Eigenschaftswerten und funktioniert ähnlich wie [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisungen in JavaScript.
 
-Die Funktion `if()` kann innerhalb des Werts jeder Eigenschaft verwendet werden und null oder mehr durch Semikolons getrennte `<if-condition>`-Einträge enthalten. Jede `<if-condition>` ist entweder ein Paar aus `<if-test> : <value>` oder ein Paar aus `else : <value>`. Das Semikolon nach der letzten `<if-condition>` ist optional.
+Die Funktion `if()` kann im Wert jeder Eigenschaft verwendet werden und null oder mehr durch Semikolons getrennte `<if-condition>`-Ausdrücke enthalten. Jede `<if-condition>` ist entweder ein Paar aus `<if-test> : <value>` oder aus `else : <value>`. Das Semikolon nach der letzten `<if-condition>` ist optional.
 
 Der Rückgabewert wird wie folgt ermittelt:
 
 1. Die `<if-condition>`-Ausdrücke werden in der Reihenfolge ausgewertet, in der sie in der Funktion stehen.
-2. Der zugehörige `<value>` der ersten `<if-condition>`, die als `true` ausgewertet wird, wird zurückgegeben.
-3. Wird keine `<if-condition>` als `true` ausgewertet, gibt die Funktion {{Glossary("guaranteed_invalid_value", "&lt;guaranteed-invalid&gt:")}} zurück. Dies wird als ungültig oder als `false` behandelt, wenn die Funktion `if()` in einer Wertangabe mit einem Fallback verwendet wird, etwa bei einer [Custom Property](/de/docs/Web/CSS/Reference/Properties/--*) oder einer {{cssxref("anchor()")}}-Funktion.
+2. Für die erste `<if-condition>`, deren Auswertung `true` ergibt, wird der zugehörige `<value>` zurückgegeben.
+3. Ergibt keine `<if-condition>` den Wert `true`, gibt die Funktion einen {{Glossary("guaranteed_invalid_value", "&lt;guaranteed-invalid&gt:")}} zurück. Dieser verhält sich wie ein ungültiger Wert oder wie `false`, wenn die Funktion `if()` in einem Wertausdruck mit einem Fallback verwendet wird, etwa in einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) oder einer {{cssxref("anchor()")}}-Funktion.
 
-Beispiel:
+Zum Beispiel:
 
 ```css-nolint
 div {
@@ -94,21 +92,21 @@ div {
 }
 ```
 
-In diesem Fall legen wir für {{htmlelement("div")}}-Elemente je nach Wert der [Custom Property](/de/docs/Web/CSS/Reference/Properties/--*) `--scheme` einen anderen {{cssxref("linear-gradient()")}} als {{cssxref("background-image")}} fest: entweder für `ice` oder für `fire`. Wenn `--scheme` nicht existiert oder einen anderen Wert hat, greift der `else`-Wert und die Eigenschaft `background-image` wird auf `none` gesetzt.
+In diesem Fall legen wir für {{htmlelement("div")}}-Elemente unterschiedliche {{cssxref("linear-gradient()")}}-Werte als {{cssxref("background-image")}} fest, je nachdem, ob die [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) `--scheme` auf `ice` oder `fire` gesetzt ist. Wenn `--scheme` nicht existiert oder auf einen anderen Wert gesetzt ist, greift der `else`-Wert und die Eigenschaft `background-image` wird auf `none` gesetzt.
 
 > [!NOTE]
-> Jede Bedingung muss durch einen Doppelpunkt von ihrem zugehörigen Wert getrennt sein. Jedes Paar aus `<if-condition> : <value>` muss durch ein Semikolon vom nächsten getrennt sein. Beim letzten Paar ist das Semikolon optional.
+> Jede Bedingung muss durch einen Doppelpunkt von ihrem zugehörigen Wert getrennt sein. Jedes Paar aus `<if-condition> : <value>` muss durch ein Semikolon vom nächsten getrennt sein. Beim letzten Paar aus `<if-condition> : <value>` ist das Semikolon optional.
 
 > [!WARNING]
 > Zwischen `if` und der öffnenden Klammer (`(`) darf kein Leerzeichen stehen. Andernfalls ist die gesamte Deklaration ungültig.
 
-Wenn eine einzelne `<if-condition>` oder ein einzelner `<value>` ungültig ist, wird dadurch nicht die gesamte Funktion `if()` ungültig. Stattdessen geht der Parser zum nächsten Paar aus `<if-condition> : <value>` über. Ist weder eine `<if-condition>` noch ein `<value>` gültig, gibt die Funktion {{Glossary("guaranteed_invalid_value", "guaranteed-invalid")}} zurück.
+Ist eine einzelne `<if-condition>` oder ein einzelner `<value>` ungültig, wird dadurch nicht die gesamte Funktion `if()` ungültig. Stattdessen fährt der Parser mit dem nächsten Paar aus `<if-condition> : <value>` fort. Ist weder eine `<if-condition>` noch ein `<value>` gültig, gibt die Funktion {{Glossary("guaranteed_invalid_value", "guaranteed-invalid")}} zurück.
 
-### Anzahl und Position von `else : <value>`-Paaren
+### Häufigkeit und Position von Paaren aus `else : <value>`
 
-Sie können mehrere `else : <value>`-Paare an beliebiger Stelle in eine `if()`-Funktion aufnehmen. Meist wird jedoch ein einzelnes `else : <value>`-Paar am Ende der durch Semikolons getrennten Liste verwendet. Es liefert den Standardwert, wenn keiner der `<if-test>`-Einträge als wahr ausgewertet wird.
+Sie können mehrere Paare aus `else : <value>` an beliebiger Stelle innerhalb einer `if()`-Funktion verwenden. Meistens wird jedoch ein einzelnes Paar aus `else : <value>` am Ende der durch Semikolons getrennten Liste eingesetzt. Es liefert den Standardwert, der zurückgegeben wird, wenn keiner der `<if-test>`-Ausdrücke `true` ergibt.
 
-Wenn Sie ein `else : <value>`-Paar vor den `<if-test> : <value>`-Paaren einfügen, werden die nachfolgenden Bedingungen nicht ausgewertet, da `else` immer als `true` ausgewertet wird. Die folgende `if()`-Funktion gibt daher immer `none` zurück; die beiden `<if-test> : <value>`-Paare werden nie ausgewertet:
+Wenn Sie ein Paar aus `else : <value>` vor den Paaren aus `<if-test> : <value>` einfügen, werden die nachfolgenden Bedingungen nicht ausgewertet, da `else` immer `true` ergibt. Das folgende `if()` gibt daher immer `none` zurück; die beiden Paare aus `<if-test> : <value>` werden nie ausgewertet:
 
 ```css-nolint
 div {
@@ -120,7 +118,7 @@ div {
 }
 ```
 
-Beim Debuggen eines Werts, der sich nicht wie erwartet verhält, kann es sinnvoll sein, ein `else : <value>`-Paar an einer anderen Stelle als am Ende der Werteliste zu platzieren. Im folgenden Beispiel prüfen wir, ob das erste `<if-test> : <value>`-Paar richtig funktioniert. Falls nicht, gibt das `else : <value>`-Paar `url("debug.png")` zurück. Damit wird ein Bild angezeigt, das darauf hinweist, dass das erste Paar korrigiert werden muss. Die letzten beiden `<if-test> : <value>`-Paare werden auch hier nie ausgewertet.
+Beim Debuggen eines Werts, der sich nicht wie erwartet verhält, kann es sinnvoll sein, `else : <value>` an einer anderen Stelle als am Ende der Werteliste zu platzieren. Im folgenden Beispiel versuchen wir herauszufinden, ob das erste Paar aus `<if-test> : <value>` korrekt funktioniert. Falls nicht, gibt das Paar aus `else : <value>` den Wert `url("debug.png")` zurück. Dadurch wird ein Bild angezeigt, das darauf hinweist, dass das erste Paar aus `<if-test> : <value>` korrigiert werden muss. Die letzten beiden Paare aus `<if-test> : <value>` werden auch hier nie ausgewertet.
 
 ```css-nolint
 div {
@@ -133,22 +131,22 @@ div {
 }
 ```
 
-Eine `if()`-Funktion ist auch dann gültig, wenn sie nur ein `else : <value>`-Paar oder gar keinen Inhalt enthält. Die folgenden Eigenschaftswerte sind beide gültig:
+Eine `if()`-Funktion ist auch dann gültig, wenn sie nur ein Paar aus `else : <value>` oder überhaupt keinen Inhalt enthält. Die folgenden beiden Eigenschaftswerte sind gültig:
 
 ```css
 background-color: if(else: yellow);
 background-image: if();
 ```
 
-Diese Funktionen sind nicht nützlich; sie dienen lediglich dazu, ihre Gültigkeit zu zeigen. In diesem Fall wird {{cssxref("background-color")}} immer auf `yellow` und `background-image` auf seinen Initialwert gesetzt. Sinnvoller wäre es, `background-color` direkt auf `yellow` und `background-image` auf `initial` oder `none` zu setzen.
+Diese Funktionen sind nicht nützlich. Sie dienen lediglich dazu, ihre Gültigkeit zu veranschaulichen. In diesem Fall wird der Wert von {{cssxref("background-color")}} immer auf `yellow` und `background-image` auf seinen Anfangswert gesetzt. Sinnvoller wäre es, `background-color` direkt auf `yellow` und `background-image` auf `initial` oder `none` zu setzen.
 
-### Arten von if-Tests
+### Arten von `<if-test>`-Ausdrücken
 
 Ein `<if-test>` akzeptiert einen von drei Query-Typen. In diesem Abschnitt werden sie einzeln erläutert.
 
 #### Style-Queries
 
-Mit einem `<if-test>` als [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries) können Sie prüfen, ob für ein Element ein bestimmter Eigenschaftswert festgelegt ist, und davon abhängig einen Wert auf eine andere Eigenschaft anwenden. Nachdem wir bereits mehrere Beispiele für Style-Queries betrachtet haben, sehen wir uns ein weiteres an:
+Mit einem `<if-test>` in Form einer [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries) können Sie prüfen, ob für ein Element ein bestimmter Eigenschaftswert festgelegt ist, und daraufhin einen Wert auf eine andere Eigenschaft anwenden. Wir haben bereits mehrere Beispiele für Style-Queries betrachtet. Sehen wir uns ein weiteres an:
 
 ```css-nolint
 background-image: if(
@@ -157,11 +155,11 @@ background-image: if(
 );
 ```
 
-Wenn die Custom Property `--scheme` auf demselben Element den Wert `ice` hat, wird der angegebene Wert `linear-gradient()` zurückgegeben. Andernfalls wird `none` zurückgegeben.
+Wenn die benutzerdefinierte Eigenschaft `--scheme` für dasselbe Element auf `ice` gesetzt ist, wird der angegebene Wert `linear-gradient()` zurückgegeben. Andernfalls wird `none` zurückgegeben.
 
-Die Verwendung von Style-Queries innerhalb von `if()`-Anweisungen hat gegenüber {{cssxref("@container")}}-Queries einen Vorteil: Sie können die Stile eines Elements direkt davon abhängig machen, ob auf ihm eine Custom Property gesetzt ist. Sie müssen dafür nicht die festgelegten Stile eines übergeordneten Container-Elements prüfen.
+Die Verwendung von Style-Queries innerhalb von `if()`-Anweisungen hat gegenüber {{cssxref("@container")}}-Queries einen Vorteil: Sie können ein Element direkt anhand einer darauf gesetzten benutzerdefinierten Eigenschaft mit Styles versehen, statt die festgelegten Styles eines übergeordneten Container-Elements prüfen zu müssen.
 
-Innerhalb von Style-Queries können Sie auch die logischen Operatoren `and`, `or` und `not` verwenden. Beispiel:
+Innerhalb von Style-Queries können Sie außerdem die logischen Operatoren `and`, `or` und `not` verwenden. Zum Beispiel:
 
 ```css-nolint
 background-color: if(
@@ -177,9 +175,9 @@ background-color: if(
 );
 ```
 
-Eine `@container`-Query bietet allerdings ebenfalls Vorteile: Mit Style-Queries in `if()` können Sie jeweils nur einzelne Eigenschaftswerte festlegen, während sich mit `@container`-Queries ganze Regelsätze bedingt anwenden lassen. Die beiden Ansätze ergänzen sich und haben unterschiedliche Einsatzbereiche.
+Eine `@container`-Query hat allerdings auch Vorteile: Mit `if()`-Style-Queries können Sie jeweils nur einzelne Eigenschaftswerte festlegen, während Sie mit `@container`-Queries ganze Regelsätze bedingt anwenden können. Die beiden Ansätze ergänzen sich und eignen sich für unterschiedliche Zwecke.
 
-Beachten Sie, dass Container-Style-Queries derzeit nur CSS Custom Properties unterstützen, keine regulären CSS-Eigenschaften. Folgendes funktioniert beispielsweise nicht:
+Beachten Sie, dass Container-Style-Queries derzeit keine gewöhnlichen CSS-Eigenschaften unterstützen, sondern nur benutzerdefinierte CSS-Eigenschaften. Folgendes funktioniert beispielsweise nicht:
 
 ```css-nolint example-bad
 if(
@@ -189,9 +187,9 @@ if(
 
 #### Media-Queries
 
-Mit einem `<if-test>` als [Media-Query](/de/docs/Web/CSS/Guides/Media_queries/Using) können Sie einen Eigenschaftswert davon abhängig machen, ob eine Media-Query als wahr ausgewertet wird.
+Ein `<if-test>` in Form einer [Media-Query](/de/docs/Web/CSS/Guides/Media_queries/Using) kann verwendet werden, um abhängig vom Ergebnis der Media-Query-Prüfung einen Eigenschaftswert festzulegen.
 
-Sie können Medientypen verwenden. Das folgende `<if-test> : <value>`-Paar gibt beispielsweise für Printmedien `white` zurück. Durch die `else`-Klausel wird für andere Medien `#eeeeee` zurückgegeben.
+Sie können Medientypen verwenden. Das folgende Paar aus `<if-test> : <value>` gibt beispielsweise für Printmedien den Wert `white` zurück. Für andere Medien sorgt die `else`-Klausel dafür, dass `#eeeeee` zurückgegeben wird.
 
 ```css-nolint
 background-color: if(
@@ -200,7 +198,7 @@ background-color: if(
 )
 ```
 
-Sie können auch Medienmerkmale verwenden. Das folgende Beispiel gibt `0 auto` zurück, wenn die aktuelle Breite des Viewports weniger als `700px` beträgt, und andernfalls `20px auto`:
+Sie können auch Medienmerkmale verwenden: Das folgende Beispiel gibt `0 auto` zurück, wenn die aktuelle Breite des Viewports weniger als `700px` beträgt, und andernfalls `20px auto`:
 
 ```css-nolint
 margin: if(
@@ -211,7 +209,7 @@ margin: if(
 
 Das ist besonders nützlich, wenn Sie einen einzelnen Eigenschaftswert abhängig vom Ergebnis einer Media-Query ändern müssen.
 
-Innerhalb von Media-Queries können Sie auch die logischen Operatoren `and`, `or` und `not` verwenden. Beispiel:
+Innerhalb von Media-Queries können Sie außerdem die logischen Operatoren `and`, `or` und `not` verwenden. Zum Beispiel:
 
 ```css-nolint
 border-color: if(
@@ -228,11 +226,11 @@ background-color: if(
 );
 ```
 
-Wenn Sie anhand einer Media-Query mehrere Deklarationen oder Regeln festlegen möchten, benötigen Sie eine reguläre {{cssxref("@media")}}-Konstruktion. Die beiden Ansätze ergänzen sich und haben unterschiedliche Einsatzbereiche.
+Wenn Sie anhand einer Media-Query mehrere Deklarationen oder Regeln festlegen möchten, benötigen Sie eine reguläre {{cssxref("@media")}}-Konstruktion. Die beiden Ansätze ergänzen sich und eignen sich für unterschiedliche Zwecke.
 
 #### Feature-Queries
 
-Mit einem `<if-test>` als [Feature-Query](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries) können Sie einen Eigenschaftswert davon abhängig machen, ob der Browser einen bestimmten Eigenschaftswert unterstützt.
+Ein `<if-test>` in Form einer [Feature-Query](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries) kann verwendet werden, um einen Eigenschaftswert abhängig davon festzulegen, ob der Browser einen bestimmten Eigenschaftswert unterstützt.
 
 Das folgende Beispiel gibt eine {{cssxref("color_value/lch()")}}-Farbe zurück, wenn `lch()`-Farben unterstützt werden, und andernfalls eine {{cssxref("color_value/rgb()")}}-Farbe:
 
@@ -243,7 +241,7 @@ color: if(
 )
 ```
 
-Auch Queries zur Selektorunterstützung funktionieren. Das folgende Beispiel gibt `1em` zurück, wenn der Browser die Pseudoklasse {{cssxref(":buffering")}} unterstützt, und andernfalls `initial`:
+Queries zur Selektorunterstützung funktionieren ebenfalls. Das folgende Beispiel gibt `1em` zurück, wenn der Browser die Pseudoklasse {{cssxref(":buffering")}} unterstützt, und andernfalls `initial`:
 
 ```css-nolint
 margin-top: if(
@@ -252,7 +250,7 @@ margin-top: if(
 )
 ```
 
-Innerhalb von Feature-Queries können Sie auch die logischen Operatoren `and`, `or` und `not` verwenden. Beispiel:
+Innerhalb von Feature-Queries können Sie außerdem die logischen Operatoren `and`, `or` und `not` verwenden. Zum Beispiel:
 
 ```css-nolint
 margin-top: if(
@@ -268,13 +266,13 @@ margin-top: if(
 );
 ```
 
-Feature-Queries innerhalb von `if()`-Anweisungen sind besonders nützlich, wenn Sie einen einzelnen Eigenschaftswert davon abhängig machen möchten, ob ein bestimmter Wert oder eine andere Eigenschaft unterstützt wird. Wenn Sie anhand einer Feature-Query mehrere Deklarationen oder Regeln festlegen möchten, ist eine reguläre {{cssxref("@supports")}}-Konstruktion besser geeignet. Die beiden Ansätze ergänzen sich und haben unterschiedliche Einsatzbereiche.
+Feature-Queries innerhalb von `if()`-Anweisungen sind besonders nützlich, wenn Sie einen einzelnen Eigenschaftswert abhängig von der Unterstützung für einen bestimmten Wert oder eine andere Eigenschaft ändern müssen. Wenn Sie anhand einer Feature-Query mehrere Deklarationen oder Regeln festlegen möchten, eignet sich eine reguläre {{cssxref("@supports")}}-Konstruktion besser. Die beiden Ansätze ergänzen sich und eignen sich für unterschiedliche Zwecke.
 
 ### Fallback-Werte bereitstellen
 
-Eine `if()`-Anweisung bietet keinen automatischen Fallback; für Browser ohne Unterstützung muss ausdrücklich einer bereitgestellt werden.
+Die `if()`-Anweisung bietet keinen automatischen Fallback für Browser ohne Unterstützung. Für diese Browser muss ausdrücklich ein Fallback bereitgestellt werden.
 
-Im folgenden Beispiel legen wir für Browser, die `if()` nicht unterstützen, einen festen {{cssxref("padding")}}-Wert fest. Browser mit `if()`-Unterstützung überschreiben die erste Deklaration mit der zweiten. Diese legt unterschiedliche Padding-Werte fest, je nachdem, ob die Custom Property `--size: "2xl"` gesetzt ist.
+Im folgenden Beispiel geben wir einen festen {{cssxref("padding")}}-Wert für Browser an, die `if()` nicht unterstützen. Browser mit `if()`-Unterstützung überschreiben die erste Deklaration mit der zweiten. Diese legt unterschiedliche Padding-Werte fest, je nachdem, ob die benutzerdefinierte Eigenschaft `--size: "2xl"` gesetzt ist.
 
 ```css
 padding: 1em;
@@ -282,11 +280,11 @@ padding: if(style(--size: "2xl"): 1em; else: 0.25em);
 ```
 
 > [!NOTE]
-> Denken Sie daran, die `else`-Bedingung anzugeben. In Browsern mit `if()`-Unterstützung würde `padding` auf `initial` gesetzt, wenn kein `else`-Wert angegeben wäre und `--size` nicht `"2xl"` entspräche.
+> Denken Sie daran, die `else`-Bedingung anzugeben. In Browsern mit `if()`-Unterstützung würde der Padding-Wert auf `initial` gesetzt, wenn kein `else`-Wert angegeben wäre und `--size` nicht gleich `"2xl"` wäre.
 
 ### Ganze Werte und Teilwerte
 
-Eine `if()`-Funktion kann als Wert jeder CSS-Eigenschaft verwendet werden. Sie kann aber auch einzelne Bestandteile eines Eigenschaftswerts bestimmen. Das folgende Beispiel legt innerhalb der Kurzschreibweise {{cssxref("border")}} einen anderen Wert für {{cssxref("border-color")}} fest, je nachdem, ob {{cssxref("color_value/lch()")}}-Farben unterstützt werden:
+Eine `if()`-Funktion kann als Wert einer beliebigen CSS-Eigenschaft verwendet werden. Sie kann aber auch Teile von Eigenschaftswerten bestimmen. Das folgende Beispiel legt innerhalb der Kurzschreibweise {{cssxref("border")}} einen anderen {{cssxref("border-color")}}-Wert fest, je nachdem, ob {{cssxref("color_value/lch()")}}-Farben unterstützt werden:
 
 ```css-nolint
 border: if(
@@ -295,7 +293,7 @@ border: if(
 );
 ```
 
-Wir könnten die `if()`-Funktion jedoch auch nur für die Komponente {{cssxref("border-color")}} verwenden:
+Wir könnten die Funktion `if()` jedoch auch verwenden, um nur die Komponente {{cssxref("border-color")}} zu bestimmen:
 
 ```css-nolint
 border: 3px solid
@@ -306,11 +304,11 @@ border: 3px solid
 
 ### `if()`-Funktionen verschachteln
 
-Da eine `if()`-Funktion sowohl vollständige Eigenschaftswerte als auch einzelne Bestandteile ersetzen kann, lässt sie sich in anderen `if()`-Funktionen und in Funktionen wie {{cssxref("calc()")}} verschachteln.
+Da eine `if()`-Funktion sowohl ganze Eigenschaftswerte als auch einzelne Komponenten ersetzen kann, lassen sich `if()`-Funktionen ineinander und in andere Funktionen wie {{cssxref("calc()")}} verschachteln.
 
-In der folgenden Deklaration verwenden wir `if()`, um den Wert der Eigenschaft `color` abhängig von mehreren Bedingungen festzulegen. Eine äußere `if()`-Funktion gibt einen bestimmten Wert zurück, je nachdem, ob die Custom Property `--scheme` auf `ice` oder `fire` gesetzt ist. Wenn keine der Bedingungen wahr ist, wird über `else` der Wert `black` zurückgegeben.
+In der folgenden Deklaration verwenden wir beispielsweise `if()`, um abhängig von verschiedenen Bedingungen einen Wert für die Eigenschaft `color` festzulegen. Die äußere `if()`-Funktion gibt einen bestimmten Wert zurück, je nachdem, ob die benutzerdefinierte Eigenschaft `--scheme` auf `ice` oder `fire` gesetzt ist. Wenn keine der beiden Bedingungen `true` ergibt, wird der `else`-Wert `black` zurückgegeben.
 
-Die beiden `<value>`-Einträge sind allerdings ebenfalls `if()`-Funktionen. Diese inneren Funktionen geben einen hellen Farbwert zurück, wenn der Benutzer ein dunkles Farbschema bevorzugt. Das wird mit der Media-Query [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme) ermittelt. Andernfalls geben sie einen dunklen Farbwert zurück.
+Die beiden `<value>`-Ausdrücke sind allerdings ebenfalls `if()`-Funktionen. Diese inneren `if()`-Funktionen geben einen hellen Farbwert zurück, wenn der Benutzer ein dunkles Farbschema bevorzugt – ermittelt über die Media-Query [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme) – und andernfalls einen dunklen Farbwert.
 
 ```css-nolint
 color: if(
@@ -328,7 +326,7 @@ color: if(
 );
 ```
 
-Im nächsten Beispiel setzen wir die Eigenschaft `width` auf eine `calc()`-Funktion, die `50px` von einem Prozentsatz der Breite des übergeordneten Elements abzieht. Der Prozentsatz wird durch eine `if()`-Funktion bestimmt, die prüft, ob die Custom Property `--scheme: wide` gesetzt ist. Ist dies der Fall, beträgt der Prozentsatz `70%`, sodass die äußere Funktion `calc(70% - 50px)` ergibt. Andernfalls beträgt er `50%` und die äußere Funktion ergibt `calc(50% - 50px)`.
+Im nächsten Beispiel setzen wir die Eigenschaft `width` auf das Ergebnis einer `calc()`-Funktion, die `50px` von einem prozentualen Anteil der Breite des übergeordneten Elements abzieht. Der Prozentsatz wird durch eine `if()`-Funktion bestimmt, die prüft, ob die benutzerdefinierte Eigenschaft `--scheme: wide` gesetzt ist. Falls ja, beträgt der Prozentsatz `70%`, sodass die äußere Funktion `calc(70% - 50px)` ergibt. Andernfalls beträgt er `50%`, sodass die äußere Funktion `calc(50% - 50px)` ergibt.
 
 ```css-nolint
 width: calc(if(
@@ -345,11 +343,11 @@ width: calc(if(
 
 ### Grundlegende Verwendung von `if()`
 
-Dieses Beispiel zeigt die grundlegende Verwendung der drei Arten von `<if-test>`.
+In diesem Beispiel zeigen wir die grundlegende Verwendung aller drei Arten von `<if-test>`.
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("section")}}-Element mit zwei {{htmlelement("article")}}-Elementen, die jeweils eine `<h2>`-[Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) enthalten. Für `<section>` ist im Attribut [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) eine Custom Property festgelegt: `--show-apple:true`. Damit legen wir später bedingt einen Eigenschaftswert fest.
+Unser HTML enthält ein {{htmlelement("section")}}-Element mit zwei {{htmlelement("article")}}-Elementen, die jeweils eine `<h2>`-[Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) enthalten. Für das `<section>`-Element ist im Attribut [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) eine benutzerdefinierte Eigenschaft festgelegt: `--show-apple:true`. Damit legen wir später bedingt einen Eigenschaftswert fest.
 
 ```html live-sample___basic
 <section style="--show-apple:true">
@@ -360,7 +358,7 @@ Unser HTML enthält ein {{htmlelement("section")}}-Element mit zwei {{htmlelemen
 
 #### CSS
 
-In unserem CSS wählen wir zunächst das `<section>`-Element aus, ordnen es mit [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) an und legen mit {{cssxref("gap")}} einen Abstand zwischen den beiden untergeordneten `<article>`-Elementen fest. Anschließend verwenden wir eine `if()`-Funktion mit einer [`orientation`](/de/docs/Web/CSS/Reference/At-rules/@media/orientation)-Media-Query als `<if-test>`. Dadurch erhält die Eigenschaft {{cssxref("flex-direction")}} den Wert `row`, wenn das Dokument im Querformat angezeigt wird, und `column`, wenn es im Hochformat angezeigt wird. So stehen die `article`-Elemente auf breiten Bildschirmen nebeneinander und auf schmalen Bildschirmen untereinander.
+In unserem CSS wählen wir zunächst das `<section>`-Element aus, gestalten sein Layout mit [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) und legen mit {{cssxref("gap")}} einen Abstand zwischen den beiden untergeordneten `<article>`-Elementen fest. Anschließend verwenden wir eine `if()`-Funktion mit einer [`orientation`](/de/docs/Web/CSS/Reference/At-rules/@media/orientation)-Media-Query als `<if-test>`. Damit setzen wir die Eigenschaft {{cssxref("flex-direction")}} auf `row`, wenn das Dokument im Querformat angezeigt wird, und auf `column`, wenn es im Hochformat angezeigt wird. So stehen die `article`-Elemente auf breiten Bildschirmen nebeneinander und auf schmalen Bildschirmen untereinander.
 
 ```css hidden live-sample___basic
 html {
@@ -395,7 +393,7 @@ section {
 }
 ```
 
-Als Nächstes wählen wir das Pseudoelement {{cssxref("::before")}} des `<h2>`-Elements aus. Seine Eigenschaft {{cssxref("content")}} erhält ein Apfel-Emoji, allerdings nur, wenn `--show-apple: true` gesetzt ist. Das haben wir zuvor im HTML mit einem Inline-{{htmlelement("style")}} festgelegt. Dazu verwenden wir eine `if()`-Funktion mit einer [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#style_queries_for_custom_properties) als `<if-test>`:
+Als Nächstes wählen wir das Pseudoelement {{cssxref("::before")}} des `<h2>`-Elements aus und setzen seine Eigenschaft {{cssxref("content")}} auf ein Apfel-Emoji – allerdings nur, wenn `--show-apple: true` gesetzt ist. Das haben wir zuvor in unserem HTML über ein Inline-{{htmlelement("style")}}-Element getan. Dazu verwenden wir eine `if()`-Funktion mit einer [Style-Query](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#style_queries_for_custom_properties) als `<if-test>`:
 
 ```css-nolint live-sample___basic
 h2::before {
@@ -405,7 +403,7 @@ h2::before {
 }
 ```
 
-Schließlich wählen wir das `<h2>`-Element selbst aus. Mit einer Feature-Query als `<if-test>` prüfen wir, ob der Browser `lch()`-Farben unterstützt. Ist dies der Fall, setzen wir die Eigenschaft {{cssxref("color")}} auf eine `lch()`-Farbe, andernfalls auf einen entsprechenden Hexwert.
+Schließlich wählen wir das `<h2>`-Element selbst aus. Mit einer Feature-Query als `<if-test>` prüfen wir, ob der Browser `lch()`-Farben unterstützt. Falls ja, setzen wir die Eigenschaft {{cssxref("color")}} auf eine `lch()`-Farbe, andernfalls auf einen entsprechenden Hexadezimalwert.
 
 ```css-nolint live-sample___basic
 h2 {
@@ -420,18 +418,18 @@ h2 {
 
 {{EmbedLiveSample("basic", "100%", "240")}}
 
-Beachten Sie, wie die Stile angewendet werden. Testen Sie die bedingte Gestaltung der ersten beiden `if()`-Queries, indem Sie die dargestellte Demo mit den Entwicklertools Ihres Browsers ändern:
+Beachten Sie, wie die Styles angewendet werden. Testen Sie die bedingten Styles der ersten beiden `if()`-Queries, indem Sie die gerenderte Demo mit den Entwicklertools Ihres Browsers verändern:
 
-- Entfernen Sie das Attribut `style` des `<section>`-Elements. Die Apfel-Emojis werden dann nicht mehr angezeigt.
-- Ändern Sie das Attribut `height` des einbettenden `<iframe>` auf `1200px`. Dadurch wechselt die Ausrichtung vom Quer- zum Hochformat. Beachten Sie, wie sich das Layout dadurch ändert.
+- Entfernen Sie das Attribut `style` des `<section>`-Elements. Beachten Sie, dass die Apfel-Emojis nicht mehr angezeigt werden.
+- Ändern Sie das Attribut `height` des einbettenden `<iframe>` auf `1200px`. Dadurch wechselt die Ausrichtung vom Querformat ins Hochformat. Beachten Sie, wie sich das Layout entsprechend ändert.
 
 ### Ein Farbschema mit `if()` steuern
 
-Diese Demo zeigt, welche Möglichkeiten CSS-Funktionen vom Typ `if()` bieten. Unter anderem verwenden wir sie, um die Werte einiger Custom Properties bedingt festzulegen und so das gesamte Farbschema zu steuern.
+Diese Demo zeigt, welche Möglichkeiten CSS-Funktionen vom Typ `if()` bieten. Unter anderem verwenden wir `if()`-Funktionen, um die Werte einiger benutzerdefinierter Eigenschaften bedingt festzulegen. So können wir das gesamte Farbschema steuern.
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("article")}}-Element mit Inhalt: eine Überschrift der obersten Ebene, einige {{htmlelement("p")}}-Elemente und ein {{htmlelement("aside")}}-Element. Außerdem enthält es ein {{htmlelement("form")}} mit einem {{htmlelement("select")}}-Dropdown zur Auswahl eines Farbschemas.
+Unser HTML enthält ein {{htmlelement("article")}}-Element mit verschiedenen Inhalten: einer Überschrift erster Ebene, einigen {{htmlelement("p")}}-Elementen und einem {{htmlelement("aside")}}-Element. Außerdem fügen wir ein {{htmlelement("form")}}-Element mit einer {{htmlelement("select")}}-Dropdown-Liste hinzu, über die sich ein Farbschema auswählen lässt.
 
 ```html-nolint live-sample___color-scheme
 <article>
@@ -466,7 +464,7 @@ Unser HTML enthält ein {{htmlelement("article")}}-Element mit Inhalt: eine Übe
 
 #### CSS
 
-In unserem CSS geben wir dem `<body>`-Element eine {{cssxref("max-width")}} von `700px` und zentrieren es mit dem Wert `auto` für {{cssxref("margin")}}. Mit einer `if()`-Funktion und einer Media-Query als `<if-test>` setzen wir die Komponente {{cssxref("margin-top")}} innerhalb der `margin`-Kurzschreibweise auf `0`, wenn der Viewport weniger als `700px` breit ist, und andernfalls auf `20px`. Auf breiten Bildschirmen entsteht so ein kleiner Abstand oberhalb des Inhalts. Auf schmalen Bildschirmen entfällt er, weil er dort unpassend wirkt.
+In unserem CSS geben wir dem `<body>`-Element eine {{cssxref("max-width")}} von `700px` und zentrieren es mit dem Wert `auto` für {{cssxref("margin")}}. Innerhalb der Kurzschreibweise `margin` verwenden wir jedoch eine `if()`-Funktion mit einer Media-Query als `<if-test>`, um die Komponente {{cssxref("margin-top")}} auf `0` zu setzen, wenn der Viewport schmaler als `700px` ist, und andernfalls auf `20px`. Dadurch erhalten wir auf breiten Bildschirmen etwas Abstand oberhalb des Inhalts. Auf schmalen Bildschirmen entfällt dieser Abstand, weil er dort etwas unpassend wirkt.
 
 ```css hidden live-sample___color-scheme
 * {
@@ -502,7 +500,7 @@ body {
 }
 ```
 
-Anschließend setzen wir die Custom Property `--scheme` entsprechend dem `class`-Namen des `<article>`-Elements. Unsere JavaScript-Anwendung legt diese Klasse fest, wenn im `<select>`-Element ein neuer Wert ausgewählt wird. Im nächsten CSS-Block sehen Sie, welche Bedeutung der Wert der Custom Property hat.
+Anschließend setzen wir die benutzerdefinierte Eigenschaft `--scheme` auf den Klassennamen des `<article>`-Elements. Unsere JavaScript-Anwendung setzt die Klasse, wenn im `<select>`-Element ein neuer Wert ausgewählt wird. Welche Rolle der Wert der benutzerdefinierten Eigenschaft spielt, sehen Sie im nächsten CSS-Block.
 
 ```css live-sample___color-scheme
 .ice {
@@ -514,9 +512,9 @@ Anschließend setzen wir die Custom Property `--scheme` entsprechend dem `class`
 }
 ```
 
-Das Potenzial von CSS-Funktionen vom Typ `if()` zeigt sich besonders in Kombination mit Custom Properties. Hier setzen wir die Custom Properties `--color1` und `--color2` mit `if()`-Funktionen auf unterschiedliche Farbwerte, abhängig vom Wert der Custom Property `--scheme`. Anschließend verwenden wir `--color1` und `--color2` für die Eigenschaften {{cssxref("color")}}, {{cssxref("border")}} und {{cssxref("background-image")}} des `<article>`-Elements sowie für `color` und `background-color` des `<aside>`-Elements.
+Die Möglichkeiten von CSS-Funktionen vom Typ `if()` werden besonders deutlich, wenn wir sie mit benutzerdefinierten Eigenschaften kombinieren. Hier verwenden wir `if()`-Funktionen, um den benutzerdefinierten Eigenschaften `--color1` und `--color2` abhängig vom Wert von `--scheme` unterschiedliche Farbwerte zuzuweisen. Anschließend verwenden wir `--color1` und `--color2` für die Eigenschaften {{cssxref("color")}}, {{cssxref("border")}} und {{cssxref("background-image")}} unseres `<article>`-Elements sowie für `color` und `background-color` unseres `<aside>`-Elements.
 
-Damit steuern wir das gesamte Farbschema über Custom Properties, deren unterschiedliche Werte durch `if()`-Funktionen festgelegt werden.
+Wir steuern somit unser gesamtes Farbschema über benutzerdefinierte Eigenschaften, deren Werte mithilfe von `if()`-Funktionen festgelegt werden.
 
 ```css-nolint live-sample___color-scheme
 article {
@@ -549,10 +547,10 @@ aside {
 }
 ```
 
-Schließlich verwenden wir `if()`-Funktionen noch an zwei weiteren Stellen:
+Schließlich verwenden wir `if()`-Funktionen an zwei weiteren Stellen:
 
-- Wir setzen {{cssxref("font-size")}} für das `<h1>`-Element auf `calc(3rem + 2vw)`, wenn der Viewport breiter als `700px` ist, und andernfalls auf `3rem`. Dadurch passt sich die Schriftgröße auf breiten Bildschirmen dynamisch an Änderungen der Viewport-Breite an, bleibt auf schmalen Bildschirmen aber gleich.
-- Wir legen abhängig vom Wert der Custom Property `--scheme` ein passendes Emoji als {{cssxref("content")}} des Pseudoelements {{cssxref("::before")}} des `<h1>`-Elements fest.
+- Wir setzen {{cssxref("font-size")}} für unser `<h1>`-Element auf `calc(3rem + 2vw)`, wenn der Viewport breiter als `700px` ist, und andernfalls auf `3rem`. Dadurch passt sich die Schriftgröße auf breiten Bildschirmen dynamisch an Änderungen der Viewport-Breite an, bleibt auf schmalen Bildschirmen jedoch gleich.
+- Wir legen abhängig vom Wert der benutzerdefinierten Eigenschaft `--scheme` ein passendes Emoji als {{cssxref("content")}} für das Pseudoelement {{cssxref("::before")}} unseres `<h1>`-Elements fest.
 
 ```css-nolint live-sample___color-scheme
 h1 {
@@ -574,7 +572,7 @@ h1::before {
 
 #### JavaScript
 
-Unser JavaScript fügt dem `<select>`-Element einen Event-Listener für das Ereignis [`change`](/de/docs/Web/API/HTMLElement/change_event) hinzu. Wenn ein neuer Wert ausgewählt wird, setzt das Skript das Attribut [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) des `<article>`-Elements auf diesen Wert.
+Unser JavaScript fügt dem `<select>`-Element einen Event-Listener für [`change`](/de/docs/Web/API/HTMLElement/change_event) hinzu. Wenn ein neuer Wert ausgewählt wird, setzt unser Skript das Attribut [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) des `<article>`-Elements auf diesen Wert.
 
 ```js live-sample___color-scheme
 const articleElem = document.querySelector("article");

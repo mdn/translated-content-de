@@ -1,8 +1,9 @@
 ---
-title: Konstruktor Temporal.Duration()
+title: Temporal.Duration()-Konstruktor
+short-title: Temporal.Duration()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/Duration
 l10n:
-  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
+  sourceCommit: c44f591049bc129b356acb0a9ce281974c035113
 ---
 
 Der Konstruktor **`Temporal.Duration()`** erstellt {{jsxref("Temporal.Duration")}}-Objekte.
@@ -26,7 +27,7 @@ new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milli
 ```
 
 > [!NOTE]
-> `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -53,19 +54,19 @@ new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milli
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration`-Objekt, möglicherweise [unausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
+Ein neues `Temporal.Duration`-Objekt mit den angegebenen Komponenten, das möglicherweise [nicht ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
     - Einer der Parameter ist keine Ganzzahl (einschließlich nicht endlicher Werte).
-    - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen Absolutwert ≥ 2<sup>32</sup>.
-    - Der Nicht-Kalenderteil der Dauer (Tage und kleinere Einheiten) hat, in Sekunden ausgedrückt, einen Absolutwert ≥ 2<sup>53</sup>.
+    - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen Absolutwert von mindestens 2<sup>32</sup>.
+    - Der nicht kalendarische Teil der Dauer (Tage und kleinere Einheiten) hat, in Sekunden ausgedrückt, einen Absolutwert von mindestens 2<sup>53</sup>.
 
 ## Beispiele
 
-### Verwendung von Temporal.Duration()
+### Temporal.Duration() verwenden
 
 ```js
 const d = new Temporal.Duration(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);

@@ -3,16 +3,16 @@ title: "QuotaExceededError: requested-Eigenschaft"
 short-title: requested
 slug: Web/API/QuotaExceededError/requested
 l10n:
-  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{APIRef("DOM")}}{{SeeCompatTable}}
+{{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`requested`** der [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError)-Schnittstelle gibt die Anzahl der Bytes zurück, die angefordert wurden, als der Fehler auftrat, oder `undefined`, wenn die Information nicht verfügbar ist.
+Die schreibgeschützte Eigenschaft **`requested`** der Schnittstelle [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError) gibt die Anzahl der Bytes zurück, die beim Auftreten des Fehlers angefordert wurden. Wenn diese Information nicht verfügbar ist, gibt sie `undefined` zurück.
 
 ## Wert
 
-Eine Zahl, die die angeforderte Speichermenge in Bytes darstellt, oder `undefined`.
+Eine Zahl, die den angeforderten Speicherplatz in Bytes angibt, oder `undefined`.
 
 ## Spezifikationen
 

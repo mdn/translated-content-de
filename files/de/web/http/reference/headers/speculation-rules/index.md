@@ -3,23 +3,21 @@ title: Speculation-Rules header
 short-title: Speculation-Rules
 slug: Web/HTTP/Reference/Headers/Speculation-Rules
 l10n:
-  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
+  sourceCommit: 25abd448c8a088e9f333360dea0adbe8143e6b86
 ---
 
-{{SeeCompatTable}}
+Der HTTP-{{Glossary("response_header", "Response-Header")}} **`Speculation-Rules`** enthält eine oder mehrere URLs, die auf Textressourcen mit JSON-Definitionen für Speculation Rules verweisen. Wenn die Response ein HTML-Dokument ist, werden diese Regeln dem Speculation-Rule-Set des Dokuments hinzugefügt. Weitere Informationen finden Sie in der Dokumentation zur [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
 
-Der HTTP-**`Speculation-Rules`**-{{Glossary("response_header", "Response-Header")}} liefert eine oder mehrere URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln zur Spekulationsregelmenge des Dokuments hinzugefügt. Weitere Informationen finden Sie in der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
-
-Die Ressourcen-Datei, die die Spekulationsregeln im JSON-Format enthält, kann einen beliebigen gültigen Namen und eine beliebige Erweiterung haben, wird jedoch mit einem [`destination`](/de/docs/Web/API/Request/destination)-Typ von [`speculationrules`](/de/docs/Web/API/Request/destination#speculationrules) angefordert und muss mit einem MIME-Typ von `application/speculationrules+json` bereitgestellt werden.
+Die Ressourcendatei mit dem Speculation-Rules-JSON kann einen beliebigen gültigen Namen und eine beliebige gültige Dateiendung haben. Sie wird jedoch mit dem [`destination`](/de/docs/Web/API/Request/destination)-Typ [`speculationrules`](/de/docs/Web/API/Request/destination#speculationrules) angefordert und muss mit dem MIME-Typ `application/speculationrules+json` bereitgestellt werden.
 
 > [!NOTE]
-> Dieser Mechanismus bietet eine Alternative zur Spezifizierung der JSON-Definition innerhalb eines Inline-Elements [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules). Die Angabe eines HTTP-Headers ist nützlich in Fällen, in denen Entwickler nicht in der Lage sind, das Dokument direkt zu ändern.
+> Dieser Mechanismus ist eine Alternative zur Angabe der JSON-Definition in einem Inline-Element vom Typ [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules). Ein HTTP-Header ist nützlich, wenn Entwickler das Dokument selbst nicht direkt ändern können.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Response Header")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -33,13 +31,13 @@ Speculation-Rules: <url-list>
 ## Direktiven
 
 - `<url-list>`
-  - : Eine durch Kommas getrennte Liste von URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Das JSON, das in den Textdateien enthalten ist, muss denselben Regeln folgen wie das in Inline-Elementen `<script type="speculationrules">` enthaltene. Weitere Informationen zur Syntax finden Sie unter [Repräsentation von Spekulationsregeln im JSON-Format](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation).
+  - : Eine durch Kommas getrennte Liste von URLs, die auf Textressourcen mit JSON-Definitionen für Speculation Rules verweisen. Das JSON in den Textdateien muss denselben Regeln entsprechen wie das JSON in Inline-Elementen vom Typ `<script type="speculationrules">`. Eine Beschreibung der Syntax finden Sie unter [JSON-Darstellung von Speculation Rules](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation).
 
 ## Beispiele
 
 ### Speculation-Rules-Feld mit einer einzelnen Datei
 
-Die folgende Antwort enthält einen Dateiverweis:
+Die folgende Response enthält einen Dateiverweis:
 
 ```http
 Speculation-Rules: "/rules/prefetch.json"
@@ -47,14 +45,14 @@ Speculation-Rules: "/rules/prefetch.json"
 
 ### Speculation-Rules-Feld mit mehreren Dateien
 
-Die folgende Antwort enthält mehrere Dateiverweise als durch Kommas getrennte Liste:
+Die folgende Response enthält mehrere Dateiverweise als durch Kommas getrennte Liste:
 
 ```http
 Speculation-Rules: "/rules/prefetch.json","/rules/prerender.json"
 ```
 
 > [!NOTE]
-> Die URL-Werte müssen in Anführungszeichen enthalten sein.
+> Die URL-Werte müssen in Anführungszeichen stehen.
 
 ## Spezifikationen
 
