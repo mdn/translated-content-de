@@ -3,12 +3,12 @@ title: "Document: lastModified-Eigenschaft"
 short-title: lastModified
 slug: Web/API/Document/lastModified
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("DOM")}}
 
-Die **`lastModified`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt einen String zurück, der das Datum und die lokale Uhrzeit enthält, zu der das aktuelle Dokument zuletzt geändert wurde.
+Die schreibgeschützte Eigenschaft **`lastModified`** der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt einen String mit dem Datum und der lokalen Uhrzeit zurück, zu der das aktuelle Dokument zuletzt geändert wurde.
 
 ## Wert
 
@@ -16,16 +16,16 @@ Ein String.
 
 ## Beispiele
 
-### Einfache Anwendung
+### Einfache Verwendung
 
-Dieses Beispiel zeigt einen Hinweis mit dem Wert von `lastModified` an.
+Dieses Beispiel zeigt den Wert von `lastModified` in einem Hinweisfenster an.
 
 ```js
 alert(document.lastModified);
 // returns: Tuesday, December 16, 2017 11:09:42
 ```
 
-### Umwandlung von lastModified in ein Date-Objekt
+### lastModified in ein Date-Objekt umwandeln
 
 Dieses Beispiel wandelt `lastModified` in ein {{jsxref("Date")}}-Objekt um.
 
@@ -33,9 +33,9 @@ Dieses Beispiel wandelt `lastModified` in ein {{jsxref("Date")}}-Objekt um.
 let oLastModif = new Date(document.lastModified);
 ```
 
-### Umwandlung von lastModified in Millisekunden
+### lastModified in Millisekunden umwandeln
 
-Dieses Beispiel wandelt `lastModified` in die Anzahl der Millisekunden seit dem 1. Januar 1970, 00:00:00, lokale Zeit, um.
+Dieses Beispiel wandelt `lastModified` in die Anzahl der Millisekunden seit dem 1. Januar 1970, 00:00:00 Uhr Ortszeit, um.
 
 ```js
 let nLastModif = Date.parse(document.lastModified);
@@ -43,7 +43,7 @@ let nLastModif = Date.parse(document.lastModified);
 
 ## Hinweise
 
-Beachten Sie, dass `lastModified` als String nicht _einfach_ für den Vergleich der Änderungsdaten von Dokumenten verwendet werden kann. Hier ist ein mögliches Beispiel, wie eine Hinweisnachricht angezeigt werden kann, wenn sich die Seite ändert (siehe auch: [JavaScript-Cookies-API](/de/docs/Web/API/Document/cookie)):
+Beachten Sie, dass `lastModified` als String _nicht ohne Weiteres_ zum Vergleichen der Änderungsdaten von Dokumenten verwendet werden kann. Das folgende Beispiel zeigt, wie Sie eine Meldung anzeigen können, wenn sich die Seite ändert (siehe auch: [JavaScript-Cookies-API](/de/docs/Web/API/Document/cookie)):
 
 ```js
 // Match 'timestamp' in 'last_modif=timestamp'
@@ -61,7 +61,7 @@ if (
 }
 ```
 
-...das gleiche Beispiel, aber beim ersten Besuch ignoriert:
+…dasselbe Beispiel, aber ohne Meldung beim ersten Besuch:
 
 ```js
 const pattern = /last_modif\s*=\s*([^;]*)/;
@@ -80,7 +80,7 @@ if (Number.isNaN(lastVisit) || lastModif > lastVisit) {
 }
 ```
 
-Wenn Sie wissen möchten, ob sich eine _externe_ Seite geändert hat, können Sie eine {{HTTPMethod("HEAD")}}-Anfrage mit der [`fetch()`](/de/docs/Web/API/Window/fetch)-API stellen und den {{HTTPHeader("Last-Modified")}}-Antwortheader überprüfen.
+Wenn Sie wissen möchten, ob sich eine _externe_ Seite geändert hat, können Sie mit der [`fetch()`](/de/docs/Web/API/Window/fetch)-API eine {{HTTPMethod("HEAD")}}-Anfrage senden und den {{HTTPHeader("Last-Modified")}}-Antwort-Header prüfen.
 
 ## Spezifikationen
 

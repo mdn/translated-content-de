@@ -1,22 +1,22 @@
 ---
-title: "AbstractRange: endOffset-Eigenschaft"
+title: "AbstractRange: Eigenschaft endOffset"
 short-title: endOffset
 slug: Web/API/AbstractRange/endOffset
 l10n:
-  sourceCommit: f314991b236fce81b712a6df59e4643de0f98449
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("DOM")}}
 
-Die **`endOffset`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den Offset in das Endknoten der Endposition des Bereichs zurück.
+Die schreibgeschützte Eigenschaft **`endOffset`** der Schnittstelle [`AbstractRange`](/de/docs/Web/API/AbstractRange) gibt den Offset im Endknoten an, an dem sich die Endposition des Bereichs befindet.
 
-Um die Endposition zu ändern, verwenden Sie die Methode [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd) oder eine ähnliche.
+Um die Endposition zu ändern, verwenden Sie die Methode [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd) oder eine ähnliche Methode.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Zeichen in den durch [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) angegebenen [`Node`](/de/docs/Web/API/Node) angibt, an dem sich das letzte Zeichen des Bereichs befindet.
+Ein ganzzahliger Wert, der angibt, wie viele Zeichen innerhalb des von [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) angegebenen [`Node`](/de/docs/Web/API/Node) bis zum letzten Zeichen des Bereichs liegen.
 
-Wenn der `endContainer` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Beginn des `endContainer` bis zum Grenzpunkt des Bereichs. Bei anderen [`Node`](/de/docs/Web/API/Node)-Typen ist das `endOffset` die Anzahl der Kindknoten zwischen dem Beginn des `endContainer` und dem Grenzpunkt des Bereichs.
+Wenn `endContainer` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, gibt der Offset die Anzahl der Zeichen vom Anfang von `endContainer` bis zum Begrenzungspunkt des Bereichs an. Bei anderen [`Node`](/de/docs/Web/API/Node)-Typen gibt `endOffset` die Anzahl der Kindknoten zwischen dem Anfang von `endContainer` und dem Begrenzungspunkt des Bereichs an.
 
 ## Beispiel
 

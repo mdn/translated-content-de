@@ -1,18 +1,18 @@
 ---
-title: "Fenster: externe Eigenschaft"
+title: "Window: external-Eigenschaft"
 short-title: external
 slug: Web/API/Window/external
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die `external`-Eigenschaft der [`Window`](/de/docs/Web/API/Window) API gibt eine Instanz der `External`-Schnittstelle zurück, die dazu gedacht war, Funktionen im Zusammenhang mit dem Hinzufügen externer Suchanbieter zum Browser zu enthalten. Dies ist jedoch jetzt veraltet, und die enthaltenen Methoden sind nun Dummy-Funktionen, die gemäß Spezifikation nichts tun.
+Die schreibgeschützte Eigenschaft **`external`** der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine Instanz der `External`-Schnittstelle zurück. Diese war ursprünglich für Funktionen vorgesehen, mit denen externe Suchanbieter zum Browser hinzugefügt werden konnten. Sie ist jedoch inzwischen veraltet; die enthaltenen Methoden sind gemäß Spezifikation funktionslose Platzhalter.
 
 ## Instanzmethoden
 
-Das `External`-Objekt hat die folgenden Methoden:
+Das `External`-Objekt verfügt über die folgenden Methoden:
 
 <table class="fullwidth-table">
   <tbody>
@@ -25,12 +25,12 @@ Das `External`-Objekt hat die folgenden Methoden:
         <code>AddSearchProvider(descriptionURL)</code>
       </td>
       <td>
-        Dummy-Funktion; macht nichts. Wurde verwendet, um <a href="/de/docs/Web/XML/Guides/OpenSearch">Suchbeschreibungen zu registrieren</a>.
+        Funktionsloser Platzhalter. Wurde verwendet, um <a href="/de/docs/Web/XML/Guides/OpenSearch">Suchbeschreibungen zu registrieren</a>.
       </td>
     </tr>
     <tr>
       <td><code>IsSearchProviderInstalled()</code></td>
-      <td>Dummy-Funktion; macht nichts.</td>
+      <td>Funktionsloser Platzhalter.</td>
     </tr>
   </tbody>
 </table>

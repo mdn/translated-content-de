@@ -1,30 +1,29 @@
 ---
-title: "Document: readyState-Eigenschaft"
+title: "Dokument: readyState-Eigenschaft"
 short-title: readyState
 slug: Web/API/Document/readyState
 l10n:
-  sourceCommit: e32d6804e733d48e5a0917bc3ae45aee4798613d
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Document.readyState`**-Eigenschaft beschreibt den Ladezustand des [`Dokuments`](/de/docs/Web/API/Document).
-Wenn sich der Wert dieser Eigenschaft ändert, wird ein [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis auf dem [`Dokument`](/de/docs/Web/API/Document)-Objekt ausgelöst.
+Die schreibgeschützte Eigenschaft **`readyState`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) beschreibt den Ladezustand des [`document`](/de/docs/Web/API/Document). Wenn sich der Wert dieser Eigenschaft ändert, wird auf dem [`document`](/de/docs/Web/API/Document)-Objekt ein [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis ausgelöst.
 
 ## Wert
 
-Der `readyState` eines Dokuments kann einer der folgenden Werte sein:
+Der `readyState` eines Dokuments kann einen der folgenden Werte haben:
 
 - `loading`
-  - : Das [`Dokument`](/de/docs/Web/API/Document) wird noch geladen (das heißt, der HTML-Parser arbeitet noch).
+  - : Das [`document`](/de/docs/Web/API/Document) wird noch geladen (das heißt, der HTML-Parser arbeitet noch).
 - `interactive`
-  - : Das Dokument wurde geparst, aber Unterressourcen wie [deferred](/de/docs/Web/API/HTMLScriptElement/defer) und [module](/de/docs/Web/JavaScript/Guide/Modules)-Skripte, Bilder, Stylesheets und Frames werden noch geladen. Sobald sich das Dokument in diesem Zustand befindet und die deferred und module Skripte ausgeführt wurden, wird das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst.
+  - : Das Dokument wurde geparst, aber Unterressourcen wie [deferred](/de/docs/Web/API/HTMLScriptElement/defer)- und [module](/de/docs/Web/JavaScript/Guide/Modules)-Skripte, Bilder, Stylesheets und Frames werden noch geladen. Sobald dieser Zustand erreicht ist und die deferred- und module-Skripte ausgeführt wurden, wird das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst.
 - `complete`
-  - : Das Dokument und alle Unterressourcen sind vollständig geladen. Dieser Zustand zeigt an, dass das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis kurz davor steht, ausgelöst zu werden.
+  - : Das Dokument und alle Unterressourcen sind vollständig geladen. Dieser Zustand zeigt an, dass das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis unmittelbar ausgelöst wird.
 
 ## Beispiele
 
-### Verschiedene Bereitschaftszustände
+### Verschiedene Ladezustände
 
 ```js
 switch (document.readyState) {
@@ -70,7 +69,7 @@ document.onreadystatechange = () => {
 };
 ```
 
-### readystatechange als Event-Listener, um das DOM vor DOMContentLoaded einzufügen oder zu ändern
+### readystatechange als Event Listener zum Einfügen oder Ändern des DOM vor DOMContentLoaded
 
 ```js
 document.addEventListener("readystatechange", (event) => {

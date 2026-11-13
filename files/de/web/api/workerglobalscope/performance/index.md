@@ -3,16 +3,16 @@ title: "WorkerGlobalScope: performance-Eigenschaft"
 short-title: performance
 slug: Web/API/WorkerGlobalScope/performance
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers("worker")}}
 
-Die **`performance`**-Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, das verwendet werden kann, um Leistungsinformationen über den im Scope des Workers laufenden Code zu sammeln.
+Die schreibgeschützte **`performance`**-Eigenschaft der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück. Damit lassen sich Informationen zur Performance von Code erfassen, der im Gültigkeitsbereich des Workers ausgeführt wird.
 
-Leistungseinträge sind kontextabhängig. Wenn Sie eine Markierung auf einem Worker-Thread erstellen, wird diese nicht im Haupt-Thread oder in anderen Workern angezeigt.
+Performance-Einträge sind auf den jeweiligen Kontext beschränkt. Wenn Sie in einem Worker-Thread eine Markierung erstellen, ist sie weder im Hauptthread noch in anderen Workern sichtbar.
 
-Beachten Sie, dass nur die folgenden Leistungs-Schnittstellen in Worker-Kontexten verfügbar sind:
+Beachten Sie, dass in Worker-Kontexten nur die folgenden Performance-Schnittstellen verfügbar sind:
 
 - [`Performance`](/de/docs/Web/API/Performance)
 - [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)
@@ -25,7 +25,7 @@ Beachten Sie, dass nur die folgenden Leistungs-Schnittstellen in Worker-Kontexte
 
 ## Wert
 
-Ein [`Performance`](/de/docs/Web/API/Performance)-Objekt, das Zugriff auf leistungs- und zeitbezogene Informationen für den Kontext bietet, in dem es aufgerufen wird.
+Ein [`Performance`](/de/docs/Web/API/Performance)-Objekt, das Zugriff auf Performance- und Timing-Informationen für den Kontext bietet, in dem die Eigenschaft aufgerufen wird.
 
 ## Spezifikationen
 

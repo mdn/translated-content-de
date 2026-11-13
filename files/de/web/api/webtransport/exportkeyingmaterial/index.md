@@ -3,12 +3,13 @@ title: "WebTransport: Methode exportKeyingMaterial()"
 short-title: exportKeyingMaterial()
 slug: Web/API/WebTransport/exportKeyingMaterial
 l10n:
-  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
+  sourceCommit: 526da5ddac26fd88dd8a25f1831beb5f2658371b
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die Methode **`exportKeyingMaterial()`** der Schnittstelle [`WebTransport`](/de/docs/Web/API/WebTransport) gibt ein {{jsxref("Promise")}} zurück, das mit Schlüsselmaterial erfüllt wird, das aus der {{Glossary("TLS", "TLS")}}-Sitzung abgeleitet wurde, auf der die Verbindung des Transports basiert.
+Die Methode **`exportKeyingMaterial()`** der Schnittstelle [`WebTransport`](/de/docs/Web/API/WebTransport) gibt ein {{jsxref("Promise")}} zurück, das mit Schlüsselmaterial erfüllt wird, das aus der {{Glossary("TLS", "TLS")}}-Sitzung abgeleitet wurde, auf der die Verbindung des Transports beruht.
+Damit lässt sich eine Authentifizierung auf Anwendungsebene an die jeweilige Verbindung binden, beispielsweise um {{Glossary("MitM", "Manipulator-in-the-Middle")}}-Angriffe (MitM) zu erkennen, wenn eine Verbindung zu einem Peer mit einem selbstsignierten Zertifikat hergestellt wird.
 
 ## Syntax
 
@@ -19,66 +20,76 @@ exportKeyingMaterial(label, context, outputLength)
 ### Parameter
 
 - `label`
-  - : Ein {{jsxref("ArrayBuffer")}}-, {{jsxref("TypedArray")}}- oder {{jsxref("DataView")}}-Objekt, das den Zweck des exportierten Schlüsselmaterials kennzeichnet.
+  - : Ein {{jsxref("ArrayBuffer")}}-, {{jsxref("TypedArray")}}- oder {{jsxref("DataView")}}-Objekt, das den Verwendungszweck des exportierten Schlüsselmaterials kennzeichnet.
     Darf nicht länger als 255 Byte sein.
 - `context`
   - : Ein {{jsxref("ArrayBuffer")}}-, {{jsxref("TypedArray")}}- oder {{jsxref("DataView")}}-Objekt mit zusätzlichen Daten, die in das abgeleitete Schlüsselmaterial einfließen.
-    Dadurch kann eine Anwendung mehrere verschiedene Geheimnisse erzeugen, die alle demselben Label zugeordnet sind.
+    Durch unterschiedliche `context`-Werte bei gleichem `label` kann eine Anwendung mehrere verschiedene geheime Werte ableiten.
     Darf nicht länger als 255 Byte sein.
 - `outputLength`
   - : Eine Ganzzahl, die angibt, wie viele Byte Schlüsselmaterial erzeugt werden sollen.
-    Muss größer als `0` sein und darf einen implementierungsabhängigen Höchstwert nicht überschreiten, der garantiert mindestens `4096` beträgt.
+    Muss größer als `0` sein und darf einen implementierungsabhängigen Maximalwert nicht überschreiten, der garantiert mindestens `4096` beträgt.
 
-    Die Länge richtet sich danach, wie das Material verwendet werden soll.
-    Beispielsweise erfordert die Erzeugung eines AES-128-Schlüssels 16 Byte, während ein HMAC-SHA256-Schlüssel 32 Byte erfordert.
+    Wählen Sie die Länge entsprechend der vorgesehenen Verwendung des Materials.
+    Beispielsweise benötigt ein AES-128-Schlüssel 16 Byte, während ein HMAC-SHA256-Schlüssel üblicherweise 32 Byte lang ist (die Länge eines SHA-256-Digests).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{jsxref("Uint8Array")}} erfüllt wird, das `outputLength` Byte Schlüsselmaterial enthält, das aus der TLS-Sitzung abgeleitet wurde.
+Ein {{jsxref("Promise")}}, das mit einem {{jsxref("Uint8Array")}} erfüllt wird, das `outputLength` Byte aus der TLS-Sitzung abgeleitetes Schlüsselmaterial enthält.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `label` oder `context` länger als 255 Byte ist oder wenn `outputLength` gleich `0` ist oder den implementierungsabhängigen Höchstwert überschreitet.
+  - : Wird ausgelöst, wenn `label` oder `context` länger als 255 Byte ist oder wenn `outputLength` den Wert `0` hat oder größer als der implementierungsabhängige Maximalwert ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Zustand des Transports beim Aufruf der Methode `"closed"` oder `"failed"` ist oder wenn die Verbindung in einen dieser Zustände wechselt, bevor das zurückgegebene Promise abgeschlossen ist.
+  - : Wird ausgelöst, wenn der Zustand des Transports beim Aufruf der Methode `"closed"` oder `"failed"` ist.
+    Das zurückgegebene Promise wird ebenfalls mit dieser Ausnahme zurückgewiesen, wenn der Zustand des Transports vor dessen Abschluss zu `"closed"` oder `"failed"` wechselt.
 
 ## Beschreibung
 
-Ein **TLS-Keying-Material-Exporter** ist ein standardisierter Mechanismus, um zusätzliche Geheimnisse aus einer bestehenden TLS-Sitzung abzuleiten, ohne das eigentliche Master Secret der Sitzung offenzulegen.
-Anhand eines `label`, das den Zweck des abgeleiteten Werts kennzeichnet, optionaler `context`-Daten und einer gewünschten Ausgabelänge erzeugt der Exporter einen Wert, der für diese TLS-Sitzung einzigartig ist.
-Dasselbe Label und derselbe Kontext erzeugen bei einer anderen Verbindung – selbst zwischen denselben beiden Endpunkten – eine andere Ausgabe.
+### Exporteure für TLS-Schlüsselmaterial
 
-`exportKeyingMaterial()` macht diesen Exporter für die TLS-Sitzung zugänglich, auf der eine `WebTransport`-Verbindung basiert.
-Da der exportierte Wert kryptografisch an genau diese Sitzung gebunden ist, kann er verwendet werden, um andere Zugangsdaten, ein Token oder einen Handshake an diese Verbindung zu binden. Diese Technik wird als Channel Binding bezeichnet.
+Ein **Exporteur für TLS-Schlüsselmaterial** ist ein standardisierter Mechanismus, um aus einer bestehenden TLS-Sitzung zusätzliche geheime Werte abzuleiten, ohne das eigentliche Master-Secret der Sitzung offenzulegen.
+Anhand eines `label`, das den Verwendungszweck des abgeleiteten Werts kennzeichnet, der `context`-Daten und einer gewünschten Ausgabelänge erzeugt der Exporteur einen Wert, der für diese TLS-Sitzung eindeutig ist.
+Dasselbe `label` und derselbe `context` erzeugen bei einer anderen Verbindung eine andere Ausgabe – selbst wenn die Verbindung zwischen denselben beiden Endpunkten besteht.
+Mit den Parametern `label` und `context` kann die aufrufende Anwendung die Ableitung an einen bestimmten Zweck anpassen.
+Unterschiedliche Kombinationen aus `label`, `context` und `outputLength` erzeugen verschiedene, unabhängig voneinander abgeleitete Ausgaben, obwohl jede Ausgabe auf demselben zugrunde liegenden Sitzungsgeheimnis beruht.
 
-So kann ein Handshake auf Anwendungsebene MITM-Angriffe erkennen, wenn eine Anwendung eine Verbindung zu einem Peer herstellt, der nur über ein selbstsigniertes Zertifikat verfügt (mithilfe der Option [`serverCertificateHashes`](/de/docs/Web/API/WebTransport/WebTransport#servercertificatehashes) des `WebTransport()`-Konstruktors).
+`exportKeyingMaterial()` macht diesen Exporteur für die TLS-Sitzung zugänglich, auf der eine `WebTransport`-Verbindung beruht.
+Da der exportierte Wert kryptografisch an diese Sitzung gebunden ist, kann eine Anwendung damit einen Berechtigungsnachweis, ein Token oder einen Handshake an genau diese Verbindung binden.
+Diese Technik wird als Channel Binding bezeichnet.
 
-Da keine Zertifizierungsstelle für ein selbstsigniertes Zertifikat bürgt, beweist ein erfolgreicher TLS-Handshake nur, dass der Peer zu einem der festgelegten Hashes gehört – nicht, wer dieser Peer tatsächlich ist.
-Ein Angreifer, der bei der Ermittlung der Peers einen falschen Hash einschleust, kann beide Seiten dazu bringen, sich jeweils mit ihm statt miteinander zu verbinden, und anschließend Nachrichten zwischen ihnen weiterleiten.
+### MitM-Angriffe mit selbstsignierten Zertifikaten erkennen
 
-Um dies zu erkennen, kann eine Anwendung über einen der gewöhnlichen (TLS-geschützten) Streams der Verbindung einen zweiten Handshake durchführen. Dabei authentifiziert sie die Identität des Peers, indem sie das exportierte Schlüsselmaterial als Channel-Binding-Wert verwendet.
-Wenn beide Enden über eine einzige TLS-Verbindung direkt miteinander verbunden sind, verfügen sie über ein gemeinsames, einzigartiges Master Secret, das beim Schlüsselaustausch erzeugt wurde, und exportieren daher dasselbe Schlüsselmaterial.
+Durch Channel Binding kann ein Handshake auf Anwendungsebene MitM-Angriffe erkennen, wenn eine Anwendung eine Verbindung zu einem Peer herstellt, der nur ein selbstsigniertes Zertifikat besitzt.
+Die Anwendung vertraut diesem Zertifikat, indem sie dessen Hash in der Option [`serverCertificateHashes`](/de/docs/Web/API/WebTransport/WebTransport#servercertificatehashes) des `WebTransport()`-Konstruktors übergibt.
 
-Als Nachweis sendet jeder Peer seinen öffentlichen Identitätsschlüssel zusammen mit einer Signatur über das exportierte Schlüsselmaterial, die mit dem zugehörigen privaten Schlüssel erstellt wurde.
+Da keine Zertifizierungsstelle für ein selbstsigniertes Zertifikat bürgt, beweist ein erfolgreicher TLS-Handshake nur, dass der Peer ein Zertifikat besitzt, das einem der Hashes in `serverCertificateHashes` entspricht – nicht aber, wer dieser Peer tatsächlich ist.
+Ein Angreifer, der bei der Peer-Ermittlung einen falschen Hash einschleust, kann beide Seiten dazu verleiten, sich statt mit dem jeweils anderen Peer mit ihm zu verbinden.
+Anschließend leitet der Angreifer Nachrichten zwischen ihnen weiter.
+
+Um diesen Angriff zu erkennen, kann eine Anwendung einen zweiten Handshake über einen der gewöhnlichen (TLS-geschützten) Streams der Verbindung durchführen.
+Der Handshake authentifiziert die Identität des Peers, indem er das exportierte Schlüsselmaterial als Channel-Binding-Wert verwendet.
+Wenn beide Seiten über eine einzige TLS-Verbindung direkt miteinander verbunden sind, teilen sie sich ein beim Schlüsselaustausch erzeugtes, eindeutiges Master-Secret und exportieren daher dasselbe Schlüsselmaterial.
+
+Jeder Peer weist seine Identität nach, indem er das exportierte Schlüsselmaterial mit seinem privaten Identitätsschlüssel signiert und diese Signatur zusammen mit dem zugehörigen öffentlichen Schlüssel sendet.
 Ein Angreifer kann die Signatur nicht fälschen, da er den privaten Schlüssel keines der beiden Peers besitzt.
-Er kann zwar den ursprünglichen öffentlichen Schlüssel und die Signatur eines Peers weiterleiten, doch die Signatur lässt sich nicht mit dem Schlüsselmaterial verifizieren, das der empfangende Peer für seine eigene Verbindung berechnet. Der Handshake wird daher abgebrochen.
-
-Mit den Parametern `label` und `context` kann der Aufrufer die Ableitung für einen bestimmten Zweck anpassen.
-Unterschiedliche Kombinationen aus `label`, `context` und `outputLength` erzeugen verschiedene, unabhängig voneinander abgeleitete Ausgaben, obwohl sie alle auf demselben zugrunde liegenden Sitzungsgeheimnis basieren.
+Er kann zwar den ursprünglichen öffentlichen Schlüssel und die Signatur eines Peers weiterleiten, doch diese Signatur lässt sich nicht anhand des Schlüsselmaterials verifizieren, das der empfangende Peer für seine eigene Verbindung berechnet. Daher wird der Handshake abgebrochen.
 
 ## Beispiele
 
 ### Ein Token an die Verbindung binden
 
-Dieses Beispiel zeigt, wie Sie mit `exportKeyingMaterial()` ein Token erstellen können, das an die Verbindung gebunden ist.
+Dieses Beispiel zeigt, wie Sie mit `exportKeyingMaterial()` ein bestehendes Token auf Anwendungsebene durch eine Signatur an die Verbindung binden können.
 
-Zunächst wird mithilfe von `label` Schlüsselmaterial abgeleitet, das auf die Anwendung und den Verwendungszweck zugeschnitten ist. Anschließend wird es als [`HMAC`](/de/docs/Web/API/SubtleCrypto/sign)-Schlüssel verwendet, um ein `token` auf Anwendungsebene zu signieren.
-Ein Server, der Zugriff auf den Exporter derselben TLS-Sitzung hat (beispielsweise weil er QUIC/HTTP-3 selbst terminiert), kann die entsprechende Ableitung durchführen und die Signatur verifizieren. So bestätigt er, dass `token` für genau diese Verbindung signiert wurde.
+Es verwendet `label`, um das abgeleitete Schlüsselmaterial auf die Anwendung und den Verwendungszweck zu beschränken, und nutzt dieses Material anschließend als [`HMAC`](/de/docs/Web/API/SubtleCrypto/sign#hmac)-Schlüssel, um `token` zu signieren.
+Ein Server, der Zugriff auf den Exporteur derselben TLS-Sitzung hat (beispielsweise weil er {{Glossary("QUIC", "QUIC")}} und {{Glossary("HTTP_3", "HTTP/3")}} selbst terminiert), kann die entsprechende Ableitung durchführen und die Signatur verifizieren.
+Damit wird bestätigt, dass `token` für genau diese Verbindung signiert wurde.
 
-Beachten Sie, dass dies nur beweist, dass die Person, die `{token, signature}` vorlegt, über gültiges Schlüsselmaterial für _irgendeine_ Verbindung zum Server verfügt – nicht, wer diese Person ist.
-Es verhindert, dass ein abgefangenes `{token, signature}`-Paar später über eine andere Verbindung erneut verwendet wird. Den oben beschriebenen Live-Relay-Angriff verhindert es jedoch nicht: Ein MITM, der selbst ein tatsächlicher Endpunkt seiner eigenen Verbindung zum Server ist, kann eine eigene gültige Signatur für dasselbe `token` berechnen.
-Zum Schutz dagegen muss die Signatur wie oben beschrieben mit einem dauerhaften Identitätsschlüssel erstellt werden, statt mit einem einfachen HMAC, dessen Schlüssel ausschließlich aus dem exportierten Material der Verbindung besteht.
+Die Verifizierung der Signatur beweist nur, dass die Person oder Instanz, die `{ token, signature }` vorlegt, über gültiges Schlüsselmaterial für _irgendeine_ Verbindung zum Server verfügt – nicht, wer sie ist.
+Sie verhindert, dass ein abgefangenes Paar `{ token, signature }` später bei einer anderen, unabhängigen Verbindung wiederverwendet wird, verhindert jedoch nicht den unter [MitM-Angriffe mit selbstsignierten Zertifikaten erkennen](#mitm-angriffe_mit_selbstsignierten_zertifikaten_erkennen) beschriebenen Weiterleitungsangriff.
+Ein MitM-Angreifer, der selbst ein legitimer Endpunkt seiner eigenen Verbindung zum Server ist, kann eine gültige Signatur für dasselbe `token` berechnen.
+Um dies zu verhindern, muss statt eines einfachen HMAC, dessen Schlüssel ausschließlich das exportierte Schlüsselmaterial der Verbindung ist, ein dauerhafter Identitätsschlüssel zum Signieren verwendet werden.
 
 ```js
 const encoder = new TextEncoder();
@@ -87,7 +98,7 @@ async function signTokenForConnection(transport, token) {
   try {
     const keyingMaterial = await transport.exportKeyingMaterial(
       encoder.encode("example.com/channel-binding"), // Label
-      new Uint8Array(0), // Context (No additional context needed)
+      new Uint8Array(0), // Context (no additional context needed)
       32, // Output length
     );
 
@@ -123,4 +134,7 @@ async function signTokenForConnection(transport, token) {
 
 ## Siehe auch
 
-- [`WebTransport.getStats()`](/de/docs/Web/API/WebTransport/getStats)
+- [`WebTransport()`](/de/docs/Web/API/WebTransport/WebTransport)-Konstruktor
+- [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey)
+- [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign)
+- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport), Chrome for Developers

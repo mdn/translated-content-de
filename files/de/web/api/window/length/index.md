@@ -3,12 +3,12 @@ title: "Window: length-Eigenschaft"
 short-title: length
 slug: Web/API/Window/length
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Gibt die Anzahl der Frames (entweder {{HTMLElement("frame")}} oder {{HTMLElement("iframe")}} Elemente) im Fenster zurück.
+Die schreibgeschützte Eigenschaft **`length`** der Schnittstelle [`Window`](/de/docs/Web/API/Window) gibt die Anzahl der Frames ({{HTMLElement("frame")}}- oder {{HTMLElement("iframe")}}-Elemente) im Fenster zurück.
 
 ## Wert
 

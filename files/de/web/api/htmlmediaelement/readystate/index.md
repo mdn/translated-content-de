@@ -3,31 +3,31 @@ title: "HTMLMediaElement: readyState-Eigenschaft"
 short-title: readyState
 slug: Web/API/HTMLMediaElement/readyState
 l10n:
-  sourceCommit: e932acf254c5dd06e26798b9d8fe01ce8dab1fb7
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.readyState`**-Eigenschaft gibt den Bereitschaftszustand des Medienobjekts an.
+Die schreibgeschützte Eigenschaft **`readyState`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gibt den Bereitschaftszustand des Mediums an.
 
 ## Wert
 
-Eine Zahl, die eine der fünf möglichen Zustandskonstanten ist, die auf der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle definiert sind:
+Eine Zahl, die einer der fünf möglichen Zustandskonstanten entspricht, die in der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) definiert sind:
 
 - `HTMLMediaElement.HAVE_NOTHING` (0)
-  - : Es sind keine Informationen über die Medienquelle verfügbar.
+  - : Es sind keine Informationen über die Medienressource verfügbar.
 - `HTMLMediaElement.HAVE_METADATA` (1)
-  - : Genug von der Medienquelle wurde abgerufen, sodass die Metadatenattribute initialisiert sind. Das Suchen wird keine Ausnahme mehr auslösen.
+  - : Von der Medienressource wurden genügend Daten abgerufen, um die Metadatenattribute zu initialisieren. Das Springen zu einer anderen Wiedergabeposition löst keine Ausnahme mehr aus.
 - `HTMLMediaElement.HAVE_CURRENT_DATA` (2)
-  - : Daten sind für die aktuelle Wiedergabeposition verfügbar, aber nicht genug, um mehr als einen Frame abzuspielen.
+  - : Für die aktuelle Wiedergabeposition sind Daten verfügbar, aber nicht genug, um mehr als ein Einzelbild abzuspielen.
 - `HTMLMediaElement.HAVE_FUTURE_DATA` (3)
-  - : Daten für die aktuelle Wiedergabeposition sowie für mindestens ein kleines Stück Zeit in die Zukunft sind verfügbar (zum Beispiel mindestens zwei Videoframes).
+  - : Für die aktuelle Wiedergabeposition sowie für zumindest einen kurzen Zeitraum danach sind Daten verfügbar (beispielsweise mindestens zwei Videobilder).
 - `HTMLMediaElement.HAVE_ENOUGH_DATA` (4)
-  - : Es sind genügend Daten verfügbar—und die Downloadgeschwindigkeit ist hoch genug—, sodass das Medium ohne Unterbrechung bis zum Ende abgespielt werden kann.
+  - : Es sind genügend Daten verfügbar – und die Downloadrate ist hoch genug –, um das Medium ohne Unterbrechung bis zum Ende abzuspielen.
 
 ## Beispiele
 
-Dieses Beispiel wird auf das Laden von Audiodaten für das Element `example` warten. Es wird dann überprüfen, ob mindestens die aktuelle Wiedergabeposition geladen wurde. Wenn dies der Fall ist, wird die Audio-Wiedergabe gestartet.
+Dieses Beispiel wartet darauf, dass Audiodaten für das Element `example` geladen werden. Anschließend prüft es, ob mindestens die Daten für die aktuelle Wiedergabeposition geladen wurden. Ist dies der Fall, wird das Audio abgespielt.
 
 ```html
 <audio id="example" preload="auto">
@@ -55,4 +55,4 @@ obj.addEventListener("loadeddata", () => {
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.readyState`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die die Eigenschaft `HTMLMediaElement.readyState` definiert

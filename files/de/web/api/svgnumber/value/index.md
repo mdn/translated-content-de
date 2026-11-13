@@ -1,22 +1,22 @@
 ---
-title: "SVGNumber: Eigenschaft value"
+title: "SVGNumber: value-Eigenschaft"
 short-title: value
 slug: Web/API/SVGNumber/value
 l10n:
-  sourceCommit: 4d45ceb8c5083fcd325abf028105d0ddfe8d4874
+  sourceCommit: 757c86b372ca96d49679d57fb782467584c54f36
 ---
 
 {{APIRef("SVG")}}
 
-Die **`value`** schreibgeschützte Eigenschaft der [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Schnittstelle repräsentiert die Zahl.
+Die Eigenschaft **`value`** des Interfaces [`SVGNumber`](/de/docs/Web/API/SVGNumber) repräsentiert die Zahl.
 
 ## Wert
 
-Ein Float.
+Eine Gleitkommazahl.
 
 ## Beispiele
 
-### Zugriff auf die `value`-Eigenschaft
+### Zugriff auf die Eigenschaft `value`
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">

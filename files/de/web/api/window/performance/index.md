@@ -3,18 +3,18 @@ title: "Window: performance-Eigenschaft"
 short-title: performance
 slug: Web/API/Window/performance
 l10n:
-  sourceCommit: 54962bbd1d367115cfd01b4e1ba6b552e8b68eb7
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`performance`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, das verwendet werden kann, um Leistungsinformationen über Code zu sammeln, der im Kontext des Fensters ausgeführt wird.
+Die schreibgeschützte Eigenschaft **`performance`** der Schnittstelle [`Window`](/de/docs/Web/API/Window) gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück. Damit können Sie Leistungsinformationen über Code erfassen, der im Gültigkeitsbereich des Fensters ausgeführt wird.
 
-Leistungseinträge sind kontextspezifisch. Wenn Sie eine Markierung im Haupt-Thread (oder einem anderen Worker) erstellen, können Sie diese in einem Worker-Thread nicht sehen und umgekehrt.
+Performance-Einträge gelten jeweils nur für ihren Kontext. Wenn Sie auf dem Haupt-Thread (oder in einem anderen Worker) eine Markierung erstellen, können Sie diese in einem Worker-Thread nicht sehen und umgekehrt.
 
 ## Wert
 
-Ein [`Performance`](/de/docs/Web/API/Performance)-Objekt, das Zugriff auf leistungs- und zeitbezogene Informationen über Code bietet, der im Kontext des Fensters ausgeführt wird.
+Ein [`Performance`](/de/docs/Web/API/Performance)-Objekt, das Zugriff auf Leistungs- und Zeitinformationen über Code bietet, der im Gültigkeitsbereich des Fensters ausgeführt wird.
 
 ## Spezifikationen
 

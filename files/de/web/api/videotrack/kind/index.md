@@ -3,41 +3,37 @@ title: "VideoTrack: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/VideoTrack/kind
 l10n:
-  sourceCommit: 87adaa5384b1015690f3435ce0ba64ac097764eb
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`kind`**-Eigenschaft enthält einen
-String, der die Kategorie des Video-Typs beschreibt, der in der **[`VideoTrack`](/de/docs/Web/API/VideoTrack)** enthalten ist.
+Die schreibgeschützte Eigenschaft **`kind`** des [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Interfaces enthält einen String, der die Kategorie des im **[`VideoTrack`](/de/docs/Web/API/VideoTrack)** enthaltenen Videos angibt.
 
-Der `kind` kann verwendet werden,
-um die Szenarien zu bestimmen, in denen bestimmte Spuren aktiviert oder deaktiviert werden sollten. Eine Liste der verfügbaren Arten für Videospuren finden Sie unter [Video track kind strings](#video_track_kind_strings).
+Mit `kind` lässt sich bestimmen, in welchen Situationen bestimmte Tracks aktiviert oder deaktiviert werden sollten. Eine Liste der verfügbaren Arten von Videotracks finden Sie unter [Strings für Videotrack-Arten](#strings_für_videotrack-arten).
 
 ## Wert
 
-Ein String, der den Inhaltstyp des Mediums angibt. Der
-String ist einer der unten aufgeführten [Video track kind strings](#video_track_kind_strings).
+Ein String, der die Art des Medieninhalts angibt. Der String entspricht einem der unten unter [Strings für Videotrack-Arten](#strings_für_videotrack-arten) aufgeführten Werte.
 
-## Video track kind strings
+## Strings für Videotrack-Arten
 
-Die für Videospuren verfügbaren Arten sind:
+Für Videotracks sind folgende Arten verfügbar:
 
 - `"alternative"`
-  - : Eine mögliche Alternative zur Hauptspur, wie z. B. ein anderer Video-Take oder eine
-    Version der Tonspur nur mit Musik und ohne Dialog.
+  - : Eine mögliche Alternative zum Haupttrack, beispielsweise eine andere Videoaufnahme oder eine Version der Tonspur, die nur Musik und keine Dialoge enthält.
 - `"captions"`
-  - : Eine Version der Hauptvideospur mit eingebrannten Untertiteln.
+  - : Eine Version des Hauptvideotracks mit fest eingeblendeten Untertiteln.
 - `"main"`
-  - : Die primäre Videospur.
+  - : Der primäre Videotrack.
 - `"sign"`
-  - : Eine Gebärdensprachübersetzung einer Tonspur.
+  - : Eine gebärdensprachliche Interpretation eines Audiotracks.
 - `"subtitles"`
-  - : Eine Version der Hauptvideospur mit eingebrannten Untertiteln.
+  - : Eine Version des Hauptvideotracks mit fest eingeblendeten Untertiteln.
 - `"commentary"`
-  - : Eine Videospur, die einen Kommentar enthält. Dies könnte beispielsweise die Kommentarspur des Regisseurs eines Films enthalten.
+  - : Ein Videotrack mit einem Kommentar. Er kann beispielsweise den Regiekommentar zu einem Film enthalten.
 - `""` (leerer String)
-  - : Die Spur hat keinen expliziten Typ, oder der Typ, der durch die Metadaten der Spur bereitgestellt wird, wird vom {{Glossary("user_agent", "User-Agent")}} nicht erkannt.
+  - : Für den Track ist keine Art ausdrücklich angegeben, oder die in den Metadaten des Tracks angegebene Art wird vom {{Glossary("user_agent", "User Agent")}} nicht erkannt.
 
 ## Spezifikationen
 

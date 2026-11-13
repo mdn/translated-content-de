@@ -3,20 +3,20 @@ title: "HTMLMediaElement: error-Eigenschaft"
 short-title: error
 slug: Web/API/HTMLMediaElement/error
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.error`**-Eigenschaft ist das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt für den neuesten Fehler oder `null`, wenn kein Fehler aufgetreten ist. Wenn ein [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignis vom Element empfangen wird, können Sie durch Überprüfung dieses Objekts Einzelheiten darüber herausfinden, was passiert ist.
+Die schreibgeschützte Eigenschaft **`error`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) enthält das [`MediaError`](/de/docs/Web/API/MediaError)-Objekt für den zuletzt aufgetretenen Fehler oder `null`, wenn kein Fehler aufgetreten ist. Wenn das Element ein [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)-Ereignis empfängt, können Sie anhand dieses Objekts Einzelheiten zum Fehler ermitteln.
 
 ## Wert
 
-Ein [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den neuesten Fehler beschreibt, der beim Media-Element aufgetreten ist, oder `null`, wenn keine Fehler aufgetreten sind.
+Ein [`MediaError`](/de/docs/Web/API/MediaError)-Objekt, das den zuletzt beim Medienelement aufgetretenen Fehler beschreibt, oder `null`, wenn kein Fehler aufgetreten ist.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein Video-Element und fügt ihm einen Fehler-Handler hinzu; der Fehler-Handler protokolliert die Details in der Konsole.
+Dieses Beispiel erstellt ein Videoelement und fügt ihm einen Fehler-Handler hinzu. Der Fehler-Handler protokolliert die Einzelheiten in der Konsole.
 
 ```js
 const videoElement = document.createElement("video");
@@ -38,5 +38,5 @@ videoElement.src = "https://example.com/bogusvideo.mp4";
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.error`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, in der die Eigenschaft `HTMLMediaElement.error` definiert ist
 - {{HTMLElement("audio")}} und {{HTMLElement("video")}}

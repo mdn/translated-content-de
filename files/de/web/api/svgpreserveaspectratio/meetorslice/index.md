@@ -1,18 +1,18 @@
 ---
-title: "SVGPreserveAspectRatio: meetOrSlice-Eigenschaft"
+title: "SVGPreserveAspectRatio: Eigenschaft meetOrSlice"
 short-title: meetOrSlice
 slug: Web/API/SVGPreserveAspectRatio/meetOrSlice
 l10n:
-  sourceCommit: 59fec48b4572624a0b23bc98385dd05029125a76
+  sourceCommit: 757c86b372ca96d49679d57fb782467584c54f36
 ---
 
 {{APIRef("SVG")}}
 
-Die **`meetOrSlice`**-Eigenschaft der [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio)-Schnittstelle gibt den Typ des "meet-or-slice"-Wertes wieder, wie er durch eine der `SVG_MEETORSLICE_*`-Konstanten, die auf dieser Schnittstelle definiert sind, spezifiziert wird.
+Die Eigenschaft **`meetOrSlice`** der Schnittstelle [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio) gibt den Typ des meet-or-slice-Werts an, der durch eine der in dieser Schnittstelle definierten `SVG_MEETORSLICE_*`-Konstanten festgelegt wird.
 
 ## Wert
 
-Einer der folgenden:
+Einer der folgenden Werte:
 
 - `SVGPreserveAspectRatio.SVG_MEETORSLICE_UNKNOWN` (0)
 - `SVGPreserveAspectRatio.SVG_MEETORSLICE_MEET` (1)
@@ -20,7 +20,7 @@ Einer der folgenden:
 
 ## Beispiele
 
-### Zugriff auf die `meetOrSlice`-Eigenschaft
+### Zugriff auf die Eigenschaft `meetOrSlice`
 
 ```html
 <svg

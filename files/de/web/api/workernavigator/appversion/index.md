@@ -3,19 +3,19 @@ title: "WorkerNavigator: appVersion-Eigenschaft"
 short-title: appVersion
 slug: Web/API/WorkerNavigator/appVersion
 l10n:
-  sourceCommit: 0266df57cb5eb52a057e305ba12d49c93f0edb7e
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Gibt entweder `"4.0"` oder einen String zurück, der Versionsinformationen über den Browser darstellt.
+Die schreibgeschützte Eigenschaft **`appVersion`** der Schnittstelle [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) gibt entweder `"4.0"` oder einen String mit Versionsinformationen über den Browser zurück.
 
 > [!NOTE]
 > Verlassen Sie sich nicht darauf, dass diese Eigenschaft die korrekte Browserversion zurückgibt.
 
 ## Wert
 
-Entweder `"4.0"` oder ein String, der Versionsinformationen über den Browser darstellt.
+Entweder `"4.0"` oder ein String mit Versionsinformationen über den Browser.
 
 ## Beispiele
 
@@ -23,11 +23,11 @@ Entweder `"4.0"` oder ein String, der Versionsinformationen über den Browser da
 alert(`Your browser version is reported as ${navigator.appVersion}`);
 ```
 
-## Anmerkungen
+## Hinweise
 
-Die `navigator.userAgent`-Eigenschaft kann ebenfalls die Versionsnummer enthalten (zum Beispiel `"Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010725 Netscape 6/6.1"`), aber Sie sollten sich bewusst sein, wie einfach es ist, den User-Agent-String zu ändern und andere Browser, Plattformen oder User-Agents zu "fälschen", und auch, wie sorglos Browser-Anbieter selbst mit diesen Eigenschaften umgehen.
+Die Eigenschaft `navigator.userAgent` kann ebenfalls die Versionsnummer enthalten (zum Beispiel `"Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.2) Gecko/20010725 Netscape 6/6.1"`). Beachten Sie jedoch, wie leicht sich der User-Agent-String ändern lässt, um andere Browser, Plattformen oder User Agents vorzutäuschen. Auch die Browserhersteller selbst gehen mit diesen Eigenschaften recht nachlässig um.
 
-Die Eigenschaften `navigator.appVersion`, `navigator.appName` und `navigator.userAgent` wurden im sogenannten "Browser-Sniffing"-Code verwendet: Skripte, die versuchen herauszufinden, welchen Browser Sie verwenden, und Seiten entsprechend anzupassen. Dies führte zur aktuellen Situation, in der Browser gezwungen waren, gefälschte Werte für diese Eigenschaften zurückzugeben, um nicht von einigen Websites ausgeschlossen zu werden.
+Die Eigenschaften `navigator.appVersion`, `navigator.appName` und `navigator.userAgent` wurden in Code für „Browser Sniffing“ verwendet: Skripte, die zu ermitteln versuchen, welchen Browser Sie verwenden, und Seiten entsprechend anpassen. Das führte dazu, dass Browser für diese Eigenschaften falsche Werte zurückgeben mussten, um nicht von manchen Websites ausgeschlossen zu werden.
 
 ## Spezifikationen
 

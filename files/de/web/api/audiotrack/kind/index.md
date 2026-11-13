@@ -3,39 +3,37 @@ title: "AudioTrack: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/AudioTrack/kind
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`kind`**-Eigenschaft enthält einen
-String, der die Kategorie des in der **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
-enthaltenen Audios angibt.
+Die schreibgeschützte Eigenschaft **`kind`** der [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Schnittstelle enthält eine Zeichenfolge, die die Kategorie der im **[`AudioTrack`](/de/docs/Web/API/AudioTrack)** enthaltenen Audiodaten angibt.
 
-Die `kind`-Eigenschaft kann verwendet werden, um die Szenarien zu bestimmen, in denen bestimmte Tracks aktiviert oder deaktiviert werden sollen. Siehe [Audio-Track-Kind-Strings](#audio-track-kind-strings) für eine Liste der für Audiotracks verfügbaren Arten.
+Anhand von `kind` lässt sich bestimmen, in welchen Situationen bestimmte Tracks aktiviert oder deaktiviert werden sollten. Eine Liste der verfügbaren Arten von Audiotracks finden Sie unter [Zeichenfolgen für Audiotrack-Arten](#zeichenfolgen_für_audiotrack-arten).
 
 ## Wert
 
-Ein String, der den Inhaltstyp darstellt, den das Medium repräsentiert. Der String ist einer derjenigen, die unten in [Audio-Track-Kind-Strings](#audio-track-kind-strings) zu finden sind.
+Eine Zeichenfolge, die den Typ des Medieninhalts angibt. Sie entspricht einem der unten unter [Zeichenfolgen für Audiotrack-Arten](#zeichenfolgen_für_audiotrack-arten) aufgeführten Werte.
 
-## Audio-Track-Kind-Strings
+## Zeichenfolgen für Audiotrack-Arten
 
-Die für Audiotracks verfügbaren Arten sind:
+Für Audiotracks sind folgende Arten verfügbar:
 
 - `"alternative"`
-  - : Eine potenzielle Alternative zum Haupttrack, wie zum Beispiel eine andere Audioaufnahme oder eine Version des Soundtracks nur mit Musik und ohne Dialog.
+  - : Eine mögliche Alternative zum Haupttrack, etwa eine andere Audioaufnahme oder eine Version der Tonspur, die nur Musik und keine Dialoge enthält.
 - `"descriptions"`
-  - : Ein Audiotrack, der hörbare Beschreibungen der im Videotrack dargestellten Aktionen bietet.
+  - : Ein Audiotrack mit hörbaren Beschreibungen des Geschehens in einem Videotrack.
 - `"main"`
   - : Der primäre Audiotrack.
 - `"main-desc"`
-  - : Der primäre Audiotrack mit hineingemischten Audiobeschreibungen.
+  - : Der primäre Audiotrack mit eingemischten Audiobeschreibungen.
 - `"translation"`
   - : Eine übersetzte Version des primären Audiotracks.
 - `"commentary"`
-  - : Ein Audiotrack, der einen Kommentar enthält. Dies könnte beispielsweise der Kommentar des Regisseurs auf einer Filmspur sein.
-- `""` (leerer String)
-  - : Der Track hat keine explizite Art, oder die vom Track-Metadaten bereitgestellte Art wird nicht durch den {{Glossary("user_agent", "user agent")}} erkannt.
+  - : Ein Audiotrack mit einem Kommentar, beispielsweise dem Regiekommentar zu einem Film.
+- `""` (leere Zeichenfolge)
+  - : Für den Track wurde keine Art ausdrücklich angegeben, oder die in den Metadaten des Tracks angegebene Art wird vom {{Glossary("user_agent", "User Agent")}} nicht erkannt.
 
 ## Spezifikationen
 

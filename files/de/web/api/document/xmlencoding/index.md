@@ -3,15 +3,15 @@ title: "Dokument: xmlEncoding-Eigenschaft"
 short-title: xmlEncoding
 slug: Web/API/Document/xmlEncoding
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("DOM")}}
 
-Gibt die Kodierung zurück, wie sie durch die XML-Deklaration bestimmt wird. Sollte `null` sein, wenn sie nicht angegeben oder unbekannt ist.
+Die schreibgeschützte Eigenschaft **`xmlEncoding`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt die in der XML-Deklaration angegebene Zeichenkodierung zurück. Wenn keine Zeichenkodierung angegeben ist oder sie unbekannt ist, sollte der Rückgabewert `null` sein.
 
 > [!WARNING]
-> Verwenden Sie dieses Attribut nicht; es wurde aus der DOM-Level-4-Spezifikation entfernt und wird in Firefox 10.0 nicht mehr unterstützt.
+> Verwenden Sie dieses Attribut nicht. Es wurde aus der DOM-Level-4-Spezifikation entfernt und wird seit Firefox 10.0 nicht mehr unterstützt.
 
 Betrachten Sie die folgende XML-Deklaration:
 
@@ -19,7 +19,7 @@ Betrachten Sie die folgende XML-Deklaration:
 <?xml version="1.0" encoding="UTF-16"?>
 ```
 
-Dann sollte das Ergebnis "UTF-16" sein.
+Das Ergebnis sollte dann „UTF-16“ sein.
 
 ## Spezifikationen
 

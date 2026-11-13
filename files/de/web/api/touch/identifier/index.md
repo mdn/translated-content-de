@@ -3,12 +3,12 @@ title: "Touch: identifier-Eigenschaft"
 short-title: identifier
 slug: Web/API/Touch/identifier
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{ APIRef("Touch Events") }}
 
-Die **`Touch.identifier`**-Eigenschaft gibt einen Wert zurück, der diesen Berührungspunkt auf der Oberfläche eindeutig identifiziert. Dieser Wert bleibt für jedes Ereignis, das die Bewegung dieses Fingers (oder Stiftes) auf der Oberfläche betrifft, konsistent, bis er von der Oberfläche abgehoben wird.
+Die schreibgeschützte Eigenschaft **`identifier`** der Schnittstelle [`Touch`](/de/docs/Web/API/Touch) gibt einen Wert zurück, der diesen Berührungspunkt auf der Touch-Oberfläche eindeutig identifiziert. Dieser Wert bleibt bei jedem Event, das die Bewegung dieses Fingers (oder Eingabestifts) auf der Oberfläche betrifft, gleich, bis der Finger (oder Eingabestift) von der Oberfläche abgehoben wird.
 
 ## Wert
 

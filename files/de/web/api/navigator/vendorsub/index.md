@@ -3,16 +3,16 @@ title: "Navigator: vendorSub-Eigenschaft"
 short-title: vendorSub
 slug: Web/API/Navigator/vendorSub
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Der Wert der **`Navigator.vendorSub`**-Eigenschaft ist in jedem Browser immer der leere String.
+Die schreibgeschützte Eigenschaft **`vendorSub`** der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt in jedem Browser stets eine leere Zeichenfolge zurück.
 
 ## Wert
 
-- Der leere String
+- Eine leere Zeichenfolge
 
 ## Spezifikationen
 

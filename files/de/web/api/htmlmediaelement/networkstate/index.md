@@ -3,27 +3,27 @@ title: "HTMLMediaElement: networkState-Eigenschaft"
 short-title: networkState
 slug: Web/API/HTMLMediaElement/networkState
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.networkState`**-Eigenschaft gibt den aktuellen Status des Abrufs von Medien über das Netzwerk an.
+Die schreibgeschützte Eigenschaft **`networkState`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gibt den aktuellen Status des Abrufs von Medien über das Netzwerk an.
 
 ## Wert
 
 Ein `unsigned short`. Mögliche Werte sind:
 
-| Konstante           | Wert | Beschreibung                                                                                 |
-| ------------------- | ---- | -------------------------------------------------------------------------------------------- |
-| `NETWORK_EMPTY`     | 0    | Es sind noch keine Daten vorhanden. Außerdem ist `readyState` auf `HAVE_NOTHING`.            |
-| `NETWORK_IDLE`      | 1    | HTMLMediaElement ist aktiv und hat eine Ressource ausgewählt, nutzt aber das Netzwerk nicht. |
-| `NETWORK_LOADING`   | 2    | Der Browser lädt HTMLMediaElement-Daten herunter.                                            |
-| `NETWORK_NO_SOURCE` | 3    | Keine HTMLMediaElement-Quelle gefunden.                                                      |
+| Konstante           | Wert | Beschreibung                                                                                     |
+| ------------------- | ---- | ------------------------------------------------------------------------------------------------ |
+| `NETWORK_EMPTY`     | 0    | Es sind noch keine Daten vorhanden. Außerdem ist `readyState` gleich `HAVE_NOTHING`.             |
+| `NETWORK_IDLE`      | 1    | HTMLMediaElement ist aktiv und hat eine Ressource ausgewählt, verwendet aber das Netzwerk nicht. |
+| `NETWORK_LOADING`   | 2    | Der Browser lädt HTMLMediaElement-Daten herunter.                                                |
+| `NETWORK_NO_SOURCE` | 3    | Es wurde keine HTMLMediaElement-src gefunden.                                                    |
 
 ## Beispiele
 
-Dieses Beispiel wird das Audio-Element überwachen, um zu beginnen, es abzuspielen, und dann überprüfen, ob es noch Daten lädt.
+Dieses Beispiel wartet darauf, dass das Audioelement mit der Wiedergabe beginnt, und prüft dann, ob noch Daten geladen werden.
 
 ```html
 <audio id="example" preload="auto">
@@ -51,4 +51,4 @@ obj.addEventListener("playing", () => {
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.networkState`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, in der die Eigenschaft `HTMLMediaElement.networkState` definiert ist

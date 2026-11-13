@@ -3,20 +3,16 @@ title: "HTMLMediaElement: currentSrc-Eigenschaft"
 short-title: currentSrc
 slug: Web/API/HTMLMediaElement/currentSrc
 l10n:
-  sourceCommit: 937f993c79bb6f3a42b0db72712aaf5f18277d3d
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.currentSrc`**-Eigenschaft enthält die
-absolute URL der ausgewählten Medienressource. Dies kann beispielsweise passieren, wenn der Webserver eine Mediendatei basierend auf der Auflösung des Bildschirms des Benutzers auswählt. Der Wert
-ist ein leerer String, wenn die `networkState`-Eigenschaft `EMPTY` ist.
+Die schreibgeschützte Eigenschaft **`currentSrc`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) enthält die absolute URL der ausgewählten Medienressource. Eine Auswahl kann beispielsweise erfolgen, wenn der Webserver eine Mediendatei anhand der Bildschirmauflösung des Benutzers auswählt. Der Wert ist eine leere Zeichenfolge, wenn die Eigenschaft `networkState` den Wert `EMPTY` hat.
 
 ## Wert
 
-Ein String, der die absolute URL der ausgewählten Medienquelle enthält; dieser könnte ein leerer String sein, wenn `networkState` `EMPTY` ist; andernfalls wird es eine der Ressourcen sein, die durch das
-[`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) innerhalb des Media-Elements aufgelistet sind, oder der Wert von [`src`](/de/docs/Web/API/HTMLMediaElement/src),
-wenn kein {{HTMLElement("source")}}-Element bereitgestellt wird.
+Eine Zeichenfolge mit der absoluten URL der ausgewählten Medienquelle. Sie kann leer sein, wenn `networkState` den Wert `EMPTY` hat. Andernfalls entspricht sie entweder einer der Ressourcen, die durch ein im Medienelement enthaltenes [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) angegeben werden, oder dem Wert von [`src`](/de/docs/Web/API/HTMLMediaElement/src), wenn kein {{HTMLElement("source")}}-Element vorhanden ist.
 
 ## Beispiele
 
@@ -35,4 +31,4 @@ console.log(obj.currentSrc); // ""
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.currentSrc`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, in der die Eigenschaft `HTMLMediaElement.currentSrc` definiert ist

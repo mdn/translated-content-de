@@ -3,30 +3,30 @@ title: "WorkerNavigator: onLine-Eigenschaft"
 short-title: onLine
 slug: Web/API/WorkerNavigator/onLine
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{ApiRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Gibt den Online-Status des Browsers zurück. Die Eigenschaft gibt einen booleschen Wert zurück, wobei `true` online und `false` offline bedeutet. Die Eigenschaft sendet Aktualisierungen, wann immer sich die Fähigkeit des Browsers, sich mit dem Netzwerk zu verbinden, ändert. Die Aktualisierung erfolgt, wenn der Benutzer Links folgt oder ein Skript eine entfernte Seite anfordert.
+Die schreibgeschützte Eigenschaft **`onLine`** der Schnittstelle [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) gibt den Online-Status des Browsers zurück. Die Eigenschaft gibt einen booleschen Wert zurück: `true` bedeutet online und `false` bedeutet offline. Der Wert wird aktualisiert, wenn sich die Fähigkeit des Browsers ändert, eine Verbindung zum Netzwerk herzustellen. Eine Aktualisierung erfolgt, wenn Benutzer Links folgen oder ein Skript eine Remote-Seite anfordert.
 
-Zum Beispiel sollte die Eigenschaft `false` zurückgeben, wenn Benutzer auf Links klicken, kurz nachdem sie die Internetverbindung verloren haben.
+Beispielsweise sollte die Eigenschaft `false` zurückgeben, wenn Benutzer kurz nach dem Verlust der Internetverbindung auf Links klicken.
 
 Browser implementieren diese Eigenschaft unterschiedlich.
 
-In Chrome und Safari ist der Browser offline, wenn er nicht in der Lage ist, eine Verbindung zu einem lokalen Netzwerk (LAN) oder einem Router herzustellen; alle anderen Bedingungen geben `true` zurück. Daher können Sie zwar davon ausgehen, dass der Browser offline ist, wenn ein `false`-Wert zurückgegeben wird, Sie können jedoch nicht annehmen, dass ein `true`-Wert notwendigerweise bedeutet, dass der Browser auf das Internet zugreifen kann. Es könnten Fehlalarme auftreten, beispielsweise in Fällen, in denen der Computer eine Virtualisierungssoftware ausführt, die virtuelle Ethernet-Adapter hat, die immer "verbunden" sind. Daher sollten Sie, wenn Sie den Online-Status des Browsers wirklich bestimmen möchten, zusätzliche Mittel zur Überprüfung entwickeln. Um mehr zu erfahren, siehe den Artikel von 2011, [Working Off the Grid](https://developer.chrome.com/docs/workbox/service-worker-overview/).
+In Chrome und Safari gilt der Browser als offline, wenn er keine Verbindung zu einem lokalen Netzwerk (LAN) oder einem Router herstellen kann; unter allen anderen Bedingungen wird `true` zurückgegeben. Wenn der Wert `false` ist, können Sie daher davon ausgehen, dass der Browser offline ist. Ein Wert von `true` bedeutet jedoch nicht zwangsläufig, dass der Browser auf das Internet zugreifen kann. Es kann zu falsch positiven Ergebnissen kommen, etwa wenn auf dem Computer eine Virtualisierungssoftware mit virtuellen Ethernet-Adaptern ausgeführt wird, die immer „verbunden“ sind. Wenn Sie den Online-Status des Browsers zuverlässig bestimmen möchten, sollten Sie daher zusätzliche Möglichkeiten zur Überprüfung entwickeln. Weitere Informationen finden Sie im Artikel [Working Off the Grid](https://developer.chrome.com/docs/workbox/service-worker-overview/) aus dem Jahr 2011.
 
-In Firefox sendet das Umschalten des Browsers in den Offline-Modus einen `false`-Wert.
+Wenn Sie Firefox in den Offline-Modus schalten, wird `false` zurückgegeben.
 
 ## Wert
 
-`online` ist ein boolesches `true` oder `false`.
+`online` ist ein boolescher Wert: `true` oder `false`.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Um zu überprüfen, ob Sie in einem Worker online sind, fragen Sie `navigator.onLine` ab, wie im folgenden Beispiel:
+Um in einem Worker zu prüfen, ob Sie online sind, fragen Sie `navigator.onLine` ab, wie im folgenden Beispiel:
 
 ```js
 if (navigator.onLine) {
@@ -36,11 +36,11 @@ if (navigator.onLine) {
 }
 ```
 
-Wenn der Browser `navigator.onLine` nicht unterstützt, wird das obige Beispiel immer als `false`/`undefined` ausgegeben.
+Wenn der Browser `navigator.onLine` nicht unterstützt, ergibt das obige Beispiel immer `false`/`undefined`.
 
-### Lauschen auf Änderungen im Netzwerkstatus
+### Auf Änderungen des Netzwerkstatus reagieren
 
-Um Änderungen im Netzwerkzustand zu sehen, verwenden Sie [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Ereignisse `online` und `offline` zu lauschen, wie im folgenden Beispiel:
+Um Änderungen des Netzwerkstatus zu erkennen, verwenden Sie [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Ereignisse `online` und `offline` zu reagieren, wie im folgenden Beispiel:
 
 ```js
 addEventListener("offline", (e) => {

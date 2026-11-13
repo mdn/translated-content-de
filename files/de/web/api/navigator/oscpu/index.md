@@ -3,12 +3,12 @@ title: "Navigator: oscpu-Eigenschaft"
 short-title: oscpu
 slug: Web/API/Navigator/oscpu
 l10n:
-  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{ ApiRef("HTML DOM") }}
 
-Die Eigenschaft **`Navigator.oscpu`** gibt eine Zeichenfolge zurück, die das aktuelle Betriebssystem identifiziert.
+Die schreibgeschützte Eigenschaft **`oscpu`** der Schnittstelle [`Navigator`](/de/docs/Web/API/Navigator) gibt eine Zeichenfolge zurück, die das aktuelle Betriebssystem identifiziert.
 
 ## Wert
 
@@ -30,7 +30,7 @@ In dieser Tabelle steht `x.y` für die Version des Betriebssystems.
 
 ## Hinweise zur Verwendung
 
-Sofern Ihr Code nicht über erhöhte Berechtigungen verfügt (chrome oder zumindest die Berechtigung UniversalBrowserRead), kann er statt der tatsächlichen Plattform den Wert der Einstellung `general.oscpu.override` erhalten.
+Wenn Ihr Code nicht privilegiert ist (Chrome-Code oder Code mit mindestens der Berechtigung UniversalBrowserRead), erhält er möglicherweise den Wert der Einstellung `general.oscpu.override` anstelle der tatsächlichen Plattform.
 
 ## Beispiele
 

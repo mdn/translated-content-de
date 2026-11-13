@@ -3,23 +3,23 @@ title: "Window: toolbar-Eigenschaft"
 short-title: toolbar
 slug: Web/API/Window/toolbar
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Gibt das `toolbar`-Objekt zurück.
+Die schreibgeschützte Eigenschaft **`toolbar`** der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das `toolbar`-Objekt zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher angab, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war oder nicht.
+Sie gehört zu einer Gruppe von `Window`-Eigenschaften mit einer booleschen Eigenschaft `visible`. Diese gab früher an, ob ein bestimmter Teil der Benutzeroberfläche des Webbrowsers sichtbar war.
 
-Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft jetzt `false`, wenn dieses `Window` ein Popup ist, und `true` ansonsten.
+Aus Gründen des Datenschutzes und der Interoperabilität ist der Wert der Eigenschaft `visible` jetzt `false`, wenn dieses `Window` ein Popup ist, andernfalls `true`.
 
 ## Wert
 
-Ein Objekt, das eine einzelne Eigenschaft enthält:
+Ein Objekt mit einer einzigen Eigenschaft:
 
 - `visible` {{ReadOnlyInline}}
-  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und `true` ansonsten.
+  - : Eine boolesche Eigenschaft, die `false` ist, wenn dieses `Window` ein Popup ist, andernfalls `true`.
 
 ## Spezifikationen
 

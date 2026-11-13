@@ -3,7 +3,7 @@ title: "CSSMathInvert: CSSMathInvert()-Konstruktor"
 short-title: CSSMathInvert()
 slug: Web/API/CSSMathInvert/CSSMathInvert
 l10n:
-  sourceCommit: 542f8a0bccdf6258fb687ee878b87513e4fd1711
+  sourceCommit: 3e9a4ed4d90d0b1793999940290293df7feebba2
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
@@ -19,7 +19,7 @@ new CSSMathInvert(arg)
 ### Parameter
 
 - `arg`
-  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), das den zu invertierenden Wert darstellt.
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), deren bzw. dessen Kehrwert gebildet werden soll.
 
 ### Ausnahmen
 
@@ -29,7 +29,7 @@ Keine.
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt ein `CSSMathInvert`-Objekt aus einem Prozentsatz und gibt dann den Namen des Konstruktors, den `value` und die Serialisierung des Objekts (von [`toString()`](/de/docs/Web/API/CSSStyleValue/toString)) aus.
+Der folgende Code erstellt ein `CSSMathInvert`-Objekt aus einem Prozentwert und gibt anschließend den Namen des Konstruktors, `value` und die Serialisierung des Objekts (aus [`toString()`](/de/docs/Web/API/CSSStyleValue/toString)) aus.
 
 ```js
 const inverted = new CSSMathInvert(CSS.percent(4));
@@ -39,7 +39,7 @@ console.log(inverted.value); // CSSUnitValue {value: 4, unit: "percent"}
 console.log(inverted.toString()); // "calc(1 / 4%)"
 ```
 
-Beachten Sie, dass, wenn eine einfache Zahl an `arg` übergeben wird, der `value` auf einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit der Einheit `"number"` berichtigt wird:
+Wenn eine einfache Zahl an `arg` übergeben wird, wird sie in einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit der Einheit `"number"` umgewandelt:
 
 ```js
 const invertedNumber = new CSSMathInvert(4);

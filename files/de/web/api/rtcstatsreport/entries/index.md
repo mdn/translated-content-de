@@ -1,18 +1,18 @@
 ---
-title: "RTCStatsReport: entries() Methode"
+title: "RTCStatsReport: entries()-Methode"
 short-title: entries()
 slug: Web/API/RTCStatsReport/entries
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: aa3f3f5d4d00cba08b88bddcfa94a84e2a4d976d
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`entries()`**-Methode des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Interfaces gibt ein neues [Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das verwendet werden kann, um durch die Schlüssel/Wert-Paare für jedes Element im `RTCStatsReport`-Objekt in der Einfüge-Reihenfolge zu iterieren.
+Die **`entries()`**-Methode der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück. Damit können Sie die Schlüssel-Wert-Paare aller Elemente im `RTCStatsReport`-Objekt in der Reihenfolge durchlaufen, in der sie eingefügt wurden.
 
-Die Schlüssel sind eindeutige `id`-Werte für überwachte Statistikobjekte, aus denen die Statistiken abgeleitet werden, und die zugehörigen Werte sind [Statistik-Dictionary-Objekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types).
+Die Schlüssel sind eindeutige `id`-Werte überwachter Statistikobjekte, aus denen die Statistiken abgeleitet werden. Die zugehörigen Werte sind [Statistik-Dictionary-Objekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types).
 
-Die Methode entspricht ansonsten {{jsxref("Map.prototype.entries()")}}.
+Ansonsten entspricht die Methode {{jsxref("Map.prototype.entries()")}}.
 
 ## Syntax
 
@@ -30,19 +30,19 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man durch ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) mithilfe des von `entries()` zurückgegebenen Iterators iteriert.
+Dieses Beispiel zeigt, wie Sie einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) mit dem von `entries()` zurückgegebenen Iterator durchlaufen.
 
-Gegeben ist eine Variable `myPeerConnection`, die eine Instanz von `RTCPeerConnection` ist. Der Code ruft [`getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) mit `await` auf, um auf den Statistikbericht zu warten.
-Dann wird eine [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwendet, um mit dem von `entries()` zurückgegebenen Iterator durch die Einträge zu iterieren.
-Die Eigenschaften der Statistikobjekte mit dem `type` `outbound-rtp` werden in die Konsole protokolliert (andere Objekte werden verworfen).
+Der Code setzt voraus, dass die Variable `myPeerConnection` eine Instanz von `RTCPeerConnection` ist. Er ruft [`getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) auf und wartet mit `await` auf den Statistikbericht.
+Anschließend durchläuft er die Einträge mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife und dem von `entries()` zurückgegebenen Iterator.
+Die Eigenschaften der Statistikobjekte mit dem `type` `outbound-rtp` werden in der Konsole ausgegeben (andere Objekte werden verworfen).
 
 ```js
 const stats = await myPeerConnection.getStats();
 
-for (const stat of stats.entries()) {
+for (const [id, stat] of stats.entries()) {
   if (stat.type !== "outbound-rtp") continue;
   Object.keys(stat).forEach((statName) => {
-    console.log(`${statName}: ${report[statName]}`);
+    console.log(`${statName}: ${stat[statName]}`);
   });
 }
 ```

@@ -3,19 +3,19 @@ title: "Navigator: product-Eigenschaft"
 short-title: product
 slug: Web/API/Navigator/product
 l10n:
-  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Der Wert der **`Navigator.product`**-Eigenschaft ist immer `"Gecko"`, in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Die schreibgeschützte Eigenschaft **`product`** der Schnittstelle [`Navigator`](/de/docs/Web/API/Navigator) gibt in jedem Browser immer `"Gecko"` zurück. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen tatsächlichen Produktnamen zurückgibt. Alle Browser geben `"Gecko"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen tatsächlichen Produktnamen zurückgibt. Alle Browser geben für diese Eigenschaft `"Gecko"` zurück.
 
 ## Wert
 
-Der String `"Gecko"`.
+Die Zeichenfolge `"Gecko"`.
 
 ## Spezifikationen
 

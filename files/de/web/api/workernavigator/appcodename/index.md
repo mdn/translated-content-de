@@ -3,19 +3,19 @@ title: "WorkerNavigator: appCodeName-Eigenschaft"
 short-title: appCodeName
 slug: Web/API/WorkerNavigator/appCodeName
 l10n:
-  sourceCommit: 0266df57cb5eb52a057e305ba12d49c93f0edb7e
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Der Wert der **`WorkerNavigator.appCodeName`**-Eigenschaft ist in jedem Browser immer `"Mozilla"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Die schreibgeschützte Eigenschaft **`appCodeName`** der Schnittstelle [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) hat in jedem Browser immer den Wert `"Mozilla"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen tatsächlichen Produktnamen zurückgibt. Alle Browser geben für diese Eigenschaft den Wert `"Mozilla"` zurück.
 
 ## Wert
 
-Der String `"Mozilla"`.
+Die Zeichenfolge `"Mozilla"`.
 
 ## Spezifikationen
 

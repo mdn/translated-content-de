@@ -3,12 +3,16 @@ title: "WebTransportDatagramDuplexStream: incomingHighWaterMark-Eigenschaft"
 short-title: incomingHighWaterMark
 slug: Web/API/WebTransportDatagramDuplexStream/incomingHighWaterMark
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 6a29751fddf17f53c5fc9724b422545959e5c5bf
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{non-standard_header}}
 
-Die **`incomingHighWaterMark`**-Eigenschaft der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) holt oder setzt die High Water Mark für eingehende Datenpakete — dies ist die maximale Größe, in Paketen, die die interne Warteschlange des eingehenden [`ReadableStream`](/de/docs/Web/API/ReadableStream) erreichen kann, bevor sie als voll angesehen wird. Weitere Informationen finden Sie unter [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
+Die Eigenschaft **`incomingHighWaterMark`** der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) gibt die maximale Anzahl eingehender Datagramme an, die in die Warteschlange gestellt werden können, während sie darauf warten, aus dem Stream [`readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable) gelesen zu werden.
+Wenn mehr Datagramme eintreffen, als die Warteschlange aufnehmen kann, werden die ältesten Datagramme in der Warteschlange verworfen.
+Die Anzahl der auf diese Weise verworfenen Datagramme wird in der Eigenschaft [`droppedIncoming`](/de/docs/Web/API/WebTransport/getStats#droppedincoming) der von [`WebTransport.getStats()`](/de/docs/Web/API/WebTransport/getStats) zurückgegebenen Datagrammstatistik angegeben.
+
+Diese Eigenschaft wurde in der Spezifikation durch [`incomingMaxBufferedDatagrams`](/de/docs/Web/API/WebTransportDatagramDuplexStream/incomingMaxBufferedDatagrams) ersetzt. Verwenden Sie stattdessen diese Eigenschaft, sofern sie unterstützt wird (siehe die Tabelle zur [Browser-Kompatibilität](/de/docs/Web/API/WebTransportDatagramDuplexStream/incomingMaxBufferedDatagrams#browser_compatibility)).
 
 ## Wert
 
@@ -46,7 +50,8 @@ async function initTransport(url) {
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [`WebTransport.getStats()`](/de/docs/Web/API/WebTransport/getStats)
+- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

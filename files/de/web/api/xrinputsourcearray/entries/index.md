@@ -1,16 +1,16 @@
 ---
-title: "XRInputSourceArray: entries() Methode"
+title: "XRInputSourceArray: entries()-Methode"
 short-title: entries()
 slug: Web/API/XRInputSourceArray/entries
 l10n:
-  sourceCommit: 6788d086c530ae04793a497d12863db3d8adf040
+  sourceCommit: aa3f3f5d4d00cba08b88bddcfa94a84e2a4d976d
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`entries()`**-Methode des [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) Interfaces gibt einen JavaScript-[`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der verwendet werden kann, um über die Schlüssel/Werte-Paare im Eingabequellen-Array zu iterieren. Jedes Element im Array ist ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt.
+Die **`entries()`**-Methode der Schnittstelle [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) gibt einen JavaScript-[`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, mit dem sich die Schlüssel-Wert-Paare im Eingabequellen-Array durchlaufen lassen. Jeder Schlüssel ist der Index einer Eingabequelle im Array; jeder Wert ist das zugehörige [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt.
 
-Häufig wird dies in Verbindung mit Anweisungen wie [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) verwendet.
+Meistens verwenden Sie diese Methode zusammen mit Anweisungen wie [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of).
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols), der verwendet werden kann, um durch die Liste der `XRInputSource`-Objekte zu gehen, die im Eingabequellen-Array enthalten sind.
+Ein [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols), der für jedes im Eingabequellen-Array enthaltene `XRInputSource`-Objekt ein Paar `[index, inputSource]` liefert.
 
 ## Beispiele
 
-Dieses Beispielschnipsel erhält die Liste der Eingaben für eine Sitzung und versucht, jeden unterstützten Eingabegerätetyp zu verarbeiten.
+Dieser Codeausschnitt ruft die Liste der Eingabequellen einer Sitzung ab und versucht, jeden unterstützten Eingabegerätetyp zu verarbeiten.
 
 ```js
 let sources = xrSession.inputSources;
 
-for (const input of sources.entries()) {
+for (const [index, input] of sources.entries()) {
   if (input.gamepad) {
     checkGamepad(input.gamepad);
   } else if (
@@ -48,9 +48,9 @@ for (const input of sources.entries()) {
 }
 ```
 
-Für jede Eingabe in der Liste werden Gamepad-Eingaben an eine `checkGamepad()`-Funktion gesendet, wobei das [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt der Eingabe, das aus der [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft entnommen wird, als Eingabe dient.
+Für jede Eingabe in der Liste werden Gamepad-Eingaben an `checkGamepad()` weitergegeben. Dabei wird das [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt der Eingabe, das aus ihrer Eigenschaft [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad) stammt, als Argument übergeben.
 
-Für andere Geräte suchen wir nach `tracked-pointer`-Geräten in der Haupt-Hand des Spielers und senden diese an eine `handleMainHandInput()`-Methode.
+Bei anderen Geräten suchen wir nach `tracked-pointer`-Geräten in der Haupthand der spielenden Person und übergeben diese an die Methode `handleMainHandInput()`.
 
 ## Spezifikationen
 

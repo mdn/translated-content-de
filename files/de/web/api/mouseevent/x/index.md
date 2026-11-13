@@ -1,14 +1,14 @@
 ---
-title: "MouseEvent: x Eigenschaft"
+title: "MouseEvent: x-Eigenschaft"
 short-title: x
 slug: Web/API/MouseEvent/x
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.x`**-Eigenschaft ist ein Alias für die [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX)-Eigenschaft.
+Die schreibgeschützte Eigenschaft **`x`** der Schnittstelle [`MouseEvent`](/de/docs/Web/API/MouseEvent) ist ein Alias für die Eigenschaft [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 
 ## Spezifikationen
 

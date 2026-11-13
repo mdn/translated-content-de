@@ -1,18 +1,18 @@
 ---
-title: "SVGPreserveAspectRatio: align-Eigenschaft"
+title: "SVGPreserveAspectRatio: Eigenschaft align"
 short-title: align
 slug: Web/API/SVGPreserveAspectRatio/align
 l10n:
-  sourceCommit: 59fec48b4572624a0b23bc98385dd05029125a76
+  sourceCommit: 757c86b372ca96d49679d57fb782467584c54f36
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`align`**-Eigenschaft der [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio)-Schnittstelle reflektiert den Typ des Ausrichtungswertes, wie er von einer der `SVG_PRESERVEASPECTRATIO_*`-Konstanten definiert ist, die in dieser Schnittstelle festgelegt sind.
+Die Eigenschaft **`align`** der Schnittstelle [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio) gibt den Typ des Ausrichtungswerts wieder, der durch eine der auf dieser Schnittstelle definierten `SVG_PRESERVEASPECTRATIO_*`-Konstanten festgelegt wird.
 
 ## Wert
 
-Einer der folgenden:
+Einer der folgenden Werte:
 
 - `SVGPreserveAspectRatio.SVG_PRESERVEASPECTRATIO_UNKNOWN` (0)
 - `SVGPreserveAspectRatio.SVG_PRESERVEASPECTRATIO_NONE` (1)
@@ -28,7 +28,7 @@ Einer der folgenden:
 
 ## Beispiele
 
-### Zugriff auf die `align`-Eigenschaft
+### Zugriff auf die Eigenschaft `align`
 
 ```html
 <svg

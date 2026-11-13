@@ -1,27 +1,26 @@
 ---
-title: "HTMLMediaElement: Eigenschaft controlsList"
+title: "HTMLMediaElement: controlsList-Eigenschaft"
 short-title: controlsList
 slug: Web/API/HTMLMediaElement/controlsList
 l10n:
-  sourceCommit: 281a6e50be0858c0200a59aac6b4a3f1b64116dc
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`controlsList`**-Eigenschaft der
-[`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle gibt ein DOMTokenList-Objekt zurück, das dem Benutzeragenten hilft, auszuwählen, welche Steuerelemente auf dem Medienelement angezeigt werden sollen, wann immer der Benutzeragent seine eigenen Steuerelemente zeigt. Die DOMTokenList nimmt einen oder mehrere der drei möglichen Werte an: `nodownload`, `nofullscreen` und `noremoteplayback`.
+Die schreibgeschützte Eigenschaft **`controlsList`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gibt eine DOMTokenList zurück. Sie hilft dem User Agent bei der Auswahl der Steuerelemente, die auf dem Medienelement angezeigt werden, wenn der User Agent eigene Steuerelemente anzeigt. Die DOMTokenList enthält einen oder mehrere von drei möglichen Werten: `nodownload`, `nofullscreen` und `noremoteplayback`.
 
 ## Wert
 
 Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
 
-Der Wert von `controlsList` kann gesetzt werden, indem ein String übergeben wird, der die [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft der `DOMTokenList` repräsentiert.
+Der Wert von `controlsList` kann gesetzt werden, indem eine Zeichenfolge übergeben wird, die die Eigenschaft [`value`](/de/docs/Web/API/DOMTokenList/value) der `DOMTokenList` repräsentiert.
 
 ## Beispiele
 
-### Abrufen der `controlsList`-Eigenschaft
+### Die controlsList-Eigenschaft abrufen
 
-Die `controlsList`-Eigenschaft gibt ein [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt zurück, das den aktuell gesetzten Wert enthält.
+Die Eigenschaft `controlsList` gibt ein [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt zurück, das den aktuell gesetzten Wert enthält.
 
 ```js
 const video = document.createElement("video");
@@ -31,9 +30,9 @@ video.controlsList.add("noremoteplayback");
 console.log(video.controlsList.value); // "noremoteplayback"
 ```
 
-### Setzen der `controlsList`-Eigenschaft
+### Die controlsList-Eigenschaft setzen
 
-Sie können `controlsList` auch ändern, indem Sie es direkt auf einen String mit dem neuen Wert setzen.
+Sie können `controlsList` auch ändern, indem Sie der Eigenschaft direkt eine Zeichenfolge mit dem neuen Wert zuweisen.
 
 ```js
 const audio = document.createElement("audio");
@@ -50,4 +49,4 @@ audio.controlsList = "nodownload";
 
 ## Siehe auch
 
-- [Chrome HTMLMediaElement controlsList Beispiel](https://googlechrome.github.io/samples/media/controlslist.html)
+- [Chrome-Beispiel für HTMLMediaElement controlsList](https://googlechrome.github.io/samples/media/controlslist.html)

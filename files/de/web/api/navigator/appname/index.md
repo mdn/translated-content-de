@@ -3,19 +3,19 @@ title: "Navigator: appName-Eigenschaft"
 short-title: appName
 slug: Web/API/Navigator/appName
 l10n:
-  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Der Wert der **`Navigator.appName`**-Eigenschaft ist in jedem Browser immer `"Netscape"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Die schreibgeschützte Eigenschaft **`appName`** der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle hat in jedem Browser immer den Wert `"Netscape"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Browsernamen zurückgibt. Alle Browser geben `"Netscape"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft den tatsächlichen Namen des Browsers zurückgibt. Alle Browser geben für diese Eigenschaft den Wert `"Netscape"` zurück.
 
 ## Wert
 
-Der String `"Netscape"`.
+Die Zeichenfolge `"Netscape"`.
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "Element: attributes-Eigenschaft"
 short-title: attributes
 slug: Web/API/Element/attributes
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{ APIRef("DOM") }}
 
-Die **`Element.attributes`**-Eigenschaft gibt eine dynamische Sammlung aller Attributknoten zurück, die dem angegebenen Knoten zugeordnet sind. Dabei handelt es sich um ein [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) und nicht um ein `Array`, daher besitzt es keine {{jsxref("Array")}}-Methoden und die Indizes der [`Attr`](/de/docs/Web/API/Attr)-Knoten können zwischen Browsern variieren. Genauer gesagt ist `attributes` ein Schlüssel/Wert-Paar von Zeichenfolgen, das Informationen zu diesem Attribut darstellt.
+Die schreibgeschützte Eigenschaft **`attributes`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) gibt eine Live-Sammlung aller für den angegebenen Knoten registrierten Attributknoten zurück. Sie ist eine [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) und kein `Array`. Daher verfügt sie nicht über die Methoden von {{jsxref("Array")}}, und die Indizes der [`Attr`](/de/docs/Web/API/Attr)-Knoten können sich je nach Browser unterscheiden. Genauer gesagt enthält `attributes` Schlüssel-Wert-Paare aus Zeichenfolgen, die Informationen über die jeweiligen Attribute darstellen.
 
 ## Wert
 
@@ -24,9 +24,10 @@ const paragraph = document.querySelector("p");
 const attributes = paragraph.attributes;
 ```
 
-### Aufzählen von Elementattributen
+### Attribute eines Elements durchlaufen
 
-Sie können durch die Attribute eines Elements mit [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) durchlaufen. Das folgende Beispiel geht durch die Attributknoten für das Element im Dokument mit der ID "paragraph" und gibt den Wert jedes Attributs aus.
+Mit [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) können Sie die Attribute eines Elements durchlaufen.
+Das folgende Beispiel durchläuft die Attributknoten des Elements mit der id „paragraph“ im Dokument und gibt den Wert jedes Attributs aus.
 
 ```html
 <p id="paragraph" class="green" contenteditable>Sample Paragraph</p>
@@ -71,5 +72,5 @@ btn.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), das Interface des zurückgegebenen Objekts
-- Überlegungen zur plattformübergreifenden Kompatibilität: auf [quirksmode](https://quirksmode.org/dom/core/#attributes)
+- [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), die Schnittstelle des zurückgegebenen Objekts
+- Hinweise zur browserübergreifenden Kompatibilität: auf [quirksmode](https://quirksmode.org/dom/core/#attributes)

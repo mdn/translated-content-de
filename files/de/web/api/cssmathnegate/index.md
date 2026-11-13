@@ -2,12 +2,12 @@
 title: CSSMathNegate
 slug: Web/API/CSSMathNegate
 l10n:
-  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
+  sourceCommit: 3e9a4ed4d90d0b1793999940290293df7feebba2
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSMathNegate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die Negation eines [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Das **`CSSMathNegate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die Negation eines [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
@@ -16,39 +16,38 @@ Die **`CSSMathNegate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/
 - [`CSSMathNegate()`](/de/docs/Web/API/CSSMathNegate/CSSMathNegate)
   - : Erstellt ein neues `CSSMathNegate`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt außerdem Eigenschaften von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 - [`CSSMathNegate.value`](/de/docs/Web/API/CSSMathNegate/value) {{ReadOnlyInline}}
   - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Statische Methoden
 
-_Erbt auch Methoden von ihrer übergeordneten Schnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt außerdem Methoden von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Methoden von ihrer übergeordneten Schnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt außerdem Methoden von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 ## Beschreibung
 
-`CSSMathNegate` entspricht der Anwendung des unären Minus auf einen numerischen Wert (`x` wird zu `-x`).
+`CSSMathNegate` entspricht der Anwendung des unären Minusoperators auf einen numerischen Wert (`x` wird zu `-x`).
 
-In der Regel werden Sie `CSSMathNegate` nicht direkt konstruieren.
-Es wird durch den internen Negationsschritt erzeugt, den [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) auf seine Argumente anwendet, bevor sie addiert werden: Das Negieren eines [`CSSMathSum`](/de/docs/Web/API/CSSMathSum), [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct), [`CSSMathMin`](/de/docs/Web/API/CSSMathMin), [`CSSMathMax`](/de/docs/Web/API/CSSMathMax), [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp) oder [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert) umhüllt es in einem `CSSMathNegate`.
-Das Negieren eines einfachen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) (einer Länge, eines Prozentsatzes usw.) kehrt stattdessen direkt das Vorzeichen seines `value` um, sodass das Subtrahieren einfacher Werte normalerweise kein `CSSMathNegate` erzeugt.
+In der Regel erstellen Sie ein `CSSMathNegate` nicht direkt. Es entsteht durch den internen Negationsschritt, den [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) auf seine Argumente anwendet, bevor diese addiert werden: Wird ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum), [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct), [`CSSMathMin`](/de/docs/Web/API/CSSMathMin), [`CSSMathMax`](/de/docs/Web/API/CSSMathMax), [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp) oder [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert) negiert, wird es in ein `CSSMathNegate` eingeschlossen.
+Bei der Negation eines einfachen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) (etwa einer Länge oder eines Prozentwerts) wird dagegen direkt das Vorzeichen seiner `value` geändert. Daher entsteht beim Subtrahieren einfacher Werte normalerweise kein `CSSMathNegate`.
 
-Ein `CSSMathNegate` kann auch erscheinen, wenn ein berechneter Wert gelesen wird: Zum Beispiel gibt [`get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get) auf einer Eigenschaft, die mit einem {{cssxref("calc", "calc()")}}-Ausdruck gesetzt wurde, der einen Wert subtrahiert, einen [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) zurück, dessen Operanden ein `CSSMathNegate` enthalten können.
-Sie können es identifizieren, indem Sie die [`operator`](/de/docs/Web/API/CSSMathValue/operator)-Eigenschaft auf die Zeichenkette `"negate"` überprüfen.
+Ein `CSSMathNegate` kann auch beim Lesen eines berechneten Werts auftreten: Beispielsweise kann [`get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get) für eine Eigenschaft, die mit einem {{cssxref("calc", "calc()")}}-Ausdruck gesetzt wurde, der einen Wert subtrahiert, ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) zurückgeben, dessen Operanden ein `CSSMathNegate` enthalten.
+Sie können es erkennen, indem Sie prüfen, ob die Eigenschaft [`operator`](/de/docs/Web/API/CSSMathValue/operator) den String `"negate"` enthält.
 
-`CSSMathNegate` serialisiert sich unter Verwendung der CSS {{CSSXref("calc", "calc()")}}-Syntax als `calc(-<value>)`.
+`CSSMathNegate` wird mit der CSS-Syntax von {{CSSXref("calc", "calc()")}} als `calc(-<value>)` serialisiert.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt ein `CSSMathNegate`-Objekt aus einer Länge, und protokolliert dann den Namen des Konstruktors, `value` und die Serialisierung des Objekts (aus [`toString()`](/de/docs/Web/API/CSSStyleValue/toString)).
+Der folgende Code erstellt aus einer Länge ein `CSSMathNegate`-Objekt und gibt anschließend den Namen des Konstruktors, `value` und die Serialisierung des Objekts (über [`toString()`](/de/docs/Web/API/CSSStyleValue/toString)) aus.
 
 ```js
 const negated = new CSSMathNegate(CSS.px(10));
@@ -58,7 +57,7 @@ console.log(negated.value); // CSSUnitValue {value: 10, unit: "px"}
 console.log(negated.toString()); // "calc(-10px)"
 ```
 
-Beachten Sie, dass, wenn eine einfache Zahl an `arg` übergeben wird, `value` zu einem [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit der Einheit `"number"` korrigiert wird:
+Beachten Sie, dass eine einfache Zahl, die an `arg` übergeben wird, in ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit der Einheit `"number"` umgewandelt wird:
 
 ```js
 const negatedNumber = new CSSMathNegate(4);
@@ -67,12 +66,13 @@ console.log(negatedNumber.value); // CSSUnitValue {value: 4, unit: "number"}
 console.log(negatedNumber.toString()); // "calc(-4)"
 ```
 
-### Subtrahieren eines zusammengesetzten Wertes
+### Subtrahieren eines zusammengesetzten Werts
 
-[`sub()`](/de/docs/Web/API/CSSNumericValue/sub) erzeugt ein `CSSMathNegate`, wenn der subtrahierte Wert selbst ein zusammengesetzter Wert ist, wie z. B. ein `CSSMathSum` (anstatt eines einfachen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)).
+[`sub()`](/de/docs/Web/API/CSSNumericValue/sub) erzeugt ein `CSSMathNegate`, wenn der subtrahierte Wert selbst ein zusammengesetzter Wert ist, beispielsweise ein `CSSMathSum` statt eines einfachen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue).
 
-Dies wird durch den folgenden Code demonstriert. Die `px` und `percent` können ohne Kenntnis der Größe des umgebenden Blocks nicht in einen einzigen Wert kombiniert werden, daher wird der Wert von `composite` als `CSSMathSum` dargestellt.
-Wenn dieser Wert subtrahiert wird, wird der Wert von `composite` in einem `CSSMathNegate` umhüllt.
+Der folgende Code veranschaulicht dies.
+`px` und `percent` können ohne Kenntnis der Größe des umschließenden Blocks nicht zu einem einzigen Wert kombiniert werden. Deshalb wird der Wert von `composite` als `CSSMathSum` dargestellt.
+Wenn dieser Wert subtrahiert wird, wird der Wert von `composite` in ein `CSSMathNegate` eingeschlossen.
 
 ```js
 const composite = CSS.px(10).add(CSS.percent(5)); // CSSMathSum: calc(10px + 5%)
@@ -86,10 +86,10 @@ console.log(result.toString()); // "calc(100px - (10px + 5%))"
 
 ### Parsen von `calc()`
 
-Ein `CSSMathNegate` kann auch erstellt werden, wenn [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static) verwendet wird, um einen {{cssxref("calc", "calc()")}}-Ausdruck zu parsen, der nicht zu einem einzelnen Wert aufgelöst werden kann.
+Ein `CSSMathNegate` kann auch entstehen, wenn [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static) einen {{cssxref("calc", "calc()")}}-Ausdruck parst, der sich nicht zu einem einzelnen Wert auflösen lässt.
 
-Zum Beispiel wird im folgenden Code [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static) verwendet, um einen Wert für die `width`-Eigenschaft zu parsen, der eine Länge von einem Prozentsatz subtrahiert (die erst beim Layout kombiniert werden können).
-Das Ergebnis ist ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum), bei dem der erste Wert im Array ein `CSSUnitValue` ist und der zweite Wert ein `CSSMathNegate`-Objekt, das die Negation des zweiten an die `calc()`-Funktion übergebenen Operanden darstellt.
+Im folgenden Code parst [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static) beispielsweise einen Wert für die Eigenschaft `width`, bei dem eine Länge von einem Prozentwert subtrahiert wird. Diese Werte können erst beim Layout kombiniert werden.
+Das Ergebnis ist ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum), dessen erster Wert im Array ein `CSSUnitValue` ist. Der zweite Wert ist ein `CSSMathNegate`-Objekt, das die Negation des zweiten an die Funktion `calc()` übergebenen Operanden darstellt.
 
 ```js
 const width = CSSStyleValue.parse("width", "calc(50% - 10px)");

@@ -1,14 +1,17 @@
 ---
-title: "WebTransportDatagramDuplexStream: outgoingHighWaterMark-Eigenschaft"
+title: "WebTransportDatagramDuplexStream: Eigenschaft outgoingHighWaterMark"
 short-title: outgoingHighWaterMark
 slug: Web/API/WebTransportDatagramDuplexStream/outgoingHighWaterMark
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 6a29751fddf17f53c5fc9724b422545959e5c5bf
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{non-standard_header}}
 
-Die **`outgoingHighWaterMark`**-Eigenschaft der [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Schnittstelle ruft die Obergrenze für ausgehende Datenblöcke ab oder setzt diese — dies ist die maximale Größe, in Blöcken gemessen, die die interne Warteschlange des ausgehenden [`WritableStream`](/de/docs/Web/API/WritableStream) erreichen kann, bevor sie als voll angesehen wird. Siehe [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für weitere Informationen.
+Die Eigenschaft **`outgoingHighWaterMark`** der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) gibt die maximale Anzahl ausgehender Datagramme an, die zum Senden in die Warteschlange gestellt werden können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
+Datagramme in der Warteschlange werden nicht verworfen, weil die Warteschlange voll ist. Sie können jedoch verfallen, wenn [`outgoingMaxAge`](/de/docs/Web/API/WebTransportDatagramDuplexStream/outgoingMaxAge) festgelegt ist.
+
+Diese Eigenschaft wurde in der Spezifikation durch [`outgoingMaxBufferedDatagrams`](/de/docs/Web/API/WebTransportDatagramDuplexStream/outgoingMaxBufferedDatagrams) ersetzt. Verwenden Sie stattdessen diese Eigenschaft, sofern sie unterstützt wird (siehe die Tabelle zur [Browser-Kompatibilität](/de/docs/Web/API/WebTransportDatagramDuplexStream/outgoingMaxBufferedDatagrams#browser_compatibility)).
 
 ## Wert
 
@@ -46,7 +49,7 @@ async function initTransport(url) {
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

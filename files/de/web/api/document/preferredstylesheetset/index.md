@@ -3,18 +3,18 @@ title: "Dokument: preferredStyleSheetSet-Eigenschaft"
 short-title: preferredStyleSheetSet
 slug: Web/API/Document/preferredStyleSheetSet
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("DOM")}}{{Non-standard_header}}
 
-Die **`preferredStyleSheetSet`**-Eigenschaft gibt das bevorzugte Style-Sheet-Set zurück, wie es vom Seitenautor festgelegt wurde.
+Die schreibgeschützte Eigenschaft **`preferredStyleSheetSet`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt die vom Autor der Seite festgelegte bevorzugte Stylesheet-Gruppe zurück.
 
 ## Wert
 
-Das bevorzugte Style-Sheet-Set des Autors. Dies wird durch die Reihenfolge der Style-Sheet-Deklarationen und den `Default-Style`-HTTP-Header bestimmt.
+Die vom Autor bevorzugte Stylesheet-Gruppe. Sie wird durch die Reihenfolge der Stylesheet-Deklarationen und den HTTP-Header `Default-Style` bestimmt.
 
-Wenn kein bevorzugtes Style-Sheet-Set vom Autor definiert ist, wird der leere String (`""`) zurückgegeben.
+Wenn der Autor keine bevorzugte Stylesheet-Gruppe festgelegt hat, wird eine leere Zeichenfolge (`""`) zurückgegeben.
 
 ## Beispiele
 

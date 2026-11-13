@@ -3,27 +3,20 @@ title: "VideoTrack: id-Eigenschaft"
 short-title: id
 slug: Web/API/VideoTrack/id
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`id`**-Eigenschaft enthält einen
-String, der den Track, der durch die
-**[`VideoTrack`](/de/docs/Web/API/VideoTrack)** repräsentiert wird, eindeutig identifiziert.
+Die schreibgeschützte Eigenschaft **`id`** der Schnittstelle [`VideoTrack`](/de/docs/Web/API/VideoTrack) enthält eine Zeichenfolge, die den durch **[`VideoTrack`](/de/docs/Web/API/VideoTrack)** repräsentierten Track eindeutig identifiziert.
 
-Diese ID kann mit der Methode
-[`VideoTrackList.getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) verwendet werden, um einen spezifischen Track innerhalb der Medien zu lokalisieren, die mit einem Media-Element assoziiert sind.
+Diese ID kann mit der Methode [`VideoTrackList.getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) verwendet werden, um einen bestimmten Track innerhalb der einem Medienelement zugeordneten Medien zu finden.
 
-Die Track-ID kann auch als Fragment einer URL verwendet werden, die den spezifischen Track lädt
-(falls die Medien Media-Fragmente unterstützen).
+Die Track-ID kann auch als Fragment einer URL verwendet werden, über die der bestimmte Track geladen wird (sofern das Medium Medienfragmente unterstützt).
 
 ## Wert
 
-Ein String, der den Track identifiziert und geeignet ist für die Verwendung bei einem Aufruf von
-[`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) auf einem
-[`VideoTrackList`](/de/docs/Web/API/VideoTrackList), wie die durch die
-[`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)-Eigenschaft eines Media-Elements spezifizierte Liste.
+Eine Zeichenfolge, die den Track identifiziert und beim Aufruf von [`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) für eine [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) verwendet werden kann, beispielsweise für die Liste, die durch die Eigenschaft [`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) eines Medienelements angegeben wird.
 
 ## Spezifikationen
 

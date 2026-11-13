@@ -3,20 +3,20 @@ title: "Document: scripts-Eigenschaft"
 short-title: scripts
 slug: Web/API/Document/scripts
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("DOM")}}
 
-Die **`scripts`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste der {{HTMLElement("script")}}-Elemente im Dokument zurück. Das zurückgegebene Objekt ist eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Die schreibgeschützte Eigenschaft **`scripts`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt eine Liste der {{HTMLElement("script")}}-Elemente im Dokument zurück. Das zurückgegebene Objekt ist eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Sie können diese wie ein Array verwenden, um alle Elemente in der Liste zu erhalten.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Sie können wie bei einem Array auf die Elemente der Liste zugreifen.
 
 ## Beispiele
 
-Dieses Beispiel überprüft, ob die Seite {{HTMLElement("script")}}-Elemente enthält.
+Dieses Beispiel prüft, ob die Seite {{HTMLElement("script")}}-Elemente enthält.
 
 ```js
 let scripts = document.scripts;

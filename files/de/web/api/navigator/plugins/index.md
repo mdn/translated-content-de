@@ -3,31 +3,34 @@ title: "Navigator: plugins-Eigenschaft"
 short-title: plugins
 slug: Web/API/Navigator/plugins
 l10n:
-  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Gibt ein [`PluginArray`](/de/docs/Web/API/PluginArray)-Objekt zurück, das die [`Plugin`](/de/docs/Web/API/Plugin)-Objekte auflistet, die die in der Anwendung installierten Plugins beschreiben. Die benannten Eigenschaften des zurückgegebenen Objekts sind nicht aufzählbar (außer in sehr alten Browserversionen).
+Die schreibgeschützte Eigenschaft **`plugins`** der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`PluginArray`](/de/docs/Web/API/PluginArray)-Objekt zurück. Dieses enthält [`Plugin`](/de/docs/Web/API/Plugin)-Objekte, die die in der Anwendung installierten Plugins beschreiben.
+Die benannten Eigenschaften des zurückgegebenen Objekts sind nicht aufzählbar (außer in sehr alten Browserversionen).
 
-Neuere Versionen der Spezifikation haben die zurückgegebene Liste fest kodiert. Wenn die Inline-Anzeige von PDF-Dateien unterstützt wird, listet die Eigenschaft fünf Standard-Plugins auf. Wenn die Inline-PDF-Anzeige nicht unterstützt wird, wird eine leere Liste zurückgegeben.
+Neuere Versionen der Spezifikation legen die zurückgegebene Liste fest.
+Wenn die Inline-Anzeige von PDF-Dateien unterstützt wird, enthält die Eigenschaft fünf Standard-Plugins.
+Wird die Inline-Anzeige von PDF-Dateien nicht unterstützt, wird eine leere Liste zurückgegeben.
 
 > [!NOTE]
 > Verwenden Sie [`Navigator.pdfViewerEnabled`](/de/docs/Web/API/Navigator/pdfViewerEnabled), um festzustellen, ob die Inline-Anzeige von PDF-Dateien unterstützt wird. Leiten Sie dies nicht aus dieser Eigenschaft ab.
 >
-> Die "fünf Standard-Plugins" sind diejenigen, die Entwickler am häufigsten verwendet haben, um die Inline-PDF-Anzeige zu erkennen.
-> Die Rückgabe dieser Plugins stellt sicher, dass Legacy-Code zuverlässiger feststellen kann, ob die Inline-Anzeige unterstützt wird.
-> Diese Methode wird jedoch für neuen Code nicht empfohlen, da diese Eigenschaft möglicherweise irgendwann entfernt wird.
+> Die „fünf Standard-Plugins“ sind diejenigen, die Entwickler am häufigsten zur Funktionserkennung der Inline-Anzeige von PDF-Dateien verwendet haben.
+> Ihre Rückgabe stellt sicher, dass bestehender Code zuverlässiger feststellen kann, ob die Inline-Anzeige unterstützt wird.
+> Für neuen Code wird dieser Ansatz jedoch nicht empfohlen, da diese Eigenschaft möglicherweise irgendwann entfernt wird.
 
-Legacy-Browserversionen listen auch Plugins für Adobe Flash und PDF-Viewer-Erweiterungen auf.
+Ältere Browserversionen führen auch Plugins für Adobe Flash und PDF-Viewer-Erweiterungen auf.
 
 ## Wert
 
-`plugins` ist ein [`PluginArray`](/de/docs/Web/API/PluginArray)-Objekt, das verwendet wird, um auf [`Plugin`](/de/docs/Web/API/Plugin)-Objekte entweder nach Namen oder als Liste von Elementen zuzugreifen.
+`plugins` ist ein [`PluginArray`](/de/docs/Web/API/PluginArray)-Objekt, über das auf [`Plugin`](/de/docs/Web/API/Plugin)-Objekte entweder anhand ihres Namens oder als Listeneinträge zugegriffen werden kann.
 
-Der zurückgegebene Wert ist kein JavaScript-Array, hat jedoch die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente mit der Klammernotation (`plugins[2]`) sowie über die Methoden `item(index)` und `namedItem("name")`.
+Der zurückgegebene Wert ist kein JavaScript-Array, verfügt aber über die Eigenschaft `length`. Auf einzelne Einträge kann mit der Klammernotation (`plugins[2]`) sowie mit den Methoden `item(index)` und `namedItem("name")` zugegriffen werden.
 
-Wenn die Inline-Anzeige von PDFs unterstützt wird, enthält dies Einträge für die folgenden Plugins:
+Wenn die Inline-Anzeige von PDF-Dateien unterstützt wird, enthält das Objekt Einträge für die folgenden Plugins:
 
 - "PDF Viewer"
 - "Chrome PDF Viewer"
@@ -35,11 +38,11 @@ Wenn die Inline-Anzeige von PDFs unterstützt wird, enthält dies Einträge für
 - "Microsoft Edge PDF Viewer"
 - "WebKit built-in PDF"
 
-Wenn die Inline-Anzeige von PDFs nicht unterstützt wird, wird ein leeres Objekt zurückgegeben.
+Wird die Inline-Anzeige von PDF-Dateien nicht unterstützt, wird ein leeres Objekt zurückgegeben.
 
 ## Beispiele
 
-Dieser Code zeigt, wie überprüft werden kann, ob PDF-Dateien inline angezeigt werden können:
+Dieser Code zeigt, wie Sie prüfen können, ob PDF-Dateien inline angezeigt werden können:
 
 ```js
 if ("PDF Viewer" in navigator.plugins) {

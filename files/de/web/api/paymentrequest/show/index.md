@@ -1,23 +1,23 @@
 ---
-title: "PaymentRequest: show()-Methode"
+title: "PaymentRequest: Methode show()"
 short-title: show()
 slug: Web/API/PaymentRequest/show
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: fe63d654201609c9fcbec752284da5bffa40e1b4
 ---
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **[`PaymentRequest`](/de/docs/Web/API/PaymentRequest)**-Schnittstelle enthält die Methode **`show()`**, die den Benutzeragenten anweist, den Vorgang zum Anzeigen und Bearbeiten der Benutzeroberfläche für die Zahlungsanforderung gegenüber dem Benutzer zu beginnen.
+Die Methode **`show()`** der Schnittstelle **[`PaymentRequest`](/de/docs/Web/API/PaymentRequest)** weist den User Agent an, die Benutzeroberfläche für die Zahlungsanfrage anzuzeigen und zu verarbeiten.
 
-Es kann nur eine Zahlungsanforderung gleichzeitig bearbeitet werden, selbst über alle Dokumente hinweg. Sobald die `show()`-Methode eines `PaymentRequest` aufgerufen wurde, wird jeder andere Aufruf von `show()` mit einem `AbortError` abgelehnt, bis das zurückgegebene Versprechen entweder durch ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse), das die Ergebnisse der Zahlungsanforderung angibt, erfüllt oder durch einen Fehler abgelehnt wird.
+Über alle Dokumente hinweg kann jeweils nur eine Zahlungsanfrage verarbeitet werden. Nachdem `show()` für ein `PaymentRequest`-Objekt aufgerufen wurde, wird jeder weitere Aufruf von `show()` mit einem `AbortError` abgelehnt, bis das zurückgegebene Promise entweder mit einer [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) erfüllt wurde, die das Ergebnis der Zahlungsanfrage angibt, oder mit einem Fehler abgelehnt wurde.
 
 > [!NOTE]
-> In der Realität unterstützen einige Browser, einschließlich Firefox, mehrere aktive Zahlungsanforderungen gleichzeitig, obwohl in der Spezifikation steht, dass dies nicht möglich ist.
+> Obwohl die Spezifikation dies nicht vorsieht, unterstützen einige Browser, darunter Firefox, tatsächlich mehrere gleichzeitig aktive Zahlungsanfragen.
 
-Wenn Ihre Architektur nicht unbedingt alle Daten bereit hat, wenn sie die Zahlungsoberfläche durch Aufrufen von `show()` instanziiert, geben Sie den Parameter `detailsPromise` an, indem Sie ein {{jsxref("Promise")}} bereitstellen, das erfüllt wird, wenn die Daten bereit sind. Wird dies angegeben, erlaubt `show()` dem Nutzer nicht, mit der Zahlungsoberfläche zu interagieren, bis das Versprechen erfüllt ist, sodass die Daten vor dem Engagement des Nutzers mit dem Zahlungsprozess aktualisiert werden können.
+Wenn in Ihrer Architektur beim Aufruf von `show()` noch nicht alle Daten vorliegen, geben Sie den Parameter `detailsPromise` an. Übergeben Sie dafür ein {{jsxref("Promise")}}, das erfüllt wird, sobald die Daten bereitstehen. Ist dieser Parameter angegeben, erlaubt `show()` dem Benutzer erst dann die Interaktion mit der Zahlungsoberfläche, wenn das Promise erfüllt wurde. So können die Daten aktualisiert werden, bevor der Benutzer mit dem Zahlungsvorgang beginnt.
 
-Die Verarbeitung des Ergebnisses und, falls erforderlich, das Aufrufen von [`PaymentResponse.retry()`](/de/docs/Web/API/PaymentResponse/retry) zum Wiederholen einer fehlgeschlagenen Zahlung kann entweder asynchron oder synchron erfolgen, je nach Bedarf. Für die beste Benutzererfahrung sind asynchrone Lösungen in der Regel der beste Weg. Die meisten Beispiele auf MDN und anderswo verwenden [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)/[`await`](/de/docs/Web/JavaScript/Reference/Operators/await), um asynchron zu warten, während Ergebnisse validiert und so weiter.
+Die Verarbeitung des Ergebnisses und, falls erforderlich, ein Aufruf von [`PaymentResponse.retry()`](/de/docs/Web/API/PaymentResponse/retry), um eine fehlgeschlagene Zahlung erneut zu versuchen, können je nach Bedarf asynchron oder synchron erfolgen. Für eine gute Benutzererfahrung sind asynchrone Lösungen in der Regel vorzuziehen. Die meisten Beispiele auf MDN und anderswo verwenden [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)/[`await`](/de/docs/Web/JavaScript/Reference/Operators/await), um asynchron auf die Validierung der Ergebnisse und weitere Vorgänge zu warten.
 
 ## Syntax
 
@@ -29,74 +29,76 @@ show(details)
 ### Parameter
 
 - `details` {{optional_inline}}
-  - : Entweder ein Objekt oder ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird. Geben Sie dies an, falls Ihre Architektur erfordert, dass die Zahlungsanforderungsdetails zwischen dem Instanziieren der Zahlungsoberfläche und dem Beginn der Interaktion des Nutzers aktualisiert werden müssen. Das Objekt sollte die aktualisierten Informationen enthalten:
+  - : Entweder ein Objekt oder ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird. Geben Sie diesen Parameter an, wenn Ihre Architektur erfordert, dass die Details der Zahlungsanfrage zwischen der Initialisierung der Zahlungsoberfläche und dem Beginn der Benutzerinteraktion aktualisiert werden. Das Objekt sollte die aktualisierten Informationen enthalten:
     - `displayItems` {{optional_inline}}
-      - : Ein Array von Objekten, die jeweils ein Zeilenobjekt für die Zahlungsanforderung beschreiben. Diese repräsentieren die Zeilenobjekte auf einer Quittung oder Rechnung, jeweils mit den folgenden Eigenschaften:
+      - : Ein Array von Objekten, die jeweils einen Posten der Zahlungsanfrage beschreiben. Diese entsprechen den Posten auf einem Beleg oder einer Rechnung und haben jeweils die folgenden Eigenschaften:
         - `amount`
-          - : Ein Objekt, das den Geldwert des Artikels beschreibt. Dieses Objekt umfasst die folgenden Felder:
+          - : Ein Objekt, das den Geldwert des Postens beschreibt. Es enthält die folgenden Felder:
             - `currency`
-              - : Eine Zeichenfolge mit einem gültigen dreistelligen [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html)-Währungskennzeichen ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)), das die für den Zahlungswert verwendete Währung angibt.
+              - : Eine Zeichenfolge mit einem gültigen dreibuchstabigen [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html)-Währungscode ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)), der die für den Zahlungswert `value` verwendete Währung angibt.
             - `value`
-              - : Eine Zeichenfolge mit einem gültigen Dezimalwert, der die Mengenangabe der Währung darstellt, die den Zahlungsbetrag ausmacht. Diese Zeichenfolge darf nur optional ein führendes "-" enthalten, um einen negativen Wert anzuzeigen, gefolgt von einer oder mehreren Ziffern von 0 bis 9, und einem optionalen Dezimalpunkt (".", unabhängig von der Spracheinstellung), gefolgt von mindestens einer weiteren Ziffer. Kein Leerraum ist erlaubt.
+              - : Eine Zeichenfolge mit einem gültigen Dezimalwert, der den Zahlungsbetrag angibt. Sie darf nur aus einem optionalen vorangestellten „-“ für einen negativen Wert, einer oder mehreren Ziffern von 0 bis 9 und einem optionalen Dezimalpunkt („.“, unabhängig vom Gebietsschema) mit mindestens einer weiteren Ziffer bestehen. Leerzeichen sind nicht zulässig.
         - `label`
-          - : Eine Zeichenfolge, die einen menschenlesbaren Namen oder eine Beschreibung des Artikels oder der Dienstleistung spezifiziert, für die eine Gebühr erhoben wird. Dies kann dem Benutzer durch den {{Glossary("user_agent", "Benutzeragenten")}} angezeigt werden, je nach Design der Schnittstelle.
+          - : Eine Zeichenfolge mit einem für Menschen lesbaren Namen oder einer Beschreibung des berechneten Postens oder der Dienstleistung. Je nach Gestaltung der Oberfläche kann der {{Glossary("user_agent", "User Agent")}} sie dem Benutzer anzeigen.
         - `pending`
-          - : Ein boolescher Wert, der `true` ist, wenn der angegebene `amount` noch nicht finalisiert wurde. Dies kann verwendet werden, um Elemente wie Versandkosten oder Steuerbeträge anzuzeigen, die von der Auswahl der Versandadresse, der Versandoption oder Ähnlichem abhängen. Der Benutzeragent kann diese Informationen anzeigen, muss es aber nicht.
+          - : Ein boolescher Wert, der `true` ist, wenn der angegebene `amount` noch nicht endgültig feststeht. Damit können beispielsweise Versandkosten oder Steuern gekennzeichnet werden, die von der gewählten Versandadresse oder Versandoption abhängen. Der User Agent kann diese Information anzeigen, muss es aber nicht.
 
     - `error` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
-      - : Eine Zeichenfolge, die eine Fehlermeldung angibt, die dem Benutzer angezeigt werden soll. Beim Aufruf von [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) führt die Einbeziehung von `error` in die aktualisierten Daten dazu, dass der {{Glossary("user_agent", "Benutzeragent")}} den Text als allgemeine Fehlermeldung anzeigt. Für feldspezifische Adressfehler verwenden Sie das Feld `shippingAddressErrors`.
+      - : Eine Zeichenfolge mit einer Fehlermeldung für den Benutzer. Wenn Sie [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) aufrufen und `error` in die aktualisierten Daten aufnehmen, zeigt der {{Glossary("user_agent", "User Agent")}} den Text als allgemeine Fehlermeldung an. Verwenden Sie für Fehler in bestimmten Adressfeldern das Feld `shippingAddressErrors`.
 
     - `modifiers` {{optional_inline}}
-      - : Ein Array von Objekten, die jeweils einen Modifikator für bestimmte Zahlungsmethodenkennzeichen beschreiben, jeweils mit den folgenden Eigenschaften:
+      - : Ein Array von Objekten, die jeweils eine Anpassung für bestimmte Zahlungsmethodenkennungen beschreiben. Jedes Objekt hat die folgenden Eigenschaften:
         - `supportedMethods`
-          - : Eine Zeichenfolge, die das Zahlungsmethodenkennzeichen darstellt. Das Zahlungsmethodenkennzeichen gilt nur, wenn der Benutzer diese Zahlungsmethode auswählt.
+          - : Eine Zeichenfolge, die die Zahlungsmethodenkennung darstellt. Die Anpassung gilt nur, wenn der Benutzer diese Zahlungsmethode auswählt.
         - `total` {{optional_inline}}
-          - : Ein Objekt, das die Eigenschaft `total` des Parameters `detailsPromise` überschreibt, falls diese Zahlungsmethode vom Benutzer ausgewählt wird. Die Eigenschaft nimmt denselben Eingabewert wie die Eigenschaft `total` des Parameters `detailsPromise`.
+          - : Ein Objekt, das die Eigenschaft `total` des Parameters `detailsPromise` überschreibt, wenn der Benutzer diese Zahlungsmethode auswählt. Es akzeptiert dieselben Eingaben wie die Eigenschaft `total` des Parameters `detailsPromise`.
         - `additionalDisplayItems` {{optional_inline}}
-          - : Ein {{jsxref("Array")}} von Objekten bietet zusätzliche Anzeigeelemente, die der Eigenschaft `displayItems` des Parameters `detailsPromise` hinzugefügt werden, falls diese Zahlungsmethode vom Benutzer ausgewählt wird. Diese Eigenschaft wird häufig verwendet, um ein Rabatt- oder Zuschlagselement hinzuzufügen, das den Grund für den unterschiedlichen Gesamtbetrag für die ausgewählte Zahlungsmethode angibt, den der Benutzeragent anzeigen kann. Die Eigenschaft nimmt denselben Eingabewert wie die Eigenschaft `displayItems` des Parameters `detailsPromise`.
+          - : Ein {{jsxref("Array")}} von Objekten mit zusätzlichen anzuzeigenden Posten, die an die Eigenschaft `displayItems` des Parameters `detailsPromise` angehängt werden, wenn der Benutzer diese Zahlungsmethode auswählt. Diese Eigenschaft wird häufig verwendet, um einen Rabatt oder Zuschlag als Posten hinzuzufügen und so den abweichenden Gesamtbetrag für die ausgewählte Zahlungsmethode zu erklären, den der User Agent anzeigen kann. Sie akzeptiert dieselben Eingaben wie die Eigenschaft `displayItems` des Parameters `detailsPromise`.
         - `data` {{optional_inline}}
-          - : Ein serialisierbares Objekt, das optionale Informationen bereitstellt, die von den unterstützten Zahlungsmethoden benötigt werden könnten.
+          - : Ein serialisierbares Objekt mit optionalen Informationen, die von den unterstützten Zahlungsmethoden benötigt werden könnten.
 
-        Zum Beispiel können Sie einen verwenden, um den gesamten Zahlungsbetrag basierend auf der ausgewählten Zahlungsmethode anzupassen ("5% Barzahlungsrabatt!").
+        Sie können eine solche Anpassung beispielsweise verwenden, um den Gesamtbetrag abhängig von der gewählten Zahlungsmethode zu ändern („5 % Rabatt bei Barzahlung!“).
 
     - `shippingAddressErrors` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
-      - : Ein Objekt, das eine Fehlermeldung für jede Eigenschaft der Lieferadresse enthält, die nicht validiert werden konnte.
+      - : Ein Objekt mit einer Fehlermeldung für jede Eigenschaft der Versandadresse, die nicht validiert werden konnte.
     - `shippingOptions` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
-      - : Ein Array von Objekten, die jeweils eine verfügbare Versandoption beschreiben, aus der der Benutzer auswählen kann.
+      - : Ein Array von Objekten, die jeweils eine verfügbare Versandoption beschreiben, aus denen der Benutzer wählen kann.
     - `total` {{optional_inline}}
-      - : Ein Objekt mit denselben Eigenschaften wie die Objekte in `displayItems`, das eine aktualisierte Gesamtsumme für die Zahlung bereitstellt. Stellen Sie sicher, dass dies der Summe aller Elemente in `displayItems` entspricht. _Dies wird nicht automatisch berechnet_. Sie müssen diesen Wert selbst aktualisieren, jedes Mal, wenn sich der zu zahlende Gesamtbetrag ändert. Dies gibt Ihnen Flexibilität, wie Sie mit Steuern, Rabatten und anderen Anpassungen des Gesamtpreises umgehen.
+      - : Ein Objekt mit denselben Eigenschaften wie die Objekte in `displayItems`, das einen aktualisierten Gesamtbetrag für die Zahlung angibt. Stellen Sie sicher, dass dieser der Summe aller Posten in `displayItems` entspricht. _Er wird nicht automatisch berechnet._ Sie müssen diesen Wert jedes Mal selbst aktualisieren, wenn sich der fällige Gesamtbetrag ändert. So können Sie flexibel festlegen, wie Steuern, Rabatte und andere Anpassungen des Gesamtpreises berücksichtigt werden.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das schließlich mit einem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) aufgelöst wird. Das Versprechen wird erfüllt, wenn der Benutzer die Zahlungsanforderung akzeptiert (zum Beispiel durch Klicken auf eine „Bezahlen“-Schaltfläche im Zahlungsschirm des Browsers).
+Ein {{jsxref("Promise")}}, das schließlich mit einer [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) erfüllt wird. Das Promise wird erfüllt, wenn der Benutzer die Zahlungsanfrage annimmt, beispielsweise indem er im Zahlungsdialog des Browsers auf eine Schaltfläche „Bezahlen“ klickt.
 
 ### Ausnahmen
 
-Ausnahmen werden nicht ausgelöst, sondern zurückgegeben, wenn das {{jsxref("Promise")}} abgelehnt wird.
+Die folgenden Ausnahmen können zurückgegeben werden, wenn das {{jsxref("Promise")}} abgelehnt wird.
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn der {{Glossary("user_agent", "Benutzeragent")}} bereits ein Zahlungsfenster anzeigt. Es kann zu einem Zeitpunkt _gemeinsam mit allen von dem Benutzeragent geladenen Dokumenten_ nur ein Zahlungsfenster sichtbar sein.
+  - : Wird zurückgegeben, wenn:
 
-    Das Versprechen wird auch mit `AbortError` abgelehnt, wenn der Benutzer die Zahlungsanforderung abbricht.
-
+    - Der Benutzer die Zahlungsanfrage abbricht.
+    - Der {{Glossary("user_agent", "User Agent")}} bereits einen Zahlungsdialog anzeigt. Es darf jeweils nur ein Zahlungsdialog sichtbar sein, _über alle vom User Agent geladenen Dokumente hinweg_.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn dieselbe Zahlung bereits für diese Anfrage angezeigt wurde (ihr Status ist `interactive`, da sie bereits angezeigt wird).
+  - : Wird zurückgegeben, wenn dieselbe Zahlung für diese Anfrage bereits angezeigt wurde (ihr Zustand ist `interactive`, weil sie bereits angezeigt wird).
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn der Benutzeragent die in der Konstruktorfunktion von [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest) angegebenen Zahlungsmethoden nicht unterstützt.
+  - : Wird zurückgegeben, wenn der User Agent die beim Aufruf des Konstruktors [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest) angegebenen Zahlungsmethoden nicht unterstützt.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, um einen internen Fehler in der zugrunde liegenden App anzuzeigen, die die Zahlung verarbeitet.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn der Aufruf von `show()` nicht als Reaktion auf eine Benutzeraktion, wie z. B. einem [`click`](/de/docs/Web/API/Element/click_event) oder [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis, erfolgte. Andere Gründe für das Auslösen eines `SecurityError` liegen im Ermessen des Benutzeragenten und können Situationen umfassen, wie zu viele `show()`-Aufrufe in kurzer Zeit oder `show()`-Aufrufe, während Zahlungsanforderungen durch Kindersicherungen blockiert sind.
+  - : Wird zurückgegeben, wenn `show()` nicht als Reaktion auf eine Benutzeraktion aufgerufen wurde, etwa auf ein [`click`](/de/docs/Web/API/Element/click_event)- oder [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis. Ob ein `SecurityError` aus weiteren Gründen ausgelöst wird, liegt im Ermessen des User Agents. Dazu kann gehören, dass `show()` innerhalb kurzer Zeit zu oft aufgerufen wird oder dass ein Aufruf erfolgt, während Zahlungsanfragen durch eine Kindersicherung blockiert sind.
 
 ## Sicherheit
 
-[Flüchtige Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Eine [vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Damit diese Funktion verwendet werden kann, muss der Benutzer mit der Seite oder einem Element der Benutzeroberfläche interagieren.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Die gängigsten Muster zur Verwendung von `show()` beinhalten entweder die [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)/[`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Syntax oder die Verwendung von `show().then().catch()`, um die Antwort und jede mögliche Ablehnung zu handhaben. Diese sehen folgendermaßen aus:
+Die gebräuchlichsten Muster für die Verwendung von `show()` sind die Syntax [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)/[`await`](/de/docs/Web/JavaScript/Reference/Operators/await) oder `show().then().catch()`, um die Antwort und eine mögliche Ablehnung zu verarbeiten. Sie sehen wie folgt aus:
 
 ### async/await-Syntax
 
-Das Verwenden von `await`, um auf das Auflösen eines Versprechens zu warten, ermöglicht das besonders saubere Schreiben von Code zur Zahlungsabwicklung:
+Wenn Sie mit `await` auf die Erfüllung eines Promise warten, lässt sich der Code zur Verarbeitung von Zahlungen besonders übersichtlich schreiben:
 
 ```js
 async function processPayment() {
@@ -116,9 +118,9 @@ async function processPayment() {
 }
 ```
 
-In diesem Code überprüfen die Methoden `checkAddress()` und `checkShipping()`, ob die Lieferadresse und die Versandoptionen geändert wurden, und liefern als Antwort entweder ein Objekt oder ein Versprechen für eines; dieses Objekt enthält die Felder des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse), die geändert wurden oder werden müssen.
+In diesem Code prüfen die Methoden `checkAddress()` und `checkShipping()` die Änderungen der Versandadresse beziehungsweise der Versandoption. Als Antwort liefern sie entweder ein Objekt oder ein Promise, das ein solches Objekt zurückgibt. Dieses Objekt enthält die Felder der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse), die geändert wurden oder geändert werden müssen.
 
-Die `validateResponse()`-Methode unten wird aufgerufen, sobald `show()` zurückkehrt, um die zurückgegebene `response` anzusehen und entweder die Zahlung einzureichen oder die Zahlung als fehlgeschlagen abzulehnen:
+Die unten stehende Methode `validateResponse()` wird aufgerufen, sobald `show()` zurückkehrt. Sie prüft die zurückgegebene `response` und übermittelt entweder die Zahlung oder lehnt sie als fehlgeschlagen ab:
 
 ```js
 async function validateResponse(response) {
@@ -134,17 +136,17 @@ async function validateResponse(response) {
 }
 ```
 
-Hier prüft eine benutzerdefinierte Funktion namens `checkAllValues()` jeden Wert in der `response` und stellt sicher, dass sie gültig sind, und gibt `true` zurück, wenn alle Felder gültig sind, oder `false`, wenn eines nicht ist. Nur wenn alle Felder gültig sind, wird die Methode [`complete()`](/de/docs/Web/API/PaymentResponse/complete) auf der Antwort mit dem String `"success"` aufgerufen, was anzeigt, dass alles gültig ist und die Zahlung entsprechend abgeschlossen werden kann.
+Hier prüft eine benutzerdefinierte Funktion namens `checkAllValues()` jeden Wert in der `response` auf Gültigkeit. Sie gibt `true` zurück, wenn alle Felder gültig sind, und andernfalls `false`. Nur wenn alle Felder gültig sind, wird die Methode [`complete()`](/de/docs/Web/API/PaymentResponse/complete) für die Antwort mit der Zeichenfolge `"success"` aufgerufen. Dies gibt an, dass alles gültig ist und die Zahlung entsprechend abgeschlossen werden kann.
 
-Wenn eines der Felder unzulässige Werte aufweist oder wenn vom vorherigen Code eine Ausnahme ausgelöst wird, wird `complete()` mit dem String `"fail"` aufgerufen, der anzeigt, dass der Zahlungsvorgang abgeschlossen und fehlgeschlagen ist.
+Wenn Felder unzulässige Werte enthalten oder der vorangehende Code eine Ausnahme auslöst, wird `complete()` mit der Zeichenfolge `"fail"` aufgerufen. Dies gibt an, dass der Zahlungsvorgang abgeschlossen und fehlgeschlagen ist.
 
-Statt sofort zu scheitern, könnten Sie sich entscheiden, [`retry()`](/de/docs/Web/API/PaymentResponse/retry) auf dem Antwortobjekt aufzurufen, um den Benutzeragenten zu bitten, den Zahlungsvorgang erneut zu versuchen; dies sollte normalerweise nur geschehen, nachdem der Benutzer alle erforderlichen Korrekturen an der Bestellung vorgenommen hat.
+Statt die Zahlung sofort als fehlgeschlagen zu behandeln, können Sie [`retry()`](/de/docs/Web/API/PaymentResponse/retry) für das Antwortobjekt aufrufen, um den User Agent zu einem erneuten Verarbeitungsversuch aufzufordern. Dies sollte in der Regel erst geschehen, nachdem der Benutzer alle erforderlichen Korrekturen an der Bestellung vorgenommen hat.
 
-Den Zahlungsvorgang zu starten ist letztendlich so einfach wie das Aufrufen der Methode `processPayment()`.
+Um den Zahlungsvorgang zu starten, genügt schließlich ein Aufruf der Methode `processPayment()`.
 
 ### then/catch-Syntax
 
-Sie können auch den älteren, versprechensbasierten Ansatz verwenden, um mit Zahlungen zu arbeiten, indem Sie die Funktionen {{jsxref("Promise.then", "then()")}} und {{jsxref("Promise.catch", "catch()")}} auf das von `show()` zurückgegebene Versprechen anwenden:
+Sie können Zahlungen auch mit dem älteren Promise-basierten Ansatz verarbeiten. Verwenden Sie dazu die Funktionen {{jsxref("Promise.then", "then()")}} und {{jsxref("Promise.catch", "catch()")}} für das von `show()` zurückgegebene Promise:
 
 ```js
 function processPayment() {
@@ -162,7 +164,7 @@ function processPayment() {
 }
 ```
 
-Dies ist funktional äquivalent zur Methode `processPayment()` mit der `await`-Syntax.
+Dies ist funktional gleichwertig mit der Methode `processPayment()` unter Verwendung der `await`-Syntax.
 
 ```js
 function validateResponse(response) {
@@ -172,7 +174,7 @@ function validateResponse(response) {
 }
 ```
 
-Sie könnten `checkAllValues()` sogar als synchrone Funktion haben, obwohl das möglicherweise Leistungsauswirkungen hat, die Sie nicht handhaben möchten:
+`checkAllValues()` könnte sogar eine synchrone Funktion sein. Das kann allerdings unerwünschte Auswirkungen auf die Leistung haben:
 
 ```js
 function validateResponse(response) {
@@ -184,11 +186,11 @@ function validateResponse(response) {
 }
 ```
 
-Lesen Sie den Artikel [Verwendung von Versprechen](/de/docs/Web/JavaScript/Guide/Using_promises), um weitere Informationen zu erhalten, wenn Sie mehr darüber erfahren möchten, wie Sie mit Versprechen arbeiten.
+Weitere Informationen zur Arbeit mit Promises finden Sie im Artikel [Promises verwenden](/de/docs/Web/JavaScript/Guide/Using_promises).
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `PaymentRequest`-Objekt instanziiert, bevor die Methode `show()` aufgerufen wird. Diese Methode löst den eingebauten Prozess des Benutzeragenten aus, um Zahlungsinformationen vom Benutzer abzurufen. Die Methode `show()` gibt ein {{jsxref('Promise')}} zurück, das in ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt aufgelöst wird, wenn die Benutzerinteraktion abgeschlossen ist. Der Entwickler verwendet dann die Informationen im `PaymentResponse`-Objekt, um Zahlungsdaten an den Server zu formatieren und zu senden. Sie sollten die Zahlungsinformationen asynchron an den Server senden, damit der endgültige Aufruf von [`paymentResponse.complete()`](/de/docs/Web/API/PaymentResponse/complete) den Erfolg oder Misserfolg der Zahlung anzeigen kann.
+Im folgenden Beispiel wird ein `PaymentRequest`-Objekt initialisiert, bevor die Methode `show()` aufgerufen wird. Die Methode startet den integrierten Vorgang des User Agents, um Zahlungsinformationen vom Benutzer abzurufen. `show()` gibt ein {{jsxref('Promise')}} zurück, das mit einem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt erfüllt wird, sobald die Benutzerinteraktion abgeschlossen ist. Anschließend verwendet der Entwickler die Informationen im `PaymentResponse`-Objekt, um die Zahlungsdaten zu formatieren und an den Server zu senden. Sie sollten die Zahlungsinformationen asynchron an den Server senden, damit der abschließende Aufruf von [`paymentResponse.complete()`](/de/docs/Web/API/PaymentResponse/complete) den Erfolg oder Misserfolg der Zahlung angeben kann.
 
 ```js
 button.onclick = async () => {
@@ -208,7 +210,7 @@ button.onclick = async () => {
 };
 ```
 
-Das folgende Beispiel zeigt, wie das Zahlungsblatt während seiner Präsentation an den Endnutzer aktualisiert werden kann.
+Das folgende Beispiel zeigt, wie Sie den Zahlungsdialog während seiner Anzeige für den Benutzer aktualisieren können.
 
 ```js
 async function requestPayment() {

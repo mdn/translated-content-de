@@ -3,20 +3,19 @@ title: "WorkerNavigator: appName-Eigenschaft"
 short-title: appName
 slug: Web/API/WorkerNavigator/appName
 l10n:
-  sourceCommit: 0266df57cb5eb52a057e305ba12d49c93f0edb7e
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Der Wert der **`WorkerNavigator.appName`**-Eigenschaft ist in jedem Browser immer
-`"Netscape"`. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Die schreibgeschützte Eigenschaft **`appName`** des Interfaces [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) gibt in jedem Browser immer `"Netscape"` zurück. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen realen Browsernamen zurückgibt. Alle Browser geben `"Netscape"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft den tatsächlichen Browsernamen zurückgibt. Alle Browser geben für diese Eigenschaft `"Netscape"` zurück.
 
 ## Wert
 
-Der String `"Netscape"`.
+Die Zeichenfolge `"Netscape"`.
 
 ## Spezifikationen
 

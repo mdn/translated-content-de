@@ -1,25 +1,25 @@
 ---
-title: "Fenster: personalbar-Eigenschaft"
+title: "Window: Eigenschaft personalbar"
 short-title: personalbar
 slug: Web/API/Window/personalbar
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Gibt das `personalbar`-Objekt zurück.
+Die schreibgeschützte Eigenschaft **`personalbar`** der Schnittstelle [`Window`](/de/docs/Web/API/Window) gibt das Objekt `personalbar` zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher anzeigte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
+Sie gehört zu einer Gruppe von `Window`-Eigenschaften mit einer booleschen Eigenschaft `visible`. Diese gab früher an, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
 
-Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft nun `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
+Aus Gründen des Datenschutzes und der Interoperabilität ist der Wert der Eigenschaft `visible` jetzt `false`, wenn dieses `Window` ein Popup ist, und andernfalls `true`.
 
 ## Wert
 
-Ein Objekt, das eine einzige Eigenschaft enthält:
+Ein Objekt mit einer einzigen Eigenschaft:
 
 - `visible` {{ReadOnlyInline}}
-  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
+  - : Eine boolesche Eigenschaft, die `false` ist, wenn dieses `Window` ein Popup ist, und andernfalls `true`.
 
 ## Spezifikationen
 

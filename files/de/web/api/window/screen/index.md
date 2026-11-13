@@ -3,12 +3,12 @@ title: "Window: screen-Eigenschaft"
 short-title: screen
 slug: Web/API/Window/screen
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("CSSOM")}}
 
-Die [`Window`](/de/docs/Web/API/Window)-Eigenschaft **`screen`** gibt eine Referenz auf das Bildschirmobjekt zurück, das mit dem Fenster assoziiert ist. Das `screen`-Objekt, das die [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle implementiert, ist ein spezielles Objekt, um Eigenschaften des Bildschirms zu untersuchen, auf dem das aktuelle Fenster angezeigt wird.
+Die schreibgeschützte Eigenschaft **`screen`** der Schnittstelle [`Window`](/de/docs/Web/API/Window) gibt eine Referenz auf das dem Fenster zugeordnete Bildschirmobjekt zurück. Das `screen`-Objekt implementiert die Schnittstelle [`Screen`](/de/docs/Web/API/Screen) und ermöglicht es, Eigenschaften des Bildschirms abzufragen, auf dem das aktuelle Fenster dargestellt wird.
 
 ## Wert
 

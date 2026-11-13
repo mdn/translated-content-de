@@ -3,18 +3,18 @@ title: "HTMLMediaElement: ended-Eigenschaft"
 short-title: ended
 slug: Web/API/HTMLMediaElement/ended
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: ae380dd2b211ab497e064d4074ff81e71cb91a00
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.ended`**-Eigenschaft gibt an, ob das Medien-Element die Wiedergabe beendet hat.
+Die schreibgeschützte Eigenschaft **`ended`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gibt an, ob die Wiedergabe des Medienelements beendet ist.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die im Element enthaltenen Medien das Abspielen beendet haben.
+Ein boolescher Wert, der `true` ist, wenn die Wiedergabe der im Element enthaltenen Medien abgeschlossen ist.
 
-Wenn die Quelle der Medien ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist, ist dieser Wert `true`, wenn der Wert der [`active`](/de/docs/Web/API/MediaStream/active)-Eigenschaft des Streams `false` ist.
+Wenn die Medienquelle ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist, ist dieser Wert `true`, wenn die Eigenschaft [`active`](/de/docs/Web/API/MediaStream/active) des Streams den Wert `false` hat.
 
 ## Beispiele
 
@@ -33,6 +33,6 @@ console.log(obj.ended); // false
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.ended`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, in der die Eigenschaft `HTMLMediaElement.ended` definiert ist
 - [`MediaStream`](/de/docs/Web/API/MediaStream)
 - [`MediaStream.active`](/de/docs/Web/API/MediaStream/active)
