@@ -3,10 +3,10 @@ title: Intl.NumberFormat.prototype.formatRange()
 short-title: formatRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRange
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die **`formatRange()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen formatiert einen Zahlenbereich gemäß den lokalen und den Formatierungsoptionen dieses `Intl.NumberFormat` Objekts.
+Die Methode **`formatRange()`** von {{jsxref("Intl.NumberFormat")}}-Instanzen formatiert einen Zahlenbereich entsprechend dem Gebietsschema und den Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts.
 
 ## Syntax
 
@@ -17,30 +17,30 @@ formatRange(startRange, endRange)
 ### Parameter
 
 - `startRange`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, um formatiert zu werden. Strings werden auf die gleiche Weise wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) analysiert, mit der Ausnahme, dass `formatRange()` den exakten Wert verwendet, den der String darstellt, um Präzisionsverluste bei der impliziten Umwandlung in eine Zahl zu vermeiden.
+  - : Ein {{jsxref("Number")}}, {{jsxref("BigInt")}} oder String, der formatiert werden soll. Strings werden auf dieselbe Weise wie bei der [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) geparst. Allerdings verwendet `formatRange()` den exakten Wert, den der String darstellt, und vermeidet so einen Präzisionsverlust durch die implizite Konvertierung in eine Zahl.
 - `endRange`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, um formatiert zu werden.
+  - : Ein {{jsxref("Number")}}, {{jsxref("BigInt")}} oder String, der formatiert werden soll.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Bereich von Zahlen darstellt, formatiert gemäß den lokalen und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts. Wenn die Start- und Endwerte zum gleichen String formatiert werden, enthält die Ausgabe nur einen einzigen Wert, möglicherweise mit einem "ungefähr gleich"-Symbol (z. B. "~$3") vorangestellt. Die Einfügung dieses Symbols hängt ausschließlich von den lokalen Einstellungen ab und wird auch eingefügt, wenn `startRange === endRange`.
+Ein String, der den angegebenen Zahlenbereich entsprechend dem Gebietsschema und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts formatiert darstellt. Wenn Anfangs- und Endwert zum selben String formatiert werden, enthält die Ausgabe nur einen einzelnen Wert, möglicherweise mit einem vorangestellten Symbol für „ungefähr gleich“ (z. B. „~$3“). Ob dieses Symbol eingefügt wird, hängt ausschließlich von den Gebietsschemaeinstellungen ab. Es wird auch dann eingefügt, wenn `startRange === endRange` gilt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` `NaN` oder ein nicht konvertierbarer String ist.
+  - : Wird ausgelöst, wenn `startRange` oder `endRange` `NaN` oder ein nicht konvertierbarer String ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` undefiniert ist.
+  - : Wird ausgelöst, wenn `startRange` oder `endRange` `undefined` ist.
 
 ## Beschreibung
 
-Die `formatRange` Getter-Funktion formatiert einen Bereich von Zahlen zu einem String gemäß den lokalen und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts, von dem sie aufgerufen wird.
+Die Methode `formatRange` formatiert einen Zahlenbereich als String entsprechend dem Gebietsschema und den Formatierungsoptionen des {{jsxref("Intl.NumberFormat")}}-Objekts, auf dem sie aufgerufen wird.
 
 ## Beispiele
 
-### Verwendung von formatRange
+### formatRange verwenden
 
-Verwenden Sie die `formatRange` Getter-Funktion, um einen Bereich von Währungswerten zu formatieren:
+Verwenden Sie die Methode `formatRange`, um einen Bereich von Währungswerten zu formatieren:
 
 ```js
 const nf = new Intl.NumberFormat("en-US", {

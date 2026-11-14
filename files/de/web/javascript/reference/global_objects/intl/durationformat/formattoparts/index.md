@@ -3,10 +3,10 @@ title: Intl.DurationFormat.prototype.formatToParts()
 short-title: formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/formatToParts
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die **`formatToParts()`** Methode von Instanzen des {{jsxref("Intl.DurationFormat")}} gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/DurationFormat/format", "format()")}} zurückgegeben würde. Dies ist nützlich, um benutzerdefinierte Zeichenfolgen aus den lokalisierten Tokens zu erstellen.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.DurationFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil der formatierten Zeichenfolge darstellen, die {{jsxref("Intl/DurationFormat/format", "format()")}} zurückgeben würde. Sie ist nützlich, um aus den gebietsschemaspezifischen Bestandteilen eigene Zeichenfolgen zusammenzusetzen.
 
 ## Syntax
 
@@ -16,16 +16,16 @@ formatToParts(duration)
 
 ### Parameter
 
-- `duration` {{optional_inline}}
-  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte ein ganzzahliger Wert sein, und deren Vorzeichen sollten konsistent sein. Dies kann ein {{jsxref("Temporal.Duration")}}-Objekt sein; siehe die {{jsxref("Temporal.Duration")}}-Dokumentation für weitere Informationen über diese Eigenschaften.
+- `duration`
+  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte eine Ganzzahl sein, und die Vorzeichen sollten übereinstimmen. Das Objekt kann ein {{jsxref("Temporal.Duration")}}-Objekt sein. Weitere Informationen zu diesen Eigenschaften finden Sie in der Dokumentation zu {{jsxref("Temporal.Duration")}}.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten. Jedes Objekt hat zwei oder drei Eigenschaften: `type`, `value` und optional `unit`, die jeweils eine Zeichenfolge enthalten. Die Zeichenfolgen-Verkettung von `value`, in der angegebenen Reihenfolge, ergibt denselben String wie {{jsxref("Intl/DurationFormat/format", "format()")}}. Die Teile können als direkt von einem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert und ihren jeweiligen Einheiten gewonnen betrachtet werden. Alle Tokens, die von `NumberFormat` produziert werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe `unit` ist; dies ist für programmatische Verwendung und ist nicht lokalisiert. Die lokalisierte Einheit wird als separates `unit`-Token als Teil des `NumberFormat`-Ergebnisses ausgegeben. Die Teile jeder Dauereinheit werden auf die gleiche Weise zusammengefügt, wie ein Aufruf von {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}} mit `{ type: "unit" }`, so dass zusätzliche Literal-Tokens eingefügt werden.
+Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in einzelnen Teilen enthalten. Jedes Objekt hat zwei oder drei Eigenschaften: `type`, `value` und optional `unit`. Jede dieser Eigenschaften enthält eine Zeichenfolge. Werden die `value`-Zeichenfolgen in der angegebenen Reihenfolge aneinandergehängt, ergibt sich dieselbe Zeichenfolge wie bei {{jsxref("Intl/DurationFormat/format", "format()")}}. Die Teile können als Ergebnisse eines Aufrufs von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert und der jeweiligen Einheit betrachtet werden. Alle von `NumberFormat` erzeugten Tokens haben eine zusätzliche Eigenschaft `unit`, deren Wert die Singularform der Eingabeeinheit ist. Sie dient der programmatischen Verwendung und ist nicht lokalisiert. Die lokalisierte Einheit wird als separates `unit`-Token im Ergebnis von `NumberFormat` ausgegeben. Die Teile der einzelnen Dauereinheiten werden wie bei einem Aufruf von {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}} mit `{ type: "unit" }` aneinandergehängt. Dabei werden zusätzliche Literal-Tokens eingefügt.
 
 ## Beispiele
 
-Die `formatToParts` Methode ermöglicht eine lokalisierte Formatierung von Strings, die von `DurationFormat` Formatierern erzeugt werden, indem Sie Ihnen den String in Teilen bereitstellt:
+Die Methode `formatToParts` ermöglicht die gebietsschemaspezifische Formatierung von Zeichenfolgen, die von `DurationFormat`-Formatierern erzeugt werden, indem sie die Zeichenfolge in einzelnen Teilen bereitstellt:
 
 ```js
 const duration = {

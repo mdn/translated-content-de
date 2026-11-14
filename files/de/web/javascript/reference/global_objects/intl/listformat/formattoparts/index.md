@@ -3,12 +3,12 @@ title: Intl.ListFormat.prototype.formatToParts()
 short-title: formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/formatToParts
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen gibt ein Array von Objekten zurück, das jedes Teil des formatierten Strings repräsentiert, der von {{jsxref("Intl/ListFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich, um benutzerdefinierte Strings aus den lokalspezifischen Token zu erstellen.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.ListFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil der formatierten Zeichenfolge darstellen, die {{jsxref("Intl/ListFormat/format", "format()")}} zurückgeben würde. Sie ist nützlich, um aus gebietsschemaspezifischen Bestandteilen eigene Zeichenfolgen zu erstellen.
 
-{{InteractiveExample("JavaScript Demo: Intl.listformat.prototype.formatToParts()", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.ListFormat.prototype.formatToParts()", "taller")}}
 
 ```js interactive-example
 const vehicles = ["Motorcycle", "Bus", "Car"];
@@ -27,9 +27,9 @@ const partValuesEn = formatterEn.formatToParts(vehicles).map((p) => p.value);
 const partValuesFr = formatterFr.formatToParts(vehicles).map((p) => p.value);
 
 console.log(partValuesEn);
-// Expected output: "["Motorcycle", ", ", "Bus", ", and ", "Car"]"
+// Expected output: Array ["Motorcycle", ", ", "Bus", ", and ", "Car"]
 console.log(partValuesFr);
-// Expected output: "["Motorcycle", ", ", "Bus", " et ", "Car"]"
+// Expected output: Array ["Motorcycle", ", ", "Bus", " et ", "Car"]
 ```
 
 ## Syntax
@@ -41,20 +41,20 @@ formatToParts(list)
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie ein Array, das Strings enthält. Wenn es weggelassen wird, wird das leere Array formatiert, was leicht verwirrend sein kann. Daher ist es ratsam, immer explizit eine Liste zu übergeben.
+  - : Ein iterierbares Objekt, beispielsweise ein Array, das Zeichenfolgen enthält. Wird es weggelassen, wird ein leeres Array formatiert. Da dies etwas verwirrend sein kann, empfiehlt es sich, eine Liste immer ausdrücklich zu übergeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, das die formatierte Liste in Teilen enthält. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils einen String enthalten. Die stringmäßige Verkettung von `value` in der angegebenen Reihenfolge ergibt denselben String wie {{jsxref("Intl/ListFormat/format", "format()")}}. Der `type` kann einer der folgenden sein:
+Ein {{jsxref("Array")}} von Objekten, die die formatierte Liste in Teilen enthalten. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils eine Zeichenfolge enthalten. Werden die `value`-Zeichenfolgen in der angegebenen Reihenfolge verkettet, ergibt sich dieselbe Zeichenfolge wie bei {{jsxref("Intl/ListFormat/format", "format()")}}. `type` kann einen der folgenden Werte haben:
 
 - `literal`
-  - : Jeder String, der Teil des Formatmusters ist, zum Beispiel `", "`, `", and"` usw.
+  - : Eine Zeichenfolge, die Teil des Formatmusters ist, beispielsweise `", "` oder `", and"`.
 - `element`
-  - : Ein Element der Liste, genau so wie es übergeben wurde.
+  - : Ein Element der Liste, genau wie übergeben.
 
 ## Beispiele
 
-### Verwenden von formatToParts()
+### formatToParts() verwenden
 
 ```js
 const fruits = ["Apple", "Orange", "Pineapple"];

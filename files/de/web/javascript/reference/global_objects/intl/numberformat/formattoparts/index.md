@@ -3,10 +3,10 @@ title: Intl.NumberFormat.prototype.formatToParts()
 short-title: formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die Methode **`formatToParts()`** von {{jsxref("Intl.NumberFormat")}} Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/NumberFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich, um individuelle Strings aus den lokal-spezifischen Tokens zu erstellen.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.NumberFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil der formatierten Zeichenfolge darstellen, die {{jsxref("Intl/NumberFormat/format", "format()")}} zurückgeben würde. Sie ist nützlich, um aus den gebietsschemaspezifischen Bestandteilen eigene Zeichenfolgen zusammenzusetzen.
 
 {{InteractiveExample("JavaScript Demo: Intl.NumberFormat.prototype.formatToParts()")}}
 
@@ -19,7 +19,7 @@ const parts = numberFormat.formatToParts(amount);
 const partValues = parts.map((p) => p.value);
 
 console.log(partValues);
-// Expected output: "["$", "654", ",", "321", ".", "99"]"
+// Expected output: Array ["$", "654", ",", "321", ".", "99"]
 ```
 
 ## Syntax
@@ -31,52 +31,52 @@ formatToParts(number)
 ### Parameter
 
 - `number`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, der formatiert werden soll. Strings werden auf dieselbe Weise analysiert wie bei der [Zahlkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), mit der Ausnahme, dass `formatToParts()` den exakten Wert verwendet, den der String darstellt, um Verlust der Genauigkeit bei der impliziten Konvertierung in eine Zahl zu vermeiden.
+  - : Ein {{jsxref("Number")}}, {{jsxref("BigInt")}} oder eine Zeichenfolge, die formatiert werden soll. Zeichenfolgen werden wie bei der [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) interpretiert. `formatToParts()` verwendet jedoch den exakten Wert, den die Zeichenfolge darstellt, und vermeidet so einen Präzisionsverlust bei der impliziten Umwandlung in eine Zahl.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die die formatierte Zahl in Teilen enthalten. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils einen String enthalten. Die String-Konkatenation von `value` in der angegebenen Reihenfolge ergibt denselben String wie {{jsxref("Intl/NumberFormat/format", "format()")}}. Der `type` kann einer der folgenden sein:
+Ein {{jsxref("Array")}} von Objekten, die die Bestandteile der formatierten Zahl enthalten. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils eine Zeichenfolge enthalten. Werden die `value`-Zeichenfolgen in der angegebenen Reihenfolge verkettet, ergibt sich dieselbe Zeichenfolge wie bei {{jsxref("Intl/NumberFormat/format", "format()")}}. `type` kann einen der folgenden Werte haben:
 
 - `literal`
-  - : Jeder String, der Teil des Formatmusters ist, zum Beispiel `" "`. Beachten Sie, dass allgemeine Tokens wie das Dezimaltrennzeichen oder die Plus/Minus-Zeichen eigene Token-Typen haben.
+  - : Eine beliebige Zeichenfolge, die Teil des Formatmusters ist, zum Beispiel `" "`. Häufige Bestandteile wie das Dezimaltrennzeichen oder die Plus- und Minuszeichen haben eigene Token-Typen.
 - `integer`
-  - : Der ganzzahlige Teil der Zahl oder ein Segment davon, wenn Gruppierung verwendet wird (gesteuert durch `options.useGrouping`).
+  - : Der ganzzahlige Teil der Zahl oder, bei Verwendung einer Zifferngruppierung, ein Abschnitt davon (gesteuert durch `options.useGrouping`).
 - `group`
-  - : Der String des Gruppentrennzeichens, wie `","`. Nur vorhanden, wenn Gruppierung verwendet wird (gesteuert durch `options.useGrouping`).
+  - : Das Trennzeichen für Zifferngruppen, zum Beispiel `","`. Nur vorhanden, wenn eine Zifferngruppierung verwendet wird (gesteuert durch `options.useGrouping`).
 - `decimal`
-  - : Der String des Dezimaltrennzeichens, wie `"."`. Nur vorhanden, wenn `fraction` vorhanden ist.
+  - : Das Dezimaltrennzeichen, zum Beispiel `"."`. Nur vorhanden, wenn `fraction` vorhanden ist.
 - `fraction`
-  - : Der Bruchteil der Zahl.
+  - : Der Nachkommateil der Zahl.
 - `compact`
-  - : Der kompakte Exponent, wie `"M"` oder `"thousands"`. Nur vorhanden, wenn `options.notation` `"compact"` ist. Die Form (`"short"` oder `"long"`) kann über `options.compactDisplay` gesteuert werden.
+  - : Der kompakte Exponent, zum Beispiel `"M"` oder `"thousands"`. Nur vorhanden, wenn `options.notation` den Wert `"compact"` hat. Die Darstellungsform (`"short"` oder `"long"`) kann über `options.compactDisplay` gesteuert werden.
 - `exponentSeparator`
-  - : Der Exponententrennzeichen, wie `"E"`. Nur vorhanden, wenn `options.notation` `"scientific"` oder `"engineering"` ist.
+  - : Das Exponententrennzeichen, zum Beispiel `"E"`. Nur vorhanden, wenn `options.notation` den Wert `"scientific"` oder `"engineering"` hat.
 - `exponentMinusSign`
-  - : Das Exponenten-Minuszeichen, wie `"-"`. Nur vorhanden, wenn `options.notation` `"scientific"` oder `"engineering"` ist und der Exponent negativ ist.
+  - : Das Minuszeichen des Exponenten, zum Beispiel `"-"`. Nur vorhanden, wenn `options.notation` den Wert `"scientific"` oder `"engineering"` hat und der Exponent negativ ist.
 - `exponentInteger`
-  - : Der ganzzahlige Wert des Exponenten. Nur vorhanden, wenn `options.notation` `"scientific"` oder `"engineering"` ist.
+  - : Der ganzzahlige Wert des Exponenten. Nur vorhanden, wenn `options.notation` den Wert `"scientific"` oder `"engineering"` hat.
 - `nan`
-  - : Ein String, der {{jsxref("NaN")}}, wie `"NaN"`, darstellt. Dies ist das einzige Token, das die Zahl selbst darstellt, wenn die Zahl `NaN` ist.
+  - : Eine Zeichenfolge, die {{jsxref("NaN")}} darstellt, zum Beispiel `"NaN"`. Wenn die Zahl `NaN` ist, ist dies der einzige Token, der die Zahl selbst darstellt.
 - `infinity`
-  - : Ein String, der {{jsxref("Infinity")}} oder `-Infinity`, wie `"∞"`, darstellt. Dies ist das einzige Token, das die Zahl selbst darstellt, wenn die Zahl `Infinity` oder `-Infinity` ist.
+  - : Eine Zeichenfolge, die {{jsxref("Infinity")}} oder `-Infinity` darstellt, zum Beispiel `"∞"`. Wenn die Zahl `Infinity` oder `-Infinity` ist, ist dies der einzige Token, der die Zahl selbst darstellt.
 - `plusSign`
-  - : Das Pluszeichen, wie `"+"`.
+  - : Das Pluszeichen, zum Beispiel `"+"`.
 - `minusSign`
-  - : Das Minuszeichen, wie `"-"`.
+  - : Das Minuszeichen, zum Beispiel `"-"`.
 - `percentSign`
-  - : Das Prozentzeichen, wie `"%"`. Nur vorhanden, wenn `options.style` `"percent"` ist.
+  - : Das Prozentzeichen, zum Beispiel `"%"`. Nur vorhanden, wenn `options.style` den Wert `"percent"` hat.
 - `unit`
-  - : Der Einheitenstring, wie `"l"` oder `"liters"`. Nur vorhanden, wenn `options.style` `"unit"` ist. Die Form (`"short"`, `"narrow"` oder `"long"`) kann über `options.unitDisplay` gesteuert werden.
+  - : Die Zeichenfolge für die Einheit, zum Beispiel `"l"` oder `"litres"`. Nur vorhanden, wenn `options.style` den Wert `"unit"` hat. Die Darstellungsform (`"short"`, `"narrow"` oder `"long"`) kann über `options.unitDisplay` gesteuert werden.
 - `currency`
-  - : Der Währungsstring, wie `"$"`, `"€"`, `"Dollar"` oder `"Euro"`. Nur vorhanden, wenn `options.style` `"currency"` ist. Die Form (`"code"`, `"symbol"`, `"narrowSymbol"` oder `"name"`) kann über `options.currencyDisplay` gesteuert werden.
+  - : Die Zeichenfolge für die Währung, zum Beispiel `"$"`, `"€"`, `"Dollar"` oder `"Euro"`. Nur vorhanden, wenn `options.style` den Wert `"currency"` hat. Die Darstellungsform (`"code"`, `"symbol"`, `"narrowSymbol"` oder `"name"`) kann über `options.currencyDisplay` gesteuert werden.
 - `unknown`
-  - : Reserviert für jedes Token, das nicht als eine der obigen erkannt wird; sollte selten auftreten.
+  - : Für Tokens reserviert, die keinem der oben genannten Typen entsprechen; sollte nur selten vorkommen.
 
 ## Beispiele
 
-### Verwendung von formatToParts()
+### formatToParts() verwenden
 
-Die Methode `format()` gibt lokalisierte, opake Strings aus, die nicht direkt manipuliert werden können:
+Die Methode `format()` gibt lokalisierte Zeichenfolgen zurück, deren Bestandteile nicht direkt bearbeitet werden können:
 
 ```js
 const number = 3500;
@@ -90,7 +90,7 @@ formatter.format(number);
 // "3.500,00 €"
 ```
 
-In vielen Benutzeroberflächen möchten Sie jedoch möglicherweise das Format dieses Strings anpassen oder ihn mit anderen Texten kombinieren. Die Methode `formatToParts()` produziert dieselben Informationen in Teilen:
+In vielen Benutzeroberflächen möchten Sie die Formatierung dieser Zeichenfolge jedoch anpassen oder sie mit anderen Texten kombinieren. Die Methode `formatToParts()` liefert dieselben Informationen als einzelne Bestandteile:
 
 ```js
 formatter.formatToParts(number);
@@ -107,7 +107,7 @@ formatter.formatToParts(number);
 ];
 ```
 
-Jetzt sind die Informationen separat verfügbar und können auf angepasste Weise formatiert und wieder zusammengefügt werden. Zum Beispiel durch die Verwendung von {{jsxref("Array.prototype.map()")}}, [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), einer [switch-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/switch), [Template-Literalen](/de/docs/Web/JavaScript/Reference/Template_literals) und {{jsxref("Array.prototype.join()")}}, um zusätzliche Markups für bestimmte Komponenten hinzuzufügen.
+Die Informationen liegen nun getrennt vor und können individuell formatiert und wieder zusammengesetzt werden. Beispielsweise können Sie mit {{jsxref("Array.prototype.map()")}}, [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), einer [switch-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/switch), [Template-Literalen](/de/docs/Web/JavaScript/Reference/Template_literals) und {{jsxref("Array.prototype.join()")}} zusätzliche Markup-Elemente für bestimmte Bestandteile einfügen.
 
 ```js
 const numberString = formatter

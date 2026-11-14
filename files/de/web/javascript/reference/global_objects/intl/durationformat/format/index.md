@@ -3,10 +3,10 @@ title: Intl.DurationFormat.prototype.format()
 short-title: format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/format
 l10n:
-  sourceCommit: c43e46090257fbfd33c4dd5cac0cdbd1d5d1c274
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die **`format()`** Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer entsprechend der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
+Die Methode **`format()`** von {{jsxref("Intl.DurationFormat")}}-Instanzen formatiert eine Zeitdauer gemäß dem Gebietsschema und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}}-Objekts.
 
 ## Syntax
 
@@ -17,20 +17,20 @@ format(duration)
 ### Parameter
 
 - `duration`
-  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte eine ganze Zahl sein, und ihre Vorzeichen sollten konsistent sein. Dies kann ein {{jsxref("Temporal.Duration")}} Objekt sein; sehen Sie in der {{jsxref("Temporal.Duration")}} Dokumentation nach, um mehr über diese Eigenschaften zu erfahren.
+  - : Das zu formatierende Zeitdauer-Objekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte eine Ganzzahl sein, und die Vorzeichen sollten übereinstimmen. Es kann sich um ein {{jsxref("Temporal.Duration")}}-Objekt handeln. Weitere Informationen zu diesen Eigenschaften finden Sie in der Dokumentation zu {{jsxref("Temporal.Duration")}}.
 
 ### Rückgabewert
 
-Ein String, der die angegebene `duration` gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
+Ein String, der die angegebene `duration` gemäß dem Gebietsschema und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}}-Objekts darstellt.
 
 > [!NOTE]
-> Die vom `format()` zurückgegebene Formatierung ist meistens konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Lokalisierung — solche Abweichungen sind beabsichtigt und von der Spezifikation erlaubt. Die Ausgabe entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Die Ausgabe kann jedoch zwischen Implementierungen variieren, selbst innerhalb desselben Gebietsschemas – solche Unterschiede sind beabsichtigt und laut Spezifikation zulässig. Die Ausgabe entspricht möglicherweise auch nicht Ihren Erwartungen. Beispielsweise kann der String geschützte Leerzeichen enthalten oder von bidirektionalen Steuerzeichen umgeben sein. Vergleichen Sie die Ergebnisse von `format()` nicht mit fest codierten Konstanten.
 
 ## Beispiele
 
-### Verwendung von format()
+### format() verwenden
 
-Das folgende Beispiel zeigt, wie ein Dauerformatter mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie Sie einen Formatter für Zeitdauern mit Englisch als Sprache erstellen.
 
 ```js
 const duration = {
@@ -59,7 +59,7 @@ new Intl.DurationFormat("en", { style: "narrow" }).format(duration);
 // "1y 2mo 3w 3d 4h 5m 6s 7ms 8μs 9ns"
 ```
 
-### Verwendung von format() mit unterschiedlichen Lokalisierungen und Stilen
+### format() mit verschiedenen Gebietsschemas und Stilen verwenden
 
 ```js
 const duration = {
@@ -76,7 +76,7 @@ new Intl.DurationFormat("fr-FR", { style: "long" }).format(duration);
 new Intl.DurationFormat("en", { style: "short" }).format(duration);
 // "1 hr, 46 min and 40 sec"
 
-// With style set to "short" and locale set to "pt"
+// With style set to "narrow" and locale set to "pt"
 new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
 // "1 h 46 min 40 s"
 
@@ -91,7 +91,7 @@ new Intl.DurationFormat("en", { style: "digital", hours: "long" }).format(
 // "1 hour, 46:40"
 ```
 
-### Verwendung von format() mit der Option fractionalDigits
+### format() mit der Option fractionalDigits verwenden
 
 ```js
 const duration = {
@@ -113,7 +113,7 @@ new Intl.DurationFormat("en", { style: "digital", fractionalDigits: 5 }).format(
 new Intl.DurationFormat("en", { style: "digital", fractionalDigits: 3 }).format(
   duration,
 );
-// "11:30:12.346"
+// "11:30:12.345"
 ```
 
 ## Spezifikationen

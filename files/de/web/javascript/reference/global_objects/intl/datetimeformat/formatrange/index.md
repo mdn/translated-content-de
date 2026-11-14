@@ -3,10 +3,10 @@ title: Intl.DateTimeFormat.prototype.formatRange()
 short-title: formatRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRange
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die Methode **`formatRange()`** von {{jsxref("Intl.DateTimeFormat")}} Instanzen formatiert einen Datumsbereich auf die prägnanteste Weise basierend auf den lokalen Einstellungen und Optionen, die beim Instanziieren dieses `Intl.DateTimeFormat` Objekts bereitgestellt wurden.
+Die Methode **`formatRange()`** von {{jsxref("Intl.DateTimeFormat")}}-Instanzen formatiert einen Datumsbereich möglichst kompakt anhand der Locales und Optionen, die bei der Erstellung dieses `Intl.DateTimeFormat`-Objekts angegeben wurden.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.formatRange()", "taller")}}
 
@@ -40,21 +40,21 @@ formatRange(startDate, endDate)
 ### Parameter
 
 - `startDate`
-  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}} oder {{jsxref("Temporal.PlainDateTime")}} Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}}, oder {{jsxref("Temporal.PlainMonthDay")}} Objekt sein, wenn das `DateTimeFormat` Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums enthält.
+  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}-, {{jsxref("Temporal.PlainDate")}}-, {{jsxref("Temporal.PlainYearMonth")}}- oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt sein, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass es mindestens einen relevanten Bestandteil des Datums ausgibt.
     > [!NOTE]
-    > Ein {{jsxref("Temporal.ZonedDateTime")}} Objekt wird immer einen `TypeError` auslösen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}} Objekt.
+    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt löst immer einen `TypeError` aus. Verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
 - `endDate`
   - : Das Ende des Datumsbereichs. Muss denselben Typ wie `startDate` haben.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Datumsbereich entsprechend den lokalen Einstellungen und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts formatiert darstellt. Wenn die Start- und Enddaten bei der Präzision der Ausgabe äquivalent sind, enthält die Ausgabe nur ein einziges Datum.
+Ein String, der den angegebenen Datumsbereich entsprechend der Locale und den Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts darstellt. Wenn Anfangs- und Enddatum bei der Genauigkeit der Ausgabe übereinstimmen, enthält die Ausgabe nur ein einzelnes Datum.
 
 ## Beispiele
 
 ### Grundlegende Verwendung von formatRange
 
-Diese Methode erhält zwei {{jsxref("Date")}} Objekte und formatiert den Datumsbereich auf die prägnanteste Weise basierend auf den `locale` und `options`, die bei der Instanziierung von {{jsxref("Intl.DateTimeFormat")}} bereitgestellt wurden.
+Diese Methode erhält zwei {{jsxref("Date")}}-Objekte und formatiert den Datumsbereich möglichst kompakt anhand der `locale` und `options`, die bei der Erstellung von {{jsxref("Intl.DateTimeFormat")}} angegeben wurden.
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT
@@ -70,7 +70,7 @@ const fmt1 = new Intl.DateTimeFormat("en", {
 });
 console.log(fmt1.format(date1)); // '1/10/06, 10:00 AM'
 console.log(fmt1.formatRange(date1, date2)); // '1/10/06, 10:00 – 11:00 AM'
-console.log(fmt1.formatRange(date1, date3)); // '1/10/06, 10:00 AM – 1/20/07, 10:00 AM'
+console.log(fmt1.formatRange(date1, date3)); // '1/10/06, 10:00 AM – 1/20/06, 10:00 AM'
 
 const fmt2 = new Intl.DateTimeFormat("en", {
   year: "numeric",

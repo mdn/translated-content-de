@@ -1,12 +1,12 @@
 ---
-title: Intl.PluralRules() Konstruktor
+title: Intl.PluralRules()-Konstruktor
 short-title: Intl.PluralRules()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Der **`Intl.PluralRules()`** Konstruktor erstellt {{jsxref("Intl.PluralRules")}} Objekte.
+Der **`Intl.PluralRules()`**-Konstruktor erstellt {{jsxref("Intl.PluralRules")}}-Objekte.
 
 ## Syntax
 
@@ -17,24 +17,24 @@ new Intl.PluralRules(locales, options)
 ```
 
 > [!NOTE]
-> `Intl.PluralRules()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, ihn ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `Intl.PluralRules()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Kennungen. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder keine der angegebenen Locale-Kennungen unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Eine Zeichenfolge mit einem {{Glossary("BCP_47_language_tag", "BCP-47-Sprachtag")}}, eine {{jsxref("Intl.Locale")}}-Instanz oder ein Array solcher Gebietsschemabezeichner. Wenn `undefined` übergeben wird oder keiner der angegebenen Gebietsschemabezeichner unterstützt wird, verwendet die Laufzeitumgebung ihr Standardgebietsschema. Allgemeine Informationen zu Form und Interpretation des Arguments `locales` finden Sie in der [Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle optional):
+  - : Ein Objekt mit den folgenden Eigenschaften, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Locale-Abgleichsalgorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe [Locale-Identifikation und -Aushandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Algorithmus zum Abgleichen von Gebietsschemata. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie unter [Identifizierung und Aushandlung von Gebietsschemata](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `type`
       - : Der zu verwendende Typ. Mögliche Werte sind:
-        - `"cardinal"` (Standard)
-          - : Für Kardinalzahlen (bezieht sich auf die Menge der Dinge).
+        - `"cardinal"` (Standardwert)
+          - : Für Kardinalzahlen (die sich auf die Anzahl von Dingen beziehen).
         - `"ordinal"`
-          - : Für Ordinalzahlen (bezieht sich auf die Reihenfolge oder Rangfolge von Dingen, z. B. "1st", "2nd", "3rd" im Englischen).
+          - : Für Ordinalzahlen (die sich auf die Reihenfolge oder Rangfolge von Dingen beziehen, z. B. „1st“, „2nd“, „3rd“ im Englischen).
 
-    `Intl.PluralRules` unterstützt auch die [Zahlenoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options) von `Intl.NumberFormat()` (siehe `Intl.NumberFormat()` für Details):
+    `Intl.PluralRules` unterstützt außerdem die [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options) von `Intl.NumberFormat()` (Einzelheiten finden Sie unter `Intl.NumberFormat()`):
     - `minimumIntegerDigits`
     - `minimumFractionDigits`
     - `maximumFractionDigits`
@@ -43,19 +43,23 @@ new Intl.PluralRules(locales, options)
     - `roundingPriority`
     - `roundingIncrement`
     - `roundingMode`
+    - `trailingZeroDisplay`
 
-    Diese Optionen werden interpretiert, als ob die `notation`-Option von `Intl.NumberFormat` `"standard"` und `style` `"decimal"` ist.
+    Diese Optionen werden so interpretiert, als wäre die Option `notation` von `Intl.NumberFormat` auf `"standard"` und `style` auf `"decimal"` gesetzt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn `roundingIncrement` nicht `1` ist und mit einer Rundung nach signifikanten Stellen oder einem anderen Wert für `roundingPriority` als `"auto"` kombiniert wird.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Bei der grundlegenden Verwendung ohne Angabe einer Locale wird ein formatierter String in der Standard-Locale und mit Standardoptionen zurückgegeben. Dies ist nützlich, um zwischen Singular- und Pluralformen zu unterscheiden, z. B. "Hund" und "Hunde".
+Bei der grundlegenden Verwendung ohne Angabe eines Gebietsschemas gibt `select()` eine Pluralkategorie für das Standardgebietsschema und mit den Standardoptionen zurück.
+Damit lassen sich Singular- und Pluralformen unterscheiden, beispielsweise „dog“ und „dogs“.
 
 ```js
 const pr = new Intl.PluralRules();
@@ -67,9 +71,9 @@ pr.select(1); // 'one' if in US English locale
 pr.select(2); // 'other' if in US English locale
 ```
 
-### Verwendung von Optionen
+### Optionen verwenden
 
-Die Ergebnisse können mithilfe des `options` Arguments angepasst werden, das eine Eigenschaft namens `type` hat, die Sie auf `ordinal` setzen können. Dies ist nützlich, um den Ordnungsindikator herauszufinden, z. B. "1st", "2nd", "3rd", "4th", "42nd" usw.
+Die Ergebnisse lassen sich über das Argument `options` anpassen. Dessen Eigenschaft `type` können Sie auf `ordinal` setzen. Damit lässt sich das Ordinalzahlsuffix bestimmen, beispielsweise für „1st“, „2nd“, „3rd“, „4th“, „42nd“ und so weiter.
 
 ```js
 const pr = new Intl.PluralRules("en-US", { type: "ordinal" });

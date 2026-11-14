@@ -3,41 +3,41 @@ title: Intl.Locale.prototype.caseFirst
 short-title: caseFirst
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/caseFirst
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die **`caseFirst`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}}-Instanzen gibt zurück, ob die Groß- und Kleinschreibung bei den Kollationsregeln dieses Gebietsschemas berücksichtigt wird.
+Die **`caseFirst`**-Accessor-Property von {{jsxref("Intl.Locale")}}-Instanzen gibt an, ob nach den Sortierregeln dieser Locale Groß- oder Kleinbuchstaben zuerst sortiert werden.
 
 ## Beschreibung
 
-Die Kollationsregeln eines Gebietsschemas bestimmen, wie Zeichenfolgen in diesem Gebietsschema geordnet werden. In bestimmten Gebietsschemas wird die Groß- oder Kleinschreibung (GROSSBUCHSTABEN oder kleinschrift) im Kollationsprozess verwendet. Diese zusätzliche Regel kann durch die `caseFirst`-Eigenschaft eines {{jsxref("Intl.Locale")}}-Objekts ausgedrückt werden. Es gibt drei Werte, die die `caseFirst`-Eigenschaft haben kann, wie in der folgenden Tabelle dargestellt.
+Die Sortierregeln einer Locale bestimmen, in welcher Reihenfolge Zeichenfolgen sortiert werden. Bei bestimmten Locales wird die Groß- oder Kleinschreibung eines Zeichens (GROSSBUCHSTABEN oder kleinbuchstaben) bei der Sortierung berücksichtigt. Diese zusätzliche Regel kann in der `caseFirst`-Property eines {{jsxref("Intl.Locale")}}-Objekts ausgedrückt werden. Die `caseFirst`-Property kann einen der drei Werte in der folgenden Tabelle haben.
 
-| Wert    | Beschreibung                                        |
-| ------- | --------------------------------------------------- |
-| `upper` | Großbuchstaben werden vor Kleinbuchstaben sortiert. |
-| `lower` | Kleinbuchstaben werden vor Großbuchstaben sortiert. |
-| `false` | Keine spezielle Groß-/Kleinschreibungsordnung.      |
+| Wert    | Beschreibung                                               |
+| ------- | ---------------------------------------------------------- |
+| `upper` | Großbuchstaben werden vor Kleinbuchstaben sortiert.        |
+| `lower` | Kleinbuchstaben werden vor Großbuchstaben sortiert.        |
+| `false` | Keine besondere Sortierung nach Groß- und Kleinschreibung. |
 
-Der Wert der `caseFirst`-Eigenschaft wird zur Erstellungszeit gesetzt, entweder durch den `kf`-Schlüssel des Gebietsschema-Identifiers oder durch die `caseFirst`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktors. Letzterer hat Vorrang, wenn beide vorhanden sind; und wenn keiner von beiden vorhanden ist, hat die Eigenschaft den Wert `undefined`.
+Der Wert der `caseFirst`-Property wird bei der Erstellung festgelegt: entweder über den `kf`-Schlüssel des Locale-Bezeichners oder über die `caseFirst`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktors. Wenn beide angegeben sind, hat die Option Vorrang. Ist keiner von beiden angegeben, hat die Property den Wert `undefined`.
 
-Der Setz-Accessor von `caseFirst` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `caseFirst` ist `undefined`. Sie können diese Property nicht direkt ändern.
 
 ## Beispiele
 
-Wie andere Gebietsschema-Subtags kann der `caseFirst`-Wert dem {{jsxref("Intl.Locale")}}-Objekt über die Gebietsschema-Zeichenfolge oder ein Konfigurationsobjekt-Argument für den Konstruktor hinzugefügt werden.
+Wie andere Locale-Subtags kann der `caseFirst`-Wert dem {{jsxref("Intl.Locale")}}-Objekt über den Locale-String oder über ein Konfigurationsobjekt als Argument des Konstruktors hinzugefügt werden.
 
-### Hinzufügen eines caseFirst-Werts über die Gebietsschema-Zeichenfolge
+### Einen caseFirst-Wert über den Locale-String hinzufügen
 
-Im [Unicode-Gebietsschema-Zeichenfolgen-Spezifikation](https://www.unicode.org/reports/tr35/) ist `caseFirst` ein "Erweiterungs-Subtag". Diese Subtags fügen zusätzliche Daten über das Gebietsschema hinzu und werden mithilfe des `-u`-Erweiterungsschlüssels zu Gebietsschema-Identifikatoren hinzugefügt. Um den `caseFirst`-Wert zur initialen Gebietsschema-Identifikatoren-Zeichenfolge hinzuzufügen, die an den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor übergeben wird, fügen Sie zunächst den `-u`-Erweiterungsschlüssel hinzu, wenn er nicht vorhanden ist. Fügen Sie als nächstes die `-kf`-Erweiterung hinzu, um anzugeben, dass Sie einen Wert für `caseFirst` hinzufügen. Fügen Sie schließlich den `caseFirst`-Wert hinzu.
+Gemäß der [Spezifikation für Unicode-Locale-Strings](https://www.unicode.org/reports/tr35/) ist `caseFirst` ein „Extension-Subtag“. Solche Subtags ergänzen zusätzliche Angaben zur Locale und werden Locale-Bezeichnern mithilfe des Erweiterungsschlüssels `-u` hinzugefügt. Um dem ursprünglichen Locale-Bezeichner, der an den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor übergeben wird, einen `caseFirst`-Wert hinzuzufügen, fügen Sie zunächst den Erweiterungsschlüssel `-u` hinzu, falls er noch nicht vorhanden ist. Fügen Sie anschließend `-kf` hinzu, um anzugeben, dass ein Wert für `caseFirst` folgt. Fügen Sie zuletzt den `caseFirst`-Wert hinzu.
 
 ```js
 const locale = new Intl.Locale("fr-Latn-FR-u-kf-upper");
 console.log(locale.caseFirst); // "upper"
 ```
 
-### Hinzufügen eines caseFirst-Werts über das Konfigurationsobjekt-Argument
+### Einen caseFirst-Wert über das Konfigurationsobjekt hinzufügen
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das einen von mehreren Erweiterungstypen enthalten kann, einschließlich `caseFirst`. Legen Sie die `caseFirst`-Eigenschaft des Konfigurationsobjekts auf den gewünschten `caseFirst`-Wert fest und übergeben Sie es dann an den Konstruktor.
+Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor akzeptiert optional ein Konfigurationsobjekt als Argument. Dieses kann verschiedene Erweiterungstypen enthalten, darunter `caseFirst`. Setzen Sie die `caseFirst`-Property des Konfigurationsobjekts auf den gewünschten `caseFirst`-Wert und übergeben Sie das Objekt anschließend an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US", { caseFirst: "lower" });
@@ -55,4 +55,4 @@ console.log(locale.caseFirst); // "lower"
 ## Siehe auch
 
 - {{jsxref("Intl.Locale")}}
-- [Unicode case first collation spec](https://github.com/unicode-org/cldr/blob/main/common/bcp47/collation.xml#L49)
+- [Unicode-Spezifikation für die Sortierung nach Groß- und Kleinschreibung](https://github.com/unicode-org/cldr/blob/main/common/bcp47/collation.xml#L49)

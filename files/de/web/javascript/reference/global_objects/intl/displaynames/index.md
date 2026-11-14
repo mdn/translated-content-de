@@ -2,10 +2,10 @@
 title: Intl.DisplayNames
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Das **`Intl.DisplayNames`** Objekt ermöglicht die konsistente Übersetzung von Sprache, Region und Skript-Anzeigenamen.
+Das **`Intl.DisplayNames`**-Objekt ermöglicht die einheitliche Übersetzung von Anzeigenamen für Sprachen, Regionen und Schriftsysteme.
 
 {{InteractiveExample("JavaScript Demo: Intl.DisplayNames")}}
 
@@ -25,34 +25,34 @@ console.log(regionNamesInTraditionalChinese.of("US"));
 ## Konstruktor
 
 - {{jsxref("Intl/DisplayNames/DisplayNames", "Intl.DisplayNames()")}}
-  - : Erstellt ein neues `Intl.DisplayNames` Objekt.
+  - : Erstellt ein neues `Intl.DisplayNames`-Objekt.
 
 ## Statische Methoden
 
 - {{jsxref("Intl/DisplayNames/supportedLocalesOf", "Intl.DisplayNames.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das die von den bereitgestellten Locales enthält, die unterstützt werden, ohne dass auf die Standardeinstellung des Laufzeitsystems zurückgegriffen werden muss.
+  - : Gibt ein Array mit den bereitgestellten Locales zurück, die unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `Intl.DisplayNames.prototype` definiert und werden von allen `Intl.DisplayNames` Instanzen geteilt.
+Diese Eigenschaften sind auf `Intl.DisplayNames.prototype` definiert und werden von allen `Intl.DisplayNames`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "Intl.DisplayNames.prototype.constructor")}}
-  - : Die Konstrukturfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DisplayNames` Instanzen ist der Anfangswert der {{jsxref("Intl/DisplayNames/DisplayNames", "Intl.DisplayNames")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DisplayNames`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("Intl/DisplayNames/DisplayNames", "Intl.DisplayNames")}}.
 - `Intl.DisplayNames.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.DisplayNames"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der Eigenschaft [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) ist die Zeichenfolge `"Intl.DisplayNames"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Intl/DisplayNames/of", "Intl.DisplayNames.prototype.of()")}}
-  - : Diese Methode erhält einen `code` und gibt einen String basierend auf der Locale und den Optionen zurück, die bei der Instanziierung von `Intl.DisplayNames` bereitgestellt wurden.
+  - : Diese Methode nimmt einen `code` entgegen und gibt eine Zeichenfolge zurück, die auf der Locale und den Optionen basiert, die bei der Erstellung der `Intl.DisplayNames`-Instanz angegeben wurden.
 - {{jsxref("Intl/DisplayNames/resolvedOptions", "Intl.DisplayNames.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und Formatierungsoptionen widerspiegeln, die während der Initialisierung des Objekts berechnet wurden.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die bei der Initialisierung des Objekts ermittelte Locale und die Formatierungsoptionen widerspiegeln.
 
 ## Beispiele
 
-### Region-Code-Anzeigenamen
+### Anzeigenamen für Regionscodes
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Region-Code zu erhalten.
+So erstellen Sie ein `Intl.DisplayNames`-Objekt für eine Locale und erhalten den Anzeigenamen für einen Regionscode.
 
 ```js
 // Get display names of region in English
@@ -72,9 +72,9 @@ regionNames.of("BA"); // "波士尼亞與赫塞哥維納"
 regionNames.of("MM"); // "緬甸"
 ```
 
-### Sprach-Anzeigenamen
+### Anzeigenamen für Sprachen
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für eine Sprach-Skript-Region-Sequenz zu erhalten.
+So erstellen Sie ein `Intl.DisplayNames`-Objekt für eine Locale und erhalten den Anzeigenamen für eine Sprach-Schrift-Region-Sequenz.
 
 ```js
 // Get display names of language in English
@@ -84,7 +84,7 @@ languageNames.of("de"); // "German"
 languageNames.of("fr-CA"); // "Canadian French"
 languageNames.of("zh-Hant"); // "Traditional Chinese"
 languageNames.of("en-US"); // "American English"
-languageNames.of("zh-TW"); // "Chinese (Taiwan)"]
+languageNames.of("zh-TW"); // "Chinese (Taiwan)"
 
 // Get display names of language in Traditional Chinese
 languageNames = new Intl.DisplayNames(["zh-Hant"], { type: "language" });
@@ -93,9 +93,9 @@ languageNames.of("zh"); // "中文"
 languageNames.of("de"); // "德文"
 ```
 
-### Skript-Code-Anzeigenamen
+### Anzeigenamen für Schriftsystemcodes
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Skript-Code zu erhalten.
+So erstellen Sie ein `Intl.DisplayNames`-Objekt für eine Locale und erhalten den Anzeigenamen für einen Schriftsystemcode.
 
 ```js
 // Get display names of script in English
@@ -112,9 +112,9 @@ scriptNames.of("Arab"); // "阿拉伯文"
 scriptNames.of("Kana"); // "片假名"
 ```
 
-### Währungs-Code-Anzeigenamen
+### Anzeigenamen für Währungscodes
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Währungs-Code zu erhalten.
+So erstellen Sie ein `Intl.DisplayNames`-Objekt für eine Locale und erhalten den Anzeigenamen für einen Währungscode.
 
 ```js
 // Get display names of currency code in English
@@ -143,5 +143,5 @@ currencyNames.of("CNY"); // "人民幣"
 
 ## Siehe auch
 
-- [Polyfill von `Intl.DisplayNames` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-displaynames/)
+- [Polyfill für `Intl.DisplayNames` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-displaynames/)
 - {{jsxref("Intl")}}

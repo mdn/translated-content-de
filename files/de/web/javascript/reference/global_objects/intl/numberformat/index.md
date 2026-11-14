@@ -2,10 +2,10 @@
 title: Intl.NumberFormat
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Das **`Intl.NumberFormat`** Objekt ermöglicht die sprachsensible Formatierung von Zahlen.
+Das Objekt **`Intl.NumberFormat`** ermöglicht die sprachabhängige Formatierung von Zahlen.
 
 {{InteractiveExample("JavaScript Demo: Intl.NumberFormat")}}
 
@@ -39,40 +39,40 @@ console.log(
 ## Konstruktor
 
 - {{jsxref("Intl/NumberFormat/NumberFormat", "Intl.NumberFormat()")}}
-  - : Erstellt ein neues `NumberFormat` Objekt.
+  - : Erstellt ein neues `NumberFormat`-Objekt.
 
 ## Statische Methoden
 
 - {{jsxref("Intl/NumberFormat/supportedLocalesOf", "Intl.NumberFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array mit den angegebenen Locales zurück, die unterstützt werden können, ohne auf die Standard-Locale der Laufzeitumgebung zurückzufallen.
+  - : Gibt ein Array mit den bereitgestellten Locales zurück, die unterstützt werden, ohne auf das Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `Intl.NumberFormat.prototype` definiert und werden von allen `Intl.NumberFormat` Instanzen geteilt.
+Diese Eigenschaften sind auf `Intl.NumberFormat.prototype` definiert und werden von allen `Intl.NumberFormat`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "Intl.NumberFormat.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.NumberFormat` Instanzen ist der Anfangswert der {{jsxref("Intl/NumberFormat/NumberFormat", "Intl.NumberFormat")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.NumberFormat`-Instanzen ist der Anfangswert der {{jsxref("Intl/NumberFormat/NumberFormat", "Intl.NumberFormat")}}-Konstruktor.
 - `Intl.NumberFormat.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.NumberFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der Eigenschaft [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) ist die Zeichenfolge `"Intl.NumberFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Intl/NumberFormat/format", "Intl.NumberFormat.prototype.format()")}}
-  - : Getter-Funktion, die eine Zahl gemäß der Locale und den Formatierungsoptionen dieses `Intl.NumberFormat` Objekts formatiert.
+  - : Getter-Funktion, die eine Zahl entsprechend dem Locale und den Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts formatiert.
 - {{jsxref("Intl/NumberFormat/formatRange", "Intl.NumberFormat.prototype.formatRange()")}}
-  - : Getter-Funktion, die eine Zahlenspan gemäß der Locale und den Formatierungsoptionen des `Intl.NumberFormat` Objekts formatiert, von dem die Methode aufgerufen wird.
+  - : Formatiert einen Zahlenbereich entsprechend dem Locale und den Formatierungsoptionen des `Intl.NumberFormat`-Objekts, für das die Methode aufgerufen wird.
 - {{jsxref("Intl/NumberFormat/formatRangeToParts", "Intl.NumberFormat.prototype.formatRangeToParts()")}}
-  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, das die Zahlenspann als Teile darstellt, die für eine benutzerdefinierte, locale-abhängige Formatierung verwendet werden können.
+  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die die Zeichenfolgen des Zahlenbereichs in einzelnen Bestandteilen darstellen und für eine benutzerdefinierte, Locale-abhängige Formatierung verwendet werden können.
 - {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}}
-  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, das die Zahlenzeichenfolge als Teile darstellt, die für eine benutzerdefinierte, locale-abhängige Formatierung verwendet werden können.
+  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die die Zahlenzeichenfolge in einzelnen Bestandteilen darstellen und für eine benutzerdefinierte, Locale-abhängige Formatierung verwendet werden können.
 - {{jsxref("Intl/NumberFormat/resolvedOptions", "Intl.NumberFormat.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und Kollationsoptionen widerspiegeln, die während der Initialisierung des Objekts berechnet wurden.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die das bei der Initialisierung des Objekts ermittelte Locale und die Formatierungsoptionen widerspiegeln.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Bei der grundlegenden Verwendung ohne Angabe einer Locale wird eine formatierte Zeichenfolge in der Standard-Locale und mit Standardeinstellungen zurückgegeben.
+Bei der grundlegenden Verwendung ohne Angabe eines Locale wird eine formatierte Zeichenfolge im Standard-Locale und mit den Standardoptionen zurückgegeben.
 
 ```js
 const number = 3500;
@@ -81,9 +81,9 @@ console.log(new Intl.NumberFormat().format(number));
 // '3,500' if in US English locale
 ```
 
-### Verwendung von Locales
+### Locales verwenden
 
-Dieses Beispiel zeigt einige der Variationen in lokalisierten Zahlenformaten. Um das Format der in der Benutzeroberfläche Ihrer Anwendung verwendeten Sprache zu erhalten, geben Sie sicher diese Sprache (und möglicherweise einige Ersatzsprachen) mit dem Argument `locales` an:
+Dieses Beispiel zeigt einige Unterschiede zwischen lokalisierten Zahlenformaten. Um das Format der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, geben Sie diese Sprache (und gegebenenfalls weitere Sprachen als Fallback) über das Argument `locales` an:
 
 ```js
 const number = 123456.789;
@@ -110,9 +110,9 @@ console.log(new Intl.NumberFormat(["ban", "id"]).format(number));
 // 123.456,789
 ```
 
-### Verwendung von Optionen
+### Optionen verwenden
 
-Die Ergebnisse können mit dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options) Argument angepasst werden:
+Die Ergebnisse können mit dem Argument [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options) angepasst werden:
 
 ```js
 const number = 123456.789;
@@ -160,7 +160,7 @@ console.log(
 // 16 litres
 ```
 
-Eine vollständige Liste der Optionen finden Sie auf der Seite des [`Intl.NumberFormat()` Konstruktors](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options).
+Eine vollständige Liste der Optionen finden Sie auf der Seite zum [`Intl.NumberFormat()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options).
 
 ## Spezifikationen
 
@@ -172,6 +172,6 @@ Eine vollständige Liste der Optionen finden Sie auf der Seite des [`Intl.Number
 
 ## Siehe auch
 
-- [Polyfill von `Intl.NumberFormat` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-numberformat/)
+- [Polyfill für `Intl.NumberFormat` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-numberformat/)
 - {{jsxref("Intl")}}
 - {{jsxref("Number.prototype.toLocaleString()")}}

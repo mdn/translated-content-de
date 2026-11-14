@@ -3,10 +3,10 @@ title: Intl.DateTimeFormat.prototype.formatToParts()
 short-title: formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatToParts
 l10n:
-  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
+  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
 ---
 
-Die Methode **`formatToParts()`** von {{jsxref("Intl.DateTimeFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/DateTimeFormat/format", "format()")}} zurückgegeben würde. Diese Methode ist nützlich, um benutzerdefinierte Strings aus den lokalisierungsspezifischen Token zu erstellen.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.DateTimeFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil der formatierten Zeichenfolge repräsentieren, die {{jsxref("Intl/DateTimeFormat/format", "format()")}} zurückgeben würde. Sie ist nützlich, um aus gebietsschemaspezifischen Bestandteilen eigene Zeichenfolgen zusammenzusetzen.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.formatToParts()", "taller")}}
 
@@ -24,7 +24,7 @@ const parts = dateTimeFormat.formatToParts(date);
 const partValues = parts.map((p) => p.value);
 
 console.log(partValues);
-// Expected output: "["Friday", ", ", "June", " ", "1", ", ", "2012"]"
+// Expected output: Array ["Friday", ", ", "June", " ", "1", ", ", "2012"]
 ```
 
 ## Syntax
@@ -36,19 +36,19 @@ formatToParts(date)
 ### Parameter
 
 - `date` {{optional_inline}}
-  - : Das zu formatierende Datum. Kann ein {{jsxref("Date")}} oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Darüber hinaus kann es sich um ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt handeln, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums druckt.
+  - : Das zu formatierende Datum. Es kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Außerdem kann es ein {{jsxref("Temporal.PlainTime")}}-, {{jsxref("Temporal.PlainDate")}}-, {{jsxref("Temporal.PlainYearMonth")}}- oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt sein, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass mindestens ein relevanter Bestandteil des Datums ausgegeben wird.
 
     > [!NOTE]
-    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt wird immer einen `TypeError` auslösen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
+    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt löst immer einen `TypeError` aus. Verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder wandeln Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt um.
 
-    Wenn es weggelassen wird, wird das aktuelle Datum formatiert (wie von {{jsxref("Date.now()")}} zurückgegeben), was etwas verwirrend sein könnte. Daher ist es ratsam, immer explizit ein Datum zu übergeben.
+    Wird der Parameter weggelassen, wird das aktuelle Datum formatiert (wie von {{jsxref("Date.now()")}} zurückgegeben). Da dies etwas verwirrend sein kann, empfiehlt es sich, ein Datum immer ausdrücklich zu übergeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die das formatierte Datum in Teilen enthalten. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils einen String enthalten. Die string-Verkettung von `value` in der angegebenen Reihenfolge ergibt denselben String wie {{jsxref("Intl/DateTimeFormat/format", "format()")}}. Der `type` kann einer der [Datums-Zeit-Komponenten](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) sein:
+Ein {{jsxref("Array")}} von Objekten, die das formatierte Datum in Teilen enthalten. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils eine Zeichenfolge enthalten. Werden die `value`-Zeichenfolgen in der angegebenen Reihenfolge aneinandergehängt, ergibt sich dieselbe Zeichenfolge wie bei {{jsxref("Intl/DateTimeFormat/format", "format()")}}. `type` kann einer der folgenden [Datums- und Uhrzeitbestandteile](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) sein:
 
 - `weekday`
-  - : Zum Beispiel `"M"`, `"Monday"`, oder `"Montag"`.
+  - : Zum Beispiel `"M"`, `"Monday"` oder `"Montag"`.
 - `era`
   - : Zum Beispiel `"BC"` oder `"AD"`.
 - `year`
@@ -58,7 +58,7 @@ Ein {{jsxref("Array")}} von Objekten, die das formatierte Datum in Teilen enthal
 - `day`
   - : Zum Beispiel `"17"`.
 - `dayPeriod`
-  - : Zum Beispiel `"AM"`, `"PM"`, `"in the morning"`, oder `"noon"`.
+  - : Zum Beispiel `"AM"`, `"PM"`, `"in the morning"` oder `"noon"`.
 - `hour`
   - : Zum Beispiel `"3"` oder `"03"`.
 - `minute`
@@ -66,26 +66,26 @@ Ein {{jsxref("Array")}} von Objekten, die das formatierte Datum in Teilen enthal
 - `second`
   - : Zum Beispiel `"07"` oder `"42"`.
 - `fractionalSecond`
-  - : Zum Beispiel `"0"`, `"00"`, oder `"000"`.
+  - : Zum Beispiel `"0"`, `"00"` oder `"000"`.
 - `timeZoneName`
-  - : Zum Beispiel `"UTC"`, `"CET"`, oder `"Central European Time"`.
+  - : Zum Beispiel `"UTC"`, `"CET"` oder `"Central European Time"`.
 
-Der `type` kann auch einer der folgenden sein:
+`type` kann auch einen der folgenden Werte haben:
 
 - `literal`
-  - : Jeder String, der Teil des Formatmusters ist und nicht vom `date` beeinflusst wird; zum Beispiel `"/"`, `", "`, `"o'clock"`, `"de"`, `" "`, usw.
+  - : Eine beliebige Zeichenfolge, die Teil des Formatmusters ist und nicht von `date` beeinflusst wird; zum Beispiel `"/"`, `", "`, `"o'clock"`, `"de"`, `" "` usw.
 - `relatedYear`
-  - : Ein 4-stelliges gregorianisches Jahr, falls die Darstellung des Kalenders ein `yearName` anstelle eines Jahres wäre; zum Beispiel `"2019"`. Siehe [benannte Jahre](#benannte_jahre) für weitere Details.
+  - : Ein vierstelliges gregorianisches Jahr, wenn die Darstellung im Kalender statt eines Jahres eine `yearName`-Angabe verwendet; zum Beispiel `"2019"`. Weitere Informationen finden Sie unter [Benannte Jahre](#benannte_jahre).
 - `yearName`
-  - : Der dem Jahr gegebene Name, normalerweise in Kalendern ohne das Konzept von kontinuierlichen Jahren; zum Beispiel `"geng-zi"`.
+  - : Der Name des Jahres, üblicherweise in Kalendern ohne das Konzept fortlaufend nummerierter Jahre; zum Beispiel `"geng-zi"`.
 - `unknown`
-  - : Reserviert für jedes Token, das nicht als eines der oben genannten erkannt wird; sollte selten auftreten.
+  - : Für Bestandteile reserviert, die keinem der oben genannten Werte zugeordnet werden können; sollte nur selten vorkommen.
 
 ## Beispiele
 
-### Verwendung von formatToParts()
+### formatToParts() verwenden
 
-Die `format()`-Methode liefert lokalisierte, undurchsichtige Strings, die nicht direkt manipuliert werden können:
+Die Methode `format()` gibt lokalisierte Zeichenfolgen zurück, deren Bestandteile nicht direkt bearbeitet werden können:
 
 ```js
 const date = Date.UTC(2012, 11, 17, 3, 0, 42);
@@ -107,7 +107,7 @@ formatter.format(date);
 // "Monday, 12/17/2012, 3:00:42.000 AM"
 ```
 
-In vielen Benutzeroberflächen möchten Sie jedoch die Formatierung dieses Strings anpassen oder ihn mit anderen Texten verweben. Die `formatToParts()`-Methode erzeugt dieselben Informationen in Teilen:
+In vielen Benutzeroberflächen möchten Sie die Formatierung dieser Zeichenfolge jedoch anpassen oder sie mit anderem Text kombinieren. Die Methode `formatToParts()` stellt dieselben Informationen in einzelnen Teilen bereit:
 
 ```js
 formatter.formatToParts(date);
@@ -127,13 +127,14 @@ formatter.formatToParts(date);
   { type: "minute", value: "00" },
   { type: "literal", value: ":" },
   { type: "second", value: "42" },
+  { type: "literal", value: "." },
   { type: "fractionalSecond", value: "000" },
   { type: "literal", value: " " },
   { type: "dayPeriod", value: "AM" },
 ];
 ```
 
-Nun sind die Informationen separat verfügbar und können in benutzerdefinierter Weise formatiert und wieder verknüpft werden. Zum Beispiel durch die Verwendung von {{jsxref("Array.prototype.map()")}}, [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), einer [switch-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/switch), [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) und {{jsxref("Array.prototype.join()")}}, um zusätzlichen Markup für bestimmte Komponenten einzufügen.
+Die Informationen liegen nun getrennt vor und können individuell formatiert und wieder zusammengesetzt werden. Um beispielsweise für bestimmte Bestandteile zusätzliches Markup einzufügen, können Sie {{jsxref("Array.prototype.map()")}}, [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), eine [switch-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/switch), [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) und {{jsxref("Array.prototype.join()")}} verwenden.
 
 ```js
 const dateString = formatter
@@ -154,7 +155,7 @@ console.log(dateString);
 
 ### Benannte Jahre
 
-Einige Kalender verwenden benannte Jahre; zum Beispiel verwenden die chinesischen und tibetischen Kalender einen 60-jährigen [Sexagenariuszyklus](https://en.wikipedia.org/wiki/Sexagenary_cycle) von benannten Jahren. Diese Kalender haben keine universelle Methode, um jedes Jahr eindeutig zu nummerieren, sodass Jahre durch die Beziehung zu den entsprechenden Jahren im gregorianischen Kalender unterschieden werden. In diesem Fall wird, wenn das `DateTimeFormat` so konfiguriert ist, dass es die Jahreskomponente ausgibt, ein Token für `relatedYear` anstelle von `year` ausgegeben.
+Einige Kalender verwenden benannte Jahre. Beispielsweise nutzen der chinesische und der tibetische Kalender einen 60-jährigen [Sexagesimalzyklus](https://en.wikipedia.org/wiki/Sexagenary_cycle) benannter Jahre. In diesen Kalendern gibt es keine allgemeingültige Möglichkeit, jedes Jahr eindeutig zu nummerieren. Daher werden die Jahre anhand ihrer Beziehung zu den entsprechenden Jahren im gregorianischen Kalender unterschieden. Wenn `DateTimeFormat` so konfiguriert ist, dass die Jahreskomponente ausgegeben wird, wird in diesem Fall ein `relatedYear`-Bestandteil statt eines `year`-Bestandteils ausgegeben.
 
 ```js
 const df = new Intl.DateTimeFormat("zh-u-ca-chinese");
@@ -169,7 +170,7 @@ df.formatToParts(Date.UTC(2012, 11, 17, 3, 0, 42));
 ];
 ```
 
-Manchmal führt die Kombination von Datums-Zeit-Komponentenoptionen zu einem Format, das auch ein `yearName` enthält. Es gibt keine separate Option, die steuert, ob `yearName` angezeigt wird oder nicht. Zum Beispiel werden im folgenden Beispiel die Optionen `month` auf `"long"` gesetzt und führen zu einem `yearName`-Token, obwohl `year` noch auf `"numeric"` steht:
+Manchmal führt die Kombination der Optionen für Datums- und Uhrzeitbestandteile zu einem Format, das auch einen `yearName`-Bestandteil enthält. Es gibt keine separate Option, mit der sich steuern lässt, ob `yearName` angezeigt wird. Beispielsweise setzen die folgenden Optionen `month` auf `"long"` und führen zu einem `yearName`-Bestandteil, obwohl `year` weiterhin auf `"numeric"` gesetzt ist:
 
 ```js
 const opts = { year: "numeric", month: "long", day: "numeric" };
@@ -186,7 +187,7 @@ df.formatToParts(Date.UTC(2012, 11, 17, 3, 0, 42));
 ];
 ```
 
-Da `format()` einfach alle `value`-Strings zusammenfügt, sehen Sie in diesem Fall das gregorianische Jahr und den Jahrnamen zusammen im Ausgabe.
+Da `format()` lediglich alle `value`-Zeichenfolgen aneinanderhängt, erscheinen in diesem Fall sowohl das gregorianische Jahr als auch der Jahresname in der Ausgabe.
 
 ## Spezifikationen
 
