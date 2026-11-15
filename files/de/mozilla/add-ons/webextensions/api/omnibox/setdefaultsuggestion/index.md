@@ -2,17 +2,17 @@
 title: omnibox.setDefaultSuggestion()
 slug: Mozilla/Add-ons/WebExtensions/API/omnibox/setDefaultSuggestion
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: a15956e15e80eeb4641bb508c4b0f32940b8301d
 ---
 
-Setzen Sie den Standardsvorschlag, der in der Adressleiste angezeigt wird, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
+Legt den Standardvorschlag fest, der in der Dropdown-Liste der Adressleiste angezeigt wird, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
 
-Sobald der Benutzer Ihr Schlüsselwort eingegeben und begonnen hat, mit Ihrer Erweiterung zu interagieren, wird der Standardsvorschlag immer an erster Stelle in der Liste erscheinen. Anders als die Vorschläge, die Sie in {{WebExtAPIRef("omnibox.onInputChanged")}} liefern, kann dieses Element nicht ausgewählt werden. Verwenden Sie es, um dem Benutzer Hinweise zu geben, was er eingeben soll und was er erwarten kann, zu sehen.
+Nachdem der Benutzer Ihr Schlüsselwort eingegeben hat und beginnt, mit Ihrer Erweiterung zu interagieren, erscheint der Standardvorschlag an erster Stelle in der Dropdown-Liste. Anders als die Vorschläge, die Sie in {{WebExtAPIRef("omnibox.onInputChanged")}} bereitstellen, kann dieser Eintrag nicht ausgewählt werden. Verwenden Sie ihn, um dem Benutzer zu zeigen, was er eingeben kann und welche Ergebnisse er erwarten kann.
 
 ## Syntax
 
 ```js-nolint
-browser.omnibox.setDefaultSuggestion(
+let settingDefaultSuggestion = browser.omnibox.setDefaultSuggestion(
   suggestion            // object
 )
 ```
@@ -20,11 +20,11 @@ browser.omnibox.setDefaultSuggestion(
 ### Parameter
 
 - `suggestion`
-  - : `object`. Ein Objekt, das eine einzelne Zeichenfolgeigenschaft `description` enthält, die als erstes Element in der Liste angezeigt wird, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
+  - : `object`. Ein Objekt mit der String-Eigenschaft `description`, die als erster Eintrag in der Dropdown-Liste angezeigt wird, wenn der Benutzer beginnt, mit Ihrer Erweiterung zu interagieren.
 
 ### Rückgabewert
 
-Keiner.
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die ohne Argumente erfüllt wird, sobald der Standardvorschlag festgelegt ist.
 
 ## Beispiele
 
