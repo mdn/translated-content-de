@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: isTexture() Methode"
+title: "WebGLRenderingContext: isTexture()-Methode"
 short-title: isTexture()
 slug: Web/API/WebGLRenderingContext/isTexture
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isTexture()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn die übergebene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) gültig ist, und `false` andernfalls.
+Die Methode **`WebGLRenderingContext.isTexture()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ isTexture(texture)
 ### Parameter
 
 - `texture`
-  - : Eine [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), die überprüft werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), das überprüft werden soll. Bei Übergabe von `null` wird `false` zurückgegeben.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Textur g
 
 ## Beispiele
 
-### Überprüfung einer Textur
+### Eine Textur überprüfen
 
 ```js
 const canvas = document.getElementById("canvas");

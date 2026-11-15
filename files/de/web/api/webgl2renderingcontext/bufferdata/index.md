@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: bufferData() Methode"
+title: "WebGL2RenderingContext: bufferData()-Methode"
 short-title: bufferData()
 slug: Web/API/WebGL2RenderingContext/bufferData
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.bufferData()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher des Pufferobjekts.
+Die Methode **`WebGL2RenderingContext.bufferData()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher eines Buffer-Objekts.
 
 ## Syntax
 
@@ -22,54 +22,53 @@ bufferData(target, srcData, usage, srcOffset, length)
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Target) angibt. Mögliche Werte:
     - `gl.ARRAY_BUFFER`
-      - : Puffer, der Vertex-Attribute enthält, wie z. B.
-        Vertexkoordinaten, Texturkoordinatendaten oder Vertexfarbdaten.
+      - : Buffer mit Vertex-Attributen wie Vertex-Koordinaten, Texturkoordinaten oder Vertex-Farbdaten.
     - `gl.ELEMENT_ARRAY_BUFFER`
-      - : Puffer, der für Elementindizes verwendet wird.
+      - : Buffer für Elementindizes.
     - `gl.COPY_READ_BUFFER`
-      - : Puffer zum Kopieren von einem Pufferobjekt auf ein anderes.
+      - : Buffer zum Kopieren von einem Buffer-Objekt in ein anderes.
     - `gl.COPY_WRITE_BUFFER`
-      - : Puffer zum Kopieren von einem Pufferobjekt auf ein anderes.
+      - : Buffer zum Kopieren von einem Buffer-Objekt in ein anderes.
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
-      - : Puffer für Transform-Feedback-Operationen.
+      - : Buffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Puffer zum Speichern von Uniform-Blöcken.
+      - : Buffer zum Speichern von Uniform-Blöcken.
     - `gl.PIXEL_PACK_BUFFER`
-      - : Puffer für Pixelübertragungsoperationen.
+      - : Buffer für Pixelübertragungsoperationen.
     - `gl.PIXEL_UNPACK_BUFFER`
-      - : Puffer für Pixelübertragungsoperationen.
+      - : Buffer für Pixelübertragungsoperationen.
 
 - `size` {{optional_inline}}
-  - : Ein [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types), der die Größe des Datenspeichers des Pufferobjekts in Bytes festlegt. Eines von `size` und `srcData` muss angegeben werden.
+  - : Ein [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types), der die Größe des Datenspeichers des Buffer-Objekts in Byte festlegt. Entweder `size` oder `srcData` muss angegeben werden. Der Datenspeicher wird mit Nullen initialisiert.
 - `srcData` {{optional_inline}}
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das ein {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} ansieht, das in den Datenspeicher kopiert wird. Wenn `null`, wird trotzdem ein Datenspeicher erstellt, dessen Inhalt jedoch nicht initialisiert und undefiniert ist. Eines von `size` und `srcData` muss angegeben werden.
+  - : Ein {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}, das bzw. die eine Sicht auf einen {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} bereitstellt. Die Daten werden in den Datenspeicher kopiert. Entweder `size` oder `srcData` muss angegeben werden.
 - `usage`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das für die beabsichtigte Nutzungsmuster des Datenspeichers zur Optimierung angegeben wird. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das vorgesehene Nutzungsmuster des Datenspeichers zu Optimierungszwecken angibt. Mögliche Werte:
     - `gl.STATIC_DRAW`
-      - : Der Inhalt soll einmal von der Anwendung spezifiziert werden und wird mehrmals als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet.
+      - : Der Inhalt soll von der Anwendung einmal festgelegt und vielfach als Quelle für WebGL-Zeichenbefehle und Befehle zur Bilddefinition verwendet werden.
     - `gl.DYNAMIC_DRAW`
-      - : Der Inhalt soll von der Anwendung wiederholt neu spezifiziert und oft als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet werden.
+      - : Der Inhalt soll von der Anwendung wiederholt neu festgelegt und vielfach als Quelle für WebGL-Zeichenbefehle und Befehle zur Bilddefinition verwendet werden.
     - `gl.STREAM_DRAW`
-      - : Der Inhalt soll einmal von der Anwendung spezifiziert und höchstens ein paar Mal als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet werden.
+      - : Der Inhalt soll von der Anwendung einmal festgelegt und höchstens einige Male als Quelle für WebGL-Zeichenbefehle und Befehle zur Bilddefinition verwendet werden.
     - `gl.STATIC_READ`
-      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL spezifiziert und von der Anwendung öfter abgefragt werden.
+      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL festgelegt und von der Anwendung vielfach abgefragt werden.
     - `gl.DYNAMIC_READ`
-      - : Der Inhalt soll durch wiederholtes Lesen von Daten aus WebGL neu spezifiziert und oft von der Anwendung abgefragt werden.
+      - : Der Inhalt soll wiederholt durch das Lesen von Daten aus WebGL neu festgelegt und von der Anwendung vielfach abgefragt werden.
     - `gl.STREAM_READ`
-      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL spezifiziert und höchstens ein paar Mal von der Anwendung abgefragt werden.
+      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL festgelegt und von der Anwendung höchstens einige Male abgefragt werden.
     - `gl.STATIC_COPY`
-      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL spezifiziert und oft als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet werden.
+      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL festgelegt und vielfach als Quelle für WebGL-Zeichenbefehle und Befehle zur Bilddefinition verwendet werden.
     - `gl.DYNAMIC_COPY`
-      - : Der Inhalt soll durch wiederholtes Lesen von Daten aus WebGL neu spezifiziert und oft als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet werden.
+      - : Der Inhalt soll wiederholt durch das Lesen von Daten aus WebGL neu festgelegt und vielfach als Quelle für WebGL-Zeichenbefehle und Befehle zur Bilddefinition verwendet werden.
     - `gl.STREAM_COPY`
-      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL spezifiziert und höchstens ein paar Mal als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet werden.
+      - : Der Inhalt soll einmal durch das Lesen von Daten aus WebGL festgelegt und höchstens einige Male als Quelle für WebGL-Zeichenbefehle und Befehle zur Bilddefinition verwendet werden.
 
 - `srcOffset` {{optional_inline}}
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Elementindex-Offset angibt, ab dem der Puffer gelesen werden soll. Nur erlaubt, wenn `srcData` bereitgestellt wird.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Elementindex angibt, ab dem der Buffer gelesen wird. Nur zulässig, wenn `srcData` angegeben ist.
 - `length` {{optional_inline}}
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), standardmäßig 0. Nur erlaubt, wenn `srcOffset` angegeben ist.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) mit dem Standardwert 0. Nur zulässig, wenn `srcOffset` angegeben ist.
 
 ### Rückgabewert
 
@@ -77,9 +76,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein `gl.OUT_OF_MEMORY`-Fehler wird ausgelöst, wenn der Kontext nicht in der Lage ist, einen Datenspeicher mit der angegebenen `size` zu erstellen.
+- Ein `gl.OUT_OF_MEMORY`-Fehler wird ausgelöst, wenn der Kontext keinen Datenspeicher mit der angegebenen `size` erstellen kann.
 - Ein `gl.INVALID_VALUE`-Fehler wird ausgelöst, wenn `size` negativ ist.
-- Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` oder `usage` nicht einer der erlaubten Enums sind.
+- Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` oder `usage` keiner der zulässigen Enum-Werte ist.
 
 ## Spezifikationen
 
@@ -94,4 +93,4 @@ Keiner ({{jsxref("undefined")}}).
 - [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData)
 - [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
 - [`WebGLRenderingContext.bufferSubData()`](/de/docs/Web/API/WebGLRenderingContext/bufferSubData)
-- Andere Puffer: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)
+- Weitere Buffer: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

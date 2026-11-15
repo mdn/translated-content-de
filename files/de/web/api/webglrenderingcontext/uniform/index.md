@@ -1,20 +1,17 @@
 ---
-title: "WebGLRenderingContext: uniform[1234][fi][v]() Methode"
+title: "WebGLRenderingContext: Methode uniform[1234][fi][v]()"
 short-title: uniform[1234][fi][v]()
 slug: Web/API/WebGLRenderingContext/uniform
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.uniform[1234][fi][v]()`** Methoden
-der [WebGL API](/de/docs/Web/API/WebGL_API) legen Werte für Uniform-Variablen fest. Alle aktiven Uniform-Variablen, die in einem Programmobjekt definiert sind, werden auf 0 initialisiert,
-wenn das Programmobjekt erfolgreich verlinkt wird. Sie behalten die durch einen Aufruf dieser Methode zugewiesenen Werte, bis die nächste erfolgreiche Link-Operation auf dem Programmobjekt erfolgt, bei der sie erneut auf 0 initialisiert werden.
+Die Methoden **`WebGLRenderingContext.uniform[1234][fi][v]()`** der [WebGL API](/de/docs/Web/API/WebGL_API) legen die Werte von uniform-Variablen fest. Alle aktiven uniform-Variablen, die in einem Programmobjekt definiert sind, werden auf 0 initialisiert, wenn das Programmobjekt erfolgreich verknüpft wird. Die zugewiesenen Werte bleiben bis zur nächsten erfolgreichen Verknüpfung des Programmobjekts erhalten. Dann werden die Variablen erneut auf 0 initialisiert.
 
 > [!NOTE]
-> Viele der hier beschriebenen Funktionen haben erweiterte Schnittstellen in WebGL 2, die unter
-> [`WebGL2RenderingContext.uniform[1234][uif][v]()`](/de/docs/Web/API/WebGL2RenderingContext/uniform) zu finden sind.
+> Viele der hier beschriebenen Funktionen haben erweiterte WebGL-2-Schnittstellen. Diese finden Sie unter [`WebGL2RenderingContext.uniform[1234][uif][v]()`](/de/docs/Web/API/WebGL2RenderingContext/uniform).
 
 ## Syntax
 
@@ -43,16 +40,13 @@ uniform4iv(location, value)
 ### Parameter
 
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das den Ort des zu ändernden Uniform-Attributs enthält.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das die Position des zu ändernden uniform-Attributs enthält, oder `null`, um die Aktualisierung der uniform-Variablen ohne Fehlermeldung zu ignorieren.
 - `value`, `v0`, `v1`, `v2`, `v3`
-  - : Ein neuer Wert, der für die Uniform-Variable verwendet werden soll. Mögliche Typen:
-    - Eine Fließkommazahl ({{jsxref("Number")}}) für Fließkommawerte (Methoden mit
-      "f").
-    - Eine Folge von Fließkommazahlen (z. B. ein {{jsxref("Float32Array")}}
-      oder ein {{jsxref("Array")}} von Zahlen) für Fließkomma-Vektormethoden (Methoden
-      mit "fv").
-    - Eine Ganzzahl ({{jsxref("Number")}}) für Ganzzahlwerte (Methoden mit "i").
-    - Ein {{jsxref("Int32Array")}} für Ganzzahl-Vektormethoden (Methoden mit "iv").
+  - : Ein neuer Wert für die uniform-Variable. Mögliche Typen:
+    - Ein {{jsxref("Number")}}-Wert mit Gleitkommazahl für Gleitkommawerte (Methoden mit „f“).
+    - Eine Folge von Gleitkommazahlen (beispielsweise ein {{jsxref("Float32Array")}} oder ein {{jsxref("Array")}} mit Zahlen) für Gleitkomma-Vektormethoden (Methoden mit „fv“).
+    - Ein ganzzahliger {{jsxref("Number")}}-Wert für Ganzzahlwerte (Methoden mit „i“).
+    - Ein {{jsxref("Int32Array")}} für Ganzzahl-Vektormethoden (Methoden mit „iv“).
 
 ### Rückgabewert
 

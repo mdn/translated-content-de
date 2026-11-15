@@ -1,16 +1,16 @@
 ---
-title: "WebGLRenderingContext: uniformMatrix[234]fv() Methode"
+title: "WebGLRenderingContext: Methode uniformMatrix[234]fv()"
 short-title: uniformMatrix[234]fv()
 slug: Web/API/WebGLRenderingContext/uniformMatrix
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.uniformMatrix[234]fv()`** Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen Matrixwerte für Uniform-Variablen fest.
+Die Methoden **`WebGLRenderingContext.uniformMatrix[234]fv()`** der [WebGL API](/de/docs/Web/API/WebGL_API) legen Matrixwerte für Uniform-Variablen fest.
 
-Die drei Versionen dieser Methode (`uniformMatrix2fv()`, `uniformMatrix3fv()` und `uniformMatrix4fv()`) nehmen als Eingabewert jeweils 2-Komponenten-, 3-Komponenten- und 4-Komponenten-Quadratmatrizen. Diese sollen 4, 9 oder 16 Floats haben.
+Die drei Versionen dieser Methode (`uniformMatrix2fv()`, `uniformMatrix3fv()` und `uniformMatrix4fv()`) erwarten als Eingabewerte quadratische Matrizen mit 2, 3 beziehungsweise 4 Komponenten pro Dimension. Diese müssen 4, 9 beziehungsweise 16 Gleitkommawerte enthalten.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ uniformMatrix4fv(location, transpose, value)
 ### Parameter
 
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das den Speicherort des Uniform-Attributs enthält, das modifiziert werden soll. Der Speicherort wird mit [`getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation) erhalten.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das die Position der zu ändernden Uniform-Variable enthält, oder `null`, um die Aktualisierung der Uniform-Variable ohne Fehlermeldung zu ignorieren. Die Position wird mit [`getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation) ermittelt.
 - `transpose`
   - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Matrix transponiert werden soll. Muss `false` sein.
 - `value`
-  - : Ein {{jsxref("Float32Array")}} oder eine Sequenz von `GLfloat`-Werten. Es wird angenommen, dass die Werte in spaltenmajorer Reihenfolge geliefert werden.
+  - : Ein {{jsxref("Float32Array")}} oder eine Folge von `GLfloat`-Werten. Es wird angenommen, dass die Werte in spaltenweiser Reihenfolge vorliegen.
 
 ### Rückgabewert
 
@@ -50,4 +50,4 @@ gl.uniformMatrix2fv(loc, false, [2, 1, 2, 2]);
 ## Siehe auch
 
 - [`WebGLRenderingContext.uniform()`](/de/docs/Web/API/WebGLRenderingContext/uniform)
-- [`WebGL2RenderingContext.uniformMatrix()`](/de/docs/Web/API/WebGL2RenderingContext/uniformMatrix) – WebGL 2 Versionen dieser Methoden.
+- [`WebGL2RenderingContext.uniformMatrix()`](/de/docs/Web/API/WebGL2RenderingContext/uniformMatrix) – WebGL-2-Versionen dieser Methoden.

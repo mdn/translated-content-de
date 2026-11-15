@@ -1,16 +1,14 @@
 ---
-title: "WebGLRenderingContext: isRenderbuffer()-Methode"
+title: "WebGLRenderingContext: Methode isRenderbuffer()"
 short-title: isRenderbuffer()
 slug: Web/API/WebGLRenderingContext/isRenderbuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isRenderbuffer()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der
-übergebene [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) gültig ist, und `false` andernfalls.
+Die Methode **`WebGLRenderingContext.isRenderbuffer()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -21,15 +19,15 @@ isRenderbuffer(renderbuffer)
 ### Parameter
 
 - `renderbuffer`
-  - : Ein zu überprüfender [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer).
+  - : Ein zu prüfender [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer). Die Übergabe von `null` gibt `false` zurück.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Renderbuffer gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Renderbuffer gültig ist.
 
 ## Beispiele
 
-### Überprüfung eines Renderbuffers
+### Einen Renderbuffer prüfen
 
 ```js
 const canvas = document.getElementById("canvas");

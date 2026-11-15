@@ -1,15 +1,14 @@
 ---
-title: "WebGLRenderingContext: useProgram() Methode"
+title: "WebGLRenderingContext: Methode useProgram()"
 short-title: useProgram()
 slug: Web/API/WebGLRenderingContext/useProgram
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.useProgram()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt das angegebene
-[`WebGLProgram`](/de/docs/Web/API/WebGLProgram) als Teil des aktuellen Rendering-Zustands.
+Die Methode **`WebGLRenderingContext.useProgram()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) legt das angegebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) als Teil des aktuellen Rendering-Zustands fest.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ useProgram(program)
 ### Parameter
 
 - `program`
-  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das verwendet werden soll.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das verwendet werden soll, oder `null`, um das aktuelle Programm zu entfernen.
 
 ### Rückgabewert
 

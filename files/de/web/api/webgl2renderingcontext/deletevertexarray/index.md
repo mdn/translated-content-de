@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: deleteVertexArray()-Methode"
+title: "WebGL2RenderingContext: Methode deleteVertexArray()"
 short-title: deleteVertexArray()
 slug: Web/API/WebGL2RenderingContext/deleteVertexArray
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.deleteVertexArray()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt.
+Die Methode **`WebGL2RenderingContext.deleteVertexArray()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteVertexArray(vertexArray)
 ### Parameter
 
 - `vertexArray`
-  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO)-Objekt, das gelöscht werden soll.
+  - : Ein zu löschendes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt (VAO). Die Übergabe von `null` hat keine Auswirkung.
 
 ### Rückgabewert
 

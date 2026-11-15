@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: bindRenderbuffer()-Methode"
 short-title: bindRenderbuffer()
 slug: Web/API/WebGLRenderingContext/bindRenderbuffer
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.bindRenderbuffer()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) bindet ein gegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) an ein Ziel, das `gl.RENDERBUFFER` sein muss.
+Die Methode **`WebGLRenderingContext.bindRenderbuffer()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) bindet einen angegebenen [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) an ein Ziel, das `gl.RENDERBUFFER` sein muss.
 
 ## Syntax
 
@@ -19,12 +19,12 @@ bindRenderbuffer(target, renderbuffer)
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (das Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (das Ziel) angibt. Mögliche Werte:
     - `gl.RENDERBUFFER`
-      - : Puffer-Datenspeicher für einzelne Bilder in einem renderbaren internen Format.
+      - : Speicher für Pufferdaten einzelner Bilder in einem renderbaren internen Format.
 
 - `renderbuffer`
-  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt, das gebunden werden soll.
+  - : Ein zu bindendes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt oder `null`, um die Bindung des aktuell an das angegebene Ziel gebundenen Objekts aufzuheben.
 
 ### Rückgabewert
 
@@ -32,11 +32,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` nicht `gl.RENDERBUFFER` ist.
+Wenn `target` nicht `gl.RENDERBUFFER` ist, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
 
 ## Beispiele
 
-### Binden eines Renderbuffers
+### Einen Renderbuffer binden
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -46,9 +46,9 @@ const renderbuffer = gl.createRenderbuffer();
 gl.bindRenderbuffer(gl.RENDERBUFFER, renderbuffer);
 ```
 
-### Abrufen aktueller Bindungen
+### Aktuelle Bindungen abfragen
 
-Um die aktuelle Renderbuffer-Bindung zu überprüfen, fragen Sie die Konstante `RENDERBUFFER_BINDING` ab.
+Um die aktuelle Renderbuffer-Bindung zu prüfen, fragen Sie die Konstante `RENDERBUFFER_BINDING` ab.
 
 ```js
 gl.getParameter(gl.RENDERBUFFER_BINDING);
@@ -67,4 +67,4 @@ gl.getParameter(gl.RENDERBUFFER_BINDING);
 - [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
 - [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
 - [`WebGLRenderingContext.isRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/isRenderbuffer)
-- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)
+- Weitere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

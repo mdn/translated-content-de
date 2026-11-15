@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: isSync()-Methode"
+title: "WebGL2RenderingContext: Methode isSync()"
 short-title: isSync()
 slug: Web/API/WebGL2RenderingContext/isSync
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.isSync()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt ist.
+Die Methode **`WebGL2RenderingContext.isSync()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt ist.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ isSync(sync)
 ### Parameter
 
 - `sync`
-  - : Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt, das getestet werden soll.
+  - : Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt, das geprüft werden soll. Wird `null` übergeben, gibt die Methode `false` zurück.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt (`true`) ist oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob das übergebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt ist (`true`) oder nicht (`false`).
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: "WebGL2RenderingContext: isSampler()-Methode"
 short-title: isSampler()
 slug: Web/API/WebGL2RenderingContext/isSampler
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.isSampler()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist.
+Die Methode **`WebGL2RenderingContext.isSampler()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist.
 
 ## Syntax
 
@@ -19,15 +19,16 @@ isSampler(sampler)
 ### Parameter
 
 - `sampler`
-  - : Ein zu testendes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
+  - : Ein zu prüfendes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt. Wird `null` übergeben, gibt die Methode `false` zurück.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt (`true`) ist oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das übergebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist (`true`) oder nicht (`false`).
 
 ## Beispiele
 
-`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein.
+`WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sampler = gl.createSampler();

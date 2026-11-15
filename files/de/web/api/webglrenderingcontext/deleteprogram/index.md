@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: deleteProgram() Methode"
+title: "WebGLRenderingContext: Methode deleteProgram()"
 short-title: deleteProgram()
 slug: Web/API/WebGLRenderingContext/deleteProgram
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.deleteProgram()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt. Diese Methode hat keine Wirkung, wenn das Programm bereits gelöscht wurde.
+Die Methode **`WebGLRenderingContext.deleteProgram()`** der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt. Wenn das Programm bereits gelöscht wurde, hat diese Methode keine Wirkung.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteProgram(program)
 ### Parameter
 
 - `program`
-  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, das gelöscht werden soll. Die Übergabe von `null` hat keine Wirkung.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen eines Programms
+### Ein Programm löschen
 
 ```js
 const canvas = document.getElementById("canvas");

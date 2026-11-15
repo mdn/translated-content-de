@@ -1,24 +1,24 @@
 ---
-title: "WebGL2RenderingContext: uniform[1234][uif][v]() Methode"
+title: "WebGL2RenderingContext: Methode uniform[1234][uif][v]()"
 short-title: uniform[1234][uif][v]()
 slug: Web/API/WebGL2RenderingContext/uniform
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.uniform[1234][uif][v]()`**-Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen Werte für Uniform-Variablen fest.
+Die Methoden **`WebGL2RenderingContext.uniform[1234][uif][v]()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) legen Werte von Uniform-Variablen fest.
 
-Die Namen dieser Methoden werden gebildet durch:
+Die Namen dieser Methoden setzen sich wie folgt zusammen:
 
-- Die Anzahl der Komponenten in der Uniform-Variablen (1, 2, 3 oder 4).
-- Den Typ der Uniform-Variablen (`i` für Integer, `f` für Float, `ui` für Unsigned Integer).
-- Das Vorhandensein eines Vektor-Suffixes (`v`) für Vektortypen.
+- Die Anzahl der Komponenten der Uniform-Variablen (1, 2, 3 oder 4).
+- Der Typ der Uniform-Variablen (`i` für Integer, `f` für Float, `ui` für vorzeichenlose Integer).
+- Das Vorhandensein des Suffixes `v` für Vektortypen.
 
-Sie können durch den regulären Ausdruck `uniform[1234](u?i|f)v?` übereinstimmen.
+Sie lassen sich mit dem regulären Ausdruck `uniform[1234](u?i|f)v?` erfassen.
 
-Die meisten dieser Signaturen sind vom [WebGL 1 API](/de/docs/Web/API/WebGLRenderingContext/uniform) geerbt. WebGL 2 fügt die Unsigned-Integer-Versionen sowie die zusätzlichen `srcOffset` und `srcLength` Parameter zu den Vektormethoden hinzu.
+Die meisten dieser Signaturen werden von der [WebGL-1-API](/de/docs/Web/API/WebGLRenderingContext/uniform) geerbt. WebGL 2 ergänzt die Varianten für vorzeichenlose Integer sowie die zusätzlichen Parameter `srcOffset` und `srcLength` für die Vektormethoden.
 
 ## Syntax
 
@@ -80,17 +80,17 @@ uniform4uiv(location, data, srcOffset, srcLength)
 ### Parameter
 
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das die Position des zu ändernden Uniform-Attributs enthält.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das die Position der zu ändernden Uniform-Variablen enthält, oder `null`, um die Aktualisierung der Uniform-Variablen ohne Fehlermeldung zu ignorieren.
 - `data`, `v0`, `v1`, `v2`, `v3`
-  - : Ein neuer Wert, der für die Uniform-Variable verwendet werden soll. Mögliche Typen:
-    - Eine {{jsxref("Number")}} für Unsigned-Integer-Werte (Methoden mit `ui`), für Integer-Werte (Methoden mit `i`) oder für Floats (Methoden mit `f`).
-    - Eine {{jsxref("Uint32Array")}} (oder ein {{jsxref("Array")}} von Unsigned-Integer-Zahlen) für Unsigned-Integer-Vektormethoden (Methoden mit `uiv`).
-    - Eine {{jsxref("Int32Array")}} (oder ein {{jsxref("Array")}} von Integer-Zahlen) für Integer-Vektormethoden (Methoden mit `iv`).
-    - Eine {{jsxref("Float32Array")}} (oder ein {{jsxref("Array")}} von Zahlen) für Gleitkomma-Vektormethoden (Methoden mit `fv`).
+  - : Ein neuer Wert für die Uniform-Variable. Mögliche Typen:
+    - Ein {{jsxref("Number")}} für vorzeichenlose Ganzzahlwerte (Methoden mit `ui`), Ganzzahlwerte (Methoden mit `i`) oder Gleitkommawerte (Methoden mit `f`).
+    - Ein {{jsxref("Uint32Array")}} (oder ein {{jsxref("Array")}} mit vorzeichenlosen Ganzzahlen) für Vektormethoden mit vorzeichenlosen Ganzzahlen (Methoden mit `uiv`).
+    - Ein {{jsxref("Int32Array")}} (oder ein {{jsxref("Array")}} mit Ganzzahlen) für Vektormethoden mit Ganzzahlen (Methoden mit `iv`).
+    - Ein {{jsxref("Float32Array")}} (oder ein {{jsxref("Array")}} mit Zahlen) für Vektormethoden mit Gleitkommazahlen (Methoden mit `fv`).
 - `srcOffset` {{optional_inline}}
-  - : Eine nicht-negative ganze Zahl, die den Index des ersten zu verwendenden Elements im `data` Array angibt. Standardmäßig `0`.
+  - : Eine nicht negative Ganzzahl, die den Index des ersten zu verwendenden Elements im Array `data` angibt. Der Standardwert ist `0`.
 - `srcLength` {{optional_inline}}
-  - : Eine nicht-negative ganze Zahl, die die Anzahl der im `data` Array zu verwendenden Elemente angibt. Standardmäßig `0`, was als `data.length - srcOffset` behandelt wird. `srcOffset + srcLength` muss kleiner oder gleich `data.length` sein.
+  - : Eine nicht negative Ganzzahl, die die Anzahl der zu verwendenden Elemente im Array `data` angibt. Der Standardwert ist `0`, was als `data.length - srcOffset` behandelt wird. `srcOffset + srcLength` muss kleiner oder gleich `data.length` sein.
 
 ### Rückgabewert
 

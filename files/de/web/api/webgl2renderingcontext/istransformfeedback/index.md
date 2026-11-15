@@ -1,16 +1,14 @@
 ---
-title: "WebGL2RenderingContext: isTransformFeedback() Methode"
+title: "WebGL2RenderingContext: Methode isTransformFeedback()"
 short-title: isTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/isTransformFeedback
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.isTransformFeedback()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück,
-wenn das übergebene Objekt ein gültiges [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt ist.
+Die Methode **`WebGL2RenderingContext.isTransformFeedback()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt ist.
 
 ## Syntax
 
@@ -21,13 +19,11 @@ isTransformFeedback(transformFeedback)
 ### Parameter
 
 - `transformFeedback`
-  - : Ein zu testendes [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt.
+  - : Ein [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt, das geprüft werden soll. Wird `null` übergeben, gibt die Methode `false` zurück.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein gültiges
-[`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt ist (`true`) oder nicht
-(`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob das übergebene Objekt ein gültiges [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt ist (`true`) oder nicht (`false`).
 
 ## Beispiele
 

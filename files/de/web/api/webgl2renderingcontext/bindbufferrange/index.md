@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: bindBufferRange() Methode"
+title: "WebGL2RenderingContext: bindBufferRange()-Methode"
 short-title: bindBufferRange()
 slug: Web/API/WebGL2RenderingContext/bindBufferRange
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.bindBufferRange()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet einen Bereich eines gegebenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen angegebenen Bindungspunkt (`target`) an einem bestimmten `index`.
+Die Methode **`WebGL2RenderingContext.bindBufferRange()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet einen Bereich eines bestimmten [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen Bindungspunkt (`target`) mit einem bestimmten `index`.
 
 ## Syntax
 
@@ -19,19 +19,18 @@ bindBufferRange(target, index, buffer, offset, size)
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel für die Bindungsoperation angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Bindungsoperation angibt. Mögliche Werte:
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
     - `gl.UNIFORM_BUFFER`
 
 - `index`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des `target` angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das den Index von `target` angibt.
 - `buffer`
-  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der an den Bindungspunkt
-    (`target`) gebunden werden soll.
+  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der an den Bindungspunkt (`target`) gebunden werden soll, oder `null`, um die indizierte Bindung und die allgemeine Bindung für das angegebene Ziel aufzuheben.
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Startoffset angibt.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), das den Anfangsversatz angibt.
 - `size`
-  - : Ein [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types), der die Datenmenge angibt, die aus dem Buffer gelesen werden kann.
+  - : Ein [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types), das die Datenmenge angibt, die aus dem Buffer gelesen werden kann.
 
 ### Rückgabewert
 

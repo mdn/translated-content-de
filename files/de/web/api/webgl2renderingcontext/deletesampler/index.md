@@ -1,16 +1,14 @@
 ---
-title: "WebGL2RenderingContext: deleteSampler()-Methode"
+title: "WebGL2RenderingContext: Methode deleteSampler()"
 short-title: deleteSampler()
 slug: Web/API/WebGL2RenderingContext/deleteSampler
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.deleteSampler()`**-Methode der
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes
-[`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
+Die Methode **`WebGL2RenderingContext.deleteSampler()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ deleteSampler(sampler)
 ### Parameter
 
 - `sampler`
-  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt, das gelöscht werden soll. Die Übergabe von `null` bewirkt nichts.
 
 ### Rückgabewert
 

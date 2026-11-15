@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: isProgram()-Methode"
+title: "WebGLRenderingContext: Methode isProgram()"
 short-title: isProgram()
 slug: Web/API/WebGLRenderingContext/isProgram
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isProgram()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) gültig ist, andernfalls `false`.
+Die Methode **`WebGLRenderingContext.isProgram()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ isProgram(program)
 ### Parameter
 
 - `program`
-  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das überprüft werden soll.
+  - : Ein zu prüfendes [`WebGLProgram`](/de/docs/Web/API/WebGLProgram). Bei Übergabe von `null` wird `false` zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das anzeigt, ob das Programm gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das Programm gültig ist.
 
 ## Beispiele
 
-### Überprüfung eines Programms
+### Ein Programm prüfen
 
 ```js
 const canvas = document.getElementById("canvas");

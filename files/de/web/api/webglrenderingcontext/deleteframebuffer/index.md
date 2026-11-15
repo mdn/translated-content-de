@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: deleteFramebuffer() Methode"
+title: "WebGLRenderingContext: Methode deleteFramebuffer()"
 short-title: deleteFramebuffer()
 slug: Web/API/WebGLRenderingContext/deleteFramebuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.deleteFramebuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt. Diese Methode hat keine Wirkung, wenn der Framebuffer bereits gelöscht wurde.
+Die Methode **`WebGLRenderingContext.deleteFramebuffer()`** der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt. Wenn der Framebuffer bereits gelöscht wurde, hat die Methode keine Wirkung.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteFramebuffer(framebuffer)
 ### Parameter
 
 - `framebuffer`
-  - : Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt, das gelöscht werden soll.
+  - : Das zu löschende [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt. Die Übergabe von `null` hat keine Wirkung.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen eines Framebuffers
+### Einen Framebuffer löschen
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -52,4 +52,4 @@ gl.deleteFramebuffer(framebuffer);
 - [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
 - [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
 - [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
-- Andere Buffers: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: isShader()-Methode"
 short-title: isShader()
 slug: Web/API/WebGLRenderingContext/isShader
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isShader()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene [`WebGLShader`](/de/docs/Web/API/WebGLShader) gültig ist, andernfalls `false`.
+Die Methode **`WebGLRenderingContext.isShader()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene [`WebGLShader`](/de/docs/Web/API/WebGLShader) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ isShader(shader)
 ### Parameter
 
 - `shader`
-  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), der überprüft werden soll.
+  - : Ein zu prüfender [`WebGLShader`](/de/docs/Web/API/WebGLShader). Wird `null` übergeben, gibt die Methode `false` zurück.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Shader gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Shader gültig ist.
 
 ## Beispiele
 
-### Überprüfen eines Shaders
+### Einen Shader prüfen
 
 ```js
 const canvas = document.getElementById("canvas");

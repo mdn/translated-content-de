@@ -1,15 +1,14 @@
 ---
-title: "WebGLRenderingContext: isFramebuffer()-Methode"
+title: "WebGLRenderingContext: Methode isFramebuffer()"
 short-title: isFramebuffer()
 slug: Web/API/WebGLRenderingContext/isFramebuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.isFramebuffer()`**-Methode der
-[WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) gültig ist, andernfalls `false`.
+Die Methode **`WebGLRenderingContext.isFramebuffer()`** der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -20,15 +19,15 @@ isFramebuffer(framebuffer)
 ### Parameter
 
 - `framebuffer`
-  - : Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), das überprüft werden soll.
+  - : Ein zu überprüfendes [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer). Bei Übergabe von `null` wird `false` zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Framebuffer gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Framebuffer gültig ist.
 
 ## Beispiele
 
-### Überprüfung eines Framebuffers
+### Einen Framebuffer überprüfen
 
 ```js
 const canvas = document.getElementById("canvas");

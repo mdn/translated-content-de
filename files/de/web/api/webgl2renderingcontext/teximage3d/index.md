@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: texImage3D()-Methode"
+title: "WebGL2RenderingContext: Methode texImage3D()"
 short-title: texImage3D()
 slug: Web/API/WebGL2RenderingContext/texImage3D
 l10n:
-  sourceCommit: fe3f1f2dfaf44fcbe868b91b6a429270d2055716
+  sourceCommit: 742f106cbedfb40e6ebec554709d1ff9dcd29d52
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`texImage3D()`**-Methode der Schnittstelle [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) des [WebGL-API](/de/docs/Web/API/WebGL_API) legt ein dreidimensionales Texturbild fest.
+Die Methode **`texImage3D()`** der Schnittstelle [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) der [WebGL-API](/de/docs/Web/API/WebGL_API) definiert ein dreidimensionales Texturbild.
 
 ## Syntax
 
@@ -22,36 +22,36 @@ texImage3D(target, level, internalformat, width, height, depth, border, format, 
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Target) der aktiven Textur spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) der aktiven Textur angibt. Mögliche Werte:
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Detailgrad spezifiziert. Level 0 ist das Basisbild und Level _n_ ist das n-te Mipmap-Reduktionslevel.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Detailstufe angibt. Stufe 0 ist die Stufe des Basisbilds; Stufe _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `internalformat`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das festlegt, wie die Textur nach dem Laden gespeichert werden soll.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, wie die Textur nach dem Laden gespeichert werden soll.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur in Texeln angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur in Texeln angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur in Texeln angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur in Texeln angibt.
 - `depth`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur/die Anzahl der Texturen in einem `TEXTURE_2D_ARRAY` angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Tiefe der Textur bzw. die Anzahl der Texturen in einer `TEXTURE_2D_ARRAY` angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Randes angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Breite des Randes angibt. Muss 0 sein.
 - `format`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das festlegt, wie jedes ganzzahlige Element in den Roh-Texeldaten als Farbkomponenten interpretiert werden soll.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, wie jedes Integer-Element in den rohen Texeldaten als Farbkomponenten interpretiert werden soll.
 - `type`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Größe jedes ganzzahligen Elements in den Roh-Texeldaten angibt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Größe jedes Integer-Elements in den rohen Texeldaten angibt.
 
-    Die Werte `internalformat`, `format` und `type` müssen miteinander kompatibel sein. Für alle gültigen Kombinationen siehe [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D).
+    Die Werte für `internalformat`, `format` und `type` müssen miteinander kompatibel sein. Alle gültigen Kombinationen finden Sie unter [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D).
 
-Die Texturquelle kann auf eine von drei Arten bereitgestellt werden: aus einem {{jsxref("ArrayBuffer")}} (möglicherweise geteilt) unter Verwendung von `srcData` und `srcOffset`; von einer DOM-Pixelquelle `source`; oder von `gl.PIXEL_UNPACK_BUFFER` unter Verwendung von `offset`.
+Die Texturquelle kann auf drei Arten bereitgestellt werden: aus einem {{jsxref("ArrayBuffer")}} (gegebenenfalls gemeinsam genutzt) über `srcData` und `srcOffset`, aus einer DOM-Pixelquelle über `source` oder aus `gl.PIXEL_UNPACK_BUFFER` über `offset`.
 
 - `srcData`
-  - : Ein {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das die komprimierten Texturdaten enthält. Der Typ muss mit dem `type`-Parameter übereinstimmen; siehe [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D). Wenn `type` `FLOAT_32_UNSIGNED_INT_24_8_REV` ist, muss `srcData` `null` sein.
+  - : Ein {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das die Bildpixeldaten enthält, oder `null`, um Texturspeicher zuzuweisen, ohne Pixel hochzuladen (die zugewiesene Textur wird mit Nullen initialisiert). Der Typ muss zum Parameter `type` passen; siehe [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D). Wenn `type` den Wert `FLOAT_32_UNSIGNED_INT_24_8_REV` hat, muss `srcData` `null` sein.
 - `srcOffset` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Index von `srcData` angibt, ab dem das Lesen beginnt. Standardwert ist `0`.
+  - : Eine Ganzzahl, die den Index in `srcData` angibt, ab dem gelesen werden soll. Der Standardwert ist `0`.
 - `source`
-  - : Wird von einer DOM-Pixelquelle gelesen, die eines der folgenden sein kann:
+  - : Eine DOM-Pixelquelle, aus der gelesen wird. Dies kann eines der folgenden Objekte sein:
     - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
     - [`ImageData`](/de/docs/Web/API/ImageData)
     - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
@@ -60,7 +60,7 @@ Die Texturquelle kann auf eine von drei Arten bereitgestellt werden: aus einem {
     - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
     - [`VideoFrame`](/de/docs/Web/API/VideoFrame)
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der die Startadresse im Puffer angibt, der an `gl.PIXEL_UNPACK_BUFFER` gebunden ist.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), das die Startadresse im an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer angibt.
 
 ### Rückgabewert
 
