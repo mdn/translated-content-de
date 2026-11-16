@@ -3,21 +3,19 @@ title: "SpeechRecognition: grammars-Eigenschaft"
 short-title: grammars
 slug: Web/API/SpeechRecognition/grammars
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`grammars`**-Eigenschaft des
-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt eine Sammlung von
-[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten zurück und setzt diese, die die Grammatiken darstellen, die von der aktuellen `SpeechRecognition` verstanden werden.
+Die **`grammars`**-Eigenschaft der [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Schnittstelle repräsentiert eine Sammlung von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten.
 
 > [!NOTE]
-> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen bleiben in der Spezifikation und werden von unterstützenden Browsern weiterhin aus Gründen der Rückwärtskompatibilität erkannt, aber sie haben keinen Einfluss auf Spracherkennungsdienste.
+> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Zugehörige Funktionen sind weiterhin in der Spezifikation enthalten und werden von Browsern, die sie unterstützen, aus Gründen der Abwärtskompatibilität noch erkannt. Sie haben jedoch keine Auswirkungen auf Spracherkennungsdienste.
 
 ## Wert
 
-Eine [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), die die [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte enthält, die die in Ihrer App verwendeten Grammatiken darstellen.
+Eine [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), die die [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte enthält, welche die von Ihrer Anwendung verwendeten Grammatiken repräsentieren.
 
 ## Beispiele
 

@@ -1,14 +1,15 @@
 ---
-title: "SpeechRecognition: stop() Methode"
+title: "SpeechRecognition: Methode stop()"
 short-title: stop()
 slug: Web/API/SpeechRecognition/stop
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`stop()`** Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Spracherkennungsdienst, um auf eingehende Audiodaten zu lauschen, und versucht, ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) basierend auf den bisher erfassten Ergebnissen zurückzugeben.
+Die Methode **`stop()`** der Schnittstelle [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) beendet das Abhören eingehender Audiodaten durch den Spracherkennungsdienst.
+Anschließend versucht der Dienst, auf Grundlage der bisher erfassten Audiodaten ein Ergebnis zurückzugeben: über ein [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignis oder, falls nichts erkannt wurde, über ein [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event)-Ereignis.
 
 ## Syntax
 

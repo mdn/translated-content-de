@@ -3,10 +3,10 @@ title: Date.prototype.setFullYear()
 short-title: setFullYear()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setFullYear
 l10n:
-  sourceCommit: b3840f6234d24ade72a43171fd6489dd533aaf15
+  sourceCommit: 98972b1f827b7374e28aee591a73044ffd8fb758
 ---
 
-Die **`setFullYear()`**-Methode von {{jsxref("Date")}}-Instanzen ändert das Jahr, den Monat und/oder den Tag des Monats für dieses Datum gemäß der lokalen Zeit.
+Die Methode **`setFullYear()`** von {{jsxref("Date")}}-Instanzen ändert das Jahr, den Monat und/oder den Tag des Monats für dieses Datum entsprechend der lokalen Zeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setFullYear()")}}
 
@@ -35,25 +35,25 @@ setFullYear(yearValue, monthValue, dateValue)
 ### Parameter
 
 - `yearValue`
-  - : Ein ganzzahliger Wert, der das Jahr darstellt. Zum Beispiel 1995.
+  - : Eine Ganzzahl, die das Jahr angibt, beispielsweise 1995.
 - `monthValue` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Monat darstellt: 0 für Januar, 1 für Februar und so weiter.
+  - : Eine Ganzzahl, die den Monat angibt: 0 für Januar, 1 für Februar und so weiter.
 - `dateValue` {{optional_inline}}
-  - : Ein ganzzahliger Wert zwischen 1 und 31, der den Tag des Monats darstellt. Wenn Sie `dateValue` angeben, müssen Sie auch `monthValue` angeben.
+  - : Eine Ganzzahl zwischen 1 und 31, die den Tag des Monats angibt. Wenn Sie `dateValue` angeben, müssen Sie auch `monthValue` angeben.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder ein anderer Wert, der zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) wird, beispielsweise `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie die Parameter `monthValue` und `dateValue` nicht angeben, werden die gleichen Werte verwendet, die von {{jsxref("Date/getMonth", "getMonth()")}} und {{jsxref("Date/getDate", "getDate()")}} zurückgegeben werden.
+Wenn Sie die Parameter `monthValue` und `dateValue` nicht angeben, werden die Werte verwendet, die {{jsxref("Date/getMonth", "getMonth()")}} und {{jsxref("Date/getDate", "getDate()")}} zurückgeben.
 
-Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Zum Beispiel, wenn Sie 15 für `monthValue` angeben, wird das Jahr um 1 erhöht (`yearValue + 1`), und 3 wird für den Monat verwendet.
+Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden die anderen Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend angepasst. Wenn Sie beispielsweise 15 für `monthValue` angeben, wird das Jahr um 1 erhöht (`yearValue + 1`) und 3 als Monat verwendet.
 
-Da `setFullYear()` auf der lokalen Zeit basiert, kann das Überqueren einer Zeitzonen-Umstellung durch Sommerzeit (DST) zu einer anderen verstrichenen Zeit führen als erwartet. Zum Beispiel, wenn das Setzen des Datums eine Frühjahrsumstellung (eine Stunde weniger) überschreitet, ist der Unterschied in den Zeitstempeln zwischen dem neuen und alten Datum eine Stunde weniger als der nominelle Tagesunterschied multipliziert mit 24 Stunden. Umgekehrt führt das Überqueren einer Herbstumstellung (eine Stunde mehr) zu einer zusätzlichen Stunde. Wenn Sie das Datum um eine feste Zeitspanne anpassen müssen, sollten Sie {{jsxref("Date/setUTCFullYear", "setUTCFullYear()")}} oder {{jsxref("Date/setTime", "setTime()")}} verwenden.
+Da `setFullYear()` mit der lokalen Zeit arbeitet, kann beim Überschreiten einer Grenze zwischen Standardzeit und Sommerzeit (Daylight Saving Time, DST) eine andere Zeitspanne vergehen als erwartet. Wenn die Änderung des Datums beispielsweise einen Wechsel zur Sommerzeit überschreitet (bei dem eine Stunde entfällt), ist die Differenz zwischen dem neuen und dem alten Zeitstempel eine Stunde geringer als die nominelle Tagesdifferenz multipliziert mit 24 Stunden. Umgekehrt ergibt sich beim Wechsel zur Standardzeit (bei dem eine Stunde hinzukommt) eine zusätzliche Stunde. Wenn Sie das Datum um eine feste Zeitspanne ändern müssen, verwenden Sie stattdessen {{jsxref("Date/setUTCFullYear", "setUTCFullYear()")}} oder {{jsxref("Date/setTime", "setTime()")}}.
 
-Wenn die neue lokale Zeit innerhalb einer Offset-Übergangszeit fällt, wird die genaue Zeit unter Verwendung des gleichen Verhaltens wie die `disambiguation: "compatible"`-Option von `Temporal` [abgeleitet](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time). Das bedeutet, wenn die lokale Zeit zwei Zeitpunkten entspricht, wird der frühere gewählt; existiert die lokale Zeit nicht (es gibt eine Lücke), gehen wir um die Dauer der Lücke nach vorne.
+Wenn die neue lokale Zeit in eine Umstellung des UTC-Offsets fällt, wird der genaue Zeitpunkt nach demselben Verfahren bestimmt wie bei der Option [`disambiguation: "compatible"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) von `Temporal`. Das heißt: Entspricht die lokale Zeit zwei Zeitpunkten, wird der frühere gewählt. Existiert die lokale Zeit nicht (weil eine Lücke vorliegt), wird sie um die Dauer der Lücke nach vorn verschoben.
 
 ## Beispiele
 

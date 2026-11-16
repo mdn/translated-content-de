@@ -3,10 +3,10 @@ title: Date.prototype.getUTCFullYear()
 short-title: getUTCFullYear()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCFullYear
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 98972b1f827b7374e28aee591a73044ffd8fb758
 ---
 
-Die **`getUTCFullYear()`**-Methode von {{jsxref("Date")}}-Instanzen gibt das Jahr für dieses Datum gemäß der Weltzeit zurück.
+Die Methode **`getUTCFullYear()`** von {{jsxref("Date")}}-Instanzen gibt das Jahr dieses Datums gemäß der koordinierten Weltzeit (UTC) zurück.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getUTCFullYear()")}}
 
@@ -33,17 +33,17 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl, die das Jahr für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl, die das Jahr des angegebenen Datums gemäß der koordinierten Weltzeit (UTC) darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Im Gegensatz zu {{jsxref("Date/getYear", "getYear()")}} ist der von `getUTCFullYear()` zurückgegebene Wert eine absolute Zahl. Für Daten zwischen den Jahren 1000 und 9999 gibt `getFullYear()` eine vierstellige Zahl zurück, zum Beispiel 1995. Verwenden Sie diese Funktion, um sicherzustellen, dass ein Jahr den Anforderungen nach dem Jahr 2000 entspricht.
+Anders als bei {{jsxref("Date/getYear", "getYear()")}} ist der von `getUTCFullYear()` zurückgegebene Wert eine absolute Zahl. Für Datumsangaben zwischen den Jahren 1000 und 9999 gibt `getUTCFullYear()` eine vierstellige Zahl zurück, beispielsweise 1995. Verwenden Sie diese Funktion, um sicherzustellen, dass die Jahreszahl auch für Jahre nach 2000 korrekt ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCFullYear()
 
-Das folgende Beispiel weist den vierstelligen Wert des aktuellen Jahres der Variablen `year` zu.
+Das folgende Beispiel weist der Variablen `year` den vierstelligen Wert des aktuellen Jahres zu.
 
 ```js
 const today = new Date();

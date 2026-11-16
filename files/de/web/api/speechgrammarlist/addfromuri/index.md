@@ -1,30 +1,32 @@
 ---
-title: "SpeechGrammarList: addFromURI()-Methode"
-short-title: addFromURI()
-slug: Web/API/SpeechGrammarList/addFromURI
+title: "SpeechGrammarList: Methode addFromUri()"
+short-title: addFromUri()
+slug: Web/API/SpeechGrammarList/addFromUri
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`addFromURI()`**-Methode der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Schnittstelle nimmt eine Grammatik, die an einem bestimmten URI vorhanden ist, und fügt sie als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt zur `SpeechGrammarList` hinzu.
+Die Methode **`addFromUri()`** der Schnittstelle [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) nimmt eine unter einer bestimmten URI verfügbare Grammatik und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 
-Beachten Sie, dass einige Spracherkennungsdienste integrierte Grammatiken unterstützen können, die durch einen URI angegeben werden können.
+Beachten Sie, dass einige Spracherkennungsdienste integrierte Grammatiken unterstützen, die über eine URI angegeben werden können.
 
 ## Syntax
 
 ```js-nolint
-addFromURI(src)
-addFromURI(src, weight)
+addFromUri(src)
+addFromUri(src, weight)
 ```
 
 ### Parameter
 
 - `src`
-  - : Eine Zeichenfolge, die den URI der hinzuzufügenden Grammatik darstellt.
+  - : Ein String, der die URI der hinzuzufügenden Grammatik angibt.
 - `weight` {{optional_inline}}
-  - : Ein Gleitkommawert, der das Gewicht der Grammatik relativ zu anderen in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) vorhandenen Grammatiken darstellt. Das Gewicht bedeutet die Wichtigkeit dieser Grammatik oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; wenn nicht angegeben, wird der Standardwert `1.0` verwendet.
+  - : Eine Gleitkommazahl, die die Gewichtung der Grammatik im Verhältnis zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) angibt.
+    Die Gewichtung bestimmt die Bedeutung dieser Grammatik beziehungsweise die Wahrscheinlichkeit, mit der sie vom Spracherkennungsdienst erkannt wird.
+    Der Wert kann zwischen `0.0` und `1.0` liegen. Wird er nicht angegeben, wird standardmäßig `1.0` verwendet.
 
 ### Rückgabewert
 

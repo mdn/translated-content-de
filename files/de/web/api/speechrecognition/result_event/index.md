@@ -3,12 +3,13 @@ title: "SpeechRecognition: result-Ereignis"
 short-title: result
 slug: Web/API/SpeechRecognition/result_event
 l10n:
-  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`result`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis zurückgibt: Ein Wort oder eine Wortgruppe wurde erkannt und das Ergebnis an die Anwendung übermittelt.
+Das **`result`**-Ereignis der [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Schnittstelle wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis zurückgibt.
+Dabei kann es sich um ein endgültiges Ergebnis oder um ein vorläufiges Ergebnis handeln, das sich noch ändern kann (wenn [`interimResults`](/de/docs/Web/API/SpeechRecognition/interimResults) auf `true` gesetzt ist).
 
 ## Syntax
 
@@ -18,7 +19,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("result", (event) => { })
 ```
 
-Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces eine Funktion zuweisen:
+Alternativ können Sie die [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
 
 ```js-nolint
 onresult = (event) => { }
@@ -32,9 +33,9 @@ Ein [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent). Erbt vo
 
 ## Beispiele
 
-Dieser Code stammt aus unserem Beispiel [Sprachgesteuerter Farbwechsel](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
+Dieser Code stammt aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
-Sie können das `result`-Ereignis mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
+Sie können das `result`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 const recognition = new SpeechRecognition();
@@ -46,7 +47,7 @@ recognition.addEventListener("result", (event) => {
 });
 ```
 
-Oder verwenden Sie die Event-Handler-Eigenschaft `onresult`. Beachten Sie jedoch, dass dadurch gegebenenfalls andere Ereignis-Listener ersetzt werden, die über `onresult` hinzugefügt wurden:
+Oder Sie verwenden die Ereignisbehandlungseigenschaft `onresult` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onresult` hinzugefügte Ereignis-Listener ersetzt werden):
 
 ```js
 recognition.onresult = (event) => {

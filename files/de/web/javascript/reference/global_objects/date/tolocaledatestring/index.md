@@ -3,12 +3,12 @@ title: Date.prototype.toLocaleDateString()
 short-title: toLocaleDateString()
 slug: Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 98972b1f827b7374e28aee591a73044ffd8fb758
 ---
 
-Die **`toLocaleDateString()`**-Methode von {{jsxref("Date")}}-Instanzen gibt einen String mit einer sprachsensitiven Darstellung des Datumsanteils dieses Datums in der lokalen Zeitzone zurück. Bei Implementierungen mit Unterstützung der [`Intl.DateTimeFormat`-API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) delegiert diese Methode an `Intl.DateTimeFormat`.
+Die Methode **`toLocaleDateString()`** von {{jsxref("Date")}}-Instanzen gibt eine Zeichenfolge zurück, die den Datumsteil dieses Datums gemäß den sprachspezifischen Konventionen in der lokalen Zeitzone darstellt. In Implementierungen, die die [`Intl.DateTimeFormat`-API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, delegiert diese Methode an `Intl.DateTimeFormat`.
 
-Jedes Mal, wenn `toLocaleDateString` aufgerufen wird, muss sie in einer großen Datenbank von Lokalisierungszeichenfolgen suchen, was potenziell ineffizient ist. Wenn die Methode viele Male mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/DateTimeFormat/format", "format()")}}-Methode zu verwenden, da ein `DateTimeFormat`-Objekt sich die übergebenen Argumente merken kann und möglicherweise beschließt, einen Ausschnitt der Datenbank zwischenzuspeichern, sodass zukünftige `format`-Aufrufe innerhalb eines eingeschränkten Kontexts nach Lokalisierungszeichenfolgen suchen können.
+Bei jedem Aufruf von `toLocaleDateString` muss eine große Datenbank mit Lokalisierungszeichenfolgen durchsucht werden, was potenziell ineffizient ist. Wenn die Methode häufig mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}}-Objekt zu erstellen und dessen Methode {{jsxref("Intl/DateTimeFormat/format", "format()")}} zu verwenden. Ein `DateTimeFormat`-Objekt merkt sich die übergebenen Argumente und kann einen Teil der Datenbank zwischenspeichern, sodass spätere `format`-Aufrufe in einem stärker eingegrenzten Bereich nach Lokalisierungszeichenfolgen suchen können.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.toLocaleDateString()", "taller")}}
 
@@ -41,36 +41,36 @@ toLocaleDateString(locales, options)
 
 ### Parameter
 
-Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache anzugeben, deren Formatierungskonventionen verwendet werden sollen.
+Mit den Parametern `locales` und `options` lässt sich das Verhalten der Funktion anpassen. Anwendungen können damit festlegen, welche sprachspezifischen Formatierungskonventionen verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.DateTimeFormat`-API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des Konstruktors [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat). Implementierungen ohne Unterstützung von `Intl.DateTimeFormat` werden gebeten, beide Parameter zu ignorieren, wodurch die verwendete Lokale und die Form der zurückgegebenen Zeichenfolge vollständig implementierungsabhängig sind.
+In Implementierungen, die die [`Intl.DateTimeFormat`-API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des Konstruktors [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat). Implementierungen ohne Unterstützung für `Intl.DateTimeFormat` sollen beide Parameter ignorieren. Welche Locale verwendet wird und welche Form die zurückgegebene Zeichenfolge hat, hängt dann vollständig von der Implementierung ab.
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}} oder ein Array solcher Strings. Entspricht dem [`locales`-Parameter](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales) des `Intl.DateTimeFormat()`-Konstruktors.
+  - : Eine Zeichenfolge mit einem {{Glossary("BCP_47_language_tag", "BCP-47-Sprach-Tag")}} oder ein Array solcher Zeichenfolgen. Entspricht dem Parameter [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales) des Konstruktors `Intl.DateTimeFormat()`.
 
-    In Implementierungen ohne Unterstützung von `Intl.DateTimeFormat` wird dieser Parameter ignoriert und meist die Lokale des Hosts verwendet.
+    In Implementierungen ohne Unterstützung für `Intl.DateTimeFormat` wird dieser Parameter ignoriert. Üblicherweise wird dann die Locale des Hostsystems verwendet.
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`-Parameter](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options) des `Intl.DateTimeFormat()`-Konstruktors. Die `timeStyle`-Option muss undefiniert sein, ansonsten wird ein {{jsxref("TypeError")}} ausgelöst. Wenn `weekday`, `year`, `month` und `day` alle undefiniert sind, werden `year`, `month` und `day` auf `"numeric"` gesetzt.
+  - : Ein Objekt zur Anpassung des Ausgabeformats. Entspricht dem Parameter [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options) des Konstruktors `Intl.DateTimeFormat()`. Die Option `timeStyle` muss undefined sein, andernfalls wird ein {{jsxref("TypeError")}} ausgelöst. Wenn `weekday`, `year`, `month`, `day` und `dateStyle` alle undefined sind, werden `year`, `month` und `day` auf `"numeric"` gesetzt.
 
-    In Implementierungen ohne Unterstützung von `Intl.DateTimeFormat` wird dieser Parameter ignoriert.
+    In Implementierungen ohne Unterstützung für `Intl.DateTimeFormat` wird dieser Parameter ignoriert.
 
-Siehe den [`Intl.DateTimeFormat()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und wie sie verwendet werden.
+Weitere Einzelheiten zu diesen Parametern und ihrer Verwendung finden Sie unter [Konstruktor `Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat).
 
 ### Rückgabewert
 
-Ein String, der den Datumsanteil des gegebenen Datums gemäß sprachspezifischen Konventionen repräsentiert.
+Eine Zeichenfolge, die den Datumsteil des angegebenen Datums gemäß den sprachspezifischen Konventionen darstellt.
 
-In Implementierungen mit `Intl.DateTimeFormat` ist dies gleichbedeutend mit `new Intl.DateTimeFormat(locales, options).format(date)`, wobei `options` wie oben beschrieben normalisiert wurde.
+In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTimeFormat(locales, options).format(date)`, wobei `options` wie oben beschrieben normalisiert wurde.
 
 > [!NOTE]
-> Meistens ist das von `toLocaleDateString()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Lokale — Abweichungen sind im Design vorgesehen und von der Spezifikation erlaubt. Es könnte auch nicht das sein, was Sie erwarten. Zum Beispiel kann die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleDateString()` nicht mit fest codierten Konstanten vergleichen.
+> Meist ist die von `toLocaleDateString()` zurückgegebene Formatierung einheitlich. Die Ausgabe kann jedoch zwischen Implementierungen variieren, selbst bei derselben Locale. Solche Unterschiede sind beabsichtigt und laut Spezifikation zulässig. Die Ausgabe entspricht möglicherweise auch nicht Ihren Erwartungen. Beispielsweise kann die Zeichenfolge geschützte Leerzeichen enthalten oder von bidirektionalen Steuerzeichen umgeben sein. Vergleichen Sie die Ergebnisse von `toLocaleDateString()` daher nicht mit fest codierten Konstanten.
 
 ## Beispiele
 
 ### Verwendung von toLocaleDateString()
 
-Die grundlegende Verwendung dieser Methode ohne Angabe einer `locale` gibt einen formatierten String in der Standard-Lokale und mit Standardoptionen zurück.
+Die Verwendung dieser Methode ohne Angabe einer `locale` gibt eine formatierte Zeichenfolge in der Standard-Locale und mit den Standardoptionen zurück.
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 12, 3, 0, 0));
@@ -81,9 +81,9 @@ console.log(date.toLocaleDateString());
 // "12/11/2012" if run in en-US locale with time zone America/Los_Angeles
 ```
 
-### Überprüfung der Unterstützung für die Parameter locales und options
+### Unterstützung für die Parameter locales und options prüfen
 
-Die Parameter `locales` und `options` werden möglicherweise nicht in allen Implementierungen unterstützt, da die Unterstützung für die Internationalisierungs-API optional ist und einige Systeme möglicherweise nicht die erforderlichen Daten haben. Für Implementierungen ohne Internationalisierungsunterstützung verwendet `toLocaleDateString()` immer die Lokale des Systems, was möglicherweise nicht das ist, was Sie wollen. Da jede Implementierung, die die Parameter `locales` und `options` unterstützt, die {{jsxref("Intl")}}-API unterstützen muss, können Sie das Vorhandensein letzterer für die Unterstützung überprüfen:
+Die Parameter `locales` und `options` werden möglicherweise nicht von allen Implementierungen unterstützt, da die Unterstützung der Internationalisierungs-API optional ist und einigen Systemen die erforderlichen Daten fehlen. In Implementierungen ohne Internationalisierungsunterstützung verwendet `toLocaleDateString()` immer die Locale des Systems, die möglicherweise nicht Ihren Anforderungen entspricht. Da jede Implementierung, die die Parameter `locales` und `options` unterstützt, auch die {{jsxref("Intl")}}-API unterstützen muss, können Sie deren Vorhandensein prüfen:
 
 ```js
 function toLocaleDateStringSupportsLocales() {
@@ -97,7 +97,7 @@ function toLocaleDateStringSupportsLocales() {
 
 ### Verwendung von locales
 
-Dieses Beispiel zeigt einige der Variationen in lokalisierten Datumsformaten. Um das Format der in der Benutzeroberfläche Ihrer Anwendung verwendeten Sprache zu erhalten, stellen Sie sicher, dass Sie diese Sprache (und möglicherweise einige Fallback-Sprachen) mit dem `locales`-Argument angeben:
+Dieses Beispiel zeigt einige Unterschiede zwischen lokalisierten Datumsformaten. Um das Format der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, geben Sie diese Sprache (und gegebenenfalls einige Ersatzsprachen) über das Argument `locales` an:
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
@@ -107,7 +107,7 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
 
 // US English uses month-day-year order
 console.log(date.toLocaleDateString("en-US"));
-// "12/20/2012"
+// "12/19/2012"
 
 // British English uses day-month-year order
 console.log(date.toLocaleDateString("en-GB"));
@@ -117,7 +117,7 @@ console.log(date.toLocaleDateString("en-GB"));
 console.log(date.toLocaleDateString("ko-KR"));
 // "2012. 12. 20."
 
-// Event for Persian, It's hard to manually convert date to Solar Hijri
+// Even for Persian, it's hard to manually convert date to Solar Hijri
 console.log(date.toLocaleDateString("fa-IR"));
 // "۱۳۹۱/۹/۳۰"
 
@@ -138,7 +138,7 @@ console.log(date.toLocaleDateString(["ban", "id"]));
 
 ### Verwendung von options
 
-Die von `toLocaleDateString()` bereitgestellten Ergebnisse können mit dem `options`-Parameter angepasst werden:
+Die von `toLocaleDateString()` gelieferten Ergebnisse lassen sich mit dem Parameter `options` anpassen:
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));

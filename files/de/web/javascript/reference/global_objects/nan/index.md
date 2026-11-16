@@ -2,10 +2,10 @@
 title: NaN
 slug: Web/JavaScript/Reference/Global_Objects/NaN
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 0c3c464abb1422b0534a5e3f5e81e9bbae13544c
 ---
 
-Die **`NaN`** globale Eigenschaft ist ein Wert, der „Nicht eine Zahl“ (Not-a-Number) darstellt.
+Die globale Eigenschaft **`NaN`** ist ein Wert, der „Not-A-Number“ (keine Zahl) repräsentiert.
 
 {{InteractiveExample("JavaScript Demo: NaN")}}
 
@@ -26,37 +26,37 @@ console.log(sanitize("NotANumber"));
 
 ## Wert
 
-Der gleiche Zahlenwert wie {{jsxref("Number.NaN")}}.
+Derselbe Zahlenwert wie {{jsxref("Number.NaN")}}.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-`NaN` ist eine Eigenschaft des _globalen Objekts_. In anderen Worten, es ist eine Variable im globalen Bereich.
+`NaN` ist eine Eigenschaft des _globalen Objekts_. Anders ausgedrückt: Es ist eine Variable im globalen Gültigkeitsbereich.
 
-In modernen Browsern ist `NaN` eine nicht konfigurierbare, nicht beschreibbare Eigenschaft. Auch wenn dies nicht der Fall ist, vermeiden Sie es, sie zu überschreiben.
+In modernen Browsern ist `NaN` eine nicht konfigurierbare, schreibgeschützte Eigenschaft. Auch wenn das nicht der Fall ist, sollten Sie sie nicht überschreiben.
 
-Es gibt fünf verschiedene Typen von Operationen, die `NaN` zurückgeben:
+Fünf verschiedene Arten von Operationen geben `NaN` zurück:
 
-- Fehlgeschlagene Zahlenkonvertierung (z. B. explizite wie `parseInt("blabla")`, `Number(undefined)` oder implizite wie `Math.abs(undefined)`)
-- Mathematische Operation, deren Ergebnis keine reale Zahl ist (z. B. `Math.sqrt(-1)`)
-- Unbestimmte Form (z. B. `0 * Infinity`, `1 ** Infinity`, `Infinity / Infinity`, `Infinity - Infinity`)
-- Eine Methode oder ein Ausdruck, dessen Operanden `NaN` sind oder zu `NaN` gezwungen werden (z. B. `7 ** NaN`, `7 * "blabla"`) – das bedeutet, `NaN` ist ansteckend
-- Andere Fälle, in denen ein ungültiger Wert als Zahl dargestellt werden soll (z. B. ein ungültiges [Datum (Date)](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) `new Date("blabla").getTime()`, `"".charCodeAt(1)`)
+- Fehlgeschlagene Umwandlungen in eine Zahl (z. B. explizite Umwandlungen wie `parseInt("blabla")` oder `Number(undefined)` sowie implizite Umwandlungen wie `Math.abs(undefined)`)
+- Mathematische Operationen, deren Ergebnis keine reelle Zahl ist (z. B. `Math.sqrt(-1)`)
+- Unbestimmte Ausdrücke (z. B. `0 * Infinity`, `1 ** Infinity`, `Infinity / Infinity`, `Infinity - Infinity`)
+- Methoden oder Ausdrücke, deren Operand `NaN` ist oder in `NaN` umgewandelt wird (z. B. `7 ** NaN`, `7 * "blabla"`) – das bedeutet, dass sich `NaN` weiterverbreitet
+- Andere Fälle, in denen ein ungültiger Wert als Zahl dargestellt werden soll (z. B. das Ergebnis von `new Date("blabla").getTime()` für ein ungültiges [Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) oder von `"".charCodeAt(1)`)
 
-`NaN` und sein Verhalten wurden nicht von JavaScript erfunden. Seine Semantik in der Gleitkommaarithmetik (einschließlich dass `NaN !== NaN`) ist durch [IEEE 754](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) spezifiziert. Zu den Verhaltensweisen von `NaN` gehören:
+`NaN` und sein Verhalten wurden nicht von JavaScript erfunden. Seine Semantik in der Gleitkommaarithmetik (einschließlich `NaN !== NaN`) ist durch [IEEE 754](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) festgelegt. Für `NaN` gilt unter anderem:
 
-- Wenn `NaN` an einer mathematischen Operation beteiligt ist (aber nicht bei [bitweisen Operationen](/de/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators)), ist das Ergebnis normalerweise auch `NaN`. (Siehe [Gegenbeispiel](#still_entkommendes_nan) unten.)
-- Wenn `NaN` einer der Operanden eines Vergleichs der relationalen Größenordnung (`>`, `<`, `>=`, `<=`) ist, ist das Ergebnis immer `false`.
-- `NaN` vergleicht ungleich (über [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality), [`!=`](/de/docs/Web/JavaScript/Reference/Operators/Inequality), [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) und [`!==`](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality)) mit jedem anderen Wert – einschließlich eines anderen `NaN`-Werts.
+- Wenn `NaN` an einer mathematischen Operation beteiligt ist (außer an [bitweisen Operationen](/de/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators)), ist das Ergebnis normalerweise ebenfalls `NaN`. (Siehe das [Gegenbeispiel](#wenn_sich_nan_unbemerkt_nicht_weiterverbreitet) unten.)
+- Wenn `NaN` einer der Operanden eines relationalen Vergleichs (`>`, `<`, `>=`, `<=`) ist, ist das Ergebnis immer `false`.
+- `NaN` wird bei Vergleichen mit [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality), [`!=`](/de/docs/Web/JavaScript/Reference/Operators/Inequality), [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) und [`!==`](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality) als ungleich zu jedem anderen Wert bewertet – auch zu einem anderen `NaN`-Wert.
 
-`NaN` ist auch einer der {{Glossary("Falsy", "falsy")}} Werte in JavaScript.
+`NaN` gehört in JavaScript außerdem zu den {{Glossary("Falsy", "falsy")}}-Werten.
 
 ## Beispiele
 
-### Testen gegen NaN
+### Auf NaN prüfen
 
-Um festzustellen, ob ein Wert `NaN` ist, verwenden Sie {{jsxref("Number.isNaN()")}} oder {{jsxref("isNaN()")}}, um am deutlichsten zu bestimmen, ob ein Wert `NaN` ist — oder, da `NaN` der einzige Wert ist, der ungleich zu sich selbst ist, können Sie einen Selbstvergleich wie `x !== x` durchführen.
+Um festzustellen, ob ein Wert `NaN` ist, verwenden Sie am besten {{jsxref("Number.isNaN()")}} oder {{jsxref("isNaN()")}}. Da `NaN` der einzige Wert ist, der im Vergleich mit sich selbst als ungleich bewertet wird, können Sie auch einen Selbstvergleich wie `x !== x` durchführen.
 
 ```js
 NaN === NaN; // false
@@ -73,21 +73,21 @@ valueIsNaN(NaN); // true
 valueIsNaN(Number.NaN); // true
 ```
 
-Beachten Sie jedoch den Unterschied zwischen `isNaN()` und `Number.isNaN()`: Ersteres gibt `true` zurück, wenn der Wert momentan `NaN` ist oder `NaN` wird, nachdem es zu einer Zahl gezwungen wurde, während Letzteres nur dann `true` zurückgibt, wenn der Wert momentan `NaN` ist:
+Beachten Sie jedoch den Unterschied zwischen `isNaN()` und `Number.isNaN()`: Ersteres gibt `true` zurück, wenn der Wert bereits `NaN` ist oder nach der Umwandlung in eine Zahl `NaN` wäre. Letzteres gibt nur dann `true` zurück, wenn der Wert bereits `NaN` ist:
 
 ```js
 isNaN("hello world"); // true
 Number.isNaN("hello world"); // false
 ```
 
-Aus dem gleichen Grund führt die Verwendung eines BigInt-Werts zu einem Fehler mit `isNaN()` und nicht mit `Number.isNaN()`:
+Aus demselben Grund führt ein BigInt-Wert bei `isNaN()` zu einem Fehler, bei `Number.isNaN()` hingegen nicht:
 
 ```js
 isNaN(1n); // TypeError: Conversion from 'BigInt' to 'number' is not allowed.
 Number.isNaN(1n); // false
 ```
 
-Zusätzlich können einige Array-Methoden `NaN` nicht finden, während andere dies können. Namentlich die Methoden zum Finden von Indizes ({{jsxref("Array/indexOf", "indexOf()")}}, {{jsxref("Array/lastIndexOf", "lastIndexOf()")}}) können `NaN` nicht finden, während die Methoden zum Finden von Werten ({{jsxref("Array/includes", "includes()")}}) dies können:
+Außerdem können manche Array-Methoden `NaN` nicht finden, andere dagegen schon. Die Methoden zur Indexsuche ({{jsxref("Array/indexOf", "indexOf()")}}, {{jsxref("Array/lastIndexOf", "lastIndexOf()")}}) können `NaN` nicht finden, die Methode zur Wertsuche ({{jsxref("Array/includes", "includes()")}}) hingegen schon:
 
 ```js
 const arr = [2, 4, NaN, 12];
@@ -98,11 +98,11 @@ arr.includes(NaN); // true
 arr.findIndex((n) => Number.isNaN(n)); // 2
 ```
 
-Für weitere Informationen über `NaN` und dessen Vergleich siehe [Vergleich von Gleichheit und Identität](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness).
+Weitere Informationen zu `NaN` und Vergleichen damit finden Sie unter [Gleichheitsvergleiche und Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness).
 
-### Beobachtbar unterschiedliche NaN-Werte
+### Unterscheidbare NaN-Werte
 
-Es ist möglich, zwei Gleitkommazahlen mit unterschiedlichen Binärdarstellungen zu erzeugen, die beide `NaN` sind, denn in der [IEEE 754 Kodierung](https://en.wikipedia.org/wiki/NaN#Floating_point) ist jede Gleitkommazahl mit Exponent `0x7ff` und einer nicht-null Mantisse `NaN`. In JavaScript können Sie Bit-Ebene-Manipulationen mit [typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) durchführen.
+Es ist möglich, zwei Gleitkommazahlen mit unterschiedlichen binären Darstellungen zu erzeugen, die beide `NaN` sind. Denn gemäß der [IEEE-754-Kodierung](https://en.wikipedia.org/wiki/NaN#Floating_point) ist jede Gleitkommazahl mit dem Exponenten `0x7ff` und einer von null verschiedenen Mantisse `NaN`. In JavaScript können Sie mithilfe von [typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Operationen auf Bitebene durchführen.
 
 ```js
 const f2b = (x) => new Uint8Array(new Float64Array([x]).buffer);
@@ -128,9 +128,9 @@ console.log(f2b(NaN)); // Uint8Array(8) [0, 0, 0, 0, 0, 0, 248, 127]
 console.log(f2b(nan3)); // Uint8Array(8) [1, 0, 0, 0, 0, 0, 248, 127]
 ```
 
-### Still entkommendes NaN
+### Wenn sich NaN unbemerkt nicht weiterverbreitet
 
-`NaN` breitet sich durch mathematische Operationen aus, daher reicht es in der Regel aus, am Ende der Berechnung einmal auf `NaN` zu testen, um Fehlerbedingungen zu erkennen. Der einzige Fall, in dem `NaN` unbemerkt entkommt, ist bei der Verwendung von [Potenzierung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) mit einem Exponenten von `0`, was sofort `1` zurückgibt, ohne den Wert der Basis zu testen.
+`NaN` verbreitet sich bei mathematischen Operationen weiter. Daher reicht es normalerweise aus, am Ende einer Berechnung einmal auf `NaN` zu prüfen, um Fehlerzustände zu erkennen. Ein Fall, in dem sich `NaN` unbemerkt nicht weiterverbreitet, ist die [Potenzierung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) mit dem Exponenten `0`: Sie gibt sofort `1` zurück, ohne den Wert der Basis zu prüfen. Weitere Fälle betreffen Funktionen von {{jsxref("Math")}}, etwa {{jsxref("Math.hypot()")}}, das `Infinity` Vorrang vor `NaN` gibt.
 
 ```js
 NaN ** 0 === 1; // true

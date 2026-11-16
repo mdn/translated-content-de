@@ -3,12 +3,12 @@ title: "SpeechRecognition: start-Ereignis"
 short-title: start
 slug: Web/API/SpeechRecognition/start_event
 l10n:
-  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`start`**-Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst beginnt, eingehende Audiodaten abzuhören, um Grammatiken zu erkennen, die der aktuellen `SpeechRecognition` zugeordnet sind.
+Das **`start`**-Ereignis der [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Schnittstelle wird ausgelöst, wenn der Spracherkennungsdienst begonnen hat, eingehende Audiodaten zu empfangen, um Sprache zu erkennen.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("start", (event) => { })
 ```
 
-Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
 
 ```js-nolint
 onstart = (event) => { }
@@ -42,7 +42,7 @@ recognition.addEventListener("start", () => {
 });
 ```
 
-Oder verwenden Sie die Event-Handler-Eigenschaft `onstart` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onstart` hinzugefügte Ereignis-Listener ersetzt werden):
+Oder verwenden Sie die Event-Handler-Eigenschaft `onstart`. Beachten Sie dabei, dass dadurch gegebenenfalls andere über `onstart` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 recognition.onstart = () => {

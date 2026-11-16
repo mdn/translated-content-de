@@ -3,12 +3,12 @@ title: "LayoutShiftAttribution: node-Eigenschaft"
 short-title: node
 slug: Web/API/LayoutShiftAttribution/node
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: 725499d8bb2e0903334b8ab936818042757cc852
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`node`**-Eigenschaft des [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Interfaces gibt ein [`Node`](/de/docs/Web/API/Node)-Objekt zurück, das das verschobene Objekt darstellt.
+Die schreibgeschützte Eigenschaft **`node`** der Schnittstelle [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution) gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der das verschobene Objekt repräsentiert.
 
 ## Wert
 
@@ -16,12 +16,12 @@ Ein [`Node`](/de/docs/Web/API/Node).
 
 ## Beispiele
 
-Im folgenden Beispiel wird das `node` des ersten Elements in [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) in die Konsole ausgegeben.
+Das folgende Beispiel gibt den `node` des ersten Eintrags in [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) in der Konsole aus.
 
 ```js
 new PerformanceObserver((list) => {
   for (const { sources } of list.getEntries()) {
-    if (sources) {
+    if (sources && sources.length > 0) {
       console.log(sources[0].node);
     }
   }

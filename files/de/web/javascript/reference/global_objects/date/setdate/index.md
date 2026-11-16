@@ -3,10 +3,10 @@ title: Date.prototype.setDate()
 short-title: setDate()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setDate
 l10n:
-  sourceCommit: b3840f6234d24ade72a43171fd6489dd533aaf15
+  sourceCommit: 98972b1f827b7374e28aee591a73044ffd8fb758
 ---
 
-Die **`setDate()`** Methode von {{jsxref("Date")}} Instanzen ändert den Tag des Monats für dieses Datum entsprechend der lokalen Zeit.
+Die Methode **`setDate()`** von {{jsxref("Date")}}-Instanzen ändert den Tag des Monats für dieses Datum gemäß der Ortszeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setDate()")}}
 
@@ -34,19 +34,19 @@ setDate(dateValue)
 ### Parameter
 
 - `dateValue`
-  - : Ein ganzzahliger Wert, der den Tag des Monats darstellt.
+  - : Eine Ganzzahl, die den Tag des Monats angibt.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}} Objekt direkt und gibt dessen neuen [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `dateValue` `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `dateValue` `NaN` ist (oder ein anderer Wert, der zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) wird, etwa `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie eine Zahl außerhalb des erwarteten Bereichs angeben, werden die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend aktualisiert. Zum Beispiel, wenn das `Date` Objekt den 1. Juni enthält, ändert ein `dateValue` von 40 das Datum auf den 10. Juli, während ein `dateValue` von 0 das Datum auf den letzten Tag des vorherigen Monats, den 31. Mai, ändert.
+Wenn Sie eine Zahl außerhalb des erwarteten Bereichs angeben, werden die Datumsangaben im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Enthält das `Date`-Objekt beispielsweise den 1. Juni, ändert ein `dateValue` von 40 das Datum auf den 10. Juli, während ein `dateValue` von 0 es auf den letzten Tag des Vormonats, den 31. Mai, ändert.
 
-Da `setDate()` mit der lokalen Zeit arbeitet, kann das Überschreiten einer Sommerzeitumstellung (Daylight Saving Time, DST) zu einem anderen als dem erwarteten Zeitunterschied führen. Zum Beispiel, wenn das Setzen des Datums eine Vorwärts-Umstellung im Frühjahr (eine Stunde weniger) überschreitet, ist die Differenz in den Timestamps zwischen dem neuen und dem alten Datum eine Stunde weniger als der nominelle Tagesunterschied multipliziert mit 24 Stunden. Umgekehrt führt das Überschreiten einer Rückwärts-Umstellung im Herbst (eine Stunde mehr) zu einer zusätzlichen Stunde. Wenn Sie das Datum um einen festen Zeitraum anpassen müssen, sollten Sie {{jsxref("Date/setUTCDate", "setUTCDate()")}} oder {{jsxref("Date/setTime", "setTime()")}} in Betracht ziehen.
+Da `setDate()` mit der Ortszeit arbeitet, kann das Überschreiten einer Grenze zwischen Sommer- und Normalzeit zu einer anderen verstrichenen Zeit führen als erwartet. Wenn beim Setzen des Datums beispielsweise auf Sommerzeit umgestellt wird (wobei eine Stunde entfällt), ist die Differenz zwischen dem neuen und dem alten Zeitstempel eine Stunde geringer als die nominelle Anzahl der Tage multipliziert mit 24 Stunden. Bei der Umstellung auf Normalzeit (wobei eine Stunde hinzukommt) ergibt sich dagegen eine zusätzliche Stunde. Wenn Sie das Datum um eine feste Zeitspanne ändern müssen, sollten Sie {{jsxref("Date/setUTCDate", "setUTCDate()")}} oder {{jsxref("Date/setTime", "setTime()")}} verwenden.
 
-Wenn die neue lokale Zeit innerhalb eines Offset-Übergangs liegt, wird die genaue Zeit unter Verwendung desselben Verhaltens wie `Temporal` mit der [`disambiguation: "compatible"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) Option abgeleitet. Das bedeutet, dass, wenn die lokale Zeit zwei Instanzen entspricht, die frühere gewählt wird; wenn die lokale Zeit nicht existiert (es gibt eine Lücke), gehen wir um die Länge der Lücke vorwärts.
+Wenn die neue Ortszeit in einen Zeitzonenübergang fällt, wird der genaue Zeitpunkt nach demselben Verhalten bestimmt wie bei der Option [`disambiguation: "compatible"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) von `Temporal`. Das heißt: Entspricht die Ortszeit zwei Zeitpunkten, wird der frühere gewählt. Existiert die Ortszeit nicht (weil eine Lücke besteht), wird sie um die Dauer der Lücke nach vorn verschoben.
 
 ## Beispiele
 

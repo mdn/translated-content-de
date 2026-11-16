@@ -3,10 +3,10 @@ title: Date.prototype.getUTCDate()
 short-title: getUTCDate()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCDate
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 98972b1f827b7374e28aee591a73044ffd8fb758
 ---
 
-Die **`getUTCDate()`** Methode von {{jsxref("Date")}} Instanzen gibt den Tag des Monats für dieses Datum gemäß der Weltzeit zurück.
+Die Methode **`getUTCDate()`** von {{jsxref("Date")}}-Instanzen gibt den Tag des Monats für dieses Datum gemäß der koordinierten Weltzeit (UTC) zurück.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getUTCDate()")}}
 
@@ -33,7 +33,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl, zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß der koordinierten Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

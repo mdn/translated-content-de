@@ -3,23 +3,28 @@ title: "SpeechRecognition: continuous-Eigenschaft"
 short-title: continuous
 slug: Web/API/SpeechRecognition/continuous
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`continuous`**-Eigenschaft des
-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces steuert, ob für jede Erkennung kontinuierliche Ergebnisse zurückgegeben werden oder nur ein einzelnes Ergebnis.
+Die Eigenschaft **`continuous`** der Schnittstelle [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) gibt an, ob die Spracherkennung ein einzelnes endgültiges Ergebnis oder mehrere endgültige Ergebnisse aus aufeinanderfolgenden Erkennungen zurückgibt.
 
-Standardmäßig werden einzelne Ergebnisse (`false`) zurückgegeben.
+Der Standardwert ist `false`.
 
 ## Wert
 
-Ein boolescher Wert, der den aktuellen kontinuierlichen Status des `SpeechRecognition` darstellt. `true` bedeutet kontinuierlich, und `false` bedeutet nicht kontinuierlich (jedes Mal ein einzelnes Ergebnis).
+Ein boolescher Wert.
+
+- `true` bedeutet, dass die Spracherkennung beliebig viele endgültige Ergebnisse zurückgeben kann – eines pro aufeinanderfolgender Erkennung, wie bei einem Diktat.
+- `false` (der Standardwert) bedeutet, dass die Spracherkennung höchstens ein endgültiges Ergebnis zurückgibt.
+
+Diese Einstellung hat keinen Einfluss auf Zwischenergebnisse.
+Siehe [`SpeechRecognition.interimResults`](/de/docs/Web/API/SpeechRecognition/interimResults).
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist ein Auszug aus unserem Beispiel [Sprachgesteuerter Farbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 const recognition = new SpeechRecognition();

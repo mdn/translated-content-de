@@ -2,24 +2,25 @@
 title: SpeechRecognitionAlternative
 slug: Web/API/SpeechRecognitionAlternative
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechRecognitionAlternative`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert ein einzelnes Wort, das vom Spracherkennungsdienst erkannt wurde.
+Die Schnittstelle **`SpeechRecognitionAlternative`** der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stellt eine mögliche Übereinstimmung mit dem Gesagten dar, wie es vom Spracherkennungsdienst erkannt wurde.
+Ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) enthält eine oder mehrere Alternativen, geordnet von der höchsten bis zur niedrigsten Konfidenz.
 
 ## Instanzeigenschaften
 
 - [`SpeechRecognitionAlternative.transcript`](/de/docs/Web/API/SpeechRecognitionAlternative/transcript) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der das Transkript des erkannten Wortes enthält.
+  - : Gibt einen String zurück, der die Transkription der erkannten Sprache enthält.
 - [`SpeechRecognitionAlternative.confidence`](/de/docs/Web/API/SpeechRecognitionAlternative/confidence) {{ReadOnlyInline}}
-  - : Gibt eine numerische Schätzung zwischen 0 und 1 zurück, wie sicher das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
+  - : Gibt eine numerische Schätzung zwischen 0 und 1 dafür zurück, wie sicher das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
 
 ## Beispiele
 
-Dieser Code ist aus unserem
-[Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
+Dieser Code stammt aus unserem Beispiel
+[Sprachgesteuerter Farbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 recognition.onresult = (event) => {

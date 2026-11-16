@@ -2,10 +2,10 @@
 title: isFinite()
 slug: Web/JavaScript/Reference/Global_Objects/isFinite
 l10n:
-  sourceCommit: 52aca3c51ce0ff04036a13d4db471c9844d07b00
+  sourceCommit: 0c3c464abb1422b0534a5e3f5e81e9bbae13544c
 ---
 
-Die Funktion **`isFinite()`** prüft, ob ein Wert endlich ist. Falls nötig, wandelt sie den Wert zuvor in eine Zahl um. Eine endliche Zahl ist weder {{jsxref("NaN")}} noch ±{{jsxref("Infinity")}}. Da die Typumwandlung innerhalb von `isFinite()` [überraschend sein kann](/de/docs/Web/JavaScript/Reference/Global_Objects/isNaN#description), sollten Sie möglicherweise {{jsxref("Number.isFinite()")}} bevorzugen.
+Die Funktion **`isFinite()`** bestimmt, ob ein Wert endlich ist. Falls nötig, wandelt sie den Wert zuvor in eine Zahl um. Eine endliche Zahl ist weder {{jsxref("NaN")}} noch ±{{jsxref("Infinity")}}. Da die Typumwandlung innerhalb der Funktion `isFinite()` [überraschend](/de/docs/Web/JavaScript/Reference/Global_Objects/isNaN#description) sein kann, sollten Sie gegebenenfalls {{jsxref("Number.isFinite()")}} verwenden.
 
 {{InteractiveExample("JavaScript Demo: isFinite()")}}
 
@@ -18,7 +18,7 @@ function div(x) {
 }
 
 console.log(div(0));
-// Expected output: "Number is Infinity!""
+// Expected output: "Number is Infinity!"
 
 console.log(div(1));
 // Expected output: "Number is NOT Infinity."
@@ -37,15 +37,15 @@ isFinite(value)
 
 ### Rückgabewert
 
-`true`, es sei denn, der angegebene Wert ist nach der [Umwandlung in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) entweder {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}}.
+`true`, außer wenn der angegebene Wert nach der [Umwandlung in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) entweder {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist.
 
 ## Beschreibung
 
 `isFinite()` ist eine Funktionseigenschaft des globalen Objekts.
 
-Wenn das Argument der Funktion `isFinite()` nicht vom Typ [Number](/de/docs/Web/JavaScript/Guide/Data_structures#number_type) ist, wird der Wert zunächst in eine Zahl umgewandelt. Anschließend wird der resultierende Wert mit `NaN` und ±Infinity verglichen. Dieses Verhalten ist ebenso verwirrend wie das von {{jsxref("isNaN")}} – beispielsweise ergibt `isFinite("1")` den Wert `true`.
+Wenn das Argument der Funktion `isFinite()` nicht vom Typ [Number](/de/docs/Web/JavaScript/Guide/Data_structures#number_type) ist, wird der Wert zunächst in eine Zahl umgewandelt. Anschließend wird das Ergebnis mit `NaN` und ±Infinity verglichen. Das ist ebenso verwirrend wie das Verhalten von {{jsxref("isNaN")}} – beispielsweise ist `isFinite("1")` gleich `true`.
 
-{{jsxref("Number.isFinite()")}} ist eine zuverlässigere Methode, um zu prüfen, ob ein Wert eine endliche Zahl ist, da die Funktion für jeden Wert, der keine Zahl ist, `false` zurückgibt.
+{{jsxref("Number.isFinite()")}} ist eine zuverlässigere Möglichkeit, zu prüfen, ob ein Wert eine endliche Zahl ist, da die Methode für jeden Wert, der keine Zahl ist, `false` zurückgibt.
 
 ## Beispiele
 

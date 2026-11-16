@@ -3,23 +3,20 @@ title: "SpeechRecognitionAlternative: confidence-Eigenschaft"
 short-title: confidence
 slug: Web/API/SpeechRecognitionAlternative/confidence
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 25871546e715779a39a2d962820a35e44b6a6df1
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`confidence`** Nur-Lesen-Eigenschaft des [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces gibt eine numerische Schätzung zurück, wie zuversichtlich das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
-
-> [!NOTE]
-> An der Implementierung von `confidence` bei Mozilla wird noch gearbeitet – momentan scheint sie immer 1 zurückzugeben.
+Die schreibgeschützte Eigenschaft **`confidence`** der Schnittstelle [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative) gibt eine numerische Schätzung dafür zurück, wie sicher das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
 
 ## Wert
 
-Eine Zahl zwischen 0 und 1.
+Eine Zahl zwischen 0 und 1. Je höher der Wert, desto sicherer ist sich das Erkennungssystem.
 
 ## Beispiele
 
-Dieser Code ist aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) entnommen.
+Dieser Code stammt aus unserem Beispiel [Sprachgesteuerter Farbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 recognition.onresult = (event) => {
