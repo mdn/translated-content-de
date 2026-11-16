@@ -1,26 +1,26 @@
 ---
-title: "`<dashed-ident>` CSS-Typ"
+title: CSS-Typ `<dashed-ident>`
 short-title: <dashed-ident>
 slug: Web/CSS/Reference/Values/dashed-ident
 l10n:
-  sourceCommit: 35cd8b781219157e42b289364754cff862c2dd1a
+  sourceCommit: 74f6e26e70721281aeb500ba4f8c1f06f20b0100
 ---
 
-Der **`<dashed-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist ein groß-/kleinschreibungssensitiver {{cssxref("custom-ident")}}, der mit zwei Bindestrichen beginnt und eine beliebige Zeichenfolge darstellt, die als {{Glossary("identifier", "Bezeichner")}} verwendet wird.
+Der **`<dashed-ident>`**-[CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist ein {{cssxref("custom-ident")}}, das mit zwei Bindestrichen beginnt und bei dem die Groß- und Kleinschreibung beachtet wird. Es bezeichnet eine beliebige Zeichenfolge, die als {{Glossary("identifier", "Bezeichner")}} verwendet wird.
 
 ## Syntax
 
-Die Syntax von `<dashed-ident>` ähnelt der von CSS-Bezeichnern (wie z.B. Eigenschaftsnamen), mit der Ausnahme, dass sie groß-/kleinschreibungssensitiv ist. Es handelt sich um einen benutzerdefinierten Bezeichner, der mit zwei Bindestrichen (`--`) vorangestellt ist.
+Die Syntax von `<dashed-ident>` ähnelt der von CSS-Bezeichnern (etwa Eigenschaftsnamen), allerdings wird die Groß- und Kleinschreibung beachtet. Es handelt sich um einen benutzerdefinierten Bezeichner, dem zwei Bindestriche (`--`) vorangestellt sind.
 
-Die doppelten Bindestriche am Anfang machen sie leicht identifizierbar, wenn man durch einen CSS-Codeblock liest, und helfen, Namenskonflikte mit Standard-CSS-Schlüsselwörtern zu vermeiden.
+Die beiden Bindestriche am Anfang machen diese Bezeichner beim Lesen eines CSS-Codeblocks leicht erkennbar und helfen, Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
 
-Genau wie {{cssxref("custom-ident")}}s sind `<dashed-ident>`s vom Benutzer definiert. Jedoch sind einige `<custom-ident>`s von der CSS-Sprache selbst definiert; `<dashed-ident>`s werden niemals in CSS definiert.
+Wie {{cssxref("custom-ident")}}s werden `<dashed-ident>`s vom Benutzer definiert. Einige `<custom-ident>`s sind jedoch durch die CSS-Sprache selbst definiert; `<dashed-ident>`s werden immer vom Benutzer definiert.
 
 ## Beispiele
 
-### Verwendung mit CSS-Benutzereigenschaften
+### Verwendung mit benutzerdefinierten CSS-Eigenschaften
 
-Wenn ein `<dashed-ident>` als [CSS-Benutzereigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) verwendet wird, wird die Eigenschaft zuerst deklariert und dann wird das `<dashed-ident>` innerhalb einer [CSS-`var()`-Funktion](/de/docs/Web/CSS/Reference/Values/var) benutzt.
+Wenn ein `<dashed-ident>` als [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) verwendet wird, wird die Eigenschaft zunächst deklariert. Anschließend wird das `<dashed-ident>` innerhalb einer [CSS-`var()`-Funktion](/de/docs/Web/CSS/Reference/Values/var) verwendet.
 
 ```css
 html {
@@ -47,7 +47,7 @@ h6 {
 
 ### Verwendung mit @color-profile
 
-Wenn ein `<dashed-ident>` mit der {{cssxref("@color-profile")}} at-rule verwendet wird, wird die at-rule zuerst deklariert und dann das `<dashed-ident>` innerhalb einer [CSS-`color()`-Funktion](/de/docs/Web/CSS/Reference/Values/color_value/color) benutzt.
+Wenn ein `<dashed-ident>` mit der At-Regel {{cssxref("@color-profile")}} verwendet wird, wird zunächst die At-Regel deklariert. Anschließend wird das `<dashed-ident>` innerhalb einer [CSS-`color()`-Funktion](/de/docs/Web/CSS/Reference/Values/color_value/color) verwendet.
 
 ```css
 @color-profile --my-color-profile {
@@ -61,7 +61,7 @@ Wenn ein `<dashed-ident>` mit der {{cssxref("@color-profile")}} at-rule verwende
 
 ### Verwendung mit @font-palette-values
 
-Wenn ein `<dashed-ident>` mit der {{cssxref("@font-palette-values")}} at-rule verwendet wird, wird die at-rule zuerst deklariert und dann das `<dashed-ident>` als Wert für die {{cssxref("font-palette")}} Eigenschaft benutzt.
+Wenn ein `<dashed-ident>` mit der At-Regel {{cssxref("@font-palette-values")}} verwendet wird, wird zunächst die At-Regel deklariert. Anschließend wird das `<dashed-ident>` als Wert für die Eigenschaft {{cssxref("font-palette")}} verwendet.
 
 ```css
 @font-palette-values --my-palette {
@@ -80,7 +80,7 @@ h4 {
 
 ### Verwendung mit env() und param()
 
-Wenn ein `<dashed-ident>` in einer externen Ressource in einer {{cssxref("env")}} CSS-Funktion verwendet wird, kann es mit der {{cssxref("param")}} CSS-Funktion aktualisiert werden.
+Wenn ein `<dashed-dent>` in einer externen Ressource innerhalb der CSS-Funktion {{cssxref("env")}} verwendet wird, kann es mithilfe der CSS-Funktion {{cssxref("param")}} aktualisiert werden.
 
 ```svg
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +100,7 @@ path:hover {
 
 ## Browser-Kompatibilität
 
-_Da dieser Typ kein echter Typ ist, sondern ein praktischer Typ, der zur Vereinfachung der Definition anderer CSS-Syntax verwendet wird, gibt es keine Browser-Kompatibilitätsinformationen in dem Sinne._
+_Da es sich bei diesem Typ nicht um einen eigenständigen Typ, sondern um einen Hilfstyp handelt, der die Definition anderer CSS-Syntax vereinfacht, gibt es dafür keine eigenen Informationen zur Browser-Kompatibilität._
 
 ## Siehe auch
 

@@ -3,19 +3,19 @@ title: "ARIA: aria-valuenow-Attribut"
 short-title: aria-valuenow
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-valuenow`-Attribut definiert den aktuellen Wert für ein `range`-Widget.
+Das Attribut `aria-valuenow` definiert den aktuellen Wert eines `range`-Widgets.
 
 ## Beschreibung
 
-Das `aria-valuenow`-Attribut definiert den aktuellen Wert für Range-Widgets. Es ist ähnlich dem `value`-Attribut von {{HTMLElement('progress')}}, {{HTMLElement('meter')}} und {{HTMLElement('input')}} vom Typ [`range`](/de/docs/Web/HTML/Reference/Elements/input/range), [`number`](/de/docs/Web/HTML/Reference/Elements/input/number) und allen Datumszeit-Typen.
+Das Attribut `aria-valuenow` definiert den aktuellen Wert von Bereichs-Widgets. Es ähnelt dem Attribut `value` von {{HTMLElement('progress')}}, {{HTMLElement('meter')}} und {{HTMLElement('input')}} mit den Typen [`range`](/de/docs/Web/HTML/Reference/Elements/input/range), [`number`](/de/docs/Web/HTML/Reference/Elements/input/number) sowie allen Datums- und Uhrzeittypen.
 
-Wenn Sie eine Range-Rolle erstellen, einschließlich [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role), [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role) und [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role) auf einem nicht-sematischen Element, ermöglicht das `aria-valuenow` die Definition eines aktuellen numerischen Werts zwischen den minimalen und maximalen Werten. Die minimalen und maximalen Werte werden mit [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) definiert.
+Wenn eine Bereichsrolle wie [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role), [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role) oder [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role) für ein Element ohne entsprechende Semantik erstellt wird, ermöglicht `aria-valuenow` die Angabe eines aktuellen numerischen Werts zwischen dem Mindest- und dem Höchstwert. Diese Werte werden mit [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) definiert.
 
 > [!WARNING]
-> Die Rolle [`range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role) selbst sollte **NICHT** verwendet werden, da sie eine ["abstrakte"](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles) Rolle ist. Das `aria-valuenow`-Attribut wird bei allen Untertypen der Range-Rollen verwendet.
+> Die Rolle [`range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role) selbst sollte **NICHT** verwendet werden, da sie ["abstrakt"](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles) ist. Das Attribut `aria-valuenow` wird bei allen Untertypen der Bereichsrollen verwendet.
 
 ```html
 <p id="birthyearLabel">What year were you born?</p>
@@ -38,22 +38,52 @@ Wenn Sie eine Range-Rolle erstellen, einschließlich [`meter`](/de/docs/Web/Acce
 </div>
 ```
 
-Verwenden Sie semantische HTML-Elemente, wenn Sie können:
+Verwenden Sie nach Möglichkeit semantische HTML-Elemente:
 
 ```html
 <label for="birthyear">What year were you born?</label>
 <input type="number" id="birthyear" value="1984" min="1900" max="2021" />
 ```
 
-Wenn kein bekannter Wert vorhanden ist, wie wenn eine Fortschrittsanzeige in einem unbestimmten Zustand ist, setzen Sie kein `aria-valuenow`-Attribut.
+Wenn kein Wert bekannt ist, etwa wenn sich ein Fortschrittsbalken in einem unbestimmten Zustand befindet, setzen Sie das Attribut `aria-valuenow` nicht.
 
-Wenn kein `aria-valuenow` gesetzt ist, wird keine Information über einen aktuellen Wert angedeutet.
+Ist `aria-valuenow` nicht gesetzt, wird damit keine Information über einen aktuellen Wert vermittelt.
 
-Wenn es mit Schiebereglern und Drehreglern verwendet wird, kündigen unterstützende Technologien den tatsächlichen Wert den Benutzern an.
+Bei Slidern und Spinbuttons geben assistive Technologien den tatsächlichen Wert aus.
 
-Bei Verwendung mit Fortschrittsbalken und Bildlaufleisten geben unterstützende Technologien den Wert den Benutzern als Prozentsatz an. Wenn `aria-valuemin` und `aria-valuemax` beide definiert sind, wird der Prozentsatzwert als Position im Bereich berechnet. Andernfalls wird der tatsächliche Wert als Prozentsatz angegeben.
+Bei Fortschrittsbalken und Scrollbars geben assistive Technologien den Wert als Prozentsatz aus. Wenn sowohl `aria-valuemin` als auch `aria-valuemax` definiert sind, wird der Prozentsatz anhand der Position innerhalb des Wertebereichs berechnet. Andernfalls wird der tatsächliche Wert als Prozentsatz ausgegeben.
 
-Wenn der anzusagende Wert, entweder der tatsächliche Wert oder der Wert als Prozentsatz, für die Benutzer möglicherweise nicht klar ist, sollte das [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)-Attribut verwendet werden, um eine benutzerfreundliche Darstellung des Wertes bereitzustellen. Wenn gesetzt, wird die Valuetext-Zeichenfolge anstelle des numerischen `valuenow` Werts angesagt. Wenn z. B. ein Schieberegler die Wochentage darstellt, sodass der `aria-valuenow`-Wert der Wochentage eine Zahl ist, sollte die `aria-valuetext`-Eigenschaft auf einen Text gesetzt werden, der den Wert des Schiebereglers verständlich macht, wie "Montag".
+Wenn der auszugebende Wert – sei es der tatsächliche Wert oder ein Prozentsatz – für Nutzende möglicherweise nicht verständlich ist, sollte das Attribut [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext) verwendet werden, um eine verständliche Darstellung des Werts bereitzustellen. Wenn es gesetzt ist, wird die Zeichenfolge von `aria-valuetext` anstelle des numerischen Werts von `aria-valuenow` ausgegeben. Stellt ein Slider beispielsweise die Wochentage dar, sodass `aria-valuenow` für einen Wochentag eine Zahl ist, sollte die Eigenschaft `aria-valuetext` auf eine Zeichenfolge wie „Montag“ gesetzt werden, die den Wert des Sliders verständlich macht.
+
+## Werte
+
+- `<number>`
+  - : Eine Dezimalzahl zwischen dem Mindest- und dem Höchstwert.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaValueNow`](/de/docs/Web/API/Element/ariaValueNow)
+  - : Die Eigenschaft [`ariaValueNow`](/de/docs/Web/API/Element/ariaValueNow) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-valuenow` wider.
+- [`ElementInternals.ariaValueNow`](/de/docs/Web/API/ElementInternals/ariaValueNow)
+  - : Die Eigenschaft [`ariaValueNow`](/de/docs/Web/API/ElementInternals/ariaValueNow) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-valuenow` wider.
+
+## Zugehörige Rollen
+
+Wird in folgenden Rollen verwendet:
+
+- [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
+- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
+- [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role)
+- [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role)
+- [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
+
+Wird an folgende Rollen vererbt:
+
+- [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
+- [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
+- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
+- [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role)
+- [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
 
 ## Beispiele
 
@@ -70,44 +100,14 @@ Wenn der anzusagende Wert, entweder der tatsächliche Wert oder der Wert als Pro
 </div>
 ```
 
-Die erste Regel der ARIA-Nutzung ist: "Wenn Sie eine native Funktion mit den bereits integrierten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element für einen anderen Zweck zu verwenden und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie das."
+Die erste Regel für die Verwendung von ARIA lautet: „Wenn Sie eine native Funktion verwenden können, die die benötigte Semantik und das benötigte Verhalten bereits mitbringt, statt ein Element zweckzuentfremden und eine ARIA-Rolle, einen ARIA-Zustand oder eine ARIA-Eigenschaft **hinzuzufügen**, um es zugänglich zu machen, dann tun Sie das.“
 
 ```html
 <label for="temperature">Oven Temperature</label>
 <input type="range" id="temperature" value="205" min="70" max="250" step="5" />
 ```
 
-Wenn wir native HTML-Semantik mit {{HTMLElement('input')}} verwenden, erhalten wir Styles und Semantik kostenlos.
-
-## Werte
-
-- `<number>`
-  - : Eine Dezimalzahl, zwischen den minimalen und maximalen Werten.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaValueNow`](/de/docs/Web/API/Element/ariaValueNow)
-  - : Die [`ariaValueNow`](/de/docs/Web/API/Element/ariaValueNow)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-valuenow`-Attributs wider.
-- [`ElementInternals.ariaValueNow`](/de/docs/Web/API/ElementInternals/ariaValueNow)
-  - : Die [`ariaValueNow`](/de/docs/Web/API/ElementInternals/ariaValueNow)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-valuenow`-Attributs wider.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
-- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
-- [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role)
-- [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role)
-- [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
-
-Vererbt in Rollen:
-
-- [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
-- [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
-- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
-- [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role)
-- [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
+Wenn wir mit {{HTMLElement('input')}} native HTML-Semantik verwenden, erhalten wir Gestaltung und Semantik ohne zusätzlichen Aufwand.
 
 ## Spezifikationen
 
@@ -115,8 +115,8 @@ Vererbt in Rollen:
 
 ## Siehe auch
 
-- [`range` Role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role)
-- [`<input type="range>`-Element `value`-Attribut](/de/docs/Web/HTML/Reference/Elements/input/range#value)
+- [Rolle `range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role)
+- [Attribut `value` des Elements `<input type="range>`](/de/docs/Web/HTML/Reference/Elements/input/range#value)
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin).

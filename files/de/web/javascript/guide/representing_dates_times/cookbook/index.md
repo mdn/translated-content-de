@@ -2,7 +2,7 @@
 title: Temporal-Kochbuch
 slug: Web/JavaScript/Guide/Representing_dates_times/Cookbook
 l10n:
-  sourceCommit: c44f591049bc129b356acb0a9ce281974c035113
+  sourceCommit: e976b4bf6b9e0c68b4321904560df47804d8cc48
 ---
 
 > [!NOTE]
@@ -34,17 +34,17 @@ timeStamp.epochMilliseconds;
 Math.floor(timeStamp.epochMilliseconds / 1000);
 ```
 
-## Zwischen Temporal-Typen und dem herkömmlichen Date konvertieren
+## Zwischen Temporal-Typen und dem bisherigen Date konvertieren
 
-### Vom herkömmlichen Date zu Temporal.Instant und/oder Temporal.ZonedDateTime
+### Bisheriges Date in Temporal.Instant und/oder Temporal.ZonedDateTime konvertieren
 
-So konvertieren Sie ein herkömmliches {{jsxref("Date")}} in eine Instanz von {{jsxref("Temporal.Instant")}} oder {{jsxref("Temporal.ZonedDateTime")}}, die denselben exakten Zeitpunkt repräsentiert.
+So konvertieren Sie ein bisheriges {{jsxref("Date")}} in eine Instanz von {{jsxref("Temporal.Instant")}} oder {{jsxref("Temporal.ZonedDateTime")}}, die denselben exakten Zeitpunkt repräsentiert.
 
-Wenn Sie ein `ZonedDateTime` benötigen, verwenden Sie die Methode {{jsxref("Temporal/Instant/toZonedDateTimeISO", "toZonedDateTimeISO()")}} des resultierenden `Instant`. Sie müssen eine Zeitzone angeben, da das herkömmliche `Date` nur einen exakten Zeitpunkt speichert, nicht aber eine Zeitzone.
+Wenn Sie ein `ZonedDateTime` benötigen, verwenden Sie die Methode {{jsxref("Temporal/Instant/toZonedDateTimeISO", "toZonedDateTimeISO()")}} des resultierenden `Instant`. Sie müssen eine Zeitzone angeben, da das bisherige `Date` nur einen exakten Zeitpunkt und keine Zeitzone speichert.
 
-Wenn Sie Methoden einer herkömmlichen `Date`-Instanz aufrufen, müssen Sie entscheiden, ob Sie diesen exakten Zeitpunkt als UTC-Wert interpretieren möchten (mit Methoden, deren Namen „UTC“ enthalten) oder in der aktuellen Systemzeitzone (mit den übrigen Methoden). Das kann verwirrend sein. `Temporal` bietet deshalb eine explizitere Möglichkeit dafür.
+Wenn Sie Methoden auf einer bisherigen `Date`-Instanz aufrufen, müssen Sie entscheiden, ob Sie den exakten Zeitpunkt als UTC-Wert interpretieren möchten (mit Methoden, deren Namen „UTC“ enthalten) oder in der aktuellen Systemzeitzone (mit den anderen Methoden). Das kann verwirrend sein; `Temporal` bietet dafür eine ausdrücklichere Vorgehensweise.
 
-Um die lokale Zeitzone des Systems zu verwenden, was der Nutzung der Methoden {{jsxref("Date/getFullYear", "getFullYear()")}}, {{jsxref("Date/getMonth", "getMonth()")}} usw. des herkömmlichen `Date` entspricht, übergeben Sie {{jsxref("Temporal.Now.timeZoneId()")}} als Zeitzone. In einem Browser ist dies die Zeitzone der Benutzerin oder des Benutzers. Auf einem Server kann der Wert jedoch anders ausfallen als erwartet; vermeiden Sie dies daher in einer Serverumgebung.
+Um die lokale Zeitzone des Systems zu verwenden – entsprechend den Methoden {{jsxref("Date/getFullYear", "getFullYear()")}}, {{jsxref("Date/getMonth", "getMonth()")}} usw. des bisherigen `Date` –, übergeben Sie {{jsxref("Temporal.Now.timeZoneId()")}} als Zeitzone. In einem Browser ist dies die Zeitzone der Benutzerin oder des Benutzers. Auf einem Server kann der Wert jedoch von Ihrer Erwartung abweichen; vermeiden Sie diese Vorgehensweise daher im Serverkontext.
 
 ```js
 const legacyDate = new Date("1970-01-01T00:00:01Z");
@@ -58,7 +58,7 @@ const zoned = instant.toZonedDateTimeISO(Temporal.Now.timeZoneId());
 console.log(zoned.epochMilliseconds === legacyDate.getTime()); // true
 ```
 
-Hier ist ein Beispiel für die Verwendung einer bestimmten Zeitzone. Insbesondere in einer Serverumgebung würden Sie diese Zeitzone aus anderen Daten beziehen, die Sie verarbeiten. Wenn auf die herkömmliche `Date`-Instanz mit den Methoden {{jsxref("Date/getUTCFullYear", "getUTCFullYear()")}}, {{jsxref("Date/getUTCMonth", "getUTCMonth()")}} usw. zugegriffen wurde, sollten Sie erwägen, einfach `Instant` zu verwenden. Falls Sie `ZonedDateTime` verwenden müssen, muss die angegebene Zeitzone möglicherweise `"UTC"` sein.
+Hier ist ein Beispiel mit einer bestimmten Zeitzone. Insbesondere im Serverkontext würden Sie diese Zeitzone aus anderen Daten entnehmen, die Sie verarbeiten. Wenn auf die bisherige `Date`-Instanz mit den Methoden {{jsxref("Date/getUTCFullYear", "getUTCFullYear()")}}, {{jsxref("Date/getUTCMonth", "getUTCMonth()")}} usw. zugegriffen wurde, sollten Sie erwägen, einfach `Instant` zu verwenden. Falls Sie `ZonedDateTime` verwenden müssen, muss die angegebene Zeitzone möglicherweise `"UTC"` sein.
 
 ```js
 const zoned2 = instant.toZonedDateTimeISO("Asia/Shanghai");
@@ -67,15 +67,15 @@ console.log(zoned2.epochMilliseconds === legacyDate.getTime()); // true
 console.log(zoned2.timeZoneId); // 'Asia/Shanghai'
 ```
 
-### Reine Datumswerte: vom herkömmlichen Date zu Temporal.PlainDate
+### Werte, die nur ein Datum enthalten: bisheriges Date in Temporal.PlainDate konvertieren
 
-Ein häufiger Fehler entsteht aus einer einfachen Frage: Welches Datum (Jahr, Monat und Tag) stellt dieses `Date` dar? Das Problem ist, dass die Antwort von der Zeitzone abhängt. Dasselbe `Date` kann in San Francisco den 31. Dezember, in London oder Tokio aber den 1. Januar bezeichnen.
+Ein häufiger Fehler ergibt sich aus einer einfachen Frage: Welches Datum (Jahr, Monat und Tag) repräsentiert dieses `Date`? Das Problem: Die Antwort hängt von der Zeitzone ab. Dasselbe `Date` kann in San Francisco den 31. Dezember, in London oder Tokio aber den 1. Januar bezeichnen.
 
-Daher ist es entscheidend, das `Date` im Kontext der richtigen Zeitzone zu interpretieren, _bevor_ Sie Jahr, Monat oder Tag extrahieren oder Berechnungen mit Datumseinheiten durchführen, etwa um festzustellen, ob etwas gestern passiert ist. Aus diesem Grund hat `Temporal.Instant` (das `Temporal`-Äquivalent zu `Date`) keine Eigenschaften `year`, `month` oder `day`. Um in `Temporal` auf Datums- oder Zeiteinheiten zuzugreifen, muss eine Zeitzone angegeben werden, wie im obigen Codebeispiel beschrieben.
+Daher ist es entscheidend, das `Date` im Kontext der richtigen Zeitzone zu interpretieren, _bevor_ Sie Jahr, Monat oder Tag daraus auslesen oder Berechnungen mit Datumseinheiten durchführen, etwa für die Frage „Ist das gestern passiert?“. Aus diesem Grund verfügt `Temporal.Instant` (das `Temporal`-Gegenstück zu `Date`) nicht über die Eigenschaften `year`, `month` und `day`. Um in `Temporal` auf Datums- oder Zeiteinheiten zuzugreifen, muss eine Zeitzone angegeben werden, wie im obigen Codebeispiel beschrieben.
 
-Ein weiterer fehleranfälliger Fall liegt vor, wenn `Date` verwendet wird, um einen reinen Datumswert wie das Geburtsdatum einer Person zu speichern. Bei `Date` werden solche Werte üblicherweise mit einer Uhrzeit um Mitternacht gespeichert. Um das Datum korrekt auszulesen, müssen Sie jedoch wissen, die Mitternacht welcher Zeitzone beim Erzeugen des `Date` verwendet wurde. Beispielsweise verwendet `new Date(2000, 0, 1)` die Zeitzone des aufrufenden Systems, während `new Date("2000-01-01")` UTC verwendet.
+Ein weiterer fehleranfälliger Fall ist die (missbräuchliche) Verwendung von `Date` zum Speichern eines Werts, der nur ein Datum enthält, etwa des Geburtsdatums einer Person. Bei `Date` werden solche Werte üblicherweise mit Mitternacht als Uhrzeit gespeichert. Um das Datum später korrekt auszulesen, müssen Sie jedoch wissen, welche Zeitzone bei der Erstellung des `Date` für Mitternacht verwendet wurde. Beispielsweise verwendet `new Date(2000, 0, 1)` die Zeitzone des aufrufenden Systems, während `new Date("2000-01-01")` UTC verwendet.
 
-Um ein `Date`, das nur einen Datumswert enthält, korrekt in ein `Temporal.PlainDate` zu konvertieren, ohne Fehler um einen Tag zu riskieren, müssen Sie ermitteln, die Mitternacht welcher Zeitzone zum Erzeugen des `Date` verwendet wurde. Verwenden Sie anschließend dieselbe Zeitzone bei der Konvertierung von `Temporal.Instant` zu `Temporal.PlainDate`.
+Um ein `Date`, das nur ein Datum enthält, korrekt in ein `Temporal.PlainDate` zu konvertieren und dabei Fehler um einen Tag zu vermeiden, müssen Sie ermitteln, in welcher Zeitzone Mitternacht für die Erstellung des `Date` verwendet wurde. Verwenden Sie anschließend dieselbe Zeitzone bei der Konvertierung von `Temporal.Instant` in `Temporal.PlainDate`.
 
 ```js
 // Convert a year/month/day `Date` to a `Temporal.PlainDate`. Uses the caller's time zone.
@@ -101,9 +101,9 @@ plainDate = date
 console.log(plainDate.toString()); // '2000-01-01'
 ```
 
-### Von Temporal-Typen zum herkömmlichen Date
+### Temporal-Typen in das bisherige Date konvertieren
 
-Das herkömmliche `Date` repräsentiert einen exakten Zeitpunkt. Daher lässt sich eine Instanz von `Temporal.Instant` oder `Temporal.ZonedDateTime` einfach in eine entsprechende herkömmliche `Date`-Instanz konvertieren. Um `Instant` in ein herkömmliches `Date` zu konvertieren, verwenden Sie die Eigenschaft {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}.
+Das bisherige `Date` repräsentiert einen exakten Zeitpunkt. Daher lässt sich eine Instanz von `Temporal.Instant` oder `Temporal.ZonedDateTime` unkompliziert in eine entsprechende bisherige `Date`-Instanz konvertieren. Verwenden Sie für die Konvertierung von `Instant` in das bisherige `Date` die Eigenschaft {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}.
 
 ```js
 const instant = Temporal.Instant.from("2020-01-01T00:00:01.000999Z");
@@ -113,7 +113,7 @@ console.log(result.getTime()); // 1577836801000 // ms since Unix epoch
 console.log(result.toISOString()); // '2020-01-01T00:00:01.000Z'
 ```
 
-Dasselbe gilt für `ZonedDateTime`. Beachten Sie, dass das herkömmliche `Date` die Zeitzone des `ZonedDateTime` nicht beibehält.
+Für `ZonedDateTime` gilt dasselbe. Beachten Sie, dass das bisherige `Date` die Zeitzone des `ZonedDateTime` nicht beibehält.
 
 ```js
 const zoned = Temporal.ZonedDateTime.from(
@@ -125,7 +125,7 @@ console.log(result2.getTime()); // 1577804401001 // note, different time
 console.log(result2.toISOString()); // '2019-12-31T15:00:01.001Z'
 ```
 
-Für die meisten Anwendungsfälle ist `new Date(x.epochMilliseconds)` ausreichend. Wenn Sie ein anderes Rundungsverhalten als Abschneiden wünschen, müssen Sie möglicherweise einen zusätzlichen Schritt mit {{jsxref("Temporal/Instant/round", "round()")}} hinzufügen. Hier werden beispielsweise 999 Mikrosekunden auf 1 Millisekunde gerundet.
+Für die meisten Anwendungsfälle ist `new Date(x.epochMilliseconds)` ausreichend. Wenn Sie ein anderes Rundungsverhalten als Abschneiden wünschen, müssen Sie gegebenenfalls einen zusätzlichen Schritt mit {{jsxref("Temporal/Instant/round", "round()")}} einfügen. Hier werden beispielsweise 999 Mikrosekunden auf 1 Millisekunde gerundet.
 
 ```js
 const result3 = new Date(
@@ -136,13 +136,13 @@ console.log(result3.getTime()); // 1577836801001
 console.log(result3.toISOString()); // '2020-01-01T00:00:01.001Z'
 ```
 
-## Erzeugung
+## Erstellung
 
-### Eingabeelement für ein Kalenderdatum
+### Kalendereingabeelement
 
-Sie können `Temporal`-Objekte verwenden, um Eigenschaften eines Kalender-Steuerelements festzulegen. Das folgende Beispiel verwendet ein HTML-Element `<input type="date">`, bei dem alle Tage nach dem heutigen Tag deaktiviert und nicht auswählbar sind.
+Sie können Eigenschaften eines Kalendereingabefelds mit `Temporal`-Objekten festlegen. Das folgende Beispiel verwendet ein HTML-Element `<input type="date">`, in dem alle Tage nach „heute“ deaktiviert und nicht auswählbar sind.
 
-(Wie Sie ein `Temporal`-Objekt aus dem Kalender-Steuerelement auslesen, zeigt das Beispiel [Zukünftiges Datum](#wie_viele_tage_bis_zu_einem_zukünftigen_datum?).)
+(Wie Sie ein `Temporal`-Objekt aus dem Kalendereingabefeld erhalten, zeigt das Beispiel [Zukünftiges Datum](#wie_viele_tage_bis_zu_einem_zukünftigen_datum_verbleiben).)
 
 ```html
 <input type="date" id="calendar-input" />
@@ -161,7 +161,7 @@ datePicker.value = today;
 
 ### Mittag an einem bestimmten Datum
 
-Ein Beispiel dafür, wie Sie ein Kalenderdatum (`Temporal.PlainDate`) und eine Uhrzeit ({{jsxref("Temporal.PlainTime")}}) zu einem `Temporal.PlainDateTime` kombinieren.
+Ein Beispiel dafür, wie ein Kalenderdatum (`Temporal.PlainDate`) und eine lokale Uhrzeit ({{jsxref("Temporal.PlainTime")}}) zu einem `Temporal.PlainDateTime` kombiniert werden.
 
 ```js
 const date = Temporal.PlainDate.from("2020-05-14");
@@ -173,7 +173,7 @@ console.log(noonOnDate.toString()); // '2020-05-14T12:00:00'
 
 ### Geburtstag im Jahr 2030
 
-Ein Beispiel dafür, wie Sie einen Kalendertag ({{jsxref("Temporal.PlainMonthDay")}}) und ein Jahr zu einem `Temporal.PlainDate` kombinieren.
+Ein Beispiel dafür, wie ein Tag im Kalender ({{jsxref("Temporal.PlainMonthDay")}}) und ein Jahr zu einem `Temporal.PlainDate` kombiniert werden.
 
 ```js
 const birthday = Temporal.PlainMonthDay.from("12-15");
@@ -188,7 +188,7 @@ console.log(birthdayIn2030.toString()); // '2030-12-15'
 
 ### Zeitpunkt mit Zeitzone aus Zeitpunkt und Zeitzone
 
-Um einen exakten Zeitpunkt als `Temporal.Instant` in einen String zu serialisieren, verwenden Sie {{jsxref("Temporal/Instant/toString", "toString()")}}. Ohne Argumente erhalten Sie einen String in UTC.
+Um einen exakten Zeitpunkt als `Temporal.Instant` in einen String zu serialisieren, verwenden Sie {{jsxref("Temporal/Instant/toString", "toString()")}}. Ohne Argumente erhalten Sie einen String in UTC-Zeit.
 
 ```js
 const instant = Temporal.Instant.from("2020-01-03T10:41:51Z");
@@ -199,7 +199,7 @@ console.log(result); // '2020-01-03T10:41:51Z'
 console.log(instant.equals(Temporal.Instant.from(result))); // true
 ```
 
-Wenn der String einen UTC-Offset enthalten soll, verwenden Sie die Option `timeZone` von `Temporal.Instant.prototype.toString()`. Sie erhalten dann eine Stringdarstellung der lokalen Uhrzeit in dieser Zeitzone, die dem exakten Zeitpunkt entspricht.
+Wenn Ihr String einen UTC-Offset enthalten soll, verwenden Sie die Option `timeZone` von `Temporal.Instant.prototype.toString()`. Sie gibt eine String-Darstellung der lokalen Uhrzeit zurück, die in dieser Zeitzone dem exakten Zeitpunkt entspricht.
 
 ```js
 const result2 = instant.toString({ timeZone: "America/Yellowknife" });
@@ -208,7 +208,7 @@ console.log(result2); // '2020-01-03T03:41:51-07:00'
 console.log(instant.equals(Temporal.Instant.from(result2))); // true
 ```
 
-Dabei geht die Information verloren, zu welcher Zeitzone der String gehört, da nur der UTC-Offset dieser Zeitzone zu diesem bestimmten exakten Zeitpunkt erhalten bleibt. Wenn der String auch den Namen der Zeitzone enthalten soll, verwenden Sie stattdessen `Temporal.ZonedDateTime`, das diese Information beibehält.
+Dabei geht die Information verloren, zu welcher Zeitzone der String gehört, da nur der UTC-Offset der Zeitzone zu diesem bestimmten Zeitpunkt erhalten bleibt. Wenn Ihr String den Namen der Zeitzone enthalten soll, verwenden Sie stattdessen `Temporal.ZonedDateTime`, das diese Information beibehält.
 
 ```js
 const zoned = instant.toZonedDateTimeISO("Asia/Seoul");
@@ -221,11 +221,11 @@ console.log(zoned.equals(Temporal.ZonedDateTime.from(result3))); // true
 
 ## Sortieren
 
-Jeder `Temporal`-Typ außer `Temporal.PlainMonthDay` verfügt über eine statische Methode {{jsxref("Temporal/PlainDateTime/compare", "compare()")}}. Sie können diese als Vergleichsfunktion an {{jsxref("Array.prototype.sort()")}} übergeben, um ein Array von `Temporal`-Werten zu sortieren.
+Jeder `Temporal`-Typ außer `Temporal.PlainMonthDay` verfügt über eine statische Methode {{jsxref("Temporal/PlainDateTime/compare", "compare()")}}, die Sie als Vergleichsfunktion an {{jsxref("Array.prototype.sort()")}} übergeben können, um ein Array von `Temporal`-Werten zu sortieren.
 
 ### PlainDateTime-Werte sortieren
 
-Sortieren Sie eine Liste von `Temporal.PlainDateTime`-Werten, beispielsweise um einen Konferenzplan in die richtige Reihenfolge zu bringen. Andere `Temporal`-Typen lassen sich auf genau dieselbe Weise sortieren. Die folgende Funktion gibt eine sortierte Kopie des Arrays zurück. Mit dem optionalen Argument `reverse` können Sie absteigend sortieren.
+Sortieren Sie eine Liste von `Temporal.PlainDateTime`-Werten, um beispielsweise einen Konferenzplan in die richtige Reihenfolge zu bringen. Andere `Temporal`-Typen lassen sich genauso sortieren. Die folgende Funktion gibt eine sortierte Kopie des Arrays zurück. Das optionale Argument `reverse` ermöglicht eine absteigende Sortierung.
 
 ```js
 function getSortedLocalDateTimes(dateTimes, reverse = false) {
@@ -263,7 +263,7 @@ console.log(results.map((x) => x.toString()));
 
 ### ISO-Datums- und Zeitstrings sortieren
 
-Sortieren Sie eine Liste von Datums- und Zeitstrings nach ISO 8601 oder RFC 9557, beispielsweise um Protokolleinträge in die richtige Reihenfolge zu bringen. Die folgende Funktion nimmt ein Array von Strings entgegen, die als `Temporal.Instant`-Werte geparst werden können, und gibt eine nach exaktem Zeitpunkt sortierte Kopie zurück. Mit dem optionalen Argument `reverse` können Sie absteigend sortieren.
+Sortieren Sie eine Liste von Datums- und Zeitstrings im Format ISO 8601 oder RFC 9557, um beispielsweise Protokolleinträge in die richtige Reihenfolge zu bringen. Die folgende Funktion nimmt ein Array von Strings entgegen, die als `Temporal.Instant`-Werte geparst werden können, und gibt eine nach exaktem Zeitpunkt sortierte Kopie zurück. Das optionale Argument `reverse` ermöglicht eine absteigende Sortierung.
 
 ```js
 function sortInstantStrings(strings, reverse = false) {
@@ -299,7 +299,7 @@ console.log(results);
 
 ### Eine Uhrzeit auf volle Stunden abrunden
 
-Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/round", "round()")}} des jeweiligen `Temporal`-Typs, wenn Sie Zeitfelder runden möchten. Hier ist ein Beispiel, das eine Uhrzeit auf die zuletzt erreichte volle Stunde _abrundet_:
+Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/round", "round()")}} des jeweiligen `Temporal`-Typs, wenn Sie Zeitfelder runden möchten. Das folgende Beispiel rundet eine Uhrzeit auf die letzte volle Stunde _ab_:
 
 ```js
 const time = Temporal.PlainTime.from("12:38:28.138818731");
@@ -311,7 +311,7 @@ console.log(wholeHour.toString()); // '12:00:00'
 
 ### Ein Datum auf den nächstgelegenen Monatsanfang runden
 
-Runden ist nur für Zeitfelder definiert. Das Runden eines Datumsfelds kann mehrdeutig sein. Daher haben Typen, die nur ein Datum enthalten, wie `Temporal.PlainDate`, keine Methode `round()`. Wenn Sie beispielsweise ein Datum auf den nächstgelegenen Monat runden möchten, müssen Sie ausdrücklich festlegen, welche Art der Rundung Sie wünschen. Das folgende Beispiel rundet auf den nächstgelegenen Monatsanfang und bei gleichem Abstand auf:
+Runden ist nur für Zeitfelder definiert. Das Runden eines Datumsfelds kann mehrdeutig sein. Daher haben Typen, die nur ein Datum enthalten, wie `Temporal.PlainDate`, keine Methode `round()`. Wenn Sie beispielsweise ein Datum auf den nächstgelegenen Monat runden müssen, müssen Sie ausdrücklich festlegen, welche Art der Rundung Sie wünschen. Das folgende Beispiel rundet auf den nächstgelegenen Monatsanfang und bei gleichem Abstand auf:
 
 ```js
 const date = Temporal.PlainDate.from("2018-09-16");
@@ -331,13 +331,13 @@ const nearestMonth = isCloserToNextMonth
 console.log(nearestMonth.toString()); // '2018-10-01'
 ```
 
-Unter [Ein Einführungsdatum verschieben](#ein_einführungsdatum_verschieben) finden Sie außerdem eine einfachere Möglichkeit, stets auf den _nächsten_ Monatsanfang aufzurunden.
+Unter [Ein Startdatum verschieben](#ein_startdatum_verschieben) finden Sie außerdem eine einfachere Möglichkeit, immer auf den _nächsten_ Monatsanfang aufzurunden.
 
 ## Zeitzonenkonvertierung
 
 ### Lokale Uhrzeit beibehalten
 
-Ordnen Sie einem Datum und einer Uhrzeit ohne Zeitzone eine `Temporal.Instant`-Instanz zu, bei der das lokale Datum und die lokale Uhrzeit in einer angegebenen Zeitzone übereinstimmen. Das geht einfach mit <code>dateTime.<a href="/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/toZonedDateTime">toZonedDateTime</a>(timeZone).<a href="/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toInstant">toInstant</a>()</code>. Das folgende Beispiel zeigt jedoch, wie sich andere Verfahren zur Auflösung von Mehrdeutigkeiten implementieren lassen als die in `Temporal` integrierten Modi `"compatible"`, `"earlier"`, `"later"` und `"reject"`. Die Funktion nimmt ein `Temporal.PlainDateTime`, eine Zeitzonenkennung und einen Modus zur Auflösung von Mehrdeutigkeiten entgegen (standardmäßig `"earlier"`). Sie gibt ein `Temporal.Instant` zurück und unterstützt zwei zusätzliche Modi:
+Ordnen Sie ein Datum und eine Uhrzeit ohne Zeitzone einer `Temporal.Instant`-Instanz zu, bei der das lokale Datum und die lokale Uhrzeit in einer angegebenen Zeitzone übereinstimmen. Mit <code>dateTime.<a href="/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/toZonedDateTime">toZonedDateTime</a>(timeZone).<a href="/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toInstant">toInstant</a>()</code> ist dies einfach möglich. Das folgende Beispiel zeigt jedoch, wie Sie andere Verfahren zur Auflösung mehrdeutiger Zeitangaben implementieren können als die in `Temporal` integrierten Optionen `"compatible"`, `"earlier"`, `"later"` und `"reject"`. Die folgende Funktion nimmt ein `Temporal.PlainDateTime`, eine Zeitzonenkennung und einen Modus zur Auflösung mehrdeutiger Zeitangaben entgegen (standardmäßig `"earlier"`). Sie gibt ein `Temporal.Instant` zurück und unterstützt zwei zusätzliche Modi:
 
 - `"clipEarlier"`: Verwendet den früheren Zeitpunkt, wenn die Uhr zurückgestellt wird, oder den Zeitpunkt unmittelbar vor der Umstellung, wenn die Uhr vorgestellt wird.
 - `"clipLater"`: Verwendet den späteren Zeitpunkt, wenn die Uhr zurückgestellt wird, oder den Zeitpunkt der Umstellung, wenn die Uhr vorgestellt wird.
@@ -428,7 +428,7 @@ for (const [disambiguation, result] of Object.entries(brazilianResults)) {
 
 ### Exakten Zeitpunkt beibehalten
 
-Ordnen Sie einem Datum und einer Uhrzeit mit Zeitzone ein Datum und eine Uhrzeit in einer anderen Zielzeitzone zu, die denselben exakten Zeitpunkt repräsentieren. Dies kann bei der Konvertierung von durch Benutzer eingegebenen Datums- und Zeitwerten zwischen Zeitzonen nützlich sein.
+Ordnen Sie ein Datum und eine Uhrzeit mit Zeitzone einem Datum und einer Uhrzeit in einer anderen Zielzeitzone zu, die denselben exakten Zeitpunkt repräsentieren. Dies kann beispielsweise bei der Konvertierung von Datums- und Zeiteingaben zwischen Zeitzonen verwendet werden.
 
 ```js
 const source = Temporal.ZonedDateTime.from("2020-01-09T00:00[America/Chicago]");
@@ -440,9 +440,9 @@ console.log(result.toString());
 // '2020-01-08T22:00:00-08:00[America/Los_Angeles]'
 ```
 
-Hier ist ein weiteres, ähnliches Beispiel, bei dem die Zeitzone für zukünftige Ereignisse verwendet wird. Die Zeiten und Orte einer Reihe zukünftiger Besprechungen werden als Paar von Strings gespeichert: einer für das Kalenderdatum und die lokale Uhrzeit, der andere für die Zeitzone. Sie können nicht als exakter Zeitpunkt gespeichert werden, da sich die Zeitzonenregeln für die Sommerzeit bis zum Ereignis ändern könnten – Brasilien hat beispielsweise 2019 die Sommerzeit abgeschafft. Die Besprechung würde aber weiterhin zur selben lokalen Uhrzeit an diesem Datum stattfinden. Wenn sich die Zeitzonenregeln änderten, änderte sich daher der exakte Zeitpunkt des Ereignisses.
+Hier ist ein weiteres Beispiel, das dem vorherigen ähnelt und die Zeitzone für zukünftige Ereignisse verwendet. Die Zeiten und Orte einer Reihe zukünftiger Besprechungen werden als Paar von Strings gespeichert: einer für das Kalenderdatum und die lokale Uhrzeit, der andere für die Zeitzone. Sie können nicht als exakter Zeitpunkt gespeichert werden, da sich die Zeitzonenregeln für die Sommerzeit bis zum Ereignis ändern könnten – Brasilien hat beispielsweise 2019 die Sommerzeit abgeschafft. Die Besprechung würde an diesem Datum dennoch zur selben lokalen Uhrzeit stattfinden. Wenn sich die Zeitzonenregeln ändern, ändert sich also der exakte Zeitpunkt des Ereignisses.
 
-Dieses Beispiel berechnet die Anfangszeiten aller Ecma-TC39-Besprechungen im Jahr 2019 in der Ortszeit von Tokio.
+Dieses Beispiel berechnet die Anfangszeiten aller Ecma-TC39-Besprechungen im Jahr 2019 in der lokalen Zeit von Tokio.
 
 ```js
 // Dates of the 2019 TC39 meetings:
@@ -476,12 +476,12 @@ const tc39meetings = [
 // To follow the meetings remotely from Tokyo, calculate the times you would
 // need to join:
 const localTimeZone = "Asia/Tokyo";
-const localTimes = tc39meetings.map(({ dateTime, timeZone }) => {
-  return Temporal.PlainDateTime.from(dateTime)
+const localTimes = tc39meetings.map(({ dateTime, timeZone }) =>
+  Temporal.PlainDateTime.from(dateTime)
     .toZonedDateTime(timeZone, { disambiguation: "reject" })
     .withTimeZone(localTimeZone)
-    .toPlainDateTime();
-});
+    .toPlainDateTime(),
+);
 
 console.log(localTimes.map((dt) => dt.toString()));
 // [
@@ -494,9 +494,9 @@ console.log(localTimes.map((dt) => dt.toString()));
 // ]
 ```
 
-### Tägliches Ereignis zur Ortszeit
+### Tägliches Ereignis zur lokalen Uhrzeit
 
-Berechnen Sie ähnlich wie im vorherigen Beispiel die exakten Zeitpunkte eines täglich zu einer bestimmten Ortszeit in einer bestimmten Zeitzone stattfindenden Ereignisses. Der folgende Generator nimmt ein anfängliches `Temporal.PlainDate`, ein `Temporal.PlainTime` und eine Zeitzonenkennung entgegen und liefert jedes Ereignis als `Temporal.Instant`.
+Ähnlich wie im vorherigen Beispiel werden die exakten Zeitpunkte eines täglichen Ereignisses berechnet, das zu einer bestimmten lokalen Uhrzeit in einer bestimmten Zeitzone stattfindet. Der folgende Generator nimmt ein `Temporal.PlainDate` als Anfangsdatum, ein `Temporal.PlainTime` und eine Zeitzonenkennung entgegen und liefert jedes Ereignis als `Temporal.Instant`.
 
 ```js
 function* calculateDailyOccurrence(startDate, plainTime, timeZone) {
@@ -518,9 +518,9 @@ console.log(iter.next().value.toString()); // '2017-03-12T15:00:00Z'
 console.log(iter.next().value.toString()); // '2017-03-13T15:00:00Z'
 ```
 
-### UTC-Offset für ein Ereignis mit Zeitzone als String
+### UTC-Offset für ein Ereignis in einer Zeitzone als String
 
-Verwenden Sie `Temporal.Instant.prototype.toZonedDateTimeISO()` und {{jsxref("Temporal/ZonedDateTime/offset", "offset")}}, um einer `Temporal.Instant`-Instanz und einer Zeitzone den UTC-Offset zu diesem exakten Zeitpunkt in dieser Zeitzone als String zuzuordnen.
+Verwenden Sie `Temporal.Instant.prototype.toZonedDateTimeISO()` und {{jsxref("Temporal/ZonedDateTime/offset", "offset")}}, um aus einer `Temporal.Instant`-Instanz und einer Zeitzone den UTC-Offset zu diesem exakten Zeitpunkt in dieser Zeitzone als String zu ermitteln.
 
 ```js
 const instant = Temporal.Instant.from("2020-01-09T00:00Z");
@@ -529,9 +529,9 @@ const source = instant.toZonedDateTimeISO("America/New_York");
 source.offset; // '-05:00'
 ```
 
-### UTC-Offset für ein Ereignis mit Zeitzone als Sekundenzahl
+### UTC-Offset für ein Ereignis in einer Zeitzone als Anzahl von Sekunden
 
-Verwenden Sie entsprechend `Temporal.Instant.prototype.toZonedDateTimeISO()` und {{jsxref("Temporal/ZonedDateTime/offsetNanoseconds", "offsetNanoseconds")}}, um den Offset als Sekundenzahl zu erhalten. (Denken Sie daran, durch 10<sup>9</sup> zu teilen, um Nanosekunden in Sekunden umzurechnen.)
+Verwenden Sie entsprechend `Temporal.Instant.prototype.toZonedDateTimeISO()` und {{jsxref("Temporal/ZonedDateTime/offsetNanoseconds", "offsetNanoseconds")}}, um den Offset als Anzahl von Sekunden zu ermitteln. (Denken Sie daran, durch 10<sup>9</sup> zu teilen, um Nanosekunden in Sekunden umzurechnen.)
 
 ```js
 const instant = Temporal.Instant.from("2020-01-09T00:00Z");
@@ -542,7 +542,7 @@ instant.toZonedDateTimeISO("America/New_York").offsetNanoseconds / 1e9;
 
 ### Offset zwischen zwei Zeitzonen zu einem exakten Zeitpunkt
 
-Mit `Temporal.Instant.prototype.toZonedDateTimeISO()` und `Temporal.ZonedDateTime.offsetNanoseconds` können Sie außerdem einer `Temporal.Instant`-Instanz und zwei Zeitzonen die Differenz der UTC-Offsets dieser Zeitzonen zu diesem exakten Zeitpunkt als vorzeichenbehaftete Sekundenzahl zuordnen.
+Mit `Temporal.Instant.prototype.toZonedDateTimeISO()` und `Temporal.ZonedDateTime.offsetNanoseconds` können wir außerdem aus einer `Temporal.Instant`-Instanz und zwei Zeitzonen die Differenz der UTC-Offsets dieser Zeitzonen zu diesem exakten Zeitpunkt als vorzeichenbehaftete Anzahl von Sekunden ermitteln.
 
 ```js
 function getUtcOffsetDifferenceSecondsAtInstant(
@@ -569,9 +569,9 @@ console.log(
 ); // -3600
 ```
 
-### Mit Datums- und Zeitangaben an einem festen Standort arbeiten
+### Datums- und Zeitangaben an einem festen Standort verarbeiten
 
-Hier ist ein Beispiel für die Verwendung von `Temporal` in einem Diagramm. Es zeigt fiktive Aktivitätsdaten für einen Lagertank an einem festen Standort (Stockholm, Schweden). Das Diagramm beginnt immer um Mitternacht am Standort des Tanks, die Beschriftungen verwenden jedoch die Zeitzone der betrachtenden Person.
+Das folgende Beispiel verwendet `Temporal` in einem Diagramm, das fiktive Aktivitätsdaten für einen Lagertank an einem festen Standort (Stockholm, Schweden) zeigt. Das Diagramm beginnt immer um Mitternacht am Standort des Tanks, seine Beschriftungen werden jedoch in der Zeitzone der betrachtenden Person angezeigt.
 
 ```html hidden
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -649,7 +649,7 @@ new Chart(ctx, {
 
 ### Eine Besprechung über Zeitzonen hinweg planen
 
-Im Web gibt es verschiedene Werkzeuge, um Besprechungszeiten zu finden, die für die Zeitzonen aller Teilnehmenden geeignet sind. Dazu gehören [World Time Buddy](https://www.worldtimebuddy.com/) und [World Clock Meeting Planner](https://www.timeanddate.com/worldclock/meeting.html); entsprechende Funktionen sind auch in verschiedener Kalendersoftware integriert.
+Im Web gibt es mehrere Werkzeuge, mit denen sich Besprechungszeiten finden lassen, die für die Zeitzonen aller Teilnehmenden geeignet sind. Dazu gehören [World Time Buddy](https://www.worldtimebuddy.com/) und [World Clock Meeting Planner](https://www.timeanddate.com/worldclock/meeting.html); entsprechende Funktionen sind auch in verschiedenen Kalenderprogrammen integriert.
 
 ```css hidden
 #meeting-planner {
@@ -773,45 +773,45 @@ timeZones.forEach(({ name, tz }) => {
 
 {{EmbedLiveSample("Book a meeting across time zones", "100%", 200)}}
 
-## Arithmetik
+## Berechnungen
 
-### Wie viele Tage bis zu einem zukünftigen Datum?
+### Wie viele Tage bis zu einem zukünftigen Datum verbleiben
 
-Ein HTML-Beispielformular, inspiriert vom [Tage-Rechner](https://www.timeanddate.com/date/durationresult.html) auf timeanddate.com:
+Ein Beispiel für ein HTML-Formular, inspiriert vom [Days Calculator](https://www.timeanddate.com/date/durationresult.html) auf timeanddate.com:
 
 ```html
 <form>
   <label>
     Enter future date:
-    <input type="date" name="futuredate" />
+    <input type="date" name="future-date" />
   </label>
   <button>Submit</button>
 </form>
 
-<div id="futuredate-results"></div>
+<div id="future-date-results"></div>
 ```
 
 ```js
 // Initialize the input; see 'Calendar input element'.
-const futureDatePicker = document.querySelector('input[name="futuredate"]');
+const futureDatePicker = document.querySelector('input[name="future-date"]');
 const today = Temporal.Now.plainDateISO();
 futureDatePicker.min = today;
 futureDatePicker.value = today.add({ months: 1 });
 
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
-  const futuredateParam = futureDatePicker.value;
-  if (!futuredateParam) return;
+  const futureDateParam = futureDatePicker.value;
+  if (!futureDateParam) return;
 
   const browserCalendar = new Intl.DateTimeFormat().resolvedOptions().calendar;
   const futureDate =
-    Temporal.PlainDate.from(futuredateParam).withCalendar(browserCalendar);
+    Temporal.PlainDate.from(futureDateParam).withCalendar(browserCalendar);
   const today = Temporal.Now.plainDateISO().withCalendar(browserCalendar);
   const until = today.until(futureDate, { largestUnit: "day" });
   const untilMonths = until.round({ largestUnit: "month", relativeTo: today });
 
   const dayString = until.toLocaleString();
-  const results = document.getElementById("futuredate-results");
+  const results = document.getElementById("future-date-results");
   results.innerHTML = `
     <p>From and including: <strong>${today.toLocaleString()}</strong></p>
     <p>To but not including: <strong>${futureDate.toLocaleString()}</strong></p>
@@ -825,9 +825,9 @@ document.querySelector("form").addEventListener("submit", (event) => {
 
 {{EmbedLiveSample("How many days until a future date", "100%", 350)}}
 
-### Auf bestimmte Einheiten begrenzte Zeitspanne zwischen jetzt und einem vergangenen oder zukünftigen Ereignis mit Zeitzone
+### Dauer zwischen jetzt und einem vergangenen oder zukünftigen Ereignis in einer Zeitzone mit begrenzten Einheiten
 
-Berechnen Sie die Differenz zwischen zwei `Temporal.Instant`-Instanzen als `Temporal.Duration`-Instanz (positiv oder negativ), die die Zeitspanne zwischen den beiden Zeitpunkten darstellt, ohne größere Einheiten als die angegebenen zu verwenden. So können Sie beispielsweise einen aussagekräftigen Countdown mit oder ohne Monate oder Tage anzeigen.
+Ermitteln Sie die Differenz zwischen zwei `Temporal.Instant`-Instanzen als {{jsxref("Temporal.Duration")}}-Instanz (positiv oder negativ). Diese stellt die Dauer zwischen den beiden Zeitpunkten dar und verwendet keine größeren als die angegebenen Einheiten – beispielsweise, um einen aussagekräftigen Countdown mit oder ohne Monate beziehungsweise Tage anzuzeigen.
 
 ```js
 const result = Temporal.Instant.from("2020-01-09T04:00Z").since(
@@ -854,9 +854,9 @@ const duration = Temporal.Now.instant().until(
 `It's ${duration.abs().toLocaleString()} ${duration.sign < 0 ? "since" : "until"} the TC39 Temporal presentation`;
 ```
 
-### Nächste Offset-Änderung in einer Zeitzone
+### Nächste Offset-Umstellung in einer Zeitzone
 
-Ordnen Sie einer `Temporal.ZonedDateTime`-Instanz eine andere `Temporal.ZonedDateTime`-Instanz zu, die den nächstfolgenden exakten Zeitpunkt repräsentiert, an dem sich der Offset in der Zeitzone ändert, beispielsweise um Erinnerungen einzurichten. Die folgende Funktion nimmt außerdem einen `inclusive`-Wert entgegen, um eine Änderung zum Ausgangszeitpunkt einzubeziehen, und gibt `null` zurück, wenn keine Änderung bekannt ist.
+Ordnen Sie einer `Temporal.ZonedDateTime`-Instanz eine andere `Temporal.ZonedDateTime`-Instanz zu, die den nächsten exakten Zeitpunkt repräsentiert, an dem in der Zeitzone eine Offset-Umstellung stattfindet (beispielsweise zum Einrichten von Erinnerungen). Die folgende Funktion nimmt außerdem ein `inclusive`-Flag entgegen, um eine Umstellung zum Anfangszeitpunkt einzubeziehen, und gibt `null` zurück, wenn keine Umstellung bekannt ist.
 
 ```js
 function getNextOffsetTransitionFromExactTime(zonedDateTime, inclusive) {
@@ -989,9 +989,9 @@ const tuesdayEarlyState = getBusinessOpenStateText(
 console.log(tuesdayEarlyState); // 'closed'
 ```
 
-### Abflugzeit, Ankunftszeit und Flugdauer
+### Ankunftszeit, Abflugzeit und Flugdauer
 
-Berechnen Sie aus Abflug- und Ankunftszeiten mit jeweiliger Zeitzone die Reisedauer in Einheiten, die nicht größer als Stunden sind. (Standardmäßig sind Differenzen zwischen ZonedDateTime-Instanzen exakte Differenzen in Zeiteinheiten.)
+Berechnen Sie aus Abflug- und Ankunftszeiten in ihren jeweiligen Ortszeiten die Reisedauer in Einheiten, die nicht größer als Stunden sind. (Standardmäßig sind Differenzen zwischen `ZonedDateTime`-Instanzen exakte Differenzen in Zeiteinheiten.)
 
 ```js
 const departure = Temporal.ZonedDateTime.from(
@@ -1006,7 +1006,7 @@ const flightTime = departure.until(arrival);
 console.log(flightTime.toString()); // 'PT12H55M'
 ```
 
-Ermitteln Sie aus einer Abflugzeit mit Zeitzone und einer Flugdauer mithilfe zeitzonenbewusster Berechnungen die Ankunftszeit in der Zeitzone des Zielorts.
+Berechnen Sie aus einer Abflugzeit mit Zeitzone und einer Flugdauer die Ankunftszeit in der Zeitzone des Zielorts. Verwenden Sie dazu zeitzonenbewusste Berechnungen.
 
 ```js
 const departure = Temporal.ZonedDateTime.from(
@@ -1020,9 +1020,9 @@ console.log(arrival.toString());
 // '2020-03-08T09:50:00-07:00[America/Los_Angeles]'
 ```
 
-### Ein Einführungsdatum verschieben
+### Ein Startdatum verschieben
 
-Die folgende Funktion nimmt ein `Temporal.PlainDate` und eine Anzahl von Tagen Verzögerung entgegen (beispielsweise die Zeit, die für eine Genehmigung benötigt wurde). Sie gibt ein `Temporal.PlainDate` für den Anfang des Monats zurück, der auf das verschobene Datum folgt.
+Die folgende Funktion nimmt ein `Temporal.PlainDate` und eine Anzahl von Tagen der Verzögerung entgegen (beispielsweise die Zeit, die für eine Genehmigung benötigt wurde). Sie gibt ein `Temporal.PlainDate` für den Anfang des Monats zurück, der auf das verschobene Datum folgt.
 
 ```js
 function plusAndRoundToMonthStart(date, delayDays) {
@@ -1044,11 +1044,11 @@ const sixtyDaysDelay = plusAndRoundToMonthStart(oldLaunchDate, 60);
 console.log(sixtyDaysDelay.toString()); // '2019-08-01'
 ```
 
-### Eine Erinnerung vor dem Erreichen einer Rekordzeit planen
+### Eine Erinnerung vor dem Erreichen einer Rekorddauer planen
 
-Wenn Sie einen Rekord betrachten (beispielsweise eine persönliche Bestzeit in einer Sportart), möchten Sie vielleicht kurz vor dem Übertreffen dieses Rekords eine Benachrichtigung erhalten. Dieses Beispiel nimmt den Rekord als `Temporal.Duration`, den exakten Startzeitpunkt des aktuellen Versuchs als `Temporal.Instant` und ein weiteres `Temporal.Duration` entgegen. Letzteres gibt an, wie lange vor dem potenziell rekordverdächtigen exakten Zeitpunkt Sie benachrichtigt werden möchten. Die Funktion gibt den exakten Zeitpunkt zurück, zu dem eine Benachrichtigung gesendet werden könnte, beispielsweise: „Weiter so! Noch 5 Minuten bis zu Ihrer persönlichen Bestleistung!“
+Bei einem Rekord (beispielsweise einer persönlichen Bestzeit im Sport) möchten Sie möglicherweise kurz vor dessen Übertreffen benachrichtigt werden. Dieses Beispiel nimmt einen Rekord als `Temporal.Duration`, den exakten Anfangszeitpunkt des aktuellen Versuchs als `Temporal.Instant` und ein weiteres `Temporal.Duration` entgegen. Letzteres gibt an, wie lange vor dem Zeitpunkt eines möglichen neuen Rekords Sie benachrichtigt werden möchten. Die Funktion gibt den exakten Zeitpunkt zurück, zu dem eine Benachrichtigung gesendet werden könnte, beispielsweise: „Weiter so! Noch 5 Minuten bis zu Ihrer persönlichen Bestzeit!“
 
-Dies könnte für das Aufzeichnen von Trainingseinheiten und für Rennen verwendet werden (auch für _lange_ Rennen, die möglicherweise Zeitzonen überschreiten, wie die Bullrun Rally, Iditarod, Self-Transcendence 3100 und Clipper Round The World). Ebenso eignet es sich für zeitlich unbegrenzte Varianten wie Serien von Ereignissen, die täglich stattfinden.
+Dies könnte für das Aufzeichnen von Trainingseinheiten, für Rennen (einschließlich _langer_ Rennen, die möglicherweise Zeitzonen durchqueren, wie die Bullrun Rally, das Iditarod, der Self-Transcendence 3100 und das Clipper Round The World Race) oder sogar für fortlaufende Aktivitäten wie tägliche „Streaks“ verwendet werden.
 
 ```js
 function getInstantBeforeOldRecord(start, previousRecord, noticeWindow) {
@@ -1073,9 +1073,9 @@ const reminderAt = getInstantBeforeOldRecord(raceStart, record, noticeWindow);
 console.log(reminderAt.toString()); // '2016-08-14T00:52:17.53Z'
 ```
 
-### Der n-te Wochentag im Monat
+### Der n-te Wochentag des Monats
 
-Die folgende Funktion nimmt ein {{jsxref("Temporal.PlainYearMonth")}} entgegen und gibt ein `Temporal.PlainDate` zurück, das den ersten Dienstag des Monats repräsentiert. Sie lässt sich für andere Wochentage anpassen.
+Die folgende Funktion nimmt ein {{jsxref("Temporal.PlainYearMonth")}} entgegen und gibt ein `Temporal.PlainDate` zurück, das den ersten Dienstag dieses Monats repräsentiert. Sie lässt sich für andere Wochentage anpassen.
 
 ```js
 function getFirstTuesday(queriedMonth) {
@@ -1120,7 +1120,7 @@ const lastTuesday2 = lastOfMonth.subtract({
 console.log(Temporal.PlainDate.compare(lastTuesday, lastTuesday2)); // 0
 ```
 
-Die folgende Funktion nimmt ein `Temporal.PlainYearMonth` und einen Wochentag von 1 (Montag) bis 7 (Sonntag) entgegen. Sie gibt ein chronologisch geordnetes Array von `Temporal.PlainDate`-Instanzen für alle entsprechenden Tage im Monat zurück.
+Die folgende Funktion nimmt ein `Temporal.PlainYearMonth` und einen Wochentag von 1 (Montag) bis 7 (Sonntag) entgegen. Sie gibt ein chronologisch geordnetes Array von `Temporal.PlainDate`-Instanzen für alle entsprechenden Tage des Monats zurück.
 
 ```js
 function getWeeklyDaysInMonth(yearMonth, dayNumberOfTheWeek) {
@@ -1144,7 +1144,7 @@ console.log(
 ); // '2020-02-01 2020-02-08 2020-02-15 2020-02-22 2020-02-29'
 ```
 
-Die folgende Funktion nimmt ein `Temporal.PlainDate` entgegen und gibt die Anzahl der vorhergehenden Tage in dessen Monat zurück, die auf denselben Wochentag fallen.
+Die folgende Funktion nimmt ein `Temporal.PlainDate` entgegen und gibt die Anzahl der vorhergehenden Tage im selben Monat zurück, die auf denselben Wochentag fallen.
 
 ```js
 function countPrecedingWeeklyDaysInMonth(date) {
@@ -1162,7 +1162,7 @@ console.log(
 
 ### Den Tag des Monats ändern
 
-Hier sind einige Beispiele dafür, wie Sie bei einem vorhandenen Datum den Tag des Monats ändern können.
+Hier sind einige Beispiele dafür, wie Sie bei einem vorhandenen Datum den Tag des Monats ändern.
 
 ```js
 const date = Temporal.PlainDate.from("2020-04-14");
@@ -1190,9 +1190,9 @@ console.log(thisMonth18thAt8PM.toString()); // '2020-04-18T20:00:00'
 
 ### Dasselbe Datum in einem anderen Monat
 
-Ebenso zeigen die folgenden Beispiele, wie Sie bei einem vorhandenen Datum den Monat ändern, aber Tag und Jahr beibehalten.
+Ebenso zeigen die folgenden Beispiele, wie Sie bei einem vorhandenen Datum den Monat ändern und dabei Tag und Jahr beibehalten.
 
-Je nach gewünschtem Verhalten müssen Sie die passende Option `overflow` wählen. Der Standardwert `"constrain"` sollte jedoch für die meisten Fälle geeignet sein.
+Je nach gewünschtem Verhalten müssen Sie die passende Option `overflow` wählen. Der Standardwert `"constrain"` sollte jedoch für die meisten Fälle richtig sein.
 
 ```js
 const date = Temporal.PlainDate.from("2020-05-31");
@@ -1212,7 +1212,7 @@ date.with({ month: 4 }, { overflow: "reject" }); // Throws a RangeError
 
 ### Nächstes wöchentliches Ereignis
 
-Die folgende Funktion nimmt ein anfängliches `Temporal.ZonedDateTime`, einen Wochentag von 1 (Montag) bis 7 (Sonntag), ein `Temporal.PlainTime` und eine Zeitzonenkennung entgegen. Sie gibt ein `Temporal.ZonedDateTime` zurück, das den nächsten Zeitpunkt des wöchentlichen Ereignisses repräsentiert (beispielsweise „jeden Donnerstag um 08:45 Uhr kalifornischer Zeit“).
+Die folgende Funktion nimmt ein `Temporal.ZonedDateTime` als Anfangszeitpunkt, einen Wochentag von 1 (Montag) bis 7 (Sonntag), ein `Temporal.PlainTime` und eine Zeitzonenkennung entgegen. Sie gibt ein `Temporal.ZonedDateTime` zurück, das das nächste Auftreten des wöchentlichen Ereignisses repräsentiert (beispielsweise „wöchentlich donnerstags um 08:45 Uhr kalifornischer Zeit“).
 
 ```js
 function nextWeeklyOccurrence(now, weekday, eventTime, eventTimeZone) {
@@ -1253,7 +1253,7 @@ console.log(next.toString()); // '2020-04-02T16:45:00+01:00[Europe/London]'
 
 ### Wochentag eines jährlichen Ereignisses
 
-In manchen Ländern gibt es einen zusätzlichen arbeitsfreien „Brückentag“ am Montag oder Freitag, wenn ein Feiertag auf einen Dienstag oder Donnerstag fällt, damit Beschäftigte ein langes Wochenende haben. Die folgende Funktion nimmt ein `Temporal.PlainMonthDay` und ein Jahr entgegen und gibt ein Array von `Temporal.PlainDate`-Werten für den Feiertag und gegebenenfalls den Brückentag zurück. Fällt der Feiertag auf ein Wochenende, gibt sie ein leeres Array zurück.
+In einigen Ländern wird ein zusätzlicher „Brückentag“ als Feiertag am Montag oder Freitag begangen, wenn ein Feiertag auf einen Dienstag oder Donnerstag fällt. So erhalten Beschäftigte ein langes Wochenende. Die folgende Funktion nimmt ein `Temporal.PlainMonthDay` und ein Jahr entgegen und gibt ein Array von `Temporal.PlainDate`-Werten für den Feiertag und einen möglichen Brückentag zurück. Fällt der Feiertag auf ein Wochenende, gibt sie ein leeres Array zurück.
 
 ```js
 function bridgePublicHolidays(holiday, year) {

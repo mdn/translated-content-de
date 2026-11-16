@@ -1,31 +1,59 @@
 ---
-title: "ARIA: aria-current Attribut"
+title: "ARIA: Attribut aria-current"
 short-title: aria-current
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-current
 l10n:
-  sourceCommit: f3bf4e2bd456159093d3820253be9f266ace070a
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Ein nicht-null `aria-current` Zustand auf einem Element zeigt an, dass dieses Element das aktuelle Element innerhalb eines Containers oder einer Gruppe verwandter Elemente darstellt.
+Ein nicht auf `null` gesetzter Zustand von `aria-current` an einem Element zeigt an, dass dieses Element das aktuelle Element innerhalb eines Containers oder einer Gruppe zusammengehöriger Elemente darstellt.
 
 ## Beschreibung
 
-Wenn Sie eine Gruppe verwandter Elemente haben, wie zum Beispiel mehrere Links in einem "Breadcrumb" oder Schritte in einem mehrstufigen Ablauf, bei denen ein Element in der Gruppe anders als die anderen gestaltet ist, um dem sehenden Benutzer anzuzeigen, dass dies das aktuelle Element in seiner Gruppe ist, sollte `aria-current` verwendet werden, um dem Nutzer von unterstützender Technologie mitzuteilen, was durch das Styling angezeigt wurde.
+Wenn Sie eine Gruppe zusammengehöriger Elemente haben, beispielsweise mehrere Links in einer Breadcrumb-Navigation oder Schritte in einem mehrstufigen Ablauf, und ein Element der Gruppe anders gestaltet ist als die übrigen, um sehenden Nutzern zu zeigen, dass es das aktuelle Element der Gruppe ist, sollten Sie `aria-current` verwenden. So erfahren auch Nutzer assistiver Technologien, was durch die Gestaltung angezeigt wird.
 
-In einer Breadcrumb-Liste, wenn ein Link innerhalb einer Gruppe von Paginierungs-Links so gestaltet ist, dass angezeigt wird, dass der Benutzer sich aktuell auf dieser Seite befindet, sollte `aria-current="page"` auf diesem Link gesetzt werden. In einem mehrstufigen Prozess mit einem Schritt-Indikator wie einem mehrseitigen Fragebogen oder einem mehrstufigen Checkout- oder Registrierungsprozess, wenn das aktuelle Schritt-Symbol visuell anders ist, um zu zeigen, dass es der aktuelle Schritt ist, sollte der Container dieses Symbols `aria-current="step"` für Benutzer von unterstützender Technologie haben, die möglicherweise den visuellen Unterschied nicht "sehen" können.
+Wenn in einer Breadcrumb-Liste ein Link aus einer Gruppe von Seitennavigationslinks so gestaltet ist, dass er die aktuell angezeigte Seite kennzeichnet, sollte für diesen Link `aria-current="page"` gesetzt werden. Wenn bei einem mehrstufigen Prozess mit Schrittanzeige – etwa einer mehrseitigen Umfrage oder einem mehrstufigen Bestell- oder Registrierungsprozess – das Symbol des aktuellen Schritts visuell hervorgehoben ist, sollte sein umschließendes Element `aria-current="step"` erhalten. So können auch Nutzer assistiver Technologien den aktuellen Schritt erkennen, wenn sie den visuellen Unterschied nicht wahrnehmen können.
 
-Das `aria-current` Attribut zeigt an, dass das Element, auf dem es gesetzt ist, auf einen Wert ungleich `false`, das aktuelle Element innerhalb eines Containers oder einer Gruppe verwandter Elemente darstellt. Markieren Sie nur ein Element in einer Gruppe von Elementen als aktuell mit `aria-current`.
+Das Attribut `aria-current` zeigt an, dass das Element, für das es auf einen anderen Wert als `false` gesetzt ist, das aktuelle Element innerhalb eines Containers oder einer Gruppe zusammengehöriger Elemente darstellt. Kennzeichnen Sie mit `aria-current` nur ein Element einer Gruppe als aktuell.
 
-Das `aria-current` Attribut akzeptiert eine begrenzte Liste von [Werten](#werte) wie `page`, `step`, `location`, `date`, `time`, `true` und `false`. Jeder nicht-null Zeichenkettenwert, der nicht in dieser Liste von enumerierten Werten enthalten ist, wird behandelt, als wäre `aria-current="true"` gesetzt, nicht der Standardwert `false`. Wenn das Attribut nicht vorhanden ist, ein leerer String ist, ohne Wert vorhanden ist oder auf `aria-current="false"` gesetzt ist, wird es dem Benutzer nicht angezeigt.
+Das Attribut `aria-current` akzeptiert eine begrenzte Liste von [Werten](#werte): `page`, `step`, `location`, `date`, `time`, `true` und `false`. Jeder nicht auf `null` gesetzte Zeichenfolgenwert außerhalb dieser Liste wird so behandelt, als wäre `aria-current="true"` gesetzt, und nicht wie der Standardwert `false`. Wenn das Attribut fehlt, eine leere Zeichenfolge enthält, ohne Wert angegeben ist oder auf `aria-current="false"` gesetzt ist, wird es Nutzern nicht angezeigt.
 
-Wenn etwas ausgewählt statt aktuell ist, wie ein [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) in einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role), verwenden Sie [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected), um das aktuell angezeigte `tabpanel` anzuzeigen.
+Wenn etwas ausgewählt und nicht aktuell ist, beispielsweise ein [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) in einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role), verwenden Sie [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected), um das aktuell angezeigte Tabpanel zu kennzeichnen.
 
 > [!NOTE]
-> Verwenden Sie `aria-current` nicht als Ersatz für [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) in [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) oder [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role).
+> Verwenden Sie `aria-current` nicht als Ersatz für [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) bei [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) oder [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role).
+
+## Werte
+
+- `page`
+  - : Kennzeichnet die aktuelle Seite innerhalb einer Gruppe von Seiten, beispielsweise den Link zum aktuellen Dokument in einer Breadcrumb-Navigation.
+- `step`
+  - : Kennzeichnet den aktuellen Schritt innerhalb eines Prozesses, beispielsweise den aktuellen Schritt eines mehrstufigen Bestellvorgangs.
+- `location`
+  - : Kennzeichnet die aktuelle Position innerhalb einer Umgebung oder eines Kontexts, beispielsweise das Bild, das als aktuelle Komponente eines Flussdiagramms visuell hervorgehoben ist.
+- `date`
+  - : Kennzeichnet das aktuelle Datum innerhalb einer Sammlung von Datumsangaben, beispielsweise das aktuelle Datum in einem Kalender.
+- `time`
+  - : Kennzeichnet die aktuelle Uhrzeit innerhalb einer Gruppe von Uhrzeiten, beispielsweise die aktuelle Uhrzeit in einem Zeitplan.
+- `true`
+  - : Kennzeichnet das aktuelle Element innerhalb einer Gruppe.
+- `false` (Standardwert)
+  - : Kennzeichnet nicht das aktuelle Element innerhalb einer Gruppe.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaCurrent`](/de/docs/Web/API/Element/ariaCurrent)
+  - : Die Eigenschaft [`ariaCurrent`](/de/docs/Web/API/Element/ariaCurrent) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-current` wider.
+- [`ElementInternals.ariaCurrent`](/de/docs/Web/API/ElementInternals/ariaCurrent)
+  - : Die Eigenschaft [`ariaCurrent`](/de/docs/Web/API/ElementInternals/ariaCurrent) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-current` wider.
+
+## Zugehörige Rollen
+
+In allen Rollen verwendbar, außer bei Elementen mit den Rollen [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) und [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role), für die [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) verwendet werden sollte.
 
 ## Beispiel
 
-Das Breadcrumb für die "aktuelle Seite" sollte `aria-current="page"` darauf gesetzt haben.
+Für den Breadcrumb-Link zur „aktuellen Seite“ sollte `aria-current="page"` gesetzt werden.
 
 ```html
 <nav aria-label="Breadcrumb" class="breadcrumb">
@@ -49,35 +77,7 @@ Das Breadcrumb für die "aktuelle Seite" sollte `aria-current="page"` darauf ges
 </nav>
 ```
 
-Wenn das Element, das die aktuelle Seite im Breadcrumb darstellt, kein Link war, ist `aria-current` optional.
-
-## Werte
-
-- `page`
-  - : Repräsentiert die aktuelle Seite innerhalb eines Satzes von Seiten, wie den Link zum aktuellen Dokument in einem Breadcrumb.
-- `step`
-  - : Repräsentiert den aktuellen Schritt innerhalb eines Prozesses, wie den aktuellen Schritt in einem enumerierten mehrstufigen Checkout-Ablauf.
-- `location`
-  - : Repräsentiert den aktuellen Standort innerhalb einer Umgebung oder eines Kontexts, wie das Bild, das visuell hervorgehoben als aktuelles Element eines Flussdiagramms ist.
-- `date`
-  - : Repräsentiert das aktuelle Datum innerhalb einer Sammlung von Daten, wie das aktuelle Datum in einem Kalender.
-- `time`
-  - : Repräsentiert die aktuelle Uhrzeit innerhalb eines Satzes von Zeiten, wie die aktuelle Zeit innerhalb eines Zeitplans.
-- `true`
-  - : Repräsentiert das aktuelle Element innerhalb eines Satzes.
-- `false` (Standard)
-  - : Repräsentiert nicht das aktuelle Element innerhalb eines Satzes.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaCurrent`](/de/docs/Web/API/Element/ariaCurrent)
-  - : Die [`ariaCurrent`](/de/docs/Web/API/Element/ariaCurrent) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-current` Attributs wider.
-- [`ElementInternals.ariaCurrent`](/de/docs/Web/API/ElementInternals/ariaCurrent)
-  - : Die [`ariaCurrent`](/de/docs/Web/API/ElementInternals/ariaCurrent) Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle spiegelt den Wert des `aria-current` Attributs wider.
-
-## Zugehörige Rollen
-
-Anwendbar in allen Rollen; außer für Elemente mit der Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) und [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role), wo [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) verwendet werden sollte.
+Wenn das Element, das die aktuelle Seite in der Breadcrumb-Navigation darstellt, kein Link ist, ist `aria-current` optional.
 
 ## Spezifikationen
 

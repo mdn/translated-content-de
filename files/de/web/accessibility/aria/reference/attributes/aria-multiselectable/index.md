@@ -1,25 +1,52 @@
 ---
-title: "ARIA: aria-multiselectable-Attribut"
+title: "ARIA: Attribut aria-multiselectable"
 short-title: aria-multiselectable
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-multiselectable`-Attribut gibt an, dass der Benutzer mehr als ein Element aus den aktuellen auswählbaren Nachkommen auswählen kann.
+Das Attribut `aria-multiselectable` gibt an, dass Benutzer mehr als ein Element aus den aktuell auswählbaren Nachfahren auswählen können.
 
 ## Beschreibung
 
-Das Standardverhalten von Auswahllisten, wie z.B. {{HTMLElement('select')}}, ist, dass nur ein Element oder eine Option ausgewählt werden kann. Standardmäßig oder aus Gewohnheit gehen Benutzer davon aus, dass sie nur ein einzelnes Element auswählen können, wenn ihnen eine Liste präsentiert wird, aus der sie ein Element auswählen müssen, es sei denn, sie werden anders benachrichtigt. Das `aria-multiselectable`-Attribut ist die Möglichkeit, Benutzer von unterstützender Technologie darüber zu informieren, dass sie mehr als ein Element aus den aktuellen auswählbaren Elementen auswählen können, wenn sie dies möchten. Listen und Bäume sind Beispiele für Rollen, die es Benutzern ermöglichen könnten, mehr als ein Element gleichzeitig auszuwählen.
+Bei Auswahllisten wie {{HTMLElement('select')}} kann standardmäßig nur ein Element oder eine Option ausgewählt werden. Wenn Benutzern eine Liste zur Auswahl angezeigt wird, gehen sie daher in der Regel davon aus, dass sie nur ein Element auswählen können, sofern sie nicht anders informiert werden. Mit dem Attribut `aria-multiselectable` können Sie Benutzer von assistiven Technologien darüber informieren, dass sie bei Bedarf mehr als eines der aktuell auswählbaren Elemente auswählen können. Listen und Baumstrukturen sind Beispiele für Rollen, bei denen die gleichzeitige Auswahl mehrerer Elemente möglich sein kann.
 
 > [!NOTE]
-> Wenn mehrere Auswahlen erlaubt sind, informieren Sie den Benutzer darüber, dass mehrere Werte erlaubt sind, und geben Sie Anweisungen, wie man mehrere Werte bereitstellt, zum Beispiel: "Um mehr als einen Wert auszuwählen, halten Sie die Steuertaste während der Auswahl gedrückt."
+> Wenn Sie eine Mehrfachauswahl ermöglichen, informieren Sie die Benutzer darüber und erklären Sie, wie sie mehrere Werte auswählen können, beispielsweise: „Um mehr als einen Wert auszuwählen, halten Sie während der Auswahl die Strg-Taste gedrückt.“
 
 ### Verwendung mit `aria-selected`
 
-Wenn der Benutzer ein oder mehrere Elemente auswählt, denken Sie daran, die ausgewählten Nachkommen als ausgewählt zu kennzeichnen mit [`aria-selected="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected), und auswählbare Nachkommen, die nicht ausgewählt sind, haben `aria-selected="false"` gesetzt. Wenn ein Element nicht auswählbar ist, lassen Sie das `aria-selected`-Attribut vollständig weg, da seine Präsenz den Benutzer darüber informiert, dass das Element auswählbar ist.
+Wenn ein Benutzer ein oder mehrere Elemente auswählt, setzen Sie für die ausgewählten Nachfahren [`aria-selected="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) und für auswählbare, aber nicht ausgewählte Nachfahren `aria-selected="false"`. Ist ein Element nicht auswählbar, lassen Sie das Attribut `aria-selected` vollständig weg: Bereits seine Anwesenheit signalisiert, dass das Element auswählbar ist.
 
-Wenn ein Baum, Raster, Registerkartenliste oder Listenfeld die Auswahl von mehr als einem Knoten unterstützt, hat das Element mit der Rolle [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role) oder [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role) `aria-multiselectable` auf `true` gesetzt. Andernfalls ist `aria-multiselectable` entweder auf `false` gesetzt oder der Standardwert `false` wird impliziert.
+Wenn eine Baumstruktur, ein Raster, eine Tab-Liste oder ein Listenfeld die Auswahl mehrerer Knoten unterstützt, setzen Sie `aria-multiselectable` für das Element mit der Rolle [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role) oder [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role) auf `true`. Andernfalls wird `aria-multiselectable` entweder auf `false` gesetzt oder der Standardwert `false` gilt implizit.
+
+## Werte
+
+- `true`
+  - : Im Widget kann mehr als ein Element gleichzeitig ausgewählt werden.
+- `false`
+  - : Es kann nur ein Element ausgewählt werden.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaMultiSelectable`](/de/docs/Web/API/Element/ariaMultiSelectable)
+  - : Die Eigenschaft [`ariaMultiSelectable`](/de/docs/Web/API/Element/ariaMultiSelectable) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-multiselectable` wider.
+- [`ElementInternals.ariaMultiSelectable`](/de/docs/Web/API/ElementInternals/ariaMultiSelectable)
+  - : Die Eigenschaft [`ariaMultiSelectable`](/de/docs/Web/API/ElementInternals/ariaMultiSelectable) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-multiselectable` wider.
+
+## Zugehörige Rollen
+
+Wird in folgenden Rollen verwendet:
+
+- [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)
+- [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
+- [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)
+- [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)
+
+Wird an folgende Rollen vererbt:
+
+- [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role)
 
 ## Beispiel
 
@@ -45,9 +72,9 @@ Wenn ein Baum, Raster, Registerkartenliste oder Listenfeld die Auswahl von mehr 
 </ul>
 ```
 
-Diese Listenfeld unterstützt Mehrfachauswahl, daher setzen wir das Element mit der Rolle `listbox` auf `aria-multiselectable="true"`. Alle ausgewählten Optionen haben `aria-selected` auf `true` gesetzt. Alle Optionen, die nicht ausgewählt, aber auswählbar sind, haben `aria-selected` auf false gesetzt. Hätten wir Optionen eingeschlossen, die deaktiviert oder anderweitig nicht auswählbar sind, hätten wir das `aria-selected`-Attribut vollständig weggelassen. Das Einschließen des Attributs, auch ohne Wert oder explizit auf `false` gesetzt, weist Benutzer von unterstützender Technologie darauf hin, dass das Element auswählbar ist.
+Dieses Listenfeld unterstützt die Mehrfachauswahl. Deshalb setzen wir für das Element mit der Rolle `listbox` das Attribut `aria-multiselectable="true"`. Bei allen ausgewählten Optionen ist `aria-selected` auf `true` gesetzt. Bei allen nicht ausgewählten, aber auswählbaren Optionen ist `aria-selected` auf `false` gesetzt. Hätten wir deaktivierte oder anderweitig nicht auswählbare Optionen aufgenommen, hätten wir das Attribut `aria-selected` bei diesen vollständig weggelassen. Das Attribut signalisiert Benutzern assistiver Technologien, dass das Element auswählbar ist – selbst wenn es keinen Wert hat oder ausdrücklich auf `false` gesetzt ist.
 
-Die erste Regel der ARIA-Nutzung lautet: "Wenn Sie eine native Funktion mit der gewünschten Semantik und dem gewünschten Verhalten verwenden können, anstatt ein Element neu zu verwenden und \*\*ein ARIA-Rolle, -Status oder -Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies." Anstatt eine unsortierte Liste zu erstellen, die [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), ARIA und JavaScript erfordert, um Text in auswählbare Optionen zu verwandeln, könnten wir eine native Mehrfachauswahl verwenden: das {{htmlelement('select')}}-Element hat ein Boolean-Attribut [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple). Wenn enthalten, kann der Benutzer mehrere Optionen auswählen. Wenn nicht, kann nur eine einzelne Option ausgewählt werden.
+Die erste Regel für den Einsatz von ARIA lautet: „Wenn Sie eine native Funktion verwenden können, die bereits die benötigte Semantik und das benötigte Verhalten bietet, statt ein Element für einen anderen Zweck zu verwenden und es durch **Hinzufügen** einer ARIA-Rolle, eines ARIA-Zustands oder einer ARIA-Eigenschaft zugänglich zu machen, dann verwenden Sie die native Funktion.“ Statt eine ungeordnete Liste zu erstellen, die [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), ARIA und JavaScript benötigt, um Text in auswählbare Optionen umzuwandeln, hätten wir ein natives Element für die Mehrfachauswahl verwenden können: Das Element {{htmlelement('select')}} verfügt über das boolesche Attribut [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple). Ist es vorhanden, können Benutzer mehrere Optionen auswählen. Andernfalls kann nur eine Option ausgewählt werden.
 
 ```html
 <label for="flagcolors"> Choose the colors for your flag. </label>
@@ -67,9 +94,9 @@ Die erste Regel der ARIA-Nutzung lautet: "Wenn Sie eine native Funktion mit der 
 </select>
 ```
 
-Diese HTML-`<select>`-Version ist zugänglich und interaktiv und benötigt keine ARIA oder JavaScript, um zu funktionieren.
+Diese HTML-Version mit `<select>` ist zugänglich und interaktiv und benötigt weder ARIA noch JavaScript, um zu funktionieren.
 
-Wenn das obige nicht nach Ihrem Geschmack stilisiert werden kann, können Sie auch eine Liste von auswählbaren Optionen mit HTML-Checkboxen erstellen, die ebenfalls semantisch, fokussierbar und unendlich mit CSS stilisierbar ist:
+Falls sich das obige Beispiel nicht nach Ihren Wünschen gestalten lässt, können Sie auch mit HTML-Checkboxen eine Liste auswählbarer Optionen erstellen. Diese ist ebenfalls semantisch, fokussierbar und lässt sich mit CSS nahezu beliebig gestalten:
 
 ```html
 <fieldset>
@@ -123,34 +150,7 @@ Wenn das obige nicht nach Ihrem Geschmack stilisiert werden kann, können Sie au
 </fieldset>
 ```
 
-Anstelle von `aria-selected="true"`, fügen Sie das [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked)-Attribut ein. Der Browser erledigt den Rest.
-
-## Werte
-
-- `true`
-  - : Mehr als ein Element im Widget kann gleichzeitig ausgewählt werden
-- `false`
-  - : Nur ein Element kann ausgewählt werden
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaMultiSelectable`](/de/docs/Web/API/Element/ariaMultiSelectable)
-  - : Die [`ariaMultiSelectable`](/de/docs/Web/API/Element/ariaMultiSelectable)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-multiselectable`-Attributs wider.
-- [`ElementInternals.ariaMultiSelectable`](/de/docs/Web/API/ElementInternals/ariaMultiSelectable)
-  - : Die [`ariaMultiSelectable`](/de/docs/Web/API/ElementInternals/ariaMultiSelectable)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-multiselectable`-Attributs wider.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)
-- [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
-- [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)
-- [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)
-
-Vererbt in Rollen:
-
-- [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role)
+Verwenden Sie statt `aria-selected="true"` das Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked). Den Rest übernimmt der Browser.
 
 ## Spezifikationen
 
@@ -158,8 +158,8 @@ Vererbt in Rollen:
 
 ## Siehe auch
 
-- HTML {{HTMLElement('select')}}-Element
-- HTML {{HTMLElement('option')}}-Element
-- HTML {{HTMLElement('input')}}-Element
-- [multiple](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attribut
+- HTML-Element {{HTMLElement('select')}}
+- HTML-Element {{HTMLElement('option')}}
+- HTML-Element {{HTMLElement('input')}}
+- Attribut [multiple](/de/docs/Web/HTML/Reference/Attributes/multiple)
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)

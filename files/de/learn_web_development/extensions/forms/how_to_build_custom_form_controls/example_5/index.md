@@ -2,10 +2,10 @@
 title: Beispiel 5
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_5
 l10n:
-  sourceCommit: 912d9d7cc46ac052cd4e9c5df3c02a7b145b9ad8
+  sourceCommit: e976b4bf6b9e0c68b4321904560df47804d8cc48
 ---
 
-Dies ist das letzte Beispiel, das erklärt, [wie Sie benutzerdefinierte Formular-Widgets erstellen](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
+Dies ist das letzte Beispiel im [Leitfaden zum Erstellen benutzerdefinierter Formularsteuerelemente](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
 
 ## Zustände ändern
 
@@ -498,8 +498,7 @@ selectList.forEach((select, selectIndex) => {
         }
         break;
       default:
-        // Ignore all other keys
-        return;
+      // Ignore all other keys
     }
   });
 });

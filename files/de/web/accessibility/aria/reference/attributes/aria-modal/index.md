@@ -3,35 +3,60 @@ title: "ARIA: aria-modal-Attribut"
 short-title: aria-modal
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-modal
 l10n:
-  sourceCommit: 2d5e220cf073e783d053f0ea8470d042b02dc3f3
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-modal`-Attribut gibt an, ob ein Element modal angezeigt wird.
+Das Attribut `aria-modal` gibt an, ob ein Element bei seiner Anzeige modal ist.
 
 ## Beschreibung
 
-Ein Inhaltsbereich ist "modal", wenn die Navigation auf den Bereich selbst beschränkt ist und der Hintergrund (die Vorfahren und Geschwister des Modals) ausgeblendet wird. Das Setzen von `aria-modal="true"` auf [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)- und [`alertdialog`-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)-Containern signalisiert den Benutzern von assistiven Technologien das Vorhandensein eines "modales" Elements, macht das Element jedoch nicht tatsächlich modal. Die Funktionen, die das Element tatsächlich modal machen, müssen vom Entwickler implementiert werden.
+Ein Inhaltsbereich ist „modal“, wenn die Navigation auf diesen Bereich beschränkt und der Hintergrund (die übergeordneten und benachbarten Elemente des modalen Elements) ausgeblendet ist. Wird `aria-modal="true"` auf Container mit der Rolle [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) oder [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) gesetzt, signalisiert dies Nutzern assistiver Technologien, dass ein modales Element vorhanden ist. Das Element wird dadurch jedoch nicht tatsächlich modal. Die dafür erforderlichen Funktionen müssen von Entwicklern implementiert werden.
 
 > [!NOTE]
-> ARIA ändert nur den Barrierefreiheitsbaum, indem es beeinflusst, wie assistive Technologien den Inhalt Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements. Um einen Modaleffekt zu erzeugen, müssen Sie JavaScript verwenden, um das Verhalten, den Fokus und die ARIA-Zustände zu verwalten.
+> ARIA verändert nur den Barrierefreiheitsbaum und damit, wie assistive Technologien Ihren Nutzern die Inhalte präsentieren. ARIA ändert weder die Funktion noch das Verhalten eines Elements. Um einen modalen Effekt zu erzeugen, müssen Sie JavaScript verwenden, um Verhalten, Fokus und ARIA-Zustände zu verwalten.
 
-Relevant nur für `dialog`- und `alertdialog`-Container, gibt `aria-modal="true"` assistiven Technologien vor, den Benutzer darüber zu informieren, dass die Möglichkeit, mit anderen Inhalten auf der Seite zu interagieren oder darauf zuzugreifen, erfordert, dass das Modaldialog geschlossen oder anderweitig der Fokus verloren wird.
+`aria-modal="true"` ist nur für Container mit der Rolle `dialog` oder `alertdialog` relevant. Es signalisiert assistiven Technologien, dass Nutzer den modalen Dialog schließen müssen oder dieser anderweitig den Fokus verlieren muss, bevor sie mit anderen Inhalten der Seite interagieren oder darauf zugreifen können.
 
-Modale Dialoge sind dann gegeben, wenn Inhalte angezeigt werden und die Interaktion des Benutzers nur auf diesen Abschnitt beschränkt ist, bis er entfernt wird.
+Bei modalen Dialogen werden Inhalte angezeigt, während die Interaktion der Nutzer bis zum Schließen des Dialogs auf diesen Bereich beschränkt ist.
 
-Bei der Erstellung von modalen Dialogen informiert `aria-modal="true"` assistive Technologien, dass die Fenster unter dem aktuellen Dialog nicht Teil des modalen Inhalts sind.
+Wenn Sie modale Dialoge erstellen, signalisiert `aria-modal="true"` assistiven Technologien, dass die Fenster unter dem aktuellen Dialog nicht zum modalen Inhalt gehören.
 
-Wenn ein modales Element angezeigt wird, sollte der Fokus in das Modal gesetzt werden. Der Fokus muss im Modal "eingefangen" werden, solange es sichtbar ist, bis es geschlossen wird. Assistive Technologien (<abbr>AT</abbr>) können dann den Inhalt des Modals durchsuchen und den Umfang des modalen Inhalts verstehen. Das `aria-modal`-Attribut hilft, den Bereich des Modals zu kommunizieren und es von den restlichen Inhalten der Seite zu unterscheiden. Bei der Entlassung sollte der Fokus auf das Element zurückkehren, das das Modal ausgelöst hat.
+Wenn ein modales Element angezeigt wird, sollte der Fokus in dieses Element gesetzt werden. Solange es sichtbar ist, muss der Fokus darin „eingeschlossen“ bleiben, bis das Element geschlossen wird. Assistive Technologien (<abbr>AT</abbr>) können dann durch den Inhalt des modalen Elements navigieren und dessen Umfang erfassen. Das Attribut `aria-modal` hilft assistiven Technologien, die Grenzen des modalen Elements zu vermitteln und es vom übrigen Seiteninhalt zu unterscheiden. Nach dem Schließen sollte der Fokus zu dem Element zurückkehren, das den modalen Dialog geöffnet hat.
 
-Stellen Sie sicher, dass das Modal nur über seine nachgeordneten Elemente kontrollierbar ist. Wenn ein Modaldialog über eine Schaltfläche zum Schließen verfügt, sollte die Schaltfläche ein Nachfahre im DOM-Container des Modals sein.
+Stellen Sie sicher, dass sich der modale Dialog ausschließlich über seine Nachfahrenelemente bedienen lässt. Wenn ein modaler Dialog eine Schaltfläche zum Schließen hat, sollte diese im DOM ein Nachfahrenelement des Dialogcontainers sein.
 
-Wenn ein modales Element angezeigt wird, sollten Autoren **alle** anderen Inhalte als inert markieren (wie "inaktive Unterbäume" in HTML). Deaktivierter Inhalt ist kein inaktiver Inhalt. Inaktiver Inhalt kann nicht mit normalen und spezialisierten Browsing-Modi interagiert werden, wie z. B. das Caret-Browsing, das es Benutzern assistiver Technologien ermöglicht, eine Seite im Detail zu erkunden. Dies schließt deaktivierte Inhalte ein, deren Inhalt möglicherweise von Bedeutung ist.
+Wenn ein modales Element angezeigt wird, **sollten** Autoren alle anderen Inhalte als inert kennzeichnen (beispielsweise als „inerte Teilbäume“ in HTML). Deaktivierte Inhalte sind nicht inert. Mit inerten Inhalten kann weder in normalen noch in speziellen Navigationsmodi interagiert werden. Zu diesen Modi gehört die Navigation mit Textcursor, mit der Nutzer assistiver Technologien eine Seite im Detail erkunden können. Das gilt auch für deaktivierte Inhalte, deren Inhalt möglicherweise eine Bedeutung vermittelt.
 
-Das [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)-Attribut ist ein boolesches Attribut, das durch seine Anwesenheit angibt, dass das Element und alle seine schatteneinschließenden Nachkommen inaktiv gemacht werden sollen.
+Das Attribut [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert) ist ein boolesches Attribut. Wenn es vorhanden ist, werden das Element und alle seine Nachfahren einschließlich derjenigen im Shadow DOM inert.
 
-Das Einfügen von `aria-modal="true"` auf einem [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)- oder [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role), entfernt die Anforderung, [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) für Hintergrundinhalte zu setzen, da `aria-modal` assistiven Technologien mitteilt, dass Inhalte außerhalb eines Dialogs inaktiv sind. Beachten Sie, dass, obwohl die Unterstützung für das {{HTMLElement("dialog")}}-Element gut ist, eine gründliche Testung Ihrer Implementierung von entscheidender Bedeutung ist.
+Wenn Sie `aria-modal="true"` auf einem [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) oder [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) verwenden, müssen Sie für Hintergrundinhalte kein [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) setzen. `aria-modal` informiert assistive Technologien darüber, dass Inhalte außerhalb des Dialogs inert sind. Beachten Sie, dass die Unterstützung für das Element {{HTMLElement("dialog")}} zwar gut ist, gründliche Tests Ihrer Implementierung aber dennoch äußerst wichtig sind.
 
-Wenn ein Dialog nicht modal ist - es gibt keinen inaktiven Hintergrund und der Fokus ist nicht auf den Dialog beschränkt - entweder `aria-modal="false"` einschließen oder das Attribut ganz weglassen.
+Wenn ein Dialog nicht modal ist – der Hintergrund also nicht inert ist und der Fokus nicht auf den Dialog beschränkt bleibt –, setzen Sie entweder `aria-modal="false"` oder lassen Sie das Attribut ganz weg.
+
+## Werte
+
+- `false` (Standardwert)
+  - : Das Element ist nicht modal.
+- `true`
+  - : Das Element ist modal.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaModal`](/de/docs/Web/API/Element/ariaModal)
+  - : Die Eigenschaft [`ariaModal`](/de/docs/Web/API/Element/ariaModal) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-modal` wider.
+- [`ElementInternals.ariaModal`](/de/docs/Web/API/ElementInternals/ariaModal)
+  - : Die Eigenschaft [`ariaModal`](/de/docs/Web/API/ElementInternals/ariaModal) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-modal` wider.
+
+## Zugehörige Rollen
+
+Wird in folgenden Rollen verwendet:
+
+- [`window`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/window_role)
+
+Wird an folgende Rollen vererbt:
+
+- [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
+- [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
 
 ## Beispiel
 
@@ -62,38 +87,13 @@ document.getElementById("confirm-btn").addEventListener("click", (event) => {
 });
 ```
 
-Dieses Teilsystembeispiel enthält ein `alertdialog`, das in einem Vollbild, nicht scrollbaren Hintergrund eingebettet ist.
+Dieses unvollständige Beispiel enthält einen `alertdialog` innerhalb eines bildschirmfüllenden, nicht scrollbareren Hintergrunds.
 
-Die [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) identifiziert das Element, das als Container für das Alarmdialog dient. Die [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verschafft dem Alarmdialog einen zugänglichen Namen, indem es auf das Element verweist, das den Titel des Alarmdialogs bereitstellt. Das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut gibt dem Alarmdialog eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}, indem es auf den Inhalt des Alarmdialogs verweist, der die Hauptnachricht oder den Zweck des Alarmdialogs beschreibt.
+Die [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) kennzeichnet das Element, das als Container für den Warndialog dient. [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) gibt dem Warndialog einen barrierefreien Namen, indem es auf das Element mit dem Dialogtitel verweist. Das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) gibt dem Warndialog eine {{Glossary("accessible_description", "barrierefreie Beschreibung")}}, indem es auf den Dialoginhalt verweist, der die wichtigste Mitteilung oder den Zweck des Warndialogs beschreibt.
 
-Das `aria-modal="true"` informiert den Benutzer der assistiven Technologie, dass der Inhalt unterhalb des Dialogs nicht interaktiv ist, solange das Element mit einer Erklärung von `role="alertdialog"` den Fokus hat.
+`aria-modal="true"` informiert Nutzer assistiver Technologien darüber, dass die Inhalte unterhalb des Dialogs nicht interaktiv sind, solange das Element mit `role="alertdialog"` den Fokus hat.
 
-Das `aria-modal`-Attribut zeigt den Assistive-Technologie-Nutzern das Vorhandensein des Modals an, sodass das Deaktivieren des Inhalts hinter dem Modal an AT-Benutzer kommuniziert werden kann. Wie alle ARIA-Attribute hat `aria-modal` selbst keine Auswirkung auf die Funktionalität der Seite; die Fokusverwaltung und das Deaktivieren, die Interaktivität auf Hintergrundelementen und die Möglichkeit, den Fokus vom Alertdialog zu entfernen, müssen alle mit JavaScript verwaltet werden.
-
-## Werte
-
-- `false` (Standard)
-  - : Element ist nicht modal.
-- `true`
-  - : Element ist modal.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaModal`](/de/docs/Web/API/Element/ariaModal)
-  - : Die [`ariaModal`](/de/docs/Web/API/Element/ariaModal)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-modal`-Attributs wider.
-- [`ElementInternals.ariaModal`](/de/docs/Web/API/ElementInternals/ariaModal)
-  - : Die [`ariaModal`](/de/docs/Web/API/ElementInternals/ariaModal)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-modal`-Attributs wider.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`window`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/window_role)
-
-Erbt in Rollen:
-
-- [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
-- [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
+Das Attribut `aria-modal` macht assistive Technologien auf den modalen Dialog aufmerksam, damit sie ihren Nutzern vermitteln können, dass die Inhalte dahinter deaktiviert sind. Wie alle ARIA-Attribute hat `aria-modal` selbst keine Auswirkungen auf die Funktionalität der Seite. Die Fokusverwaltung, das Deaktivieren und die Interaktivität von Hintergrundelementen sowie die Möglichkeit, den Fokus vom alertdialog zu entfernen, müssen mit JavaScript umgesetzt werden.
 
 ## Spezifikationen
 
@@ -101,8 +101,8 @@ Erbt in Rollen:
 
 ## Siehe auch
 
-- HTML {{HTMLElement("dialog")}}-Element
-- [`alertdialog`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
-- [`dialog`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
-- HTML [`inert` globales Attribut](/de/docs/Web/HTML/Reference/Global_attributes/inert)
-- HTMLElement API [`inert`](/de/docs/Web/API/HTMLElement/inert)-Eigenschaft
+- HTML-Element {{HTMLElement("dialog")}}
+- [Rolle `alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
+- [Rolle `dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
+- Globales HTML-Attribut [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)
+- Eigenschaft [`inert`](/de/docs/Web/API/HTMLElement/inert) der HTMLElement-API

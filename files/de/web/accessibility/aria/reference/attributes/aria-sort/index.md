@@ -1,24 +1,49 @@
 ---
-title: "ARIA: aria-sort Attribut"
+title: "ARIA: Attribut aria-sort"
 short-title: aria-sort
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-sort
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-sort` Attribut zeigt an, ob Elemente in einer Tabelle oder einem Raster in aufsteigender oder absteigender Reihenfolge sortiert sind.
+Das Attribut `aria-sort` gibt an, ob Elemente in einer Tabelle oder einem Grid aufsteigend oder absteigend sortiert sind.
 
 ## Beschreibung
 
-Wenn ein Raster oder eine Tabelle Sortierfunktionen bereitstellt, sollte das `aria-sort` Attribut entweder auf `ascending` oder `descending` (oder `other`) im Kopfzellen-Element der sortierten Spalte oder Zeile gesetzt werden.
+Wenn ein Grid oder eine Tabelle eine Sortierfunktion bietet, sollte das Attribut `aria-sort` für die Kopfzelle der sortierten Spalte oder Zeile auf `ascending`, `descending` oder `other` gesetzt werden.
 
-Das `aria-sort` Attribut wird nur auf der aktuell sortierten Spalte oder Zeile gesetzt. Setzen Sie `aria-sort="ascending"`, um anzuzeigen, dass die Datenzellen in der Spalte oder Zeile in aufsteigender Reihenfolge sortiert sind. Wenn die Sortierreihenfolge umgekehrt wird, ändern Sie den Wert zu `aria-sort="descending"`. Wenn eine andere Spalte oder Zeile sortiert wird, wird das einzige `aria-sort` Attribut auf die Kopfzelle der neu sortierten Spalte oder Zeile mit dem entsprechenden Wert für die Sortierreihenfolge verschoben.
+Das Attribut `aria-sort` wird nur für die aktuell sortierte Spalte oder Zeile gesetzt. Setzen Sie `aria-sort="ascending"`, um anzugeben, dass die Datenzellen in der Spalte oder Zeile aufsteigend sortiert sind. Wird die Sortierreihenfolge umgekehrt, ändern Sie den Wert auf `aria-sort="descending"`. Wenn eine andere Spalte oder Zeile sortiert wird, wird das einzige Attribut `aria-sort` zur Kopfzelle der neu sortierten Spalte oder Zeile verschoben und auf den entsprechenden Wert gesetzt.
 
-Das `aria-sort` Attribut sollte jeweils nur zu einem einzelnen Tabellen- oder Rasterkopf hinzugefügt werden. Das Attribut wird verwendet, um Benutzer von unterstützenden Technologien darüber zu informieren, welche Spalte oder Zeile sortiert ist. Es hat keinen Einfluss auf die tatsächliche Sortierreihenfolge.
+Das Attribut `aria-sort` sollte jeweils nur einer Kopfzelle einer Tabelle oder eines Grids hinzugefügt werden. Es informiert Nutzer von Hilfstechnologien darüber, welche Spalte oder Zeile sortiert ist. Auf die tatsächliche Sortierreihenfolge hat es keinen Einfluss.
+
+## Werte
+
+- `ascending`
+  - : Die Elemente sind nach dieser Spalte aufsteigend sortiert.
+- `descending`
+  - : Die Elemente sind nach dieser Spalte absteigend sortiert.
+- `none` (Standardwert)
+  - : Für die Spalte ist keine Sortierung festgelegt.
+- `other`
+  - : Es wurde ein anderer Sortieralgorithmus als eine aufsteigende oder absteigende Sortierung angewendet.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaSort`](/de/docs/Web/API/Element/ariaSort)
+  - : Die Eigenschaft [`ariaSort`](/de/docs/Web/API/Element/ariaSort) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-sort` wider.
+- [`ElementInternals.ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort)
+  - : Die Eigenschaft [`ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-sort` wider.
+
+## Zugehörige Rollen
+
+Wird in folgenden Rollen verwendet:
+
+- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role)
 
 ## Beispiele
 
-Diese Tabelle wird mit der nach Nachnamen sortierten Spalte in aufsteigender Reihenfolge geladen.
+Beim Laden dieser Tabelle ist die Spalte mit den Nachnamen aufsteigend sortiert.
 
 ```html
 <table>
@@ -45,34 +70,9 @@ Diese Tabelle wird mit der nach Nachnamen sortierten Spalte in aufsteigender Rei
 </table>
 ```
 
-Wenn ein Benutzer auf die Schaltfläche _Last Name_ klickt, würde [`aria-pressed="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) dem {{HTMLElement('button')}} Element hinzugefügt und der `aria-sort` Wert würde mit JavaScript auf `"descending"` umgeschaltet. Wenn der Benutzer auf eine andere Kopfzeilenschaltfläche klickt, würde `aria-sort` von der _Last Name_ Kopfzeile entfernt werden, um es auf der geklickten Schaltfläche des {{HTMLElement('th')}} Elternteils zu platzieren.
+Wenn ein Nutzer auf die Schaltfläche _Last Name_ klickt, wird dem Element {{HTMLElement('button')}} [`aria-pressed="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) hinzugefügt und der Wert von `aria-sort` mit JavaScript auf `"descending"` geändert. Klickt der Nutzer auf eine andere Schaltfläche im Tabellenkopf, wird `aria-sort` aus der Kopfzelle _Last Name_ entfernt und dem übergeordneten Element {{HTMLElement('th')}} der angeklickten Schaltfläche hinzugefügt.
 
-Wir haben Anweisungen in der Kopfzeile für unterstützende Technologien bereitgestellt, die möglicherweise nicht die Abwärtspfeile sehen, die wir mit CSS für die `th[aria-sort="ascending"]` und `th[aria-sort="descending"]` Selektoren hinzufügen würden.
-
-## Werte
-
-- `ascending`
-  - : Elemente sind in aufsteigender Reihenfolge nach dieser Spalte sortiert.
-- `descending`
-  - : Elemente sind in absteigender Reihenfolge nach dieser Spalte sortiert.
-- `none` (Standard)
-  - : Es ist keine definierte Sortierung auf die Spalte angewendet.
-- `other`
-  - : Ein anderes Sortierverfahren als aufsteigend oder absteigend wurde angewendet.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaSort`](/de/docs/Web/API/Element/ariaSort)
-  - : Die [`ariaSort`](/de/docs/Web/API/Element/ariaSort) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-sort` Attributs wider.
-- [`ElementInternals.ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort)
-  - : Die [`ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-sort` Attributs wider.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
-- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role)
+In der Tabellenbeschriftung haben wir Anweisungen für Nutzer von Hilfstechnologien bereitgestellt, die die nach unten zeigenden Pfeile möglicherweise nicht sehen können. Diese Pfeile würden wir mit CSS über die Selektoren `th[aria-sort="ascending"]` und `th[aria-sort="descending"]` hinzufügen.
 
 ## Spezifikationen
 
@@ -80,6 +80,6 @@ Verwendet in Rollen:
 
 ## Siehe auch
 
-- [Beispiel für sortierbare Tabelle](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/) - ARIA Authoring Practices Guide (APG)
+- [Beispiel für eine sortierbare Tabelle](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/) – ARIA Authoring Practices Guide (APG)
 - [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)
-- Das {{HTMLElement('th')}} Element
+- Das Element {{HTMLElement('th')}}

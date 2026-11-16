@@ -1,21 +1,22 @@
 ---
-title: Übersicht über Client-seitige Werkzeuge
+title: Überblick über clientseitige Tools
 short-title: Overview
 slug: Learn_web_development/Extensions/Client-side_tools/Overview
 l10n:
-  sourceCommit: 710372d69095aaeadfba6c892f3e39ed63df4c54
+  sourceCommit: e976b4bf6b9e0c68b4321904560df47804d8cc48
 ---
 
 {{NextMenu("Learn_web_development/Extensions/Client-side_tools/Package_management", "Learn_web_development/Extensions/Client-side_tools")}}
 
-In diesem Artikel geben wir einen Überblick über moderne Web-Tools, welche Arten von Tools verfügbar sind und wo Sie ihnen im Lebenszyklus der Entwicklung von Webanwendungen begegnen, sowie wie Sie Hilfe zu einzelnen Tools finden können.
+In diesem Artikel geben wir einen Überblick über moderne Tools für die Webentwicklung: welche Arten von Tools es gibt, wo sie Ihnen im Entwicklungszyklus einer Web-App begegnen und wie Sie Hilfe zu einzelnen Tools finden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        Vertrautheit mit den grundlegenden Sprachen
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
         <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>.
       </td>
@@ -23,8 +24,8 @@ In diesem Artikel geben wir einen Überblick über moderne Web-Tools, welche Art
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verständnis dafür, welche Arten von Client-seitigen Werkzeugen es gibt und wie man
-        Tools findet und Hilfe dafür erhält.
+        Verstehen, welche Arten clientseitiger Tools es gibt und wie Sie Tools
+        finden und Hilfe zu ihnen erhalten.
       </td>
     </tr>
   </tbody>
@@ -32,147 +33,147 @@ In diesem Artikel geben wir einen Überblick über moderne Web-Tools, welche Art
 
 ## Überblick über moderne Tools
 
-Die Softwareentwicklung für das Web ist im Laufe der Zeit anspruchsvoller geworden. Obwohl es nach wie vor völlig vernünftig ist, HTML, CSS und JavaScript "von Hand" zu schreiben, gibt es inzwischen eine Fülle von Tools, die Entwickler verwenden können, um den Prozess der Erstellung einer Website oder App zu beschleunigen.
+Die Entwicklung von Software für das Web ist im Laufe der Zeit anspruchsvoller geworden. Zwar ist es nach wie vor völlig sinnvoll, HTML, CSS und JavaScript „von Hand“ zu schreiben, doch stehen Entwicklerinnen und Entwicklern inzwischen zahlreiche Tools zur Verfügung, mit denen sie Websites oder Apps schneller erstellen können.
 
-Es gibt einige extrem gut etablierte Tools, die unter der Entwicklergemeinschaft als "Haushaltsnamen" bekannt geworden sind, und jeden Tag werden neue Tools geschrieben und veröffentlicht, um spezifische Probleme zu lösen. Möglicherweise schreiben Sie sogar ein eigenes Stück Software, um Ihren Entwicklungsprozess zu unterstützen und ein spezifisches Problem zu lösen, das bestehende Tools scheinbar nicht bereits abdecken.
+Einige Tools sind seit Langem etabliert und in der Entwicklergemeinschaft weithin bekannt. Gleichzeitig werden täglich neue Tools entwickelt und veröffentlicht, die bestimmte Probleme lösen sollen. Vielleicht schreiben Sie sogar selbst ein Programm, das Ihnen bei der Entwicklung hilft, weil vorhandene Tools ein bestimmtes Problem offenbar noch nicht lösen.
 
-Es ist leicht, sich von der Vielzahl von Tools überwältigt zu fühlen, die in ein einziges Projekt integriert werden können. Ebenso kann eine einzige Konfigurationsdatei für ein Tool wie [webpack](https://webpack.js.org/) Hunderte von Zeilen lang sein, von denen die meisten wie magische Beschwörungen erscheinen, die den Job erledigen, aber die nur ein Meisteringenieur vollständig verstehen wird!
+Die schiere Anzahl an Tools, die in einem einzigen Projekt zum Einsatz kommen können, kann überwältigend sein. Schon eine einzige Konfigurationsdatei für ein Tool wie [webpack](https://webpack.js.org/) kann Hunderte Zeilen umfassen. Viele davon wirken wie Zaubersprüche, die zwar ihren Zweck erfüllen, aber nur von besonders erfahrenen Fachleuten vollständig verstanden werden!
 
-Von Zeit zu Zeit geraten selbst die erfahrensten Webentwickler bei einem Werkzeugproblem ins Stocken; es ist möglich, Stunden damit zu verschwenden, zu versuchen, eine Werkzeugpipeline zum Laufen zu bringen, bevor überhaupt eine einzige Zeile Anwendungscode angefasst wurde. Wenn Sie sich in der Vergangenheit damit schwergetan haben, machen Sie sich keine Sorgen — Sie sind nicht allein.
+Selbst erfahrene Webentwicklerinnen und Webentwickler bleiben gelegentlich bei einem Tool-Problem stecken. Es ist möglich, Stunden damit zu verbringen, eine Tool-Pipeline zum Laufen zu bringen, bevor man auch nur eine Zeile Anwendungscode geschrieben hat. Falls Sie damit schon einmal Schwierigkeiten hatten, machen Sie sich keine Sorgen – Sie sind nicht allein.
 
-In diesen Artikeln werden wir nicht jede Frage zu Web-Tools beantworten, aber wir bieten Ihnen einen nützlichen Ausgangspunkt, um die Grundlagen zu verstehen, auf denen Sie dann aufbauen können. Wie bei jedem komplexen Thema ist es gut, klein anzufangen und sich nach und nach zu fortgeschritteneren Anwendungen vorzuarbeiten.
+In diesen Artikeln beantworten wir nicht jede Frage zu Tools für die Webentwicklung. Wir vermitteln Ihnen aber ein grundlegendes Verständnis, auf dem Sie aufbauen können. Wie bei jedem komplexen Thema ist es sinnvoll, klein anzufangen und sich schrittweise zu fortgeschritteneren Anwendungen vorzuarbeiten.
 
 ## Das moderne Tool-Ökosystem
 
-Das heutige moderne Entwickler-Tool-Ökosystem ist riesig, daher ist es nützlich, eine breite Vorstellung davon zu haben, welche Hauptprobleme die Tools lösen. Wenn Sie Ihre bevorzugte Suchmaschine verwenden und nach "Front-End-Entwickler-Tools" suchen, werden Sie auf eine große Bandbreite von Ergebnissen stoßen, die von Texteditoren über Browser bis hin zu den Arten von Stiften reichen, die Sie zum Notizenmachen verwenden können.
+Das heutige Ökosystem von Entwicklungstools ist riesig. Deshalb ist es hilfreich, zunächst einen groben Überblick über die wichtigsten Probleme zu gewinnen, die diese Tools lösen. Wenn Sie in Ihrer bevorzugten Suchmaschine nach „front-end developer tools“ suchen, erhalten Sie eine breite Palette von Ergebnissen – von Texteditoren und Browsern bis hin zu Stiften, mit denen Sie Notizen machen können.
 
-Auch wenn die Wahl Ihres Code-Editors sicherlich eine Werkzeugwahl ist, gehen wir in dieser Artikelreihe darüber hinaus und konzentrieren uns auf Entwickler-Tools, die Ihnen helfen, Webcode effizienter zu erstellen. Wir empfehlen einige spezifische Tools und die folgenden Tutorials zeigen Ihnen, wie Sie sie verwenden. Diese Tools sind zum Zeitpunkt des Schreibens populär und standardisiert. Dies schließt nicht aus, dass Sie andere Tools verwenden, wenn Ihnen deren relative Vorteile bewusst sind.
+Die Wahl Ihres Code-Editors ist zwar ebenfalls eine Entscheidung für ein Tool, doch diese Artikelreihe geht darüber hinaus. Sie konzentriert sich auf Entwicklungstools, mit denen Sie Webcode effizienter erstellen können. Wir empfehlen einige konkrete Tools und zeigen Ihnen in den folgenden Tutorials, wie Sie sie verwenden. Diese Tools sind zum Zeitpunkt der Erstellung beliebt und verbreitet. Das schließt andere Tools nicht aus, wenn Sie deren jeweilige Vorteile kennen.
 
-Aus einer höheren Perspektive können Sie Client-seitige Tools in die folgenden vier breiten Kategorien von zu lösenden Problemen einteilen:
+Auf einer übergeordneten Ebene lassen sich clientseitige Tools in vier Kategorien einteilen, die unterschiedliche Probleme lösen:
 
-- **Umgebung** — Tools, die Ihnen helfen, Ihre Entwicklungsumgebung einzurichten, z.B. beim Installieren und Ausführen anderer Tools.
-- **Sicherheitsnetz** — Tools, die während Ihrer Codeentwicklung nützlich sind.
-- **Transformation** — Tools, die den Code auf irgendeine Weise transformieren, z.B. indem sie eine Zwischensprache in JavaScript umwandeln, das ein Browser verstehen kann.
-- **Nach der Entwicklung** — Tools, die nützlich sind, nachdem Sie Ihren Code geschrieben haben, wie z.B. Test- und Bereitstellungstools.
+- **Umgebung** – Tools, mit denen Sie Ihre Entwicklungsumgebung einrichten, beispielsweise indem Sie andere Tools installieren und ausführen.
+- **Sicherheitsnetz** – Tools, die Sie beim Entwickeln Ihres Codes unterstützen.
+- **Transformation** – Tools, die Code auf irgendeine Weise umwandeln, etwa eine Zwischensprache in JavaScript, das ein Browser verstehen kann.
+- **Nach der Entwicklung** – Tools, die nach dem Schreiben des Codes nützlich sind, beispielsweise für Tests und die Bereitstellung.
 
-Schauen wir uns jede dieser Kategorien im Detail an.
+Sehen wir uns die einzelnen Kategorien genauer an.
 
 ### Umgebung
 
-Der Editor, das Betriebssystem und der Browser sind alle Entwicklungsumgebungen. Wir gehen davon aus, dass Sie sich bereits für eine Wahl entschieden haben, mit der Sie am komfortabelsten sind. Bevor Sie jedoch andere Tools installieren und ausführen, gibt es noch zwei Entscheidungen zu treffen:
+Editor, Betriebssystem und Browser gehören zur Entwicklungsumgebung. Wir gehen davon aus, dass Sie bereits die Optionen gewählt haben, mit denen Sie am besten zurechtkommen. Bevor Sie weitere Tools installieren und ausführen, müssen Sie allerdings noch zwei Entscheidungen treffen:
 
-- Wo Sie die Tools ausführen werden. Die meisten lokal ausgeführten Tools sind in JavaScript geschrieben, daher benötigen Sie einen JavaScript-Interpreter auf Ihrem Computer, der über die Befehlszeile aufgerufen werden kann (nicht der im Browser). [Node.js](https://nodejs.org/) bleibt der Industriestandard und wir werden es verwenden. [Bun](https://bun.com/) ist als Ersatz für Node.js gedacht, bekannt für seine Geschwindigkeit und leistungsstarken APIs.
-- Wie Sie die Tools installieren werden, mit anderen Worten, der _Package Manager_. Node bietet standardmäßig [npm](https://www.npmjs.com/), daher werden wir es verwenden. [Yarn](https://yarnpkg.com/) und [pnpm](https://pnpm.io/) sind weitere beliebte Optionen, jede mit ihren eigenen Vorteilen wie Geschwindigkeit, Projektmanagement usw.
+- **Wo die Tools ausgeführt werden sollen.** Die meisten lokal ausgeführten Tools sind in JavaScript geschrieben. Sie benötigen daher auf Ihrem Computer einen JavaScript-Interpreter, den Sie über die Kommandozeile aufrufen können – nicht den Interpreter in Ihrem Browser. [Node.js](https://nodejs.org/) ist nach wie vor der Industriestandard und wird in diesem Modul verwendet. [Bun](https://bun.com/) ist als direkt einsetzbarer Ersatz für Node.js gedacht und für seine Geschwindigkeit und leistungsfähigen APIs bekannt.
+- **Wie Sie die Tools installieren**, also welchen _Paketmanager_ Sie verwenden. Node stellt standardmäßig [npm](https://www.npmjs.com/) bereit, das wir hier verwenden werden. [Yarn](https://yarnpkg.com/) und [pnpm](https://pnpm.io/) sind weitere beliebte Optionen, die jeweils eigene Vorteile etwa bei Geschwindigkeit oder Projektverwaltung bieten.
 
 ### Sicherheitsnetz
 
-Dies sind Tools, die den von Ihnen geschriebenen Code ein wenig verbessern.
+Diese Tools helfen Ihnen dabei, den Code, den Sie schreiben, ein wenig zu verbessern.
 
-Dieser Teil der Tools sollte spezifisch für Ihre eigene Entwicklungsumgebung sein, obwohl es nicht ungewöhnlich ist, dass Unternehmen eine Art Richtlinie oder vorkonfigurierte Installation anbieten, damit alle ihre Entwickler dieselben Prozesse verwenden.
+Dieser Teil Ihrer Tool-Ausstattung sollte zu Ihrer eigenen Entwicklungsumgebung passen. Allerdings stellen Unternehmen häufig Richtlinien oder vorkonfigurierte Einstellungen zur Installation bereit, damit alle Entwicklerinnen und Entwickler nach denselben Verfahren arbeiten.
 
-Dazu gehört alles, was Ihren Entwicklungsprozess erleichtert, um stabileren und zuverlässigeren Code zu erzeugen. Sicherheitsnetz-Tools sollten Ihnen auch helfen, entweder Fehler zu verhindern oder automatisch zu korrigieren, ohne dass Sie Ihren Code jedes Mal von Grund auf neu erstellen müssen.
+Dazu gehört alles, was Ihnen die Entwicklung von stabilem und zuverlässigem Code erleichtert. Tools dieser Kategorie sollten Ihnen außerdem helfen, Fehler zu vermeiden oder automatisch zu korrigieren, ohne dass Sie Ihren Code jedes Mal von Grund auf neu erstellen müssen.
 
-Einige sehr verbreitete Sicherheitsnetz-Tool-Typen, die Sie bei Entwicklern finden werden, sind die folgenden.
+Im Folgenden finden Sie einige Arten solcher Tools, die häufig verwendet werden.
 
 #### Linters
 
-**Linters** sind Tools, die Ihren Code durchsehen und Ihnen über alle vorhandenen Fehler informieren, welche Fehlertypen es sind und in welchen Codezeilen sie auftreten. Oft können Linters so konfiguriert werden, dass sie nicht nur Fehler melden, sondern auch Verstöße gegen einen bestimmten Styleguide melden, den Ihr Team möglicherweise verwendet (beispielsweise Code, der die falsche Anzahl von Leerzeichen für Einrückungen verwendet oder [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) anstelle von regulären String-Literalen).
+**Linters** prüfen Ihren Code und zeigen Ihnen, welche Fehler vorhanden sind, um welche Fehlertypen es sich handelt und in welchen Codezeilen sie auftreten. Häufig lassen sie sich so konfigurieren, dass sie nicht nur Fehler melden, sondern auch Verstöße gegen einen vom Team verwendeten Styleguide. Dazu gehören beispielsweise eine falsche Anzahl von Leerzeichen bei der Einrückung oder die Verwendung von [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) anstelle gewöhnlicher String-Literale.
 
-[ESLint](https://eslint.org/) ist der Industriestandard-JavaScript-Linter — ein hoch konfigurierbares Tool zum Auffangen potenzieller Syntaxfehler und zur Förderung von "Best Practices" in Ihrem Code. Einige Unternehmen und Projekte haben auch [ihre ESLint-Konfigurationen geteilt](https://www.npmjs.com/search?q=keywords:eslintconfig).
+[ESLint](https://eslint.org/) ist der Industriestandard unter den JavaScript-Linters. Das vielseitig konfigurierbare Tool hilft dabei, potenzielle Syntaxfehler aufzuspüren und bewährte Vorgehensweisen im gesamten Code zu fördern. Einige Unternehmen und Projekte haben auch [ihre ESLint-Konfigurationen veröffentlicht](https://www.npmjs.com/search?q=keywords:eslintconfig).
 
-Sie können auch Linting-Tools für andere Sprachen finden, wie z.B. [stylelint](https://stylelint.io/).
+Auch für andere Sprachen gibt es Linting-Tools, beispielsweise [stylelint](https://stylelint.io/).
 
-#### Quellcode-Verwaltung
+#### Versionsverwaltung
 
-Auch bekannt als **Version Control Systems** (VCS), ist die **Quellcode-Verwaltung** unentbehrlich zum Sichern der Arbeit und Arbeiten im Team. Ein typisches VCS beinhaltet eine lokale Version des Codes, in die Sie Änderungen vornehmen. Sie "pushen" dann Änderungen an eine "Master"-Version des Codes in einem entfernten Repository, das auf einem Server gespeichert ist. Es gibt normalerweise eine Möglichkeit, zu kontrollieren und zu koordinieren, welche Änderungen wann an der "Master"-Kopie des Codes vorgenommen werden, damit ein Entwicklerteam nicht ständig die Arbeit des anderen überschreibt.
+Die **Versionsverwaltung**, auch als **Version Control System** (VCS) oder **Source Code Control** bezeichnet, ist unerlässlich, um Arbeit zu sichern und im Team zusammenzuarbeiten. Bei einem typischen VCS haben Sie eine lokale Version des Codes, an der Sie Änderungen vornehmen. Diese Änderungen „pushen“ Sie anschließend in eine zentrale Version des Codes in einem entfernten Repository, das auf einem Server gespeichert ist. In der Regel lässt sich steuern und koordinieren, welche Änderungen wann an dieser zentralen Kopie vorgenommen werden, damit sich die Mitglieder eines Entwicklungsteams nicht ständig gegenseitig ihre Arbeit überschreiben.
 
-[Git](https://git-scm.com/) ist das Quellcode-Verwaltungssystem, das heutzutage die meisten verwenden. Es wird hauptsächlich über die Befehlszeile angesprochen, kann aber über benutzerfreundliche Oberflächen genutzt werden. Mit Ihrem Code in einem Git-Repository können Sie ihn auf Ihre eigene Serverinstanz pushen oder eine gehostete Quellcode-Verwaltungs-Website wie [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/) oder [Bitbucket](https://bitbucket.org/product/) verwenden.
+[Git](https://git-scm.com/) ist das Versionsverwaltungssystem, das heutzutage die meisten Menschen verwenden. Es wird hauptsächlich über die Kommandozeile bedient, ist aber auch über benutzerfreundliche grafische Oberflächen zugänglich. Wenn Ihr Code in einem Git-Repository liegt, können Sie ihn auf einen eigenen Server übertragen oder einen gehosteten Versionsverwaltungsdienst wie [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/) oder [Bitbucket](https://bitbucket.org/product) nutzen.
 
-Wir werden GitHub in diesem Modul verwenden. Sie finden weitere Informationen dazu unter [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control).
+In diesem Modul verwenden wir GitHub. Weitere Informationen finden Sie unter [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control).
 
-#### Code-Formatter
+#### Code-Formatierer
 
-Code-Formatter sind etwas artverwandt mit Linters, abgesehen davon, dass sie nicht auf Fehler in Ihrem Code hinweisen, sondern üblicherweise sicherstellen, dass Ihr Code korrekt formatiert ist, gemäß Ihren Stilregeln, idealerweise automatisch Fehler beheben, die sie finden.
+Code-Formatierer sind mit Linters verwandt. Statt auf Fehler in Ihrem Code hinzuweisen, sorgen sie jedoch in erster Linie dafür, dass der Code gemäß Ihren Stilregeln formatiert ist. Idealerweise korrigieren sie gefundene Formatierungsfehler automatisch.
 
-[Prettier](https://prettier.io/) ist ein sehr populäres Beispiel für einen Code-Formatter, den wir später im Modul verwenden werden.
+[Prettier](https://prettier.io/) ist ein sehr beliebter Code-Formatierer, den wir später in diesem Modul verwenden werden.
 
 #### Typprüfer
 
-Typprüfer sind Werkzeuge, die Ihnen helfen, zuverlässigeren Code zu schreiben, indem sie überprüfen, ob Ihr Code die richtigen Datentypen an den richtigen Stellen verwendet. Dies verhindert häufige Fehlertypen wie den Zugriff auf nicht vorhandene Eigenschaften, unerwartete `undefined`, etc.
+Typprüfer helfen Ihnen, zuverlässigeren Code zu schreiben. Sie überprüfen, ob Ihr Code an den jeweiligen Stellen die richtigen Datentypen verwendet. Dadurch lassen sich häufige Fehler vermeiden, etwa der Zugriff auf nicht vorhandene Eigenschaften oder unerwartete `undefined`-Werte.
 
-[TypeScript](https://www.typescriptlang.org/) ist der De-facto-Standard-Typprüfer für JavaScript. Er bietet seine eigene Typanmerkungssyntax und ist ein Stück weit eine eigene Sprache, daher werden wir es in diesem Modul nicht behandeln.
+[TypeScript](https://www.typescriptlang.org/) ist der De-facto-Standard für die Typprüfung von JavaScript. Es bietet eine eigene Syntax für Typannotationen und ist in gewisser Weise eine eigenständige Sprache. Deshalb behandeln wir es in diesem Modul nicht.
 
 ### Transformation
 
-Diese Phase des Lebenszyklus Ihrer Web-App ermöglicht es Ihnen typischerweise, entweder im "Zukunftscode" zu programmieren (z. B. die neuesten CSS- oder JavaScript-Funktionen, die möglicherweise noch nicht nativ in Browsern unterstützt werden) oder eine andere Sprache völlig zu verwenden, wie beispielsweise TypeScript. Transformationstools generieren dann für Sie browserkompatiblen Code, der in der Produktion verwendet wird.
+In dieser Phase des Entwicklungszyklus Ihrer Web-App können Sie typischerweise entweder „Code der Zukunft“ schreiben – etwa mit den neuesten CSS- oder JavaScript-Funktionen, die Browser möglicherweise noch nicht nativ unterstützen – oder eine ganz andere Sprache wie TypeScript verwenden. Transformationstools erzeugen daraus browserkompatiblen Code für den Produktiveinsatz.
 
-Im Allgemeinen wird die Webentwicklung als drei Sprachen betrachtet: [HTML](/de/docs/Learn_web_development/Core/Structuring_content), [CSS](/de/docs/Learn_web_development/Core/Styling_basics) und [JavaScript](/de/docs/Learn_web_development/Core/Scripting), und es gibt Transformationstools für all diese Sprachen. Transformation bietet drei Hauptvorteile (neben anderen):
+Webentwicklung wird im Allgemeinen mit drei Sprachen verbunden: [HTML](/de/docs/Learn_web_development/Core/Structuring_content), [CSS](/de/docs/Learn_web_development/Core/Styling_basics) und [JavaScript](/de/docs/Learn_web_development/Core/Scripting). Für alle drei gibt es Transformationstools. Die Transformation bietet unter anderem drei wesentliche Vorteile:
 
-1. Die Möglichkeit, Code mit den neuesten Sprachfunktionen zu schreiben und diesen in Code umzuwandeln, der auf alltäglichen Geräten funktioniert. Beispielsweise möchten Sie möglicherweise JavaScript mit hochmodernen neuen Sprachfunktionen schreiben, aber trotzdem, dass Ihr finaler Produktionscode auf älteren Browsern funktioniert, die diese Funktionen nicht unterstützen. Gute Beispiele hierfür sind:
-   - [Babel](https://babeljs.io/): Ein JavaScript-Compiler, der es Entwicklern ermöglicht, ihren Code mit hochmodernem JavaScript zu schreiben, das Babel dann nimmt und in altmodisches JavaScript umwandelt, das mehr Browser verstehen können. Entwickler können auch [Plugins für Babel schreiben und veröffentlichen](https://babeljs.io/docs/plugins).
-   - [PostCSS](https://postcss.org/): Macht dasselbe wie Babel, jedoch für hochmoderne CSS-Funktionen. Wenn es keine äquivalente Möglichkeit gibt, etwas mit älteren CSS-Funktionen zu tun, wird PostCSS ein JavaScript-Polyfill installieren, um den CSS-Effekt zu emulieren, den Sie möchten.
+1. Sie können Code mit den neuesten Sprachfunktionen schreiben und ihn in Code umwandeln lassen, der auf gängigen Geräten funktioniert. So möchten Sie vielleicht aktuelle JavaScript-Funktionen verwenden, während der fertige Produktivcode auch in älteren Browsern laufen soll, die diese Funktionen nicht unterstützen. Gute Beispiele sind:
+   - [Babel](https://babeljs.io/): Ein JavaScript-Compiler, mit dem Entwicklerinnen und Entwickler moderne JavaScript-Funktionen verwenden können. Babel wandelt den Code anschließend in älteres JavaScript um, das mehr Browser verstehen. Sie können auch [Plugins für Babel schreiben und veröffentlichen](https://babeljs.io/docs/plugins).
+   - [PostCSS](https://postcss.org/): Erfüllt eine ähnliche Aufgabe wie Babel, allerdings für moderne CSS-Funktionen. Wenn sich ein gewünschter CSS-Effekt nicht mit älteren CSS-Funktionen umsetzen lässt, installiert PostCSS ein JavaScript-Polyfill, das den Effekt nachbildet.
 
-2. Die Möglichkeit, Ihren Code in einer völlig anderen Sprache zu schreiben und diesen in eine webkompatible Sprache umzuwandeln. Zum Beispiel:
-   - [Sass/SCSS](https://sass-lang.com/): Diese CSS-Erweiterung ermöglicht es Ihnen, Variablen, verschachtelte Regeln, Mixins, Funktionen und viele andere Funktionen zu verwenden, von denen einige in nativem CSS verfügbar sind (z. B. Variablen) und einige nicht.
-   - [TypeScript](https://www.typescriptlang.org/): TypeScript ist eine Obermenge von JavaScript, die eine Vielzahl zusätzlicher Funktionen bietet. Der TypeScript-Compiler wandelt TypeScript-Code beim Erstellen für die Produktion in JavaScript um.
-   - Frameworks wie [React](https://react.dev/), [Ember](https://emberjs.com/) und [Vue](https://vuejs.org/): Frameworks bieten eine Menge Funktionalität kostenfrei an und ermöglichen Ihnen die Nutzung über benutzerdefinierte Syntax, die auf Vanilla-JavaScript aufbaut. Im Hintergrund arbeitet der JavaScript-Code des Frameworks hart daran, diese benutzerdefinierte Syntax zu interpretieren und sie als finale Web-App zu rendern.
+2. Sie können Ihren Code in einer völlig anderen Sprache schreiben und ihn in eine webkompatible Sprache umwandeln lassen. Beispiele dafür sind:
+   - [Sass/SCSS](https://sass-lang.com/): Diese CSS-Erweiterung ermöglicht die Verwendung von Variablen, verschachtelten Regeln, Mixins, Funktionen und vielen weiteren Möglichkeiten. Einige davon sind auch in nativem CSS verfügbar, etwa Variablen, andere nicht.
+   - [TypeScript](https://www.typescriptlang.org/): TypeScript ist eine Obermenge von JavaScript mit zahlreichen zusätzlichen Funktionen. Beim Erstellen des Produktivcodes wandelt der TypeScript-Compiler TypeScript-Code in JavaScript um.
+   - Frameworks wie [React](https://react.dev/), [Ember](https://emberjs.com/) und [Vue](https://vuejs.org/): Frameworks stellen viele Funktionen bereit und ermöglichen deren Nutzung über eine eigene Syntax, die auf gewöhnlichem JavaScript aufbaut. Im Hintergrund interpretiert der JavaScript-Code des Frameworks diese Syntax und rendert daraus die fertige Web-App.
 
-3. Optimierung. Diese wird durch _Bundler_ bereitgestellt, die Ihre Code für die Produktion bereit machen, zum Beispiel durch "{{Glossary("Tree_shaking", "Tree-shaking")}}", um sicherzustellen, dass nur die Teile Ihrer Code-Bibliotheken, die Sie tatsächlich verwenden, in Ihrem finalen Produktionscode enthalten sind, oder "{{Glossary("Minification", "Minimierung")}}", um alle Leerzeichen in Ihrem Produktionscode zu entfernen, damit er so klein wie möglich wird, bevor er auf einen Server hochgeladen wird. Zum Beispiel:
-   - [webpack](https://webpack.js.org/) war lange Zeit der beliebteste Bundler, mit einer Vielzahl von Plugins und einem leistungsstarken Konfigurationssystem. Allerdings ist es auch dafür bekannt, recht komplex einzurichten zu sein und ist langsamer im Vergleich zu modernere Alternativen.
-   - [Vite](https://vite.dev/) ist ein moderneres Build-Tool, das für seine Geschwindigkeit, Einfachheit und Funktionsvielfalt beliebt ist.
+3. Optimierung. Dafür sorgen _Bundlers_: Tools, die Ihren Code für den Produktiveinsatz vorbereiten. Mithilfe von „{{Glossary("Tree_shaking", "Tree-Shaking")}}“ stellen sie beispielsweise sicher, dass nur tatsächlich verwendete Teile Ihrer Codebibliotheken im fertigen Produktivcode landen. Durch „{{Glossary("Minification", "Minifizierung")}}“ entfernen sie Leerraum aus dem Produktivcode, damit er vor dem Hochladen auf einen Server möglichst klein ist. Beispiele dafür sind:
+   - [webpack](https://webpack.js.org/) war lange Zeit der beliebteste Bundler. Er bietet sehr viele Plugins und ein leistungsfähiges Konfigurationssystem. Allerdings gilt seine Einrichtung auch als recht komplex, und im Vergleich zu moderneren Alternativen ist er langsam.
+   - [Vite](https://vite.dev/) ist ein moderneres Build-Tool, das wegen seiner Geschwindigkeit, Einfachheit und seines Funktionsumfangs beliebt ist.
 
 ### Nach der Entwicklung
 
-Tools nach der Entwicklung stellen sicher, dass Ihre Software es ins Web schafft und weiterhin funktioniert. Dazu gehören die Bereitstellungsprozesse, Test-Frameworks, Prüf-Tools und mehr.
+Tools für die Zeit nach der Entwicklung sorgen dafür, dass Ihre Software im Web bereitgestellt wird und weiterhin funktioniert. Dazu gehören Bereitstellungsprozesse, Testframeworks, Audit-Tools und mehr.
 
-Diese Phase des Entwicklungsprozesses ist eine, mit der Sie so wenig aktive Interaktion wie möglich wollen, so dass, wenn es einmal konfiguriert ist, es größtenteils automatisch läuft und nur "Hallo" sagt, wenn etwas schief gelaufen ist.
+Mit dieser Phase des Entwicklungsprozesses möchten Sie möglichst wenig aktiv zu tun haben: Sobald alles konfiguriert ist, sollte es weitgehend automatisch ablaufen und sich nur melden, wenn etwas schiefgeht.
 
-#### Testwerkzeuge
+#### Test-Tools
 
-Diese nehmen im Allgemeinen die Form eines Tools an, das automatisch Tests gegen Ihren Code ausführt, um sicherzustellen, dass er korrekt ist, bevor Sie weitergehen (beispielsweise wenn Sie versuchen, Änderungen in ein GitHub-Repo zu pushen). Dies kann Linting umfassen, aber auch komplexere Verfahren wie Unit-Tests, bei denen ein Teil Ihres Codes ausgeführt wird, um sicherzustellen, dass er sich wie erwartet verhält.
+Diese Tools führen im Allgemeinen automatisch Tests für Ihren Code aus, um vor dem nächsten Schritt zu prüfen, ob er korrekt ist – beispielsweise bevor Sie Änderungen in ein GitHub-Repository pushen. Dazu kann Linting gehören, aber auch anspruchsvollere Verfahren wie Unit-Tests. Bei diesen führen Sie Teile Ihres Codes aus und prüfen, ob sie sich wie erwartet verhalten.
 
-- Frameworks zum Schreiben von Tests sind [Jest](https://jestjs.io/), [Mocha](https://mochajs.org/) und [Jasmine](https://jasmine.github.io/).
-- Automatisierte Testausführungs- und Benachrichtigungssysteme umfassen [Travis CI](https://www.travis-ci.com/), [Jenkins](https://www.jenkins.io/), [Circle CI](https://circleci.com/) und [andere](https://en.wikipedia.org/wiki/List_of_build_automation_software#Continuous_integration).
+- Frameworks zum Schreiben von Tests sind beispielsweise [Jest](https://jestjs.io/), [Mocha](https://mochajs.org/) und [Jasmine](https://jasmine.github.io/).
+- Zu den Systemen für die automatische Testausführung und Benachrichtigung gehören [Travis CI](https://www.travis-ci.com/), [Jenkins](https://www.jenkins.io/), [Circle CI](https://circleci.com/) und [weitere](https://en.wikipedia.org/wiki/List_of_build_automation_software#Continuous_integration).
 
 #### Bereitstellungstools
 
-Bereitstellungssysteme ermöglichen es Ihnen, Ihre Website zu veröffentlichen, stehen sowohl für statische als auch dynamische Sites zur Verfügung und arbeiten häufig neben Testsystemen. Beispielsweise wartet eine typische Toolchain darauf, dass Sie Änderungen in ein entferntes Repo pushen, führt einige Tests durch, um zu sehen, ob die Änderungen in Ordnung sind, und stellt Ihre App dann automatisch auf einer Produktionsseite bereit, wenn die Tests bestehen.
+Mit Bereitstellungssystemen können Sie Ihre Website veröffentlichen. Sie stehen sowohl für statische als auch für dynamische Websites zur Verfügung und arbeiten häufig mit Testsystemen zusammen. Eine typische Toolchain wartet beispielsweise darauf, dass Sie Änderungen in ein entferntes Repository pushen. Anschließend führt sie Tests aus und stellt Ihre App automatisch auf einer produktiven Website bereit, wenn die Tests erfolgreich sind.
 
-[GitHub Pages](https://pages.github.com/) ist schön mit GitHub selbst integriert und für alle öffentlichen Repos kostenlos. Andere Dienste wie [Netlify](https://www.netlify.com/) und [Vercel](https://vercel.com/) sind ebenfalls sehr beliebt und bieten großzügige Quoten für kostenlose Tarife, reibungslose Bereitstellungs-Workflows und GitHub-Integration.
+[GitHub Pages](https://pages.github.com/) ist direkt in GitHub integriert und für alle öffentlichen Repositories kostenlos. Auch Dienste wie [Netlify](https://www.netlify.com/) und [Vercel](https://vercel.com/) sind sehr beliebt. Sie bieten großzügige kostenlose Kontingente, unkomplizierte Bereitstellungsabläufe und eine GitHub-Integration.
 
-#### Andere
+#### Weitere Tools
 
-Es gibt mehrere andere Arten von Tools, die in der Phase nach der Entwicklung eingesetzt werden können, darunter [Code Climate](https://codeclimate.com/) für das Sammeln von Code-Qualitätsmetriken, die [Webhint-Browsererweiterung](https://webhint.io/docs/user-guide/extensions/extension-browser/) zur Durchführung von Laufzeitanalysen der plattformübergreifenden Kompatibilität und anderer Überprüfungen, [GitHub Bots](https://probot.github.io/) zur Bereitstellung mächtigerer GitHub-Funktionalitäten, [Updown](https://updown.io/) zur Bereitstellung von App-Verfügbarkeitsüberwachung und viele mehr!
+Für die Zeit nach der Entwicklung stehen noch viele andere Arten von Tools zur Verfügung: etwa [Code Climate](https://codeclimate.com/) zum Erfassen von Kennzahlen zur Codequalität, die [Webhint-Browsererweiterung](https://webhint.io/docs/user-guide/extensions/extension-browser/) für Laufzeitanalysen zur browserübergreifenden Kompatibilität und weitere Prüfungen, [GitHub-Bots](https://probot.github.io/) für erweiterte GitHub-Funktionen und [Updown](https://updown.io/) zur Überwachung der Verfügbarkeit Ihrer App – und viele mehr!
 
-### Einige Gedanken zu Tool-Typen
+### Einige Überlegungen zu Tool-Kategorien
 
-Es gibt definitiv eine Reihenfolge, in der die verschiedenen Tool-Typen im Entwicklungslebenszyklus angewendet werden. Aber seien Sie versichert, dass Sie keines dieser Tools benötigen, um eine Website zu veröffentlichen. Tatsächlich brauchen Sie keines dieser Tools. Das Einbeziehen einiger dieser Werkzeuge in Ihren Prozess wird jedoch Ihre eigene Entwicklungserfahrung verbessern und wahrscheinlich die Gesamtqualität Ihres Codes erhöhen.
+Die verschiedenen Tool-Kategorien kommen im Entwicklungszyklus in einer gewissen Reihenfolge zum Einsatz. Für die Veröffentlichung einer Website _müssen_ Sie aber keineswegs alle davon verwenden. Tatsächlich brauchen Sie keines dieser Tools zwingend. Wenn Sie einige davon in Ihren Arbeitsablauf aufnehmen, wird das jedoch Ihre Entwicklungserfahrung verbessern und wahrscheinlich auch die Gesamtqualität Ihres Codes erhöhen.
 
-Es dauert oft einige Zeit, bis sich neue Entwickler-Tools hinsichtlich ihrer Komplexität beruhigen. Eines der bekanntesten Tools, webpack, hat den Ruf, übermäßig kompliziert zu sein, aber in der neuesten Hauptveröffentlichung gab es einen starken Push, die häufige Nutzung zu vereinfachen, sodass die benötigte Konfiguration auf ein absolutes Minimum reduziert ist.
+Bei neuen Entwicklungstools dauert es oft eine Weile, bis ihre Komplexität beherrschbar wird. Eines der bekanntesten Tools, webpack, gilt als übermäßig kompliziert. Bei seiner letzten Hauptversion wurde jedoch viel dafür getan, die häufigsten Anwendungsfälle zu vereinfachen und die erforderliche Konfiguration auf ein absolutes Minimum zu reduzieren.
 
-Es gibt definitiv keine Wunderwaffe, die Erfolg mit Tools garantiert, aber mit zunehmender Erfahrung werden Sie Workflows finden, die _für Sie_ oder Ihr Team und ihre Projekte funktionieren. Sobald alle Unstimmigkeiten im Prozess beseitigt sind, sollte Ihre Toolchain etwas sein, das Sie vergessen können und das _sollte_ einfach funktionieren.
+Eine Patentlösung, die den erfolgreichen Einsatz von Tools garantiert, gibt es nicht. Mit zunehmender Erfahrung werden Sie jedoch Arbeitsabläufe finden, die _für Sie_ oder für Ihr Team und dessen Projekte funktionieren. Sobald die Schwierigkeiten im Ablauf beseitigt sind, sollten Sie sich um Ihre Toolchain kaum noch kümmern müssen – sie _sollte_ einfach funktionieren.
 
-## Wie man ein bestimmtes Tool auswählt und Hilfe bekommt
+## Ein Tool auswählen und Hilfe dazu finden
 
-Die meisten Tools werden in der Regel isoliert entwickelt und veröffentlicht, daher gibt es fast immer Hilfe, aber sie ist nie am selben Ort oder in demselben Format. Es kann daher schwierig sein, Hilfe beim Verwenden eines Tools zu finden oder sogar zu entscheiden, welches Tool zu verwenden ist. Das Wissen darüber, welche die besten Tools zu verwenden sind, ist ein wenig "stammesartig", was bedeutet, dass es schwer zu finden ist, wenn man noch nicht Teil der Web-Community ist! Dies ist einer der Gründe, warum wir diese Reihe von Artikeln geschrieben haben, um hoffentlich den ersten Schritt zu bieten, den man sonst nur schwer findet.
+Die meisten Tools werden unabhängig voneinander entwickelt und veröffentlicht. Hilfe ist daher zwar fast immer verfügbar, aber nie am selben Ort oder im selben Format. Das kann es schwierig machen, Unterstützung bei der Verwendung eines Tools zu finden oder überhaupt das richtige Tool auszuwählen. Das Wissen darüber, welche Tools sich am besten eignen, wird innerhalb der Web-Community oft informell weitergegeben. Wenn Sie noch keinen Zugang zu dieser Community haben, ist es schwer herauszufinden, welche Tools Sie wählen sollten. Das ist einer der Gründe für diese Artikelreihe: Sie soll Ihnen einen ersten, sonst schwer zu findenden Einstieg bieten.
 
-Sie werden wahrscheinlich eine Kombination der folgenden Dinge benötigen:
+Wahrscheinlich hilft Ihnen eine Kombination aus Folgendem:
 
-- Erfahrene Lehrer, Mentoren, Kommilitonen oder Kollegen, die etwas Erfahrung haben, solche Probleme bereits gelöst haben und Ratschläge geben können.
-- Einen nützlichen spezifischen Ort, um zu suchen. Allgemeine Websuchen nach Entwickler-Tools für Front-End sind im Allgemeinen nutzlos, es sei denn, Sie kennen bereits den Namen des Tools, nach dem Sie suchen.
-  - Wenn Sie zum Beispiel den npm-Paketmanager verwenden, um Ihre Abhängigkeiten zu verwalten, ist es eine gute Idee, auf der [npm-Homepage](https://www.npmjs.com/) nach der Art des Tools zu suchen, das Sie benötigen, zum Beispiel versuchen Sie, nach "date" zu suchen, wenn Sie ein Datumformatierungsdienstprogramm benötigen, oder "formatter", wenn Sie nach einem allgemeinen Codeformatierer suchen. Achten Sie auf die Beliebtheit, Qualität und Wartungspunkte und wie kürzlich das Paket zuletzt aktualisiert wurde. Klicken Sie auch auf die Tool-Seiten, um herauszufinden, wie viele monatliche Downloads ein Paket hat und ob es gute Dokumentation gibt, die Sie nutzen können, um herauszufinden, ob es das tut, was Sie benötigen. Basierend auf diesen Kriterien sieht die [date-fns-Bibliothek](https://www.npmjs.com/package/date-fns) für ein gutes Datumformatierungstool gut aus. Sie werden dieses Tool in Aktion sehen und mehr über Paketmanager im Allgemeinen in Kapitel 3 dieses Moduls erfahren.
-  - Wenn Sie nach einem Plugin suchen, um die Tool-Funktionalität in Ihren Code-Editor zu integrieren, schauen Sie sich die Plugin-/Erweiterungsseite Ihres Code-Editors an — sehen Sie sich beispielsweise [VS Code Erweiterungen](https://marketplace.visualstudio.com/vscode) an. Schauen Sie sich die vorgestellten Erweiterungen auf der Startseite an und versuchen Sie erneut, nach der Art der Erweiterung zu suchen, die Sie möchten (oder dem Toolnamen, z.B. suchen Sie nach "ESLint" auf der VS Code-Erweiterungsseite). Wenn Sie Ergebnisse erhalten, schauen Sie sich Informationen wie die Anzahl der Sterne oder Downloads der Erweiterung als Qualitätsanzeige an.
+- Erfahrene Lehrkräfte, Mentorinnen und Mentoren, Mitlernende oder Kolleginnen und Kollegen, die ähnliche Probleme bereits gelöst haben und Ihnen Ratschläge geben können.
+- Eine geeignete Anlaufstelle für die gezielte Suche. Allgemeine Websuchen nach Frontend-Entwicklungstools sind meist wenig hilfreich, solange Sie den Namen des gesuchten Tools nicht kennen.
+  - Wenn Sie beispielsweise den Paketmanager npm verwenden, um Ihre Abhängigkeiten zu verwalten, können Sie auf der [npm-Startseite](https://www.npmjs.com/) nach der gewünschten Art von Tool suchen. Suchen Sie etwa nach „date“, wenn Sie ein Tool zur Datumsformatierung benötigen, oder nach „formatter“, wenn Sie einen allgemeinen Code-Formatierer suchen. Achten Sie auf die Bewertungen für Beliebtheit, Qualität und Pflege sowie darauf, wann das Paket zuletzt aktualisiert wurde. Öffnen Sie auch die einzelnen Tool-Seiten: Dort sehen Sie, wie viele Downloads ein Paket pro Monat hat und ob die Dokumentation Ihnen hilft zu beurteilen, ob es Ihre Anforderungen erfüllt. Gemessen an diesen Kriterien erscheint die [Bibliothek date-fns](https://www.npmjs.com/package/date-fns) als gute Wahl für die Datumsformatierung. Im dritten Kapitel dieses Moduls sehen Sie dieses Tool in Aktion und erfahren mehr über Paketmanager im Allgemeinen.
+  - Wenn Sie nach einem Plugin suchen, das ein Tool in Ihren Code-Editor integriert, sehen Sie auf der Seite für Plugins oder Erweiterungen des Editors nach – beispielsweise bei den [VS Code-Erweiterungen](https://marketplace.visualstudio.com/vscode). Schauen Sie sich die hervorgehobenen Erweiterungen auf der Startseite an und suchen Sie nach der gewünschten Art von Erweiterung oder nach dem Namen des Tools, etwa „ESLint“ auf der Seite für VS Code-Erweiterungen. Bei den Suchergebnissen können Angaben wie die Anzahl der Sterne oder Downloads Hinweise auf die Qualität einer Erweiterung geben.
 
-- Entwicklungsbezogene Foren, um Fragen dazu zu stellen, welche Tools zu verwenden sind, wie zum Beispiel [MDN Learn Discourse](https://discourse.mozilla.org/c/mdn/learn/250) oder [Stack Overflow](https://stackoverflow.com/).
+- Entwicklungsforen, in denen Sie Fragen zur Tool-Auswahl stellen können, beispielsweise [MDN Learn Discourse](https://discourse.mozilla.org/c/mdn/learn/250) oder [Stack Overflow](https://stackoverflow.com/).
 
-Wenn Sie ein Tool ausgewählt haben, sollte der erste Anlaufpunkt die Projekt-Homepage des Tools sein. Dies könnte eine vollständige Website sein oder ein einzelnes Readme-Dokument in einem Code-Repository. Die [date-fns-Dokumentation](https://date-fns.org/docs/Getting-Started) zum Beispiel ist ziemlich gut, vollständig und leicht zu folgen. Einige Dokumentationen können jedoch recht technisch und akademisch sein und möglicherweise nicht Ihren Lernbedürfnissen entsprechen.
+Wenn Sie sich für ein Tool entschieden haben, sollte Ihre erste Anlaufstelle die Projekt-Homepage sein. Das kann eine vollständige Website oder auch nur eine README-Datei in einem Code-Repository sein. Die [Dokumentation von date-fns](https://date-fns.org/docs/Getting-Started) beispielsweise ist gut, vollständig und leicht verständlich. Manche Dokumentationen sind allerdings sehr technisch oder akademisch und passen möglicherweise nicht zu Ihren Lernbedürfnissen.
 
-Stattdessen möchten Sie vielleicht einige dedizierte Tutorials zu bestimmten Arten von Tools finden. Ein großartiger Ausgangspunkt ist es, Websites wie [CSS Tricks](https://css-tricks.com/), [Dev](https://dev.to/), [freeCodeCamp](https://www.freecodecamp.org/) und [Smashing Magazine](https://www.smashingmagazine.com/) zu durchsuchen, da sie auf die Belange der Webentwicklungsindustrie zugeschnitten sind.
+In diesem Fall können Sie nach Tutorials suchen, die den Einstieg in bestimmte Tool-Arten erklären. Gute Ausgangspunkte sind Websites wie [CSS Tricks](https://css-tricks.com/), [Dev](https://dev.to/), [freeCodeCamp](https://www.freecodecamp.org/) und [Smashing Magazine](https://www.smashingmagazine.com/), die sich an Menschen in der Webentwicklung richten.
 
-Erneut werden Sie wahrscheinlich durch mehrere verschiedene Tools gehen, während Sie nach den richtigen für Sie suchen, sie ausprobieren, um zu sehen, ob sie Sinn machen, gut unterstützt sind und tun, was Sie möchten. Das ist in Ordnung — es ist alles gut fürs Lernen und der Weg wird reibungsloser, je mehr Erfahrung Sie sammeln.
+Auf der Suche nach den passenden Tools werden Sie wahrscheinlich mehrere ausprobieren. So finden Sie heraus, ob sie für Sie verständlich sind, gut unterstützt werden und Ihre Anforderungen erfüllen. Das ist völlig in Ordnung – dabei lernen Sie viel, und mit wachsender Erfahrung wird Ihnen die Suche leichter fallen.
 
 ## Zusammenfassung
 
-Damit schließen wir unsere sanfte Einführung in das Thema der Client-seitigen Web-Tools aus einer hohen Perspektive ab. Als nächstes werden wir uns Paketmanager anschauen.
+Damit endet unsere Einführung in die clientseitigen Tools für die Webentwicklung. Als Nächstes sehen wir uns Paketmanager an.
 
 {{NextMenu("Learn_web_development/Extensions/Client-side_tools/Package_management", "Learn_web_development/Extensions/Client-side_tools")}}

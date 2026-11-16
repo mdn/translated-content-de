@@ -3,26 +3,26 @@ title: "ARIA: aria-keyshortcuts-Attribut"
 short-title: aria-keyshortcuts
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das globale `aria-keyshortcuts`-Attribut gibt Tastenkombinationen an, die ein Autor implementiert hat, um ein Element zu aktivieren oder den Fokus darauf zu setzen.
+Das globale Attribut `aria-keyshortcuts` gibt Tastenkombinationen an, die ein Autor implementiert hat, um ein Element zu aktivieren oder ihm den Fokus zu geben.
 
 ## Beschreibung
 
-Eine Tastenkombination ist eine Serie von einem oder mehreren Tasten, die Software anweisen, eine vorprogrammierte Aktion auszuführen. Tastenkombinationen ermöglichen es Benutzern, Befehle über die Tastatur auszuführen, die ansonsten den Zugriff auf ein Menü oder die Nutzung von Touch oder einer Maus erfordern würden. Die `aria-keyshortcuts`-Eigenschaft definiert die Tasten auf der Tastatur, die implementiert wurden, um das Element, auf dem das Attribut gesetzt ist, zu aktivieren oder den Fokus darauf zu setzen.
+Eine Tastenkombination besteht aus einer oder mehreren Tasten, mit denen eine Software angewiesen wird, eine vorprogrammierte Aktion auszuführen. Tastenkombinationen ermöglichen es Personen, die eine Tastatur verwenden, Befehle auszuführen, für die sie sonst ein Menü, eine Touch-Bedienung oder eine Maus benötigen würden. Die Eigenschaft `aria-keyshortcuts` definiert die Tasten, mit denen das Element, für das das Attribut gesetzt ist, aktiviert wird oder den Fokus erhält.
 
-Das `aria-keyshortcuts`-Attribut macht assistiven Technologien das Vorhandensein der Abkürzung bekannt, sodass die Existenz der Abkürzung den Benutzern mitgeteilt werden kann. Wie alle ARIA-Attribute hat es keine Auswirkungen auf die Funktionalität der Seite; das Tastaturverhalten muss über JavaScript-Event-Handler hinzugefügt werden.
+Das Attribut `aria-keyshortcuts` macht assistiven Technologien bekannt, dass eine Tastenkombination vorhanden ist, damit sie ihre Benutzer darüber informieren können. Wie alle ARIA-Attribute hat es keine Auswirkungen auf die Funktionalität der Seite; das Tastaturverhalten muss über JavaScript-Event-Handler hinzugefügt werden.
 
-Tastenkombinationen, die auf deaktivierte Elemente angewendet werden, sollten ebenfalls deaktiviert werden. Beispielsweise sollten Sie, wenn Sie ein Element für Mausbenutzer deaktivieren, daran denken, es auch für Benutzer von Tastenkombinationen zu deaktivieren.
+Tastenkombinationen für deaktivierte Elemente sollten ebenfalls deaktiviert werden. Wenn Sie beispielsweise ein Element für Personen deaktivieren, die eine Maus verwenden, denken Sie daran, es auch für Personen zu deaktivieren, die Tastenkombinationen verwenden.
 
-Stellen Sie sicher, dass alle Tastenkombinationen sowohl für sehende Benutzer sichtbar sind als auch für assistive Technologien verfügbar gemacht werden. Wenn Ihre Anwendung komplex genug ist, um Tastenkombinationen zu benötigen, die auch als "Hot Keys" bekannt sind, sollten Sie eine geführte Tour durch Ihre Anwendung, eine Barrierefreiheitsseite mit der Dokumentation von Abkürzungen und anderen Barrierefreiheitsfunktionen, eine Abkürzungsübersichtseite oder ein Dialog-Pop-up oder eine andere Methode einfügen, um die Verfügbarkeit von Tastenkombinationen bekannt zu machen. Zeigen Sie die Abkürzung außerdem in Menüs und Tooltips an.
+Stellen Sie sicher, dass alle Tastenkombinationen für sehende Personen sichtbar und für assistive Technologien verfügbar sind. Wenn Ihre Anwendung komplex genug ist, um Tastenkombinationen – auch „Hotkeys“ genannt – zu benötigen, bieten Sie eine geführte Einführung in Ihre Anwendung, eine Seite zur Barrierefreiheit mit einer Dokumentation der Tastenkombinationen und anderer Barrierefreiheitsfunktionen, eine Übersichtsseite oder ein Dialogfenster mit Tastenkombinationen oder eine andere Möglichkeit an, auf die verfügbaren Tastenkombinationen hinzuweisen. Zeigen Sie die Tastenkombinationen außerdem in Menüs und Tooltips an.
 
-### Regeln für Eigenschaftswerte
+### Regeln für den Eigenschaftswert
 
-Der Wert des `aria-keyshortcuts`-Attributs ist eine durch Leerzeichen getrennte Liste von Tastenkombinationen, die gedrückt werden können, um ein Kommando oder Textfeld-Widget zu aktivieren. Jede Tastenkombination umfasst null, eins oder mehrere Modifikatortasten, gefolgt von genau einer Nicht-Modifikatortaste, die gleichzeitig gedrückt werden müssen und mit einem Pluszeichen ("+") verbunden sind. Der Attributwert ist nicht case-sensitiv.
+Der Wert des Attributs `aria-keyshortcuts` ist eine durch Leerzeichen getrennte Liste von Tastenkombinationen, mit denen ein Befehl oder ein Textfeld-Widget aktiviert werden kann. Jede Tastenkombination besteht aus null, einer oder mehreren Modifikatortasten, gefolgt von genau einer anderen Taste. Diese Tasten werden gleichzeitig gedrückt und in der Angabe durch ein Pluszeichen („+“) verbunden. Beim Attributwert wird nicht zwischen Groß- und Kleinschreibung unterschieden.
 
-Beispiele für gültige Tastenkombinationen sind:
+Beispiele für gültige Tastenkombinationen:
 
 ```plain
 aria-keyshortcuts="A"
@@ -33,51 +33,51 @@ aria-keyshortcuts="alt+shift+p control+f"
 aria-keyshortcuts="Meta+C Meta+Shift+C"
 ```
 
-Modifikatortasten sind Tasten, die alleine keine Auswirkungen haben. Sie werden als "Alt", "Control", "Shift", "Meta" (Befehlstaste auf Mac) oder "AltGraph" (Optionstaste auf Mac) geschrieben.
+Modifikatortasten sind Tasten, die allein keine Wirkung haben. Sie werden als „Alt“, „Control“, „Shift“, „Meta“ (Befehlstaste auf dem Mac) oder „AltGraph“ (Wahltaste auf dem Mac) angegeben.
 
-Nicht-Modifikatortasten sind Tasten, die allein verwendet Auswirkungen haben, sei es durch das Drucken eines Zeichens, das Bewegen des Fokus oder anderem Erzeugen eines Tastaturereignisses bei Verwendung. Nicht-Modifikatoren, die ein einzelnes Zeichen drucken, schließen Zeichen wie `P`, `z` und `.` ein.
+Andere Tasten als Modifikatortasten haben auch allein eine Wirkung: Sie geben beispielsweise ein Zeichen ein, verschieben den Fokus oder lösen auf andere Weise ein Tastaturereignis aus. Zu den Tasten, die ein einzelnes Zeichen eingeben, gehören beispielsweise `P`, `z` und `.`.
 
-Da das Pluszeichen beim Schreiben von Tastenkombinationen verwendet wird, wird es als `plus` geschrieben, wenn es als Nicht-Modifikator verwendet wird. Andere ausgeschriebene Nicht-Modifikatoren schließen Leerzeichenzeichen `Space`, `Tab` und `Enter` sowie alle Zeichen ein, die Aktionen auslösen, wie `ArrowUp`, `PageUp` und `Escape`.
+Da das Pluszeichen zum Notieren von Tastenkombinationen verwendet wird, wird es als `plus` angegeben, wenn es selbst die zu drückende Taste ist. Weitere ausgeschriebene Tastenbezeichnungen sind `Space`, `Tab` und `Enter` für Leerraumzeichen sowie Bezeichnungen für Tasten, die Aktionen auslösen, etwa `ArrowUp`, `PageUp` und `Escape`.
 
-Wenn Sie ein Zeichen verwenden möchten, das Probleme verursachen könnte, wie ein Anführungszeichen innerhalb von Anführungszeichen, entziehen Sie das Zeichen: `Control+&#39;`.
+Wenn Sie ein Zeichen verwenden möchten, das Probleme verursachen könnte, beispielsweise ein doppeltes Anführungszeichen innerhalb doppelter Anführungszeichen, maskieren Sie das Zeichen: `Control+&#39;`.
 
-Modifikatortasten müssen in jeder Tastenkombination zuerst aufgeführt werden. Mögliche Tastenkombinationen umfassen `Control+P` oder `Shift+Space` und `Q`. Wenn der vollständige Shortcut alle drei dieser Kombinationen erfordert, würde er als `aria-keyshortcuts="Control+P Shift+Space Q"` geschrieben. Wenn eine Tastenkombination mehr als eine Modifikatortaste enthält, spielt die Reihenfolge der Modifikatoren keine Rolle, aber sie müssen alle zuerst kommen, vor dem Nicht-Modifikator.
+Modifikatortasten müssen in jeder Tastenkombination zuerst aufgeführt werden. Mögliche Tastenkombinationen sind `Control+P`, `Shift+Space` und `Q`. Wenn die vollständige Tastenkürzelabfolge alle drei Kombinationen in dieser Reihenfolge erfordert, wird sie als `aria-keyshortcuts="Control+P Shift+Space Q"` angegeben. Enthält eine Tastenkombination mehrere Modifikatortasten, ist deren Reihenfolge unerheblich; sie müssen jedoch alle vor der anderen Taste stehen.
 
-Diese zwei Attributdeklarationen sind gleichwertig.
+Diese beiden Attributdeklarationen sind gleichwertig.
 
 ```plain example-good
 aria-keyshortcuts="Shift+Control+V"
 aria-keyshortcuts="control+shift+v"
 ```
 
-Beachten Sie, dass Groß- und Kleinschreibung keine Rolle spielen. Aber die Reihenfolge des Nicht-Modifikators tut es.
+Beachten Sie, dass die Groß- und Kleinschreibung keine Rolle spielt. Die Reihenfolge von Modifikator- und anderen Tasten spielt dagegen eine Rolle.
 
-Diese zwei Attributdeklarationen sind ungültig, da der Nicht-Modifikator zuletzt sein muss.
+Diese beiden Attributdeklarationen sind ungültig, da die Taste, die keine Modifikatortaste ist, zuletzt stehen muss.
 
 ```plain example-bad
 aria-keyshortcuts="V+Shift+Control"
 aria-keyshortcuts="V+Control+Shift"
 ```
 
-Die aufgelistete Tastenkombination muss die Tasten sein, die der Benutzer drücken muss, nicht das Ergebnis der kombinierten Tastenanschläge. Zum Beispiel, auf einer amerikanischen Tastatur, wenn Sie das Symbol `@` benötigen, wird die Tastenkombination als `"Shift+2"` geschrieben, nicht als `"@"` oder `"Shift+@"`.
+Die angegebene Tastenkombination muss die Tasten wiedergeben, die Benutzer tatsächlich drücken müssen, nicht das Ergebnis dieser Tastenanschläge. Wenn Sie beispielsweise auf einer US-amerikanischen Tastatur das Symbol `@` eingeben möchten, wird die Tastenkombination als `"Shift+2"` angegeben, nicht als `"@"` oder `"Shift+@"`.
 
-### Beste Praktiken
+### Bewährte Vorgehensweisen
 
-Beim Versuch, die Barrierefreiheit Ihrer Websites und Anwendungen zu verbessern, gibt es einige beste Praktiken, die sicherstellen sollen, dass Ihre "Verbesserungen" das Benutzererlebnis nicht negativ beeinträchtigen. Denken Sie daran, kein ARIA ist besser als schlechtes ARIA.
+Wenn Sie die Barrierefreiheit Ihrer Websites und Anwendungen verbessern möchten, sollten Sie einige bewährte Vorgehensweisen beachten, damit sich Ihre „Verbesserungen“ nicht negativ auf die Benutzererfahrung auswirken. Denken Sie daran: Kein ARIA ist besser als schlechtes ARIA.
 
-#### Übersteuern Sie keine Abkürzungen von Browsern, assistiver Technologie oder Betriebssystemen
+#### Überschreiben Sie keine Tastenkombinationen von Browsern, assistiven Technologien oder Betriebssystemen
 
-Wenn Sie Tastenkombinationen implementieren, stellen Sie sicher, dass Sie keine Abkürzungen erstellen, die bereits vom Browser, der assistiven Technologie oder dem Betriebssystem verwendet werden, es sei denn, sie werden für dasselbe verwendet. Zum Beispiel wird `"Control+P"` von den meisten Benutzeragenten verwendet, um die Druckfunktion zu starten. Im Allgemeinen sollte eine Webanwendung keinen "Control+P"-Shortcut erstellen, da dies die Browserfunktionalität überlagern würde. Es gibt Ausnahmen. Webanwendungen, bei denen das Drucken häufig ist, wie E-Mail-Anwendungen oder Dokumenteditoren, könnten dafür bekannt sein, die Druckfunktion des Browsers `"Control+P"` für einen anwendungsspezifischen Druckflow zu nutzen.
+Achten Sie bei der Implementierung von Tastenkombinationen darauf, keine Kombinationen zu verwenden, die bereits vom Browser, von assistiven Technologien oder vom Betriebssystem genutzt werden – es sei denn, sie dienen demselben Zweck. Beispielsweise verwenden die meisten User-Agents `"Control+P"`, um die Druckfunktion aufzurufen. Im Allgemeinen sollte eine Webanwendung keine Tastenkombination „Control+P“ festlegen, da sie damit die Browserfunktion verdrängen würde. Es gibt Ausnahmen: Bei Webanwendungen, in denen häufig gedruckt wird, etwa E-Mail-Anwendungen oder Dokumenteditoren, kann es sinnvoll sein, die Druckfunktion des Browsers unter `"Control+P"` durch einen anwendungsspezifischen Druckablauf zu ersetzen.
 
-Es sei denn, Sie erstellen eine HTML-Version einer Produktivitätsanwendung, sollten Sie es wahrscheinlich vermeiden, Tastenkombinationen zu implementieren. Während das Übersteuern einer Betriebssystem- oder Browser-Tastenkombination für Nicht-Nutzerassistenztechnologie lästig sein kann, könnten Sie bei Übersteuerung einer Bildschirmleser-Tastaturfunktionalität den Zugriff für den Nutzerassistenztechnologie komplett stoppen. Wenn Sie Tastenkombinationen erstellen müssen, vermeiden Sie einzelne Buchstabentastenkombinationen und häufige Bildschirmlesertastenkombinationen.
+Wenn Sie keine HTML-Version einer Produktivitätsanwendung erstellen, sollten Sie wahrscheinlich auf die Implementierung von Tastenkombinationen verzichten. Das Überschreiben einer Tastenkombination des Betriebssystems oder Browsers kann für Personen, die keine assistiven Technologien verwenden, lästig sein. Überschreiben Sie jedoch eine Tastaturfunktion eines Screenreaders, können Sie Personen, die auf diese assistive Technologie angewiesen sind, den Zugriff vollständig verwehren. Wenn Sie Tastenkombinationen erstellen müssen, vermeiden Sie Kombinationen aus einzelnen Buchstaben sowie gängige Tastenkombinationen von Screenreadern.
 
-#### Berücksichtigen Sie Sprach- und Tastaturunterschiede
+#### Berücksichtigen Sie Unterschiede zwischen Sprachen und Tastaturen
 
-Berücksichtigen Sie die Vielfalt der verfügbaren Tastaturen und die verschiedenen Tastaturspracheneinstellungen. Modifikatortasten werden oft verwendet, um sprachspezifische allgemeine Interpunktionszeichen und Zahlenzeichen zu erstellen. Zum Beispiel verwenden Zahlen, wenn die Tastaturspracheneinstellung auf Französisch (Frankreich) gesetzt ist, die Umschalttaste.
+Berücksichtigen Sie die Vielfalt verfügbarer Tastaturen und die unterschiedlichen Tastaturspracheneinstellungen. Modifikatortasten werden häufig verwendet, um sprachspezifische, gebräuchliche Satzzeichen und Ziffern einzugeben. Bei einer Tastatur mit der Spracheinstellung Französisch (Frankreich) wird beispielsweise die Umschalttaste benötigt, um Ziffern einzugeben.
 
-#### Verwenden Sie nicht stattdessen HTML
+#### Verwenden Sie stattdessen nicht HTML
 
-Das `aria-keyshortcuts`-Attribut ist dem [problematischen](https://webaim.org/techniques/keyboard/accesskey#spec) HTML-Attribut [`accesskey`](/de/docs/Web/HTML/Reference/Global_attributes/accesskey) sehr ähnlich, das für das aktuelle Element eine Tastenkombination generiert. Wenn für ein Element ein `accesskey` definiert ist, definiert der Browser die Modifikatortasten und übernimmt die gesamte Arbeit der Abkürzungsverarbeitung ohne Skripting. Jede Browser- und Betriebssystemkombination hat ihre eigenen Modifikatortasten für den im `accesskey`-Attribut gesetzten Nicht-Modifikator. Was für eine Kombination aus Betriebssystem, assistiver Technologie und Browser funktioniert, funktioniert möglicherweise nicht mit anderen Kombinationen. Bei `aria-keyshortcuts` sind die Modifikatortasten in der Attributwertliste der Tastenkombinationen enthalten und die Funktionalität muss geskriptet werden.
+Das Attribut `aria-keyshortcuts` ähnelt dem [problematischen](https://webaim.org/techniques/keyboard/accesskey#spec) HTML-Attribut [`accesskey`](/de/docs/Web/HTML/Reference/Global_attributes/accesskey), das eine Tastenkombination für das jeweilige Element erzeugt. Wenn für ein Element ein `accesskey` definiert ist, legt der Browser die Modifikatortasten fest und übernimmt die gesamte Verarbeitung der Tastenkombination, ohne dass dafür Skripte erforderlich sind. Jede Kombination aus Browser und Betriebssystem verwendet eigene Modifikatortasten für die im Attribut `accesskey` angegebene andere Taste. Was mit einer Kombination aus Betriebssystem, assistiver Technologie und Browser funktioniert, muss mit anderen Kombinationen nicht funktionieren. Bei `aria-keyshortcuts` sind die Modifikatortasten in der Liste der Tastenkombinationen im Attributwert enthalten, und die Funktionalität muss per Skript implementiert werden.
 
 ```html
 <p>
@@ -88,40 +88,40 @@ Das `aria-keyshortcuts`-Attribut ist dem [problematischen](https://webaim.org/te
 <button accesskey="s">Stress reliever</button>
 ```
 
-In diesem Beispiel haben wir sichergestellt, dass die Anwesenheit der Abkürzung auch sehenden Benutzern bekannt war, indem wir das Nicht-Modifikatorzeichen hervorgehoben haben.
+In diesem Beispiel haben wir dafür gesorgt, dass auch sehende Personen auf die Tastenkombination aufmerksam werden, indem wir die Taste hervorgehoben haben, die keine Modifikatortaste ist.
 
-Obwohl das Ziel des `accesskey`-Attributs mit der Absicht von `aria-keyshortcuts` übereinstimmt und dies nativ tut, ist `accesskey` mit Problemen behaftet. Aufgrund dieser Probleme wird im Allgemeinen empfohlen, auf den Einsatz von Accesskeys für die meisten allgemeinen Websites und Webanwendungen zu verzichten.
+Das Attribut `accesskey` verfolgt zwar dasselbe Ziel wie `aria-keyshortcuts` und soll dies mit nativen Mitteln erreichen, ist aber mit zahlreichen Problemen verbunden. Daher wird für die meisten allgemeinen Websites und Webanwendungen davon abgeraten, Zugriffstasten zu verwenden.
 
-Zusätzlich zur schlechten Browserunterstützung treten bei `accesskey` die gleichen Bedenken auf wie bei `aria-keyshortcuts`:
+Neben der mangelhaften Browserunterstützung bestehen bei `accesskey` dieselben Bedenken wie bei `aria-keyshortcuts`:
 
-- Ein Accesskey-Wert kann mit einer System- oder Browser-Tastenkombination oder einer assistiven Technologie überlappen.
-- Bestimmte Schlüsselwerte sind möglicherweise nicht auf bestimmten Tastaturen vorhanden, insbesondere wenn Internationalisierung ein Anliegen ist. Daher könnte die Anpassung an bestimmte Sprachen weitere Probleme verursachen.
-- Werte, die auf Zahlen beruhen, können für Personen verwirrend sein, die kognitive Einschränkungen erleben, bei denen die Nummer keine logische Assoziation mit der Funktionalität hat, die sie auslöst.
-- Wenn Benutzer darüber informiert werden müssen, dass Abkürzungen vorhanden sind, damit sie sich der Funktionalität bewusst sind. Wenn dem System eine Methode fehlt, den Benutzer über diese Funktion zu informieren, könnte der Benutzer eine Abkürzung versehentlich aktivieren.
+- Ein `accesskey`-Wert kann mit einer Tastenkombination des Systems oder Browsers oder mit einer Funktion assistiver Technologien in Konflikt geraten.
+- Bestimmte Tasten sind möglicherweise nicht auf allen Tastaturen vorhanden, insbesondere im internationalen Kontext. Eine Anpassung an bestimmte Sprachen kann daher weitere Probleme verursachen.
+- Werte, die auf Zahlen beruhen, können für Menschen mit kognitiven Einschränkungen verwirrend sein, wenn zwischen der Zahl und der ausgelösten Funktion kein logischer Zusammenhang besteht.
+- Benutzer müssen darüber informiert werden, dass Tastenkombinationen vorhanden sind, damit sie diese Funktion kennen. Wenn das System keine Möglichkeit bietet, auf diese Funktion hinzuweisen, könnten Benutzer versehentlich eine Tastenkombination auslösen.
 
 ## Werte
 
 - `<string>`
-  - : Die durch Leerzeichen getrennte Liste von Tastenkombinationen, die, wenn sie gedrückt werden, die Aktion ausführen.
-
-## Beispiel
-
-In diesem Beispiel ist das `aria-keyshortcuts`-Attribut des Elements auf "Alt+Shift+A" gesetzt.
-
-```html
-<a href="#content" aria-keyshortcuts="Alt+Shift+A">Skip to content</a>
-```
+  - : Die durch Leerzeichen getrennte Liste von Tastenkombinationen, die beim Drücken die Aktion ausführen.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaKeyShortcuts`](/de/docs/Web/API/Element/ariaKeyShortcuts)
-  - : Die [`ariaKeyShortcuts`](/de/docs/Web/API/Element/ariaKeyShortcuts)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-keyshortcuts`-Attributs wider.
+  - : Die Eigenschaft [`ariaKeyShortcuts`](/de/docs/Web/API/Element/ariaKeyShortcuts) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-keyshortcuts` wider.
 - [`ElementInternals.ariaKeyShortcuts`](/de/docs/Web/API/ElementInternals/ariaKeyShortcuts)
-  - : Die [`ariaKeyShortcuts`](/de/docs/Web/API/ElementInternals/ariaKeyShortcuts)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-keyshortcuts`-Attributs wider.
+  - : Die Eigenschaft [`ariaKeyShortcuts`](/de/docs/Web/API/ElementInternals/ariaKeyShortcuts) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-keyshortcuts` wider.
 
 ## Zugehörige Rollen
 
 Wird in **ALLEN** Rollen verwendet.
+
+## Beispiel
+
+In diesem Beispiel ist das Attribut `aria-keyshortcuts` des Elements auf „Alt+Shift+A“ gesetzt.
+
+```html
+<a href="#content" aria-keyshortcuts="Alt+Shift+A">Skip to content</a>
+```
 
 ## Spezifikationen
 

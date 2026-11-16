@@ -1,24 +1,47 @@
 ---
-title: "ARIA: aria-rowcount-Attribut"
+title: "ARIA: Attribut aria-rowcount"
 short-title: aria-rowcount
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-rowcount`-Attribut definiert die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder einem Baumraster.
+Das Attribut `aria-rowcount` definiert die Gesamtzahl der Zeilen in einer Tabelle, einem Grid oder einem Treegrid.
 
 ## Beschreibung
 
-Einige Tabellen haben Hunderte, sogar Millionen von Zeilen. Selbst bei Tabellen mit weniger Zeilen kann es eine Designanforderung sein, nur einen Teilbereich von Zeilen zu laden, um die Leistung zu verbessern oder die Benutzererfahrung zu optimieren. Wenn nur ein Teil der Zeilen geladen wird, müssen alle Benutzer darüber informiert werden, dass nur eine Teilmenge der Daten angezeigt wird. Das `aria-rowcount`-Attribut wird verwendet, um die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder einem Baumraster zu definieren.
+Manche Tabellen haben Hunderte oder sogar Millionen von Zeilen. Auch bei Tabellen mit weniger Zeilen kann es aus gestalterischen Gründen erforderlich sein, nur einen Teil der Zeilen zu laden. Dies kann außerdem die Leistung oder die Benutzerfreundlichkeit verbessern. Wenn nur ein Teil der Zeilen geladen wird, müssen alle Benutzer darüber informiert werden, dass nur ein Teil der Daten angezeigt wird. Mit dem Attribut `aria-rowcount` wird die Gesamtzahl der Zeilen in einer Tabelle, einem Grid oder einem Treegrid angegeben.
 
-Wenn es auf das {{HTMLElement('table')}}-Element oder auf ein Element mit der Rolle [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role) angewendet wird, ist der Wert die Anzahl der Zeilen in der vollständigen Tabelle als Ganzzahl. Wenn die Gesamtanzahl der Zeilen nicht bekannt ist, fügen Sie `aria-rowcount="-1"` hinzu, was dem Browser mitteilt, die Gesamtanzahl der Zeilen nicht zu zählen.
+Wird das Attribut auf dem Element {{HTMLElement('table')}} oder auf einem Element mit der Rolle [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role) verwendet, gibt sein Wert die Anzahl der Zeilen in der vollständigen Tabelle als Ganzzahl an. Ist die Gesamtzahl der Zeilen nicht bekannt, verwenden Sie `aria-rowcount="-1"`. Dadurch wird der Browser angewiesen, die Gesamtzahl der Zeilen nicht zu zählen.
 
-Wenn alle Zeilen geladen und im DOM vorhanden sind, müssen Sie `aria-rowcount` nicht hinzufügen, da Browser die Gesamtanzahl der Zeilen automatisch zählen. Wenn jedoch nicht alle Zeilen jederzeit im DOM vorhanden sind, wird dieses Attribut benötigt, um die Anzahl der Zeilen anzugeben, wenn die vollständige Tabellengröße bekannt ist, und um dem Browser mitzuteilen, die Zeilen nicht automatisch zu zählen, wenn die Gesamtanzahl der Zeilen nicht bekannt ist.
+Wenn alle Zeilen geladen und im DOM vorhanden sind, müssen Sie `aria-rowcount` nicht angeben, da Browser die Gesamtzahl der Zeilen automatisch zählen. Wenn jedoch zu keinem Zeitpunkt alle Zeilen im DOM vorhanden sind, wird dieses Attribut benötigt: Bei bekannter Tabellengröße gibt es die Gesamtzahl der Zeilen an; bei unbekannter Gesamtzahl weist es den Browser an, die Zeilen nicht automatisch zu zählen.
+
+## Werte
+
+- `<integer>`
+  - : Die Anzahl der Zeilen in der vollständigen Tabelle oder `-1`, wenn die Tabellengröße nicht bekannt ist.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaRowCount`](/de/docs/Web/API/Element/ariaRowCount)
+  - : Die Eigenschaft [`ariaRowCount`](/de/docs/Web/API/Element/ariaRowCount) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-rowcount` wider.
+- [`ElementInternals.ariaRowCount`](/de/docs/Web/API/ElementInternals/ariaRowCount)
+  - : Die Eigenschaft [`ariaRowCount`](/de/docs/Web/API/ElementInternals/ariaRowCount) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-rowcount` wider.
+
+## Zugehörige Rollen
+
+Wird in folgenden Rollen verwendet:
+
+- [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
+
+Wird an folgende Rollen vererbt:
+
+- [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
 
 ## Beispiel
 
-Das folgende Beispiel zeigt ein Raster mit 24 Zeilen, von denen die erste Zeile und die Zeilen 7 bis 9 dem Benutzer angezeigt werden.
+Das folgende Beispiel zeigt ein Grid mit 24 Zeilen, von denen die erste Zeile sowie die Zeilen 7 bis 9 angezeigt werden.
 
 ```html
 <div role="grid" aria-rowcount="24">
@@ -48,29 +71,6 @@ Das folgende Beispiel zeigt ein Raster mit 24 Zeilen, von denen die erste Zeile 
   </div>
 </div>
 ```
-
-## Werte
-
-- `<integer>`
-  - : Die Anzahl der Zeilen in der vollständigen Tabelle oder `-1`, wenn die Tabellengröße nicht bekannt ist.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaRowCount`](/de/docs/Web/API/Element/ariaRowCount)
-  - : Die [`ariaRowCount`](/de/docs/Web/API/Element/ariaRowCount)-Eigenschaft, die Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist, spiegelt den Wert des `aria-rowcount`-Attributs wider.
-- [`ElementInternals.ariaRowCount`](/de/docs/Web/API/ElementInternals/ariaRowCount)
-  - : Die [`ariaRowCount`](/de/docs/Web/API/ElementInternals/ariaRowCount)-Eigenschaft, die Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle ist, spiegelt den Wert des `aria-rowcount`-Attributs wider.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
-
-Übernommen in Rollen:
-
-- [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
-- [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
 
 ## Spezifikationen
 

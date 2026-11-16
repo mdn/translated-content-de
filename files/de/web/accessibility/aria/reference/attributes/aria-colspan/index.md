@@ -3,25 +3,46 @@ title: "ARIA: aria-colspan-Attribut"
 short-title: aria-colspan
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-colspan
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-colspan`-Attribut definiert die Anzahl der Spalten, die von einer Zelle oder einem gridcell in einer [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role), einem [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) überspannt werden.
+Das Attribut `aria-colspan` definiert die Anzahl der Spalten, über die sich eine Zelle oder gridcell innerhalb einer [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role), eines [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder eines [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) erstreckt.
 
 ## Beschreibung
 
-Vorgesehen für [`cell`s](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role) und [`gridcell`s](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), die nicht in einem nativen HTML-{{HTMLElement('table')}} enthalten sind, definiert der Wert der `aria-colspan`-Eigenschaft die Anzahl der Spalten, die von einer einzelnen Zelle in einer ARIA-[`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role), einem [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) überspannt werden.
+Die Eigenschaft `aria-colspan` ist für [`cell`s](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role) und [`gridcell`s](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role) vorgesehen, die sich nicht in einer nativen HTML-{{HTMLElement('table')}} befinden. Ihr Wert definiert, über wie viele Spalten sich eine einzelne Zelle einer ARIA-[`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role), eines ARIA-[`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder eines ARIA-[`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) erstreckt.
 
-In HTML verfügen die {{HTMLElement('th')}}- und {{HTMLElement('td')}}-Elemente über das [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#attributes)-Attribut. Wenn Sie die semantische {{HTMLElement('table')}} verwenden, nutzen Sie das native `colspan`-Attribut wie vorgesehen. Dieses ARIA-Attribut ist für Zellen und gridcells gedacht, die nicht in einer nativen Tabelle enthalten sind, und wird ignoriert, wenn es auf eine Zelle in einer {{HTMLElement('table')}} angewendet wird.
+In HTML verfügen {{HTMLElement('th')}}- und {{HTMLElement('td')}}-Elemente über das Attribut [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#attributes). Wenn Sie eine semantische {{HTMLElement('table')}} verwenden, nutzen Sie das native Attribut `colspan`. Dieses ARIA-Attribut ist für Zellen und gridcells vorgesehen, die sich nicht in einer nativen Tabelle befinden. Wird es für eine Zelle in einer {{HTMLElement('table')}} verwendet, wird es ignoriert.
 
 > [!NOTE]
-> Die erste Regel der ARIA-Nutzung lautet: Wenn Sie eine native Funktion mit den benötigten Semantiken und Verhaltensweisen bereits integriert nutzen können, anstatt ein Element umzufunktionieren und **ein** ARIA-Rolle, -Zustand oder -Eigenschaft hinzuzufügen, um es barrierefrei zu machen, dann tun Sie dies. Verwenden Sie HTML-{{HTMLelement('table')}}-Elemente, einschließlich {{HTMLelement('td')}} und {{HTMLelement('th')}} mit dem `colspan`-Attribut anstelle von nicht-semantischen Elementen mit ARIA-Rollen und -Attributen, wann immer möglich.
+> Die erste Regel für die Verwendung von ARIA lautet: Wenn Sie eine native Funktion verwenden können, die bereits die erforderliche Semantik und das erforderliche Verhalten bietet, sollten Sie dies tun, statt ein Element zweckzuentfremden und eine ARIA-Rolle, einen ARIA-Zustand oder eine ARIA-Eigenschaft **hinzuzufügen**, um es zugänglich zu machen. Verwenden Sie nach Möglichkeit HTML-{{HTMLelement('table')}}-Elemente einschließlich {{HTMLelement('td')}} und {{HTMLelement('th')}} mit dem Attribut `colspan` statt nicht semantischer Elemente mit ARIA-Rollen und -Attributen.
 
-Der Wert von `aria-colspan` sollte eine positive ganze Zahl sein. Der Standardwert oder der angenommene Wert einer Zellenspan ist 1. Stellen Sie sicher, dass der angegebene Wert nicht dazu führt, dass die Zelle oder das gridcell mit der nächsten Zelle oder dem nächsten gridcell in derselben Zeile überlappt und nicht dazu führt, dass die Zelle außerhalb der enthaltenen Tabelle, des Grid oder des Treegrid reicht.
+Der Wert von `aria-colspan` sollte eine positive Ganzzahl sein. Der Standardwert beziehungsweise angenommene Wert für die Spaltenanzahl einer Zelle ist 1. Stellen Sie sicher, dass der angegebene Wert nicht dazu führt, dass sich die Zelle oder gridcell mit der nächsten Zelle oder gridcell derselben Zeile überschneidet oder über die umgebende Tabelle, das grid oder das treegrid hinaus erstreckt.
+
+## Werte
+
+- `<integer>`
+  - : Eine Ganzzahl, die mindestens dem Standardwert 1 entspricht und die Anzahl der Spalten definiert, über die sich die Zelle erstreckt. Der Wert muss so klein sein, dass sich die Zelle nicht mit der nächsten Zelle derselben Zeile überschneidet.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan)
+  - : Die Eigenschaft [`ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan), die zur Schnittstelle jedes Elements gehört, spiegelt den Wert des Attributs `aria-colspan` wider. Dieses definiert die Anzahl der Spalten, über die sich eine Zelle oder gridcell innerhalb einer Tabelle, eines grid oder eines treegrid erstreckt.
+
+## Zugehörige Rollen
+
+Verwendet in der Rolle:
+
+- [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
+
+Wird an folgende Rollen vererbt:
+
+- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
 
 ## Beispiel
 
-Das folgende Beispiel ist ein Teil einer Punkte-Tabelle einer Bowling-Turnierliga. Jedes Spiel umfasst 10 Frames, und jedes Frame erstreckt sich über 3 Punktzahlen: zwei Würfe und das aktuelle Gesamtergebnis. Das 10. (und letzte) Frame in jedem Spiel umfasst 4 Spalten, falls jemand nur Strikes erzielt.
+Das folgende Beispiel zeigt einen Ausschnitt aus einer Ergebnistabelle einer Bowling-Turnierliga. Jedes Spiel umfasst 10 Frames, und jeder Frame umfasst drei Wertungsfelder: zwei Würfe und die aktuelle Gesamtpunktzahl. Der zehnte und letzte Frame jedes Spiels erstreckt sich über vier Spalten, falls jemand ausschließlich Strikes erzielt.
 
 ```html
 <div role="grid" aria-rowcount="27">
@@ -134,28 +155,7 @@ Das folgende Beispiel ist ein Teil einer Punkte-Tabelle einer Bowling-Turnierlig
 </div>
 ```
 
-Hätten wir eine {{HTMLElement('table')}} und semantische Tabellen-Elemente verwendet, wäre unser Markup weniger ausführlich und von vornherein zugänglich gewesen.
-
-## Werte
-
-- `<integer>`
-  - : Eine Ganzzahl, die größer oder gleich dem Standardwert von 1 ist und die Anzahl der von der Zelle überspannten Spalten definiert. Der Wert muss kleiner sein, als dass er dazu führen würde, dass eine Zelle mit der nächsten Zelle in derselben Zeile überlappt.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan)
-  - : Die [`ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan)-Eigenschaft, Teil der Schnittstelle jedes Elements, spiegelt den Wert des `aria-colspan`-Attributs wider, welches die Anzahl der von einer Zelle oder gridcell in einer Tabelle, Grid oder Treegrid überspannten Spalten definiert.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
-
-Erbt in Rollen:
-
-- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
-- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+Wenn wir eine {{HTMLElement('table')}} und semantische Tabellenelemente verwendet hätten, wäre unser Markup weniger umfangreich und standardmäßig zugänglich gewesen.
 
 ## Spezifikationen
 
@@ -163,9 +163,9 @@ Erbt in Rollen:
 
 ## Siehe auch
 
-- Das {{HTMLElement('th')}} und {{HTMLElement('td')}} [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#attributes)-Attribut
-- [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)-Eigenschaft
-- [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)-Eigenschaft
-- [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)-Rolle
-- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)-Rolle
-- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)-Rolle
+- Das Attribut [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#attributes) der Elemente {{HTMLElement('th')}} und {{HTMLElement('td')}}
+- Die Eigenschaft [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)
+- Die Eigenschaft [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)
+- Die Rolle [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
+- Die Rolle [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- Die Rolle [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)

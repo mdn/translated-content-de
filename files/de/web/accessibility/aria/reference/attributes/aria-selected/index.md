@@ -1,50 +1,81 @@
 ---
-title: "ARIA: aria-selected Attribut"
+title: "ARIA: aria-selected-Attribut"
 short-title: aria-selected
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-selected
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-selected` Attribut zeigt den aktuellen "ausgewählten" Zustand verschiedener Widgets an.
+Das Attribut `aria-selected` gibt den aktuellen Auswahlzustand verschiedener Widgets an.
 
 ## Beschreibung
 
-Das `aria-selected` Attribut zeigt den aktuellen "ausgewählten" Zustand für die Rollen [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) und [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) an.
+Das Attribut `aria-selected` gibt den aktuellen Auswahlzustand für die Rollen [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) und [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) an.
 
-Dieses Attribut wird verwendet, um anzuzeigen, welche Elemente innerhalb von Einzel- und Mehrfachauswahl-Widgets ausgewählt sind. Wenn mehr als ein Element gleichzeitig auswählbar ist, fügen Sie `aria-multiselectable="true"` auf dem Grid, der Listbox, der Tablist oder einer anderen übergeordneten Rolle hinzu, während `aria-selected` nur auf den auswählbaren Zellen, Optionen und Tabs enthalten sein sollte.
+Mit diesem Attribut wird angegeben, welche Elemente innerhalb zusammengesetzter Widgets mit Einfach- oder Mehrfachauswahl ausgewählt sind. Wenn mehrere Elemente gleichzeitig ausgewählt werden können, setzen Sie `aria-multiselectable="true"` auf der Grid, Listbox, Tablist oder einer anderen übergeordneten Rolle. Setzen Sie `aria-selected` nur auf auswählbaren Zellen, Optionen und Tabs.
 
-Für andere Rollen wird der aktuell ausgewählte Zustand mit [`aria-current`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current) oder möglicherweise [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) oder [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) festgelegt, abhängig von der Rolle.
+Für andere Rollen wird der aktuelle Zustand mit [`aria-current`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current) oder, abhängig von der Rolle, möglicherweise mit [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) oder [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) angegeben.
 
-Widgets, die sowohl `aria-selected` als auch `aria-current` gleichzeitig unterstützen, haben unterschiedliche Bedeutungen für jedes. Zum Beispiel kann `aria-current="page"` in einem Navigationsbaum verwendet werden, um anzuzeigen, welche Seite derzeit angezeigt wird, während `aria-selected="true"` anzeigt, welche Seite angezeigt wird, wenn der Benutzer das `treeitem` aktiviert.
+Bei Widgets, die sowohl `aria-selected` als auch `aria-current` unterstützen, haben die beiden Attribute unterschiedliche Bedeutungen. Beispielsweise kann `aria-current="page"` in einer Navigationsstruktur angeben, welche Seite gerade angezeigt wird, während `aria-selected="true"` angibt, welche Seite angezeigt wird, wenn der Benutzer das `treeitem` aktiviert.
 
 ### Grid
 
-Das Setzen von `aria-selected="false"` auf einer fokussierbaren `gridcell` zeigt an, dass die Zelle auswählbar ist. Wenn das Grid mehr als eine `gridcell` gleichzeitig auswählen lässt, setzen Sie `aria-multiselectable="true"` auf das Element mit der Rolle [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role). Das Setzen von `aria-selected` auf einer Spalten- oder Zeilenkopfzelle propagiert den Zustand nicht auf andere Zellen in der Spalte oder Zeile.
+Wenn `aria-selected="false"` auf einer fokussierbaren Gridcell gesetzt ist, bedeutet dies, dass die Zelle ausgewählt werden kann. Wenn die Grid die gleichzeitige Auswahl mehrerer Gridcells erlaubt, setzen Sie `aria-multiselectable="true"` auf dem Element mit der Rolle [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role). Wird `aria-selected` auf einer Gridcell gesetzt, die als Spalten- oder Zeilenüberschrift dient, wird der Zustand nicht auf andere Zellen der Spalte oder Zeile übertragen.
 
 ### Option
 
-Sowohl `aria-selected` als auch `aria-checked` sind für [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role) gültig. Einige Benutzeroberflächen zeigen die Auswahl mit `aria-selected` in Einzel-Auswahl-Listboxen und mit `aria-checked` in Mehrfach-Auswahl-Listboxen an.
+Sowohl `aria-selected` als auch `aria-checked` sind für [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role) gültig. Manche Benutzeroberflächen kennzeichnen die Auswahl in Listboxen mit Einfachauswahl durch `aria-selected` und in Listboxen mit Mehrfachauswahl durch `aria-checked`.
 
-Geben Sie nicht sowohl `aria-selected` als auch `aria-checked` auf `option` Elementen an, die von derselben `listbox` enthalten sind, es sei denn, die Bedeutung und der Zweck von `aria-selected` unterscheiden sich von der Bedeutung und dem Zweck von `aria-checked` in der Benutzeroberfläche, die Bedeutung und der Zweck jedes Zustands ist offensichtlich, und die Benutzeroberfläche bietet separate Methoden zur Steuerung jedes Zustands an.
+Geben Sie auf `option`-Elementen innerhalb derselben `listbox` nicht sowohl `aria-selected` als auch `aria-checked` an, es sei denn, die beiden Zustände haben in der Benutzeroberfläche unterschiedliche Bedeutungen und Zwecke, diese sind jeweils erkennbar und die Benutzeroberfläche bietet separate Möglichkeiten, die Zustände zu ändern.
 
-### Zeile
+### Row
 
-Das `aria-selected` Attribut wird auf `row` unterstützt, aber nicht auf `column`. Wenn ein Grid die Auswahl unterstützt, hat das ausgewählte Element `aria-selected="true"` gesetzt, wenn eine Zelle oder Zeile ausgewählt ist.
+Das Attribut `aria-selected` wird für `row`, aber nicht für `column` unterstützt. Wenn eine Grid die Auswahl unterstützt und eine Zelle oder Zeile ausgewählt ist, hat das ausgewählte Element den Wert `aria-selected="true"`.
 
-Wenn das Grid Spaltenauswahl unterstützt und eine Spalte ausgewählt ist, haben alle Zellen in der Spalte `aria-selected` auf `true`.
+Wenn die Grid die Auswahl von Spalten unterstützt und eine Spalte ausgewählt ist, ist `aria-selected` für alle Zellen der Spalte auf `true` gesetzt.
 
 ### Tab
 
-In einer Tablist wird `aria-selected` auf einem Tab verwendet, um das aktuell angezeigte [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role) anzuzeigen.
+In einer Tablist wird `aria-selected` auf einem Tab verwendet, um das aktuell angezeigte [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role) anzugeben.
 
-Der ausgewählte [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) in einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role) sollte das Attribut `aria-selected="true"` gesetzt haben. Alle inaktiven Tabs in der Tablist sollten `aria-selected="false"` gesetzt haben. Das Setzen des Zustands wirkt sich nur auf den Barrierefreiheit-Baum aus: Stellen Sie sicher, dass der aktive Tab so gestaltet ist, dass er visuell seinen ausgewählten Zustand anzeigt. Der Standardwert für `aria-selected` auf einer `tab` Rolle ist `false`.
+Der ausgewählte [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) in einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role) sollte das Attribut `aria-selected="true"` haben. Alle inaktiven Tabs in der Tablist sollten `aria-selected="false"` haben. Das Setzen dieses Zustands wirkt sich nur auf den Barrierefreiheitsbaum aus: Gestalten Sie den aktiven Tab auch visuell so, dass sein Auswahlzustand erkennbar ist. Der Standardwert von `aria-selected` für die Rolle `tab` ist `false`.
 
-Wenn mehr als ein Tab gleichzeitig auswählbar ist, fügen Sie `aria-multiselectable` auf der `tablist` hinzu.
+Wenn mehrere Tabs gleichzeitig ausgewählt werden können, setzen Sie `aria-multiselectable` auf der `tablist`.
+
+## Werte
+
+- `true`
+  - : Das auswählbare Element ist ausgewählt.
+- `false`
+  - : Das auswählbare Element ist nicht ausgewählt. Impliziter Standardwert für [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role).
+- `undefined` (Standardwert)
+  - : Das Element ist nicht auswählbar.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaSelected`](/de/docs/Web/API/Element/ariaSelected)
+  - : Die Eigenschaft [`ariaSelected`](/de/docs/Web/API/Element/ariaSelected) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-selected` wider.
+- [`ElementInternals.ariaSelected`](/de/docs/Web/API/ElementInternals/ariaSelected)
+  - : Die Eigenschaft [`ariaSelected`](/de/docs/Web/API/ElementInternals/ariaSelected) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-selected` wider.
+
+## Zugehörige Rollen
+
+Verwendet in den Rollen:
+
+- [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
+- [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
+- [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
+- [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
+
+An folgende Rollen vererbt:
+
+- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role)
+- [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role)
 
 ## Beispiele
 
-In diesem Tablist-Beispiel ist der erste Tab ausgewählt:
+In diesem `tablist`-Beispiel ist der erste `tab` ausgewählt:
 
 ```html
 <div class="tab-interface">
@@ -87,38 +118,7 @@ In diesem Tablist-Beispiel ist der erste Tab ausgewählt:
 ```
 
 > [!NOTE]
-> ARIA ändert nur den Barrierefreiheit-Baum eines Elements und wie unterstützende Technologien den Inhalt für Benutzer darstellen. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements.
-
-## Werte
-
-- `true`
-  - : Das auswählbare Element ist ausgewählt.
-- `false`
-  - : Das auswählbare Element ist nicht ausgewählt. Impliziter Standard für [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role).
-- `undefined` (Standard)
-  - : Das Element ist nicht auswählbar.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaSelected`](/de/docs/Web/API/Element/ariaSelected)
-  - : Die [`ariaSelected`](/de/docs/Web/API/Element/ariaSelected) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-selected` Attributs wider.
-- [`ElementInternals.ariaSelected`](/de/docs/Web/API/ElementInternals/ariaSelected)
-  - : Die [`ariaSelected`](/de/docs/Web/API/ElementInternals/ariaSelected) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-selected` Attributs wider.
-
-## Zugehörige Rollen
-
-Verwendet in Rollen:
-
-- [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
-- [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
-- [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
-- [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
-
-Vererbt in Rollen:
-
-- [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
-- [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role)
-- [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role)
+> ARIA verändert nur den Barrierefreiheitsbaum eines Elements und die Art, wie unterstützende Technologien den Inhalt Benutzern präsentieren. ARIA ändert weder die Funktion noch das Verhalten eines Elements.
 
 ## Spezifikationen
 

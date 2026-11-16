@@ -1,41 +1,57 @@
 ---
-title: "ARIA: aria-roledescription Attribut"
+title: "ARIA: aria-roledescription-Attribut"
 short-title: aria-roledescription
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: d9e522ed63f204df4b9ab3ed6c8208ce089fa868
 ---
 
-Das `aria-roledescription` Attribut definiert eine für Menschen lesbare, vom Autor lokalisierte Beschreibung für die Rolle eines Elements.
+Das Attribut `aria-roledescription` definiert eine menschenlesbare, vom Autor lokalisierte Beschreibung für die Rolle eines Elements.
 
 ## Beschreibung
 
-Einige unterstützende Technologien (<abbr>AT</abbr>), wie Bildschirmlesegeräte, präsentieren die Rolle eines Elements als Teil der Benutzererfahrung. Das `aria-roledescription` Attribut bietet eine Möglichkeit, einen anderen für Menschen lesbaren Namen zu definieren, der von AT als Rolle eines Elements dargestellt wird.
+Einige assistive Technologien (<abbr>AT</abbr>), etwa Screenreader, geben die Rolle eines Elements als Teil der Benutzererfahrung aus. Mit dem Attribut `aria-roledescription` lässt sich ein anderer menschenlesbarer Name festlegen, den AT als Rolle des Elements ausgeben.
 
 > [!NOTE]
-> Verwenden Sie aria-roledescription nur, um den Zweck von nicht interaktiven Containerrollen zu klären und um eine spezifischere Beschreibung für ein Widget bereitzustellen.
+> Verwenden Sie `aria-roledescription` nur, um den Zweck nicht interaktiver Containerrollen zu verdeutlichen oder ein Widget genauer zu beschreiben.
 
-Benutzer verlassen sich darauf, dass der Name der ihnen bekannten Rolle präsentiert wird, um den Zweck des Elements zu verstehen und, falls es sich um ein Widget handelt, wie sie damit interagieren können. Verwenden Sie daher `aria-roledescription` nur, um den Zweck von nicht interaktiven Containerrollen wie `group` oder `region` zu klären und eine spezifischere Beschreibung für ein Widget bereitzustellen.
+Nutzer sind darauf angewiesen, dass bekannte Rollennamen ausgegeben werden, damit sie den Zweck eines Elements verstehen und – falls es sich um ein Widget handelt – wissen, wie sie damit interagieren können. Verwenden Sie `aria-roledescription` daher nur, um den Zweck nicht interaktiver Containerrollen wie `group` oder `region` zu verdeutlichen oder ein Widget genauer zu beschreiben.
 
-Die `aria-roledescription` Eigenschaft überschreibt, wie ATs den Namen einer Rolle lokalisieren und ausdrücken. Wenn Sie einen Rollennamen überschreiben, den der Benutzer versteht, können Sie möglicherweise die Fähigkeit des Benutzers beeinträchtigen, ein Element zu verstehen und damit zu interagieren.
+Die Eigenschaft `aria-roledescription` überschreibt, wie AT den Namen einer Rolle lokalisieren und ausgeben. Wenn Sie einen Rollennamen überschreiben, den Nutzer kennen, kann dies ihre Fähigkeit beeinträchtigen, ein Element zu verstehen und damit zu interagieren.
 
-Vermeiden Sie die Verwendung des `aria-roledescription` Attributs. Wenn ein Anwendungsfall besonders erscheint, der eine einzigartige Rollenbeschreibung verdient, können die Interaktionen oft in kleinere Teile zerlegt werden, die relevante Rollen haben.
+Vermeiden Sie die Verwendung des Attributs `aria-roledescription`. Selbst wenn ein Anwendungsfall ungewöhnlich erscheint und eine eigene Rollenbeschreibung naheliegt, lässt sich die Interaktion häufig in kleinere Teile mit passenden Rollen aufgliedern.
 
-Wenn es keine semantischen oder ARIA-Widget-Rollen gibt, die dem Interaktionsmodell Ihres Widgets entsprechen, verwenden Sie `role="application"`, stellen Sie eine `aria-roledescription` mit einem für Menschen lesbaren, vom Autor lokalisierten Rollennamen bereit und verwenden Sie `aria-describedby`, um Benutzern Anweisungen zu geben.
+Wenn keine semantischen Rollen oder ARIA-Widget-Rollen zum Interaktionsmodell Ihres Widgets passen, verwenden Sie `role="application"`. Geben Sie mit `aria-roledescription` einen menschenlesbaren, vom Autor lokalisierten Rollennamen und mit `aria-describedby` Anweisungen für Nutzer an.
 
-ATs können die Namen von ARIA-Rollen anpassen und lokalisieren. Wenn Sie `aria-roledescription` verwenden, um zu ändern, wie der Rollename dem Benutzer präsentiert wird, achten Sie darauf, die Lokalisierung zu handhaben. Der Wert sollte übersetzt werden, wenn eine Seite lokalisiert wird.
+AT können die Namen von ARIA-Rollen anpassen und lokalisieren. Wenn Sie mit `aria-roledescription` ändern, wie ein Rollenname Nutzern ausgegeben wird, denken Sie an die Lokalisierung. Der Wert sollte übersetzt werden, wenn eine Seite lokalisiert wird.
 
-Das Ändern der Art und Weise, wie die Rolle dem Benutzer präsentiert wird, hat keine Auswirkungen auf die Funktionalität des Elements. Wenn ein Element beispielsweise die Rolle [`region`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role) oder [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) hat und AT Funktionen für die Navigation zur nächsten Region oder Schaltfläche bereitstellt, wird, wenn Sie `aria-roledescription` auf `continent` bzw. `escape` setzen, das AT weiterhin diese Funktionen zur Navigation zu Regionen und Schaltflächen ermöglichen.
+Eine Änderung der ausgegebenen Rollenbezeichnung hat keinen Einfluss auf die Funktionalität des Elements. Hat ein Element beispielsweise die Rolle [`region`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role) oder [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role), kann AT Funktionen zum Navigieren zur nächsten Region oder Schaltfläche bereitstellen. Wenn Sie `aria-roledescription` auf `continent` beziehungsweise `escape` setzen, kann AT mit diesen Funktionen weiterhin zu Regionen und Schaltflächen navigieren.
 
-Vermeiden Sie erneut die Verwendung von `aria-roledescription`. In diesem Beispiel hat `escape` keine relevante Bedeutung für den Benutzer, aber `button` mit "escape" als Beschriftung schon.
+Noch einmal: Vermeiden Sie die Verwendung von `aria-roledescription`. In diesem Beispiel hat `escape` als Rollenbeschreibung für Nutzer keine erkennbare Bedeutung. Als Beschriftung eines `button` ist „escape“ dagegen verständlich.
 
-Wenn Sie `aria-roledescription` verwenden, stellen Sie auch sicher, dass das Element, auf das es angewendet wird, eine gültige ARIA [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) hat oder implizite Rollensemantik besitzt und dass der Wert selbst nicht leer ist und aus mehr als nur Leerzeichen besteht.
+Wenn Sie `aria-roledescription` verwenden, stellen Sie außerdem sicher, dass das Element eine gültige ARIA-[`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) oder eine implizite Rollensemantik hat. Der Wert darf nicht leer sein und muss mehr als nur Leerraumzeichen enthalten.
 
-Das `aria-roledescription` ist erforderlich, wenn `aria-brailleroledescription` verwendet wird. Beachten Sie, dass `aria-brailleroledescription` im Allgemeinen nur in seltenen Fällen verwendet werden sollte, wenn eine `aria-roledescription` in Braille übermäßig ausführlich ist.
+`aria-roledescription` ist erforderlich, wenn `aria-brailleroledescription` verwendet wird. Beachten Sie, dass `aria-brailleroledescription` im Allgemeinen nur in seltenen Fällen verwendet werden sollte, wenn eine `aria-roledescription` bei der Braille-Ausgabe übermäßig lang ist.
+
+## Werte
+
+- `<string>`
+  - : Eine nicht leere Zeichenfolge ohne weitere Einschränkungen, die mehr als nur Leerraumzeichen enthält.
+
+## Zugehörige Schnittstellen
+
+- [`Element.ariaRoleDescription`](/de/docs/Web/API/Element/ariaRoleDescription)
+  - : Die Eigenschaft [`ariaRoleDescription`](/de/docs/Web/API/Element/ariaRoleDescription) der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs `aria-roledescription` wider.
+- [`ElementInternals.ariaRoleDescription`](/de/docs/Web/API/ElementInternals/ariaRoleDescription)
+  - : Die Eigenschaft [`ariaRoleDescription`](/de/docs/Web/API/ElementInternals/ariaRoleDescription) der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs `aria-roledescription` wider.
+
+## Zugehörige Rollen
+
+Wird von allen Rollen und allen grundlegenden Markup-Elementen unterstützt, mit Ausnahme von `role="generic"`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung von `aria-roledescription`, um anzuzeigen, dass ein nicht interaktiver Container eine "Folie" in einer webbasierten Präsentationsanwendung ist.
+Das folgende Beispiel zeigt, wie `aria-roledescription` verwendet wird, um einen nicht interaktiven Container in einer webbasierten Präsentationsanwendung als „Folie“ zu kennzeichnen.
 
 ```html
 <div
@@ -48,23 +64,7 @@ Das folgende Beispiel zeigt die Verwendung von `aria-roledescription`, um anzuze
 </div>
 ```
 
-In den vorherigen Beispielen kann ein Bildschirmleser-Nutzer "Quarterly Report, slide" hören, anstatt das weniger präzise "Quarterly Report, article".
-
-## Werte
-
-- `<string>`
-  - : Eine nicht leere Zeichenfolge, ein unbeschränkter Wertetyp, der mehr als nur Leerzeichen enthält.
-
-## Zugehörige Schnittstellen
-
-- [`Element.ariaRoleDescription`](/de/docs/Web/API/Element/ariaRoleDescription)
-  - : Die [`ariaRoleDescription`](/de/docs/Web/API/Element/ariaRoleDescription) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-roledescription` Attributs wider.
-- [`ElementInternals.ariaRoleDescription`](/de/docs/Web/API/ElementInternals/ariaRoleDescription)
-  - : Die [`ariaRoleDescription`](/de/docs/Web/API/ElementInternals/ariaRoleDescription) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-roledescription` Attributs wider.
-
-## Zugehörige Rollen
-
-Unterstützt von allen Rollen und allen Standard-Markup-Elementen außer `role="generic"`.
+Im vorherigen Beispiel hört eine Person, die einen Screenreader verwendet, möglicherweise „Quarterly Report, slide“ statt des weniger präzisen „Quarterly Report, article“.
 
 ## Spezifikationen
 
