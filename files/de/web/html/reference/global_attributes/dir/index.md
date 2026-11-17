@@ -102,9 +102,7 @@ Dieses Beispiel legt die grundlegende Richtung von zwei Absätzen explizit fest.
 
 ```html
 <p dir="ltr" lang="en">This sentence is in English and reads left to right.</p>
-<p dir="rtl" lang="ar">
-  هذه الجملة باللغة العربية وتُقرأ من اليمين إلى اليسار.
-</p>
+<p dir="rtl" lang="ar">هذه الجملة باللغة العربية وتُقرأ من اليمين إلى اليسار.</p>
 ```
 
 ### Inline-Text mit bidirektionaler Schreibrichtung
