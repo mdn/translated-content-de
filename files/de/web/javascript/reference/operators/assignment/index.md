@@ -1,11 +1,11 @@
 ---
-title: Zuweisungsoperator (=)
+title: Zuweisung (=)
 slug: Web/JavaScript/Reference/Operators/Assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
 ---
 
-Der **Zuweisungsoperator (`=`)** wird verwendet, um einer Variablen oder Eigenschaft einen Wert zuzuweisen. Der Zuweisungsausdruck selbst hat einen Wert, nämlich den zugewiesenen Wert. Dies ermöglicht es, mehrere Zuweisungen zu verketten, um einen einzelnen Wert mehreren Variablen zuzuweisen.
+Der **Zuweisungsoperator (`=`)** wird verwendet, um einer Variablen oder Eigenschaft einen Wert zuzuweisen. Der Zuweisungsausdruck selbst hat ebenfalls einen Wert: den zugewiesenen Wert. Dadurch lassen sich mehrere Zuweisungen verketten, um mehreren Variablen denselben Wert zuzuweisen.
 
 {{InteractiveExample("JavaScript Demo: Assignment (=) operator")}}
 
@@ -32,9 +32,9 @@ x = y
 ### Parameter
 
 - `x`
-  - : Ein gültiges Zuweisungsziel, einschließlich eines [Identifiers](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder eines [Property-Accessors](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Es kann auch ein [Destructuring-Muster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
+  - : Ein gültiges Zuweisungsziel, einschließlich eines [Bezeichners](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder eines [Eigenschaftszugriffs](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Es kann auch ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
 - `y`
-  - : Ein Ausdruck, der den Wert spezifiziert, der `x` zugewiesen werden soll.
+  - : Ein Ausdruck, der den Wert angibt, der `x` zugewiesen werden soll.
 
 ### Rückgabewert
 
@@ -43,32 +43,32 @@ Der Wert von `y`.
 ### Ausnahmen
 
 - {{jsxref("ReferenceError")}}
-  - : Wird im Strict-Mode ausgelöst, wenn einem Identifier, der nicht im Geltungsbereich deklariert ist, ein Wert zugewiesen wird.
+  - : Wird im strikten Modus ausgelöst, wenn einem Bezeichner ein Wert zugewiesen wird, der im Gültigkeitsbereich nicht deklariert ist.
 - {{jsxref("TypeError")}}
-  - : Wird im Strict-Mode ausgelöst, wenn einer [Eigenschaft, die nicht modifizierbar ist](/de/docs/Web/JavaScript/Reference/Strict_mode#failing_to_assign_to_object_properties), ein Wert zugewiesen wird.
+  - : Wird im strikten Modus ausgelöst, wenn einer [Eigenschaft, die nicht verändert werden kann](/de/docs/Web/JavaScript/Reference/Strict_mode#failing_to_assign_to_object_properties), ein Wert zugewiesen wird.
 
 ## Beschreibung
 
-Der Zuweisungsoperator unterscheidet sich völlig vom Gleichheitszeichen (`=`), das an anderen Stellen als syntaktische Trennung verwendet wird, einschließlich:
+Der Zuweisungsoperator unterscheidet sich grundlegend vom Gleichheitszeichen (`=`), das an anderen Stellen als syntaktisches Trennzeichen verwendet wird. Dazu gehören:
 
-- Initialisierer von [`var`](/de/docs/Web/JavaScript/Reference/Statements/var), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), und [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)-Deklarationen
-- Standardwerte bei [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#default_value)
+- Initialisierungen bei Deklarationen mit [`var`](/de/docs/Web/JavaScript/Reference/Statements/var), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) und [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)
+- Standardwerte bei der [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#default_value)
 - [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)
-- Initialisierer von [Klassenfeldern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
+- Initialisierungen von [Klassenfeldern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields)
 
-All diese Stellen akzeptieren einen Zuweisungsausdruck auf der rechten Seite des `=`, daher gilt bei mehreren verketteten Gleichheitszeichen:
+An all diesen Stellen kann rechts vom `=` ein Zuweisungsausdruck stehen. Wenn Sie also mehrere Gleichheitszeichen verketten:
 
 ```js-nolint
 const x = y = 5;
 ```
 
-Dies ist gleichbedeutend mit:
+entspricht dies:
 
 ```js
 const x = (y = 5);
 ```
 
-Das bedeutet, `y` muss eine bereits existierende Variable sein, und `x` ist eine neu deklarierte `const`-Variable. `y` wird der Wert `5` zugewiesen, und `x` wird mit dem Wert des `y = 5`-Ausdrucks initialisiert, der ebenfalls `5` ist. Wenn `y` keine bereits existierende Variable ist, wird eine globale Variable `y` im [Nicht-Striktmodus](/de/docs/Web/JavaScript/Reference/Strict_mode) implizit erstellt, oder ein {{jsxref("ReferenceError")}} wird im Striktmodus ausgelöst. Um zwei Variablen innerhalb derselben Deklaration zu erklären, verwenden Sie:
+Das bedeutet, dass `y` eine bereits vorhandene Variable sein muss und `x` eine neu deklarierte `const`-Variable ist. `y` wird der Wert `5` zugewiesen, und `x` wird mit dem Wert des Ausdrucks `y = 5` initialisiert, der ebenfalls `5` ist. Wenn `y` keine bereits vorhandene Variable ist, wird im [nicht-strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) implizit eine globale Variable `y` erstellt; im strikten Modus wird dagegen eine {{jsxref("ReferenceError")}} ausgelöst. Um zwei Variablen in derselben Deklaration zu deklarieren, verwenden Sie:
 
 ```js
 const x = 5,
@@ -77,7 +77,7 @@ const x = 5,
 
 ## Beispiele
 
-### Grundlegende Zuweisung und Verkettung
+### Einfache Zuweisung und Verkettung
 
 ```js
 let x = 5;
@@ -90,7 +90,7 @@ x = y = z; // x, y and z are all 25
 
 ### Wert von Zuweisungsausdrücken
 
-Der Zuweisungsausdruck selbst wird zu dem Wert auf der rechten Seite ausgewertet, sodass Sie den Wert gleichzeitig protokollieren und einer Variablen zuweisen können.
+Ein Zuweisungsausdruck ergibt den Wert seiner rechten Seite. Sie können den Wert daher gleichzeitig ausgeben und einer Variablen zuweisen.
 
 ```js-nolint
 let x;
@@ -99,11 +99,11 @@ console.log(x = 2); // 2
 console.log(x); // 2
 ```
 
-### Zuweisung eines nicht qualifizierten Identifiers
+### Zuweisung an einen nicht qualifizierten Bezeichner
 
-Das globale Objekt steht an der Spitze der Geltungsbereichskette. Beim Versuch, einen Namen in einen Wert aufzulösen, wird die Geltungsbereichskette durchsucht. Dies bedeutet, dass Eigenschaften am globalen Objekt von jedem Bereich aus bequem sichtbar sind, ohne dass die Namen mit `globalThis.` oder `window.` oder `global.` qualifiziert werden müssen.
+Das globale Objekt steht an der Spitze der Gültigkeitsbereichskette. Wenn ein Name zu einem Wert aufgelöst werden soll, wird diese Kette durchsucht. Dadurch sind Eigenschaften des globalen Objekts bequem aus jedem Gültigkeitsbereich zugänglich, ohne dass Sie den Namen mit `globalThis.`, `window.` oder `global.` qualifizieren müssen.
 
-Da das globale Objekt eine `String`-Eigenschaft hat (`Object.hasOwn(globalThis, "String")`), können Sie den folgenden Code verwenden:
+Da das globale Objekt eine `String`-Eigenschaft besitzt (`Object.hasOwn(globalThis, "String")`), können Sie den folgenden Code verwenden:
 
 ```js
 function foo() {
@@ -111,20 +111,20 @@ function foo() {
 }
 ```
 
-Das globale Objekt wird letztendlich nach nicht qualifizierten Identifiers durchsucht. Sie müssen nicht `globalThis.String` tippen; Sie können einfach das unqualifizierte `String` verwenden. Um diese Funktion konzeptionell konsistenter zu gestalten, geht die Zuweisung an nicht qualifizierte Identifiers davon aus, dass Sie eine Eigenschaft mit diesem Namen am globalen Objekt erstellen möchten (mit ausgelassenem `globalThis.`), wenn es keine Variable mit demselben Namen in der Geltungsbereichskette gibt.
+Bei der Suche nach nicht qualifizierten Bezeichnern wird also letztlich auch das globale Objekt durchsucht. Sie müssen nicht `globalThis.String` schreiben; der nicht qualifizierte Bezeichner `String` genügt. Damit dieses Verhalten konzeptionell konsistenter ist, wird bei einer Zuweisung an einen nicht qualifizierten Bezeichner angenommen, dass Sie auf dem globalen Objekt eine Eigenschaft mit diesem Namen erstellen möchten (wobei `globalThis.` weggelassen wird), sofern in der Gültigkeitsbereichskette keine gleichnamige Variable deklariert ist.
 
 ```js
 foo = "f"; // In non-strict mode, assumes you want to create a property named `foo` on the global object
 Object.hasOwn(globalThis, "foo"); // true
 ```
 
-Im [Striktmodus](/de/docs/Web/JavaScript/Reference/Strict_mode#assigning_to_undeclared_variables) führt die Zuweisung an einen nicht qualifizierten Identifier im Striktmodus zu einem `ReferenceError`, um die versehentliche Erstellung von Eigenschaften im globalen Objekt zu vermeiden.
+Im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#assigning_to_undeclared_variables) führt die Zuweisung an einen nicht deklarierten Bezeichner zu einer `ReferenceError`. So wird verhindert, dass versehentlich Eigenschaften auf dem globalen Objekt erstellt werden.
 
-Es ist zu beachten, dass die obige Implikation bedeutet, dass JavaScript entgegen der weit verbreiteten Fehlinformation keine impliziten oder nicht deklarierten Variablen hat. Es verwechselt lediglich das globale Objekt mit dem globalen Geltungsbereich und erlaubt es, den Qualifizierer des globalen Objekts bei der Erstellung von Eigenschaften auszulassen.
+Beachten Sie: Entgegen einer weitverbreiteten Fehlinformation gibt es in JavaScript keine impliziten oder nicht deklarierten Variablen. JavaScript setzt lediglich das globale Objekt mit dem globalen Gültigkeitsbereich gleich und erlaubt es, beim Erstellen von Eigenschaften die Qualifizierung durch das globale Objekt wegzulassen.
 
-### Zuweisung mit Destructuring
+### Zuweisung mit Destrukturierung
 
-Die linke Seite kann auch ein Zuweisungsmuster sein. Dies ermöglicht es, mehreren Variablen gleichzeitig Werte zuzuweisen.
+Die linke Seite kann auch ein Zuweisungsmuster sein. Dadurch können Sie mehreren Variablen gleichzeitig Werte zuweisen.
 
 ```js
 const result = /(a+)(b+)(c+)/.exec("aaabcc");
@@ -135,7 +135,7 @@ let a = "",
 console.log(a, b, c); // "aaa" "b" "cc"
 ```
 
-Für weitere Informationen siehe [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
+Weitere Informationen finden Sie unter [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
 
 ## Spezifikationen
 
@@ -148,4 +148,4 @@ Für weitere Informationen siehe [Destructuring](/de/docs/Web/JavaScript/Referen
 ## Siehe auch
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring)
+- [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring)

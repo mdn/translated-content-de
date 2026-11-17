@@ -2,10 +2,10 @@
 title: debugger
 slug: Web/JavaScript/Reference/Statements/debugger
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 439a8c053d3b2d4f3af60c06f567418eb8fc2f9a
 ---
 
-Die **`debugger`** Anweisung aktiviert jegliche verfügbare Debugging-Funktionalität, wie zum Beispiel das Setzen eines Haltepunktes. Wenn keine Debugging-Funktionalität verfügbar ist, hat diese Anweisung keine Wirkung.
+Die **`debugger`**-Anweisung ruft eine verfügbare Debugging-Funktion auf, beispielsweise indem sie einen Haltepunkt setzt. Wenn keine Debugging-Funktion verfügbar ist, hat diese Anweisung keine Wirkung.
 
 ## Syntax
 
@@ -15,9 +15,9 @@ debugger;
 
 ## Beispiele
 
-### Verwendung der debugger-Anweisung
+### Die debugger-Anweisung verwenden
 
-Das folgende Beispiel zeigt Code, in dem eine `debugger`-Anweisung eingefügt wurde, um einen Debugger (falls vorhanden) aufzurufen, wenn die Funktion aufgerufen wird.
+Das folgende Beispiel zeigt Code, in den eine `debugger`-Anweisung eingefügt wurde. Sie ruft beim Aufruf der Funktion einen Debugger auf, sofern einer verfügbar ist.
 
 ```js
 function potentiallyBuggyCode() {
@@ -26,9 +26,9 @@ function potentiallyBuggyCode() {
 }
 ```
 
-Wenn der Debugger aktiviert wird, wird die Ausführung an der `debugger`-Anweisung angehalten. Es ist wie ein Haltepunkt im Skript-Quellcode.
+Wenn der Debugger aufgerufen wird, hält die Ausführung an der `debugger`-Anweisung an. Das entspricht einem Haltepunkt im Quellcode des Skripts.
 
-![Ein Browser mit geöffneten Entwicklerwerkzeugen im Debugger-Panel zeigt, wie die Ausführung an der debugger-Anweisung angehalten wird, um eine genaue Untersuchung von Variablen, Bereichen, Ereignissen usw. zu ermöglichen.](screen_shot_2014-02-07_at_9.14.35_am.png)
+![Ein Browser mit geöffneten Entwicklertools im Debugger-Bereich. Die Ausführung ist an der debugger-Anweisung angehalten, sodass Variablen, Gültigkeitsbereiche, Ereignisse und mehr genau untersucht werden können.](screen_shot_2014-02-07_at_9.14.35_am.png)
 
 ## Spezifikationen
 
@@ -40,4 +40,4 @@ Wenn der Debugger aktiviert wird, wird die Ausführung an der `debugger`-Anweisu
 
 ## Siehe auch
 
-- [Der Firefox JavaScript Debugger¶](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html) in den Firefox-Quellcode-Dokumentationen
+- [Der Firefox JavaScript Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html) in der Firefox-Quelldokumentation

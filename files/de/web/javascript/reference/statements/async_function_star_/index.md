@@ -2,12 +2,12 @@
 title: async function*
 slug: Web/JavaScript/Reference/Statements/async_function*
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 439a8c053d3b2d4f3af60c06f567418eb8fc2f9a
 ---
 
-Die Deklaration **`async function*`** erstellt eine {{Glossary("binding", "Bindung")}} einer neuen asynchronen Generatorfunktion zu einem gegebenen Namen.
+Die **`async function*`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen asynchronen Generatorfunktion an einen bestimmten Namen.
 
-Sie können asynchrone Generatorfunktionen auch mit dem [`async function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function*) definieren.
+Sie können asynchrone Generatorfunktionen auch mit einem [`async function*`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function*) definieren.
 
 {{InteractiveExample("JavaScript Demo: async function* declaration", "taller")}}
 
@@ -46,27 +46,27 @@ async function* name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Asynchrone Generatorfunktionen haben keine Gegenstücke in Pfeilfunktionen.
+> Für asynchrone Generatorfunktionen gibt es keine entsprechenden Arrow Functions.
 
 > [!NOTE]
-> `function` und `*` sind separate Tokens, daher können sie durch [Leerzeichen oder Zeilentrenner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) getrennt werden. Es darf jedoch kein Zeilentrenner zwischen `async` und `function` stehen, da ansonsten ein Semikolon [automatisch eingefügt wird](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion), wodurch `async` zu einem Bezeichner wird und der Rest zu einer `function*` Deklaration.
+> `function` und `*` sind getrennte Tokens und können daher durch [Leerraum oder Zeilenumbrüche](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) voneinander getrennt sein. Zwischen `async` und `function` darf jedoch kein Zeilenumbruch stehen. Andernfalls wird [automatisch ein Semikolon eingefügt](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion), sodass `async` zu einem Bezeichner und der Rest zu einer `function*`-Deklaration wird.
 
 ### Parameter
 
 - `name`
-  - : Der Funktionsname.
+  - : Der Name der Funktion.
 - `param` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Informationen zur Syntax der Parameter finden Sie im [Funktionsleitfaden](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters der Funktion. Informationen zur Syntax der Parameter finden Sie in der [Referenz zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Körper der Funktion bilden.
+  - : Die Anweisungen, aus denen der Funktionskörper besteht.
 
 ## Beschreibung
 
-Eine `async function*` Deklaration erstellt ein {{jsxref("AsyncGeneratorFunction")}} Objekt. Jedes Mal, wenn eine asynchrone Generatorfunktion aufgerufen wird, gibt sie ein neues {{jsxref("AsyncGenerator")}} Objekt zurück, das dem [asynchronen Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) entspricht. Jeder Aufruf von `next()` gibt ein {{jsxref("Promise")}} zurück, das sich auf das Iterator-Ergebnisobjekt auflöst.
+Eine `async function*`-Deklaration erstellt ein {{jsxref("AsyncGeneratorFunction")}}-Objekt. Bei jedem Aufruf einer asynchronen Generatorfunktion gibt sie ein neues {{jsxref("AsyncGenerator")}}-Objekt zurück, das dem [Protokoll für asynchrone Iteratoren](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) entspricht. Jeder Aufruf von `next()` gibt ein {{jsxref("Promise")}} zurück, das mit einem Iterator-Ergebnisobjekt erfüllt wird.
 
-Eine asynchrone Generatorfunktion kombiniert die Merkmale von [asynchronen Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) und [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*). Sie können sowohl die Schlüsselwörter [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) als auch [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) innerhalb des Funktionskörpers verwenden. Dies ermöglicht es Ihnen, asynchrone Aufgaben auf ergonomische Weise mit `await` zu bearbeiten, während Sie die träge Natur von Generatorfunktionen nutzen.
+Eine asynchrone Generatorfunktion vereint die Eigenschaften von [asynchronen Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) und [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*). Im Funktionskörper können Sie sowohl das Schlüsselwort [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) als auch [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) verwenden. Dadurch können Sie asynchrone Aufgaben bequem mit `await` verarbeiten und zugleich die verzögerte Ausführung von Generatorfunktionen nutzen.
 
-Wenn ein Promise aus einem asynchronen Generator übergeben wird, wird der endgültige Zustand des Iterator-Ergebnis-Promises dem des übergebenen Promises entsprechen. Zum Beispiel:
+Wenn ein Promise von einem asynchronen Generator mit `yield` zurückgegeben wird, entspricht der endgültige Zustand des Iterator-Ergebnis-Promise dem Zustand dieses Promise. Zum Beispiel:
 
 ```js
 async function* foo() {
@@ -78,15 +78,15 @@ foo()
   .catch((e) => console.error(e));
 ```
 
-`Error: failed` wird protokolliert, da wenn das übergebene Promise abgelehnt wird, das Iterator-Ergebnis ebenfalls abgelehnt wird. Die `value`-Eigenschaft des aufgelösten Ergebnisses eines asynchronen Generators wird kein weiteres Promise sein.
+`Error: failed` wird protokolliert, weil auch das Iterator-Ergebnis-Promise abgelehnt wird, wenn das mit `yield` zurückgegebene Promise abgelehnt wird. Die Eigenschaft `value` des erfüllten Ergebnisses eines asynchronen Generators enthält kein weiteres Promise.
 
-`async function*` Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}} Deklarationen — sie werden {{Glossary("Hoisting", "gehoisted")}} an den Anfang ihres Bereichs und können überall in ihrem Bereich aufgerufen werden, und sie können nur in bestimmten Kontexten erneut deklariert werden.
+`async function*`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen: Sie werden an den Anfang ihres Gültigkeitsbereichs {{Glossary("Hoisting", "vorgezogen")}} und können überall darin aufgerufen werden. Eine erneute Deklaration ist nur in bestimmten Kontexten möglich.
 
 ## Beispiele
 
-### Deklarieren einer asynchronen Generatorfunktion
+### Eine asynchrone Generatorfunktion deklarieren
 
-Asynchrone Generatorfunktionen erzeugen immer Promises von Ergebnissen — sogar wenn jeder `yield` Schritt synchron ist.
+Asynchrone Generatorfunktionen liefern immer Promises für ihre Ergebnisse – selbst wenn jeder `yield`-Schritt synchron ist.
 
 ```js
 async function* myGenerator(step) {
@@ -117,19 +117,23 @@ gen
   });
 ```
 
-### Verwenden einer asynchronen Generatorfunktion zum Lesen einer Reihe von Dateien
+### Mit einer asynchronen Generatorfunktion eine Reihe von Dateien lesen
 
-In diesem Beispiel lesen wir eine Reihe von Dateien und greifen nur auf deren Inhalt zu, wenn dies angefordert wird, mit Hilfe des Node [`fs/promises`](https://nodejs.org/dist/latest-v18.x/docs/api/fs.html) Moduls.
+In diesem Beispiel lesen wir mithilfe des Node-Moduls [`fs/promises`](https://nodejs.org/dist/latest-v18.x/docs/api/fs.html) eine Reihe von Dateien und greifen erst bei Bedarf auf deren Inhalt zu.
 
 ```js
+import fs from "node:fs/promises";
+import path from "node:path";
+
 async function* readFiles(directory) {
   const files = await fs.readdir(directory);
   for (const file of files) {
-    const stats = await fs.stat(file);
+    const fullPath = path.join(directory, file);
+    const stats = await fs.stat(fullPath);
     if (stats.isFile()) {
       yield {
         name: file,
-        content: await fs.readFile(file, "utf8"),
+        content: await fs.readFile(fullPath, "utf8"),
       };
     }
   }
@@ -152,11 +156,11 @@ console.log((await files.next()).value);
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
-- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) – Leitfaden
+- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) – Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("AsyncGeneratorFunction")}}
-- [`async function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function*)
+- [`async function*`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function*)
 - {{jsxref("Statements/function", "function")}}
 - {{jsxref("Statements/function*", "function*")}}
 - {{jsxref("Statements/async_function", "async function")}}

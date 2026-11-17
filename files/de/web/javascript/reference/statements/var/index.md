@@ -2,10 +2,10 @@
 title: var
 slug: Web/JavaScript/Reference/Statements/var
 l10n:
-  sourceCommit: 710372d69095aaeadfba6c892f3e39ed63df4c54
+  sourceCommit: 439a8c053d3b2d4f3af60c06f567418eb8fc2f9a
 ---
 
-Die **`var`**-Anweisung deklariert funktions- oder global-gescope Variablen und initialisiert optional jede mit einem Wert.
+Die **`var`**-Anweisung deklariert Variablen mit Funktions- oder globalem Gültigkeitsbereich und initialisiert sie optional jeweils mit einem Wert.
 
 {{InteractiveExample("JavaScript Demo: var statement")}}
 
@@ -34,21 +34,21 @@ var name1 = value1, name2, /* …, */ nameN = valueN;
 ```
 
 - `nameN`
-  - : Der Name der zu deklarierenden Variable. Jede muss ein gültiger JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Destrukturierungsbindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
+  - : Der Name der zu deklarierenden Variablen. Jeder Name muss ein gültiger JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Destrukturierungs-Bindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
 - `valueN` {{optional_inline}}
-  - : Anfangswert der Variablen. Es kann jeder gültige Ausdruck sein. Der Standardwert ist `undefined`.
+  - : Der Anfangswert der Variablen. Dies kann ein beliebiger gültiger Ausdruck sein. Der Standardwert ist `undefined`.
 
 ## Beschreibung
 
-Der Geltungsbereich einer mit `var` deklarierten Variable ist eine der folgenden durch geschweifte Klammern eingeschlossenen Syntaxen, die die `var`-Anweisung am engsten umfassen:
+Der Gültigkeitsbereich einer mit `var` deklarierten Variablen ist diejenige der folgenden, von geschweiften Klammern umschlossenen Syntaxstrukturen, die die `var`-Anweisung am unmittelbarsten umgibt:
 
 - Funktionskörper
-- [Statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
+- [Statischer Initialisierungsblock](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
 
-Oder falls nichts davon zutrifft:
+Wenn keine davon zutrifft, ist es:
 
-- Das aktuelle [Modul](/de/docs/Web/JavaScript/Guide/Modules), für Code, der im Modus "Modul" ausgeführt wird
-- Der globale Geltungsbereich, für Code, der im Skriptmodus ausgeführt wird.
+- Das aktuelle [Modul](/de/docs/Web/JavaScript/Guide/Modules), wenn der Code im Modulmodus ausgeführt wird
+- Der globale Gültigkeitsbereich, wenn der Code im Skriptmodus ausgeführt wird.
 
 ```js
 function foo() {
@@ -66,14 +66,14 @@ function foo() {
 foo();
 ```
 
-Wichtig ist, dass andere Blockkonstrukte, einschließlich [Blockanweisungen](/de/docs/Web/JavaScript/Reference/Statements/block), {{jsxref("Statements/try...catch", "try...catch")}}, {{jsxref("Statements/switch", "switch")}}, Überschriften von [einer der `for`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements#iterations), keine Geltungsbereiche für `var` erzeugen, und Variablen, die mit `var` innerhalb eines solchen Blocks deklariert werden, außerhalb des Blocks weiterhin referenziert werden können.
+Wichtig ist, dass andere Blockkonstrukte – darunter [Blockanweisungen](/de/docs/Web/JavaScript/Reference/Statements/block), {{jsxref("Statements/try...catch", "try...catch")}}, {{jsxref("Statements/switch", "switch")}} und die Kopfbereiche [einer der `for`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements#iterations) – keinen Gültigkeitsbereich für `var` erzeugen. Auf Variablen, die innerhalb eines solchen Blocks mit `var` deklariert wurden, kann daher auch außerhalb des Blocks zugegriffen werden.
 
 ```js
 for (var a of [1, 2, 3]);
 console.log(a); // 3
 ```
 
-In einem Skript wird eine mit `var` deklarierte Variable als nicht-konfigurierbare Eigenschaft des globalen Objekts hinzugefügt. Das bedeutet, dass ihr Eigenschafts-Deskriptor nicht geändert werden kann und sie nicht mit {{jsxref("delete")}} gelöscht werden kann. JavaScript verfügt über eine automatische Speicherverwaltung, und es würde keinen Sinn machen, den `delete`-Operator auf eine globale Variable anwenden zu können.
+In einem Skript wird eine mit `var` deklarierte Variable dem globalen Objekt als nicht konfigurierbare Eigenschaft hinzugefügt. Das bedeutet, dass ihre Attribute `configurable` und `enumerable` nicht geändert werden können und dass sie nicht mit {{jsxref("delete")}} gelöscht werden kann. Ihr Wert kann weiterhin geändert werden, und ihr Attribut `writable` kann von `true` auf `false` gesetzt werden. JavaScript verwaltet den Speicher automatisch; den Operator `delete` auf eine globale Variable anwenden zu können, wäre daher nicht sinnvoll.
 
 ```js-nolint example-bad
 "use strict";
@@ -83,32 +83,32 @@ delete globalThis.x; // TypeError in strict mode. Fails silently otherwise.
 delete x; // SyntaxError in strict mode. Fails silently otherwise.
 ```
 
-In sowohl Node.js [CommonJS](https://wiki.commonjs.org/wiki/CommonJS)-Modulen als auch in nativen [ECMAScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) sind Variablendeklarationen auf Modulebene auf das Modul beschränkt und werden nicht als Eigenschaften dem globalen Objekt hinzugefügt.
+Sowohl in Node.js-[CommonJS](https://wiki.commonjs.org/wiki/CommonJS)-Modulen als auch in nativen [ECMAScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) sind Variablendeklarationen auf oberster Ebene auf das Modul beschränkt und werden dem globalen Objekt nicht als Eigenschaften hinzugefügt.
 
-Die Liste, die dem `var`-Schlüsselwort folgt, wird als _{{Glossary("binding", "Bindungsliste")}}_ bezeichnet und durch Kommas getrennt, wobei die Kommas keine [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) und die `=`-Zeichen keine [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierer späterer Variablen können sich auf frühere Variablen in der Liste beziehen und deren initialisierten Wert erhalten.
+Die Liste nach dem Schlüsselwort `var` heißt _{{Glossary("binding", "Bindungsliste")}}_ und ist durch Kommas getrennt. Diese Kommas sind _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator), und die `=`-Zeichen sind _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment). Initialisierer späterer Variablen können auf frühere Variablen in der Liste zugreifen und deren initialisierten Wert erhalten.
 
-### Heben
+### Hoisting
 
-`var`-Deklarationen, wo immer sie in einem Skript auftreten, werden verarbeitet, bevor irgendein Code innerhalb des Skripts ausgeführt wird. Das Deklarieren einer Variablen irgendwo im Code ist gleichbedeutend mit ihrer Deklaration am Anfang. Das bedeutet auch, dass eine Variable scheinbar verwendet werden kann, bevor sie deklariert ist. Dieses Verhalten wird _{{Glossary("Hoisting", "Heben")}}_ genannt, da es so aussieht, als würde die Variablendeklaration an den Anfang der Funktion, des statischen Initialisierungsblocks oder des Skript-Quelltexts verschoben, in dem sie vorkommt.
+`var`-Deklarationen werden unabhängig von ihrer Position in einem Skript verarbeitet, bevor irgendein Code des Skripts ausgeführt wird. Eine Variable an beliebiger Stelle im Code zu deklarieren, ist gleichbedeutend mit einer Deklaration am Anfang. Dadurch kann es so aussehen, als würde eine Variable verwendet, bevor sie deklariert wurde. Dieses Verhalten heißt {{Glossary("Hoisting", "_Hoisting_")}}, da es so wirkt, als würde die Variablendeklaration an den Anfang der Funktion, des statischen Initialisierungsblocks oder des Skriptquelltexts verschoben, in dem sie vorkommt.
 
 > [!NOTE]
-> `var`-Deklarationen werden nur an den Anfang des aktuellen Skripts gehoben. Wenn Sie zwei `<script>`-Elemente innerhalb eines HTML-Dokuments haben, kann das erste Skript nicht auf Variablen zugreifen, die vom zweiten deklariert wurden, bevor das zweite Skript verarbeitet und ausgeführt wurde.
+> `var`-Deklarationen werden nur an den Anfang des aktuellen Skripts verschoben. Wenn ein HTML-Dokument zwei `<script>`-Elemente enthält, kann das erste Skript nicht auf Variablen zugreifen, die im zweiten deklariert werden, bevor das zweite Skript verarbeitet und ausgeführt wurde.
 
 ```js
 bla = 2;
 var bla;
 ```
 
-Dies wird implizit verstanden als:
+Dies wird implizit wie folgt interpretiert:
 
 ```js
 var bla;
 bla = 2;
 ```
 
-Aus diesem Grund wird empfohlen, Variablen immer am Anfang ihres Geltungsbereichs zu deklarieren (am Anfang des globalen Codes und am Anfang des Funktionscodes), damit klar ist, welche Variablen im aktuellen Funktionsumfang sind.
+Deshalb empfiehlt es sich, Variablen immer am Anfang ihres Gültigkeitsbereichs zu deklarieren (am Anfang des globalen Codes beziehungsweise des Funktionscodes). So ist klar, welche Variablen zur aktuellen Funktion gehören.
 
-Nur die Deklaration einer Variablen wird gehoben, nicht ihre Initialisierung. Die Initialisierung erfolgt nur, wenn die Zuweisungsanweisung erreicht wird. Bis dahin bleibt die Variable `undefined` (aber deklariert):
+Nur die Deklaration einer Variablen unterliegt dem Hoisting, nicht ihre Initialisierung. Die Initialisierung erfolgt erst, wenn die Zuweisungsanweisung erreicht wird. Bis dahin bleibt der Wert der Variablen `undefined` (sie ist aber deklariert):
 
 ```js
 function doSomething() {
@@ -118,7 +118,7 @@ function doSomething() {
 }
 ```
 
-Dies wird implizit verstanden als:
+Dies wird implizit wie folgt interpretiert:
 
 ```js
 function doSomething() {
@@ -129,9 +129,9 @@ function doSomething() {
 }
 ```
 
-### Neudeklarationen
+### Erneute Deklarationen
 
-Doppelte Variablendeklarationen mit `var` führen nicht zu einem Fehler, selbst im strikten Modus, und die Variable verliert ihren Wert nicht, es sei denn, die Deklaration hat einen Initialisierer.
+Mehrfache Deklarationen einer Variablen mit `var` lösen auch im strikten Modus keinen Fehler aus. Die Variable verliert ihren Wert nicht, es sei denn, die erneute Deklaration enthält einen Initialisierer.
 
 ```js
 var a = 1;
@@ -141,7 +141,7 @@ var a;
 console.log(a); // 2; not undefined
 ```
 
-`var`-Deklarationen können auch im selben Geltungsbereich wie eine `function`-Deklaration stehen. Sowohl die Funktionsdeklaration als auch die `var`-Deklaration werden an den Anfang gehoben, sodass der Funktionswert nur vom Anfang seines Geltungsbereichs bis zum Initialisierer oder der ersten Zuweisung der Variablen zugänglich ist, unabhängig von der relativen Position der beiden Deklarationen im Quellcode.
+`var`-Deklarationen können sich auch im selben Gültigkeitsbereich wie eine `function`-Deklaration befinden. Sowohl die Funktions- als auch die `var`-Deklaration werden an den Anfang verschoben. Der Funktionswert ist daher nur vom Beginn des Gültigkeitsbereichs bis zum Initialisierer oder zur ersten Zuweisung der Variablen zugänglich – unabhängig von der relativen Position der beiden Deklarationen im Quellcode.
 
 ```js
 console.log(typeof a); // "function"
@@ -156,7 +156,7 @@ function a() {}
 console.log(a); // 1
 ```
 
-`var`-Deklarationen können nicht im selben Geltungsbereich wie eine {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}}, oder {{jsxref("Statements/import", "import")}}-Deklaration stehen.
+`var`-Deklarationen können sich nicht im selben Gültigkeitsbereich wie eine Deklaration mit {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}} oder {{jsxref("Statements/import", "import")}} befinden.
 
 ```js-nolint example-bad
 var a = 1;
@@ -172,7 +172,7 @@ let a = 1;
 }
 ```
 
-Es gilt nicht für den folgenden Fall, bei dem `let` in einem Kindbereich von `var`, nicht im gleichen Bereich ist:
+Für den folgenden Fall gilt es nicht: Hier befindet sich `let` in einem untergeordneten Gültigkeitsbereich von `var`, nicht im selben Gültigkeitsbereich:
 
 ```js example-good
 var a = 1;
@@ -181,7 +181,7 @@ var a = 1;
 }
 ```
 
-Eine `var`-Deklaration innerhalb des Körpers einer Funktion kann denselben Namen wie ein Parameter haben.
+Eine `var`-Deklaration innerhalb eines Funktionskörpers kann denselben Namen wie ein Parameter haben.
 
 ```js
 function foo(a) {
@@ -192,7 +192,7 @@ function foo(a) {
 foo(2); // Logs 1
 ```
 
-Eine `var`-Deklaration innerhalb eines `catch`-Blocks kann denselben Namen wie der `catch`-gebundene Bezeichner haben, jedoch nur, wenn die `catch`-Bindung ein einfacher Bezeichner und kein Destrukturierungsmuster ist. Dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements) und Sie sollten sich nicht darauf verlassen. In diesem Fall wird die Deklaration aus dem `catch`-Block gehoben, aber jeder innerhalb des `catch`-Blocks zugewiesene Wert ist außerhalb nicht sichtbar.
+Eine `var`-Deklaration innerhalb eines `catch`-Blocks kann denselben Namen wie der durch `catch` gebundene Bezeichner haben, allerdings nur, wenn die `catch`-Bindung ein einfacher Bezeichner und kein Destrukturierungsmuster ist. Dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements), auf die Sie sich nicht verlassen sollten. In diesem Fall wird die Deklaration aus dem `catch`-Block heraus verschoben; ein innerhalb des `catch`-Blocks zugewiesener Wert ist außerhalb jedoch nicht sichtbar.
 
 ```js-nolint example-bad
 try {
@@ -205,21 +205,21 @@ console.log(e); // undefined
 
 ## Beispiele
 
-### Deklaration und Initialisierung von zwei Variablen
+### Zwei Variablen deklarieren und initialisieren
 
 ```js
 var a = 0,
   b = 0;
 ```
 
-### Zwei Variablen mit einem einzigen String-Wert zuweisen
+### Zwei Variablen einen einzelnen Zeichenfolgenwert zuweisen
 
 ```js
 var a = "A";
 var b = a;
 ```
 
-Dies ist gleichbedeutend mit:
+Dies entspricht:
 
 ```js-nolint
 var a, b = a = "A";
@@ -233,11 +233,11 @@ var x = y,
 console.log(x, y); // undefined A
 ```
 
-Hier werden `x` und `y` deklariert, bevor irgendein Code ausgeführt wird, aber die Zuweisungen erfolgen später. Zum Zeitpunkt der Auswertung von `x = y` existiert `y`, sodass kein `ReferenceError` ausgelöst wird und sein Wert `undefined` ist. Somit wird `x` der undefined-Wert zugewiesen. Dann wird `y` der Wert `"A"` zugewiesen.
+Hier werden `x` und `y` deklariert, bevor irgendein Code ausgeführt wird; die Zuweisungen erfolgen jedoch später. Wenn `x = y` ausgewertet wird, existiert `y` bereits. Deshalb wird kein `ReferenceError` ausgelöst, und der Wert von `y` ist `undefined`. `x` wird also der Wert `undefined` zugewiesen. Anschließend wird `y` der Wert `"A"` zugewiesen.
 
-### Initialisierung mehrerer Variablen
+### Mehrere Variablen initialisieren
 
-Seien Sie vorsichtig mit der `var x = y = 1`-Syntax — `y` wird eigentlich nicht als Variable deklariert, sodass `y = 1` eine [nicht qualifizierte Bezeichnerzuweisung](/de/docs/Web/JavaScript/Reference/Operators/Assignment#unqualified_identifier_assignment) ist, die im Nicht-Strict-Modus eine globale Variable erstellt.
+Seien Sie bei der Syntax `var x = y = 1` vorsichtig: `y` wird dabei nicht als Variable deklariert. `y = 1` ist stattdessen eine [Zuweisung an einen nicht qualifizierten Bezeichner](/de/docs/Web/JavaScript/Reference/Operators/Assignment#unqualified_identifier_assignment), die außerhalb des strikten Modus eine globale Variable erzeugt.
 
 ```js-nolint
 var x = 0;
@@ -253,7 +253,7 @@ console.log(x, y); // 0 1
 // y is leaked outside of the function, though!
 ```
 
-Dasselbe Beispiel wie oben, aber im Strict-Modus:
+Dasselbe Beispiel im strikten Modus:
 
 ```js-nolint
 "use strict";
@@ -267,9 +267,9 @@ f();
 console.log(x, y);
 ```
 
-### Implizite globale Variablen und äußere Funktionsbereiche
+### Implizite globale Variablen und der Gültigkeitsbereich äußerer Funktionen
 
-Variablen, die scheinbar implizite globale Variablen sind, können Referenzen auf Variablen in einem äußeren Funktionsbereich sein:
+Variablen, die wie implizite globale Variablen aussehen, können Verweise auf Variablen im Gültigkeitsbereich einer äußeren Funktion sein:
 
 ```js
 var x = 0; // Declares x within file scope, then assigns it a value of 0.
@@ -299,7 +299,7 @@ console.log(typeof y); // "undefined", as y is local to function a
 
 ### Deklaration mit Destrukturierung
 
-Die linke Seite jedes `=` kann auch ein Bindungsmuster sein. Dadurch können mehrere Variablen gleichzeitig erzeugt werden.
+Die linke Seite jedes `=` kann auch ein Bindungsmuster sein. Dadurch lassen sich mehrere Variablen gleichzeitig erstellen.
 
 ```js
 const result = /(a+)(b+)(c+)/.exec("aaabcc");

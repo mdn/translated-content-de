@@ -3,10 +3,10 @@ title: "`row-gap` CSS property"
 short-title: row-gap
 slug: Web/CSS/Reference/Properties/row-gap
 l10n:
-  sourceCommit: 04dfe418f2942ae739d41592c22fafa3679fc03c
+  sourceCommit: e57c161bccdd08db7e46922255e1dc3ea74058d4
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-gap`** legt die Größe des Abstands ({{Glossary("gutters", "Gutter")}}) zwischen den Zeilen eines Elements in mehrspaltigen Layouts, Flexbox-Layouts und Grid-Layouts fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-gap`** legt die Größe des Abstands ({{Glossary("gutters", "gutter")}}) zwischen den Zeilen eines Elements in mehrspaltigen Layouts, Flexbox-Layouts und Grid-Layouts fest.
 
 {{InteractiveExample("CSS Demo: row-gap")}}
 
@@ -83,26 +83,27 @@ row-gap: unset;
 
 ### Werte
 
-Diese Eigenschaft wird durch einen einzelnen Wert aus der folgenden Liste angegeben:
+Diese Eigenschaft wird mit einem einzelnen Wert aus der folgenden Liste angegeben:
 
 - `normal`
   - : Wird in mehrspaltigen Layouts zu `1em` aufgelöst, andernfalls zu `0`. Dies ist der Standardwert.
 - {{cssxref("&lt;line-width&gt;")}}
   - : Legt die Größe des Abstands mit den Schlüsselwörtern `thin`, `medium` oder `thick` oder mit einem positiven {{cssxref("length")}}-Wert fest.
 - {{CSSxRef("length-percentage")}}
-  - : Legt einen nicht negativen {{CSSxRef("&lt;length&gt;")}}- oder {{CSSxRef("&lt;percentage&gt;")}}-Wert fest. Prozentwerte beziehen sich auf die Blockgröße der Content-Box oder auf `0`.
+  - : Legt einen nicht negativen {{CSSxRef("&lt;length&gt;")}}- oder {{CSSxRef("&lt;percentage&gt;")}}-Wert fest. Prozentwerte beziehen sich auf die Blockgröße der Inhaltsbox oder auf `0`.
 
 ## Beschreibung
 
-Die Eigenschaft `row-gap` legt die Größe des Abstands zwischen den Zeilen eines Elements fest. Dieser Abstand kann als dekoratives Element eine sichtbare Trennlinie enthalten. Befindet sich zwischen den Zeilen eine Linie, erscheint sie in der Mitte des Abstands, beeinflusst dessen Größe aber nicht. Solche dekorativen Linien können dem ansonsten „leeren Raum“ mit der Eigenschaft {{cssxref("row-rule")}} oder der Kurzschreibweise {{cssxref("rule")}} hinzugefügt werden.
+Die Eigenschaft `row-gap` legt die Größe des Abstands zwischen den Zeilen eines Elements fest.
+Dieser Abstand kann eine sichtbare Trennlinie als Dekoration enthalten. Wenn sich zwischen den Zeilen eine Trennlinie befindet, erscheint sie in der Mitte des Abstands, beeinflusst aber dessen Größe nicht. Solche dekorativen Linien können dem ansonsten „leeren Raum“ mit der Eigenschaft {{cssxref("row-rule")}} oder der Kurzschreibweise {{cssxref("rule")}} hinzugefügt werden.
 
-Die unter [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps) definierte Eigenschaft kann in mehrspaltigen Layouts, Flexbox-Layouts und Grid-Layouts verwendet werden. `row-gap` und die Eigenschaft {{cssxref("column-gap")}} können in dieser Reihenfolge auch mit der Kurzschreibweise {{cssxref("gap")}} festgelegt werden. Die Eigenschaft `row-gap` hat die Eigenschaft `grid-row-gap` ersetzt, die auf [CSS-Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout) beschränkt war. `grid-row-gap` ist nun ein Alias für `row-gap`.
+Die in [CSS-Abständen](/de/docs/Web/CSS/Guides/Gaps) definierte Eigenschaft kann in mehrspaltigen Layouts, Flexbox-Layouts und Grid-Layouts verwendet werden. `row-gap` kann zusammen mit der Eigenschaft {{cssxref("column-gap")}} auch über die Kurzschreibweise {{cssxref("gap")}} festgelegt werden, und zwar in dieser Reihenfolge. Die Eigenschaft `row-gap` hat `grid-row-gap` ersetzt, die auf [CSS-Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout) beschränkt war. `grid-row-gap` ist nun ein Alias für `row-gap`.
 
-Die Eigenschaft legt einen Abstand fester Länge zwischen Elementen in einem Container fest und trennt dabei Boxen entlang der Blockachse des Containers. Negative Werte sind ungültig. Der Standardwert `normal` wird bei mehrspaltigen Containern zu `1em` und überall sonst zu `0` aufgelöst. Weitere Informationen zu Abständen je nach Layouttyp finden Sie unter [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps).
+Die Eigenschaft legt einen Abstand mit fester Länge zwischen Elementen in einem Container fest und trennt dabei Boxen entlang der Blockachse des Containers. Negative Werte sind ungültig. Der Standardwert `normal` wird bei mehrspaltigen Containern zu `1em` aufgelöst, ansonsten zu `0`. Weitere Informationen zu Abständen je nach Layouttyp finden Sie unter [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps).
 
-Prozentwerte werden relativ zur Größe der [Content-Box](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Containerelements entlang seiner Blockachse aufgelöst, wenn diese Größe feststeht; andernfalls werden sie zu `0` aufgelöst. Eine Ausnahme gilt für Grid-Layouts: Dort werden zyklische Prozentgrößen bei der Ermittlung der Beiträge zur {{Glossary("intrinsic_size", "intrinsischen Größe")}} zu null aufgelöst, beim Layout der Inhalte jedoch relativ zur Content-Box des Elements. Weitere Informationen finden Sie unter [Abstandswerte als Prozentwerte angeben](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps#specifying_gap_values_as_percentages).
+Prozentwerte werden anhand der Größe der [Inhaltsbox](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Containerelements entlang seiner Blockachse aufgelöst, wenn diese Größe eindeutig bestimmt ist, andernfalls anhand von `0`. Eine Ausnahme bilden Grid-Layouts: Dort werden zyklische Prozentwerte bei der Bestimmung der Beiträge zur {{Glossary("intrinsic_size", "intrinsischen Größe")}} anhand von null aufgelöst, beim Layout des Inhalts jedoch anhand der Inhaltsbox des Elements. Weitere Informationen finden Sie unter [Abstandswerte als Prozentwerte angeben](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps#specifying_gap_values_as_percentages).
 
-In Grid-Layouts wirkt der Abstand so, als hätten die Grid-Linien zwischen den Zeilen eine Dicke entsprechend dem Eigenschaftswert: Der Grid-Track zwischen zwei Zeilen ist der Raum zwischen den Gutter-Bereichen, die diese Zeilen begrenzen. Bei der Größenberechnung der Tracks wird jeder Gutter-Bereich als zusätzlicher, leerer Track fester Größe behandelt. Jedes Grid-Element, das sich über mehr als eine Zeile erstreckt, überspannt auch diesen Track. Obwohl der Abstand bei der Größenberechnung als leer gilt, kann er eine {{cssxref("row-rule")}} enthalten.
+In Grid-Layouts wirkt sich der Abstand so aus, als erhielten die Grid-Linien zwischen den Grid-Zeilen die durch den Eigenschaftswert festgelegte Breite: Der Grid-Track zwischen zwei Zeilen ist der Raum zwischen den Abständen, die diese Zeilen begrenzen. Bei der Größenbestimmung der Tracks wird jeder Abstand als zusätzlicher, leerer Track mit der angegebenen festen Größe behandelt, über den sich alle Grid-Elemente erstrecken, die mehr als eine Zeile überspannen. Obwohl der Abstand bei der Größenbestimmung als leer gilt, kann er eine {{cssxref("row-rule")}} enthalten.
 
 ## Formale Definition
 
@@ -116,7 +117,7 @@ In Grid-Layouts wirkt der Abstand so, als hätten die Grid-Linien zwischen den Z
 
 ### Flexbox-Layout
 
-Dieses Beispiel zeigt, wie mit der Eigenschaft `row-gap` horizontaler Abstand zwischen benachbarten Zeilen von Flex-Elementen erzeugt wird. Es zeigt außerdem, dass die Größe der Zeilenlinie die Größe von `row-gap` nicht beeinflusst.
+Dieses Beispiel zeigt, wie die Eigenschaft `row-gap` einen horizontalen Abstand zwischen benachbarten Zeilen von Flex-Elementen erzeugt. Es zeigt außerdem, dass die Größe von `row-gap` nicht von der Größe der Trennlinie zwischen den Zeilen beeinflusst wird.
 
 #### HTML
 
@@ -135,11 +136,11 @@ Wir fügen sechs Elemente in ein Containerelement ein:
 
 #### CSS
 
-Wir setzen {{cssxref("display")}} auf `flex` und {{cssxref("flex-flow")}} auf `row wrap`. Dadurch entsteht ein Flex-Container mit Zeilen von Flex-Elementen, die bei Bedarf in neue Zeilen umbrechen. Außerdem begrenzen wir {{cssxref("width")}} auf `300px`. Mit {{cssxref("row-rule")}} fügen wir eine 30px breite, gestrichelte magentafarbene Linie in der Mitte des Abstands hinzu.
+Wir setzen {{cssxref("display")}} auf `flex` und {{cssxref("flex-flow")}} auf `row wrap`, um einen Flex-Container zu erstellen, dessen Flex-Elemente bei Bedarf in neue Zeilen umbrechen. Außerdem begrenzen wir {{cssxref("width")}} auf `300px`. Wir fügen auch eine {{cssxref("row-rule")}} hinzu, die in der Mitte des Abstands eine 30px breite, gestrichelte, magentafarbene Linie zeichnet.
 
-Für den Flex-Container setzen wir `row-gap` auf `20px`, um zwischen benachbarten Flex-Zeilen einen Abstand von `20px` zu erzeugen.
+Auf dem Flex-Container setzen wir `row-gap` auf `20px`, um zwischen benachbarten Flex-Zeilen einen Abstand von `20px` zu erzeugen.
 
-Wir geben den Flex-Elementen außerdem eine Hintergrundfarbe und machen die meisten davon halbtransparent. So wird sichtbar, dass die Linie unter den Flex-Elementen zu sehen ist, wenn sie breiter als der Abstand ist.
+Außerdem geben wir den Flex-Elementen eine Hintergrundfarbe. Die meisten sind teilweise transparent, um zu zeigen, dass die Trennlinie unter den Flex-Elementen sichtbar ist, wenn sie breiter als der Abstand ist.
 
 ```css
 #flexbox {
@@ -166,7 +167,7 @@ Wir geben den Flex-Elementen außerdem eine Hintergrundfarbe und machen die meis
 
 {{EmbedLiveSample('Flex_layout', "auto", "400")}}
 
-Um einen vertikalen Abstand zwischen Flex-Elementen festzulegen, geben Sie für die Eigenschaft {{cssxref("column-gap")}} einen Wert ungleich null an. Optional können Sie `row-gap` und `column-gap` gemeinsam mit der Kurzschreibweise `gap` festlegen.
+Um einen vertikalen Abstand zwischen Flex-Elementen festzulegen, geben Sie für die Eigenschaft {{cssxref("column-gap")}} einen Wert ungleich null an. Optional können Sie `row-gap` und `column-gap` gemeinsam über die Kurzschreibweise `gap` festlegen.
 
 ### Grid-Layout
 
@@ -190,7 +191,7 @@ Wir fügen fünf Elemente in ein Containerelement ein:
 
 Wir setzen die Eigenschaft {{cssxref("display")}} auf `grid`, {{cssxref("height")}} auf `240px`, {{cssxref("width")}} auf `350px` und {{cssxref("grid-template-rows")}} auf `repeat(3, 1fr)`. So entsteht ein 350px breiter Grid-Container mit drei Spalten und so vielen Zeilen wie nötig. Jede Zeile ist `100px` hoch, wie durch die Eigenschaft {{cssxref("grid-template-rows")}} festgelegt.
 
-`row-gap` wird auf `5%` gesetzt. Die Höhe des Containers beträgt `240px`. Der Wert `5%` erzeugt einen `12px` hohen Zeilenabstand. Damit bleiben `216px` für drei Zeilen mit Grid-Elementen, sodass jede Zeile `72px` hoch ist.
+`row-gap` ist auf `5%` gesetzt. Die Höhe des Containers beträgt `240px`. Der Wert `5%` erzeugt einen Zeilenabstand von `12px` und lässt `216px` für drei Zeilen mit Grid-Elementen übrig. Damit ist jede Zeile `72px` hoch.
 
 ```css
 #grid {
@@ -244,6 +245,8 @@ body {
 - {{CSSxRef("row-rule")}}
 - {{CSSxRef("rule")}}
 - {{CSSxRef("gap")}}
+- [Überblick über CSS-Abstände und Eigenschaften zur Dekoration von Abständen](/de/docs/Web/CSS/Guides/Gaps/Overview)
 - [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
-- [Grundkonzepte des Grid-Layouts: Gutter](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
+- [CSS-Trennlinien definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_rules)
+- [Grundkonzepte des Grid-Layouts: Abstände](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
 - Modul [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps)

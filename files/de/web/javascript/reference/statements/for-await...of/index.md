@@ -2,10 +2,10 @@
 title: for await...of
 slug: Web/JavaScript/Reference/Statements/for-await...of
 l10n:
-  sourceCommit: f34bebcf0fec2d69b96bb313c37f7e67b0355830
+  sourceCommit: 439a8c053d3b2d4f3af60c06f567418eb8fc2f9a
 ---
 
-Der **`for await...of`**-Ausdruck erstellt eine Schleife, die über [asynchrone iterierbare Objekte](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) sowie über [synchrone Iterables](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) iteriert. Dieser Ausdruck kann nur in Kontexten verwendet werden, in denen [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) eingesetzt werden kann, was den Körper einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) und ein [Modul](/de/docs/Web/JavaScript/Guide/Modules) einschließt.
+Die **`for await...of`**-Anweisung erstellt eine Schleife, die über [asynchron iterierbare Objekte](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) sowie [synchron iterierbare Objekte](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) iteriert. Diese Anweisung kann nur in Kontexten verwendet werden, in denen [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) zulässig ist, etwa innerhalb des Funktionskörpers einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder in einem [Modul](/de/docs/Web/JavaScript/Guide/Modules).
 
 {{InteractiveExample("JavaScript Demo: for await...of statement", "taller")}}
 
@@ -33,43 +33,43 @@ for await (variable of iterable)
 ```
 
 - `variable`
-  - : Empfängt bei jeder Iteration einen Wert aus der Sequenz. Kann entweder eine Deklaration mit [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) sein oder ein [Zuweisungsziel](/de/docs/Web/JavaScript/Reference/Operators/Assignment) (z.B. eine zuvor deklarierte Variable, eine Objekteigenschaft oder ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring)). Mit `var` deklarierte Variablen sind nicht lokal zur Schleife, d.h. sie befinden sich im selben Gültigkeitsbereich, in dem die `for await...of`-Schleife ist.
+  - : Erhält bei jeder Iteration einen Wert aus der Sequenz. Kann entweder eine Deklaration mit [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) sein oder ein Ziel für eine [Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Assignment) (z. B. eine zuvor deklarierte Variable, eine Objekteigenschaft oder ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring)). Mit `var` deklarierte Variablen sind nicht auf die Schleife beschränkt, sondern befinden sich im selben Gültigkeitsbereich wie die `for await...of`-Schleife.
 - `iterable`
-  - : Ein asynchrones oder synchrones iterables Objekt. Quelle der Wertsequenz, auf der die Schleife operiert.
+  - : Ein asynchron oder synchron iterierbares Objekt. Es liefert die Sequenz von Werten, über die die Schleife iteriert.
 - `statement`
-  - : Ein Befehl, der bei jeder Iteration ausgeführt wird. Kann `variable` referenzieren. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
+  - : Eine Anweisung, die bei jeder Iteration ausgeführt wird. Sie kann auf `variable` verweisen. Mit einer [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) können Sie mehrere Anweisungen ausführen.
 
 ## Beschreibung
 
-Wenn eine `for await...of`-Schleife über ein Iterable iteriert, erhält sie zunächst die [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)-Methode des Iterables und ruft sie auf, was einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) zurückgibt. Falls die `@asyncIterator`-Methode nicht existiert, sucht sie nach einer [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode, die einen [synchronen Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) zurückgibt. Der zurückgegebene synchrone Iterator wird dann in einen asynchronen Iterator umgewandelt, indem jedes von den Methoden `next()`, `return()` und `throw()` zurückgegebene Objekt in ein erfülltes oder abgelehntes Promise umgewandelt wird, wobei die `value`-Eigenschaft aufgelöst wird, wenn sie ebenfalls ein Promise ist. Die Schleife ruft dann wiederholt die `next()`-Methode des endgültigen asynchronen Iterators auf und [wartet](/de/docs/Web/JavaScript/Reference/Operators/await) auf das zurückgegebene Promise, um die Wertsequenz zu erzeugen, die der `variable` zugewiesen wird.
+Wenn eine `for await...of`-Schleife über ein iterierbares Objekt iteriert, ruft sie zunächst dessen Methode [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator) ab und führt sie aus. Diese gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) zurück. Wenn die Methode `@asyncIterator` nicht existiert, sucht die Schleife nach einer Methode [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator), die einen [synchronen Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) zurückgibt. Der zurückgegebene synchrone Iterator wird anschließend in einen asynchronen Iterator umgewandelt: Jedes von den Methoden `next()`, `return()` und `throw()` zurückgegebene Objekt wird in ein erfülltes oder abgelehntes Promise verpackt. Ist die Eigenschaft `value` ebenfalls ein Promise, wird sie aufgelöst. Die Schleife ruft dann wiederholt die Methode [`next()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) des resultierenden asynchronen Iterators auf und [wartet](/de/docs/Web/JavaScript/Reference/Operators/await) auf das zurückgegebene Promise. So entsteht die Sequenz von Werten, die `variable` zugewiesen werden.
 
-Eine `for await...of`-Schleife wird beendet, wenn der Iterator abgeschlossen ist (das erwartete `next()`-Ergebnis ist ein Objekt mit `done: true`). Wie bei anderen Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb des `statement` verwenden:
+Eine `for await...of`-Schleife endet, wenn der Iterator abgeschlossen ist (das Ergebnis von `next()`, auf das gewartet wurde, ist ein Objekt mit `done: true`). Wie bei anderen Schleifenanweisungen können Sie innerhalb von `statement` [Anweisungen zur Steuerung des Kontrollflusses](/de/docs/Web/JavaScript/Reference/Statements#control_flow) verwenden:
 
-- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und geht zur ersten Anweisung nach der Schleife.
-- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und fährt mit der nächsten Iteration der Schleife fort.
+- {{jsxref("Statements/break", "break")}} beendet die Ausführung von `statement` und setzt die Ausführung mit der ersten Anweisung nach der Schleife fort.
+- {{jsxref("Statements/continue", "continue")}} beendet die Ausführung von `statement` und setzt die Schleife mit der nächsten Iteration fort.
 
-Wenn die `for await...of`-Schleife vorzeitig beendet wurde (z.B. wenn eine `break`-Anweisung auftritt oder ein Fehler ausgelöst wird), wird die [`return()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol)-Methode des Iterators aufgerufen, um eine Bereinigung durchzuführen. Das zurückgegebene Promise wird erwartet, bevor die Schleife beendet wird.
+Wenn die `for await...of`-Schleife vorzeitig verlassen wird (z. B. weil eine `break`-Anweisung erreicht oder ein Fehler ausgelöst wird), wird die Methode [`return()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) des Iterators aufgerufen, um Aufräumarbeiten durchzuführen. Die Schleife wartet auf das zurückgegebene Promise, bevor sie endet.
 
-`for await...of` funktioniert im Allgemeinen ähnlich wie die [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife und teilt viele der gleichen Syntax und Semantik. Es gibt jedoch einige Unterschiede:
+`for await...of` funktioniert im Allgemeinen genauso wie die [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife und weist weitgehend dieselbe Syntax und Semantik auf. Es gibt jedoch einige Unterschiede:
 
-- `for await...of` funktioniert sowohl mit synchronen als auch mit asynchronen Iterables, während `for...of` nur mit synchronen Iterables funktioniert.
-- `for await...of` kann nur in Kontexten verwendet werden, in denen [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) verwendet werden kann, was den Körper einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) und ein [Modul](/de/docs/Web/JavaScript/Guide/Modules) einschließt. Selbst wenn das Iterable synchron ist, wartet die Schleife dennoch auf den Rückgabewert für jede Iteration, was aufgrund des wiederholten Promise-Abrufens zu einer langsameren Ausführung führt.
-- Wenn das `iterable` ein synchrones Iterable ist, das Promises erzeugt, würde `for await...of` eine Sequenz von aufgelösten Werten erzeugen, während `for...of` eine Sequenz von Promises erzeugen würde.
-- Bei `for await...of` kann die `variable` der Bezeichner `async` sein (z.B. `for await (async of foo)`); `for...of` verbietet diesen Fall.
+- `for await...of` funktioniert sowohl mit synchron als auch mit asynchron iterierbaren Objekten, während `for...of` nur mit synchron iterierbaren Objekten funktioniert.
+- `for await...of` kann nur in Kontexten verwendet werden, in denen [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) zulässig ist, etwa innerhalb des Funktionskörpers einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder in einem [Modul](/de/docs/Web/JavaScript/Guide/Modules). Auch bei einem synchron iterierbaren Objekt wartet die Schleife bei jeder Iteration auf den zurückgegebenen Wert. Das wiederholte Auspacken von Promises verlangsamt die Ausführung.
+- Wenn `iterable` ein synchron iterierbares Objekt ist, das Promises liefert, erzeugt `for await...of` eine Sequenz aufgelöster Werte, während `for...of` eine Sequenz von Promises erzeugt.
+- Bei `for await...of` kann `variable` der Bezeichner `async` sein (z. B. `for await (async of foo)`); bei `for...of` ist dies nicht zulässig.
 
-Wie bei `for...of`, wenn Sie eine `using`-Deklaration verwenden, darf die Variable nicht `of` genannt werden:
+Wie bei `for...of` darf die Variable bei Verwendung einer `using`-Deklaration nicht `of` heißen:
 
 ```js-nolint example-bad
 for await (using of of []); // SyntaxError
 ```
 
-Dies ist, um Syntaxambiguität mit dem gültigen Code `for await (using of [])` zu vermeiden, bevor `using` eingeführt wurde.
+Dadurch wird eine syntaktische Mehrdeutigkeit mit dem Code `for await (using of [])` vermieden, der vor der Einführung von `using` gültig war.
 
 ## Beispiele
 
-### Iteration über asynchrone Iterables
+### Über asynchron iterierbare Objekte iterieren
 
-Sie können auch über ein Objekt iterieren, das das asynchrone Iterierbare-Protokoll explizit implementiert:
+Sie können auch über ein Objekt iterieren, das das Protokoll für asynchron iterierbare Objekte ausdrücklich implementiert:
 
 ```js
 const LIMIT = 3;
@@ -101,9 +101,9 @@ const asyncIterable = {
 // 2
 ```
 
-### Iteration über asynchrone Generatoren
+### Über asynchrone Generatoren iterieren
 
-Da die Rückgabewerte von asynchronen Generatorfunktionen dem asynchronen Iterierbaren-Protokoll entsprechen, können sie mit `for await...of` durchlaufen werden.
+Da die Rückgabewerte asynchroner Generatorfunktionen dem Protokoll für asynchron iterierbare Objekte entsprechen, können Sie mit `for await...of` über sie iterieren.
 
 ```js
 async function* asyncGenerator() {
@@ -123,9 +123,9 @@ async function* asyncGenerator() {
 // 2
 ```
 
-Für ein konkreteres Beispiel der Iteration über einen asynchronen Generator mit `for await...of`, betrachten Sie die Iteration über Daten einer API.
+Ein konkreteres Beispiel für die Iteration über einen asynchronen Generator mit `for await...of` ist die Verarbeitung von Daten aus einer API.
 
-Dieses Beispiel erstellt zuerst ein asynchrones Iterable für einen Datenstrom und verwendet es dann, um die Größe der Antwort von der API zu bestimmen.
+In diesem Beispiel wird zunächst ein asynchron iterierbares Objekt für einen Datenstrom erstellt. Anschließend wird damit die Größe der API-Antwort ermittelt.
 
 ```js
 async function* streamAsyncIterable(stream) {
@@ -158,9 +158,9 @@ async function getResponseSize(url) {
 getResponseSize("https://jsonplaceholder.typicode.com/photos");
 ```
 
-### Iteration über synchrone Iterables und Generatoren
+### Über synchron iterierbare Objekte und Generatoren iterieren
 
-`for await...of`-Schleife verbraucht auch synchrone Iterables und Generatoren. In diesem Fall wartet sie intern auf die ausgegebenen Werte, bevor sie der Schleifensteuerungsvariable zugewiesen werden.
+Die `for await...of`-Schleife kann auch synchron iterierbare Objekte und Generatoren verarbeiten. In diesem Fall wartet sie intern auf die ausgegebenen Werte, bevor sie diese der Schleifenvariablen zuweist.
 
 ```js
 function* generator() {
@@ -194,7 +194,7 @@ for (const numOrPromise of generator()) {
 // 4
 ```
 
-Wenn ein synchroner Generator ein abgelehntes Promise liefert, ruft `for await...of` die [`return()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator/return)-Methode des Generators auf, bevor der Ablehnungsgrund ausgelöst wird, was es den `finally`-Blöcken innerhalb dieses Generators ermöglicht, zu laufen.
+Wenn ein synchroner Generator ein abgelehntes Promise liefert, ruft `for await...of` die Methode [`return()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator/return) des Generators auf, bevor der Ablehnungsgrund als Fehler ausgelöst wird. Dadurch können `finally`-Blöcke innerhalb des Generators ausgeführt werden.
 
 ```js
 function* generatorWithRejectedPromises() {

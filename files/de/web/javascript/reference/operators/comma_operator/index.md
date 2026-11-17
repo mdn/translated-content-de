@@ -1,11 +1,11 @@
 ---
-title: Komma-Operator (,)
+title: Kommaoperator (,)
 slug: Web/JavaScript/Reference/Operators/Comma_operator
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
 ---
 
-Der **Komma-Operator (`,`)** wertet jeden seiner Operanden (von links nach rechts) aus und gibt den Wert des letzten Operanden zurück. Dies wird häufig verwendet, um mehrere Aktualisierungen für den Nachgedanken einer [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife bereitzustellen.
+Der **Kommaoperator (`,`)** wertet jeden seiner Operanden von links nach rechts aus und gibt den Wert des letzten Operanden zurück. Er wird häufig verwendet, um im Aktualisierungsausdruck einer [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife mehrere Aktualisierungen vorzunehmen.
 
 {{InteractiveExample("JavaScript Demo: Comma (,) operator")}}
 
@@ -32,45 +32,45 @@ expr1, expr2, expr3/* , … */
 ### Parameter
 
 - `expr1`, `expr2`, `expr3`, …
-  - : Eine oder mehrere Ausdrücke, von denen der letzte als Wert des zusammengesetzten Ausdrucks zurückgegeben wird.
+  - : Ein oder mehrere Ausdrücke. Der Wert des letzten Ausdrucks wird als Wert des zusammengesetzten Ausdrucks zurückgegeben.
 
 ## Beschreibung
 
-Sie können den Komma-Operator verwenden, wenn Sie mehrere Ausdrücke an einer Stelle einfügen möchten, die einen einzelnen Ausdruck erfordert. Die häufigste Verwendung dieses Operators ist die Bereitstellung mehrerer Aktualisierungen in einer `for`-Schleife. Für ein Idiom, das mehrere _Anweisungen_ an einer Stelle erlaubt, die einen einzelnen Ausdruck erfordert, können Sie ein {{Glossary("IIFE", "IIFE")}} verwenden.
+Sie können den Kommaoperator verwenden, wenn Sie an einer Stelle, die einen einzelnen Ausdruck erfordert, mehrere Ausdrücke unterbringen möchten. Am häufigsten wird er verwendet, um in einer `for`-Schleife mehrere Aktualisierungen vorzunehmen. Wenn Sie an einer Stelle, die einen einzelnen Ausdruck erfordert, mehrere _Anweisungen_ ausführen möchten, können Sie eine {{Glossary("IIFE", "IIFE")}} verwenden.
 
-Da alle Ausdrücke außer dem letzten ausgewertet und dann verworfen werden, müssen diese Ausdrücke Nebeneffekte haben, um nützlich zu sein. Häufige Ausdrücke mit Nebeneffekten sind Zuweisungen, Funktionsaufrufe und die [`++`](/de/docs/Web/JavaScript/Reference/Operators/Increment)- und [`--`](/de/docs/Web/JavaScript/Reference/Operators/Decrement)-Operatoren. Andere können ebenfalls Nebeneffekte haben, wenn sie [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) aufrufen oder [Typumwandlungen](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) auslösen.
+Da alle Ausdrücke außer dem letzten ausgewertet und anschließend verworfen werden, müssen diese Ausdrücke Seiteneffekte haben, um nützlich zu sein. Typische Ausdrücke mit Seiteneffekten sind Zuweisungen, Funktionsaufrufe sowie die Operatoren [`++`](/de/docs/Web/JavaScript/Reference/Operators/Increment) und [`--`](/de/docs/Web/JavaScript/Reference/Operators/Decrement). Auch andere Ausdrücke können Seiteneffekte haben, wenn sie [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) aufrufen oder [Typumwandlungen](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) auslösen.
 
-Der Komma-Operator hat die niedrigste [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) aller Operatoren. Wenn Sie einen durch Komma verbundenen Ausdruck in einen größeren Ausdruck integrieren möchten, müssen Sie ihn in Klammern setzen.
+Der Kommaoperator hat die niedrigste [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) aller Operatoren. Wenn Sie einen durch Kommas verbundenen Ausdruck in einen größeren Ausdruck einbinden möchten, müssen Sie ihn in Klammern setzen.
 
-Der Komma-Operator ist völlig anders als Kommata, die als syntaktische Trennzeichen an anderen Stellen verwendet werden, einschließlich:
+Der Kommaoperator unterscheidet sich grundlegend von Kommas, die an anderen Stellen als syntaktische Trennzeichen verwendet werden. Dazu gehören:
 
 - Elemente in Array-Initialisierungen (`[1, 2, 3]`)
 - Eigenschaften in [Objekt-Initialisierungen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) (`{ a: 1, b: 2 }`)
-- Parameter in [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)/-ausdrücken (`function f(a, b) { … }`)
+- Parameter in [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) und Funktionsausdrücken (`function f(a, b) { … }`)
 - Argumente in Funktionsaufrufen (`f(1, 2)`)
-- {{Glossary("Binding", "Bindungs")}}-Listen in [`let`](/de/docs/Web/JavaScript/Reference/Statements/let)-, [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)- oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Deklarationen (`const a = 1, b = 2;`)
+- {{Glossary("Binding", "Binding")}}-Listen in Deklarationen mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) (`const a = 1, b = 2;`)
 - Importlisten in [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Deklarationen (`import { a, b } from "c";`)
 - Exportlisten in [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)-Deklarationen (`export { a, b };`)
 
-Tatsächlich akzeptieren einige dieser Stellen fast alle Ausdrücke, aber keine durch Komma verbundenen Ausdrücke, da dies mit den syntaktischen Kommatrennzeichen mehrdeutig wäre. In diesem Fall müssen Sie den durch Komma verbundenen Ausdruck in Klammern setzen. Zum Beispiel ist die folgende eine `const`-Deklaration, die zwei Variablen deklariert, wobei das Komma nicht der Komma-Operator ist:
+Obwohl einige dieser Stellen fast alle Arten von Ausdrücken zulassen, akzeptieren sie keine durch Kommas verbundenen Ausdrücke, da diese nicht eindeutig von den syntaktischen Kommatrennzeichen zu unterscheiden wären. In solchen Fällen müssen Sie den durch Kommas verbundenen Ausdruck in Klammern setzen. Das folgende Beispiel ist eine `const`-Deklaration, die zwei Variablen deklariert. Das Komma ist hier kein Kommaoperator:
 
 ```js-nolint
 const a = 1, b = 2;
 ```
 
-Dies unterscheidet sich vom folgenden, bei dem `b = 2` ein [Zuordnungs-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/Assignment) und keine Deklaration ist. Der Wert von `a` ist `2`, der Rückgabewert der Zuweisung, während der Wert von `1` verworfen wird:
+Das unterscheidet sich vom folgenden Beispiel: Hier ist `b = 2` ein [Zuweisungsausdruck](/de/docs/Web/JavaScript/Reference/Operators/Assignment) und keine Deklaration. `a` erhält den Wert `2`, den Rückgabewert der Zuweisung. Der Wert `1` wird dagegen verworfen:
 
 ```js-nolint
 const a = (1, b = 2);
 ```
 
-Komma-Operatoren können nicht als [nachgestellte Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) erscheinen.
+Kommaoperatoren können nicht als [nachgestellte Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) auftreten.
 
 ## Beispiele
 
-### Verwendung des Komma-Operators in einer for-Schleife
+### Den Kommaoperator in einer for-Schleife verwenden
 
-Wenn `a` ein zweidimensionales Array mit 10 Elementen auf jeder Seite ist, verwendet der folgende Code den Komma-Operator, um `i` zu inkrementieren und `j` zu dekrementieren, und druckt so die Werte der diagonalen Elemente im Array:
+Wenn `a` ein zweidimensionales Array mit jeweils 10 Elementen pro Dimension ist, verwendet der folgende Code den Kommaoperator, um `i` zu erhöhen und zugleich `j` zu verringern. So werden die Werte der Diagonalelemente des Arrays ausgegeben:
 
 ```js
 const a = Array.from({ length: 10 }, () =>
@@ -82,9 +82,9 @@ for (let i = 0, j = 9; i <= 9; i++, j--) {
 }
 ```
 
-### Verwenden des Komma-Operators zur Verbindung von Zuweisungen
+### Zuweisungen mit dem Kommaoperator verbinden
 
-Da Kommas die niedrigste [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) haben — sogar niedriger als Zuweisungen — können Kommas verwendet werden, um mehrere Zuweisungsausdrücke zu verbinden. Im folgenden Beispiel wird `a` auf den Wert von `b = 3` gesetzt (der 3 ist). Dann wird der Ausdruck `c = 4` ausgewertet und sein Ergebnis wird zum Rückgabewert des gesamten Komma-Ausdrucks.
+Da Kommas die niedrigste [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) haben – sogar eine niedrigere als Zuweisungen –, können sie mehrere Zuweisungsausdrücke verbinden. Im folgenden Beispiel wird `a` auf den Wert von `b = 3` gesetzt (also auf 3). Anschließend wird der Ausdruck `c = 4` ausgewertet; sein Ergebnis ist der Rückgabewert des gesamten Kommaausdrucks.
 
 ```js-nolint
 let a, b, c;
@@ -98,9 +98,9 @@ x = (y = 5, z = 6); // Returns 6
 console.log(x); // 6 (right-most)
 ```
 
-### Verarbeiten und dann zurückgeben
+### Verarbeiten und anschließend zurückgeben
 
-Ein weiteres Beispiel, das man mit dem Komma-Operator machen könnte, ist das Verarbeiten vor dem Zurückgeben. Wie erwähnt, wird nur das letzte Element zurückgegeben, aber alle anderen werden ebenfalls ausgewertet. Man könnte also Folgendes tun:
+Mit dem Kommaoperator können Sie auch einen Wert verarbeiten, bevor Sie ein Ergebnis zurückgeben. Wie beschrieben wird nur der Wert des letzten Ausdrucks zurückgegeben, aber alle anderen Ausdrücke werden ebenfalls ausgewertet. Sie können also Folgendes tun:
 
 ```js-nolint
 function myFunc() {
@@ -110,7 +110,7 @@ function myFunc() {
 }
 ```
 
-Dies ist besonders nützlich für einzeilige [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions). Das folgende Beispiel verwendet ein einzelnes [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map), um sowohl die Summe eines Arrays als auch die Quadrate seiner Elemente zu erhalten, was ansonsten zwei Iterationen erfordern würde, eine mit [`reduce()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) und eine mit `map()`:
+Das ist besonders für einzeilige [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) nützlich. Im folgenden Beispiel wird ein einziger [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)-Aufruf verwendet, um sowohl die Summe eines Arrays als auch die Quadrate seiner Elemente zu ermitteln. Andernfalls wären dafür zwei Durchläufe erforderlich: einer mit [`reduce()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) und einer mit `map()`:
 
 ```js
 let sum = 0;
@@ -119,9 +119,11 @@ console.log(squares); // [1, 4, 9, 16, 25]
 console.log(sum); // 15
 ```
 
-### Verwerfen der Referenzbindung
+### Referenzbindung verwerfen
 
-Der Komma-Operator gibt immer den letzten Ausdruck als _Wert_ statt als _Referenz_ zurück. Dies führt dazu, dass einige kontextuelle Informationen wie die [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Bindung verloren gehen. Zum Beispiel gibt ein Property-Zugriff eine Referenz auf die Funktion zurück, die sich auch das Objekt merkt, auf dem es aufgerufen wird, sodass der Aufruf der Eigenschaft ordnungsgemäß funktioniert. Wenn die Methode aus einem Komma-Ausdruck zurückgegeben wird, wird die Funktion so aufgerufen, als wäre sie ein neuer Funktionswert, und `this` ist `undefined`.
+Der Kommaoperator gibt den letzten Ausdruck immer als _Wert_ und nicht als _Referenz_ zurück. Dadurch gehen bestimmte Kontextinformationen verloren, etwa die [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Bindung. Ein Eigenschaftszugriff liefert beispielsweise eine Referenz auf die Funktion, die auch das Objekt enthält, über das auf die Eigenschaft zugegriffen wurde. So funktioniert ein Aufruf der Eigenschaft korrekt. Wird die Methode dagegen von einem Kommaausdruck zurückgegeben, wird die Funktion wie ein eigenständiger Funktionswert aufgerufen. Im strikten Modus ist `this` dann `undefined`, außerhalb des strikten Modus ist es das globale Objekt.
+
+Das folgende Beispiel wird außerhalb des strikten Modus ausgeführt:
 
 ```js-nolint
 const obj = {
@@ -136,7 +138,7 @@ obj.method(); // "obj"
 (0, obj.method)(); // undefined (the comma operator returns a new value)
 ```
 
-Mit dieser Technik können Sie in ein [indirektes eval](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval) eintreten, da ein direktes eval erfordert, dass der Funktionsaufruf auf die Referenz zur `eval()`-Funktion erfolgt.
+Mit dieser Technik können Sie [indirektes eval](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval) verwenden, denn direktes eval setzt voraus, dass der Funktionsaufruf über die Referenz auf die Funktion `eval()` erfolgt.
 
 ```js-nolint
 globalThis.isDirectEval = false;

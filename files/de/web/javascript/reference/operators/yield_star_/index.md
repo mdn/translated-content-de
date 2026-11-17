@@ -2,10 +2,10 @@
 title: yield*
 slug: Web/JavaScript/Reference/Operators/yield*
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
 ---
 
-Der **`yield*`**-Operator kann innerhalb von Generatorfunktionen (synchron oder asynchron) verwendet werden, um an ein anderes [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt, wie zum Beispiel einen {{jsxref("Generator")}}, zu delegieren. Innerhalb asynchroner Generatorfunktionen kann er zusätzlich verwendet werden, um an ein weiteres asynchrones iterierbares Objekt, wie einen {{jsxref("AsyncGenerator")}}, zu delegieren.
+Der **`yield*`**-Operator kann innerhalb von Generatorfunktionen (synchron oder asynchron) verwendet werden, um die Iteration an ein anderes [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt zu delegieren, beispielsweise an einen {{jsxref("Generator")}}. Innerhalb asynchroner Generatorfunktionen kann er außerdem an ein anderes asynchron iterierbares Objekt delegieren, beispielsweise an einen {{jsxref("AsyncGenerator")}}.
 
 {{InteractiveExample("JavaScript Demo: yield* operator")}}
 
@@ -32,28 +32,28 @@ yield* expression
 
 ### Parameter
 
-- `expression` {{optional_inline}}
+- `expression`
   - : Ein iterierbares Objekt.
 
 ### Rückgabewert
 
-Gibt den Wert zurück, der von diesem Iterator zurückgegeben wird, wenn er geschlossen wird (wenn `done` `true` ist).
+Gibt den Wert zurück, den der Iterator zurückgibt, wenn er abgeschlossen ist (wenn `done` den Wert `true` hat).
 
 ## Beschreibung
 
-Der `yield*`-Ausdruck iteriert über den Operanden und yieldet jeden von ihm zurückgegebenen Wert. Er delegiert die Iteration des aktuellen Generators an einen zugrunde liegenden Iterator — die wir im Folgenden als "Generator" und "Iterator" bezeichnen werden. `yield*` holt zunächst den Iterator vom Operanden, indem die [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode des letzteren aufgerufen wird. Dann, jedes Mal, wenn die `next()`-Methode des Generators aufgerufen wird, ruft `yield*` die `next()`-Methode des Iterators auf, übergibt das vom Generator mit `next()` empfangene Argument (immer `undefined` beim ersten Aufruf), und yieldet dasselbe Ergebnisobjekt wie das, was von der `next()`-Methode des Iterators zurückgegeben wird. Wenn das Iterator-Ergebnis `done: true` hat, dann hört der `yield*`-Ausdruck auf zu laufen und gibt den `value` dieses Ergebnisses zurück.
+Der `yield*`-Ausdruck iteriert über seinen Operanden und gibt jeden von ihm gelieferten Wert weiter. Er delegiert die Iteration des aktuellen Generators an einen zugrunde liegenden Iterator – im Folgenden als „Generator“ beziehungsweise „Iterator“ bezeichnet. Zunächst ruft `yield*` die Methode [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) des Operanden auf, um dessen Iterator abzurufen. Bei jedem Aufruf der `next()`-Methode des Generators ruft `yield*` anschließend die `next()`-Methode des Iterators auf. Dabei übergibt es das Argument, das die `next()`-Methode des Generators erhalten hat (beim ersten Aufruf immer `undefined`), und liefert dasselbe Ergebnisobjekt wie die `next()`-Methode des Iterators. Wenn das Iteratorergebnis `done: true` enthält, endet die Ausführung des `yield*`-Ausdrucks, und er gibt den `value` dieses Ergebnisses zurück.
 
-Der `yield*`-Operator leitet auch die {{jsxref("Generator/throw", "throw()")}}- und {{jsxref("Generator/return", "return()")}}-Methoden des aktuellen Generators an den zugrunde liegenden Iterator weiter. Wenn der aktuelle Generator vorzeitig durch eine dieser Methoden geschlossen wird, wird der zugrunde liegende Iterator informiert. Wenn die `throw()`/`return()`-Methode des Generators aufgerufen wird, wird die `throw()`/`return()`-Methode des zugrunde liegenden Iterators mit demselben Argument aufgerufen. Der Rückgabewert von `throw()`/`return()` wird ähnlich wie das Ergebnis der `next()`-Methode behandelt, und wenn die Methode wirft, wird die Ausnahme vom `yield*`-Ausdruck weitergegeben.
+Der `yield*`-Operator leitet auch die Methoden {{jsxref("Generator/throw", "throw()")}} und {{jsxref("Generator/return", "return()")}} des aktuellen Generators an den zugrunde liegenden Iterator weiter. Wird der aktuelle Generator durch eine dieser Methoden vorzeitig geschlossen, wird der zugrunde liegende Iterator darüber informiert. Wird die `throw()`- oder `return()`-Methode des Generators aufgerufen, wird die entsprechende Methode des zugrunde liegenden Iterators mit demselben Argument aufgerufen. Der Rückgabewert von `throw()` oder `return()` wird wie das Ergebnis der `next()`-Methode behandelt. Löst die Methode eine Ausnahme aus, wird diese vom `yield*`-Ausdruck weitergegeben.
 
-Falls der zugrunde liegende Iterator keine `return()`-Methode besitzt, wird der `yield*`-Ausdruck in eine {{jsxref("Statements/return", "return")}}-Anweisung umgewandelt, ebenso als würde `return()` auf einem angehaltenen {{jsxref("Operators/yield", "yield")}}-Ausdruck aufgerufen.
+Wenn der zugrunde liegende Iterator keine `return()`-Methode hat, verhält sich der `yield*`-Ausdruck wie eine {{jsxref("Statements/return", "return")}}-Anweisung – ebenso wie beim Aufruf von `return()` für einen angehaltenen {{jsxref("Operators/yield", "yield")}}-Ausdruck.
 
-Falls der zugrunde liegende Iterator keine `throw()`-Methode besitzt, führt dies dazu, dass `yield*` einen {{jsxref("TypeError")}} wirft – doch bevor der Fehler geworfen wird, wird die `return()`-Methode des zugrunde liegenden Iterators aufgerufen, falls eine existiert.
+Wenn der zugrunde liegende Iterator keine `throw()`-Methode hat, löst `yield*` einen {{jsxref("TypeError")}} aus. Bevor der Fehler ausgelöst wird, wird jedoch die `return()`-Methode des zugrunde liegenden Iterators aufgerufen, sofern sie vorhanden ist.
 
 ## Beispiele
 
-### Delegieren an einen anderen Generator
+### Delegation an einen anderen Generator
 
-Im folgenden Code werden Werte, die von `g1()` yielded werden, von `next()`-Aufrufen genauso zurückgegeben wie diejenigen, die von `g2()` yielded werden.
+Im folgenden Code geben `next()`-Aufrufe sowohl von `g1()` als auch von `g2()` gelieferte Werte zurück.
 
 ```js
 function* g1() {
@@ -80,7 +80,7 @@ console.log(gen.next()); // {value: undefined, done: true}
 
 ### Andere iterierbare Objekte
 
-Neben Generator-Objekten kann `yield*` auch andere Arten von Iterables yielden (z. B. Arrays, Strings oder {{jsxref("Functions/arguments", "arguments")}}-Objekte).
+Neben Generatorobjekten kann `yield*` auch Werte anderer Arten iterierbarer Objekte liefern, beispielsweise von Arrays, Strings oder {{jsxref("Functions/arguments", "arguments")}}-Objekten.
 
 ```js
 function* g3(...args) {
@@ -100,9 +100,9 @@ console.log(gen.next()); // {value: 6, done: false}
 console.log(gen.next()); // {value: undefined, done: true}
 ```
 
-### Der Wert des yield\* Ausdrucks selbst
+### Der Wert des yield\*-Ausdrucks selbst
 
-`yield*` ist ein Ausdruck, keine Anweisung, daher wird er zu einem Wert ausgewertet.
+`yield*` ist ein Ausdruck und keine Anweisung. Daher wird er zu einem Wert ausgewertet.
 
 ```js
 function* g4() {
@@ -120,7 +120,7 @@ const gen = g5();
 
 console.log(gen.next()); // {value: 1, done: false}
 console.log(gen.next()); // {value: 2, done: false}
-console.log(gen.next()); // {value: 3, done: false} done is false because g5 generator isn't finished, only g4
+console.log(gen.next()); // {value: 3, done: false}
 console.log(gen.next()); // {value: 'foo', done: true}
 ```
 
@@ -149,9 +149,9 @@ console.log(await gen.next()); // {value: "bar", done: false}
 console.log(await gen.next()); // {done: true}
 ```
 
-### Methodenweiterleitung
+### Weiterleitung von Methoden
 
-Die `next()`, `throw()`, und `return()`-Methoden des aktuellen Generators werden alle an den zugrunde liegenden Iterator weitergeleitet.
+Die Methoden `next()`, `throw()` und `return()` des aktuellen Generators werden alle an den zugrunde liegenden Iterator weitergeleitet.
 
 ```js
 const iterable = {
@@ -200,11 +200,11 @@ console.log(gen2.next(10));
 console.log(gen2.throw(50));
 // throw called with 50
 // { value: 'gf return value', done: true }
-console.log(gen.next(60));
-// { value: undefined, done: true }; gen is already closed
+console.log(gen2.next(60));
+// { value: undefined, done: true }; gen2 is already closed
 ```
 
-Falls die `return()`/`throw()`-Methode des zugrunde liegenden Iterators `done: false` zurückgibt, wird der aktuelle Generator weiter ausgeführt und `yield*` delegiert weiterhin an den zugrunde liegenden Iterator.
+Wenn die `return()`- oder `throw()`-Methode des zugrunde liegenden Iterators `done: false` zurückgibt, wird die Ausführung des aktuellen Generators fortgesetzt, und `yield*` delegiert weiterhin an den zugrunde liegenden Iterator.
 
 ```js
 const iterable = {
@@ -237,10 +237,11 @@ console.log(gen.return(20));
 // return called with 20
 // { value: 'iterable return value', done: false }
 console.log(gen.next(30));
+// next called with 30
 // { value: 2, done: false }; gen is not closed
 ```
 
-Falls der zugrunde liegende Iterator keine `throw()`-Methode hat und die `throw()`-Methode des Generators aufgerufen wird, wirft `yield*` einen Fehler.
+Wenn der zugrunde liegende Iterator keine `throw()`-Methode hat und `throw()` für den Generator aufgerufen wird, löst `yield*` einen Fehler aus.
 
 ```js
 const iterable = {
@@ -277,5 +278,5 @@ gen.throw(20); // TypeError: The iterator does not provide a 'throw' method.
 
 - [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
 - {{jsxref("Statements/function*", "function*")}}
-- [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
+- [`function*`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
 - {{jsxref("Operators/yield", "yield")}}

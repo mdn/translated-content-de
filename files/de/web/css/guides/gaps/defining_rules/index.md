@@ -3,20 +3,20 @@ title: CSS-Regeln für Zeilen- und Spaltenabstände definieren
 short-title: Regeln für Abstände definieren
 slug: Web/CSS/Guides/Gaps/Defining_rules
 l10n:
-  sourceCommit: a4ff34eef85ccb654c5c3af7974caba396e8adcf
+  sourceCommit: e57c161bccdd08db7e46922255e1dc3ea74058d4
 ---
 
-Beim Erstellen von [Grid-](/de/docs/Web/CSS/Guides/Grid_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Mehrspalten-Layouts](/de/docs/Web/CSS/Guides/Multicol_layout) können Sie dekorative Linien, sogenannte _Regeln_, mittig in den Zwischenräumen zwischen Zeilen und Spalten hinzufügen. Sie können Regeln in jedem Abstand oder nur in ausgewählten Abständen anzeigen und ihre Breiten, Farben und Einzüge vollständig animieren. Dieser Leitfaden erläutert, wie Sie Breite, Farbe und Stil dieser Regeln festlegen.
+Beim Erstellen von [Grid-](/de/docs/Web/CSS/Guides/Grid_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Multicol_layout) können Sie in der Mitte der Zwischenräume zwischen Zeilen und Spalten dekorative Linien, sogenannte _Regeln_, hinzufügen. Sie können Regeln in allen oder nur in ausgewählten Zwischenräumen anzeigen und ihre Breite, Farbe und Einzüge vollständig animieren. Dieser Leitfaden erklärt, wie Sie Breite, Farbe und Stil dieser Regeln festlegen.
 
 ## Überblick
 
-Das Modul [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps#properties) definiert mehrere Eigenschaften für das Erscheinungsbild von Linien, die hinter dem Inhalt in den Zwischenräumen eines Grid-, Flexbox- oder Mehrspalten-Containers gezeichnet werden. Diese Linien wirken sich weder auf das [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) noch auf das Layout aus. Die Größe der Zwischenräume wird durch die Eigenschaft {{cssxref("gap")}} bestimmt. Ihr Standardwert beträgt bei Mehrspalten-Containern `1em` und in allen anderen Kontexten `0`.
+Das Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps#properties) definiert mehrere Eigenschaften für das Erscheinungsbild von Linien, die hinter dem Inhalt in den Zwischenräumen eines Grid-, Flexbox- oder mehrspaltigen Containers gezeichnet werden. Diese Linien beeinflussen weder das [Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) noch das Layout. Die Größe der Zwischenräume wird durch die Eigenschaft {{cssxref("gap")}} bestimmt. Ihr Standardwert beträgt bei mehrspaltigen Containern `1em` und in allen anderen Kontexten `0`.
 
-Ist eine Regel breiter als der durch {{cssxref("gap")}} festgelegte Abstand, wird die Linie hinter dem Inhalt gezeichnet, damit sie ihn nicht verdeckt. Achten Sie dennoch auf einen ausreichenden [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) zwischen dem Inhalt und sowohl dem Hintergrund als auch der Regel, damit der Inhalt lesbar bleibt.
+Ist eine Regel breiter als der durch {{cssxref("gap")}} festgelegte Zwischenraum, wird die Linie hinter dem Inhalt gezeichnet, damit sie ihn nicht verdeckt. Achten Sie dennoch darauf, dass der [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) zwischen dem Inhalt und sowohl dem Hintergrund als auch der Regel ausreicht, um die Lesbarkeit zu gewährleisten.
 
-Weitere Informationen dazu, wie Sie in Layouts mit {{Glossary("gutters", "Zwischenräumen")}} die Abstände zwischen benachbarten Boxen festlegen, finden Sie unter [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps).
+Weitere Informationen zum Festlegen der Abstände zwischen benachbarten Boxen in Layouts mit {{Glossary("gutters", "Zwischenräumen")}} und Abständen finden Sie unter [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps).
 
-Alle Eigenschaften für Regelfarbe, Linienbreite und Linienstil akzeptieren eine durch Kommas getrennte Liste von Werten. So können die Abstände innerhalb eines Containers unterschiedlich gestaltet werden.
+Alle Eigenschaften für Regelfarbe, Linienbreite und Linienstil akzeptieren eine kommagetrennte Liste von Werten. So lassen sich die Zwischenräume innerhalb eines Containers unterschiedlich gestalten.
 
 ```css
 rule-color: blue;
@@ -24,7 +24,7 @@ rule-width: 10px, 20px;
 rule-style: solid, dashed, solid, dotted;
 ```
 
-Innerhalb der Liste können Sie [die Funktion `repeat()`](#the_repeat_function) verwenden, um eine bestimmte Anzahl von Wiederholungen festzulegen oder automatisch so viele Wiederholungen hinzuzufügen, wie für jede gezeichnete Linie benötigt werden.
+Innerhalb der Liste können Sie [die Funktion `repeat()`](#the_repeat_function) verwenden, um eine bestimmte Anzahl von Wiederholungen festzulegen oder automatisch so viele Wiederholungen hinzuzufügen, wie für alle gezeichneten Linien benötigt werden.
 
 ```css
 rule-color: blue, repeat(3, gray, red);
@@ -38,20 +38,20 @@ Die Kurzschreibweisen für Regelfarbe, Linienbreite und Linienstil legen jeweils
 
 Bevor die Eigenschaften für Spalten- und Zeilenregeln vorgestellt werden, ist es wichtig, die Funktion {{cssxref("repeat()")}} zu verstehen.
 
-Mit der Funktion `repeat()` können Sie eine gültige Liste von CSS-Werten wiederholen. Das erste Argument gibt an, wie oft die Liste der als weitere Argumente übergebenen Werte wiederholt wird. So können Farb-, Linienbreiten- oder Linienstilwerte beliebig oft wiederholt werden, ohne sie einzeln aufzuführen.
+Mit der Funktion `repeat()` lässt sich eine gültige Liste von CSS-Werten wiederholen. Das erste Argument gibt an, wie oft die Liste der als weitere Argumente übergebenen Werte wiederholt werden soll. Dadurch können sich Werte für Farbe, Linienbreite oder Linienstil beliebig oft wiederholen, ohne dass Sie sie einzeln aufführen müssen.
 
-Die folgenden Deklarationen sind gleichwertig und erzeugen beide eine Liste mit acht Farben:
+Die folgenden Deklarationen sind gleichwertig und erzeugen jeweils eine Liste mit acht Farben:
 
 ```css
 rule-color: blue, yellow, red, yellow, red, yellow, red, gray;
 rule-color: blue, repeat(3, yellow, red), gray;
 ```
 
-Wenn die Anzahl der Werte die Anzahl der Abstände übersteigt, werden die überschüssigen Werte ignoriert. In einem 3×3-Grid-Container sind beispielsweise die ersten Zeilen- und Spaltenregeln blau und die zweiten gelb. Die übrigen Farbwerte der Liste werden nicht verwendet.
+Übersteigt die Anzahl der Werte die Anzahl der Zwischenräume, werden die überzähligen Werte ignoriert. In einem 3×3-Grid-Container sind beispielsweise die ersten Zeilen- und Spaltenregeln blau und die zweiten gelb. Die übrigen Farbwerte der Liste werden nicht verwendet.
 
-Gibt es mehr Abstände als Werte, wird die Liste wiederholt durchlaufen. In einem 10×10-Grid-Container gibt es in jeder Richtung neun Abstände. In diesem Fall sind die letzten Regeln blau: Den ersten acht Zeilen- und Spaltenregeln wird jeweils die zugehörige Farbe zugewiesen. Danach beginnt die Liste wieder von vorn, sodass die neunten Zeilen- und Spaltenregeln den ersten Wert der Liste erhalten.
+Gibt es mehr Zwischenräume als Werte, wird die Liste zyklisch wiederholt. In einem 10×10-Grid-Container gibt es in jeder Richtung neun Zwischenräume. In diesem Fall sind die letzten Regeln blau: Den ersten acht Zeilen- und Spaltenregeln wird jeweils die zugehörige Farbe zugewiesen. Danach beginnt die Liste erneut, sodass die neunten Zeilen- und Spaltenregeln den ersten Wert der Liste erhalten.
 
-Da hier nur drei Zeilen vorhanden sind, werden nur zwei Werte zum Einfärben der Zeilenabstände verwendet. Für die elf Spaltenregeln wird die Liste dagegen wiederholt durchlaufen, um jeder einen `<color>`-Wert zuzuweisen.
+Hier werden bei nur drei Zeilen lediglich zwei Werte zum Einfärben der Zeilenabstände verwendet. Für die elf Spaltenregeln wird die Liste hingegen zyklisch wiederholt, um jeder einen `<color>`-Wert zuzuweisen.
 
 ```css hidden live-sample___regular
 div {
@@ -62,15 +62,15 @@ div {
 
 {{EmbedLiveSample("regular", "", "190")}}
 
-Der erste Parameter der Funktion `repeat()` ist entweder ein {{cssxref("integer")}} mit dem Wert `1` oder höher oder das Schlüsselwort `auto`. Ist die Zahl ungültig (`0`, negativ, fehlend oder keine Ganzzahl), ist die gesamte Deklaration ungültig und wird ignoriert. Das Schlüsselwort `auto` erzeugt innerhalb der Funktion `repeat()` eine _automatische Wiederholung_, die Werte für Regeln bereitstellt, die sonst keine Werte aus anderen Teilen der Liste erhalten würden. Dadurch wird verhindert, dass die Liste wieder von vorn durchlaufen wird. Ein Eigenschaftswert darf höchstens eine automatische Wiederholung der Form `repeat(auto, <value-list>)` enthalten.
+Der erste Parameter der Funktion `repeat()` ist entweder ein {{cssxref("integer")}} mit dem Wert `1` oder größer oder das Schlüsselwort `auto`. Ist die Zahl ungültig (`0`, negativ, fehlend oder keine Ganzzahl), ist die gesamte Deklaration ungültig und wird ignoriert. Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine _automatische Wiederholung_, die Werte dort einsetzt, wo andernfalls kein Wert aus anderen Teilen der Liste zugewiesen würde. So wird verhindert, dass die Liste zyklisch wiederholt wird. Ein Eigenschaftswert darf höchstens eine automatische Wiederholung der Form `repeat(auto, <value-list>)` enthalten.
 
-Mit der folgenden Festlegung kommen in einem Grid mit mindestens 3×3 Zellen die Regeln `blue` und `gray` in jeder Richtung jeweils genau einmal vor:
+Mit der folgenden Festlegung kommen in einem Grid mit mindestens 3×3 Elementen die Regeln `blue` und `gray` in jeder Richtung jeweils genau einmal vor:
 
 ```css
 rule-color: blue, repeat(auto, yellow, red), gray;
 ```
 
-In diesem Fall werden `yellow` und `red` so oft wie nötig wiederholt, um Werte für alle Regeln bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind. Die erste Regel ist immer blau. Gibt es mehr als eine Regel, ist die letzte immer grau. Alle übrigen Regeln wechseln zwischen `yellow` und `red`.
+In diesem Fall werden `yellow` und `red` so oft wie nötig wiederholt, um allen Regeln Werte zuzuweisen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind. Die erste Regel ist immer blau. Gibt es mehr als eine Regel, ist die letzte immer grau. Alle übrigen Regeln wechseln zwischen `yellow` und `red`.
 
 ```css hidden live-sample___autorepeat
 div {
@@ -83,22 +83,22 @@ div {
 
 ## Linieneigenschaften
 
-Jede sichtbare Regel hat eine Farbe, eine Breite und einen Stil. Jeder dieser Werte kann einzeln oder als Liste von Werten angegeben werden.
+Jede sichtbare Regel hat eine Farbe, eine Breite und einen Stil. Jede dieser Eigenschaften kann als einzelner Wert oder als Werteliste definiert werden.
 
 ### Farbeigenschaften
 
-Die Eigenschaft {{cssxref("column-rule-color")}} legt die Farbe der zwischen Spalten gezeichneten Linien fest, {{cssxref("row-rule-color")}} die Farbe der zwischen Zeilen gezeichneten Linien. Die Eigenschaft {{cssxref("rule-color")}} setzt sowohl `column-rule-color` als auch `row-rule-color` auf denselben Wert. Diese Eigenschaften werden jeweils als durch Kommas getrennte Liste von Werten angegeben, die Folgendes enthalten kann:
+Die Eigenschaft {{cssxref("column-rule-color")}} legt die Farbe der Linien zwischen Spalten fest, {{cssxref("row-rule-color")}} die Farbe der Linien zwischen Zeilen. Die Eigenschaft {{cssxref("rule-color")}} setzt sowohl `column-rule-color` als auch `row-rule-color` auf denselben Wert. Für alle diese Eigenschaften wird eine kommagetrennte Werteliste angegeben, die Folgendes enthalten kann:
 
 - {{cssxref("&lt;color&gt;")}}
   - : Ein gültiger `<color>`-Wert, der die Farbe einer Linie festlegt. Der Standardwert ist `currentcolor`.
 
 - `<repeat-line-color>`
-  - : Eine Funktion {{cssxref("repeat()")}} mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<color>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<color>`-Werte wiederholt wird.
+  - : Eine Funktion {{cssxref("repeat()")}} mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<color>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<color>`-Werte wiederholt werden soll.
 
 - `<auto-repeat-line-color>`
-  - : Eine Funktion {{cssxref("repeat()")}} mit `auto` als erstem Argument und einem oder mehreren `<color>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<color>`-Werte den Regeln für Abstände zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die durch Kommas getrennte Liste der Eigenschaft wieder von vorn durchlaufen wird. Die Liste darf höchstens einen `<auto-repeat-line-color>`-Wert enthalten.
+  - : Eine Funktion {{cssxref("repeat()")}} mit `auto` als erstem Argument und einem oder mehreren `<color>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<color>`-Werte den Regeln in Zwischenräumen zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die kommagetrennte Liste der Eigenschaft zyklisch wiederholt wird. Die Liste darf höchstens einen `<auto-repeat-line-color>`-Wert enthalten.
 
-Wenn Sie `auto` innerhalb der Funktion `repeat()` als Teil der Eigenschaft `rule-color` verwenden, können Sie die erste und die letzte Regel dunkel und alle dazwischenliegenden Regeln hell darstellen.
+Wenn Sie `auto` innerhalb der Funktion `repeat()` als Teil der Eigenschaft `rule-color` verwenden, können Sie die erste und letzte Regel dunkel und alle Regeln dazwischen hell gestalten.
 
 ```css live-sample___color
 div {
@@ -108,25 +108,24 @@ div {
 
 {{EmbedLiveSample("color", "", "300")}}
 
-Wenn Sie die Anzahl der Spalten von `6` auf `4` oder `8` ändern, bleiben die erste und die letzte Regel in jeder Richtung `black` und alle übrigen Regeln `lightgray`.
+Wenn Sie die Anzahl der Spalten von `6` auf `4` oder `8` ändern, bleiben die erste und letzte Regel in jeder Richtung `black` und alle übrigen Regeln `lightgray`.
 
-Die grauen horizontalen Linien werden über den schwarzen vertikalen Linien gezeichnet. Das liegt daran, dass Zeilenregeln standardmäßig über Spaltenregeln gezeichnet werden. Sie können dies ändern, indem Sie die Eigenschaft {{cssxref("rule-overlap")}} statt auf den Standardwert `row-over-column` auf `column-over-row` setzen.
+Die grauen horizontalen Linien werden über den schwarzen vertikalen Linien gezeichnet. Das liegt daran, dass Zeilenregeln standardmäßig über Spaltenregeln gezeichnet werden. Sie können dies ändern, indem Sie die Eigenschaft {{cssxref("rule-overlap")}} statt auf ihren Standardwert `row-over-column` auf `column-over-row` setzen.
 
 ### Breiteneigenschaften
 
-Die Eigenschaft {{cssxref("column-rule-width")}} legt die Breite der zwischen Spalten gezeichneten Linien fest, {{cssxref("row-rule-width")}} die Breite der zwischen Zeilen gezeichneten Linien. Die Eigenschaft {{cssxref("rule-width")}} setzt sowohl `column-rule-width` als auch `row-rule-width` auf dieselben Werte. Diese Eigenschaften werden jeweils als durch Kommas getrennte Liste von Werten angegeben, die Folgendes enthalten kann:
+Die Eigenschaft {{cssxref("column-rule-width")}} legt die Breite der Linien zwischen Spalten fest, {{cssxref("row-rule-width")}} die Breite der Linien zwischen Zeilen. Die Eigenschaft {{cssxref("rule-width")}} setzt sowohl `column-rule-width` als auch `row-rule-width` auf dieselben Werte. Für alle diese Eigenschaften wird eine kommagetrennte Werteliste angegeben, die Folgendes enthalten kann:
 
 - {{cssxref("&lt;line-width&gt;")}}
-  - : Legt die Breite der Linie fest, entweder als expliziten, nicht negativen {{cssxref("&lt;length&gt;")}}-Wert oder mit einem der Schlüsselwörter `thin`, `medium` oder `thick`. Der Standardwert ist `medium`, was in der Regel `3px` entspricht. Auch benutzerdefinierte Eigenschaften, deren Wert als `<line-width>` aufgelöst wird, sind gültig.
+  - : Definiert die Breite der Linie, entweder als ausdrücklichen, nicht negativen {{cssxref("&lt;length&gt;")}}-Wert oder mit einem der Schlüsselwörter `thin`, `medium` oder `thick`. Der Standardwert ist `medium`, was in der Regel `3px` entspricht. Auch benutzerdefinierte Eigenschaften, deren Wert zu einem `<line-width>` aufgelöst wird, sind gültig.
 - `<repeat-line-width>`
-  - : Eine Funktion `repeat()` mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<line-width>`-Werte wiederholt wird.
+  - : Eine Funktion `repeat()` mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<line-width>`-Werte wiederholt werden soll.
 - `<auto-repeat-line-width>`
-  - : Eine Funktion `repeat()` mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<line-width>`-Werte den Regeln für Abstände zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die durch Kommas getrennte Liste der Eigenschaft wieder von vorn durchlaufen wird. Die Liste darf höchstens einen `<auto-repeat-line-width>`-Wert enthalten.
+  - : Eine Funktion `repeat()` mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<line-width>`-Werte den Regeln in Zwischenräumen zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die kommagetrennte Liste der Eigenschaft zyklisch wiederholt wird. Die Liste darf höchstens einen `<auto-repeat-line-width>`-Wert enthalten.
 
-Anders als die Eigenschaften für {{cssxref("gap")}} beeinflussen `rule-width`-Eigenschaften das Layout nicht.
-Diese Eigenschaften bestimmen nur die Breite der Regeln. Regeln erscheinen mittig im Abstand, verändern dessen Größe nicht und wirken sich nicht auf das Box-Modell aus. Regeln, die breiter als der Abstand sind, werden hinter dem Inhalt gezeichnet.
+Anders als die Eigenschaften für {{cssxref("gap")}} beeinflussen `rule-width`-Eigenschaften das Layout nicht. Sie definieren lediglich die Breite der Regeln. Regeln erscheinen in der Mitte des Zwischenraums und haben weder Einfluss auf dessen Größe noch auf das Boxmodell. Regeln, die breiter als der Zwischenraum sind, werden hinter dem Inhalt gezeichnet.
 
-In diesem Beispiel ist {{cssxref("gap")}} auf `20px` gesetzt. Mit der Eigenschaft `rule-width` legen wir unterschiedliche Regelbreiten fest:
+In diesem Beispiel ist {{cssxref("gap")}} auf `20px` festgelegt. Mit der Eigenschaft `rule-width` definieren wir unterschiedliche Regelbreiten:
 
 ```css live-sample___width
 div {
@@ -136,26 +135,26 @@ div {
 
 {{EmbedLiveSample("width", "", "300")}}
 
-Die schwarzen Regeln sind mittig im Abstand positioniert. Besonders deutlich ist das bei den ersten Zeilen- und Spaltenabständen zu sehen, wo die `10px` breite Linie in der Mitte des `20px` breiten Abstands gezeichnet wird. Regeln werden hinter dem Inhalt gezeichnet. Das fällt besonders auf, wenn `rule-width` größer als `gap` ist und die Linien durch die halbtransparenten Grid-Elemente hindurchscheinen.
+Die schwarzen Regeln sind im Zwischenraum zentriert. Das ist in den ersten Zeilen- und Spaltenabständen besonders gut zu erkennen: Dort wird die `10px` breite Linie in der Mitte des `20px` breiten Zwischenraums gezeichnet. Regeln werden hinter dem Inhalt gezeichnet. Das fällt besonders auf, wenn `rule-width` größer als `gap` ist und die Linien durch die halbtransparenten Grid-Elemente hindurchscheinen.
 
-Alle Grid-Elemente haben schwarzen Text und einen halbtransparenten, nahezu weißen Hintergrund. Wenn Sie für Ihren Inhalt eine {{cssxref("background-color")}} festlegen, können Sie verhindern, dass über den Abstand hinausragende Regeln Barrierefreiheitsprobleme verursachen. Damit Ihre Inhalte barrierefrei sind, muss zwischen dem Hintergrund – sei es die Hintergrundfarbe oder die Regelfarbe – und dem Text oder anderen [wichtigen visuellen Informationen](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) ein [ausreichender Kontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) bestehen.
+Alle Grid-Elemente haben schwarzen Text und einen halbtransparenten, nahezu weißen Hintergrund. Wenn Sie für Ihren Inhalt eine {{cssxref("background-color")}} festlegen, können Sie verhindern, dass über den Zwischenraum hinausragende Regeln Probleme mit der Barrierefreiheit verursachen. Damit Ihre Inhalte barrierefrei sind, muss zwischen dem Hintergrund – sei es die Hintergrundfarbe oder die Regelfarbe – und dem Text oder anderen [wichtigen visuellen Informationen](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) ein [ausreichender Kontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) bestehen.
 
-### Eigenschaften für den Linienstil
+### Linienstileigenschaften
 
-Die Eigenschaft {{cssxref("column-rule-style")}} legt den Stil der zwischen Spalten gezeichneten Linien fest, {{cssxref("row-rule-style")}} den Stil der zwischen Zeilen gezeichneten Linien. {{cssxref("rule-style")}} setzt sowohl `column-rule-style` als auch `row-rule-style` auf denselben Wert.
+Die Eigenschaft {{cssxref("column-rule-style")}} legt den Stil der Linien zwischen Spalten fest, {{cssxref("row-rule-style")}} den Stil der Linien zwischen Zeilen. Die Eigenschaft {{cssxref("rule-style")}} setzt sowohl `column-rule-style` als auch `row-rule-style` auf denselben Wert.
 
-Diese Eigenschaften werden jeweils als durch Kommas getrennte Liste von Werten angegeben, die Folgendes enthalten kann:
+Für alle diese Eigenschaften wird eine kommagetrennte Werteliste angegeben, die Folgendes enthalten kann:
 
 - {{cssxref("&lt;line-style&gt;")}}
   - : Ein Schlüsselwort – `solid`, `dashed`, `dotted`, `double`, `groove`, `ridge`, `inset`, `outset`, `none` oder `hidden` –, das den Linienstil der gezeichneten Regel festlegt. Der Standardwert ist `none`.
 - `<repeat-line-style>`
-  - : Eine Funktion `repeat()` mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<line-style>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<line-style>`-Werte wiederholt wird.
+  - : Eine Funktion `repeat()` mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<line-style>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<line-style>`-Werte wiederholt werden soll.
 - `<auto-repeat-line-style>`
-  - : Eine Funktion `repeat()` mit `auto` als erstem Argument und einem oder mehreren `<line-style>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<line-style>`-Werte den Regeln für Abstände zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die durch Kommas getrennte Liste der Eigenschaft wieder von vorn durchlaufen wird. Die Liste darf höchstens einen `<auto-repeat-line-style>`-Wert enthalten.
+  - : Eine Funktion `repeat()` mit `auto` als erstem Argument und einem oder mehreren `<line-style>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<line-style>`-Werte den Regeln in Zwischenräumen zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die kommagetrennte Liste der Eigenschaft zyklisch wiederholt wird. Die Liste darf höchstens einen `<auto-repeat-line-style>`-Wert enthalten.
 
 Wie bei {{cssxref("border")}} ist der Standardwert `none`. Damit eine Regel gezeichnet wird, muss daher ein `<line-style>` mit einem anderen Wert als `hidden` oder `none` deklariert werden.
 
-In diesem Beispiel weisen wir der Eigenschaft `column-rule-style` eine Liste mit sieben Werten zu. Da das Grid mit acht Spalten sieben Spaltenabstände hat, wird jeder Wert genau einmal verwendet. Die Deklaration `row-rule-style` enthält drei Werte für drei Zeilenregeln; auch hier wird jeder Wert genau einmal verwendet.
+In diesem Beispiel weisen wir der Eigenschaft `column-rule-style` eine Liste mit sieben Werten zu. Da das Grid mit acht Spalten sieben Spaltenabstände hat, wird jeder Wert genau einmal verwendet. Die Deklaration für `row-rule-style` enthält drei Werte für drei Zeilenregeln; auch hier wird jeder Wert genau einmal verwendet.
 
 ```css live-sample___style
 div {
@@ -172,24 +171,24 @@ div {
 
 {{EmbedLiveSample("style", "", "240")}}
 
-In den Zeilenabständen werden nur die `outset`-Regeln gezeichnet, denn wenn `<line-style>` auf `none` oder `hidden` gesetzt ist, wird keine Linie gezeichnet.
+In den Zeilenzwischenräumen werden nur die Regeln mit `outset` gezeichnet. Ist `<line-style>` auf `none` oder `hidden` gesetzt, wird keine Linie gezeichnet.
 
 ### Kurzschreibweisen
 
 Mit den Kurzschreibweisen {{cssxref("row-rule")}}, {{cssxref("column-rule")}} und {{cssxref("rule")}} können Sie Farben, Linienbreiten und Linienstile für eine oder mehrere Linien in einer einzigen Deklaration festlegen.
 
-Diese Kurzschreibweisen werden jeweils als durch Kommas getrennte Liste von Werten angegeben. Die Liste kann folgende Werte enthalten:
+Für alle diese Kurzschreibweisen wird eine kommagetrennte Werteliste angegeben, die Folgendes enthalten kann:
 
 - `<gap-rule>`
-  - : Besteht aus einem, zwei oder drei der Werte {{cssxref("&lt;line-width&gt;")}}, {{cssxref("&lt;line-style&gt;")}} und {{cssxref("&lt;color&gt;")}} in beliebiger Reihenfolge. Wie bei der Kurzschreibweise {{cssxref("border")}} muss `<line-style>` angegeben werden, damit eine Linie gezeichnet wird; andernfalls gilt der Standardwert `none`. Der Standardwert für `<line-width>` ist `medium`, der für `<color>` ist `current-color`.
+  - : Eine Angabe aus einem, zwei oder drei der Werte {{cssxref("&lt;line-width&gt;")}}, {{cssxref("&lt;line-style&gt;")}} und {{cssxref("&lt;color&gt;")}} in beliebiger Reihenfolge. Wie bei den Werten der Kurzschreibweise {{cssxref("border")}} muss `<line-style>` enthalten sein, damit eine Linie gezeichnet wird, da der Wert andernfalls standardmäßig `none` ist. Der Standardwert für `<line-width>` ist `medium`, der für `<color>` ist `current-color`.
 
 - `<gap-repeat-rule>`
-  - : Eine Funktion `repeat()` mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<gap-rule>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<gap-rule>`-Werte wiederholt wird.
+  - : Eine Funktion `repeat()` mit einem {{cssxref("&lt;integer&gt;")}} als erstem Argument und einem oder mehreren `<gap-rule>`-Werten als weiteren Argumenten. Der `<integer>`-Wert muss mindestens `1` betragen und gibt an, wie oft die Liste der `<gap-rule>`-Werte wiederholt werden soll.
 
 - `<auto-repeat-gap-rule>`
-  - : Eine Funktion `repeat()` mit `auto` als erstem Argument und einem oder mehreren `<gap-rule>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<gap-rule>`-Werte den Regeln für Abstände zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die durch Kommas getrennte Liste der Eigenschaft wieder von vorn durchlaufen wird. Die Liste darf höchstens einen `<auto-repeat-gap-rule>`-Wert enthalten.
+  - : Eine Funktion `repeat()` mit `auto` als erstem Argument und einem oder mehreren `<gap-rule>`-Werten als weiteren Argumenten. Dadurch entsteht eine automatische Wiederholung, die `<gap-rule>`-Werte den Regeln in Zwischenräumen zuweist, die sonst keine Werte aus den anderen Bestandteilen des Eigenschaftswerts erhalten würden. So wird verhindert, dass die kommagetrennte Liste der Eigenschaft zyklisch wiederholt wird. Die Liste darf höchstens einen `<auto-repeat-gap-rule>`-Wert enthalten.
 
-Deklarationen mit Kurzschreibweisen ähneln den Werten ihrer Einzeleigenschaften. Jeder Wert in der durch Kommas getrennten Liste besteht jedoch aus bis zu drei durch Leerzeichen getrennten Teilwerten. Die Funktion `repeat()` funktioniert wie bei den Einzeleigenschaften; auch hier besteht jeder Wert aus einer durch Leerzeichen getrennten Liste von Teilwerten.
+Die Deklarationen der Kurzschreibweisen ähneln den Werten ihrer Einzeleigenschaften. Jeder Wert in der kommagetrennten Liste besteht jedoch aus einer durch Leerzeichen getrennten Liste von bis zu drei Komponentenwerten. Die Funktion `repeat()` arbeitet wie bei den Einzeleigenschaften; auch hier ist jeder Wert eine durch Leerzeichen getrennte Liste von Komponenten.
 
 ```css live-sample___shorthand
 div {
@@ -270,7 +269,7 @@ Die Kurzschreibweise `rule` setzt sowohl `column-rule` als auch `row-rule` auf d
 
 ## Siehe auch
 
-- [Überblick über die Eigenschaften zur Gestaltung von CSS-Abständen](/de/docs/Web/CSS/Guides/Gaps/Overview)
+- [Überblick über CSS-Abstände und Eigenschaften zur Gestaltung von Zwischenräumen](/de/docs/Web/CSS/Guides/Gaps/Overview)
 - [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
-- Modul [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps)
-- Modul [CSS-Rahmen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)
+- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)
+- Modul [CSS borders and box decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)

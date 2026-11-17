@@ -2,10 +2,10 @@
 title: let
 slug: Web/JavaScript/Reference/Statements/let
 l10n:
-  sourceCommit: 5c8d0ac21db572edebbd4ad428efca0af3ec1734
+  sourceCommit: 439a8c053d3b2d4f3af60c06f567418eb8fc2f9a
 ---
 
-Die **`let`** Deklaration deklariert neu zuweisbare, block-skopierte lokale Variablen und initialisiert optional jede mit einem Wert.
+Die **`let`**-Deklaration deklariert lokale Variablen mit Block-Scope, denen erneut Werte zugewiesen werden können. Optional kann jede Variable mit einem Wert initialisiert werden.
 
 {{InteractiveExample("JavaScript Demo: let declaration")}}
 
@@ -36,51 +36,51 @@ let name1 = value1, name2, /* …, */ nameN = valueN;
 ### Parameter
 
 - `nameN`
-  - : Der Name der zu deklarierenden Variable. Jede muss ein gültiger JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Destructuring-Bindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
+  - : Der Name der zu deklarierenden Variablen. Jeder Name muss ein gültiger JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Destrukturierungs-Bindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
 - `valueN` {{optional_inline}}
-  - : Anfangswert der Variablen. Es kann jeder gültige Ausdruck sein. Der Standardwert ist `undefined`.
+  - : Der Anfangswert der Variablen. Dies kann ein beliebiger gültiger Ausdruck sein. Der Standardwert ist `undefined`.
 
 ## Beschreibung
 
-Der Gültigkeitsbereich einer mit `let` deklarierten Variablen ist einer der folgenden geschweifte Klammern umschlossenen Syntaxe, die die `let` Deklaration am engsten enthält:
+Der Gültigkeitsbereich einer mit `let` deklarierten Variablen ist diejenige der folgenden, durch geschweifte Klammern begrenzten Strukturen, welche die `let`-Deklaration unmittelbar umschließt:
 
-- [Block](/de/docs/Web/JavaScript/Reference/Statements/block) Anweisung
-- {{jsxref("Statements/switch", "switch")}} Anweisung
-- {{jsxref("Statements/try...catch", "try...catch")}} Anweisung
-- Körper von [einer der `for`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements#iterations), wenn sich das `let` im Header der Anweisung befindet
-- Funktionskörper
+- [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung
+- {{jsxref("Statements/switch", "switch")}}-Anweisung
+- {{jsxref("Statements/try...catch", "try...catch")}}-Anweisung
+- Rumpf [einer der `for`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements#iterations), wenn sich `let` im Kopf der Anweisung befindet
+- Funktionsrumpf
 - [Statischer Initialisierungsblock](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
 
-Oder wenn nichts davon zutrifft:
+Falls nichts davon zutrifft, gilt:
 
-- Das aktuelle [Modul](/de/docs/Web/JavaScript/Guide/Modules), für Code, der im Modulmodus ausgeführt wird
-- Der globale Bereich, für Code, der im Skriptmodus ausgeführt wird.
+- Das aktuelle [Modul](/de/docs/Web/JavaScript/Guide/Modules), wenn der Code im Modulmodus ausgeführt wird
+- Der globale Gültigkeitsbereich, wenn der Code im Skriptmodus ausgeführt wird
 
-Verglichen mit {{jsxref("Statements/var", "var")}} haben `let` Deklarationen die folgenden Unterschiede:
+Im Vergleich zu {{jsxref("Statements/var", "var")}} weisen `let`-Deklarationen folgende Unterschiede auf:
 
-- `let` Deklarationen sind sowohl auf Blöcke als auch auf Funktionen beschränkt.
-- `let` Deklarationen können nur nach dem Ort der Deklaration erreicht werden (siehe [temporal dead zone](#temporal_dead_zone_tdz)). Aus diesem Grund werden `let` Deklarationen häufig als {{Glossary("Hoisting", "nicht-gehoisted")}} angesehen.
-- `let` Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Skripts deklariert werden.
-- `let` Deklarationen können nicht durch eine andere Deklaration im selben Bereich [wieder deklariert](#wiederdeklarationen) werden.
-- `let` beginnt [_Deklarationen_, nicht _Anweisungen_](/de/docs/Web/JavaScript/Reference/Statements#what_are_statements_declarations_and_expressions). Das bedeutet, dass Sie eine einzelne `let` Deklaration nicht als Körper eines Blocks verwenden können (was Sinn macht, da es keine Möglichkeit gibt, auf die Variable zuzugreifen).
+- Der Gültigkeitsbereich von `let`-Deklarationen erstreckt sich auf Blöcke und Funktionen.
+- Auf `let`-Deklarationen kann erst zugegriffen werden, nachdem die Ausführung die Deklaration erreicht hat (siehe [Temporal Dead Zone](#temporal_dead_zone_tdz)). Daher gelten `let`-Deklarationen gemeinhin als {{Glossary("Hoisting", "nicht gehoistet")}}.
+- `let`-Deklarationen erzeugen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Skripts stehen.
+- `let`-Deklarationen können im selben Gültigkeitsbereich nicht durch eine andere Deklaration [erneut deklariert](#erneute_deklarationen) werden.
+- `let` leitet [_Deklarationen_ ein, keine _Anweisungen_](/de/docs/Web/JavaScript/Reference/Statements#what_are_statements_declarations_and_expressions). Das bedeutet, dass eine alleinstehende `let`-Deklaration nicht als Rumpf einer `if`-Anweisung ohne Block verwendet werden kann. Das ist sinnvoll, da auf die Variable sonst nicht zugegriffen werden könnte.
 
   ```js-nolint example-bad
   if (true) let a = 1; // SyntaxError: Lexical declaration cannot appear in a single-statement context
   ```
 
-Beachten Sie, dass `let` als Bezeichnername erlaubt ist, wenn es mit `var` oder `function` im [nicht-strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) deklariert wird, aber Sie sollten vermeiden, `let` als Bezeichnernamen zu verwenden, um unerwartete Syntaxmehrdeutigkeiten zu vermeiden.
+Beachten Sie, dass `let` im [nicht strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) als Bezeichnername zulässig ist, wenn die Deklaration mit `var` oder `function` erfolgt. Sie sollten `let` jedoch nicht als Bezeichnernamen verwenden, um unerwartete syntaktische Mehrdeutigkeiten zu vermeiden.
 
-Viele Stilrichtlinien (einschließlich der [MDN's](/de/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript#variable_declarations)) empfehlen, {{jsxref("Statements/const", "const")}} über `let` zu verwenden, wann immer eine Variable in ihrem Bereich nicht neu zugewiesen wird. Dies macht die Absicht klar, dass sich der Typ (oder Wert, im Fall eines Primitivwerts) einer Variablen niemals ändern kann. Andere bevorzugen möglicherweise `let` für Nicht-Primitivwerte, die verändert werden.
+Viele Stilrichtlinien (einschließlich [der MDN-Stilrichtlinien](/de/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript#variable_declarations)) empfehlen, {{jsxref("Statements/const", "const")}} statt `let` zu verwenden, wenn einer Variablen innerhalb ihres Gültigkeitsbereichs kein neuer Wert zugewiesen wird. Dadurch wird deutlich, dass sich der Typ einer Variablen (oder bei einem primitiven Wert der Wert selbst) nicht ändern kann. Andere bevorzugen möglicherweise `let` für nicht primitive Werte, die verändert werden.
 
-Die Liste, die dem Schlüsselwort `let` folgt, wird als _{{Glossary("binding", "Bindung")}}sliste_ bezeichnet und wird durch Kommas getrennt, wobei die Kommas _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) sind und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierer späterer Variablen können sich auf frühere Variablen in der Liste beziehen.
+Die auf das Schlüsselwort `let` folgende Liste heißt _{{Glossary("binding", "Bindungsliste")}}_ und wird durch Kommas getrennt. Dabei sind die Kommas _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment). Initialisierer späterer Variablen können auf frühere Variablen in der Liste verweisen.
 
-### Temporale Toden Zone (TDZ)
+### Temporal Dead Zone (TDZ)
 
-Eine Variable, die mit `let`, `const` oder `class` deklariert wurde, befindet sich in einer "temporalen toten Zone" (TDZ) von Beginn des Blocks bis zum Erreichen des Codeausführungsorts der Deklaration und Initialisierung der Variable.
+Eine mit `let`, `const` oder `class` deklarierte Variable befindet sich vom Beginn des Blocks an in einer „Temporal Dead Zone“ (TDZ), bis die Codeausführung die Stelle erreicht, an der die Variable deklariert und initialisiert wird.
 
-Solange Sie sich in der TDZ befinden, wurde die Variable nicht mit einem Wert initialisiert, und jeder Versuch, auf sie zuzugreifen, führt zu einem {{jsxref("ReferenceError")}}. Die Variable wird mit einem Wert initialisiert, wenn die Ausführung die Stelle im Code erreicht, an der sie deklariert wurde. Wenn kein Anfangswert mit der Variablendeklaration angegeben wurde, wird sie mit einem Wert von `undefined` initialisiert.
+Innerhalb der TDZ ist die Variable noch nicht mit einem Wert initialisiert. Jeder Versuch, auf sie zuzugreifen, führt zu einem {{jsxref("ReferenceError")}}. Die Variable wird mit einem Wert initialisiert, wenn die Ausführung die Stelle ihrer Deklaration im Code erreicht. Wurde bei der Variablendeklaration kein Anfangswert angegeben, wird sie mit `undefined` initialisiert.
 
-Dies unterscheidet sich von {{jsxref("Statements/var", "var", "hoisting")}} Variablen, die einen Wert von `undefined` zurückgeben, wenn sie vor ihrer Deklaration aufgerufen werden. Der folgende Code zeigt das unterschiedliche Ergebnis, wenn `let` und `var` im Code aufgerufen werden, bevor der Deklarationsort erreicht wird.
+Dies unterscheidet sich von Variablen, die mit {{jsxref("Statements/var", "var", "hoisting")}} deklariert wurden: Wird auf sie vor ihrer Deklaration zugegriffen, geben sie `undefined` zurück. Der folgende Code zeigt die unterschiedlichen Ergebnisse beim Zugriff auf `let` und `var`, bevor ihre jeweilige Deklaration erreicht wird.
 
 ```js example-bad
 {
@@ -92,7 +92,7 @@ Dies unterscheidet sich von {{jsxref("Statements/var", "var", "hoisting")}} Vari
 }
 ```
 
-Der Begriff "temporal" wird verwendet, weil die Zone von der Reihenfolge der Ausführung (Zeit) abhängt und nicht von der Reihenfolge, in der der Code geschrieben ist (Position). Zum Beispiel funktioniert der untenstehende Code, weil, obwohl die Funktion, die die `let` Variable verwendet, vor der Deklaration der Variablen erscheint, die Funktion _außerhalb_ der TDZ aufgerufen wird.
+Der Begriff „temporal“ wird verwendet, weil die Zone von der Ausführungsreihenfolge (Zeit) und nicht von der Reihenfolge abhängt, in der der Code geschrieben ist (Position). Der folgende Code funktioniert beispielsweise, weil die Funktion zwar vor der Deklaration der `let`-Variablen steht, aber erst _außerhalb_ der TDZ aufgerufen wird.
 
 ```js
 {
@@ -106,7 +106,7 @@ Der Begriff "temporal" wird verwendet, weil die Zone von der Reihenfolge der Aus
 }
 ```
 
-Die Verwendung des `typeof`-Operators für eine Variable in ihrer TDZ führt zu einem {{jsxref("ReferenceError")}}:
+Die Verwendung des Operators `typeof` für eine Variable in ihrer TDZ löst einen {{jsxref("ReferenceError")}} aus:
 
 ```js example-bad
 {
@@ -115,18 +115,18 @@ Die Verwendung des `typeof`-Operators für eine Variable in ihrer TDZ führt zu 
 }
 ```
 
-Dies unterscheidet sich von der Verwendung von `typeof` für nicht deklarierte Variablen und Variablen, die einen Wert von `undefined` haben:
+Dies unterscheidet sich von der Verwendung von `typeof` für nicht deklarierte Variablen und für Variablen mit dem Wert `undefined`:
 
 ```js
 console.log(typeof undeclaredVariable); // "undefined"
 ```
 
 > [!NOTE]
-> `let` und `const` Deklarationen werden nur verarbeitet, wenn das aktuelle Skript verarbeitet wird. Wenn Sie zwei `<script>`-Elemente im Skriptmodus in einer HTML-Datei ausführen, unterliegt das erste Skript nicht den TDZ-Beschränkungen für top-level `let` oder `const`-Variablen, die im zweiten Skript deklariert sind, obwohl, wenn Sie eine `let` oder `const`-Variable im ersten Skript deklarieren, deren wiederholte Deklaration im zweiten Skript zu einem [Wiederdeklarationsfehler](#wiederdeklarationen) führt.
+> `let`- und `const`-Deklarationen werden erst verarbeitet, wenn das jeweilige Skript verarbeitet wird. Wenn Sie in einem HTML-Dokument zwei `<script>`-Elemente im Skriptmodus ausführen, gelten für das erste Skript nicht die TDZ-Einschränkungen für `let`- oder `const`-Variablen, die auf der obersten Ebene des zweiten Skripts deklariert werden. Wenn Sie allerdings eine `let`- oder `const`-Variable im ersten Skript deklarieren und sie im zweiten Skript erneut deklarieren, führt dies zu einem [Fehler wegen erneuter Deklaration](#erneute_deklarationen).
 
-### Wiederdeklarationen
+### Erneute Deklarationen
 
-`let` Deklarationen können nicht im selben Gültigkeitsbereich wie jede andere Deklaration stehen, einschließlich `let`, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}}, {{jsxref("Statements/function", "function")}}, {{jsxref("Statements/var", "var")}}, und {{jsxref("Statements/import", "import")}} Deklaration.
+Eine `let`-Deklaration darf sich nicht im selben Gültigkeitsbereich wie eine andere Deklaration befinden. Dazu gehören Deklarationen mit `let`, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}}, {{jsxref("Statements/function", "function")}}, {{jsxref("Statements/var", "var")}} und {{jsxref("Statements/import", "import")}}.
 
 ```js-nolint example-bad
 {
@@ -135,7 +135,7 @@ console.log(typeof undeclaredVariable); // "undefined"
 }
 ```
 
-Eine `let` Deklaration innerhalb des Funktionskörpers kann nicht denselben Namen wie ein Parameter haben. Eine `let` Deklaration innerhalb eines `catch` Blocks kann nicht denselben Namen wie der `catch`-gebundene Bezeichner haben.
+Eine `let`-Deklaration im Rumpf einer Funktion darf nicht denselben Namen wie ein Parameter haben. Eine `let`-Deklaration in einem `catch`-Block darf nicht denselben Namen wie der an `catch` gebundene Bezeichner haben.
 
 ```js-nolint example-bad
 function foo(a) {
@@ -147,9 +147,9 @@ try {
 }
 ```
 
-Wenn Sie in einem REPL experimentieren, wie der Firefox-Webkonsole (**Tools** > **Web Developer** > **Web Console**), und Sie führen zwei `let` Deklarationen mit demselben Namen in zwei separaten Eingaben aus, können Sie denselben Wiederdeklarationsfehler erhalten. Weitere Diskussionen zu diesem Thema finden Sie im [Firefox-Bug 1580891](https://bugzil.la/1580891). Die Chrome-Konsole erlaubt `let` Wiederdeklarationen zwischen verschiedenen REPL-Eingaben.
+Wenn Sie in einer REPL experimentieren, etwa in der Firefox-Webkonsole (**Werkzeuge** > **Web-Entwickler** > **Web-Konsole**), und zwei `let`-Deklarationen mit demselben Namen in getrennten Eingaben ausführen, kann derselbe Fehler wegen erneuter Deklaration auftreten. Eine weitere Erörterung dieses Problems finden Sie unter [Firefox-Bug 1580891](https://bugzil.la/1580891). Die Chrome-Konsole erlaubt erneute `let`-Deklarationen in verschiedenen REPL-Eingaben.
 
-Sie könnten Fehler in {{jsxref("Statements/switch", "switch")}}-Anweisungen begegnen, da es nur einen Block gibt.
+In {{jsxref("Statements/switch", "switch")}}-Anweisungen können Fehler auftreten, weil es nur einen einzigen Block gibt.
 
 ```js-nolint example-bad
 let x = 1;
@@ -164,7 +164,7 @@ switch (x) {
 }
 ```
 
-Um den Fehler zu vermeiden, verpacken Sie jeden `case` in eine neue Blockanweisung.
+Um den Fehler zu vermeiden, schließen Sie jeden `case` in eine eigene Blockanweisung ein.
 
 ```js
 let x = 1;
@@ -183,9 +183,9 @@ switch (x) {
 
 ## Beispiele
 
-### Gültigkeitsbereichsregeln
+### Regeln für Gültigkeitsbereiche
 
-Variablen, die mit `let` deklariert wurden, haben ihren Gültigkeitsbereich in dem Block, für den sie deklariert wurden, sowie in allen enthaltenen Unterblöcken. Auf diese Weise funktioniert `let` sehr ähnlich wie `var`. Der Hauptunterschied ist, dass der Gültigkeitsbereich einer `var`-Variable die gesamte umschließende Funktion ist:
+Mit `let` deklarierte Variablen sind in dem Block gültig, für den sie deklariert wurden, sowie in allen darin enthaltenen Unterblöcken. In dieser Hinsicht funktioniert `let` ähnlich wie `var`. Der wesentliche Unterschied besteht darin, dass sich der Gültigkeitsbereich einer `var`-Variablen auf die gesamte umschließende Funktion erstreckt:
 
 ```js
 function varTest() {
@@ -207,7 +207,7 @@ function letTest() {
 }
 ```
 
-Auf der obersten Ebene von Programmen und Funktionen erstellt `let`, im Gegensatz zu `var`, keine Eigenschaft auf dem globalen Objekt. Zum Beispiel:
+Auf der obersten Ebene eines Skripts erzeugt `let` im Gegensatz zu `var` keine Eigenschaft auf dem globalen Objekt. Zum Beispiel:
 
 ```js
 var x = "global";
@@ -216,9 +216,9 @@ console.log(this.x); // "global"
 console.log(this.y); // undefined
 ```
 
-### TDZ kombiniert mit lexikalischem Scoping
+### TDZ in Verbindung mit lexikalischem Gültigkeitsbereich
 
-Der folgende Code führt an der gezeigten Stelle zu einem `ReferenceError`:
+Der folgende Code führt in der angegebenen Zeile zu einem `ReferenceError`:
 
 ```js example-bad
 function test() {
@@ -230,9 +230,9 @@ function test() {
 test();
 ```
 
-Der `if` Block wird ausgewertet, weil die äußere `var foo` einen Wert hat. Aufgrund der lexikalischen Bereich wird dieser Wert jedoch nicht innerhalb des Blocks zur Verfügung stehen: Der Bezeichner `foo` _innerhalb_ des `if` Blocks ist das `let foo`. Der Ausdruck `foo + 55` wirft einen `ReferenceError`, weil die Initialisierung von `let foo` nicht abgeschlossen ist — es befindet sich noch in der temporalen toten Zone.
+Der `if`-Block wird ausgewertet, weil das äußere `var foo` einen Wert hat. Aufgrund des lexikalischen Gültigkeitsbereichs ist dieser Wert innerhalb des Blocks jedoch nicht verfügbar: Der Bezeichner `foo` _innerhalb_ des `if`-Blocks bezeichnet `let foo`. Der Ausdruck `foo + 55` löst einen `ReferenceError` aus, weil die Initialisierung von `let foo` noch nicht abgeschlossen ist – die Variable befindet sich noch in der Temporal Dead Zone.
 
-Dieses Phänomen kann in einer Situation wie der folgenden verwirrend sein. Die Anweisung `let n of n.a` befindet sich bereits innerhalb des Gültigkeitsbereichs des Blocks der `for...of` Schleife. Der Bezeichner `n.a` wird also auf die Eigenschaft `a` des `n` Objekts in der ersten Teil des Ausdrucks selbst aufgelöst (`let n`). Dies ist immer noch in der temporalen toten Zone, da die Deklarationsanweisung nicht erreicht und abgeschlossen wurde.
+Dieses Verhalten kann in einer Situation wie der folgenden verwirrend sein. Die Anweisung `let n of n.a` befindet sich bereits im Gültigkeitsbereich des Blocks der `for...of`-Schleife. Deshalb wird der Bezeichner `n.a` als Eigenschaft `a` des Objekts `n` interpretiert, das im ersten Teil derselben Anweisung (`let n`) deklariert wird. Dieses `n` befindet sich noch in der Temporal Dead Zone, da seine Deklaration noch nicht erreicht und abgeschlossen wurde.
 
 ```js example-bad
 function go(n) {
@@ -248,9 +248,9 @@ function go(n) {
 go({ a: [1, 2, 3] });
 ```
 
-### Andere Situationen
+### Weitere Situationen
 
-Wenn `let` innerhalb eines Blocks verwendet wird, beschränkt es den Bereich der Variablen auf diesen Block. Beachten Sie den Unterschied zu `var`, dessen Bereich innerhalb der Funktion ist, in der es deklariert wird.
+Innerhalb eines Blocks beschränkt `let` den Gültigkeitsbereich einer Variablen auf diesen Block. Beachten Sie den Unterschied zu `var`, dessen Gültigkeitsbereich die Funktion ist, in der es deklariert wird.
 
 ```js
 var a = 1;
@@ -268,7 +268,7 @@ console.log(a); // 11
 console.log(b); // 2
 ```
 
-Diese Kombination von `var` und `let` Deklarationen unten ist jedoch ein {{jsxref("SyntaxError")}}, da `var` nicht blockweise skopiert ist und sie somit im selben Bereich sind. Dies führt zu einer impliziten Wiederdeklaration der Variablen.
+Die folgende Kombination aus `var`- und `let`-Deklarationen führt jedoch zu einem {{jsxref("SyntaxError")}}: Da `var` keinen Block-Scope hat, liegen beide Deklarationen im selben Gültigkeitsbereich. Dadurch wird die Variable implizit erneut deklariert.
 
 ```js-nolint example-bad
 let x = 1;
@@ -278,9 +278,9 @@ let x = 1;
 }
 ```
 
-### Deklaration mit Destructuring
+### Deklaration mit Destrukturierung
 
-Die linke Seite jedes `=` kann auch ein Bindungsmuster sein. Dies ermöglicht das Erstellen mehrerer Variablen gleichzeitig.
+Die linke Seite jedes `=` kann auch ein Bindungsmuster sein. So lassen sich mehrere Variablen gleichzeitig erstellen.
 
 ```js
 const result = /(a+)(b+)(c+)/.exec("aaabcc");
@@ -288,7 +288,7 @@ let [, a, b, c] = result;
 console.log(a, b, c); // "aaa" "b" "cc"
 ```
 
-Für weitere Informationen, siehe [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
+Weitere Informationen finden Sie unter [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
 
 ## Spezifikationen
 
@@ -303,9 +303,9 @@ Für weitere Informationen, siehe [Destructuring](/de/docs/Web/JavaScript/Refere
 - {{jsxref("Statements/var", "var")}}
 - {{jsxref("Statements/const", "const")}}
 - {{Glossary("Hoisting", "Hoisting")}}
-- [ES6 In Depth: `let` und `const`](https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/) auf hacks.mozilla.org (2015)
-- [Breaking changes in `let` und `const` in Firefox 44](https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/) auf blog.mozilla.org (2015)
-- [You Don't Know JS: Scope & Closures, Ch.3: Function vs. Block Scope](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/scope%20%26%20closures/ch3.md) von Kyle Simpson
-- [What is the Temporal Dead Zone?](https://stackoverflow.com/questions/33198849/what-is-the-temporal-dead-zone/33198850) auf Stack Overflow
-- [What is the difference between using `let` and `var`?](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var) auf Stack Overflow
-- [Why was the name 'let' chosen for block-scoped variable declarations in JavaScript?](https://stackoverflow.com/questions/37916940/why-was-the-name-let-chosen-for-block-scoped-variable-declarations-in-javascri) auf Stack Overflow
+- [ES6 im Detail: `let` und `const`](https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/) auf hacks.mozilla.org (2015)
+- [Inkompatible Änderungen an `let` und `const` in Firefox 44](https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/) auf blog.mozilla.org (2015)
+- [You Don't Know JS: Gültigkeitsbereiche und Closures, Kapitel 3: Funktions- vs. Block-Scope](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/scope%20%26%20closures/ch3.md) von Kyle Simpson
+- [Was ist die Temporal Dead Zone?](https://stackoverflow.com/questions/33198849/what-is-the-temporal-dead-zone/33198850) auf Stack Overflow
+- [Was ist der Unterschied zwischen der Verwendung von `let` und `var`?](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var) auf Stack Overflow
+- [Warum wurde für Variablendeklarationen mit Block-Scope in JavaScript der Name „let“ gewählt?](https://stackoverflow.com/questions/37916940/why-was-the-name-let-chosen-for-block-scoped-variable-declarations-in-javascri) auf Stack Overflow
