@@ -1,9 +1,9 @@
 ---
-title: "PreferenceObject: override-Eigenschaft"
+title: "PreferenceObject: Eigenschaft override"
 short-title: override
 slug: Web/API/PreferenceObject/override
 l10n:
-  sourceCommit: 5351b03470685486d841a3340c6971351058194f
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
@@ -12,13 +12,13 @@ Die schreibgeschützte Eigenschaft **`override`** der Schnittstelle [`Preference
 
 ## Wert
 
-Die Überschreibung der Schnittstelle [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), falls eine festgelegt wurde, oder `null`, falls keine Überschreibung festgelegt wurde.
+Die Überschreibung der Schnittstelle [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), falls eine festgelegt wurde, andernfalls `null`.
 
 ## Beispiele
 
-## Grundlegende Verwendung
+### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie sich unterscheiden lässt, ob die Präferenz für das Farbschema vom User-Agent festgelegt oder programmatisch überschrieben wurde.
+Dieses Beispiel zeigt, wie sich die vom User Agent festgelegte Farbschema-Präferenz von einer programmatischen Überschreibung unterscheiden lässt.
 
 ```js
 if (navigator.preferences.colorScheme.override === null) {

@@ -1,14 +1,14 @@
 ---
-title: "AnimationEffect: updateTiming() Methode"
+title: "AnimationEffect: updateTiming()-Methode"
 short-title: updateTiming()
 slug: Web/API/AnimationEffect/updateTiming
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die `updateTiming()`-Methode der [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)-Schnittstelle aktualisiert die angegebenen Zeiteigenschaften für einen Animationseffekt.
+Die Methode `updateTiming()` der Schnittstelle [`AnimationEffect`](/de/docs/Web/API/AnimationEffect) aktualisiert die angegebenen Timing-Eigenschaften eines Animationseffekts.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ updateTiming(timing)
 ### Parameter
 
 - `timing` {{optional_inline}}
-  - : Ein Objekt, das null oder mehr der Eigenschaften aus dem Rückgabewert von [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming) enthält, die die zu aktualisierenden Zeiteigenschaften darstellen.
+  - : Ein Objekt mit keiner oder mehreren Eigenschaften aus dem Rückgabewert von [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming), die festlegen, welche Timing-Eigenschaften aktualisiert werden sollen.
 
 ### Rückgabewert
 
@@ -28,13 +28,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn ungültige Werte für eine der Zeiteigenschaften angegeben werden.
+  - : Wird ausgelöst, wenn für eine der Timing-Eigenschaften ungültige Werte angegeben werden.
 
-### Beispiele
+## Beispiele
 
-#### Seiteneffekte
+### Nebeneffekte
 
-`updateTiming()` kann dazu führen, dass eine zugehörige [`Animation`](/de/docs/Web/API/Animation) beginnt oder aufhört zu spielen, wenn beispielsweise der Effekt einer laufenden Animation verkürzt wird, sodass seine Endzeit vor der [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt oder der Effekt einer beendeten Animation verlängert wird, sodass seine Endzeit nach der [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt.
+`updateTiming()` kann dazu führen, dass eine zugehörige [`Animation`](/de/docs/Web/API/Animation) die Wiedergabe beginnt oder beendet. Dies ist beispielsweise der Fall, wenn der Effekt einer laufenden Animation so verkürzt wird, dass seine Endzeit vor [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt, oder wenn der Effekt einer abgeschlossenen Animation so verlängert wird, dass seine Endzeit nach [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt.
 
 ```js
 const animation = document.body.animate([], { duration: 1000 });

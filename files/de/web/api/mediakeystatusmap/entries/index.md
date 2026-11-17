@@ -1,16 +1,14 @@
 ---
-title: "MediaKeyStatusMap: entries()-Methode"
+title: "MediaKeyStatusMap: Methode entries()"
 short-title: entries()
 slug: Web/API/MediaKeyStatusMap/entries
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Die **`entries()`**-Methode
-der [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Schnittstelle gibt ein neues Iterator-Objekt zurück,
-das ein Array von \[key, value]-Paaren für jedes Element in der Statuskarte in Einfügereihenfolge enthält.
+Die Methode **`entries()`** der Schnittstelle [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap) gibt ein neues Iterator-Objekt zurück. Dieses enthält für jedes Element der Status-Map ein Array mit einem \[Schlüssel, Wert]-Paar, und zwar in der Reihenfolge, in der die Elemente eingefügt wurden.
 
 ## Syntax
 
@@ -24,9 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt. Jedes Element im Iterator ist ein Array, das einen Schlüssel und einen Wert enthält.
-
-### Ausnahmen
+Ein neues Iterator-Objekt. Jedes Element des Iterators ist ein Array, das einen Schlüssel und einen Wert enthält.
 
 ## Spezifikationen
 

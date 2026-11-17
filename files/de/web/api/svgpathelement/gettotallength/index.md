@@ -1,14 +1,14 @@
 ---
-title: "SVGPathElement: getTotalLength() Methode"
+title: "SVGPathElement: Methode getTotalLength()"
 short-title: getTotalLength()
 slug: Web/API/SVGPathElement/getTotalLength
 l10n:
-  sourceCommit: ea24a70e5c5e3b474d683e9b0dcb8807aaba82f3
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("SVG")}}
 
-Die **`getTotalLength()`** Methode der [`SVGPathElement`](/de/docs/Web/API/SVGPathElement) Schnittstelle gibt den vom Benutzeragenten berechneten Wert für die Gesamtlänge des Pfades in Benutzereinheiten zurück.
+Die Methode **`getTotalLength()`** des Interfaces [`SVGPathElement`](/de/docs/Web/API/SVGPathElement) gibt den vom User Agent berechneten Wert für die Gesamtlänge des Pfads in Benutzereinheiten zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die die Gesamtlänge des Pfades in Benutzereinheiten angibt.
+Eine Zahl, die die Gesamtlänge des Pfads in Benutzereinheiten angibt.
 
-### Beispiele
+## Beispiele
 
-### Ermitteln der Gesamtlänge eines `<path>`
+### Gesamtlänge eines `<path>` ermitteln
 
-In diesem Beispiel ermitteln wir die Gesamtlänge von zwei Pfaden: einer einfachen Linie und einer herzförmigen Linie.
+In diesem Beispiel ermitteln wir die Gesamtlänge zweier Pfade: einer einfachen Linie und einer Herzform.
 
 ```html
 <svg width="200" height="100">

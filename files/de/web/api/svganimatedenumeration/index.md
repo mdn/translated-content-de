@@ -2,31 +2,32 @@
 title: SVGAnimatedEnumeration
 slug: Web/API/SVGAnimatedEnumeration
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("SVG")}}
 
-Das **`SVGAnimatedEnumeration`** Interface beschreibt Attributwerte, die Konstanten aus einer bestimmten Enumeration sind und animiert werden können.
+Die **`SVGAnimatedEnumeration`**-Schnittstelle beschreibt Attributwerte, die Konstanten aus einer bestimmten Enumeration sind und animiert werden können.
 
-Ab SVG 2 spiegeln sowohl `baseVal` als auch `animVal` den nicht-animierten Wert des Attributs wider. Die erlaubten Werte seiner Eigenschaften hängen vom zugehörigen Attribut ab.
+Ab SVG 2 geben sowohl `baseVal` als auch `animVal` den nicht animierten Wert des Attributs wieder.
+Die zulässigen Werte ihrer Eigenschaften hängen vom zugehörigen Attribut ab.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal)
-  - : Ein Integer, der den Basiswert des gegebenen Attributs vor Anwendung von Animationen darstellt.
+  - : Eine Ganzzahl, die den Basiswert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
 - [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal) {{ReadOnlyInline}}
-  - : Dies ist das gleiche wie [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) in SVG 2.
+  - : In SVG 2 ist dieser Wert derselbe wie [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Das `SVGAnimatedEnumeration` Interface stellt keine spezifischen Methoden bereit.
+Die `SVGAnimatedEnumeration`-Schnittstelle stellt keine eigenen Methoden bereit.
 
 ## Beispiele
 
-## Grundlegende Verwendung
+### Grundlegende Verwendung
 
-Betrachten Sie diesen Codeausschnitt mit einem {{SVGElement("clipPath")}} Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration` Objekt verknüpft.
+Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}}-Attribut ist mit einem `SVGAnimatedEnumeration`-Objekt verknüpft.
 
 ```html
 <svg viewBox="0 0 100 100" width="200" height="200">
@@ -39,7 +40,8 @@ Betrachten Sie diesen Codeausschnitt mit einem {{SVGElement("clipPath")}} Elemen
 </svg>
 ```
 
-Das folgende JavaScript greift das Element ab und gibt die `baseVal` und `animVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits) Eigenschaft aus. Diese Werte sollten identisch sein.
+Das folgende JavaScript ruft das Element ab und gibt `baseVal` und `animVal` der Eigenschaft [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits) aus.
+Diese Werte sollten gleich sein.
 
 ```js
 const clipPathElt = document.getElementById("clip1");

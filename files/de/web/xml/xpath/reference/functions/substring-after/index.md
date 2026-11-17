@@ -2,10 +2,10 @@
 title: substring-after
 slug: Web/XML/XPath/Reference/Functions/substring-after
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
-Die Funktion `substring-after` gibt einen String zurück, der der Rest eines gegebenen Strings nach einem bestimmten Teilstring ist.
+Die Funktion `substring-after` gibt den Teil einer Zeichenfolge zurück, der auf eine angegebene Teilzeichenfolge folgt.
 
 ## Syntax
 
@@ -16,22 +16,22 @@ substring-after( haystack, needle )
 ### Parameter
 
 - `haystack`
-  - : Der zu evaluierende String. Ein Teil dieses Strings wird zurückgegeben.
+  - : Die auszuwertende Zeichenfolge. Ein Teil davon wird zurückgegeben.
 - `needle`
-  - : Der zu suchende Teilstring. Alles nach dem ersten Vorkommen von `needle` in `haystack` wird zurückgegeben.
+  - : Die Teilzeichenfolge, nach der gesucht wird. Zurückgegeben wird alles, was in `haystack` auf das erste Vorkommen von `needle` folgt.
 
 ### Rückgabewert
 
-Ein String.
+Eine Zeichenfolge.
 
-### Beispiele
+## Beispiele
 
-| XPath-Beispiel                 | Ausgabe         |
-| ------------------------------ | --------------- |
-| `substring-after('aa-bb','-')` | `bb`            |
-| `substring-after('aa-bb','a')` | `a-bb`          |
-| `substring-after('aa-bb','b')` | `b`             |
-| `substring-after('aa-bb','q')` | (leerer String) |
+| XPath-Beispiel                 | Ausgabe              |
+| ------------------------------ | -------------------- |
+| `substring-after('aa-bb','-')` | `bb`                 |
+| `substring-after('aa-bb','a')` | `a-bb`               |
+| `substring-after('aa-bb','b')` | `b`                  |
+| `substring-after('aa-bb','q')` | (leere Zeichenfolge) |
 
 ## Spezifikationen
 

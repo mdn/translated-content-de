@@ -1,14 +1,14 @@
 ---
-title: "HTMLButtonElement: reportValidity()-Methode"
+title: "HTMLButtonElement: Methode reportValidity()"
 short-title: reportValidity()
 slug: Web/API/HTMLButtonElement/reportValidity
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`reportValidity()`** der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) führt dieselben Schritte zur Gültigkeitsprüfung aus wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity). Wenn das Ereignis [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) nicht abgebrochen wird, zeigt der Browser das Problem außerdem der Person an, die die Seite verwendet. Die Methode gibt immer `true` zurück, wenn das Element {{HTMLElement("button")}} kein Kandidat für die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) ist (sein [`willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) ist `false`).
+Die Methode **`reportValidity()`** der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) führt dieselben Gültigkeitsprüfungen durch wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity). Wenn das Ereignis [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) nicht abgebrochen wird, zeigt der Browser das Problem außerdem an. Die Methode gibt immer `true` zurück, wenn das Element {{HTMLElement("button")}} kein Kandidat für die [Constraint Validation](/de/docs/Web/HTML/Guides/Constraint_validation) ist (wenn sein [`willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) den Wert `false` hat).
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist oder das Element kein Kandidat für die Constraint-Validierung ist; andernfalls gibt die Methode `false` zurück.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist oder das Element kein Kandidat für die Constraint Validation ist. Andernfalls gibt die Methode `false` zurück.
 
-### Beispiele
+## Beispiele
 
 Dieses etwas konstruierte Beispiel zeigt, wie ein Button ungültig gemacht werden kann.
 
-#### HTML
+### HTML
 
 Wir erstellen zwei Buttons:
 
@@ -43,9 +43,9 @@ Wir erstellen zwei Buttons:
 <p id="log"></p>
 ```
 
-#### CSS
+### CSS
 
-Wir fügen etwas CSS hinzu, darunter `:valid`- und `:invalid`-Stile für unseren Button:
+Wir fügen etwas CSS hinzu, darunter Stile mit `:valid` und `:invalid` für unseren Button:
 
 ```css
 button {
@@ -63,7 +63,7 @@ button:valid {
 }
 ```
 
-#### JavaScript
+### JavaScript
 
 Wir fügen eine Funktion hinzu, die den Wert, den Inhalt und die Validierungsmeldung des Beispiel-Buttons umschaltet:
 
@@ -111,11 +111,11 @@ function toggleButton() {
 }
 ```
 
-#### Ergebnis
+### Ergebnis
 
 {{EmbedLiveSample("examples", "100%", 220)}}
 
-Der Button ist standardmäßig gültig. Aktivieren Sie „THIS BUTTON“, um den Wert und den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Wenn Sie den Button „reportValidity()“ aktivieren, wird die Gültigkeit des Buttons geprüft. Besteht der Button aufgrund der Fehlermeldung die Constraint-Validierung nicht, wird die benutzerdefinierte Fehlermeldung angezeigt und ein `invalid`-Ereignis ausgelöst.
+Der Button ist standardmäßig gültig. Aktivieren Sie „THIS BUTTON“, um den Wert und den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Wenn Sie den Button „reportValidity()“ aktivieren, wird die Gültigkeit des Buttons geprüft. Besteht der Button wegen der Fehlermeldung die Constraint Validation nicht, wird die benutzerdefinierte Fehlermeldung angezeigt und ein `invalid`-Ereignis ausgelöst.
 
 ## Spezifikationen
 
@@ -131,5 +131,5 @@ Der Button ist standardmäßig gültig. Aktivieren Sie „THIS BUTTON“, um den
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
 - [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- [Leitfaden: Constraint Validation](/de/docs/Web/HTML/Guides/Constraint_validation)
 - CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}}

@@ -1,19 +1,19 @@
 ---
-title: "CanvasRenderingContext2D: isContextLost()-Methode"
+title: "CanvasRenderingContext2D: Methode isContextLost()"
 short-title: isContextLost()
 slug: Web/API/CanvasRenderingContext2D/isContextLost
 l10n:
-  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.isContextLost()`**-Methode der Canvas 2D API gibt `true` zurück, wenn der Rendering-Kontext verloren gegangen ist (und noch nicht zurückgesetzt wurde).
-Dies kann aufgrund von Treiberabstürzen, Speichermangel und Ähnlichem auftreten.
+Die Methode **`CanvasRenderingContext2D.isContextLost()`** der Canvas-2D-API gibt `true` zurück, wenn der Rendering-Kontext verloren gegangen ist (und noch nicht zurückgesetzt wurde).
+Dies kann beispielsweise durch einen Treiberabsturz oder Speichermangel geschehen.
 
-Wenn der Benutzeragent feststellt, dass der Canvas-Speicher verloren gegangen ist, wird das [`contextlost`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextlost_event) beim zugehörigen [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) ausgelöst.
-Wenn dieses Ereignis nicht abgebrochen wird, versucht es, den Speicherspeicher in den Standardzustand zurückzusetzen (dies entspricht dem Aufruf von [`CanvasRenderingContext2D.reset()`](/de/docs/Web/API/CanvasRenderingContext2D/reset)).
-Bei Erfolg wird das [`contextrestored`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event) ausgelöst, das anzeigt, dass der Kontext bereit ist, neu initialisiert und neu gezeichnet zu werden.
+Wenn der User Agent erkennt, dass der Hintergrundspeicher des Canvas verloren gegangen ist, löst er das [`contextlost`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextlost_event) am zugehörigen [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) aus.
+Wird dieses Ereignis nicht abgebrochen, versucht er, den Hintergrundspeicher auf den Standardzustand zurückzusetzen (dies entspricht einem Aufruf von [`CanvasRenderingContext2D.reset()`](/de/docs/Web/API/CanvasRenderingContext2D/reset)).
+Bei Erfolg löst er das [`contextrestored`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event) aus. Dies zeigt an, dass der Kontext erneut initialisiert und der Inhalt neu gezeichnet werden kann.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keine.
 
 `true`, wenn der Rendering-Kontext verloren gegangen ist; andernfalls `false`.
 
-### Beispiele
+## Beispiele
 
 ```js
 const ctx = canvas.getContext("2d");

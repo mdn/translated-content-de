@@ -3,7 +3,7 @@ title: "SVGPathElement: Methode getPointAtLength()"
 short-title: getPointAtLength()
 slug: Web/API/SVGPathElement/getPointAtLength
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 7d55f113b5a05afe6ada6bb9b76bd3b0458f077d
 ---
 
 {{APIRef("SVG")}}
@@ -25,13 +25,13 @@ getPointAtLength(distance)
 
 Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der den Punkt in einem bestimmten Abstand entlang des Pfads angibt.
 
-### Beispiele
+## Beispiele
 
-#### Den Mittelpunkt eines `<path>` ermitteln
+### Den Mittelpunkt eines `<path>` ermitteln
 
-In diesem Beispiel bestimmen wir den Mittelpunkt eines Pfads, indem wir den Punkt auf halber Länge des Pfads ermitteln.
+In diesem Beispiel ermitteln wir den Mittelpunkt eines Pfads, indem wir den Punkt auf halber Länge des Pfads bestimmen.
 
-Wir definieren ein SVG mit zwei Pfaden: einer einfachen Linie und einer komplexen Herzform.
+Wir definieren ein SVG mit zwei Pfaden: einer geraden Linie und einer komplexen Herzform.
 
 Der Pfad, der das Herz bildet, ist ungefähr 275 Einheiten lang.
 
@@ -50,7 +50,7 @@ Der Pfad, der das Herz bildet, ist ungefähr 275 Einheiten lang.
 ```
 
 Die Linie verläuft horizontal, beginnt bei `0, 30` und ist 100 Einheiten lang.
-Der Pfad des Herzens beginnt bei `10, 30` und ist ungefähr 275 Einheiten lang.
+Der Herzpfad beginnt bei `10, 30` und ist ungefähr 275 Einheiten lang.
 
 ```html hidden
 <pre id="log"></pre>
@@ -73,10 +73,10 @@ function log(text) {
 }
 ```
 
-Wir wissen, dass die Linie 100 Einheiten lang ist und `50` daher die Hälfte ihrer Länge bezeichnet.
-Mit der Methode [`SVGPathElement.getTotalLength()`](/de/docs/Web/API/SVGPathElement/getTotalLength) ermitteln wir die Länge des Herzpfads und teilen sie durch `2`, um den Abstand bis zur Hälfte des Pfads zu erhalten.
-Anschließend verwenden wir die Methode `getPointAtLength()`, um diesen Punkt als `DOMPoint` zurückzugeben.
-Wir zeigen die Koordinaten `x` und `y` für beide Punkte an.
+Wir wissen, dass die Linie 100 Einheiten lang ist und ihr Mittelpunkt daher bei `50` liegt.
+Mit der Methode [`SVGPathElement.getTotalLength()`](/de/docs/Web/API/SVGPathElement/getTotalLength) ermitteln wir die Länge des Herzpfads und teilen sie durch `2`, um den Abstand bis zum Mittelpunkt zu erhalten.
+Anschließend verwenden wir die Methode `getPointAtLength()`, um den Mittelpunkt als `DOMPoint` zurückzugeben.
+Wir zeigen die Koordinaten `x` und `y` für beide Mittelpunkte an.
 
 ```js
 const basicPath = document.getElementById("line");
