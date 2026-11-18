@@ -3,13 +3,13 @@ title: Intl.Locale.prototype.getHourCycles()
 short-title: getHourCycles()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/getHourCycles
 l10n:
-  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
+  sourceCommit: ce52c645165d849cbe3bee97c35ee1ad6877ed8e
 ---
 
 Die Methode **`getHourCycles()`** von {{jsxref("Intl.Locale")}}-Instanzen gibt eine Liste mit einem oder mehreren eindeutigen Kennungen für Stundenzyklen dieser Locale zurück.
 
 > [!NOTE]
-> In einigen Versionen mancher Browser wurde diese Methode als Accessor-Eigenschaft namens `hourCycles` implementiert. Da sie bei jedem Zugriff ein neues Array zurückgibt, ist sie inzwischen als Methode implementiert. So wird vermieden, dass `locale.hourCycles === locale.hourCycles` den Wert `false` zurückgibt. Einzelheiten finden Sie in der [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität).
+> In einigen Versionen bestimmter Browser wurde diese Methode als Accessor-Eigenschaft namens `hourCycles` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgibt, ist sie nun als Methode implementiert. So wird vermieden, dass `locale.hourCycles === locale.hourCycles` den Wert `false` zurückgibt. Einzelheiten finden Sie in der [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Syntax
 
@@ -23,26 +23,26 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, das alle für die `Locale` gebräuchlichen Stundenzyklustypen enthält, sortiert nach absteigender Präferenz. Wenn die `Locale` bereits einen [`hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle) hat, enthält das zurückgegebene Array nur diesen Wert.
+Ein Array von Strings, das alle gemäß den [Regionseinstellungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale#region_preferences) für die `Locale` gebräuchlichen Stundenzyklustypen enthält, sortiert nach absteigender Präferenz. Wenn für die `Locale` bereits ein Wert für [`hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle) festgelegt ist, enthält das zurückgegebene Array nur diesen Wert.
 
 Im Folgenden sind die unterstützten Stundenzyklustypen aufgeführt.
 
 ### Unterstützte Stundenzyklustypen
 
 - `h12`
-  - : Stundensystem mit den Werten 1–12; entspricht „h“ in Formatmustern. Eine 12-Stunden-Uhr, bei der Mitternacht um 12:00 Uhr am beginnt. Wird beispielsweise in den Vereinigten Staaten verwendet.
+  - : Stundensystem von 1 bis 12; entspricht „h“ in Mustern. Die 12-Stunden-Uhr, bei der Mitternacht um 12:00 am beginnt. Wird beispielsweise in den Vereinigten Staaten verwendet.
 - `h23`
-  - : Stundensystem mit den Werten 0–23; entspricht „H“ in Formatmustern. Eine 24-Stunden-Uhr, bei der Mitternacht um 0:00 Uhr beginnt.
+  - : Stundensystem von 0 bis 23; entspricht „H“ in Mustern. Die 24-Stunden-Uhr, bei der Mitternacht um 0:00 beginnt.
 - `h11`
-  - : Stundensystem mit den Werten 0–11; entspricht „K“ in Formatmustern. Eine 12-Stunden-Uhr, bei der Mitternacht um 0:00 Uhr am beginnt. Wird hauptsächlich in Japan verwendet.
+  - : Stundensystem von 0 bis 11; entspricht „K“ in Mustern. Die 12-Stunden-Uhr, bei der Mitternacht um 0:00 am beginnt. Wird hauptsächlich in Japan verwendet.
 - `h24`
-  - : Stundensystem mit den Werten 1–24; entspricht „k“ in Formatmustern. Eine 24-Stunden-Uhr, bei der Mitternacht um 24:00 Uhr beginnt. Wird nirgendwo verwendet.
+  - : Stundensystem von 1 bis 24; entspricht „k“ in Mustern. Die 24-Stunden-Uhr, bei der Mitternacht um 24:00 beginnt. Wird nirgendwo verwendet.
 
 ## Beispiele
 
 ### Unterstützte Stundenzyklen abrufen
 
-Wenn für das `Locale`-Objekt noch kein `hourCycle` festgelegt wurde, gibt `getHourCycles()` alle für die angegebene `Locale` gebräuchlichen Stundenzykluskennungen zurück. Beispiele für das explizite Festlegen eines `hourCycle` finden Sie unter [Beispiele zu `hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle#examples).
+Wenn für das `Locale`-Objekt noch kein `hourCycle` festgelegt ist, listet `getHourCycles()` alle gebräuchlichen Kennungen für Stundenzyklen der angegebenen `Locale` auf. Beispiele für das explizite Festlegen eines `hourCycle` finden Sie in den [Beispielen zu `hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle#examples).
 
 ```js
 const arEG = new Intl.Locale("ar-EG");
@@ -52,6 +52,21 @@ console.log(arEG.getHourCycles()); // ["h12"]
 ```js
 const jaJP = new Intl.Locale("ja-JP");
 console.log(jaJP.getHourCycles()); // ["h23"]
+```
+
+### Regionsüberschreibungen
+
+Die Erweiterungs-Subtags `rg` und `sd` ändern die [Regionseinstellungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale#region_preferences). Dadurch können andere Kennungen für Stundenzyklen zurückgegeben werden, während der Basisname gleich bleibt.
+
+```js
+const enUS = new Intl.Locale("en-US");
+console.log(enUS.getHourCycles()); // ["h12"]
+
+const enUSInJP = new Intl.Locale("en-US-u-rg-jpzzzz");
+console.log(enUSInJP.getHourCycles()); // ["h23"]
+
+const enScot = new Intl.Locale("en-u-sd-gbsct");
+console.log(enScot.getHourCycles()); // ["h23"]
 ```
 
 ## Spezifikationen
@@ -66,4 +81,4 @@ console.log(jaJP.getHourCycles()); // ["h23"]
 
 - {{jsxref("Intl.Locale")}}
 - [`Intl.Locale.prototype.hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle)
-- [Unicode-Stundenzykluskennung](https://www.unicode.org/reports/tr35/#UnicodeHourCycleIdentifier) in der Spezifikation der Unicode Locale Data Markup Language
+- [Unicode-Kennung für Stundenzyklen](https://www.unicode.org/reports/tr35/#UnicodeHourCycleIdentifier) in der Spezifikation der Unicode Locale Data Markup Language

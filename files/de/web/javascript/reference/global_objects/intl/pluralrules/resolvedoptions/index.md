@@ -3,10 +3,10 @@ title: Intl.PluralRules.prototype.resolvedOptions()
 short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/resolvedOptions
 l10n:
-  sourceCommit: d6148909942b2cb6e43760db183c2b3815f4387a
+  sourceCommit: 42d98fed2b93ad7f7efd643a2965c61e913dbe06
 ---
 
-Die Methode **`resolvedOptions()`** von {{jsxref("Intl.PluralRules")}}-Instanzen gibt ein neues Objekt zurück, dessen Eigenschaften die bei der Initialisierung dieses `PluralRules`-Objekts ermittelten Optionen widerspiegeln.
+Die Methode **`resolvedOptions()`** von {{jsxref("Intl.PluralRules")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die bei der Initialisierung dieses `PluralRules`-Objekts ermittelten Optionen widerspiegeln.
 
 {{InteractiveExample("JavaScript Demo: Intl.PluralRules.prototype.resolvedOptions()")}}
 
@@ -36,34 +36,38 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die bei der Initialisierung dieses `PluralRules`-Objekts ermittelten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften in der angegebenen Reihenfolge:
+Ein neues Objekt mit Eigenschaften, die die anhand der an den Konstruktor [`Intl.PluralRules()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules) übergebenen Argumente ermittelten Optionen widerspiegeln. Das Objekt enthält die folgenden Eigenschaften in der angegebenen Reihenfolge:
 
 - `locale`
   - : Der {{Glossary("BCP_47_language_tag", "BCP-47-Sprach-Tag")}} für die tatsächlich verwendete Locale, die durch den Prozess der [Locale-Aushandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) bestimmt wird. Die Ausgabe enthält keinen Unicode-Erweiterungsschlüssel.
 - `type`
-  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, gegebenenfalls ergänzt um den Standardwert. Er ist entweder `"cardinal"` oder `"ordinal"`. Der Standardwert ist `"cardinal"`.
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist entweder `"cardinal"` oder `"ordinal"`. Der Standardwert ist `"cardinal"`.
+- `notation`
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist einer von `"standard"`, `"scientific"`, `"engineering"` und `"compact"`. Der Standardwert ist `"standard"`.
+- `compactDisplay` {{optional_inline}}
+  - : Nur vorhanden, wenn `notation` den Wert `"compact"` hat. Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist entweder `"short"` oder `"long"`. Der Standardwert ist `"short"`.
 - `minimumIntegerDigits`
-  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, gegebenenfalls ergänzt um den Standardwert.
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt.
 - `minimumFractionDigits`, `maximumFractionDigits` {{optional_inline}}
-  - : Die für diese Eigenschaften im Argument `options` angegebenen Werte, gegebenenfalls ergänzt um Standardwerte. Sie sind nur vorhanden, wenn sie benötigt werden; siehe [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
+  - : Die für diese Eigenschaften im Argument `options` angegebenen Werte, bei Bedarf durch Standardwerte ergänzt. Sie sind nur vorhanden, wenn sie benötigt werden; siehe [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
 - `minimumSignificantDigits`, `maximumSignificantDigits` {{optional_inline}}
-  - : Die für diese Eigenschaften im Argument `options` angegebenen Werte, gegebenenfalls ergänzt um Standardwerte. Sie sind nur vorhanden, wenn sie benötigt werden; siehe [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
+  - : Die für diese Eigenschaften im Argument `options` angegebenen Werte, bei Bedarf durch Standardwerte ergänzt. Sie sind nur vorhanden, wenn sie benötigt werden; siehe [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
 - `pluralCategories`
   - : Ein {{jsxref("Array")}} mit den von der angegebenen Locale verwendeten Pluralkategorien aus der Liste `"zero"`, `"one"`, `"two"`, `"few"`, `"many"` und `"other"`.
 - `roundingIncrement`
-  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, gegebenenfalls ergänzt um den Standardwert. Er ist einer der Werte `1`, `2`, `5`, `10`, `20`, `25`, `50`, `100`, `200`, `250`, `500`, `1000`, `2000`, `2500` und `5000`. Der Standardwert ist `1`.
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist einer von `1`, `2`, `5`, `10`, `20`, `25`, `50`, `100`, `200`, `250`, `500`, `1000`, `2000`, `2500` und `5000`. Der Standardwert ist `1`.
 - `roundingMode`
-  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, gegebenenfalls ergänzt um den Standardwert. Er ist einer der Werte `"ceil"`, `"floor"`, `"expand"`, `"trunc"`, `"halfCeil"`, `"halfFloor"`, `"halfExpand"`, `"halfTrunc"` und `"halfEven"`. Der Standardwert ist `"halfExpand"`.
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist einer von `"ceil"`, `"floor"`, `"expand"`, `"trunc"`, `"halfCeil"`, `"halfFloor"`, `"halfExpand"`, `"halfTrunc"` und `"halfEven"`. Der Standardwert ist `"halfExpand"`.
 - `roundingPriority`
-  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, gegebenenfalls ergänzt um den Standardwert. Er ist entweder `"auto"`, `"morePrecision"` oder `"lessPrecision"`. Der Standardwert ist `"auto"`.
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist entweder `"auto"`, `"morePrecision"` oder `"lessPrecision"`. Der Standardwert ist `"auto"`.
 - `trailingZeroDisplay`
-  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, gegebenenfalls ergänzt um den Standardwert. Er ist entweder `"auto"` oder `"stripIfInteger"`. Der Standardwert ist `"auto"`.
+  - : Der für diese Eigenschaft im Argument `options` angegebene Wert, bei Bedarf durch den Standardwert ergänzt. Er ist entweder `"auto"` oder `"stripIfInteger"`. Der Standardwert ist `"auto"`.
 
 ## Beispiele
 
-### Verwendung der Methode `resolvedOptions()`
+### Verwendung der Methode resolvedOptions()
 
-Der folgende Code zeigt, wie ein `PluralRules`-Objekt erstellt und anschließend jede seiner ermittelten Optionen protokolliert wird.
+Der folgende Code zeigt, wie ein `PluralRules`-Objekt erstellt und anschließend jede der ermittelten Optionen protokolliert wird.
 
 ```js
 // Create a PluralRules instance
@@ -77,6 +81,8 @@ const usedOptions = de.resolvedOptions();
 console.log(usedOptions.locale); // "de-DE"
 console.log(usedOptions.pluralCategories); // Array ["one", "other"]
 console.log(usedOptions.type); // "cardinal"
+console.log(usedOptions.notation); // "standard"
+console.log(usedOptions.compactDisplay); // undefined (notation is not "compact")
 console.log(usedOptions.minimumIntegerDigits); // 1
 console.log(usedOptions.minimumFractionDigits); // undefined (maximumSignificantDigits is set)
 console.log(usedOptions.maximumFractionDigits); // undefined (maximumSignificantDigits is set)

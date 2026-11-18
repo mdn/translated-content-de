@@ -3,35 +3,35 @@ title: Intl.Locale.prototype.script
 short-title: script
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/script
 l10n:
-  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
+  sourceCommit: ce52c645165d849cbe3bee97c35ee1ad6877ed8e
 ---
 
-Die **`script`** Accessor-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt das Schriftsystem zurück, das zur Darstellung der besonderen Sprache in diesem Gebietsschema verwendet wird.
+Die Accessor-Eigenschaft **`script`** von {{jsxref("Intl.Locale")}}-Instanzen gibt die Schrift zurück, mit der die Sprache dieser Locale geschrieben wird.
 
 ## Beschreibung
 
-Schrift, manchmal auch als Schriftsystem bezeichnet, ist eines der Kernelemente eines Gebietsschemas. Es gibt den Satz von Symbolen oder Glyphen an, die verwendet werden, um eine bestimmte Sprache zu schreiben. Zum Beispiel ist das mit Englisch assoziierte Schriftsystem Latein, während das üblicherweise mit Koreanisch assoziierte Schriftsystem Hangul ist. In vielen Fällen ist es nicht unbedingt notwendig, ein Schriftsystem zu benennen, da die Sprache (die erforderlich ist) nur in einem einzigen Schriftsystem geschrieben wird. Es gibt jedoch Ausnahmen von dieser Regel, und es ist wichtig, das Schriftsystem zu benennen, wenn mehrere Schriftsysteme anwendbar sind.
+Die Schrift, auch Schriftsystem genannt, ist eines der zentralen Merkmale einer Locale. Sie bezeichnet die Menge von Zeichen oder Glyphen, die zum Schreiben einer bestimmten Sprache verwendet werden. Die mit Englisch verbundene Schrift ist beispielsweise Lateinisch, während Koreanisch üblicherweise mit Hangul geschrieben wird. In vielen Fällen ist die Angabe einer Schrift nicht unbedingt erforderlich, da die Sprache (deren Angabe erforderlich ist) nur in einer einzigen Schrift geschrieben wird. Es gibt jedoch Ausnahmen von dieser Regel. Wenn für eine Sprache mehrere Schriften infrage kommen, ist die Angabe der Schrift wichtig.
 
-Der Wert der `script`-Eigenschaft wird zur Bauzeit festgelegt, entweder durch den Teil des Gebietsschema-Identifiers nach `language` oder durch die `script`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Letztere hat Vorrang, wenn beide vorhanden sind; und wenn keine vorhanden ist, hat die Eigenschaft den Wert `undefined`.
+Der Wert der Eigenschaft `script` wird beim Erstellen der Instanz festgelegt: entweder durch den Teil des Locale-Identifikators nach `language` oder durch die Option `script` des Konstruktors {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}. Wenn beides angegeben ist, hat die Option Vorrang. Wenn keines von beiden angegeben ist, hat die Eigenschaft den Wert `undefined`.
 
 Der Set-Accessor von `script` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-Wie andere Gebietsschema-Subtags kann das Schriftsystem über den Gebietsschema-String oder ein Konfigurationsobjekt als Argument dem {{jsxref("Intl.Locale")}}-Objekt hinzugefügt werden.
+Wie andere Locale-Subtags kann die Schrift dem {{jsxref("Intl.Locale")}}-Objekt über den Locale-String oder über ein Konfigurationsobjekt als Argument des Konstruktors hinzugefügt werden.
 
-### Hinzufügen eines Schriftsystems über den Gebietsschema-String
+### Eine Schrift über den Locale-String hinzufügen
 
-Das Schriftsystem, sofern vorhanden, ist der zweite Teil eines gültigen Unicode-Sprach-Identifier-Strings und kann dem ursprünglichen Gebietsschema.Identifier-String hinzugefügt werden, der in den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird. Beachten Sie, dass das Schriftsystem kein erforderlicher Teil eines Gebietsschema-Identifiers ist.
+Falls eine Schrift angegeben ist, steht sie an zweiter Stelle in einem gültigen Unicode-Sprachidentifikator. Sie kann dem Locale-Identifikator hinzugefügt werden, der an den Konstruktor {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} übergeben wird. Beachten Sie, dass die Schrift kein erforderlicher Bestandteil eines Locale-Identifikators ist.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US");
 console.log(locale.script); // "Latn"
 ```
 
-### Hinzufügen eines Schriftsystems über das Konfigurationsobjekt-Argument
+### Eine Schrift über das Konfigurationsobjekt hinzufügen
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument. Setzen Sie die `script`-Eigenschaft des Konfigurationsobjekts auf Ihr gewünschtes Schriftsystem und übergeben Sie es dann an den Konstruktor.
+Der Konstruktor {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} akzeptiert optional ein Konfigurationsobjekt als Argument. Legen Sie dessen Eigenschaft `script` auf die gewünschte Schrift fest und übergeben Sie es anschließend an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("fr-FR", { script: "Latn" });
@@ -49,4 +49,4 @@ console.log(locale.script); // "Latn"
 ## Siehe auch
 
 - {{jsxref("Intl.Locale")}}
-- [Unicode script subtag](https://www.unicode.org/reports/tr35/#unicode_script_subtag_validity) in der Unicode locale data markup language Spezifikation
+- [Unicode-Subtag für Schriften](https://www.unicode.org/reports/tr35/#unicode_script_subtag_validity) in der Spezifikation der Unicode Locale Data Markup Language

@@ -3,35 +3,35 @@ title: Intl.Locale.prototype.numberingSystem
 short-title: numberingSystem
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/numberingSystem
 l10n:
-  sourceCommit: e509776556a47f12843b91ab5c6e9be6585698c6
+  sourceCommit: ce52c645165d849cbe3bee97c35ee1ad6877ed8e
 ---
 
-Die **`numberingSystem`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt das [Zahlensystem](https://en.wikipedia.org/wiki/Numeral_system) für diese Lokalisierung zurück.
+Die Accessor-Eigenschaft **`numberingSystem`** von {{jsxref("Intl.Locale")}}-Instanzen gibt das [Zahlensystem](https://en.wikipedia.org/wiki/Numeral_system) für diese Locale zurück.
 
 ## Beschreibung
 
-Ein Zahlensystem ist ein System zur Darstellung von Zahlen. Eine Liste unterstützter Zahlensystemtypen finden Sie unter [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types).
+Ein Zahlensystem ist ein System zur Darstellung von Zahlen. Eine Liste der unterstützten Zahlensystemtypen finden Sie unter [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types).
 
-Der Wert der `numberingSystem`-Eigenschaft wird zur Erstellungszeit festgelegt, entweder durch den `nu`-Schlüssel des Lokalisierungsbezeichners oder durch die `numberingSystem`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktors. Wenn beide vorhanden sind, hat Letzteres Vorrang; sind beide nicht vorhanden, hat die Eigenschaft den Wert `undefined`.
+Der Wert der Eigenschaft `numberingSystem` wird beim Erstellen der Instanz festgelegt: entweder über den Schlüssel `nu` im Locale-Bezeichner oder über die Option `numberingSystem` des Konstruktors {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}. Wenn beide vorhanden sind, hat die Option Vorrang. Ist keiner von beiden vorhanden, hat die Eigenschaft den Wert `undefined`.
 
 Der Set-Accessor von `numberingSystem` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-Wie andere Lokalisierungs-Subtags kann der Zahlensystemtyp dem {{jsxref("Intl.Locale")}}-Objekt über den Lokalisierungsstring oder ein Konfigurationsobjekt-Argument für den Konstruktor hinzugefügt werden.
+Wie andere Locale-Subtags kann der Zahlensystemtyp dem {{jsxref("Intl.Locale")}}-Objekt über den Locale-String oder über ein Konfigurationsobjekt als Argument des Konstruktors hinzugefügt werden.
 
-### Hinzufügen eines Zahlensystems über den Lokalisierungsstring
+### Ein Zahlensystem über den Locale-String hinzufügen
 
-Im [Unicode-Lokalisierungsstring-Spezifikationen](https://www.unicode.org/reports/tr35/) ist `numberingSystem` ein "Erweiterungssubtag". Diese Subtags fügen zusätzliche Daten über die Lokalisierung hinzu und werden den Lokalisierungsbezeichnern unter Verwendung des `-u` Erweiterungsschlüssels hinzugefügt. Um den Zahlensystemtyp dem anfänglichen Lokalisierungsbezeichnerstring hinzuzufügen, der an den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor übergeben wird, fügen Sie zuerst den `-u` Erweiterungsschlüssel hinzu, wenn er nicht existiert. Fügen Sie dann die `-nu` Erweiterung hinzu, um anzugeben, dass Sie ein Zahlensystem hinzufügen. Fügen Sie schließlich den Zahlensystemtyp hinzu.
+Gemäß der [Unicode-Spezifikation für Locale-Strings](https://www.unicode.org/reports/tr35/) ist `numberingSystem` ein „Erweiterungs-Subtag“. Solche Subtags liefern zusätzliche Informationen über die Locale und werden Locale-Bezeichnern mit dem Erweiterungsschlüssel `-u` hinzugefügt. Um den Zahlensystemtyp dem ursprünglichen Locale-Bezeichner hinzuzufügen, der an den Konstruktor {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} übergeben wird, fügen Sie zunächst den Erweiterungsschlüssel `-u` hinzu, falls er noch nicht vorhanden ist. Fügen Sie anschließend die Erweiterung `-nu` hinzu, um anzugeben, dass Sie ein Zahlensystem hinzufügen. Fügen Sie zuletzt den Zahlensystemtyp hinzu.
 
 ```js
 const locale = new Intl.Locale("fr-Latn-FR-u-nu-mong");
 console.log(locale.numberingSystem); // "mong"
 ```
 
-### Hinzufügen eines Zahlensystems über das Konfigurationsobjekt-Argument
+### Ein Zahlensystem über das Konfigurationsobjekt hinzufügen
 
-Der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} Konstruktor hat ein optionales Konfigurationsobjekt-Argument, das mehrere Erweiterungstypen, einschließlich Zahlensystemtypen, enthalten kann. Setzen Sie die `numberingSystem`-Eigenschaft des Konfigurationsobjekts auf den gewünschten Zahlensystemtyp und übergeben Sie es dann an den Konstruktor.
+Der Konstruktor {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}} akzeptiert optional ein Konfigurationsobjekt. Dieses kann verschiedene Erweiterungstypen enthalten, darunter Zahlensystemtypen. Setzen Sie die Eigenschaft `numberingSystem` des Konfigurationsobjekts auf den gewünschten Zahlensystemtyp und übergeben Sie das Objekt dann an den Konstruktor.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US", { numberingSystem: "latn" });
