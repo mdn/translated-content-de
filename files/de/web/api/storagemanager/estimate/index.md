@@ -3,14 +3,14 @@ title: "StorageManager: Methode estimate()"
 short-title: estimate()
 slug: Web/API/StorageManager/estimate
 l10n:
-  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
+  sourceCommit: d6469df1479efda0ce4bb908094c4d14e5dc526a
 ---
 
 {{securecontext_header}}{{APIRef("Storage")}} {{AvailableInWorkers}}
 
-Die Methode **`estimate()`** des Interfaces [`StorageManager`](/de/docs/Web/API/StorageManager) fragt den Storage Manager, wie viel Speicherplatz der aktuelle {{Glossary("Same-origin_policy", "Origin")}} belegt (`usage`) und wie viel Speicherplatz verfügbar ist (`quota`).
+Die Methode **`estimate()`** des Interfaces [`StorageManager`](/de/docs/Web/API/StorageManager) fragt beim Storage Manager ab, wie viel Speicherplatz der aktuelle {{Glossary("Same-origin_policy", "Origin")}} belegt (`usage`) und wie viel Speicherplatz verfügbar ist (`quota`).
 
-Die Methode arbeitet asynchron und gibt daher ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Informationen verfügbar sind. Der Erfüllungshandler des Promise erhält ein Objekt mit den Daten zu Speicherbelegung und verfügbarem Speicherplatz.
+Diese Methode arbeitet asynchron und gibt daher ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Informationen verfügbar sind. Der Fulfillment-Handler des Promise wird mit einem Objekt aufgerufen, das die Angaben zu Speicherbelegung und verfügbarem Speicherplatz enthält.
 
 ## Syntax
 
@@ -24,32 +24,35 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
+Ein {{jsxref('Promise')}}, das mit einem Objekt mit den folgenden Eigenschaften erfüllt wird:
 
 - `quota`
-  - : Ein numerischer Wert in Byte, der den gesamten Speicherplatz, der auf dem Gerät oder Computer des Benutzers für den Origin der Website oder Web-App verfügbar ist, vorsichtig schätzt. Möglicherweise ist mehr Speicherplatz verfügbar; darauf können Sie sich jedoch nicht verlassen.
+  - : Ein numerischer Wert in Byte, der eine vorsichtige Schätzung des gesamten Speicherplatzes angibt, der auf dem Gerät oder Computer des Benutzers für den Origin der Website oder Web-App verfügbar ist. Möglicherweise steht mehr Speicherplatz zur Verfügung; darauf können Sie sich jedoch nicht verlassen.
 - `usage`
   - : Ein numerischer Wert in Byte, der schätzt, wie viel des durch `quota` angegebenen verfügbaren Speicherplatzes die Website oder Web-App derzeit belegt. Die Einheit ist Byte.
 - `usageDetails` {{Non-standard_Inline}}
   - : Ein Objekt, das `usage` nach Speichersystem aufschlüsselt. Alle enthaltenen Eigenschaften haben einen `usage`-Wert größer als 0. Speichersysteme mit einem `usage`-Wert von 0 sind nicht im Objekt enthalten.
 
 > [!NOTE]
-> Die zurückgegebenen Werte sind nicht exakt: Aufgrund von Komprimierung, Deduplizierung und Verschleierung aus Sicherheitsgründen sind sie ungenau.
+> Die zurückgegebenen Werte sind nicht exakt: Durch Komprimierung, Deduplizierung und Verschleierung aus Sicherheitsgründen sind sie ungenau.
 
-Der Wert von `quota` kann sich von Origin zu Origin unterscheiden. Diese Unterschiede beruhen unter anderem auf folgenden Faktoren:
+> [!NOTE]
+> In Firefox ist `quota` das von allen Origins derselben {{Glossary("site", "Website")}} gemeinsam genutzte Limit, das sogenannte _Gruppenlimit_, und kein Limit für einen einzelnen Origin. Origins, denen persistenter Speicher über [`StorageManager.persist()`](/de/docs/Web/API/StorageManager/persist) gewährt wurde, unterliegen nicht dem Gruppenlimit. Für sie ist `quota` stattdessen das globale Speicherlimit. Wie diese Limits berechnet werden, erfahren Sie unter [Speicherkontingente und Kriterien für die Verdrängung](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#firefox).
+
+Der Wert von `quota` kann von Origin zu Origin variieren. Diese Unterschiede beruhen auf Faktoren wie:
 
 - Wie häufig der Benutzer die Website besucht
-- Öffentliche Daten zur Beliebtheit der Website
-- Hinweise auf die Interaktion des Benutzers mit der Website, etwa das Setzen eines Lesezeichens, das Hinzufügen zum Startbildschirm oder das Akzeptieren von Push-Benachrichtigungen
+- Öffentlich verfügbaren Daten zur Beliebtheit der Website
+- Signalen für die Interaktion des Benutzers, etwa dem Setzen eines Lesezeichens, dem Hinzufügen zum Startbildschirm oder dem Akzeptieren von Push-Benachrichtigungen
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der Zugriff auf den lokalen Speicherbereich fehlschlägt. Das kann beispielsweise der Fall sein, wenn der aktuelle Origin undurchsichtig ist oder der Benutzer die Speicherung deaktiviert hat.
+  - : Wird ausgelöst, wenn der Zugriff auf einen lokalen Speicherbereich fehlschlägt. Dies kann beispielsweise der Fall sein, wenn der aktuelle Origin ein opaker Origin ist oder der Benutzer die Speicherung deaktiviert hat.
 
 ## Beispiele
 
-In diesem Beispiel ermitteln wir die geschätzte Speicherbelegung und zeigen dem Benutzer an, wie viel Prozent des verfügbaren Speicherplatzes derzeit belegt sind.
+In diesem Beispiel rufen wir Schätzwerte zur Speicherbelegung ab und zeigen dem Benutzer an, wie viel Prozent der Speicherkapazität derzeit genutzt werden.
 
 ### HTML
 

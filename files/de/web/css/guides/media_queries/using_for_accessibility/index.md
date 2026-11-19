@@ -1,27 +1,27 @@
 ---
-title: Verwendung von Media Queries für Barrierefreiheit
+title: Media Queries für Barrierefreiheit verwenden
 short-title: Für Barrierefreiheit
 slug: Web/CSS/Guides/Media_queries/Using_for_accessibility
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 5d20ba73fde9de229a91dbdabe3be20966e95a65
 ---
 
-[**CSS Media Queries**](/de/docs/Web/CSS/Guides/Media_queries) können verwendet werden, um Menschen mit Behinderungen ein besseres Erlebnis auf Ihrer Website zu bieten.
+[**CSS Media Queries**](/de/docs/Web/CSS/Guides/Media_queries) können dazu beitragen, dass Menschen mit Behinderungen Ihre Website besser nutzen können.
 
 ## Reduzierte Bewegung
 
-Blinkende und flackernde Animationen können für Menschen mit kognitiven Beeinträchtigungen, wie beispielsweise Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung (ADHS), problematisch sein. Darüber hinaus können bestimmte Arten von Bewegungen eine Auslöser für Vestibuläre Störungen, Epilepsie, Migräne und Skotopische Empfindlichkeit sein. Das Reduzieren von Animationen oder das komplette Ausschalten basierend auf den Präferenzen des Nutzers kann auch denjenigen mit niedrigem Batteriestand oder Geräten mit geringer Leistungsfähigkeit zugutekommen.
+Blinkende und aufblitzende Animationen können für Menschen mit kognitiven Beeinträchtigungen, etwa einer Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung (ADHS), problematisch sein. Bestimmte Arten von Bewegung können außerdem vestibuläre Störungen, Epilepsie, Migräne und eine erhöhte Empfindlichkeit bei schwachem Licht auslösen. Animationen zu reduzieren oder entsprechend den Einstellungen der Nutzenden vollständig abzuschalten, kann auch Menschen mit geringem Akkustand oder leistungsschwachen Geräten zugutekommen.
 
-Die Media Query [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) ermöglicht es, Benutzern, die in den Barrierefreiheitseinstellungen ihres Betriebssystems die Präferenz für reduzierte Bewegung eingestellt haben, ein Erlebnis mit weniger Animationen und Übergängen zu bieten. Sie hat zwei mögliche Werte:
+Mit der Media Query [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) können Sie Nutzenden, die in den Barrierefreiheitseinstellungen ihres Betriebssystems reduzierte Bewegung ausgewählt haben, eine Darstellung mit weniger Animationen und Übergängen anbieten. Sie hat zwei mögliche Werte:
 
 - `no-preference`
-  - : Gibt an, dass der Benutzer dem System keine Präferenz mitgeteilt hat.
+  - : Gibt an, dass die nutzende Person dem System keine Präferenz mitgeteilt hat.
 - `reduce`
-  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Oberfläche bevorzugt, die die Bewegung oder Animation auf das Minimum reduziert, vorzugsweise bis zu dem Punkt, an dem alle nicht wesentlichen Bewegungen entfernt werden.
+  - : Gibt an, dass die nutzende Person dem System mitgeteilt hat, dass sie eine Benutzeroberfläche mit möglichst wenig Bewegung oder Animation bevorzugt. Idealerweise werden dabei alle nicht notwendigen Bewegungen entfernt.
 
 ### Beispiel
 
-Dieses Beispiel enthält eine störende Animation, es sei denn, Sie schalten die reduzierte Bewegung in [Ihren Barrierefreiheitseinstellungen](/de/docs/Web/Accessibility/Guides/Browsing_safely) ein.
+Dieses Beispiel enthält eine störende Animation, sofern Sie „Bewegung reduzieren“ nicht in [Ihren Barrierefreiheitseinstellungen](/de/docs/Web/Accessibility/Guides/Browsing_safely) aktivieren.
 
 #### HTML
 
@@ -43,12 +43,12 @@ Dieses Beispiel enthält eine störende Animation, es sei denn, Sie schalten die
 }
 ```
 
-Der Wert von `prefers-reduced-motion` ist `reduce`, nicht "none". Diese Präferenz bedeutet nicht, dass alle Animationen entfernt werden müssen, was mit `* {animation: none !important;}` erreicht werden könnte. Vielmehr erwarten Benutzer, dass Bewegungsanimationen, einschließlich derer, die durch Benutzerinteraktionen ausgelöst werden, deaktiviert werden, es sei denn, die Animation ist essenziell für die Funktionalität oder die zu vermittelnde Information (siehe [WCAG: Animation from Interactions](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html)).
+Der Wert von `prefers-reduced-motion` lautet `reduce`, nicht „none“. Diese Einstellung bedeutet nicht, dass alle Animationen entfernt werden müssen, was mit `* {animation: none !important;}` möglich wäre. Vielmehr erwarten Nutzende, dass Bewegungsanimationen – auch solche, die durch Interaktionen ausgelöst werden – deaktiviert sind, sofern sie für die Funktionalität oder die Vermittlung von Informationen nicht wesentlich sind (siehe [WCAG: Animationen durch Interaktionen](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html)).
 
 ## Siehe auch
 
-- [`prefers-contrast`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-contrast): zur Anpassung der Seitengestaltung basierend auf den Kontrastpräferenzen des Benutzers
+- [`prefers-contrast`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-contrast): zum Anpassen des Seitenstils an die Kontrastpräferenz der Nutzenden
 - [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency)
 - [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme)
 - [`inverted-colors`](/de/docs/Web/CSS/Reference/At-rules/@media/inverted-colors)
-- [Gestaltung mit reduzierter Bewegung für Bewegungsempfindlichkeiten](https://www.smashingmagazine.com/2020/09/design-reduced-motion-sensitivities/)
+- [Gestaltung mit reduzierter Bewegung für Menschen mit Bewegungsempfindlichkeit](https://www.smashingmagazine.com/2020/09/design-reduced-motion-sensitivities/)
