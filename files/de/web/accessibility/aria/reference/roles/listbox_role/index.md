@@ -1,128 +1,136 @@
 ---
-title: "ARIA: listbox-Rolle"
+title: "ARIA: Rolle listbox"
 short-title: listbox
 slug: Web/Accessibility/ARIA/Reference/Roles/listbox_role
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
 <!-- cSpell:ignore labelled -->
 
-Die `listbox`-Rolle wird für Listen verwendet, aus denen ein Benutzer ein oder mehrere statische Elemente auswählen kann, die anders als HTML-{{HTMLElement('select')}}-Elemente Bilder enthalten können.
+Die Rolle `listbox` wird für Listen verwendet, aus denen Benutzer eine oder mehrere statische Optionen auswählen können. Anders als HTML-Elemente {{HTMLElement('select')}} können solche Listen auch Bilder enthalten.
 
 ## Beschreibung
 
-Die `listbox`-Rolle dient dazu, ein Element zu identifizieren, das eine Liste erstellt, aus der ein Benutzer ein oder mehrere statische Elemente auswählen kann, ähnlich dem HTML-{{HTMLElement('select')}}-Element. Anders als {{HTMLElement('select')}} kann eine Listbox Bilder enthalten. Listboxen enthalten Kinder, deren Rolle [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role) ist, oder Elemente, deren Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) ist, die wiederum Kinder enthalten, deren Rolle `option` ist.
+Die Rolle `listbox` kennzeichnet ein Element, das eine Liste erstellt, aus der Benutzer eine oder mehrere statische Optionen auswählen können, ähnlich dem HTML-Element {{HTMLElement('select')}}. Anders als {{HTMLElement('select')}} kann eine Listbox Bilder enthalten. Listboxen enthalten untergeordnete Elemente mit der Rolle [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role) oder Elemente mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role), die ihrerseits untergeordnete Elemente mit der Rolle `option` enthalten.
 
-Es wird dringend empfohlen, das HTML-Select-Element zu verwenden, oder eine Gruppe von Optionsfeldern, wenn nur ein Element ausgewählt werden kann, oder eine Gruppe von Kontrollkästchen, wenn mehrere Elemente ausgewählt werden können, da es eine Menge Tastaturinteraktionen gibt, um den Fokus für alle Nachkommen zu verwalten, und native HTML-Elemente diese Funktionalität kostenlos für Sie bereitstellen.
+Es wird dringend empfohlen, stattdessen das HTML-Element `select`, bei Einfachauswahl eine Gruppe von Radiobuttons oder bei Mehrfachauswahl eine Gruppe von Kontrollkästchen zu verwenden. Die Tastaturinteraktion und Fokusverwaltung für alle untergeordneten Elemente ist aufwendig; native HTML-Elemente stellen diese Funktionalität bereits bereit.
 
-Elemente mit der Rolle `listbox` haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)-Wert von `vertical`.
+Elemente mit der Rolle `listbox` haben implizit den Wert `vertical` für [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation).
 
-Wenn eine Liste angeklickt wird, wird der erste Eintrag in der Liste ausgewählt, wenn nichts anderes bereits ausgewählt ist. Die Pfeiltasten nach oben/unten navigieren durch die Liste, und durch Drücken der Umschalttaste + Pfeiltasten nach oben/unten wird die Auswahl verschoben und erweitert. Durch Eingabe eines oder mehrerer Buchstaben wird durch die Listenelemente navigiert (gleicher Buchstabe geht zu jedem Eintrag, der damit beginnt, verschiedene Buchstaben gehen zum ersten Eintrag, der mit dem gesamten Zeichenfolgen beginnt). Wenn das aktuelle Element ein zugehöriges Kontextmenü hat, wird Shift+F10 dieses Menü aufrufen. Wenn Listenelemente überprüfbar sind, kann die Leertaste verwendet werden, um [Kontrollkästchen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) umzustellen. Für auswählbare Listenelemente toggelt die Leertaste deren Auswahl, mit Shift+Space können zusammenhängende Elemente ausgewählt werden, Ctrl+Pfeil bewegt sich ohne Auswahl, und Ctrl+Space kann verwendet werden, um nicht zusammenhängende Elemente auszuwählen. Es wird empfohlen, ein Kontrollkästchen, einen Link oder eine andere Methode zu verwenden, um alle Elemente auszuwählen, und Ctrl+A könnte als Tastenkombination dafür verwendet werden.
+Wenn eine Liste per Tabulatortaste den Fokus erhält, wird die erste Option ausgewählt, sofern nicht bereits eine andere ausgewählt ist. Mit den Pfeiltasten nach oben und unten navigieren Benutzer durch die Liste; mit Umschalttaste und diesen Pfeiltasten verschieben und erweitern sie die Auswahl. Die Eingabe eines oder mehrerer Buchstaben führt zu passenden Listeneinträgen: Die wiederholte Eingabe desselben Buchstabens führt nacheinander zu Einträgen, die damit beginnen; die Eingabe verschiedener Buchstaben führt zum ersten Eintrag, der mit der gesamten eingegebenen Zeichenfolge beginnt. Wenn der aktuelle Eintrag ein Kontextmenü hat, öffnet Umschalttaste+F10 dieses Menü. Bei ankreuzbaren Listeneinträgen können [Kontrollkästchen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) mit der Leertaste umgeschaltet werden. Bei auswählbaren Listeneinträgen schaltet die Leertaste die Auswahl um, Umschalttaste+Leertaste kann zusammenhängende Einträge auswählen, Strg+Pfeiltaste bewegt den Fokus ohne Auswahl, und Strg+Leertaste kann nicht zusammenhängende Einträge auswählen. Es wird empfohlen, ein Kontrollkästchen, einen Link oder eine andere Möglichkeit zum Auswählen aller Einträge bereitzustellen. Strg+A kann dafür als Tastenkürzel dienen.
 
-Wenn die Listbox-Rolle zu einem Element hinzugefügt wird oder ein solches Element sichtbar wird, kündigen Screenreader das Label und die Rolle der Listbox bei Fokuserhalt an. Wenn ein Options- oder Elementfokus innerhalb der Liste existiert, wird dieser als nächstes angekündigt, gefolgt von einer Anzeige der Position des Elements innerhalb der Liste, wenn der Screenreader dies unterstützt. Wenn der Fokus innerhalb der Liste verschoben wird, kündigt der Screenreader die relevanten Elemente an.
+Wenn einem Element die Rolle `listbox` hinzugefügt wird oder ein solches Element sichtbar wird, geben Screenreader beim Fokussieren dessen Beschriftung und Rolle aus. Wenn eine Option oder ein Eintrag innerhalb der Liste fokussiert ist, wird dieser als Nächstes ausgegeben, gefolgt von seiner Position in der Liste, sofern der Screenreader dies unterstützt. Während sich der Fokus innerhalb der Liste bewegt, gibt der Screenreader die jeweiligen Einträge aus.
 
-### Zugeordnete ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
-#### Zugeordnete Rollen
+#### Zugehörige Rollen
 
-- [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)-Rolle
-  - : Eine oder mehrere verschachtelte Optionen sind erforderlich. Alle ausgewählten Optionen haben [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `true` gesetzt. Alle nicht ausgewählten Optionen haben [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `false` gesetzt. Wenn eine Option nicht auswählbar ist, weglassen der [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected).
-- [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role)-Rolle
-  - : Ein Abschnitt, der `listitem`-Elemente enthält
+- Rolle [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
+  - : Mindestens eine untergeordnete Option ist erforderlich. Für alle ausgewählten Optionen ist [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `true` gesetzt. Für alle nicht ausgewählten Optionen ist [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `false` gesetzt. Ist eine Option nicht auswählbar, lassen Sie [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) weg.
+- Rolle [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role)
+  - : Ein Abschnitt, der `listitem`-Elemente enthält.
 
 #### Zustände und Eigenschaften
 
 - [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)
-  - : Enthält die `id`-Zeichenkette des derzeit aktiven Elements innerhalb der Listbox. Wenn es sich um ein Optionselement handelt, ist das die `id` der zuletzt interagierten Option, unabhängig davon, ob diese Option einen [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Wert von `true` hat oder nicht. Nimmt nur einen `id`-Wert an, selbst in einer multiselectable Listbox. Wenn die `id` sich nicht auf einen DOM-Nachkommen der Listbox bezieht, muss diese `id` unter den IDs im [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) Attribut enthalten sein.
+  - : Enthält den `id`-Wert des aktuell aktiven Elements innerhalb der Listbox. Handelt es sich dabei um ein `option`-Element, ist dies die `id` der Option, mit der zuletzt interagiert wurde – unabhängig davon, ob [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) für diese Option den Wert `true` hat. Die Eigenschaft enthält nur eine einzige `id`, auch in einer Listbox mit Mehrfachauswahl. Wenn die `id` nicht auf ein untergeordnetes DOM-Element der Listbox verweist, muss sie unter den IDs im Attribut [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) aufgeführt sein.
 - [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)
-  - : Dies ist eine durch Leerzeichen getrennte Liste von Element-IDs, die keine DOM-Kindelemente der Listbox sind. Die hier aufgelisteten IDs können nicht auch in den [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) Attributen anderer Elemente aufgeführt werden.
+  - : Eine durch Leerzeichen getrennte Liste von Element-IDs, deren Elemente keine untergeordneten DOM-Elemente der Listbox sind. Hier aufgeführte IDs dürfen nicht zugleich in [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attributen anderer Elemente stehen.
 
 - [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)
-  - : Einschließen und auf `true` setzen, wenn der Benutzer mehr als eine Option auswählen kann. Wenn auf `true` gesetzt, sollte _jede_ auswählbare Option ein eingeschlossenes und auf `true` oder `false` gesetztes [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Attribut haben. Optionen, die _nicht_ auswählbar sind, _sollten nicht_ das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Attribut haben. Wenn `false` oder weggelassen, benötigt nur die derzeit ausgewählte Option, falls eine Option ausgewählt ist, das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Attribut, und es muss auf `true` gesetzt sein.
+  - : Fügen Sie dieses Attribut hinzu und setzen Sie es auf `true`, wenn Benutzer mehr als eine Option auswählen können. Bei `true` sollte _jede_ auswählbare Option ein [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Attribut mit dem Wert `true` oder `false` haben. Optionen, die _nicht_ auswählbar sind, _sollten kein_ [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Attribut haben. Bei `false` oder wenn das Attribut fehlt, benötigt nur die aktuell ausgewählte Option – sofern eine ausgewählt ist – das Attribut [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected); dessen Wert muss `true` sein.
 
 - [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)
   - : Ein boolesches Attribut, das angibt, dass eine Option mit einem nicht leeren Zeichenfolgenwert ausgewählt sein muss.
 
 - [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)
-  - : Der Benutzer kann nicht ändern, welche Optionen ausgewählt oder nicht ausgewählt sind, aber die Listbox ist ansonsten bedienbar.
+  - : Benutzer können nicht ändern, welche Optionen ausgewählt sind; die Listbox bleibt ansonsten bedienbar.
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Ein menschenlesbarer Zeichenfolgenwert, der die Listbox identifiziert. Wenn ein sichtbares Label vorhanden ist, sollte stattdessen [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet werden, um auf dieses Label zu verweisen.
+  - : Eine für Menschen lesbare Zeichenfolge, die die Listbox bezeichnet. Wenn eine sichtbare Beschriftung vorhanden ist, sollte stattdessen [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet werden, um darauf zu verweisen.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Identifiziert das sichtbare Element oder die sichtbaren Elemente in einer durch Leerzeichen getrennten Liste von Element-IDs, die die Listbox identifizieren. Wenn kein sichtbares Label vorhanden ist, sollte stattdessen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet werden, um ein Label einzubeziehen. (Hinweis: "labelled" mit zwei L's ist die korrekte Schreibweise basierend auf den Konventionen der Zugränglichkeits-API.)
+  - : Verweist über eine durch Leerzeichen getrennte Liste von Element-IDs auf die sichtbaren Elemente, die die Listbox beschriften. Wenn keine sichtbare Beschriftung vorhanden ist, sollte stattdessen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet werden, um eine Beschriftung anzugeben. (Hinweis: Die Schreibweise „labelled“ mit zwei „l“ entspricht den Konventionen der Barrierefreiheits-APIs.)
 
 - [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)
-  - : Ein menschenlesbarer Zeichenfolgenwert, der die Rolle der Listbox klarer identifiziert. Screenreader lesen diesen Wert oft dem Benutzer vor, nachdem sie das Label (falls vorhanden) vorgelesen haben, anstatt "listbox" zu sagen.
+  - : Eine für Menschen lesbare Zeichenfolge, die die Rolle der Listbox genauer beschreibt. Screenreader lesen diesen Wert häufig nach der Beschriftung vor, sofern eine vorhanden ist, anstatt „listbox“ auszugeben.
 
 ### Tastaturinteraktionen
 
-- Wenn eine einfach auswählbare Listbox den Fokus erhält:
-  - Wenn keine der Optionen vor Erhalt des Fokus durch die Listbox ausgewählt ist, erhält die erste Option den Fokus. Optional kann die erste Option auch automatisch ausgewählt werden.
-  - Wenn eine Option vor Erhalt des Fokus durch die Listbox ausgewählt ist, wird der Fokus auf die ausgewählte Option gesetzt.
+- Wenn eine Listbox mit Einfachauswahl den Fokus erhält:
+  - War zuvor keine Option ausgewählt, erhält die erste Option den Fokus. Optional kann sie automatisch ausgewählt werden.
+  - War zuvor eine Option ausgewählt, wird der Fokus auf diese Option gesetzt.
 
-- Wenn eine Mehrfachauswahl-Listbox den Fokus erhält:
-  - Wenn keine der Optionen vor Erhalt des Fokus durch die Listbox ausgewählt ist, wird der Fokus auf die erste Option gesetzt, und es erfolgt keine automatische Änderung im Auswahlszustand.
-  - Wenn eine oder mehrere Optionen vor Erhalt des Fokus durch die Listbox ausgewählt sind, wird der Fokus auf die erste ausgewählte Option in der Liste gesetzt.
+- Wenn eine Listbox mit Mehrfachauswahl den Fokus erhält:
+  - War zuvor keine Option ausgewählt, wird der Fokus auf die erste Option gesetzt, ohne den Auswahlzustand automatisch zu ändern.
+  - Waren zuvor eine oder mehrere Optionen ausgewählt, wird der Fokus auf die erste ausgewählte Option in der Liste gesetzt.
 
-- <kbd>Pfeil nach unten</kbd>
+- <kbd>Down Arrow</kbd>
 
-  : Bewegt den Fokus auf die nächste Option. Optional kann in einer einfach auswählbaren Listbox die Auswahl auch mit dem Fokus verschoben werden.
+  : Verschiebt den Fokus zur nächsten Option. In einer Listbox mit Einfachauswahl kann optional auch die Auswahl dem Fokus folgen.
 
-- <kbd>Pfeil nach oben</kbd>
+- <kbd>Up Arrow</kbd>
 
-  : Bewegt den Fokus auf die vorherige Option. Optional kann in einer einfach auswählbaren Listbox die Auswahl auch mit dem Fokus verschoben werden.
+  : Verschiebt den Fokus zur vorherigen Option. In einer Listbox mit Einfachauswahl kann optional auch die Auswahl dem Fokus folgen.
 
 - <kbd>Home</kbd>
 
-  (Optional): Bewegt den Fokus auf die erste Option. Optional kann in einer einfach auswählbaren Listbox die Auswahl auch mit dem Fokus verschoben werden. Die Unterstützung dieses Schlüssels wird für Listen mit mehr als fünf Optionen dringend empfohlen.
+  (Optional): Verschiebt den Fokus zur ersten Option. In einer Listbox mit Einfachauswahl kann optional auch die Auswahl dem Fokus folgen. Für Listen mit mehr als fünf Optionen wird die Unterstützung dieser Taste dringend empfohlen.
 
 - <kbd>End</kbd>
 
-  (Optional): Bewegt den Fokus auf die letzte Option. Optional kann in einer einfach auswählbaren Listbox die Auswahl auch mit dem Fokus verschoben werden. Die Unterstützung dieses Schlüssels wird für Listen mit mehr als fünf Optionen dringend empfohlen.
+  (Optional): Verschiebt den Fokus zur letzten Option. In einer Listbox mit Einfachauswahl kann optional auch die Auswahl dem Fokus folgen. Für Listen mit mehr als fünf Optionen wird die Unterstützung dieser Taste dringend empfohlen.
 
-- Vorauswahl ist für alle Listboxen empfohlen, insbesondere für solche mit mehr als sieben Optionen:
-  - Geben Sie ein Zeichen ein: Der Fokus bewegt sich zum nächsten Eintrag mit einem Namen, der mit dem eingegebenen Zeichen beginnt.
-  - Geben Sie mehrere Zeichen schnell hintereinander ein: Der Fokus bewegt sich zum nächsten Eintrag mit einem Namen, der mit der eingegebenen Zeichenfolge beginnt.
+- Die Suche durch Eingabe von Zeichen wird für alle Listboxen empfohlen, insbesondere für solche mit mehr als sieben Optionen:
+  - Eingabe eines Zeichens: Der Fokus wechselt zum nächsten Eintrag, dessen Name mit dem eingegebenen Zeichen beginnt.
+  - Eingabe mehrerer Zeichen in schneller Folge: Der Fokus wechselt zum nächsten Eintrag, dessen Name mit der eingegebenen Zeichenfolge beginnt.
 
-- **Mehrfachauswahl**: Autoren können entweder ein Interaktionsmodell implementieren, das keine Halten einer Modifikatortaste wie <kbd>Shift</kbd> oder <kbd>Control</kbd> während der Navigation durch die Liste erfordert, oder ein alternatives Modell, das erfordert, dass Modifikatortasten gehalten werden, um den Auswahlszustand nicht zu verlieren.
-  - Empfohlenes Auswahlsmodell — das Halten von Modifikatortasten ist nicht notwendig:
-    - <kbd>Leertaste</kbd>: Ändert den Auswahlszustand der fokussierten Option.
-    - <kbd>Shift + Pfeil nach unten</kbd> (Optional): Bewegt den Fokus und toggelt den Auswahlszustand der nächsten Option.
-    - <kbd>Shift + Pfeil nach oben</kbd> (Optional): Bewegt den Fokus und toggelt den Auswahlszustand der vorherigen Option.
-    - <kbd>Shift + Leertaste</kbd> (Optional): Wählt zusammenhängende Elemente von dem zuletzt ausgewählten Element zum fokussierten Element aus.
-    - <kbd>Control + Shift + Home</kbd> (Optional): Wählt die fokussierte Option und alle Optionen bis zur ersten Option aus. Optional verschiebt den Fokus auf die erste Option.
-    - <kbd>Control + Shift + End</kbd> (Optional): Wählt die fokussierte Option und alle Optionen bis zur letzten Option aus. Optional verschiebt den Fokus auf die letzte Option.
-    - <kbd>Control + A</kbd> (Optional): Wählt alle Optionen in der Liste aus. Optional, wenn alle Optionen ausgewählt sind, kann es auch alle Optionen abwählen.
+- **Mehrfachauswahl**: Zur Unterstützung der Mehrfachauswahl können Autoren eines von zwei Interaktionsmodellen implementieren: das empfohlene Modell, bei dem Benutzer während der Navigation durch die Liste keine Modifikatortaste wie <kbd>Shift</kbd> oder <kbd>Control</kbd> gedrückt halten müssen, oder ein alternatives Modell, bei dem Modifikatortasten gedrückt gehalten werden müssen, damit bestehende Auswahlzustände bei der Navigation erhalten bleiben.
+  - Empfohlenes Auswahlmodell – das Gedrückthalten von Modifikatortasten ist nicht erforderlich:
+    - <kbd>Space</kbd>: Ändert den Auswahlzustand der fokussierten Option.
+    - <kbd>Shift + Down Arrow</kbd> (optional): Verschiebt den Fokus zur nächsten Option und schaltet deren Auswahlzustand um.
+    - <kbd>Shift + Up Arrow</kbd> (optional): Verschiebt den Fokus zur vorherigen Option und schaltet deren Auswahlzustand um.
+    - <kbd>Shift + Space</kbd> (optional): Wählt zusammenhängende Einträge von der zuletzt ausgewählten Option bis zur fokussierten Option aus.
+    - <kbd>Control + Shift + Home</kbd> (optional): Wählt die fokussierte Option und alle Optionen bis zur ersten Option aus. Optional wird der Fokus zur ersten Option verschoben.
+    - <kbd>Control + Shift + End</kbd> (optional): Wählt die fokussierte Option und alle Optionen bis zur letzten Option aus. Optional wird der Fokus zur letzten Option verschoben.
+    - <kbd>Control + A</kbd> (optional): Wählt alle Optionen in der Liste aus. Sind bereits alle Optionen ausgewählt, kann die Tastenkombination optional auch die gesamte Auswahl aufheben.
 
-### Erforderliche JavaScript-Funktionen
+### Erforderliche JavaScript-Funktionalität
 
-#### Auswahl einer Option in einer Einzelauswahl-Listbox
+#### Auswählen einer Option in einer Listbox mit Einfachauswahl
 
-Wenn der Benutzer eine Option auswählt, muss Folgendes geschehen:
+Wenn Benutzer eine Option auswählen, muss Folgendes geschehen:
 
-1. Die zuvor ausgewählte Option abwählen, indem [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `false` gesetzt oder das Attribut gänzlich entfernt wird, wodurch das Aussehen der neu abgewählten Option so geändert wird, dass sie nicht ausgewählt erscheint.
-2. Die neu ausgewählte Option auswählen, indem `aria-selected="true"` auf die Option gesetzt wird und das Aussehen der neu ausgewählten Option so geändert wird, dass sie als ausgewählt erscheint.
-3. Den [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)-Wert der Listbox auf die ID der neu ausgewählten Option aktualisieren.
-4. Visuelle Behandlung der Unschärfe-, Fokus- und Auswahlszustände der Option
+1. Die zuvor ausgewählte Option wird abgewählt. Dazu wird [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `false` gesetzt oder das Attribut vollständig entfernt. Auch die Darstellung der Option wird so geändert, dass sie nicht mehr ausgewählt erscheint.
+2. Die neue Option wird ausgewählt. Dazu wird `aria-selected="true"` auf der Option gesetzt und ihre Darstellung so geändert, dass sie ausgewählt erscheint.
+3. Der Wert von [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) auf der Listbox wird auf die `id` der neu ausgewählten Option aktualisiert.
+4. Die Zustände für Fokusverlust, Fokus und Auswahl der Option werden visuell dargestellt.
 
-#### Umschalten des Zustands einer Option in einer Mehrfachauswahl-Listbox
+#### Umschalten des Zustands einer Option in einer Listbox mit Mehrfachauswahl
 
-Wenn der Benutzer auf eine Option klickt, <kbd>Leertaste</kbd> drückt, während er auf eine Option fokussiert ist, oder auf andere Weise den Zustand einer Option umschaltet, muss Folgendes geschehen:
+Wenn Benutzer auf eine Option klicken, bei fokussierter Option <kbd>Space</kbd> drücken oder den Zustand einer Option auf andere Weise umschalten, muss Folgendes geschehen:
 
-1. Den [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Zustand der aktuell fokussierten Option umschalten und den Zustand in wahr ändern, wenn er falsch war, oder in falsch ändern, wenn er wahr war.
-2. Das Aussehen der Option ändern, um ihren ausgewählten Zustand widerzuspiegeln.
-3. Den [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)-Wert der Listbox auf die ID der Option aktualisieren, mit der der Benutzer gerade interagiert hat, selbst wenn die Option auf nicht ausgewählt umgeschaltet wurde.
+1. Der Wert von [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) für die aktuell fokussierte Option wird umgeschaltet: von `false` auf `true` beziehungsweise von `true` auf `false`.
+2. Die Darstellung der Option wird an ihren Auswahlzustand angepasst.
+3. Der Wert von [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) auf der Listbox wird auf die ID der Option aktualisiert, mit der die Benutzer zuletzt interagiert haben – auch wenn sie die Auswahl der Option dabei aufgehoben haben.
 
 > [!NOTE]
-> Die erste Regel der ARIA-Nutzung lautet: Wenn Sie eine native Funktion mit den erforderlichen eingebauten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element neu zu nutzen und **eine** ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, tun Sie dies. Das {{HTMLElement('select')}}-Element mit nachfolgenden {{HTMLElement('option')}}-Elementen bietet alle erforderlichen Interaktionen nativ.
+> Die erste Regel für den Einsatz von ARIA lautet: Wenn Sie eine native Funktion verwenden können, die die benötigte Semantik und das benötigte Verhalten bereits mitbringt, sollten Sie dies tun, statt ein Element zweckzuentfremden und es durch das **Hinzufügen** einer ARIA-Rolle, eines Zustands oder einer Eigenschaft zugänglich zu machen. Das Element {{HTMLElement('select')}} mit untergeordneten {{HTMLElement('option')}}-Elementen unterstützt alle erforderlichen Interaktionen von sich aus.
+
+## Bewährte Vorgehensweisen
+
+- Für die Bedienbarkeit per Tastatur sollten Autoren den [Fokus aller untergeordneten Elemente verwalten](https://w3c.github.io/aria/#managingfocus).
+- Es wird empfohlen, die Auswahl anders darzustellen, wenn die Liste nicht fokussiert ist. Beispielsweise wird eine inaktive Auswahl häufig mit einer helleren Hintergrundfarbe angezeigt.
+- Wenn die Listbox nicht Teil eines anderen Widgets ist, sollte die Eigenschaft [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) gesetzt sein.
+- Wenn ein oder mehrere Einträge keine untergeordneten DOM-Elemente der Listbox sind, müssen zusätzliche `aria-*`-Eigenschaften gesetzt werden (siehe [ARIA Best Practices](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)).
+- Wenn es einen triftigen Grund gibt, die Listbox [aufzuklappen](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded), ist möglicherweise die Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) besser geeignet.
 
 ## Beispiele
 
-### Beispiel 1: Eine Einzelauswahl-Listbox, die `aria-activedescendant` verwendet
+### Beispiel 1: Eine Listbox mit Einfachauswahl, die `aria-activedescendant` verwendet
 
-Der untenstehende Ausschnitt, der [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) verwendet, zeigt, wie die Listbox-Rolle direkt in den HTML-Quellcode eingefügt wird.
+Der folgende Codeausschnitt zeigt, wie die Rolle `listbox` mithilfe von [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) direkt im HTML-Quellcode verwendet wird.
 
 ```html
 <p id="listbox1label" role="label">Select a color:</p>
@@ -150,7 +158,7 @@ listbox.addEventListener("keydown", listItemKeyEvent);
 listbox.addEventListener("keypress", listItemKeyEvent);
 ```
 
-Dies hätte leichter mit den nativen HTML-{{HTMLElement('select')}}- und {{HTMLElement('label')}}-Elementen gehandhabt werden können.
+Dies hätte sich einfacher mit den nativen HTML-Elementen {{HTMLElement('select')}} und {{HTMLElement('label')}} umsetzen lassen.
 
 ```html
 <label for="listbox1">Select a color:</label>
@@ -166,17 +174,9 @@ Dies hätte leichter mit den nativen HTML-{{HTMLElement('select')}}- und {{HTMLE
 
 ### Weitere Beispiele
 
-- [Scrollable Listbox Example](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/): Einzelauswahl-Listbox, die scrollt, um weitere Optionen anzuzeigen, ähnlich der HTML-{{HTMLElement('select')}} mit `size`-Attribut größer als eins.
-- [Listbox Example with Grouped Options](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/): Einzelauswahl-Listbox mit gruppierten Optionen, ähnlich der HTML-{{HTMLElement('select')}} mit dem Attribut `size` größer als `"1"` und Optionen, die mit `optgroup`-Elementen gruppiert sind.
-- [Example Listboxes with Rearrangeable Options](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/): Beispiele von sowohl Einzelauswahl- als auch Mehrfachauswahl-Listboxen mit begleitenden Symbolleisten, bei denen Optionen hinzugefügt, verschoben und entfernt werden können.
-
-## Gute Praktiken
-
-- Um tastaturzugänglich zu sein, sollten Autoren den [Fokus verwalten](https://w3c.github.io/aria/#managingfocus) aller Nachkommen dieser Rolle.
-- Es wird empfohlen, dass Autoren eine unterschiedliche Hervorhebung für die Auswahl verwenden, wenn die Liste nicht fokussiert ist, z.B. wird eine nicht aktive Auswahl häufig mit einer helleren Hintergrundfarbe angezeigt.
-- Wenn die Listbox nicht Teil eines anderen Widgets ist, sollte sie die [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Eigenschaft haben.
-- Wenn ein oder mehrere Einträge keine DOM-Kinder der Listbox sind, müssen zusätzliche `aria-*`-Eigenschaften gesetzt werden (siehe [ARIA Best Practices](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)).
-- Wenn es einen gültigen Grund gibt, die Listbox zu [erweitern](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded), ist die [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role)-Rolle möglicherweise geeigneter.
+- [Beispiel einer scrollbareren Listbox](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/): Eine Listbox mit Einfachauswahl, in der durch Scrollen weitere Optionen sichtbar werden, ähnlich dem HTML-Element {{HTMLElement('select')}} mit einem `size`-Attribut größer als eins.
+- [Beispiel einer Listbox mit gruppierten Optionen](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/): Eine Listbox mit Einfachauswahl und gruppierten Optionen, ähnlich dem HTML-Element {{HTMLElement('select')}}, dessen Attribut `size` auf einen Wert größer als `"1"` gesetzt ist und dessen Optionen mit `optgroup`-Elementen gruppiert sind.
+- [Beispiele für Listboxen mit neu anordenbaren Optionen](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/): Beispiele für Listboxen mit Einfach- und Mehrfachauswahl und zugehörigen Symbolleisten, über die Optionen hinzugefügt, verschoben und entfernt werden können.
 
 ## Spezifikationen
 
@@ -184,11 +184,11 @@ Dies hätte leichter mit den nativen HTML-{{HTMLElement('select')}}- und {{HTMLE
 
 ## Siehe auch
 
-- HTML {{HTMLElement('select')}}-Element
-- HTML {{HTMLElement('label')}}-Element
-- HTML {{HTMLElement('option')}}-Element
-- [ARIA: `combobox`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role)
-- [ARIA: `option`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
-- [ARIA: `list`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role)
-- [ARIA: `listitem`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listitem_role)
+- HTML-Element {{HTMLElement('select')}}
+- HTML-Element {{HTMLElement('label')}}
+- HTML-Element {{HTMLElement('option')}}
+- [ARIA: Rolle `combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role)
+- [ARIA: Rolle `option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
+- [ARIA: Rolle `list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role)
+- [ARIA: Rolle `listitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listitem_role)
 - [ARIA Best Practices – Listbox](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)

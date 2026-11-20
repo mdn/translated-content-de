@@ -1,16 +1,16 @@
 ---
-title: "ARIA: figure Rolle"
+title: "ARIA: figure-Rolle"
 short-title: figure
 slug: Web/Accessibility/ARIA/Reference/Roles/figure_role
 l10n:
-  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die ARIA `figure` Rolle kann verwendet werden, um eine Abbildung innerhalb des Seiteninhalts zu identifizieren, wo entsprechende Semantiken nicht bereits existieren. Eine Abbildung wird im Allgemeinen als ein oder mehrere Bilder, Code-Snippets oder anderer Inhalt angesehen, die Informationen anders vermitteln als ein regulärer Fließtext.
+Die ARIA-Rolle `figure` kann verwendet werden, um eine Abbildung innerhalb des Seiteninhalts zu kennzeichnen, wenn keine geeignete Semantik vorhanden ist. Eine Abbildung besteht im Allgemeinen aus einem oder mehreren Bildern, Codeausschnitten oder anderen Inhalten, die Informationen anders vermitteln als fortlaufender Text.
 
 ## Beschreibung
 
-Eine `figure` ist ein wahrnehmbarer Abschnitt von Inhalten, der typischerweise ein grafisches Dokument, Bilder, Code-Snippets oder Beispieltext enthält. Die Teile einer Abbildung können benutzer-navigierbar sein. Jeder Inhalt, der zusammengefasst und als Abbildung konsumiert werden soll (der Bilder, Videos, Audio, Code-Snippets oder andere Inhalte enthalten könnte), kann als Abbildung mit `role="figure"` identifiziert werden.
+Eine `figure` ist ein wahrnehmbarer Inhaltsabschnitt, der typischerweise ein grafisches Dokument, Bilder, Codeausschnitte oder Beispieltext enthält. Die einzelnen Teile einer Abbildung KÖNNEN für Benutzer navigierbar sein. Jeder Inhalt, der zusammengefasst und als Abbildung wahrgenommen werden soll – beispielsweise Bilder, Videos, Audio, Codeausschnitte oder andere Inhalte –, kann mit `role="figure"` als Abbildung gekennzeichnet werden.
 
 ```html
 <div role="figure" aria-labelledby="caption">
@@ -19,9 +19,10 @@ Eine `figure` ist ein wahrnehmbarer Abschnitt von Inhalten, der typischerweise e
 </div>
 ```
 
-Im obigen Beispiel haben wir eine Abbildung, die aus zwei separaten Inhalten besteht — einem Bild und einer Bildunterschrift. Diese wird durch ein {{htmlelement("div")}} Element umschlossen, das den Inhalt als Abbildung mit `role="figure"` identifiziert.
+Im obigen Beispiel besteht die Abbildung aus zwei separaten Inhaltselementen: einem Bild und einer Bildunterschrift. Beide sind von einem {{htmlelement("div")}}-Element umschlossen, das den Inhalt mit `role="figure"` als Abbildung kennzeichnet.
 
-Für HTML verwenden Sie die {{HTMLElement('figure')}} und {{HTMLElement('figcaption')}} Elemente. Die figcaption dient als zugänglicher Name für die Abbildung. Wenn Sie kein HTML verwenden oder wenn Sie Legacy-HTML nachträglich anpassen, verwenden Sie das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) auf der Abbildung, das auf die Bildunterschrift der Abbildung verweist. Wenn keine sichtbare Bildunterschrift vorhanden ist, kann [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet werden.
+Verwenden Sie in HTML die Elemente {{HTMLElement('figure')}} und {{HTMLElement('figcaption')}}. Das figcaption dient als zugänglicher Name für die Abbildung. Wenn Sie kein HTML verwenden oder bestehenden HTML-Code nachträglich anpassen, verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) für die Abbildung und verweisen damit auf ihre Bildunterschrift.
+Wenn keine sichtbare Bildunterschrift vorhanden ist, können Sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwenden.
 
 ```html
 <div role="figure" aria-labelledby="figure-1">
@@ -30,11 +31,11 @@ Für HTML verwenden Sie die {{HTMLElement('figure')}} und {{HTMLElement('figcapt
 </div>
 ```
 
-- Verwenden Sie `aria-labelledby`, wenn der Text eine prägnante Beschriftung ist.
+- Verwenden Sie `aria-labelledby`, wenn der Text eine knappe Beschriftung ist.
 - Verwenden Sie [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby), wenn der Text eine längere Beschreibung ist.
-- Verwenden Sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn es keine sichtbare Bildunterschrift gibt.
+- Verwenden Sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn keine sichtbare Bildunterschrift vorhanden ist.
 
-Dies kann semantisch ohne ARIA mit dem {{HTMLElement('figure')}} Element von HTML zusammen mit {{HTMLElement('figcaption')}} gemacht werden.
+Dies lässt sich ohne ARIA semantisch mit dem HTML-Element {{HTMLElement('figure')}} und dem Element {{HTMLElement('figcaption')}} umsetzen.
 
 ```html
 <figure>
@@ -44,48 +45,30 @@ Dies kann semantisch ohne ARIA mit dem {{HTMLElement('figure')}} Element von HTM
 ```
 
 > [!NOTE]
-> Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente verwenden, um eine Abbildung und ihre Bildunterschrift zu markieren — {{htmlelement("figure")}} und {{htmlelement("figcaption")}}.
+> Verwenden Sie nach Möglichkeit die passenden semantischen HTML-Elemente, um eine Abbildung und ihre Bildunterschrift auszuzeichnen: {{htmlelement("figure")}} und {{htmlelement("figcaption")}}.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)
-  - : Die ID eines Elements, das Referenztext enthält, der als Bildunterschrift dient.
+  - : Die id eines Elements mit Referenztext, der als Bildunterschrift dient.
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Die ID eines Elements, das Text enthält, der als Beschriftung dient.
+  - : Die id eines Elements mit Text, der als Beschriftung dient.
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Wenn es kein Element gibt, das Text enthält, der als Beschriftung dienen könnte, können Sie die Beschriftung direkt als Wert im `aria-label` auf dem Element mit der `figure` Rolle oder auf dem `<figure>` Element hinzufügen.
+  - : Wenn kein Element mit Text vorhanden ist, der als Beschriftung dienen könnte, können Sie die Beschriftung direkt als Wert von `aria-label` auf dem Element mit der Rolle `figure` oder auf dem `<figure>`-Element angeben.
 
 ### Tastaturinteraktionen
 
-Keine rollenspezifischen Tastaturinteraktionen.
+Es gibt keine rollenspezifischen Tastaturinteraktionen.
 
 ### Erforderliche JavaScript-Funktionen
 
-Keine rollenspezifischen JavaScript-Anforderungen. Wenn Sie keine Kontrolle über die HTML-Semantik haben, können Sie die Zugänglichkeit von HTML verbessern, indem Sie diese Rollen und Eigenschaften mit JavaScript hinzufügen.
+Es gibt keine rollenspezifischen JavaScript-Anforderungen. Wenn Sie die HTML-Semantik nicht beeinflussen können, können Sie die Barrierefreiheit des HTML-Codes verbessern, indem Sie diese Rollen und Eigenschaften mit JavaScript hinzufügen.
 
-## Beispiele
+## Bewährte Verfahren
 
-Wir könnten das anfängliche Beispiel auf der Seite erweitern, um auch einen Absatz zu identifizieren, der eine beschreibende Beschriftung für die Abbildung bereitstellt, indem wir ihre ID in `aria-labelledby` referenzieren:
+Verwenden Sie `role="figure"` nur, wenn es erforderlich ist – beispielsweise wenn Sie den HTML-Code nicht ändern können, aber die Barrierefreiheit nachträglich dynamisch mit JavaScript verbessern können.
 
-```html
-<div role="figure" aria-labelledby="figure-1">
-  <img
-    src="diagram.png"
-    alt="diagram showing the four layers of awesome and their relative priority order —
-        music, cats, nature, and ice cream" />
-  <pre>
-`
-        let awesome = ['music', 'cats', 'nature', 'ice cream'];
-      `</pre>
-  <p id="figure-1">Figure 1: The four layers of awesome.</p>
-</div>
-```
-
-## Best Practices
-
-Verwenden Sie `role="figure"` nur, wenn Sie müssen — zum Beispiel, wenn Sie keine Kontrolle über Ihr HTML haben, aber in der Lage sind, die Zugänglichkeit dynamisch im Nachhinein mit JavaScript zu verbessern.
-
-Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente verwenden, um eine Abbildung und ihre Bildunterschrift zu markieren — {{htmlelement("figure")}} und {{htmlelement("figcaption")}}. Zum Beispiel sollte unser obiges Beispiel wie folgt umgeschrieben werden:
+Verwenden Sie nach Möglichkeit die passenden semantischen HTML-Elemente, um eine Abbildung und ihre Bildunterschrift auszuzeichnen: {{htmlelement("figure")}} und {{htmlelement("figcaption")}}. Unser obiges Beispiel sollte beispielsweise wie folgt umgeschrieben werden:
 
 ```html
 <figure>
@@ -101,6 +84,24 @@ Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente verwend
 </figure>
 ```
 
+## Beispiele
+
+Wir könnten das erste Beispiel auf dieser Seite erweitern und zusätzlich einen Absatz als beschreibende Beschriftung für die Abbildung kennzeichnen, indem wir in `aria-labelledby` auf dessen ID verweisen:
+
+```html
+<div role="figure" aria-labelledby="figure-1">
+  <img
+    src="diagram.png"
+    alt="diagram showing the four layers of awesome and their relative priority order —
+        music, cats, nature, and ice cream" />
+  <pre>
+`
+        let awesome = ['music', 'cats', 'nature', 'ice cream'];
+      `</pre>
+  <p id="figure-1">Figure 1: The four layers of awesome.</p>
+</div>
+```
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -109,5 +110,5 @@ Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente verwend
 
 - [Accessibility Object Model](https://wicg.github.io/aom/spec/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)
-- [HTML `<figure>` Element](/de/docs/Web/HTML/Reference/Elements/figure)
-- [HTML `<figcaption>` Element](/de/docs/Web/HTML/Reference/Elements/figcaption)
+- [HTML-Element `<figure>`](/de/docs/Web/HTML/Reference/Elements/figure)
+- [HTML-Element `<figcaption>`](/de/docs/Web/HTML/Reference/Elements/figcaption)

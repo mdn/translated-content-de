@@ -3,7 +3,7 @@ title: "ARIA: graphics-symbol-Rolle"
 short-title: graphics-symbol
 slug: Web/Accessibility/ARIA/Reference/Roles/graphics-symbol_role
 l10n:
-  sourceCommit: 370f1912b54d24bd7da541f8f2dd98c26d377121
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
 Die Rolle `graphics-symbol` kennzeichnet ein grafisches Objekt, das eine einfache Bedeutung oder Kategorie vermittelt und bei dem die Bedeutung wichtiger ist als die konkrete visuelle Darstellung.
@@ -14,24 +14,30 @@ Die Rolle `graphics-symbol` kennzeichnet ein grafisches Objekt, das eine einfach
 
 ## Beschreibung
 
-Die Rolle `graphics-symbol` kennzeichnet ein Element als bedeutungstragendes, eigenständiges Symbol, das als Einheit fungiert. Es kann Teil einer größeren grafischen Struktur sein, etwa einer Karte, eines Diagramms oder einer schematischen Darstellung.
+Die Rolle `graphics-symbol` kennzeichnet ein Element als bedeutungstragendes, eigenständiges Symbol, das als eine Einheit fungiert. Es kann Teil einer größeren grafischen Struktur sein, etwa einer Karte, eines Diagramms oder einer schematischen Darstellung.
 
-Die Rolle `graphics-symbol` ist eine Unterklasse von [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) für Symbole mit einer einfachen Bedeutung. Ein `img` kann dagegen eine ausführliche Beschreibung erfordern.
+Die Rolle `graphics-symbol` ist eine Unterklasse von [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) für Symbole mit einfacher Bedeutung. Ein `img` kann dagegen eine ausführliche Beschreibung erfordern.
 
-### Alle Kindelemente sind rein präsentational
+### Alle untergeordneten Elemente sind rein präsentational
 
-Die Kindelemente eines `graphics-symbol` werden assistiven Technologien nicht einzeln zugänglich gemacht. Nehmen Sie bedeutungstragenden Text aus den Kindelementen in den zugänglichen Namen des Symbols auf.
+Die untergeordneten Elemente eines `graphics-symbol` werden assistiven Technologien nicht einzeln zugänglich gemacht. Nehmen Sie jeden bedeutungstragenden Text aus den untergeordneten Elementen in den zugänglichen Namen des Symbols auf.
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
   - : Ein `graphics-symbol` muss einen zugänglichen Namen haben. Verwenden Sie `aria-labelledby`, um auf eine Beschriftung zu verweisen, oder `aria-label`, um den Namen direkt anzugeben.
 - [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)
-  - : Wenn dieses Attribut als Teil einer strukturierten Symbolsprache verwendet wird, kann es den Symboltyp unabhängig vom Namen und der Beschreibung eines einzelnen Symbols benennen.
+  - : Wenn das Symbol Teil einer strukturierten Symbolsprache ist, kann dieses Attribut den Symboltyp unabhängig vom Namen und der Beschreibung eines einzelnen Symbols benennen.
+
+## Bewährte Vorgehensweisen
+
+Verwenden Sie diese Rolle nicht für dekorative Grafiken. Verwenden Sie stattdessen `aria-hidden="true"`.
+
+Vermeiden Sie diese Rolle bei komplexen Grafiken mit interner Struktur. Verwenden Sie stattdessen [`graphics-object`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-object_role).
 
 ## Beispiele
 
-Jedes Parkplatzsymbol fasst ein Rechteck und Text in einem {{SVGElement("g")}}-Element zusammen. Durch die Rolle `graphics-symbol` wird diese Kombination für assistive Technologien zu einem einzigen Objekt, dessen Bedeutung durch `aria-label` angegeben wird. Das äußere {{SVGElement("svg")}} stellt die Semantik des grafischen Dokuments bereit.
+Jedes Parkplatzsymbol fasst ein Rechteck und Text in einem {{SVGElement("g")}}-Element zusammen. Durch die Rolle `graphics-symbol` wird diese Kombination für assistive Technologien zu einem einzelnen Objekt, dessen Bedeutung durch `aria-label` angegeben wird. Das äußere {{SVGElement("svg")}} stellt die Semantik eines grafischen Dokuments bereit.
 
 ```html
 <svg aria-label="Parking lot" viewBox="0 0 700 220">
@@ -114,12 +120,6 @@ Jedes Parkplatzsymbol fasst ein Rechteck und Text in einem {{SVGElement("g")}}-E
 ```
 
 {{EmbedLiveSample('Examples', 600, 250)}}
-
-## Bewährte Verfahren
-
-Verwenden Sie diese Rolle nicht für dekorative Grafiken. Verwenden Sie stattdessen `aria-hidden="true"`.
-
-Vermeiden Sie diese Rolle bei komplexen Grafiken mit einer internen Struktur. Verwenden Sie stattdessen [`graphics-object`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-object_role).
 
 ## Spezifikationen
 

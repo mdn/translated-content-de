@@ -3,93 +3,83 @@ title: "ARIA: tablist-Rolle"
 short-title: tablist
 slug: Web/Accessibility/ARIA/Reference/Roles/tablist_role
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `tablist`-Rolle identifiziert das Element, das als Container für eine Gruppe von `tabs` dient. Die Inhalte der Tabs werden als `tabpanel`-Elemente bezeichnet.
+Die `tablist`-Rolle kennzeichnet das Element, das als Container für eine Gruppe von `tab`-Elementen dient. Die zugehörigen Inhaltsbereiche werden als `tabpanel`-Elemente bezeichnet.
 
 ## Beschreibung
 
-Möglicherweise interagieren Sie gerade mit einer Registerkartenoberfläche, während Sie dies lesen! Browser-Tabs ermöglichen es dem Benutzer, mehrere Webseiten in einem einzigen Fenster zu öffnen. Durch Klicken auf eine Registerkarte in der Tab-Liste am oberen Rand des Browserfensters kann der Benutzer den zugehörigen Inhalt im Hauptbereich, dem Tabpanel, anzeigen, jeweils eine Seite. Dies wird als "Tab-Designmuster" bezeichnet.
+Möglicherweise verwenden Sie gerade eine Oberfläche mit Tabs, während Sie dies lesen! Browser-Tabs ermöglichen es, mehrere Webseiten in einem einzigen Fenster zu öffnen. Wenn Sie auf einen Tab in der Tab-Liste am oberen Rand des Browserfensters klicken, wird der zugehörige Inhalt im Hauptinhaltsbereich, dem Tab-Panel, angezeigt – jeweils eine Website zur Zeit. Dies wird als „Tab-Entwurfsmuster“ bezeichnet.
 
-Bei der Implementierung eines Tab-Designmusters werden die Rollen [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role), `tablist` und [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role) verwendet.
+Bei der Implementierung eines Tab-Entwurfsmusters werden die Rollen [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role), `tablist` und [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role) verwendet.
 
-Tabs sind eine Reihe von geschichteten Inhaltsabschnitten, bekannt als Tab-Panels, die jeweils ein Panel von Inhalten anzeigen. Jedes Tab-Panel hat ein zugehöriges `tab`-Element, das, wenn es aktiviert wird, das Panel anzeigt. Die Liste der Tab-Elemente ist entlang einer Kante des aktuell angezeigten Panels angeordnet, meist entlang der oberen Kante, verschachtelt in einem `tablist`-Element.
+Tabs bilden eine Gruppe übereinanderliegender Inhaltsbereiche, sogenannter Tab-Panels, von denen jeweils einer angezeigt wird. Jedem Tab-Panel ist ein `tab`-Element zugeordnet, das bei Aktivierung das Panel anzeigt. Die Liste der `tab`-Elemente ist entlang einer Kante des aktuell angezeigten Panels angeordnet, meist entlang der oberen Kante, und in einem `tablist`-Element verschachtelt.
 
-Jedes `tab` in einer `tablist` dient als Beschriftung für ein `tabpanel` und kann aktiviert werden, um dieses Panel anzuzeigen. Die `tablist` ist das enthaltene Element für die Gruppe von enthaltenen Tab-Elementen.
+Jeder `tab` in einer `tablist` dient als Beschriftung für ein `tabpanel` und kann aktiviert werden, um dieses Panel anzuzeigen. Die `tablist` ist das umschließende Element für die enthaltenen `tab`-Elemente.
 
-Wenn eine Registerkartenoberfläche initialisiert wird, wird ein Tab-Panel angezeigt und dessen zugehöriges Tab wird so gestaltet, dass es als aktiv angezeigt wird. Wenn der Benutzer eines der anderen Tab-Elemente aktiviert, wird das zuvor angezeigte Tab-Panel ausgeblendet, das Tab-Panel, das dem aktivierten Tab zugeordnet ist, wird sichtbar und das Tab gilt als "aktiv".
+Bei der Initialisierung einer Oberfläche mit Tabs wird ein Tab-Panel angezeigt. Der zugehörige Tab wird so gestaltet, dass er als aktiv erkennbar ist. Wenn Benutzer einen anderen Tab aktivieren, wird das zuvor angezeigte Tab-Panel ausgeblendet, das dem aktivierten Tab zugeordnete Tab-Panel wird sichtbar und der Tab gilt als „aktiv“.
 
-Für eine einfach auswählbare `tablist` sollten die nicht aktiven `tabpanel`-Elemente vor dem Benutzer verborgen bleiben, bis der Benutzer das Tab auswählt, das diesem `tabpanel` zugeordnet ist.
+Bei einer `tablist`, in der nur ein Tab ausgewählt werden kann, sollten nicht aktive `tabpanel`-Elemente ausgeblendet bleiben, bis Benutzer den jeweils zugehörigen Tab auswählen.
 
-Bei der Erstellung einer mehrfach auswählbaren `tablist`, fügen Sie [`aria-multiselectable="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable) im `tablist`-Element hinzu.
+Wenn Sie eine `tablist` erstellen, in der mehrere Tabs ausgewählt werden können, fügen Sie dem `tablist`-Element [`aria-multiselectable="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable) hinzu.
 
-Die `tab`-Elemente, nicht die `tablist`, haben das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Attribut. Setzen Sie `aria-selected="true"` für die Tabs, die mit jedem sichtbaren `tabpanel` verknüpft sind. Die Tabs, die mit versteckten `tabpanel`-Elementen verbunden sind, haben ihre `aria-selected` Attribute auf `false` gesetzt.
+Die `tab`-Elemente, nicht die `tablist`, haben das Attribut [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected). Setzen Sie es für Tabs, deren zugehöriges `tabpanel` sichtbar ist, auf `aria-selected="true"`. Für Tabs, deren zugehöriges `tabpanel` ausgeblendet ist, setzen Sie `aria-selected` auf `false`.
 
-Wenn die Tab-Liste ein sichtbares Label hat, setzen Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) auf die `id` des beschriftenden Elements. Wenn nicht, verwenden Sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), um ein Label bereitzustellen.
+Wenn die Tab-Liste eine sichtbare Beschriftung hat, setzen Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) auf die `id` des beschriftenden Elements. Verwenden Sie andernfalls [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), um eine Beschriftung bereitzustellen.
 
-Um tastaturzugänglich zu sein, muss der Fokus für die Nachfahren dieser Rolle verwaltet werden.
+Damit die Tab-Liste über die Tastatur zugänglich ist, muss die Fokussteuerung für die untergeordneten Elemente dieser Rolle implementiert werden.
 
-Elemente mit der `tablist`-Rolle haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)-Wert von `horizontal`.
+Elemente mit der Rolle `tablist` haben implizit den Wert `horizontal` für [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation).
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
-- [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Rolle
-  - : Erforderliche zugehörige Elemente. Jede `tablist` muss ein oder mehrere `tab`-Kinder haben.
+- Rolle [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
+  - : Erforderliche untergeordnete Elemente. Jede `tablist` muss mindestens ein `tab`-Element als Kind haben.
 - [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)
-  - : Wenn auf `true` gesetzt, zeigt an, dass der Benutzer mehr als ein `tab` aus den `tablist`-Nachkommen auswählen kann.
+  - : Wenn der Wert `true` ist, können Benutzer mehr als einen `tab` aus den untergeordneten Elementen der `tablist` auswählen.
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)
-  - : Wenn das Tab-Eintragselement vertikal ausgerichtet ist, setzen Sie `aria-orientation="vertical"`. Der Standard ist `horizontal`.
+  - : Wenn das `tablist`-Element vertikal ausgerichtet ist, setzen Sie `aria-orientation="vertical"`. Der Standardwert ist `horizontal`.
 
 ### Tastaturinteraktionen
 
 Für die Tab-Liste:
 
 - <kbd>Tab</kbd>
-  - : Wenn sich der Fokus in die Tab-Liste bewegt, wird der Fokus auf das aktive `tab`-Element gesetzt. <br/><br/>Wenn die Tab-Liste den Fokus enthält, wird der Fokus auf das nächste Element in der Seitentab-Sequenz außerhalb der `tablist` bewegt, das ist das `tabpanel`, es sei denn, das erste Element mit bedeutendem Inhalt im `tabpanel` ist fokussierbar.
+  - : Wenn der Fokus in die Tab-Liste wechselt, wird das aktive `tab`-Element fokussiert. <br/><br/>Wenn sich der Fokus innerhalb der Tab-Liste befindet, wechselt er zum nächsten Element außerhalb der `tablist` in der Tab-Reihenfolge der Seite. Dies ist das Tab-Panel, es sei denn, das erste Element mit aussagekräftigem Inhalt innerhalb des Tab-Panels ist fokussierbar.
 
-Wenn der Fokus auf einem `tab`-Element in einer horizontalen Tab-Liste liegt:
+Wenn ein Tab-Element in einer horizontalen Tab-Liste fokussiert ist:
 
-- <kbd>Pfeil links</kbd>
-  - : verschiebt den Fokus auf den vorherigen Tab. Wenn der Fokus auf der ersten Tab-Position liegt, verschiebt sich der Fokus auf die letzte Tab-Position. Optional aktiviert es die neu fokussierte Registerkarte.
-- <kbd>Pfeil rechts</kbd>
-  - : verschiebt den Fokus auf den nächsten Tab. Wenn der Fokus auf die letzte Tab-Position liegt, bewegt sich der Fokus auf die erste Tab-Position. Optional aktiviert es die neu fokussierte Registerkarte.
+- <kbd>Pfeil nach links</kbd>
+  - : Verschiebt den Fokus zum vorherigen Tab. Ist der erste Tab fokussiert, wird der Fokus zum letzten Tab verschoben. Optional wird der neu fokussierte Tab aktiviert.
+- <kbd>Pfeil nach rechts</kbd>
+  - : Verschiebt den Fokus zum nächsten Tab. Ist der letzte Tab fokussiert, wird der Fokus zum ersten Tab verschoben. Optional wird der neu fokussierte Tab aktiviert.
 
-Wenn der Fokus auf einem `tab`-Element in einer vertikalen Tab-Liste liegt:
+Wenn ein Tab-Element in einer vertikalen Tab-Liste fokussiert ist:
 
 - <kbd>Pfeil nach oben</kbd>
-  - : verschiebt den Fokus auf den vorherigen Tab. Wenn der Fokus auf der ersten Tab-Position liegt, verschiebt sich der Fokus auf die letzte Tab-Position. Optional aktiviert es die neu fokussierte Registerkarte.
+  - : Verschiebt den Fokus zum vorherigen Tab. Ist der erste Tab fokussiert, wird der Fokus zum letzten Tab verschoben. Optional wird der neu fokussierte Tab aktiviert.
 - <kbd>Pfeil nach unten</kbd>
-  - : verschiebt den Fokus auf den nächsten Tab. Wenn der Fokus auf die letzte Tab-Position liegt, bewegt sich der Fokus auf die erste Tab-Position. Optional aktiviert es die neu fokussierte Registerkarte.
+  - : Verschiebt den Fokus zum nächsten Tab. Ist der letzte Tab fokussiert, wird der Fokus zum ersten Tab verschoben. Optional wird der neu fokussierte Tab aktiviert.
 
-Wenn die Tab-Liste horizontal ist, hört sie nicht auf <kbd>Pfeil nach unten</kbd> oder <kbd>Pfeil nach oben</kbd>, sodass diese Tasten ihre normalen Browserscroll-Funktionen ausführen können, selbst wenn der Fokus in der Tab-Liste liegt.
+Bei einer horizontalen Tab-Liste werden <kbd>Pfeil nach unten</kbd> und <kbd>Pfeil nach oben</kbd> nicht verarbeitet. So können diese Tasten weiterhin ihre üblichen Bildlauffunktionen im Browser ausführen, auch wenn sich der Fokus innerhalb der Tab-Liste befindet.
 
-Wenn der Fokus auf einem Tab in einer Tab-Liste mit entweder horizontaler oder vertikaler Orientierung liegt:
+Wenn ein Tab in einer horizontal oder vertikal ausgerichteten `tablist` fokussiert ist:
 
 - <kbd>Leertaste</kbd> oder <kbd>Eingabetaste</kbd>
-  - : aktiviert die Registerkarte, wenn sie nicht automatisch beim Fokus aktiviert wurde.
-- <kbd>Home</kbd> (Optional)
-  - : verschiebt den Fokus auf die erste Registerkarte. Optional aktiviert es die neu fokussierte Registerkarte.
-- <kbd>Ende</kbd> (Optional)
-  - : verschiebt den Fokus auf die letzte Registerkarte. Optional aktiviert es die neu fokussierte Registerkarte.
-- <kbd>Shift + F10</kbd>
-  - : Wenn der Tab ein zugeordnetes Popup-Menü hat, öffnet er das Menü.
-- <kbd>Löschen</kbd> (Optional)
-  - : Wenn das Löschen erlaubt ist, löscht (schließt) das aktuelle Tab-Element und sein zugehöriges Tab-Panel, setzt den Fokus auf den Tab, der dem geschlossenen Tab folgte und aktiviert optional den neu fokussierten Tab. Wenn es keinen Tab gibt, der dem gelöschten Tab folgte, z.B. wenn der gelöschte Tab der am weitesten rechts liegende Tab in einer von links nach rechts horizontalen Tab-Liste war, setzt er den Fokus auf und optional aktiviert den Tab, der dem gelöschten Tab vorausging. Wenn die Anwendung erlaubt, dass alle Tabs gelöscht werden, und der Benutzer den zuletzt verbliebenen Tab in der Tab-Liste löscht, bewegt die Anwendung den Fokus auf ein anderes Element, das einen logischen Arbeitsablauf bietet. Als Alternative zu Löschen oder zusätzlich zur Unterstützung von Löschen ist die Löschfunktion in einem Kontextmenü verfügbar.
-
-<!--
-### Erforderliche JavaScript-Funktionen
-
-## Zugänglichkeitsbedenken
-
-## Beste Praktiken
-
-### Bevorzugen Sie HTML
--->
+  - : Aktiviert den Tab, sofern er nicht bereits beim Fokussieren automatisch aktiviert wurde.
+- <kbd>Pos1</kbd> (optional)
+  - : Verschiebt den Fokus zum ersten Tab. Optional wird der neu fokussierte Tab aktiviert.
+- <kbd>Ende</kbd> (optional)
+  - : Verschiebt den Fokus zum letzten Tab. Optional wird der neu fokussierte Tab aktiviert.
+- <kbd>Umschalt + F10</kbd>
+  - : Öffnet das Menü, wenn dem Tab ein Popup-Menü zugeordnet ist.
+- <kbd>Entf</kbd> (optional)
+  - : Wenn das Löschen erlaubt ist, werden das aktuelle Tab-Element und das zugehörige Tab-Panel gelöscht (geschlossen). Der Fokus wird auf den Tab gesetzt, der auf den geschlossenen Tab folgt; optional wird dieser aktiviert. Wenn auf den gelöschten Tab kein weiterer Tab folgte, etwa weil er in einer horizontalen Tab-Liste mit Schreibrichtung von links nach rechts ganz rechts stand, wird der vorherige Tab fokussiert und optional aktiviert. Wenn die Anwendung das Löschen aller Tabs erlaubt und Benutzer den letzten verbleibenden Tab in der Tab-Liste löschen, verschiebt die Anwendung den Fokus zu einem anderen Element, das einen logischen Arbeitsablauf ermöglicht. Alternativ zur Taste <kbd>Entf</kbd> oder zusätzlich dazu kann die Löschfunktion über ein Kontextmenü verfügbar sein.
 
 ## Beispiele
 
-Sehen Sie sich das Beispiel für [`tabpanel`, `tab`, und `tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role#example) in der Definition der [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Rolle an.
+Ein Beispiel für [`tabpanel`, `tab` und `tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role#example) finden Sie in der Definition der Rolle [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role).
 
 ## Spezifikationen
 
@@ -97,5 +87,5 @@ Sehen Sie sich das Beispiel für [`tabpanel`, `tab`, und `tablist`](/de/docs/Web
 
 ## Siehe auch
 
-- [`tab`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
-- [`tabpanel`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role)
+- [Rolle `tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
+- [Rolle `tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role)

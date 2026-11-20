@@ -1,13 +1,13 @@
 ---
-title: ARIA-Seitenschablone
+title: ARIA-Seitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/ARIA_Page_Template
 l10n:
-  sourceCommit: da12dd76d4c9863ce4f9c436f5e2373fe541e1c7
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-## Seiten-Metadaten
+## Metadaten am Seitenanfang
 
-Seiten-Metadaten werden in Front-Matter beschrieben, wie im folgenden Beispiel:
+Die Metadaten einer Seite werden im Front Matter beschrieben, wie im folgenden Beispiel:
 
 ```md
 ---
@@ -21,125 +21,129 @@ sidebar: accessibilitysidebar
 
 ### Titel und Slug
 
-Eine ARIA-Rollen-Seite sollte einen `Titel` und `Slug` von `ARIA: Name Der Rolle` haben. Zum Beispiel hat die [Rolle der Schaltfläche](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) einen `Titel` und `Slug` von `ARIA/NameDerRolle_role` und das Attribut [aria-labelledby](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) hat einen `Titel` von `aria-labelledby`.
+Eine Seite zu einer ARIA-Rolle sollte einen `title` und einen `slug` im Format `ARIA: Name Of The Role` haben. Beispielsweise haben `title` und `slug` der [button-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) das Format `ARIA/NameOfTheRole_role`, und das Attribut [aria-labelledby](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) hat den `title` `aria-labelledby`.
 
 ### Seitenleiste
 
-Die `accessibilitysidebar` kann auf allen Seiten unter `/Web/Accessibility` verwendet werden:
+`accessibilitysidebar` kann auf allen Seiten unter `/Web/Accessibility` verwendet werden:
 
 ```yaml
 sidebar: accessibilitysidebar
 ```
 
-Details finden Sie unter [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars).
+Weitere Informationen finden Sie unter [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars).
 
-### Obere Makros
+### Makros am Anfang der Seite
 
-Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsabschnitts. Sie sollten diese gemäß der unten stehenden Hinweise aktualisieren oder löschen.
+Am Anfang des Inhaltsbereichs stehen mehrere Makroaufrufe. Aktualisieren oder entfernen Sie diese gemäß den folgenden Hinweisen.
 
 ### Status
 
-Fügen Sie keine Statusschlüssel manuell hinzu oder bearbeiten Sie diese.
-Um den (entsprechenden) Funktionsstatusschlüssel einzuschließen — [**experimentell**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental), [**veraltet**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated), oder **nicht-standardisiert** — siehe den Abschnitt ["Wie Funktionsstatus hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+Fügen Sie Statusschlüssel nicht manuell hinzu und bearbeiten Sie sie nicht manuell.
+Informationen zum Hinzufügen des passenden Statusschlüssels für ein Feature – [**experimentell**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental), [**veraltet**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) oder **nicht standardisiert** – finden Sie im Abschnitt [„So werden Feature-Status hinzugefügt oder aktualisiert“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 
 ### Spezifikationen
 
-Im Wert des `spec-urls` Front-Matter Metadatenschlüssels, aktualisieren Sie die URLs, um auf die Fragment-IDs für die korrekten Abschnitte aus den folgenden Spezifikationen zu verweisen:
+Aktualisieren Sie die URLs im Metadatenschlüssel `spec-urls` des Front Matters so, dass sie auf die Fragment-IDs der passenden Abschnitte in den folgenden Spezifikationen verweisen:
 
 - [ARIA](https://w3c.github.io/aria/)
 - [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 
-Zusätzliche Ressourcen:
+Weitere Ressourcen:
 
 - [Accessibility Object Model](https://wicg.github.io/aom/spec/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)
 
-## Seitenschablone
+## Seitenvorlage
 
-Der Zusammenfassungsabsatz—beginnen Sie mit der Benennung der Rolle oder des Attributs und beschreiben Sie, was es tut. Dies sollte idealerweise ein oder zwei kurze Sätze umfassen. Dieser Inhalt erscheint als Tooltip auf Links zu dieser Seite, daher sollte er gut formuliert sein.
+Beginnen Sie den zusammenfassenden Absatz, indem Sie die Rolle oder das Attribut nennen und seine Funktion beschreiben. Idealerweise umfasst er ein oder zwei kurze Sätze. Dieser Text erscheint als Tooltip für Links zu dieser Seite; formulieren Sie ihn daher sorgfältig.
 
 ```html
 <!-- Insert code block showing common use cases -->
 ```
 
-(Optional) Fügen Sie eine kurze Beschreibung des vorherigen Beispiels hinzu.
+(Optional) Fügen Sie eine kurze Beschreibung des vorstehenden Beispiels hinzu.
 
 ## Beschreibung
 
-Fügen Sie eine vollständige Beschreibung des Attributs oder der Rolle ein.
+Beschreiben Sie das Attribut oder die Rolle vollständig.
 
-### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
 - Name der zugehörigen Rollen
-  - : Erklärung der Anforderung, Link zu Funktionsseiten.
-- Name des/der zugehörigen Attribute(s)
-  - : Erklärung der Anforderung, Link zu den Attributseiten, zusammen mit einem Link zu dem erforderlichen JS, um den Wert zu ändern, falls zutreffend.
+  - : Erläuterung der Anforderung, Links zu den Seiten der Features.
+- Name der zugehörigen Attribute
+  - : Erläuterung der Anforderung, Links zu den Seiten der Attribute sowie gegebenenfalls ein Link zu dem JavaScript, das zum Ändern des Werts erforderlich ist.
 
 ### Tastaturinteraktionen
 
-### Erforderliche JavaScript-Features
+### Erforderliche JavaScript-Funktionen
 
-- Erforderliche Ereignishandler
-  - : Erklärung jedes einzelnen
+- Erforderliche Event-Handler
+  - : Erläuterung der einzelnen Handler
 - Ändern von Attributwerten
-  - : Erklärung jedes einzelnen
+  - : Erläuterung der einzelnen Änderungen
 
 > [!NOTE]
-> Fügen Sie eine Hinweis zu semantischen Alternativen zur Verwendung dieser Rolle oder dieses Attributs hinzu. Die erste Regel der ARIA-Verwendung ist, dass, wenn Sie eine native Funktion mit der Semantik und dem Verhalten verwenden können, die Sie benötigen und die bereits integriert ist, anstatt ein Element neu zu nutzen und **eine** ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies. Veröffentlichen Sie dann die vollständigen Details im Best-Practices-Abschnitt unten.
+> Fügen Sie einen Hinweis auf semantische Alternativen zur Verwendung dieser Rolle oder dieses Attributs hinzu. Die erste Regel für die Verwendung von ARIA lautet: Wenn Sie ein natives Feature verwenden können, das die benötigte Semantik und das benötigte Verhalten bereits mitbringt, sollten Sie dies tun, statt ein Element für einen anderen Zweck zu verwenden und es durch das **Hinzufügen** einer ARIA-Rolle, eines ARIA-Zustands oder einer ARIA-Eigenschaft zugänglich zu machen. Beschreiben Sie die Einzelheiten anschließend im Abschnitt zu bewährten Vorgehensweisen weiter unten.
 
-## Beispiele
+## Vorrangreihenfolge
 
-Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Welche Eigenschaften hängen damit zusammen, und in welcher Reihenfolge wird dieses Attribut oder diese Eigenschaft ausgelesen? Welche Eigenschaft hat Vorrang, und welche wird überschrieben?
 
-### Eine beschreibende Überschrift
+## Bedenken hinsichtlich der Barrierefreiheit
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Weisen Sie gegebenenfalls auf mögliche Probleme hinsichtlich der Barrierefreiheit bei der Verwendung dieser Eigenschaft hin und erläutern Sie, wie sie sich umgehen lassen. Entfernen Sie diesen Abschnitt, wenn es keine solchen Probleme gibt.
 
-Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples), für weitere Informationen.
+## Bewährte Vorgehensweisen
 
-> [!NOTE]
-> Manchmal möchten Sie auf Beispiele verweisen, die auf einer anderen Seite gegeben sind.
->
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und einige weitere Beispiele auf einer anderen Seite:
->
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele" hinzu, unter der Sie Links zu den Beispielen auf anderen Seiten hinzufügen können. Zum Beispiel:
->
-> ```md
-> ## Beispiele
->
-> ### Verwenden der Fetch API
->
-> Beispiel des Fetch
->
-> ### Weitere Beispiele
->
-> Links zu weiteren Beispielen auf anderen Seiten
-> ```
->
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
->
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links einfach direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
->
-> ```md
-> ## Beispiele
->
-> Für Beispiele dieser API, siehe [die Seite über fetch()](https://example.org/).
-> ```
-
-## Barrierefreiheitsbedenken
-
-Optional warnen Sie vor etwaigen potenziellen Barrierefreiheitsproblemen, die mit der Verwendung dieser Eigenschaft bestehen, und wie man sie umgeht. Entfernen Sie diesen Abschnitt, wenn es keine gibt.
-
-## Best Practices
-
-Optional listen Sie alle Best Practices auf, die für diese Rolle existieren. Entfernen Sie den Abschnitt, wenn keine existieren.
+Führen Sie gegebenenfalls bewährte Vorgehensweisen für diese Rolle auf. Entfernen Sie den Abschnitt, wenn es keine gibt.
 
 ### Zusätzliche Vorteile
 
 - Zugehörige Rolle
-  - : Wenn diese Rolle ein erforderlicher Elternteil, ein Kind oder ein Geschwister ist und was sie tut.
+  - : Geben Sie an, ob diese Rolle als übergeordnetes, untergeordnetes oder benachbartes Element erforderlich ist und welche Funktion sie erfüllt.
 
-Zusätzliche Vorteile, die diese Funktion für nicht typische Bildschirmleserbenutzer hat, wie Google oder mobiles Sprachverständnis.
+Beschreiben Sie weitere Vorteile dieses Features für andere Nutzer als typische Screenreader-Nutzer, etwa bei der Google-Suche oder der Spracherkennung auf Mobilgeräten.
+
+## Beispiele
+
+Beachten Sie, dass die Überschrift „Beispiele“ auch dann im Plural steht, wenn die Seite nur ein Beispiel enthält.
+
+### Eine aussagekräftige Überschrift
+
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel zeigt. „Ein einfaches Beispiel“ sagt beispielsweise nichts über das Beispiel aus und ist daher keine gute Überschrift. Halten Sie die Überschrift kurz. Verwenden Sie für eine längere Beschreibung den Absatz nach der Überschrift.
+
+Weitere Informationen finden Sie in unserem Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples).
+
+> [!NOTE]
+> Manchmal möchten Sie auf Beispiele verweisen, die auf einer anderen Seite stehen.
+>
+> **Szenario 1:** Wenn diese Seite einige Beispiele enthält und weitere Beispiele auf einer anderen Seite stehen:
+>
+> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) hinzu. Fügen Sie danach eine abschließende H3-Überschrift (`###`) mit dem Text „Weitere Beispiele“ ein, unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+>
+> ```md
+> ## Examples
+>
+> ### Using the fetch API
+>
+> Example of Fetch
+>
+> ### More examples
+>
+> Links to more examples on other pages
+> ```
+>
+> **Szenario 2:** Wenn es _nur_ auf einer anderen Seite Beispiele gibt und auf dieser Seite keine:
+>
+> Fügen Sie keine H3-Überschriften hinzu, sondern setzen Sie die Links direkt unter die H2-Überschrift „Beispiele“. Zum Beispiel:
+>
+> ```md
+> ## Examples
+>
+> For examples of this API, see [the page on fetch()](https://example.org/).
+> ```
 
 ## Spezifikationen
 
@@ -147,15 +151,11 @@ Zusätzliche Vorteile, die diese Funktion für nicht typische Bildschirmleserben
 
 _Denken Sie daran, die Backticks und den Backslash zu entfernen, um dieses Makro zu verwenden._
 
-## Vorrangordnung
-
-Welche verwandten Eigenschaften bestehen, und in welcher Reihenfolge wird dieses Attribut oder diese Eigenschaft gelesen (welche Eigenschaft wird Vorrang vor dieser haben, und welche Eigenschaft wird überschrieben).
-
-## Bildschirmleserunterstützung
+## Screenreader-Unterstützung
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Rolle oder das Attribut beziehen. Für weitere Richtlinien, siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die jeweilige Rolle oder das jeweilige Attribut beziehen. Weitere Hinweise finden Sie im Abschnitt [„Siehe auch“](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Leitfaden zum Schreibstil_.
 
-- link1
-- link2
+- Link 1
+- Link 2

@@ -2,7 +2,7 @@
 title: Operatorpriorität
 slug: Web/JavaScript/Reference/Operators/Operator_precedence
 l10n:
-  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
+  sourceCommit: b251b9bd2932d837806d743051b60aeab778d0f1
 ---
 
 Die **Operatorpriorität** bestimmt, wie Operatoren im Verhältnis zueinander geparst werden. Operatoren mit höherer Priorität werden zu Operanden von Operatoren mit niedrigerer Priorität.
@@ -31,16 +31,16 @@ Betrachten Sie einen Ausdruck, der sich durch die folgende Darstellung beschreib
 a OP1 b OP2 c
 ```
 
-Die obige Kombination lässt sich auf zwei Arten interpretieren:
+Für die obige Kombination gibt es zwei mögliche Interpretationen:
 
 ```plain
 (a OP1 b) OP2 c
 a OP1 (b OP2 c)
 ```
 
-Welche Interpretation die Sprache verwendet, hängt davon ab, welche Operatoren `OP1` und `OP2` sind.
+Welche davon die Sprache verwendet, hängt davon ab, welche Operatoren `OP1` und `OP2` sind.
 
-Wenn `OP1` und `OP2` unterschiedliche Prioritätsstufen haben (siehe die Tabelle unten), wird der Operator mit der höheren _Priorität_ zuerst gruppiert; die Assoziativität spielt dann keine Rolle. Beachten Sie, dass die Multiplikation eine höhere Priorität als die Addition hat und zuerst ausgeführt wird, obwohl die Addition im Code zuerst steht.
+Wenn `OP1` und `OP2` unterschiedliche Prioritätsstufen haben (siehe die Tabelle unten), wird der Operator mit der höheren _Priorität_ zuerst berücksichtigt; die Assoziativität spielt dabei keine Rolle. Die Multiplikation hat beispielsweise eine höhere Priorität als die Addition und wird zuerst ausgeführt, obwohl die Addition im Code zuerst steht.
 
 ```js-nolint
 console.log(3 + 10 * 2); // 23
@@ -48,30 +48,30 @@ console.log(3 + (10 * 2)); // 23, because parentheses here are superfluous
 console.log((3 + 10) * 2); // 26, because the parentheses change the order
 ```
 
-Operatoren mit derselben Priorität gruppiert die Sprache nach ihrer _Assoziativität_. _Linksassoziativität_ (von links nach rechts) bedeutet, dass der Ausdruck als `(a OP1 b) OP2 c` interpretiert wird; _Rechtsassoziativität_ (von rechts nach links) bedeutet, dass er als `a OP1 (b OP2 c)` interpretiert wird. Zuweisungsoperatoren sind rechtsassoziativ. Daher können Sie Folgendes schreiben:
+Operatoren mit derselben Priorität gruppiert die Sprache anhand ihrer _Assoziativität_. _Linksassoziativität_ (von links nach rechts) bedeutet, dass der Ausdruck als `(a OP1 b) OP2 c` interpretiert wird. _Rechtsassoziativität_ (von rechts nach links) bedeutet, dass er als `a OP1 (b OP2 c)` interpretiert wird. Zuweisungsoperatoren sind rechtsassoziativ. Daher können Sie Folgendes schreiben:
 
 ```js
 a = b = 5; // same as writing a = (b = 5);
 ```
 
-Wie erwartet erhalten dabei `a` und `b` den Wert 5. Das liegt daran, dass der Zuweisungsoperator den zugewiesenen Wert zurückgibt. Zuerst wird `b` auf 5 gesetzt. Anschließend wird auch `a` auf 5 gesetzt – auf den Rückgabewert von `b = 5`, also den rechten Operanden der Zuweisung.
+Das erwartete Ergebnis ist, dass `a` und `b` den Wert 5 erhalten. Das liegt daran, dass der Zuweisungsoperator den zugewiesenen Wert zurückgibt. Zuerst wird `b` auf 5 gesetzt. Anschließend wird auch `a` auf 5 gesetzt – auf den Rückgabewert von `b = 5`, also den rechten Operanden der Zuweisung.
 
-Ein weiteres Beispiel ist der Potenzierungsoperator: Er ist rechtsassoziativ, während die anderen arithmetischen Operatoren linksassoziativ sind.
+Ein weiteres Beispiel ist der Potenzierungsoperator: Er ist rechtsassoziativ, während andere arithmetische Operatoren linksassoziativ sind.
 
 ```js-nolint
 const a = 4 ** 3 ** 2; // Same as 4 ** (3 ** 2); evaluates to 262144
 const b = 4 / 3 / 2; // Same as (4 / 3) / 2; evaluates to 0.6666...
 ```
 
-Operatoren werden zuerst nach ihrer Priorität gruppiert. Benachbarte Operatoren mit derselben Priorität werden anschließend nach ihrer Assoziativität gruppiert. Wenn Division und Potenzierung kombiniert werden, wird die Potenzierung daher immer vor der Division gruppiert. Beispielsweise ergibt `2 ** 3 / 3 ** 2` den Wert 0.8888888888888888, da dies `(2 ** 3) / (3 ** 2)` entspricht.
+Operatoren werden zunächst nach Priorität gruppiert. Benachbarte Operatoren mit derselben Priorität werden anschließend nach Assoziativität gruppiert. Werden Division und Potenzierung kombiniert, kommt die Potenzierung daher immer vor der Division. Beispielsweise ergibt `2 ** 3 / 3 ** 2` den Wert 0.8888888888888888, da dies `(2 ** 3) / (3 ** 2)` entspricht.
 
-Nehmen wir für vorangestellte unäre Operatoren das folgende Muster an:
+Nehmen wir für unäre Präfixoperatoren folgendes Muster an:
 
 ```plain
 OP1 a OP2 b
 ```
 
-Dabei ist `OP1` ein vorangestellter unärer Operator und `OP2` ein binärer Operator. Wenn `OP1` eine höhere Priorität als `OP2` hat, wird der Ausdruck als `(OP1 a) OP2 b` gruppiert; andernfalls als `OP1 (a OP2 b)`.
+Dabei ist `OP1` ein unärer Präfixoperator und `OP2` ein binärer Operator. Hat `OP1` eine höhere Priorität als `OP2`, wird der Ausdruck als `(OP1 a) OP2 b` gruppiert; andernfalls als `OP1 (a OP2 b)`.
 
 ```js
 const a = 1;
@@ -79,13 +79,13 @@ const b = 2;
 typeof a + b; // Equivalent to (typeof a) + b; result is "number2"
 ```
 
-Wenn sich der unäre Operator auf den zweiten Operanden bezieht:
+Wenn der unäre Operator vor dem zweiten Operanden steht:
 
 ```plain
 a OP2 OP1 b
 ```
 
-Dann muss der binäre Operator `OP2` eine niedrigere Priorität als der unäre Operator `OP1` haben, damit der Ausdruck als `a OP2 (OP1 b)` gruppiert wird. Beispielsweise ist Folgendes ungültig:
+Dann muss der binäre Operator `OP2` eine niedrigere Priorität als der unäre Operator `OP1` haben, damit der Ausdruck als `a OP2 (OP1 b)` gruppiert wird. Das folgende Beispiel ist ungültig:
 
 ```js-nolint example-bad
 function* foo() {
@@ -93,15 +93,15 @@ function* foo() {
 }
 ```
 
-Da `+` eine höhere Priorität als [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) hat, würde daraus `(a + yield) 1`. Da `yield` in Generatorfunktionen jedoch ein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) ist, führt dies zu einem Syntaxfehler. Glücklicherweise haben die meisten unären Operatoren eine höhere Priorität als binäre Operatoren und sind von diesem Problem nicht betroffen.
+Da `+` eine höhere Priorität als [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) hat, würde daraus `(a + yield) 1`. Weil `yield` in Generatorfunktionen jedoch ein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) ist, führt dies zu einem Syntaxfehler. Glücklicherweise haben die meisten unären Operatoren eine höhere Priorität als binäre Operatoren, sodass dieses Problem bei ihnen nicht auftritt.
 
-Wenn wir zwei vorangestellte unäre Operatoren haben:
+Wenn zwei unäre Präfixoperatoren vorliegen:
 
 ```plain
 OP1 OP2 a
 ```
 
-Dann muss der näher am Operanden stehende unäre Operator `OP2` eine höhere Priorität als `OP1` haben, damit der Ausdruck als `OP1 (OP2 a)` gruppiert wird. Andernfalls kann stattdessen `(OP1 OP2) a` entstehen:
+Dann muss der näher am Operanden stehende unäre Operator `OP2` eine höhere Priorität als `OP1` haben, damit der Ausdruck als `OP1 (OP2 a)` gruppiert wird. Andernfalls kann die Gruppierung `(OP1 OP2) a` entstehen:
 
 ```js-nolint example-bad
 async function* foo() {
@@ -109,9 +109,9 @@ async function* foo() {
 }
 ```
 
-Da [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) eine höhere Priorität als [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) hat, würde daraus `(await yield) 1`. Dabei würde auf einen Bezeichner namens `yield` gewartet, was zu einem Syntaxfehler führt. Ähnlich verhält es sich mit `new !A;`: Da `!` eine niedrigere Priorität als `new` hat, würde daraus `(new !) A`, was offensichtlich ungültig ist. (Diesen Code zu schreiben wäre ohnehin wenig sinnvoll, da `!A` immer einen booleschen Wert und keine Konstruktorfunktion erzeugt.)
+Da [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) eine höhere Priorität als [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) hat, würde daraus `(await yield) 1`. Dabei würde auf einen Bezeichner namens `yield` gewartet, was zu einem Syntaxfehler führt. Ähnlich wird `new !A;` zu `(new !) A`, da `!` eine niedrigere Priorität als `new` hat. Das ist offensichtlich ungültig. (Ohnehin wäre dieser Code wenig sinnvoll, da `!A` immer einen booleschen Wert und keine Konstruktorfunktion erzeugt.)
 
-Für nachgestellte unäre Operatoren, nämlich `++` und `--`, gelten dieselben Regeln. Glücklicherweise haben beide Operatoren eine höhere Priorität als jeder binäre Operator, sodass die Gruppierung immer den Erwartungen entspricht. Da `++` außerdem zu einem _Wert_ und nicht zu einer _Referenz_ ausgewertet wird, können Sie auch nicht mehrere Inkrementierungen aneinanderhängen.
+Für unäre Postfixoperatoren (`++` und `--`) gelten dieselben Regeln. Glücklicherweise haben beide Operatoren eine höhere Priorität als jeder binäre Operator, sodass die Gruppierung stets der Erwartung entspricht. Da `++` außerdem einen _Wert_ und keine _Referenz_ ergibt, können auch nicht mehrere Inkrementierungen aneinandergereiht werden.
 
 ```js-nolint example-bad
 let a = 1;
@@ -124,11 +124,11 @@ Die Operatorpriorität wird _rekursiv_ berücksichtigt. Betrachten Sie beispiels
 1 + 2 ** 3 * 4 / 5 >> 6
 ```
 
-Zuerst gruppieren wir Operatoren mit unterschiedlicher Priorität in absteigender Reihenfolge ihrer Priorität.
+Zunächst gruppieren wir Operatoren mit unterschiedlicher Priorität in absteigender Reihenfolge ihrer Priorität.
 
 1. Der Operator `**` hat die höchste Priorität und wird daher zuerst gruppiert.
-2. Neben dem Ausdruck mit `**` steht rechts `*` und links `+`. Da `*` eine höhere Priorität hat, wird es zuerst gruppiert. `*` und `/` haben dieselbe Priorität, daher fassen wir sie zunächst zusammen.
-3. Neben dem in Schritt 2 zusammengefassten Ausdruck mit `*` und `/` stehen `+` und `>>`. Da `+` eine höhere Priorität als `>>` hat, wird `+` zuerst gruppiert.
+2. Links vom Ausdruck mit `**` steht `+`, rechts davon `*`. Da `*` eine höhere Priorität hat, wird es zuerst gruppiert. `*` und `/` haben dieselbe Priorität, daher fassen wir sie zunächst zu einer Gruppe zusammen.
+3. Bei Betrachtung der in Schritt 2 gebildeten `*`/`/`-Gruppe wird `+` vor `>>` gruppiert, da `+` eine höhere Priorität hat.
 
 ```js-nolint
    (1 + ( (2 ** 3) * 4 / 5) ) >> 6
@@ -137,7 +137,7 @@ Zuerst gruppieren wir Operatoren mit unterschiedlicher Priorität in absteigende
 // └────────── 3. ──────────┘
 ```
 
-Innerhalb der Gruppe mit `*` und `/` wird wegen ihrer Linksassoziativität zuerst der linke Operand gruppiert.
+Innerhalb der `*`/`/`-Gruppe wird aufgrund der Linksassoziativität beider Operatoren zuerst der linke Operand gruppiert.
 
 ```js-nolint
    (1 + ( ( (2 ** 3) * 4 ) / 5) ) >> 6
@@ -147,7 +147,7 @@ Innerhalb der Gruppe mit `*` und `/` wird wegen ihrer Linksassoziativität zuers
 //        └───── 4. ─────┘
 ```
 
-Beachten Sie, dass Operatorpriorität und Assoziativität nur die Auswertungsreihenfolge der _Operatoren_ beeinflussen, also die implizite Gruppierung, nicht aber die Auswertungsreihenfolge der _Operanden_. Die Operanden werden immer von links nach rechts ausgewertet. Ausdrücke mit höherer Priorität werden zuerst ausgewertet; ihre Ergebnisse werden anschließend entsprechend der Operatorpriorität verknüpft.
+Beachten Sie, dass Operatorpriorität und Assoziativität nur die Auswertungsreihenfolge der _Operatoren_ (die implizite Gruppierung) beeinflussen, nicht aber die Auswertungsreihenfolge der _Operanden_. Die Operanden werden immer von links nach rechts ausgewertet. Ausdrücke mit höherer Priorität werden zuerst ausgewertet; ihre Ergebnisse werden anschließend entsprechend der Operatorpriorität miteinander verknüpft.
 
 ```js-nolint
 function echo(name, num) {
@@ -172,7 +172,7 @@ console.log(echo("left", 4) / echo("middle", 3) ** echo("right", 2));
 // 0.4444444444444444
 ```
 
-Wenn Sie mit Binärbäumen vertraut sind, können Sie sich dies als [Postorder-Traversierung](https://en.wikipedia.org/wiki/Tree_traversal#Post-order,_LRN) vorstellen.
+Falls Sie mit Binärbäumen vertraut sind, können Sie sich dies als [Postorder-Traversierung](https://en.wikipedia.org/wiki/Tree_traversal#Post-order,_LRN) vorstellen.
 
 ```plain
                 /
@@ -182,13 +182,13 @@ echo("left", 4)         **
         echo("middle", 3)  echo("right", 2)
 ```
 
-Nachdem alle Operatoren korrekt gruppiert wurden, bilden die binären Operatoren einen Binärbaum. Die Auswertung beginnt bei der äußersten Gruppe – also beim Operator mit der niedrigsten Priorität (hier `/`). Zuerst wird der linke Operand dieses Operators ausgewertet. Er kann Ausdrücke mit höherer Priorität enthalten, etwa einen Funktionsaufruf wie `echo("left", 4)`. Danach wird der rechte Operand auf dieselbe Weise ausgewertet. Somit werden alle Blattknoten – die Aufrufe von `echo()` – unabhängig von der Priorität der sie verbindenden Operatoren von links nach rechts besucht.
+Nachdem alle Operatoren korrekt gruppiert wurden, bilden die binären Operatoren einen Binärbaum. Die Auswertung beginnt bei der äußersten Gruppe, also beim Operator mit der niedrigsten Priorität (in diesem Fall `/`). Zuerst wird der linke Operand dieses Operators ausgewertet. Er kann wiederum Operatoren mit höherer Priorität enthalten, etwa einen Funktionsaufruf `echo("left", 4)`. Danach wird der rechte Operand auf dieselbe Weise ausgewertet. Daher werden alle Blattknoten – die `echo()`-Aufrufe – von links nach rechts besucht, unabhängig von der Priorität der Operatoren, die sie miteinander verbinden.
 
 ## Kurzschlussauswertung
 
-Im vorherigen Abschnitt hieß es, dass „Ausdrücke mit höherer Priorität immer zuerst ausgewertet werden“. Das gilt im Allgemeinen, muss aber um die _Kurzschlussauswertung_ ergänzt werden: Bei ihr wird ein Operand unter Umständen überhaupt nicht ausgewertet.
+Im vorherigen Abschnitt hieß es, dass „Ausdrücke mit höherer Priorität immer zuerst ausgewertet werden“. Das trifft im Allgemeinen zu, muss aber um die _Kurzschlussauswertung_ ergänzt werden: Bei ihr wird ein Operand unter Umständen überhaupt nicht ausgewertet.
 
-Kurzschlussauswertung bezeichnet die bedingte Auswertung. Wenn beispielsweise im Ausdruck `a && (b + c)` der Wert von `a` {{Glossary("falsy", "falsy")}} ist, wird der Teilausdruck `(b + c)` gar nicht ausgewertet – obwohl er gruppiert ist und damit eine höhere Priorität als `&&` hat. Man sagt, dass der logische UND-Operator (`&&`) „kurzschließt“. Neben dem logischen UND verwenden auch das logische ODER (`||`), Nullish Coalescing (`??`) und Optional Chaining (`?.`) eine Kurzschlussauswertung.
+Kurzschlussauswertung bezeichnet die bedingte Auswertung. Ist beispielsweise bei `a && (b + c)` der Wert von `a` {{Glossary("falsy", "falsy")}}, wird der Teilausdruck `(b + c)` gar nicht ausgewertet, obwohl er gruppiert ist und damit eine höhere Priorität als `&&` hat. Man sagt, dass beim logischen UND-Operator (`&&`) eine Kurzschlussauswertung stattfindet. Weitere Operatoren mit Kurzschlussauswertung sind das logische ODER (`||`), Nullish Coalescing (`??`) und Optional Chaining (`?.`).
 
 ```js-nolint
 a || (b * c); // evaluate `a` first, then produce `a` if `a` is "truthy"
@@ -197,12 +197,12 @@ a ?? (b || c); // evaluate `a` first, then produce `a` if `a` is not `null` and 
 a?.b.c; // evaluate `a` first, then produce `undefined` if `a` is `null` or `undefined`
 ```
 
-Bei der Auswertung eines Operators mit Kurzschlussverhalten wird der linke Operand immer ausgewertet. Der rechte Operand wird nur ausgewertet, wenn der linke Operand das Ergebnis der Operation nicht bereits bestimmt.
+Bei der Auswertung eines Operators mit Kurzschlussauswertung wird der linke Operand immer ausgewertet. Der rechte Operand wird nur dann ausgewertet, wenn der linke Operand das Ergebnis der Operation nicht bereits bestimmt.
 
 > [!NOTE]
-> Das Kurzschlussverhalten ist Bestandteil dieser Operatoren. Andere Operatoren werten _immer_ beide Operanden aus, unabhängig davon, ob das sinnvoll ist. Beispielsweise ruft `NaN * foo()` immer `foo` auf, obwohl das Ergebnis in jedem Fall `NaN` ist.
+> Die Kurzschlussauswertung ist eine Eigenschaft dieser Operatoren. Andere Operatoren werten _immer_ beide Operanden aus, unabhängig davon, ob dies tatsächlich nützlich ist. Beispielsweise ruft `NaN * foo()` stets `foo` auf, obwohl das Ergebnis nur `NaN` sein kann.
 
-Das zuvor beschriebene Modell einer Postorder-Traversierung gilt weiterhin. Nachdem jedoch der linke Teilbaum eines Operators mit Kurzschlussverhalten besucht wurde, entscheidet die Sprache, ob der rechte Operand ausgewertet werden muss. Falls nicht – etwa weil der linke Operand von `||` bereits truthy ist –, wird das Ergebnis direkt zurückgegeben, ohne den rechten Teilbaum zu besuchen.
+Das zuvor beschriebene Modell der Postorder-Traversierung gilt weiterhin. Nachdem der linke Teilbaum eines Operators mit Kurzschlussauswertung besucht wurde, entscheidet die Sprache jedoch, ob der rechte Operand ausgewertet werden muss. Falls nicht – beispielsweise weil der linke Operand von `||` bereits truthy ist –, wird das Ergebnis direkt zurückgegeben, ohne den rechten Teilbaum zu besuchen.
 
 Betrachten Sie diesen Fall:
 
@@ -218,7 +218,7 @@ console.log(C() || B() && A());
 // true
 ```
 
-Nur `C()` wird ausgewertet, obwohl `&&` eine höhere Priorität hat. Das bedeutet nicht, dass `||` in diesem Fall eine höhere Priorität hat. Gerade _weil_ `(B() && A())` eine höhere Priorität hat, kann es als Ganzes übersprungen werden. Wird der Ausdruck wie folgt umgestellt:
+Obwohl `&&` eine höhere Priorität hat, wird nur `C()` ausgewertet. Das bedeutet nicht, dass `||` hier eine höhere Priorität hätte. Gerade _weil_ `(B() && A())` eine höhere Priorität hat, wird dieser Ausdruck als Ganzes übersprungen. Wird der Ausdruck wie folgt umgestellt:
 
 ```js-nolint
 console.log(A() && B() || C());
@@ -228,21 +228,21 @@ console.log(A() && B() || C());
 // true
 ```
 
-Dann verhindert die Kurzschlussauswertung von `&&` lediglich, dass `B()` ausgewertet wird. Da `A() && B()` insgesamt `false` ergibt, wird `C()` dennoch ausgewertet.
+Dann verhindert die Kurzschlussauswertung von `&&` lediglich die Auswertung von `B()`. Da `A() && B()` insgesamt `false` ist, wird `C()` dennoch ausgewertet.
 
-Beachten Sie jedoch, dass die Kurzschlussauswertung das endgültige Ergebnis nicht verändert. Sie beeinflusst nur die Auswertung der _Operanden_, nicht die Gruppierung der _Operatoren_. Wenn die Auswertung der Operanden keine Seiteneffekte hat – etwa Ausgaben in der Konsole, Zuweisungen an Variablen oder das Auslösen eines Fehlers –, ist die Kurzschlussauswertung überhaupt nicht zu beobachten.
+Beachten Sie jedoch, dass die Kurzschlussauswertung das endgültige Auswertungsergebnis nicht verändert. Sie beeinflusst lediglich die Auswertung der _Operanden_, nicht die Gruppierung der _Operatoren_. Wenn die Auswertung der Operanden keine Seiteneffekte hat – etwa Ausgaben in der Konsole, Zuweisungen an Variablen oder das Auslösen eines Fehlers –, ist die Kurzschlussauswertung überhaupt nicht zu beobachten.
 
-Auch die entsprechenden Zuweisungsoperatoren ([`&&=`](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment), [`||=`](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment), [`??=`](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment)) verwenden eine Kurzschlussauswertung. Dabei kann die Zuweisung vollständig ausbleiben.
+Auch bei den entsprechenden Zuweisungsoperatoren ([`&&=`](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment), [`||=`](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment), [`??=`](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment)) findet eine Kurzschlussauswertung statt. Dabei kann die Zuweisung vollständig ausbleiben.
 
 ## Tabelle
 
-Die folgende Tabelle führt die Operatoren in der Reihenfolge von der höchsten Priorität (18) bis zur niedrigsten Priorität (1) auf.
+Die folgende Tabelle führt die Operatoren von der höchsten Priorität (18) bis zur niedrigsten Priorität (1) auf.
 
 Einige allgemeine Hinweise zur Tabelle:
 
-1. Nicht alle hier aufgeführten Syntaxformen sind [„Operatoren“ im engeren Sinne](/de/docs/Web/JavaScript/Reference/Operators#what_are_operators). Beispielsweise gelten Spread `...` und Arrow `=>` üblicherweise nicht als Operatoren. Sie sind dennoch aufgeführt, um zu zeigen, wie stark sie im Vergleich zu anderen Operatoren und Ausdrücken binden.
-2. Bei einigen Operatoren müssen bestimmte Operanden enger gefasste Ausdrücke sein, als Operatoren mit höherer Priorität erzeugen. Beispielsweise muss die rechte Seite des Member Access `.` (Priorität 17) ein Bezeichner und kein gruppierter Ausdruck sein. Die linke Seite von Arrow `=>` (Priorität 2) muss eine Argumentliste oder ein einzelner Bezeichner sein und darf kein beliebiger Ausdruck sein.
-3. Bei einigen Operatoren dürfen bestimmte Operanden weiter gefasste Ausdrücke sein, als Operatoren mit höherer Priorität erzeugen. Beispielsweise kann der in eckigen Klammern stehende Ausdruck der Bracket Notation `[ … ]` (Priorität 17) ein beliebiger Ausdruck sein, auch einer, der durch den Kommaoperator (Priorität 1) verknüpft ist. Diese Operatoren verhalten sich so, als wäre der betreffende Operand „automatisch gruppiert“. In solchen Fällen lassen wir die Assoziativität weg.
+1. Nicht jede hier aufgeführte Syntax ist [im engeren Sinne ein „Operator“](/de/docs/Web/JavaScript/Reference/Operators#what_are_operators). Beispielsweise gelten Spread `...` und Arrow `=>` üblicherweise nicht als Operatoren. Sie sind dennoch aufgeführt, um zu zeigen, wie stark sie im Vergleich zu anderen Operatoren und Ausdrücken binden.
+2. Bei manchen Operatoren müssen bestimmte Operanden enger gefasste Ausdrücke sein, als Operatoren mit höherer Priorität erzeugen. Beispielsweise muss die rechte Seite des Member-Zugriffs `.` (Priorität 17) ein Bezeichner sein und darf kein gruppierter Ausdruck sein. Die linke Seite von Arrow `=>` (Priorität 2) muss eine Argumentliste oder ein einzelner Bezeichner sein und darf nicht irgendein Ausdruck sein.
+3. Bei manchen Operatoren dürfen bestimmte Operanden weiter gefasste Ausdrücke sein, als Operatoren mit höherer Priorität erzeugen. Beispielsweise darf der in eckigen Klammern stehende Ausdruck der Klammernotation `[ … ]` (Priorität 17) ein beliebiger Ausdruck sein, auch ein durch Kommas verknüpfter Ausdruck (Priorität 1). Diese Operatoren verhalten sich so, als wäre der betreffende Operand „automatisch gruppiert“. In solchen Fällen lassen wir die Angabe zur Assoziativität weg.
 
 <table class="fullwidth-table">
   <tbody>
@@ -282,7 +282,7 @@ Einige allgemeine Hinweise zur Tabelle:
     </tr>
     <tr>
       <td>
-        <a href="/de/docs/Web/JavaScript/Guide/Functions">Funktionsaufruf</a><br><code>x(y)</code>
+        <a href="/de/docs/Web/JavaScript/Reference/Operators/Function_call">Funktionsaufruf</a><br><code>x(y)</code>
       </td>
     </tr>
     <tr>
@@ -294,7 +294,7 @@ Einige allgemeine Hinweise zur Tabelle:
       <td>{{jsxref("new")}} ohne Argumentliste<br><code>new x</code></td>
     </tr>
     <tr>
-      <td rowspan="2">15: nachgestellte Operatoren</td>
+      <td rowspan="2">15: Postfixoperatoren</td>
       <td rowspan="2">nicht zutreffend</td>
       <td>
         {{jsxref("Operators/Increment", "Postfix increment", "", 1)}}<br><code>x++</code>
@@ -307,7 +307,7 @@ Einige allgemeine Hinweise zur Tabelle:
       </td>
     </tr>
     <tr>
-      <td rowspan="10">14: vorangestellte Operatoren</td>
+      <td rowspan="10">14: Präfixoperatoren</td>
       <td rowspan="10">nicht zutreffend</td>
       <td>
         {{jsxref("Operators/Increment", "Prefix increment", "", 1)}}<br><code>++x</code>
@@ -407,7 +407,7 @@ Einige allgemeine Hinweise zur Tabelle:
       </td>
     </tr>
     <tr>
-      <td rowspan="6">9: relationale Operatoren</td>
+      <td rowspan="6">9: Vergleichsoperatoren</td>
       <td rowspan="6">von links nach rechts</td>
       <td>
         {{jsxref("Operators/Less_than", "Less than", "", 1)}}<br><code>x &#x3C; y</code>
@@ -622,24 +622,24 @@ Hinweise:
 1. Der Operand kann ein beliebiger Ausdruck sein.
 2. Die „rechte Seite“ muss ein Bezeichner sein.
 3. Die „rechte Seite“ kann ein beliebiger Ausdruck sein.
-4. Die „rechte Seite“ ist eine durch Kommas getrennte Liste beliebiger Ausdrücke mit einer Priorität > 1 (also keine durch den Kommaoperator verknüpften Ausdrücke). Der Konstruktor eines Ausdrucks mit `new` darf kein Optional Chain sein.
-5. Der Operand muss ein gültiges Zuweisungsziel sein (ein Bezeichner oder ein Property Access). Aufgrund seiner Priorität bedeutet `new Foo++` dasselbe wie `(new Foo)++` (ein Syntaxfehler) und nicht `new (Foo++)` (ein TypeError: (Foo++) is not a constructor).
-6. Der Operand muss ein gültiges Zuweisungsziel sein (ein Bezeichner oder ein Property Access).
-7. Der Operand darf kein Bezeichner und kein Zugriff auf ein [privates Element](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) sein.
-8. Die linke Seite darf nicht die Priorität 14 haben, außer bei vorangestellter Inkrementierung und Dekrementierung.
-9. Ohne Gruppierung dürfen die Operanden keine Ausdrücke mit dem logischen ODER-Operator `||` oder dem logischen UND-Operator `&&` sein.
-10. Die „linke Seite“ muss ein gültiges Zuweisungsziel sein (ein Bezeichner oder ein Property Access).
-11. Die Assoziativität bedeutet, dass die beiden Ausdrücke nach `?` implizit gruppiert werden.
+4. Die „rechte Seite“ ist eine durch Kommas getrennte Liste beliebiger Ausdrücke mit einer Priorität > 1 (also keine Kommaausdrücke). Der Konstruktor eines `new`-Ausdrucks darf kein Optional Chain sein.
+5. Der Operand muss ein gültiges Zuweisungsziel sein (ein Bezeichner oder ein Property-Zugriff). Aufgrund seiner Priorität bedeutet `new Foo++` dasselbe wie `(new Foo)++` (ein Syntaxfehler) und nicht `new (Foo++)` (ein TypeError: (Foo++) ist kein Konstruktor).
+6. Der Operand muss ein gültiges Zuweisungsziel sein (ein Bezeichner oder ein Property-Zugriff).
+7. Der Operand darf weder ein Bezeichner noch ein Zugriff auf ein [privates Element](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) sein.
+8. Die linke Seite darf keine Priorität von 14 haben, ausgenommen Präfix-Inkrementierung und Präfix-Dekrementierung.
+9. Die Operanden dürfen ohne Gruppierung keine Operatoren für logisches ODER `||` oder logisches UND `&&` sein.
+10. Die „linke Seite“ muss ein gültiges Zuweisungsziel sein (ein Bezeichner oder ein Property-Zugriff).
+11. Die Assoziativität bewirkt, dass die beiden Ausdrücke nach `?` implizit gruppiert werden.
 12. Die „linke Seite“ ist ein einzelner Bezeichner oder eine eingeklammerte Parameterliste.
-13. Nur innerhalb von Objektliteralen, Array-Literalen oder Argumentlisten gültig.
+13. Nur innerhalb von Objektliteralen, Array-Literalen oder Argumentlisten zulässig.
 
 Die Priorität der Gruppen 17 und 16 kann etwas mehrdeutig erscheinen. Die folgenden Beispiele verdeutlichen sie.
 
-- Optional Chaining lässt sich immer durch die entsprechende Syntax ohne Optionalität ersetzen und umgekehrt (abgesehen von einigen Sonderfällen, in denen Optional Chaining nicht zulässig ist). Beispielsweise sind an jeder Stelle, an der `a?.b` zulässig ist, auch `a.b` und umgekehrt zulässig. Entsprechendes gilt für `a?.()` und `a()` usw.
-- Member Expressions und Computed Member Expressions sind immer gegeneinander austauschbar.
-- Call Expressions und `import()`-Ausdrücke sind immer gegeneinander austauschbar.
-- Damit bleiben vier Klassen von Ausdrücken: Member Access, `new` mit Argumenten, Funktionsaufruf und `new` ohne Argumente.
-  - Die „linke Seite“ eines Member Access kann Folgendes sein: ein Member Access (`a.b.c`), `new` mit Argumenten (`new a().b`) oder ein Funktionsaufruf (`a().b`).
-  - Die „linke Seite“ von `new` mit Argumenten kann Folgendes sein: ein Member Access (`new a.b()`) oder `new` mit Argumenten (`new new a()()`).
-  - Die „linke Seite“ eines Funktionsaufrufs kann Folgendes sein: ein Member Access (`a.b()`), `new` mit Argumenten (`new a()()`) oder ein Funktionsaufruf (`a()()`).
-  - Der Operand von `new` ohne Argumente kann Folgendes sein: ein Member Access (`new a.b`), `new` mit Argumenten (`new new a()`) oder `new` ohne Argumente (`new new a`).
+- Optional Chaining kann stets anstelle der entsprechenden Syntax ohne Optionalität verwendet werden und umgekehrt (abgesehen von einigen Sonderfällen, in denen Optional Chaining nicht zulässig ist). Überall, wo `a?.b` zulässig ist, ist beispielsweise auch `a.b` zulässig und umgekehrt. Dasselbe gilt entsprechend für `a?.()` und `a()` usw.
+- Member-Ausdrücke und berechnete Member-Ausdrücke können stets gegeneinander ausgetauscht werden.
+- Aufrufausdrücke und `import()`-Ausdrücke können stets gegeneinander ausgetauscht werden.
+- Damit bleiben vier Ausdrucksklassen: Member-Zugriff, `new` mit Argumenten, Funktionsaufruf und `new` ohne Argumente.
+  - Die „linke Seite“ eines Member-Zugriffs kann Folgendes sein: ein Member-Zugriff (`a.b.c`), `new` mit Argumenten (`new a().b`) oder ein Funktionsaufruf (`a().b`).
+  - Die „linke Seite“ von `new` mit Argumenten kann Folgendes sein: ein Member-Zugriff (`new a.b()`) oder `new` mit Argumenten (`new new a()()`).
+  - Die „linke Seite“ eines Funktionsaufrufs kann Folgendes sein: ein Member-Zugriff (`a.b()`), `new` mit Argumenten (`new a()()`) oder ein Funktionsaufruf (`a()()`).
+  - Der Operand von `new` ohne Argumente kann Folgendes sein: ein Member-Zugriff (`new a.b`), `new` mit Argumenten (`new new a()`) oder `new` ohne Argumente (`new new a`).

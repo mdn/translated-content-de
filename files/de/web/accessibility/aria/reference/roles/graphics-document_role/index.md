@@ -1,9 +1,9 @@
 ---
-title: "ARIA: Rolle graphics-document"
+title: "ARIA: graphics-document-Rolle"
 short-title: graphics-document
 slug: Web/Accessibility/ARIA/Reference/Roles/graphics-document_role
 l10n:
-  sourceCommit: 370f1912b54d24bd7da541f8f2dd98c26d377121
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
 Die Rolle `graphics-document` kennzeichnet einen Typ von [`document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role), bei dem das visuelle Erscheinungsbild oder die Anordnung des Inhalts eine Bedeutung vermittelt.
@@ -14,28 +14,34 @@ Die Rolle `graphics-document` kennzeichnet einen Typ von [`document`](/de/docs/W
 
 ## Beschreibung
 
-Die Rolle `graphics-document` wird dem Wurzelelement einer Grafik zugewiesen, deren visuelle Darstellung, gewöhnlich in zwei Dimensionen, eine semantische Bedeutung hat. Es wird erwartet, dass Benutzer diesen Inhalt hauptsächlich erkunden, statt eine Anwendung zu steuern.
+Die Rolle `graphics-document` wird auf das Wurzelelement einer Grafik angewendet, deren visuelle Darstellung – üblicherweise in zwei Dimensionen – eine semantische Bedeutung hat. Es wird erwartet, dass Nutzerinnen und Nutzer diesen Inhalt hauptsächlich erkunden, statt eine Anwendung zu steuern.
 
-Sie wird üblicherweise für strukturierte, semantisch aussagekräftige Grafiken wie Flussdiagramme, Karten, Diagramme und technische Zeichnungen verwendet.
+Sie wird typischerweise für strukturierte, semantisch aussagekräftige Grafiken wie Flussdiagramme, Karten, Diagramme und technische Zeichnungen verwendet.
 
 Die Rolle `graphics-document` unterscheidet sich von ähnlichen Rollen wie folgt:
 
-- Anders als ein Element mit der Rolle [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) kann ein Element mit der Rolle `graphics-document` untergeordnete Elemente mit semantischer Bedeutung enthalten, etwa Links und andere interaktive Widgets.
-- Im Vergleich zu anderen Typen von [`document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role) zeichnet sich ein `graphics-document` dadurch aus, dass seine visuelle Darstellung für seine Bedeutung wesentlich ist.
-- Anders als ein [`graphics-object`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-object_role) ist ein `graphics-document` eigenständig: Seine Bedeutung hängt nicht vom umgebenden Inhalt ab, und es liefert den Kontext für die Interpretation seiner untergeordneten Elemente.
+- Anders als ein Element mit der Rolle [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) kann ein Element mit der Rolle `graphics-document` Kindelemente mit semantischer Bedeutung enthalten, etwa Links und andere interaktive Widgets.
+- Im Vergleich zu anderen Typen von [`document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role) zeichnet sich ein `graphics-document` durch die semantische Bedeutung seiner visuellen Darstellung aus.
+- Anders als ein [`graphics-object`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-object_role) ist ein `graphics-document` eigenständig: Seine Bedeutung hängt nicht vom umgebenden Inhalt ab, und es liefert den Kontext für die Interpretation seiner Kindelemente.
 
-Ein `graphics-document` kann ein weiteres `graphics-document` enthalten, beispielsweise ein in eine Karte eingebettetes Balkendiagramm. Jedes verschachtelte Dokument bietet einen eigenen Kontext für die Navigation.
+Ein `graphics-document` kann ein weiteres `graphics-document` enthalten, beispielsweise ein in eine Karte eingebettetes Balkendiagramm. Jedes verschachtelte Dokument stellt einen eigenen Kontext für die Navigation bereit.
 
-Wenn eine einzelne große Grafik abgegrenzte Bereiche enthält, die sich umordnen lassen, ohne ihre Bedeutung zu verändern, sollte jeder Bereich als eigenständiges `graphics-document` getrennt werden. Sie können diese Bereiche mithilfe der Rolle [`figure`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/figure_role) gruppieren.
+Wenn eine einzelne große Grafik aus abgegrenzten Bereichen besteht, die sich umordnen lassen, ohne ihre Bedeutung zu verändern, sollte jeder Bereich als eigenständiges `graphics-document` angelegt werden. Sie können diese Bereiche mithilfe der Rolle [`figure`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/figure_role) gruppieren.
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
   - : Ein `graphics-document` muss einen zugänglichen Namen haben. Verwenden Sie `aria-labelledby`, wenn eine sichtbare Beschriftung vorhanden ist, andernfalls `aria-label`. Bei SVG kann auch ein {{SVGElement("title")}}-Element den Namen bereitstellen.
 
+## Bewährte Vorgehensweisen
+
+Fügen Sie die Rolle `graphics-document` nicht ausdrücklich hinzu, wenn das Element diese Rolle bereits durch seine native Semantik erhält, wie es bei {{SVGElement("svg")}} der Fall ist.
+
+Verwenden Sie für dekorative SVG-Grafiken `aria-hidden="true"`. Verwenden Sie für Grafiken ohne aussagekräftige interne Struktur die Rolle [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) mit einem zugänglichen Namen. Verwenden Sie für HTML-Bilder das native {{HTMLElement("img")}}-Element mit einem `alt`-Attribut.
+
 ## Beispiele
 
-Dieses Flussdiagramm verwendet HTML-Elemente, die mit CSS angeordnet sind. Die Rolle `graphics-document` kennzeichnet das Diagramm als grafisches Dokument, weil die Anordnung seiner Knoten und Pfeile den Authentifizierungsablauf vermittelt. Das Attribut `aria-label` stellt seinen zugänglichen Namen bereit. Jeder Pfeil hat die Rolle `graphics-symbol` und eine Beschriftung, die die Verbindung beschreibt, sodass der Ablauf auch ohne Sicht auf die Anordnung verständlich ist.
+Dieses Flussdiagramm verwendet HTML-Elemente, die mit CSS angeordnet sind. Die Rolle `graphics-document` kennzeichnet das Diagramm als grafisches Dokument, da die Anordnung seiner Knoten und Pfeile den Authentifizierungsablauf vermittelt. Das Attribut `aria-label` stellt seinen zugänglichen Namen bereit. Jeder Pfeil hat eine `graphics-symbol`-Rolle und eine Beschriftung, die die Verbindung beschreibt. So lässt sich der Ablauf auch verstehen, ohne die Anordnung zu sehen.
 
 Würde diese Grafik stattdessen mit {{SVGElement("svg")}} umgesetzt, wäre keine `role`-Deklaration erforderlich, da [SVG-AAM `graphics-document` als Standardrolle definiert](https://w3c.github.io/svg-aam/).
 
@@ -192,19 +198,13 @@ Würde diese Grafik stattdessen mit {{SVGElement("svg")}} umgesetzt, wäre keine
 
 {{EmbedLiveSample('Examples', 600, 350)}}
 
-## Bewährte Vorgehensweisen
-
-Fügen Sie die Rolle `graphics-document` nicht ausdrücklich hinzu, wenn das Element diese Rolle bereits durch seine native Semantik erhält, wie es bei {{SVGElement("svg")}} der Fall ist.
-
-Verwenden Sie für dekorative SVG-Grafiken `aria-hidden="true"`. Verwenden Sie für Grafiken ohne sinnvolle interne Struktur die Rolle [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) mit einem zugänglichen Namen. Verwenden Sie für HTML-Bilder das native Element {{HTMLElement("img")}} mit einem `alt`-Attribut.
-
 ## Spezifikationen
 
 {{Specifications}}
 
 ## Siehe auch
 
-- Das Element {{SVGElement('svg')}}
+- Das {{SVGElement('svg')}}-Element
 - [ARIA in HTML](https://w3c.github.io/html-aria/)
 - [ARIA: Rolle `graphics-symbol`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-symbol_role)
 - [ARIA: Rolle `graphics-object`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-object_role)

@@ -1,18 +1,18 @@
 ---
-title: "ARIA: textbox role"
+title: "ARIA: Rolle textbox"
 short-title: textbox
 slug: Web/Accessibility/ARIA/Reference/Roles/textbox_role
 l10n:
-  sourceCommit: fd2acb039cc1caee4af10f76ffb839c8da7da5b8
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `textbox` Rolle wird verwendet, um ein Element zu identifizieren, das die Eingabe von Freiformtext ermöglicht. Wann immer möglich, verwenden Sie anstelle dieser Rolle ein {{HTMLElement("input")}} Element mit [type="text"](/de/docs/Web/HTML/Reference/Elements/input/text) für einzeilige Eingaben oder ein {{HTMLElement("textarea")}} Element für mehrzeilige Eingaben.
+Die Rolle `textbox` kennzeichnet ein Element, das die Eingabe von Freitext ermöglicht. Verwenden Sie nach Möglichkeit statt dieser Rolle ein {{HTMLElement("input")}}-Element mit [type="text"](/de/docs/Web/HTML/Reference/Elements/input/text) für einzeilige Eingaben oder ein {{HTMLElement("textarea")}}-Element für mehrzeilige Eingaben.
 
 ## Beschreibung
 
-Wenn ein Element die `textbox` Rolle hat, sendet der Browser ein zugängliches Textbox-Ereignis an unterstützende Technologien, die den Benutzer darüber informieren können.
+Wenn ein Element die Rolle `textbox` hat, sendet der Browser ein Ereignis für ein zugängliches Textfeld an assistive Technologien. Diese können den Benutzer darauf hinweisen.
 
-Standardmäßig handelt es sich um eine einzeilige Eingabe, bei der <kbd>Return</kbd> oder <kbd>Enter</kbd> das Formular absendet; in diesem Fall ist es wünschenswert, ein HTML-{{HTMLElement("input")}} mit `type="text"` zu verwenden. Um eine mehrzeilige Textbox zu erstellen, die Zeilenumbrüche unterstützt, wie in einem HTML-{{HTMLElement("textarea")}}, setzen Sie `aria-multiline="true"`. Das Hinzufügen des HTML-Attributs `contenteditable` stellt sicher, dass der Textknoten editierbar ist.
+Standardmäßig ist ein Textfeld einzeilig; mit <kbd>Return</kbd> oder <kbd>Enter</kbd> wird das Formular abgesendet. In diesem Fall ist ein HTML-{{HTMLElement("input")}}-Element mit `type="text"` vorzuziehen. Um ein mehrzeiliges Textfeld mit Zeilenumbrüchen zu erstellen, wie bei einem HTML-{{HTMLElement("textarea")}}-Element, setzen Sie `aria-multiline="true"`. Das HTML-Attribut `contenteditable` sorgt dafür, dass der Textinhalt bearbeitbar ist.
 
 ```html
 <!-- Text input field -->
@@ -33,7 +33,7 @@ Standardmäßig handelt es sich um eine einzeilige Eingabe, bei der <kbd>Return<
   aria-required="true"></div>
 ```
 
-Semantische Elemente sind prägnanter und benötigen kein JavaScript, um Textbox-Funktionen zu unterstützen.
+Semantische Elemente sind kompakter und benötigen kein JavaScript, um Textfeldfunktionen bereitzustellen.
 
 ```html
 <label for="txtbox">Enter your five-digit zip code</label>
@@ -44,82 +44,82 @@ Semantische Elemente sind prägnanter und benötigen kein JavaScript, um Textbox
 <textarea id="txtboxMultiline" required></textarea>
 ```
 
-Wenn ein Textfeld schreibgeschützt ist, geben Sie dies an, indem Sie `aria-readonly="true"` auf das Element setzen.
+Wenn ein Textfeld schreibgeschützt ist, kennzeichnen Sie dies, indem Sie `aria-readonly="true"` für das Element setzen.
 
 ### Zugehörige ARIA-Eigenschaften
 
-- [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) Attribut
-  - : Nimmt als Wert die ID eines Nachkommen des Elements mit DOM-Fokus oder eines logischen Nachkommen, wie durch das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) Attribut angegeben, wird angezeigt, wenn das Element in einer zusammengesetzten Oberfläche wie einer [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) den Fokus hat. Zum Beispiel kann in einer Combobox der Fokus auf der Textbox bleiben, während der Wert von `aria-activedescendant` auf das Element verweist, das ein Nachkomme einer Popup-Listbox ist, die von der Textbox verwaltet wird. Dieses Attribut muss programmatisch aktualisiert werden, wenn sich der Fokus ändert.
-- [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete) Attribut
-  - : Gibt an, ob und wie die Benutzereingabe in das Feld die Anzeige einer Vorhersage des beabsichtigten Wertes auslösen könnte. Es unterstützt folgende Werte:
-    - `inline`: Vorhergesagter Text wird nach dem Kursor eingefügt.
-    - `list`: Vorhergesagter Text wird als Sammlung von Werten präsentiert.
-    - `both`: Vorhergesagter Text wird als Sammlung von Werten präsentiert, wobei der Text, der zum Vervollständigen eines Wertes benötigt wird, nach dem Kursor eingefügt wird.
-    - `none` (Standard): Es wird kein vorhergesagter Text angeboten.
+- Attribut [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)
+  - : Sein Wert ist die ID eines Elements, das entweder ein Nachfahre des Elements mit DOM-Fokus oder gemäß dem Attribut [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) ein logischer Nachfahre ist. Das Attribut gibt an, welches Element innerhalb eines zusammengesetzten Widgets wie einer [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) aktiv ist. Beispielsweise kann bei einer Combobox der Fokus auf dem Textfeld bleiben, während `aria-activedescendant` auf dem Textfeldelement auf einen Nachfahren einer vom Textfeld gesteuerten Popup-Listbox verweist. Dieses Attribut muss bei Änderungen des aktiven Elements programmatisch aktualisiert werden.
+- Attribut [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete)
+  - : Gibt an, ob und wie die Eingabe des Benutzers in das Feld die Anzeige eines Vorschlags für den beabsichtigten Wert auslösen kann. Folgende Werte werden unterstützt:
+    - `inline`: Vorgeschlagener Text wird hinter der Einfügemarke eingefügt.
+    - `list`: Vorgeschlagener Text wird als Liste von Werten angezeigt.
+    - `both`: Vorgeschlagener Text wird als Liste von Werten angezeigt; der zum Vervollständigen eines Werts benötigte Text wird hinter der Einfügemarke eingefügt.
+    - `none` (Standardwert): Es wird kein vorgeschlagener Text angeboten.
 
-    Wenn `list` oder `both` festgelegt ist, sollten die Attribute [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) und [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup) ebenfalls eingeschlossen werden. Der Wert von `aria-controls` ist die ID des Elements, das die Liste der vorgeschlagenen Werte enthält. Darüber hinaus hat entweder die Textbox oder ein enthaltendes Element mit der Rolle `combobox` einen Wert für `aria-haspopup`, der der Rolle des Elements entspricht, das die Liste der vorgeschlagenen Werte enthält.
+    Wenn `list` oder `both` gesetzt ist, sollten auch die Attribute [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) und [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup) vorhanden sein. Der Wert von `aria-controls` ist die ID des Elements, das die Liste der vorgeschlagenen Werte enthält. Außerdem muss entweder das Textfeld oder ein umgebendes Element mit der Rolle `combobox` einen Wert für `aria-haspopup` haben, der der Rolle des Elements mit der Vorschlagsliste entspricht.
 
-- [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline) Attribut
-  - : Wenn `aria-multiline="true"` gesetzt ist, teilt das AT dem Benutzer mit, dass die Textbox mehrzeilige Eingaben unterstützt, mit der Erwartung, dass <kbd>Enter</kbd> oder <kbd>Return</kbd> einen Zeilenumbruch erzeugt, anstatt das Formular abzusenden. ARIA ändert nicht das Verhalten des Elements; diese Funktion muss vom Entwickler gesteuert werden. Wenn false gesetzt ist oder das Attribut weggelassen wird und standardmäßig false ist, erwartet der Benutzer, dass die Steuerung eine einzeilige Textbox ist und <kbd>Enter</kbd> oder <kbd>Return</kbd> das Formular absendet.
+- Attribut [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline)
+  - : Wenn `aria-multiline="true"` gesetzt ist, informiert die assistive Technologie den Benutzer darüber, dass das Textfeld mehrzeilige Eingaben unterstützt. Es wird erwartet, dass <kbd>Enter</kbd> oder <kbd>Return</kbd> einen Zeilenumbruch erzeugt, statt das Formular abzusenden. ARIA ändert das Verhalten des Elements nicht; diese Funktion muss von Entwicklern implementiert werden. Wenn `false` gesetzt ist oder das Attribut fehlt und damit standardmäßig `false` gilt, erwartet der Benutzer ein einzeiliges Textfeld, bei dem <kbd>Enter</kbd> oder <kbd>Return</kbd> das Formular absendet.
 
-- [`aria-placeholder`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-placeholder) Attribut
-  - : Repräsentiert einen Hinweis (Wort oder Phrase) für den Benutzer darüber, was in das Textfeld eingeben werden soll. Der Hinweis sollte ein Beispielwert oder eine kurze Beschreibung des erwarteten Formats sein. Diese Information sollte nicht als Ersatz für ein Label verwendet werden: Ein Label ist fokussierbar, permanent, zeigt an, welche Art von Information erwartet wird, und erhöht die Trefferfläche zum Setzen des Fokus auf die Steuerung, während Platzhaltertext nur ein temporärer Hinweis über den erwarteten Wert ist, der, wenn er falsch implementiert wird, die Barrierefreiheit verringern kann. Der Platzhalter sollte sichtbar sein, wenn der Wert der Steuerung eine leere Zeichenkette ist, wie wenn die Steuerung zuerst den Fokus erhält und wenn Benutzer einen vorher eingegebenen Wert entfernen. Anstatt `aria-placeholder` zu verwenden, verwenden Sie das semantische `<input type="text">` oder `<textarea>` mit einem `placeholder` Attribut.
-- [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly) Attribut
-  - : Gibt an, dass der Benutzer den Wert des Textfeldes nicht ändern kann. Anstatt `aria-readonly` zu verwenden, nutzen Sie das semantische `<input type="text">` oder `<textarea>` mit einem `readonly` Attribut.
-- [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required) Attribut
-  - : Gibt an, dass ein Wert für das Feld bereitgestellt werden muss, bevor es abgesendet wird. Anstatt `aria-required` zu verwenden, nutzen Sie das semantische `<input type="text">` oder `<textarea>` mit einem `required` Attribut.
+- Attribut [`aria-placeholder`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-placeholder)
+  - : Stellt dem Benutzer einen Hinweis (ein Wort oder eine Formulierung) dazu bereit, was in das Textfeld eingegeben werden soll. Der Hinweis sollte ein Beispielwert oder eine kurze Beschreibung des erwarteten Formats sein. Diese Information darf eine Beschriftung nicht ersetzen: Eine Beschriftung kann fokussiert werden, bleibt dauerhaft sichtbar, gibt an, welche Art von Information erwartet wird, und vergrößert die anklickbare Fläche zum Fokussieren des Steuerelements. Platzhaltertext ist dagegen nur ein vorübergehender Hinweis auf den erwarteten Wert und kann bei falscher Umsetzung die Barrierefreiheit beeinträchtigen. Der Platzhalter sollte sichtbar sein, wenn der Wert des Steuerelements eine leere Zeichenfolge ist, etwa wenn das Steuerelement erstmals den Fokus erhält oder Benutzer einen zuvor eingegebenen Wert entfernen. Verwenden Sie statt `aria-placeholder` ein semantisches `<input type="text">`- oder `<textarea>`-Element mit dem Attribut `placeholder`.
+- Attribut [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)
+  - : Gibt an, dass der Benutzer den Wert des Textfelds nicht ändern kann. Verwenden Sie statt `aria-readonly` ein semantisches `<input type="text">`- oder `<textarea>`-Element mit dem Attribut `readonly`.
+- Attribut [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)
+  - : Gibt an, dass für das Feld vor dem Absenden ein Wert angegeben werden muss. Verwenden Sie statt `aria-required` ein semantisches `<input type="text">`- oder `<textarea>`-Element mit dem Attribut `required`.
 
 ### Tastaturinteraktionen
 
-Bei einzeiliger Verwendung (wenn `aria-multiline` auf `false` gesetzt ist oder nicht verwendet wird), sendet die Return- oder Enter-Taste das Formular ab. Bei der mehrzeiligen Verwendung (wenn `aria-multiline` auf `true` gesetzt ist) fügt die Return- oder Enter-Taste einen Zeilenumbruch ein.
+Bei einzeiliger Verwendung (wenn `aria-multiline` den Wert `false` hat oder nicht verwendet wird) wird das Formular mit der Return- oder Enter-Taste abgesendet. Bei mehrzeiliger Verwendung (wenn `aria-multiline` den Wert `true` hat) fügt die Return- oder Enter-Taste einen Zeilenumbruch ein.
 
 ### JavaScript-Funktionen
 
-Alle Funktionen, die mit allen Eigenschaften und Zuständen verbunden sind, müssen aufrechterhalten werden, und die Formularabsendung bei Drücken von Enter oder Return auf einer einzeiligen Textbox muss behandelt werden.
+Alle Funktionen, die mit den jeweiligen Eigenschaften und Zuständen verbunden sind, müssen gewährleistet sein. Bei einem einzeiligen Textfeld muss außerdem das Absenden des Formulars mit Enter oder Return implementiert werden.
 
-- Fokus-Ereignishandler und aria-activedescendant-Attribut
-  - : Wenn Sie ein zusammengesetztes Widget implementieren, wie eine Combobox, die aus einer Textbox und einer Listbox besteht, müssen Sie das `aria-activedescendant` Attribut mit einem Handler verwalten. Bevor Sie diese Technik verwenden, stellen Sie sicher, dass die von Ihnen angestrebten Browser es derzeit unterstützen. Siehe die [Spezifikation von aria-descendant](https://w3c.github.io/aria/#aria-activedescendant) für weitere Informationen.
-
-> [!NOTE]
-> Es ist eine bessere Praxis, ein {{HTMLElement("input")}}-Element mit `type="text"` oder ein {{HTMLElement("textarea")}}-Element anstelle der ARIA-Textbox-Rolle zu verwenden. Wenn Sie eines der semantischen Elemente verwenden, ist die ARIA-Textbox-Rolle nicht notwendig. Siehe [Notizen zur Verwendung von ARIA in HTML](https://w3c.github.io/using-aria/).
-
-## Mögliche Auswirkungen auf Benutzeragenten und unterstützende Technologien
-
-Wenn die `textbox` Rolle einem Element hinzugefügt wird oder ein solches Element sichtbar wird, sollte der Benutzeragent Folgendes tun:
-
-- Das Element im Zugänglichkeits-API des Betriebssystems als mit einer textbox Rolle haben kennzeichnen.
-- Ein zugängliches Textbox-Ereignis unter Verwendung der Zugänglichkeits-API des Betriebssystems auslösen, falls es diese unterstützt.
-
-Produkte unterstützender Technologien sollten auf ein solches Ereignis achten und den Benutzer entsprechend benachrichtigen:
-
-- Screen Reader sollten sein Label und seine Rolle ankündigen, wenn der Fokus zuerst auf einer Textbox landet. Wenn sie auch Inhalte enthält, sollte dies wie bei einer regulären Textbox angekündigt werden.
-- Bildschirmvergrößerer könnten die Textbox vergrößern.
+- Fokus-Event-Handler und Attribut `aria-activedescendant`
+  - : Wenn Sie ein zusammengesetztes Widget implementieren, beispielsweise eine Combobox aus einem Textfeld und einer Listbox, müssen Sie das Attribut `aria-activedescendant` mithilfe eines Event-Handlers verwalten. Bevor Sie diese Technik verwenden, stellen Sie sicher, dass die Browser, die Sie unterstützen müssen, sie derzeit unterstützen. Weitere Informationen finden Sie in der [Spezifikation von aria-activedescendant](https://w3c.github.io/aria/#aria-activedescendant).
 
 > [!NOTE]
-> Meinungen darüber, wie unterstützende Technologien mit dieser Technik umgehen sollten, können unterschiedlich sein. Die oben bereitgestellten Informationen sind eine dieser Meinungen und können unterschiedlich erfahren werden.
+> Es empfiehlt sich, statt der ARIA-Rolle `textbox` ein {{HTMLElement("input")}}-Element mit type="text" oder ein {{HTMLElement("textarea")}}-Element zu verwenden. Bei beiden semantischen Elementen ist die ARIA-Rolle `textbox` nicht erforderlich. Siehe [Hinweise zur Verwendung von ARIA in HTML](https://w3c.github.io/using-aria/).
+
+## Mögliche Auswirkungen auf User Agents und assistive Technologien
+
+Wenn einem Element die Rolle `textbox` hinzugefügt wird oder ein solches Element sichtbar wird, sollte der User Agent Folgendes tun:
+
+- Das Element in der Barrierefreiheits-API des Betriebssystems mit der Rolle `textbox` bereitstellen.
+- Über die Barrierefreiheits-API des Betriebssystems ein Ereignis für ein zugängliches Textfeld auslösen, sofern die API dies unterstützt.
+
+Assistive Technologien sollten auf ein solches Ereignis reagieren und den Benutzer entsprechend informieren:
+
+- Screenreader sollten die Beschriftung und Rolle ansagen, wenn ein Textfeld erstmals den Fokus erhält. Wenn es bereits Inhalt enthält, sollte dieser wie bei einem gewöhnlichen Textfeld ebenfalls angesagt werden.
+- Bildschirmvergrößerungsprogramme können das Textfeld vergrößern.
+
+> [!NOTE]
+> Die Meinungen darüber, wie assistive Technologien mit dieser Technik umgehen sollten, können auseinandergehen. Die obigen Angaben geben eine dieser Auffassungen wieder; in der Praxis kann sich das Verhalten unterscheiden.
+
+## Bewährte Vorgehensweisen
+
+Fügen Sie dem HTML-Element, dem diese Rolle zugewiesen wird, unbedingt das Attribut `contenteditable="true"` hinzu. Tun Sie dies auch dann, wenn Sie `aria-readonly` auf `true` setzen. So vermitteln Sie, dass der Inhalt bearbeitbar wäre, wenn er nicht schreibgeschützt wäre.
 
 ## Beispiele
 
-### Beispiel 1: Hinzufügen der Rolle im HTML-Code für einzeilige Eingabe
+### Beispiel 1: Die Rolle für einzeilige Eingaben im HTML-Code hinzufügen
 
-Das untenstehende Snippet zeigt, wie die textbox Rolle direkt in den HTML-Quellcode hinzugefügt wird.
+Der folgende Ausschnitt zeigt, wie die Rolle `textbox` direkt im HTML-Quellcode hinzugefügt wird.
 
 ```html
 <div role="textbox" contenteditable="true"></div>
 ```
 
-### Beispiel 2: Hinzufügen der Rolle im HTML-Code für mehrzeilige Eingabe
+### Beispiel 2: Die Rolle für mehrzeilige Eingaben im HTML-Code hinzufügen
 
-Das untenstehende Snippet zeigt, wie die textbox Rolle direkt in den HTML-Quellcode hinzugefügt wird.
+Der folgende Ausschnitt zeigt, wie die Rolle `textbox` direkt im HTML-Quellcode hinzugefügt wird.
 
 ```html
 <div role="textbox" contenteditable="true" aria-multiline="true"></div>
 ```
 
-## Beste Praktiken
-
-Stellen Sie sicher, dass Sie das `contenteditable="true"` Attribut dem HTML-Element hinzufügen, dem diese Rolle zugewiesen wird. Tun Sie dies auch, wenn Sie `aria-readonly` auf `true` setzen; auf diese Weise kommunizieren Sie, dass der Inhalt bearbeitbar wäre, wenn er nicht schreibgeschützt wäre.
-
 ## Siehe auch
 
-- [ARIA: search role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)
+- [ARIA: Rolle `search`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)

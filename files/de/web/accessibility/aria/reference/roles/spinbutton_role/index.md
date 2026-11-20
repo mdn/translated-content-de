@@ -1,99 +1,107 @@
 ---
-title: "ARIA: Rolle spinbutton"
+title: "ARIA: spinbutton-Rolle"
 short-title: spinbutton
 slug: Web/Accessibility/ARIA/Reference/Roles/spinbutton_role
 l10n:
-  sourceCommit: e73d98a3d66c8c6c7dd60780f58136be04d9bfdf
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `spinbutton`-Rolle definiert einen Typ von Bereich, bei dem der Benutzer erwartet, einen Wert aus diskreten Optionen auszuwählen.
+Die `spinbutton`-Rolle definiert eine Art von Wertebereich, bei der Benutzer einen Wert aus einzelnen Auswahlmöglichkeiten auswählen.
 
 ## Beschreibung
 
-Die `spinbutton`-Rolle zeigt an, dass das Element ein Eingabewidget ist, das seinen Wert auf eine Menge oder einen Bereich diskreter Werte beschränkt. Die Rolle bietet auch eine Inkrement- und Dekrement-Funktionalität. Zum Beispiel kann in einem Widget, das es Benutzern ermöglicht, einen Einsatz in einem Texas Holdem-Spiel zu wählen, die `spinbutton`-Rolle es den Benutzern ermöglichen, eine Zahl zwischen den minimalen und maximalen Einsätzen in Schritten auszuwählen, wie es durch die aktuellen Spielregeln erlaubt ist.
+Die `spinbutton`-Rolle kennzeichnet ein Eingabe-Widget, dessen Wert auf eine Menge oder einen Bereich einzelner Werte beschränkt ist. Die Rolle umfasst außerdem Funktionen zum Erhöhen und Verringern des Werts. Beispielsweise kann die `spinbutton`-Rolle in einem Widget, mit dem Benutzer einen Einsatz für eine Partie Texas Hold’em festlegen, die Auswahl eines Werts zwischen dem Mindest- und dem Höchsteinsatz in Schritten ermöglichen, die nach den aktuellen Spielregeln zulässig sind.
 
-Der Spinbutton repräsentiert den Bereich der möglichen Werte. Der Wert der Spinbutton-Eingabe repräsentiert den aktuellen Wert.
+Der Spinbutton repräsentiert den Bereich möglicher Werte. Der Wert der Spinbutton-Eingabe ist der aktuelle Wert.
 
-Spinbuttons haben oft drei Komponenten, darunter ein Textfeld, das den aktuellen Wert anzeigt, eine Inkrementtaste und eine Dekrementtaste. Das Textfeld ist in der Regel die einzige fokussierbare Komponente, da die Inkrement- und Dekrementfunktionen über die Pfeiltasten zugänglich sind. Typischerweise erlaubt das Textfeld auch den Benutzern, den Wert direkt zu bearbeiten.
+Spinbuttons bestehen häufig aus drei Komponenten: einem Textfeld, das den aktuellen Wert anzeigt, einer Schaltfläche zum Erhöhen und einer Schaltfläche zum Verringern. Üblicherweise kann nur das Textfeld den Fokus erhalten, da die Funktionen zum Erhöhen und Verringern über die Pfeiltasten zugänglich sind. In der Regel können Benutzer den Wert auch direkt im Textfeld bearbeiten.
 
-Zusätzlich zum Einschluss des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attributs, um die Spinbutton-Fokussierung zu ermöglichen, muss die Unterstützung für Tastatur- und Zeigereingabegeräte implementiert werden. Richtungstasten wie die Pfeiltasten müssen für Tastaturnutzer unterstützt werden. Das Ändern des Wertes beim Klicken auf Inkrement- und Dekrementtasten muss für Zeigegeräte unterstützt werden. Siehe unten [Tastaturinteraktionen](#tastaturinteraktionen).
+Damit der Spinbutton den Fokus erhalten kann, muss das Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) hinzugefügt werden. Außerdem muss die Bedienung per Tastatur und Zeigegerät implementiert werden. Für die Tastaturbedienung müssen Richtungstasten wie die Pfeiltasten unterstützt werden. Bei Zeigegeräten muss sich der Wert ändern, wenn auf die Schaltflächen zum Erhöhen oder Verringern geklickt wird. Siehe [Tastaturinteraktionen](#tastaturinteraktionen) weiter unten.
 
 > [!NOTE]
-> Es wird empfohlen, ein [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number)-Element oder andere Eingabetypen für Datum und Zeit zu verwenden, die auch implizit die `role="spinbutton"`-Semantik haben, anstatt die `spinbutton`-Rolle. Benutzeragenten bieten stilisierte Widgets für diese Eingabeelemente, die Standardfunktionen zum Inkrementieren, Dekrementieren und zur nativen Bereichsbeschränkung bieten. Bei der Verwendung von nicht-semantischen Elementen müssen alle Merkmale des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS nachgebildet werden.
+> Es wird empfohlen, das Element [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number) oder andere Eingabetypen für Datum und Uhrzeit zu verwenden, die ebenfalls implizit die Semantik von `role="spinbutton"` besitzen, statt die `spinbutton`-Rolle zuzuweisen. User Agents stellen für diese Eingabeelemente gestaltete Widgets bereit, die standardmäßig Funktionen zum Erhöhen und Verringern sowie eine native Begrenzung des Wertebereichs bieten. Bei Verwendung nicht semantischer Elemente müssen alle Funktionen des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS nachgebildet werden.
 
-### Möglichkeiten von ARIA-Bereichs-Widgets
+### Optionen für ARIA-Widgets mit Wertebereich
 
-ARIA bietet Entwicklern sechs verschiedene Bereichs-[Widget-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles), einschließlich `progressbar`, `meter`, `slider` und `spinbutton`.
+ARIA stellt Entwicklern sechs verschiedene [Widget-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles) für Wertebereiche bereit, darunter `progressbar`, `meter`, `slider` und `spinbutton`.
 
-Die [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)-Rolle, ähnlich dem {{HTMLElement('progress')}}-Element von HTML, ist ein schreibgeschützter Bereich. Sie zeigt den Fortschritt bei der Durchführung einer Aufgabe in eine Richtung an, wie zum Beispiel eine Fortschrittsleiste für den Ladevorgang eines Datei-Uploads, der bei 100 % endet, wenn der Vorgang abgeschlossen ist.
+Die Rolle [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role) stellt ähnlich wie das HTML-Element {{HTMLElement('progress')}} einen schreibgeschützten Wertebereich dar. Sie zeigt den Fortschritt einer Aufgabe an, der sich nur in eine Richtung bewegt, beispielsweise als Ladefortschrittsbalken für einen Datei-Upload, der bei vollständigem Abschluss 100 % erreicht.
 
-Die [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)-Rolle, ähnlich dem {{HTMLElement('meter')}}-Element von HTML, ist eine schreibgeschützte Anzeige. Sie zeigt die Menge von etwas innerhalb eines bekannten Bereichs an, wie zum Beispiel die Batterieanzeige eines Computers oder die Tankanzeige eines Autos.
+Die Rolle [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role) stellt ähnlich wie das HTML-Element {{HTMLElement('meter')}} eine schreibgeschützte Anzeige dar. Sie zeigt die Menge von etwas innerhalb eines bekannten Wertebereichs an, beispielsweise den Akkustand eines Computers oder die Tankanzeige eines Autos.
 
-Die `slider`-Rolle, ähnlich einem HTML `input` vom Typ `range`, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), ist ein beschreibbares Eingabefeld mit Bereich. Slider ermöglichen es Benutzern, einen Wert zwischen den vordefinierten Minimal- und Maximalwerten auszuwählen. Der Benutzer wählt einen Wert aus, indem er einen Schieberegler horizontal oder vertikal bewegt, um einen Wert zu wählen.
+Die Rolle `slider` stellt ähnlich wie ein HTML-`input` vom Typ `range`, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), einen veränderbaren Eingabewert innerhalb eines Wertebereichs dar. Mit einem Slider können Benutzer einen Wert zwischen einem vordefinierten Mindest- und Höchstwert auswählen. Dazu bewegen sie einen Schieberegler entlang einer horizontalen oder vertikalen Skala.
 
-Die `spinbutton`-Rolle ist ebenfalls beschreibbar: Der Bereich diskreter Werte wird durch die Interaktion des Benutzers ausgewählt. Wie bei `slider`-Steuerelementen, müssen `spinbutton`-Widgets in der Lage sein, den Fokus zu erhalten und Tastatur-, Zeiger- und Berührungsinteraktionen zu unterstützen.
+Die Rolle `spinbutton` ist ebenfalls veränderbar: Benutzer wählen durch Interaktion einen der angebotenen Einzelwerte aus. Wie Steuerelemente mit der Rolle `slider` müssen Widgets mit der Rolle `spinbutton` den Fokus erhalten können und die Bedienung per Tastatur, Zeigegerät und Touch-Eingabe unterstützen.
 
 > [!WARNING]
-> Um den Spinbutton-Wert zu ändern, müssen auf Berührung basierende Assistive Technologien auf Benutzerbewegungen zum Erhöhen und Verringern des Werts reagieren, indem sie Tastenereignisse synthetisieren.
-> Testen Sie Spinbutton-Widgets vollständig mit Assistive Technologien auf Geräten, bei denen Berührung das primäre Eingabemechanismus ist, bevor Sie die `spinbutton`-Rolle (und alle Bereichs-Widgets) verwenden.
+> Um den Wert eines Spinbuttons zu ändern, müssen touchbasierte assistive Technologien auf Benutzer-Gesten zum Erhöhen und Verringern des Werts reagieren, indem sie Tastenereignisse erzeugen.
+> Testen Sie Spinbutton-Widgets gründlich mit assistiven Technologien auf Geräten, bei denen Touch die primäre Eingabemethode ist, bevor Sie die Rolle `spinbutton` verwenden. Dies gilt auch für alle anderen Widgets mit Wertebereich.
 
-### Gemeinsame Attribute
+### Häufig verwendete Attribute
 
-Das [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)-Attribut legt den Mindestwert fest. Wenn es weggelassen wird oder keine Zahl ist, ist der Standardwert `0` (null).
+Das Attribut [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) legt den Mindestwert fest. Wenn es fehlt oder keinen numerischen Wert enthält, wird standardmäßig `0` (null) verwendet.
 
-Das [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)-Attribut definiert den Höchstwert. Wenn es fehlt oder keine Zahl ist, ist der Standardwert `100`.
+Das Attribut [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) definiert den Höchstwert. Wenn es fehlt oder keinen numerischen Wert enthält, wird standardmäßig `100` verwendet.
 
-Der Wert des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attributs muss zwischen den minimalen und maximalen Werten liegen, beide inklusive. Dieses Attribut ist für `meter` erforderlich und für `progressbar` optional.
+Der Wert des Attributs [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) muss zwischen dem Mindest- und dem Höchstwert liegen, wobei beide Grenzen eingeschlossen sind. Dieses Attribut ist für `meter` erforderlich und für `progressbar` optional.
 
-Für `spinbutton`, es sei denn, es werden semantische HTML-Elemente wie [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number) verwendet, muss der Wert aktualisiert werden, und der `aria-valuenow`-Wert muss ebenfalls programmgesteuert aktualisiert werden.
+Bei `spinbutton` muss der Wert von `aria-valuenow` programmgesteuert aktualisiert werden, wenn sich der Wert ändert – es sei denn, es werden semantische HTML-Elemente wie [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number) verwendet.
 
-Das optionale [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)-Attribut wird verwendet, wenn der numerische Wert von `aria-valuenow` nicht den beabsichtigten Wert des Spinbuttons widerspiegelt. Die optionalen minimalen, maximalen und aktuellen Werte sollten numerisch sein. Wenn die von diesen Zahlen dargestellten Werte nicht numerisch sind, sollte das `aria-valuetext`-Attribut mit einem Zeichenfolgenwert enthalten werden, der den numerischen Wert definiert. Zum Beispiel, wenn ein Spinbutton für T-Shirt-Größen verwendet wird, sollte das `aria-valuetext`-Attribut von `XX-Small` bis `XX-Large` wechseln, während `aria-valuenow` zunimmt.
+Das optionale Attribut [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext) wird verwendet, wenn der numerische Wert von `aria-valuenow` den beabsichtigten Wert des Spinbuttons nicht angemessen wiedergibt. Die optionalen Mindest-, Höchst- und aktuellen Werte sollten numerisch sein. Wenn die durch diese Zahlen dargestellten Werte nicht numerisch sind, sollte das Attribut `aria-valuetext` einen String enthalten, der die Bedeutung des numerischen Werts beschreibt. Wenn ein Spinbutton beispielsweise zur Auswahl von T-Shirt-Größen verwendet wird, sollte sich `aria-valuetext` bei steigendem `aria-valuenow` von `XX-Small` bis `XX-Large` ändern.
 
-Der `aria-valuetext`-Wert muss aktualisiert werden, wenn sich der Wert oder `aria-valuenow` ändert. ARIA-Attribute werden von semantischen HTML-Elementen unterstützt. Während es kein entsprechendes HTML-Attribut für `<input>` gibt, können Sie `aria-valuetext` in jedem {{htmlelement('input')}}-Typ verwenden. Wenn `aria-valuetext` ein wichtiges Merkmal für einen Spinbutton ist, sollten Sie in Betracht ziehen, {{HTMLElement('select')}} mit {{HTMLElement('option')}}-Elementen zu verwenden.
+Der Wert von `aria-valuetext` muss aktualisiert werden, wenn sich der Wert oder `aria-valuenow` ändert. ARIA-Attribute werden auf semantischen HTML-Elementen unterstützt. Zwar gibt es für `<input>` kein entsprechendes HTML-Attribut, Sie können `aria-valuetext` jedoch bei jedem Typ von {{htmlelement('input')}} verwenden. Wenn `aria-valuetext` für einen Spinbutton besonders wichtig ist, sollten Sie stattdessen {{HTMLElement('select')}} mit {{HTMLElement('option')}}-Elementen verwenden.
 
-Ein zugänglicher Name ist **erforderlich**. Wenn die `spinbutton`-Rolle auf ein HTML-{{HTMLElement('input')}}-Element angewendet wird, kann der zugängliche Name aus dem zugehörigen {{HTMLElement('label')}} stammen. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn ein sichtbares Label vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn kein sichtbares Label vorhanden ist.
+Ein zugänglicher Name ist **erforderlich**. Wenn die Rolle `spinbutton` einem HTML-Element {{HTMLElement('input')}} zugewiesen wird, kann der zugängliche Name vom zugehörigen {{HTMLElement('label')}} stammen. Verwenden Sie andernfalls [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn eine sichtbare Beschriftung vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn keine sichtbare Beschriftung vorhanden ist.
 
-Wenn Sie nicht das {{HTMLElement('input')}}-Element von HTML verwenden, um Ihren Spinbutton zu erstellen, fügen Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut hinzu, um den Spinbutton fokussierbar zu machen. Die `spinbutton`-Rolle ist benutzerinteraktiv und erfordert daher die Möglichkeit, den Fokus zu erhalten. Der Fokus sollte auf die Spinbutton-Eingabe gelegt werden und nicht auf die zugehörigen Tasten, die den Spinbutton-Wert erhöhen und verringern.
+Wenn Sie Ihren Spinbutton nicht mit dem HTML-Element {{HTMLElement('input')}} erstellen, fügen Sie das Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) hinzu, damit der Spinbutton den Fokus erhalten kann. Die Rolle `spinbutton` ist interaktiv und muss daher den Fokus erhalten können. Der Fokus sollte auf der Spinbutton-Eingabe liegen und nicht auf den zugehörigen Schaltflächen zum Erhöhen und Verringern des Werts.
 
-### Nachfahren beschränkt auf Tasten oder Text
+### Nachfahren auf Schaltflächen oder Text beschränkt
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibility-API dargestellt werden, nur bestimmten Inhalt enthalten können. Die untergeordneten oder eigentümerischen Elemente von `spinbutton` sind auf ein Textfeld und zwei Tasten beschränkt. Alternativ kann die `spinbutton`-Rolle auf eine `text`-Eingabe angewendet werden und benachbarte Tasten können verwendet werden, um die Inkrement- und Dekrement-Funktionen zu unterstützen.
+Einige Arten von Komponenten der Benutzeroberfläche können in einer Barrierefreiheits-API der Plattform nur bestimmte Inhalte enthalten. Die Kindelemente oder zugeordneten Elemente eines `spinbutton` sind auf ein Textfeld und zwei Schaltflächen beschränkt. Alternativ kann die Rolle `spinbutton` einer `text`-Eingabe zugewiesen werden, während danebenliegende Schaltflächen die Funktionen zum Erhöhen und Verringern bereitstellen.
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)
-  - : Setzt einen Dezimalwert zwischen `aria-valuemin` und `aria-valuemax`, der den aktuellen Wert des Spinbuttons anzeigt. Wenn nicht vorhanden, hat das Spinbutton-Element keinen aktuellen Wert.
+  - : Wird auf einen Dezimalwert zwischen `aria-valuemin` und `aria-valuemax` gesetzt und gibt den aktuellen Wert des Spinbuttons an. Fehlt das Attribut, hat das Spinbutton-Element keinen aktuellen Wert.
 
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)
-  - : Assistive Technologien stellen oft den Wert von `aria-valuenow` als Zahl dar. Wenn `aria-valuenow` nicht genau sein kann, verwenden Sie `aria-valuetext`, um dem Spinbutton einen verständlicheren Wert zu geben.
+  - : Assistive Technologien geben den Wert von `aria-valuenow` häufig als Zahl wieder. Wenn `aria-valuenow` den Wert nicht zutreffend wiedergeben kann, verwenden Sie `aria-valuetext`, um einen verständlicheren Wert für den Spinbutton bereitzustellen.
 
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)
-  - : Setzt einen Dezimalwert, der den Minimalwert darstellt und kleiner als `aria-valuemax` ist. Wenn nicht vorhanden, gibt es keinen Standardwert.
+  - : Wird auf einen Dezimalwert gesetzt, der den Mindestwert darstellt und kleiner als `aria-valuemax` ist. Fehlt das Attribut, gibt es keinen Standardwert.
 
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)
-  - : Setzt einen Dezimalwert, der den Maximalwert darstellt und größer als `aria-valuemin` ist. Wenn nicht vorhanden, gibt es keinen Standardwert.
+  - : Wird auf einen Dezimalwert gesetzt, der den Höchstwert darstellt und größer als `aria-valuemin` ist. Fehlt das Attribut, gibt es keinen Standardwert.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Definiert den Zeichenfolgenwert oder identifiziert das Element (oder die Elemente), die das Spinbutton-Element beschriften und einen zugänglichen Namen bereitstellen. Ein zugänglicher Name ist erforderlich.
+  - : Definiert einen String-Wert oder bezeichnet das Element beziehungsweise die Elemente, die das Spinbutton-Element beschriften und ihm einen zugänglichen Namen geben. Ein zugänglicher Name ist erforderlich.
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Definiert einen Zeichenfolgenwert, der das Spinbutton-Element beschriftet. Dies bietet dem Element einen zugänglichen Namen, wenn kein sichtbares Label verfügbar ist, um den erforderlichen zugänglichen Namen über {{HTMLElement('label')}} oder `aria-labelledby` bereitzustellen.
+  - : Definiert einen String-Wert, der das Spinbutton-Element beschriftet. Dadurch erhält das Element einen zugänglichen Namen, wenn keine sichtbare Beschriftung vorhanden ist, die den erforderlichen zugänglichen Namen über {{HTMLElement('label')}} oder `aria-labelledby` bereitstellen kann.
 
 ### Tastaturinteraktionen
 
-| Taste(n)              | Aktion                                                                                                |
-| --------------------- | ----------------------------------------------------------------------------------------------------- |
-| Pfeil rechts und oben | Erhöht den ausgewählten Wert um einen Schritt                                                         |
-| Pfeil links und unten | Verringert den ausgewählten Wert um einen Schritt                                                     |
-| Bild nach oben        | (Optional) Erhöht den Wert um einen festgelegten Betrag, der größer oder gleich einem Schritt ist     |
-| Bild nach unten       | (Optional) Verringert den Wert um einen festgelegten Betrag, der größer oder gleich einem Schritt ist |
-| Pos1                  | Setzt den Spinbutton auf den Mindestwert                                                              |
-| Ende                  | Setzt den Spinbutton auf den Maximalwert                                                              |
+| Taste(n)               | Aktion                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Pfeil nach rechts/oben | Ausgewählten Wert um einen Schritt erhöhen                                           |
+| Pfeil nach links/unten | Ausgewählten Wert um einen Schritt verringern                                        |
+| Page Up                | (Optional) Wert um einen festgelegten Betrag von mindestens einem Schritt erhöhen    |
+| Page Down              | (Optional) Wert um einen festgelegten Betrag von mindestens einem Schritt verringern |
+| Home                   | Spinbutton auf den Mindestwert setzen                                                |
+| End                    | Spinbutton auf den Höchstwert setzen                                                 |
 
-Für die optionalen <kbd>Bild nach oben</kbd> und <kbd>Bild nach unten</kbd> Tasten sollte die Änderung des Spinbutton-Werts vorzugsweise um einen Betrag größer als die Schrittänderungen durch die Pfeil-aufwärts- und Pfeil-abwärts-Tasten sein.
+Bei den optionalen Tasten <kbd>Page Up</kbd> und <kbd>Page Down</kbd> sollte sich der Wert des Spinbuttons vorzugsweise um einen größeren Betrag ändern als bei den Pfeiltasten nach oben und unten.
+
+## Bewährte Vorgehensweisen
+
+HTMLs `<input type="number">` hat implizit die `role` `spinbutton`. HTMLs `<input type="date">` enthält drei verschachtelte Spinbuttons: jeweils einen für Monat, Tag und Jahr. Wenn Sie semantische HTML-Formularelemente für ihren vorgesehenen Zweck verwenden, verwenden Sie nicht die Attribute `aria-valuemax` oder `aria-valuemin`, sondern `min` und `max`. Ansonsten können alle globalen `aria-*`-Attribute und alle weiteren `aria-*`-Attribute mit der Rolle `spinbutton` verwendet werden.
+
+### Semantisches HTML bevorzugen
+
+Es wird empfohlen, statt der Rolle `spinbutton` das native {{HTMLElement("input")}}-Element vom Typ `number`, [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number), zu verwenden.
 
 ## Beispiele
 
-Im untenstehenden Beispiel wurde eine `spinbutton`-Rolle definiert, um Benutzern zu ermöglichen, einen Tag des Monats auszuwählen.
+Im folgenden Beispiel wurde die Rolle `spinbutton` definiert, damit Benutzer einen Tag des Monats auswählen können.
 
 ```html
 <p id="day">Enter the day of the month</p>
@@ -111,11 +119,11 @@ Im untenstehenden Beispiel wurde eine `spinbutton`-Rolle definiert, um Benutzern
 <button type="button" tabindex="-1" aria-label="next day">˲</button>
 ```
 
-In diesem Beispiel haben wir einen negativen `tabindex` hinzugefügt, um die Tasten aus der Standard-Tab-Reihenfolge zu entfernen. Wir haben auch `tabindex` zu einem normalerweise nicht interaktiven {{HTMLElement('div')}} hinzugefügt, um das Spinbutton selbst in die Tab-Reihenfolge einzufügen. Dieses Beispiel erfordert JavaScript, um Tastaturaktionen zu verarbeiten, wenn der Spinbutton fokussiert ist und wenn ein Mausbenutzer auf die Tasten klickt.
+In diesem Beispiel haben wir den Schaltflächen einen negativen `tabindex` zugewiesen, um sie aus der standardmäßigen Tabulatorreihenfolge zu entfernen. Außerdem haben wir einem normalerweise nicht interaktiven {{HTMLElement('div')}} einen `tabindex` hinzugefügt, damit der `spinbutton` selbst in die Tabulatorreihenfolge aufgenommen wird. Dieses Beispiel erfordert JavaScript, um Tastaturaktionen zu verarbeiten, wenn der Spinbutton den Fokus hat, und um Klicks auf die Schaltflächen zu verarbeiten.
 
 ### Mit semantischem HTML
 
-Dies könnte auch mit semantischem HTML geschrieben werden, wodurch die Notwendigkeit für CSS oder JavaScript entfällt und auch die Notwendigkeit entfällt, zusätzliche Tasten für das Inkrementieren und Dekrementieren bereitzustellen und zu funktionalisieren. Der untenstehende Code-Schnipsel zeigt das vorherige Beispiel ohne die `spinbutton`-Rolle und unter Verwendung von semantischem HTML.
+Dies hätte auch mit semantischem HTML umgesetzt werden können. Dadurch wären weder CSS noch JavaScript erforderlich, und es müssten auch keine zusätzlichen Schaltflächen zum Erhöhen und Verringern samt ihrer Funktionalität bereitgestellt werden. Der folgende Codeausschnitt zeigt das vorherige Beispiel ohne die Rolle `spinbutton` und mit semantischem HTML.
 
 ```html
 <label for="day">Enter the day of the month</label>
@@ -128,17 +136,9 @@ Dies könnte auch mit semantischem HTML geschrieben werden, wodurch die Notwendi
   id="day" />
 ```
 
-{{EmbedLiveSample("Mit_semantischem_HTML", 50, 50)}}
+{{EmbedLiveSample("With_semantic_HTML", 50, 50)}}
 
-In diesem Fall wäre das einzige erforderliche JavaScript, um das `aria-valuetext` zu aktualisieren, wenn sich der Eingabewert ändert, was in diesem Fall wirklich eine optionale Funktion ist.
-
-## Beste Praktiken
-
-HTML's `<input type="number">` hat implizit die `role` von `spinbutton`. HTML's `<input type="date">` hat 3 verschachtelte Spinbuttons, eines für Monat, Tag und Jahr. Wenn Sie semantische HTML-Formularelemente für ihre beabsichtigten Zwecke verwenden, verwenden Sie nicht `aria-valuemax` oder `aria-valuemin` Attribute; verwenden Sie stattdessen `min` und `max`. Andernfalls sind alle globalen `aria-*` Attribute und andere `aria-*` Attribute auf die `spinbutton` Rolle anwendbar.
-
-### Bevorzugen Sie semantisches HTML
-
-Es wird empfohlen, das native {{HTMLElement("input")}}-Element vom Typ `number`, [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number), anstelle der `spinbutton`-Rolle zu verwenden.
+In diesem Fall wäre JavaScript nur erforderlich, um `aria-valuetext` zu aktualisieren, wenn sich der Eingabewert ändert. Diese Funktion ist hier allerdings optional.
 
 ## Spezifikationen
 
@@ -149,12 +149,12 @@ Es wird empfohlen, das native {{HTMLElement("input")}}-Element vom Typ `number`,
 - [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number)
 - [`<input type="date">`](/de/docs/Web/HTML/Reference/Elements/input/date)
 - [`<input type="time">`](/de/docs/Web/HTML/Reference/Elements/input/time)
-- Andere Bereichs-Widgets umfassen:
+- Weitere Widgets mit Wertebereich:
   - [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
   - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
-  - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (wenn fokussierbar)
+  - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (wenn es den Fokus erhalten kann)
   - [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
   - [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role)
-- Funktionierende Beispiele:
-  - [Beispiel für Datumswähler-Spinbutton](https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/)
-  - [Beispiel für Werkzeugleiste: Schriftgröße-Picker](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/)
+- Funktionsfähige Beispiele:
+  - [Beispiel für Spinbuttons in einer Datumsauswahl](https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/)
+  - [Beispiel für eine Symbolleiste: Auswahl der Schriftgröße](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/)

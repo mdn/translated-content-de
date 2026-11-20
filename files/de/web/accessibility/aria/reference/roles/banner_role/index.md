@@ -3,24 +3,24 @@ title: "ARIA: banner-Rolle"
 short-title: banner
 slug: Web/Accessibility/ARIA/Reference/Roles/banner_role
 l10n:
-  sourceCommit: 6193c69cb71e80e45e7dff97188253ed15d58321
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `banner`-Rolle dient zur Definition einer globalen Website-Kopfzeile, die üblicherweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan umfasst. Sie befindet sich in der Regel am oberen Rand der Seite.
+Die Rolle `banner` kennzeichnet einen globalen Website-Header. Dieser enthält üblicherweise ein Logo, den Unternehmensnamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan. Er befindet sich in der Regel am oberen Rand der Seite.
 
-Standardmäßig hat das HTML-{{htmlelement("header")}}-Element die gleiche Bedeutung wie das `banner`-Leitmerkmal, es sei denn, es ist ein Nachfahre von {{htmlelement("aside")}}, {{htmlelement("article")}}, {{htmlelement("main")}}, {{htmlelement("nav")}} oder {{htmlelement("section")}}. In diesem Fall zeigt {{htmlelement("header")}} eine [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role)-Rolle und nicht das Äquivalent eines seitenweiten Banners an.
+Standardmäßig hat das HTML-Element {{htmlelement("header")}} dieselbe Bedeutung wie der `banner`-Landmark. Ist es jedoch ein Nachfahre von {{htmlelement("aside")}}, {{htmlelement("article")}}, {{htmlelement("main")}}, {{htmlelement("nav")}} oder {{htmlelement("section")}}, stellt {{htmlelement("header")}} stattdessen die Rolle [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role) dar und entspricht nicht mehr dem websiteweiten Banner.
 
 ## Beschreibung
 
-Eine `banner`-Leitmerkmal-Rolle überschreibt die implizite ARIA-Rolle des Containerelements, auf das sie angewendet wird. Sie sollte für global wiederkehrende, seitenweite Inhalte reserviert werden, die sich normalerweise oben auf jeder Seite befinden.
+Die Landmark-Rolle `banner` überschreibt die implizite ARIA-Rolle des Elements, dem sie zugewiesen wird. Sie sollte websiteweiten Inhalten vorbehalten sein, die auf jeder Seite wiederkehren und sich in der Regel am oberen Seitenrand befinden.
 
-Das Banner umfasst typischerweise Dinge wie ein Logo oder eine Unternehmensidentität oder möglicherweise ein sitespezifisches Suchwerkzeug und entspricht im Allgemeinen dem, was Ihr Marketingteam als "Header" oder "Topbanner" der Website bezeichnen würde. Wenn die Technik des [`header`-Elements](/de/docs/Web/HTML/Reference/Elements/header) für dieses Banner nicht verwendet wird, sollte eine Deklaration von `role="banner"` verwendet werden, um assistiven Technologien ein Banner-Leitmerkmal zu definieren.
+Das Banner enthält typischerweise ein Logo oder die visuelle Unternehmensidentität und möglicherweise eine websitespezifische Suchfunktion. Es entspricht im Allgemeinen dem, was ein Marketingteam als „Header“ oder „oberes Banner“ der Website bezeichnen würde. Wenn für dieses Banner nicht das [`header`-Element](/de/docs/Web/HTML/Reference/Elements/header) verwendet wird, sollte `role="banner"` deklariert werden, um das Banner für unterstützende Technologien als Landmark zu kennzeichnen.
 
-Assistive Technologien können das `header`-Element einer Seite als `banner` identifizieren, wenn es ein Nachfahre des [`body`-Elements](/de/docs/Web/HTML/Reference/Elements/body) ist und nicht in einem `article`, `aside`, `main`, `nav` oder `section` Unterabschnitt verschachtelt ist.
+Unterstützende Technologien können das `header`-Element einer Seite als `banner` identifizieren, wenn es ein Nachfahre des [`body`-Elements](/de/docs/Web/HTML/Reference/Elements/body) ist und nicht innerhalb eines Unterbereichs vom Typ `article`, `aside`, `main`, `nav` oder `section` verschachtelt ist.
 
-Jede Seite kann ein `banner`-Leitmerkmal haben, aber jede Seite sollte im Allgemeinen auf ein einzelnes Element mit der Rolle `banner` beschränkt sein. Im Falle einer Seite, die verschachtelte `document`- und/oder `application`-Rollen enthält, kann jede verschachtelte `document`- oder `application`-Rolle auch ein `banner`-Leitmerkmal haben. Wenn eine Seite mehr als ein `banner`-Leitmerkmal enthält, sollte jedes einen eindeutigen zugänglichen Namen haben.
+Jede Seite kann einen `banner`-Landmark haben, sollte aber im Allgemeinen nur ein Element mit der Rolle `banner` enthalten. Wenn eine Seite verschachtelte `document`- und/oder `application`-Rollen enthält, kann jede dieser Rollen ebenfalls einen `banner`-Landmark haben. Enthält eine Seite mehr als einen `banner`-Landmark, sollte jeder einen eindeutigen zugänglichen Namen haben.
 
-### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
 Keine.
 
@@ -32,9 +32,15 @@ Keine.
 
 Keine.
 
+## Bewährte Verfahren
+
+Das Element {{HTMLElement('header')}} vermittelt automatisch, dass es die Rolle `banner` hat. Verwenden Sie nach Möglichkeit das semantische Element `<header>` statt der Rolle `banner`.
+
+Am besten verwenden Sie das Element `header` und stellen sicher, dass es kein Nachfahre eines Unterbereichs der Seite ist. Manchmal haben Sie jedoch keinen Zugriff auf das zugrunde liegende HTML. In diesem Fall können Sie dem Element, das als `banner` dargestellt werden soll, die Rolle `banner` mit JavaScript zuweisen. Eine solche Kennzeichnung des Seitenbanners trägt dazu bei, die Barrierefreiheit der Website zu verbessern.
+
 ## Beispiele
 
-Hier ist ein gefälschtes Banner mit einem Link zum Überspringen der Navigation, einem Logo, einem Titel und einem Untertitel. Da dies die Hauptkopfzeile für die Seite ist, haben wir das `banner`-Leitmerkmal zur Container-Element hinzugefügt.
+Hier sehen Sie ein Beispielbanner mit einem Link zum Überspringen zur Navigation, einem Logo, einem Titel und einem Untertitel. Da es sich um den Haupt-Header der Website handelt, haben wir dem umschließenden Element die Landmark-Rolle `banner` zugewiesen.
 
 ```html
 <div role="banner">
@@ -46,7 +52,7 @@ Hier ist ein gefälschtes Banner mit einem Link zum Überspringen der Navigation
 </div>
 ```
 
-Wir könnten das oben Genannte auch mit dem HTML-`header`-Element geschrieben haben:
+Wir hätten das obige Beispiel auch mit dem HTML-Element `header` schreiben können:
 
 ```html
 <header>
@@ -58,17 +64,11 @@ Wir könnten das oben Genannte auch mit dem HTML-`header`-Element geschrieben ha
 </header>
 ```
 
-## Best Practices
-
-Die Verwendung des {{HTMLElement('header')}}-Elements kommuniziert automatisch, dass das Element eine Rolle des `banner` hat. Wenn möglich, ziehen Sie die Verwendung des semantischen `<header>`-Elements der `banner`-Rolle vor.
-
-Während es am besten ist, das `header`-Element zu verwenden und sicherzustellen, dass es kein Nachfahre eines Unterabschnitts der Seite ist, haben Sie manchmal keinen Zugriff auf das zugrunde liegende HTML. In diesem Fall können Sie die Rolle `banner` dem Seitenelement, das als `banner` sichtbar gemacht werden soll, mit JavaScript hinzufügen. Die Identifizierung des Banners der Seite auf diese Weise wird dazu beitragen, die Zugänglichkeit der Website zu verbessern.
-
 ## Spezifikationen
 
 {{Specifications}}
 
 ## Siehe auch
 
-- [HTML `header`-Element](/de/docs/Web/HTML/Reference/Elements/header)
-- [WC3 Landmarks Beispiel](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html)
+- [HTML-Element `header`](/de/docs/Web/HTML/Reference/Elements/header)
+- [W3C-Beispiel für Landmarks](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html)

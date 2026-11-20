@@ -3,10 +3,10 @@ title: "ARIA: search-Rolle"
 short-title: search
 slug: Web/Accessibility/ARIA/Reference/Roles/search_role
 l10n:
-  sourceCommit: 6193c69cb71e80e45e7dff97188253ed15d58321
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `search`-Rolle wird verwendet, um die Suchfunktionalität zu identifizieren; den Bereich der Seite, der zur Durchsuchung der Seite, der Website oder einer Sammlung von Websites genutzt wird.
+Die `search`-Rolle kennzeichnet die Suchfunktionalität, also den Bereich einer Seite, mit dem die Seite, die Website oder eine Sammlung von Websites durchsucht werden kann.
 
 ```html
 <form role="search">
@@ -16,37 +16,25 @@ Die `search`-Rolle wird verwendet, um die Suchfunktionalität zu identifizieren;
 
 ## Beschreibung
 
-Die `search`-Rolle ist eine [Landmarke](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), die dem Containerelement hinzugefügt werden kann, das alle Elemente umfasst, die zusammen die Suchfunktionalität des Dokuments oder der Anwendung bilden, einschließlich eines nachgeordneten [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search). Wenn ein Dokument mehr als eine Suche enthält, sollte jede eine eindeutige Bezeichnung haben, es sei denn, es handelt sich um dieselbe Suche, die wiederholt wird, dann verwenden Sie denselben Namen. Es gibt ein [`input` vom Typ `search`](/de/docs/Web/HTML/Reference/Elements/input/search), obwohl dies nicht von sich aus eine Suchlandmarke definiert. Die Verwendung von {{HTMLElement('search')}} ist eine alternative Möglichkeit, eine Suchlandmarke zu definieren.
+Die `search`-Rolle ist eine [Landmark-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles). Sie kann dem Container-Element zugewiesen werden, das alle Elemente der Suchfunktion eines Dokuments oder einer Anwendung umfasst, einschließlich eines untergeordneten [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search). Wenn ein Dokument mehrere Suchfunktionen enthält, sollte jede eine eindeutige Beschriftung haben. Wird dieselbe Suchfunktion mehrfach angezeigt, verwenden Sie hingegen jeweils denselben Namen. Ein [`input` vom Typ `search`](/de/docs/Web/HTML/Reference/Elements/input/search) definiert für sich genommen keine Search-Landmark. Die Verwendung von {{HTMLElement('search')}} ist eine weitere Möglichkeit, eine Search-Landmark zu definieren.
 
-## Beispiele
+## Barrierefreiheit
 
-Wenn ein {{HTMLElement('form')}} ein Suchformular ist, sollte die `search`-Rolle anstelle der [`form`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role)-Rolle verwendet werden.
+[Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollten sparsam verwendet werden, um größere Bereiche eines Dokuments zu kennzeichnen. Zu viele Landmark-Rollen können in Screenreadern für „Rauschen“ sorgen und es erschweren, den Gesamtaufbau der Seite zu verstehen.
 
-```html
-<form id="search" role="search">
-  <label for="search-input">Search this site</label>
-  <input type="search" id="search-input" name="search" spellcheck="false" />
-  <input value="Submit" type="submit" />
-</form>
-```
+## Bewährte Verfahren
 
-## Barrierefreiheitsbedenken
+### HTML bevorzugen
 
-[Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollen sparsam eingesetzt werden, um größere Gesamtabschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmarkenrollen kann "Geräusche" in Screenreadern erzeugen, was es schwierig macht, das Gesamtlayout der Seite zu verstehen.
+Das Element {{HTMLElement('search')}} vermittelt automatisch, dass es die Rolle `search` hat. Verwenden Sie nach Möglichkeit das semantische Element `<search>` anstelle der `search`-Rolle.
 
-## Beste Praktiken
+Wenn sich Ihr `<input>` vom Typ `search` bereits innerhalb eines {{HTMLElement("form")}} befindet, kann es unnötiges Markup sein, das Formular zusätzlich in ein `<search>`-Element einzuschließen. In diesem Fall können Sie `role="search"` direkt auf dem `<form>` verwenden.
 
-### Bevorzugen Sie HTML
+### Landmarks beschriften
 
-Die Verwendung des {{HTMLElement('search')}}-Elements teilt automatisch mit, dass das Element die Rolle `search` hat. Wenn möglich, bevorzugen Sie die Verwendung des semantischen `<search>`-Elements anstelle der `search`-Rolle.
+#### Mehrere Landmarks
 
-Wenn Ihr `<input>` vom Typ `search` bereits in einem {{HTMLElement("form")}} enthalten ist, dann könnte das Einbetten des Formulars in ein weiteres `<search>`-Element überflüssiges Markup sein. In diesem Fall ist die Verwendung von `role="search"` direkt am `<form>` selbst akzeptabel.
-
-### Beschriftung von Landmarken
-
-#### Mehrere Landmarken
-
-Wenn es mehr als eine `search`-Landmarkenrolle in einem Dokument gibt, versehen Sie jede Landmarke mit einer Beschriftung. Diese Beschriftung ermöglicht es Benutzern von unterstützenden Technologien, schnell den Zweck jeder Landmarke zu verstehen.
+Wenn ein Dokument mehr als eine Landmark mit der Rolle `search` enthält, versehen Sie jede mit einer Beschriftung. So können Nutzer assistiver Technologien den Zweck jeder Landmark schnell erkennen.
 
 ```html
 <form id="site-search" role="search" aria-label="Sitewide">
@@ -60,9 +48,9 @@ Wenn es mehr als eine `search`-Landmarkenrolle in einem Dokument gibt, versehen 
 </form>
 ```
 
-#### Wiederholte Landmarken
+#### Wiederholte Landmarks
 
-Wenn eine `search`-Landmarkenrolle in einem Dokument wiederholt wird und beide Landmarken identischen Inhalt haben, verwenden Sie denselben Namen für jede Landmarke. Ein Beispiel hierfür wäre die wiederholte siteweite Suche am oberen und unteren Ende der Seite.
+Wenn eine Landmark mit der Rolle `search` in einem Dokument mehrfach vorkommt und die Landmarks denselben Inhalt haben, verwenden Sie für alle dieselbe Beschriftung. Ein Beispiel dafür ist eine websiteweite Suche, die sowohl oben als auch unten auf der Seite angezeigt wird.
 
 ```html
 <header>
@@ -82,7 +70,19 @@ Wenn eine `search`-Landmarkenrolle in einem Dokument wiederholt wird und beide L
 
 #### Redundante Beschreibungen
 
-Screenreader werden die Art der Rolle der Landmarke ankündigen. Aufgrund dessen müssen Sie in der Beschriftung nicht beschreiben, was die Landmarke ist. Beispielsweise könnte eine Deklaration von `role="search"` mit einem [`aria-label="Sitewide search"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) redundant als "sitewide search search" angekündigt werden.
+Screenreader geben den Rollentyp einer Landmark bekannt. Daher müssen Sie die Art der Landmark in ihrer Beschriftung nicht erneut beschreiben. Beispielsweise kann `role="search"` mit einem [`aria-label="Sitewide search"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) redundant als „sitewide search search“ ausgegeben werden.
+
+## Beispiele
+
+Wenn ein {{HTMLElement('form')}} ein Suchformular ist, verwenden Sie die `search`-Rolle anstelle der [`form`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role)-Rolle.
+
+```html
+<form id="search" role="search">
+  <label for="search-input">Search this site</label>
+  <input type="search" id="search-input" name="search" spellcheck="false" />
+  <input value="Submit" type="submit" />
+</form>
+```
 
 ## Spezifikationen
 
@@ -90,8 +90,8 @@ Screenreader werden die Art der Rolle der Landmarke ankündigen. Aufgrund dessen
 
 ## Siehe auch
 
-- Das {{HTMLElement('form')}}-Element
-- Das {{HTMLElement('input')}}-Element
-- Das {{HTMLElement('search')}}-Element
+- Das Element {{HTMLElement('form')}}
+- Das Element {{HTMLElement('input')}}
+- Das Element {{HTMLElement('search')}}
 - [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search)
-- [Verwendung von HTML-Abschnitten und Gliederungen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
+- [HTML-Abschnitte und Gliederungen verwenden](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)

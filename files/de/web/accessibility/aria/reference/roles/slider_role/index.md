@@ -1,89 +1,89 @@
 ---
-title: "ARIA: Slider-Rolle"
+title: "ARIA: Rolle slider"
 short-title: slider
 slug: Web/Accessibility/ARIA/Reference/Roles/slider_role
 l10n:
-  sourceCommit: 1474534461893381d54c502e655f334b5568e597
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `slider`-Rolle definiert eine Eingabe, bei der der Benutzer einen Wert aus einem vorgegebenen Wertebereich auswählt.
+Die Rolle `slider` definiert ein Eingabeelement, mit dem Benutzer einen Wert innerhalb eines vorgegebenen Bereichs auswählen.
 
 ## Beschreibung
 
-Die `slider`-Rolle ist für Eingabewidgets im Bereich, bei denen der Benutzer einen Wert innerhalb eines vorgegebenen Mindest- und Höchstwerts auswählt.
+Die Rolle `slider` ist für Bereichseingaben vorgesehen, bei denen Benutzer einen Wert zwischen einem vorgegebenen Mindest- und Höchstwert auswählen.
 
-### Die `slider`-Rolle im Vergleich zu anderen Bereichsoptionen
+### Die Rolle `slider` im Vergleich zu anderen Bereichsoptionen
 
-ARIA bietet Entwicklern sechs verschiedene [Widget-Rollen für Bereiche](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles), einschließlich `progressbar`, `meter` und `slider`.
+ARIA bietet Entwicklern sechs verschiedene [Widget-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#2._widget_roles) für Wertebereiche, darunter `progressbar`, `meter` und `slider`.
 
-Die [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)-Rolle, ähnlich dem {{HTMLElement('progress')}}-Element von HTML, ist ein schreibgeschützter Bereich, der den Fortschritt einer Aufgabe anzeigt, der in eine Richtung verläuft, wie zum Beispiel eine Fortschrittsleiste beim Hochladen einer Datei, die schließlich 100% erreicht, wenn sie vollständig geladen ist.
+Die Rolle [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role) ist, ähnlich wie das HTML-Element {{HTMLElement('progress')}}, eine schreibgeschützte Bereichsanzeige für den Fortschritt einer Aufgabe. Dieser verläuft in eine Richtung, etwa bei einer Fortschrittsanzeige für das Hochladen einer Datei, die nach Abschluss 100 % erreicht.
 
-Die [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)-Rolle, ähnlich dem {{HTMLElement('meter')}}-Element von HTML, ist ein schreibgeschütztes Messinstrument, das die Menge von etwas innerhalb eines bekannten Bereichs anzeigt, wie zum Beispiel ein Batterieanzeiger eines Computers oder eine Tankanzeige eines Autos.
+Die Rolle [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role) ist, ähnlich wie das HTML-Element {{HTMLElement('meter')}}, eine schreibgeschützte Anzeige für eine Menge innerhalb eines bekannten Bereichs, etwa eine Akkuanzeige am Computer oder eine Tankanzeige im Auto.
 
-Die `slider`-Rolle, ähnlich dem `input`-Element von HTML vom Typ `range`, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), ist ein beschreib- und änderbarer Eingabebereich. Slider erlauben Benutzern, einen Wert zwischen festgelegten Mindest- und Höchstwerten auszuwählen. Der Benutzer wählt einen Wert, indem er einen Slider-Thumb entlang eines horizontalen oder vertikalen Sliders bewegt.
+Die Rolle `slider` ist, ähnlich wie ein HTML-`input` vom Typ `range`, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), eine veränderbare Bereichseingabe. Mit einem Schieberegler können Benutzer einen Wert zwischen einem festgelegten Mindest- und Höchstwert auswählen. Dazu bewegen sie den Reglergriff entlang eines horizontalen oder vertikalen Schiebereglers.
 
-Obwohl alle drei dieser Bereiche dieselben ARIA-Zustände und -Eigenschaften haben, ist die `slider`-Rolle der einzige beschreibbare Bereich: Sie ist der einzige, dessen Wert durch Benutzerinteraktion geändert wird. Daher muss sie in der Lage sein, den Fokus zu erhalten. Darüber hinaus muss die Unterstützung für Tastaturinteraktion, Mausklicks und Berührungsinteraktion gewährleistet sein.
+Alle drei Bereichstypen haben dieselben ARIA-Zustände und -Eigenschaften. `slider` ist jedoch der einzige veränderbare Bereichstyp: Nur bei ihm ändert sich der Wert durch Benutzerinteraktion. Deshalb muss er den Fokus erhalten können. Außerdem müssen Tastaturinteraktionen, Mausklicks und Touch-Interaktionen unterstützt werden.
 
 > [!WARNING]
-> Um den Sliderwert zu ändern, müssen berührungsbasierte unterstützende Technologien auf Benutzerbewegungen reagieren, um den Wert durch die Simulation von Tastenereignissen zu erhöhen oder zu verringern.
-> Testen Sie Slider-Widgets umfassend mit unterstützenden Technologien auf Geräten, bei denen Berührung das primäre Eingabemedium ist, bevor Sie die `slider`-Rolle (und alle anderen Bereichswidgets) verwenden.
+> Damit der Wert des Schiebereglers geändert werden kann, müssen touchbasierte assistive Technologien auf Benutzergesten zum Erhöhen und Verringern des Werts reagieren, indem sie Tastenereignisse erzeugen.
+> Testen Sie Schieberegler-Widgets mit assistiven Technologien auf Geräten, bei denen Touch die primäre Eingabemethode ist, umfassend, bevor Sie die Rolle `slider` verwenden. Dies gilt auch für alle anderen Bereichs-Widgets.
 
-### Allgemeine Attribute
+### Häufig verwendete Attribute
 
-Das [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)-Attribut legt den Mindestwert fest. Wenn es weggelassen oder keine Zahl ist, ist der Standardwert `0` (null).
+Das Attribut [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) legt den Mindestwert fest. Fehlt es oder enthält es keine Zahl, ist der Standardwert `0` (null).
 
-Das [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)-Attribut definiert den Höchstwert. Wenn es fehlt oder keine Zahl ist, ist der Standardwert 100.
+Das Attribut [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) definiert den Höchstwert. Fehlt es oder enthält es keine Zahl, ist der Standardwert 100.
 
-Der Wert des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attributs muss zwischen den Mindest- und Höchstwerten liegen, einschließlich dieser. Dieses Attribut ist für `slider` und `meter` erforderlich und optional für `progressbar`.
+Der Wert des Attributs [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) muss zwischen dem Mindest- und Höchstwert liegen, einschließlich dieser beiden Werte. Dieses Attribut ist für `slider` und `meter` erforderlich und für `progressbar` optional.
 
-Für den `slider`, es sei denn, Sie verwenden das [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element, muss der `aria-valuenow`-Wert programmatisch aktualisiert werden, wenn der Benutzer den Wert aktualisiert.
+Bei `slider` muss der Wert von `aria-valuenow` programmatisch aktualisiert werden, wenn Benutzer den Wert ändern – es sei denn, das Element [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) wird verwendet.
 
-Das optionale [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)-Attribut wird hinzugefügt, wenn der numerische Wert von `aria-valuenow` nicht den beabsichtigten Wert des Sliders widerspiegelt. Da die Minimal-, Maximal- und aktuellen Werte alle numerisch sind, sollte das `aria-valuetext`-Attribut mit einem Stringwert einbezogen werden, der den numerischen Wert definiert, wenn die Werte, die diese Zahlen repräsentieren, nicht numerisch sind. Zum Beispiel, wenn ein Slider zur Einstellung von T-Shirt-Größen verwendet wird, sollte das `aria-valuetext`-Attribut sich von xx-small bis XX-large verschieben, wenn `aria-valuenow` erhöht wird.
+Das optionale Attribut [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext) wird verwendet, wenn der numerische Wert von `aria-valuenow` den beabsichtigten Wert des Schiebereglers nicht wiedergibt. Mindestwert, Höchstwert und aktueller Wert sind zwar numerisch; wenn die Zahlen jedoch für nicht numerische Werte stehen, sollte `aria-valuetext` eine Zeichenfolge enthalten, die den jeweiligen Wert beschreibt. Wird beispielsweise mit einem Schieberegler eine T-Shirt-Größe ausgewählt, sollte sich `aria-valuetext` mit steigendem `aria-valuenow` von XXS bis XXL ändern.
 
-Der Wert von `aria-valuetext` muss aktualisiert werden, wenn der `value` oder `aria-valuenow` aktualisiert wird. Während es kein äquivalentes HTML-Attribut für `<input type="range">` gibt, können Sie `aria-valuetext` auf jeden {{htmlelement('input')}}-Typ anwenden. ARIA-Attribute werden auf semantischen HTML-Elementen unterstützt.
+Der Wert von `aria-valuetext` muss aktualisiert werden, wenn `value` oder `aria-valuenow` aktualisiert wird. Zwar gibt es für `<input type="range">` kein entsprechendes HTML-Attribut, Sie können `aria-valuetext` jedoch bei jedem Typ von {{htmlelement('input')}} verwenden. ARIA-Attribute werden auf semantischen HTML-Elementen unterstützt.
 
-Wenn `aria-valuetext` ein wichtiges Merkmal für einen Slider ist, ziehen Sie in Betracht, {{HTMLElement('select')}} mit {{HTMLElement('option')}}-Elementen zu verwenden. Auch wenn es optisch kein Bereich ist, ist jeder Optionswert für alle Benutzer besser zugänglich, nicht nur für Benutzer unterstützender Technologien.
+Wenn `aria-valuetext` für einen Schieberegler wichtig ist, sollten Sie stattdessen {{HTMLElement('select')}} mit {{HTMLElement('option')}}-Elementen verwenden. Eine solche Auswahl wird zwar visuell nicht als Bereich dargestellt, doch die Werte aller Optionen sind für alle Benutzer besser zugänglich, nicht nur für Benutzer assistiver Technologien.
 
-Ein zugänglicher Name ist **erforderlich**. Wenn die Rolle des Bereichs auf ein HTML-{{HTMLElement('input')}}-Element (oder ein `<meter>`- oder `<progress>`-Element) angewendet wird, kann der zugängliche Name vom zugehörigen {{HTMLElement('label')}} stammen. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn ein sichtbares Label vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn kein sichtbares Label vorhanden ist.
+Ein zugänglicher Name ist **erforderlich**. Wenn die Bereichsrolle auf ein HTML-{{HTMLElement('input')}}-Element (oder ein `<meter>`- bzw. `<progress>`-Element) angewendet wird, kann der zugängliche Name aus dem zugehörigen {{HTMLElement('label')}} stammen. Verwenden Sie andernfalls [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn eine sichtbare Beschriftung vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn keine sichtbare Beschriftung vorhanden ist.
 
-Wenn Sie das HTML-{{HTMLElement('input')}}-Element nicht verwenden, um Ihren Slider zu erstellen, fügen Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut hinzu, um den Slider fokussierbar zu machen. Von den drei Bereichstypen ist nur der `slider` benutzerinteraktiv und erfordert daher die Möglichkeit, den Fokus zu erhalten. Der Fokus sollte auf den Slider-Thumb gesetzt werden.
+Wenn Sie den Schieberegler nicht mit dem HTML-Element {{HTMLElement('input')}} erstellen, fügen Sie das Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) hinzu, damit der Schieberegler den Fokus erhalten kann. Von den drei Bereichstypen ermöglicht nur `slider` Benutzerinteraktionen und muss daher als einziger den Fokus erhalten können. Der Fokus sollte auf dem Reglergriff liegen.
 
-Slider haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)-Wert von `horizontal`. Dieses Attribut wird bei `meter` oder `progressbar` nicht unterstützt.
+Schieberegler haben für [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) den impliziten Wert `horizontal`. Dieses Attribut wird bei `meter` und `progressbar` nicht unterstützt.
 
 ### Benutzerinteraktionen
 
-Im Gegensatz zu den schreibgeschützten Rollen `meter` und `progressbar` ist ein `slider` eine Eingabe, die Benutzerinteraktionen akzeptiert. Zusätzlich zur Einbeziehung des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attributs zur Aktivierung des Slider-Fokus muss die Unterstützung für Tastatur und Zeigegeräte implementiert werden.
+Anders als die schreibgeschützten Rollen `meter` und `progressbar` ist `slider` ein Eingabeelement, das Benutzerinteraktionen ermöglicht. Neben dem Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), mit dem der Schieberegler den Fokus erhalten kann, muss die Bedienung per Tastatur und Zeigegerät implementiert werden.
 
-Der Slider repräsentiert den Bereich möglicher Werte. Die Position des Slider-Thumbs entlang des Sliders stellt den aktuellen Wert dar. Benutzeraktionen, die unterstützt werden müssen, umfassen das Ändern des Wertes durch Ziehen des Thumbs oder Klicken auf den Slider für Zeigegeräte und die Verwendung von Richtungstasten wie Pfeiltasten für Tastaturnutzer. Siehe [Tastaturinteraktionen](#tastaturinteraktionen) unten.
+Der Schieberegler stellt den Bereich möglicher Werte dar. Die Position des Reglergriffs auf dem Schieberegler stellt den aktuellen Wert dar. Benutzer müssen den Wert ändern können, indem sie den Griff ziehen oder mit einem Zeigegerät auf den Schieberegler klicken. Für die Tastaturbedienung müssen Richtungstasten wie die Pfeiltasten unterstützt werden. Weitere Informationen finden Sie unten unter [Tastaturinteraktionen](#tastaturinteraktionen).
 
 > [!NOTE]
-> Es wird empfohlen, native [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Elemente anstelle der `slider`-Rolle zu verwenden. Benutzeragenten bieten ein stilisiertes Widget für das Bereichseingabeelement basierend auf dem aktuellen `value` in Bezug auf die minimalen und maximalen Werte. Wenn nicht-semantische Elemente verwendet werden, müssen alle Funktionen des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS neu erstellt werden.
+> Es wird empfohlen, native [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Elemente statt der Rolle `slider` zu verwenden. User Agents stellen für das Bereichseingabeelement ein gestaltetes Widget bereit, das den aktuellen `value` im Verhältnis zum Mindest- und Höchstwert anzeigt. Bei nicht semantischen Elementen müssen sämtliche Funktionen des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS nachgebildet werden.
 
-### Bereich mit mehreren Thumbs
+### Bereich mit mehreren Reglergriffen
 
-Ein Multi-Thumb-Slider ist ein Slider mit zwei oder mehr Thumbs, die jeweils einen Wert in einer Gruppe verwandter Werte setzen. Zum Beispiel könnte in einer Produktsuche ein zweithumbiger Slider verwendet werden, um Benutzern zu ermöglichen, die minimalen und maximalen Preislimits für die Suche festzulegen.
+Ein Schieberegler mit mehreren Griffen hat zwei oder mehr Reglergriffe, die jeweils einen Wert innerhalb einer Gruppe zusammengehöriger Werte festlegen. Bei einer Produktsuche könnten Benutzer beispielsweise mit einem Schieberegler mit zwei Griffen die untere und obere Preisgrenze für die Suche festlegen.
 
-In vielen zweithumbigen Slidern dürfen die Thumbs einander nicht passieren, wie z.B. wenn der Slider die Minimal- und Maximalwerte eines Bereichs setzt. Zum Beispiel in einem Preisspannen-Wähler wird der Maximalwert des Thumbs, der das untere Ende des Bereichs setzt, durch den aktuellen Wert des Thumbs, der das obere Ende des Bereichs setzt, begrenzt. Der Minimalwert des oberen Thumbs wird ebenfalls durch den aktuellen Wert des unteren Thumbs begrenzt.
+Bei vielen Schiebereglern mit zwei Griffen können die Griffe nicht aneinander vorbeibewegt werden, etwa wenn sie den Mindest- und Höchstwert eines Bereichs festlegen. Bei einer Auswahl für einen Preisbereich ist beispielsweise der Höchstwert des Griffs für die untere Bereichsgrenze durch den aktuellen Wert des Griffs für die obere Bereichsgrenze begrenzt. Entsprechend ist der Mindestwert des oberen Griffs durch den aktuellen Wert des unteren Griffs begrenzt.
 
-Es ist keine Anforderung, dass die Thumbs in Multi-Thumb-Slidern von den anderen Thumb-Werten abhängig sind, aber eine intuitive Benutzererfahrung ist eine Anforderung, daher wird empfohlen, dieses Anti-Muster zu vermeiden.
+Die Werte der Griffe eines Schiebereglers mit mehreren Griffen müssen nicht voneinander abhängig sein. Eine intuitive Benutzererfahrung ist jedoch erforderlich; daher wird empfohlen, dieses Anti-Pattern zu vermeiden.
 
-### Alle Nachkommen sind präsentativ
+### Alle Nachfahren sind präsentational
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugangs-API dargestellt werden, nur Text enthalten können. Zugangs-APIs haben keine Möglichkeit, semantische Elemente, die in einem `slider` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommen eines beliebigen `slider`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Manche Arten von Benutzeroberflächenkomponenten können in einer Plattform-API für Barrierefreiheit nur Text enthalten. APIs für Barrierefreiheit können semantische Elemente innerhalb eines `slider` nicht darstellen. Um diese Einschränkung zu berücksichtigen, weisen Browser allen Nachfahren eines `slider`-Elements automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) zu, da diese Rolle keine semantischen Kindelemente unterstützt.
 
-Betrachten Sie beispielsweise folgendes `slider`-Element, das eine Überschrift enthält.
+Betrachten Sie beispielsweise das folgende `slider`-Element, das eine Überschrift enthält:
 
 ```html
 <div role="slider"><h3>Temperature in Celsius</h3></div>
 ```
 
-Da Nachkommen von `slider` präsentativ sind, ist der folgende Code gleichwertig:
+Da Nachfahren von `slider` präsentational sind, entspricht der Code folgendem Beispiel:
 
 ```html
 <div role="slider"><h3 role="presentation">Temperature in Celsius</h3></div>
 ```
 
-Aus der Perspektive eines Benutzers unterstützender Technologien existiert die Überschrift nicht, da die vorherigen Code-Snippets äquivalent zu den folgenden im {{Glossary("Accessibility_tree", "Accessibility Tree")}} sind:
+Aus Sicht der Benutzer assistiver Technologien existiert die Überschrift nicht, da die vorherigen Codebeispiele im {{Glossary("Accessibility_tree", "Barrierefreiheitsbaum")}} Folgendem entsprechen:
 
 ```html
 <div role="slider">Temperature in Celsius</div>
@@ -92,34 +92,44 @@ Aus der Perspektive eines Benutzers unterstützender Technologien existiert die 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) (erforderlich)
-  - : Auf einen Dezimalwert zwischen `aria-valuemin` und `aria-valuemax` gesetzt, der den aktuellen Wert des Sliders anzeigt.
+  - : Legen Sie einen Dezimalwert zwischen `aria-valuemin` und `aria-valuemax` fest, der den aktuellen Wert des Schiebereglers angibt.
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)
-  - : Unterstützende Technologien präsentieren oft den Wert von `aria-valuenow` als Zahl. Falls dies nicht zutreffend wäre, verwenden Sie `aria-valuetext`, um dem Slider einen verständlicheren Wert zu geben.
+  - : Assistive Technologien geben den Wert von `aria-valuenow` häufig als Zahl aus. Wenn dies den Wert nicht zutreffend wiedergibt, verwenden Sie `aria-valuetext`, um einen verständlicheren Wert für den Schieberegler bereitzustellen.
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)
-  - : Auf einen Dezimalwert gesetzt, der den minimalen Wert darstellt und kleiner als `aria-valuemax` ist. Falls nicht vorhanden, ist der Standardwert 0.
+  - : Legen Sie einen Dezimalwert fest, der den Mindestwert darstellt und kleiner als `aria-valuemax` ist. Fehlt das Attribut, ist der Standardwert 0.
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)
-  - : Auf einen Dezimalwert gesetzt, der den maximalen Wert darstellt und größer als `aria-valuemin` ist. Falls nicht vorhanden, ist der Standardwert 100.
+  - : Legen Sie einen Dezimalwert fest, der den Höchstwert darstellt und größer als `aria-valuemin` ist. Fehlt das Attribut, ist der Standardwert 100.
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Definiert den Stringwert oder identifiziert das Element (oder die Elemente), die das Slider-Element beschriften und einen zugänglichen Namen bieten. Ein zugänglicher Name ist erforderlich.
+  - : Definiert eine Zeichenfolge oder identifiziert das Element bzw. die Elemente, die den Schieberegler beschriften und ihm damit einen zugänglichen Namen geben. Ein zugänglicher Name ist erforderlich.
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)
-  - : Gibt an, ob die Orientierung des Elements horizontal, vertikal oder unbekannt/mehrdeutig ist. Beim Slider ist der implizite Wert `horizontal`, kann aber auf `vertical` gesetzt werden. Da er einen impliziten Wert hat, ist die Orientierung des Sliders nie mehrdeutig.
+  - : Gibt an, ob ein Element horizontal oder vertikal ausgerichtet ist oder ob seine Ausrichtung unbekannt bzw. mehrdeutig ist. Bei einem Schieberegler ist der implizite Wert `horizontal`; er kann jedoch auf `vertical` gesetzt werden. Aufgrund des impliziten Werts ist die Ausrichtung eines Schiebereglers nie mehrdeutig.
 
 ### Tastaturinteraktionen
 
-| Taste(n)               | Aktion                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------ |
-| Pfeile rechts und oben | Erhöhen des ausgewählten Wertes um einen Schritt                                     |
-| Pfeile links und unten | Verringern des ausgewählten Wertes um einen Schritt                                  |
-| Bild nach oben         | (Optional) erhöhen des Wertes um einen festgelegten Betrag größer als ein Schritt    |
-| Bild nach unten        | (Optional) verringern des Wertes um einen festgelegten Betrag größer als ein Schritt |
-| Home                   | Setzt den Slider auf den minimalen Wert.                                             |
-| Ende                   | Setzt den Slider auf den maximalen Wert.                                             |
+| Taste(n)                    | Aktion                                                                                 |
+| --------------------------- | -------------------------------------------------------------------------------------- |
+| Pfeiltasten Rechts und Oben | Den ausgewählten Wert um einen Schritt erhöhen                                         |
+| Pfeiltasten Links und Unten | Den ausgewählten Wert um einen Schritt verringern                                      |
+| Bild auf                    | (Optional) Den Wert um einen festgelegten Betrag von mehr als einem Schritt erhöhen    |
+| Bild ab                     | (Optional) Den Wert um einen festgelegten Betrag von mehr als einem Schritt verringern |
+| Pos1                        | Den Schieberegler auf den Mindestwert setzen                                           |
+| Ende                        | Den Schieberegler auf den Höchstwert setzen                                            |
 
-Für die optionalen Tasten <kbd>Bild nach oben</kbd> und <kbd>Bild nach unten</kbd> sollte die Änderung des Sliderwerts um einen Betrag größer sein als die Schrittänderungen durch die Pfeiltasten oben und unten.
+Bei den optionalen Tasten <kbd>Page Up</kbd> und <kbd>Page Down</kbd> sollte sich der Wert des Schiebereglers um einen größeren Betrag ändern als bei den Pfeiltasten nach oben und unten.
+
+## Bewährte Verfahren
+
+Wenn der Schieberegler den Ladefortschritt eines bestimmten Seitenbereichs beschreibt, fügen Sie das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) hinzu, um auf den Status des Schiebereglers zu verweisen. Setzen Sie außerdem das Attribut [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy) für den Bereich auf `true`, bis der Ladevorgang abgeschlossen ist.
+
+Das HTML-Element `<input type="range">` hat implizit die `role` `slider`. Verwenden Sie für `<input type="range">`-Elemente nicht die Attribute `aria-valuemax` oder `aria-valuemin`, sondern `min` und `max`. Globale `aria-*`-Attribute und andere für die Rolle `slider` geeignete `aria-*`-Attribute können Sie verwenden.
+
+### HTML bevorzugen
+
+Es wird empfohlen, ein natives {{HTMLElement("input")}} vom Typ `range`, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), statt der Rolle `slider` zu verwenden.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir ein vertikales Thermometer, mit dem der Benutzer die Raumtemperatur einstellen kann:
+Im folgenden Beispiel erstellen wir ein vertikales Thermometer, mit dem Benutzer die Raumtemperatur einstellen können:
 
 ```html
 <div>
@@ -141,7 +151,7 @@ Im folgenden Beispiel erstellen wir ein vertikales Thermometer, mit dem der Benu
 </div>
 ```
 
-Die Position des Thumbs ist der Höchstwert minus der aktuelle Wert mal die Höhe eines Grades, minus die Hälfte der Höhe des Thumbs, um es zu zentrieren. Der Rest der Stile ist statisch.
+Die Position des Reglergriffs ergibt sich aus dem Höchstwert minus dem aktuellen Wert, multipliziert mit der Höhe eines Grades, und anschließend minus der halben Höhe des Griffs, damit dieser zentriert ist. Die übrigen Stile sind statisch.
 
 ```css
 [id="temperatureSlider"] {
@@ -161,9 +171,9 @@ Die Position des Thumbs ist der Höchstwert minus der aktuelle Wert mal die Höh
 }
 ```
 
-Damit dieses Beispiel funktioniert, müssen wir ein Skript schreiben, das alle Tastatur- und Zeigereignisse behandelt, einschließlich Event-Listener für `pointermove`, `pointerup`, `focus`, `blur` und `keydown` und Stile für den Standardzustand und wenn der Thumb und der Slider den Fokus erhalten. Die Position des Thumbs, die `aria-valuenow`- und `aria-valuetext`-Werte sowie der innere Text des Elements mit der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) "temperatureValue" müssen jedes Mal aktualisiert werden, wenn die Tasten <kbd>ArrowLeft</kbd>, <kbd>ArrowDown</kbd>, <kbd>ArrowRight</kbd>, <kbd>ArrowUp</kbd>, <kbd>Home</kbd>, <kbd>End</kbd>, und optional <kbd>PageDown</kbd> und <kbd>PageUp</kbd> losgelassen werden und wenn der Benutzer den Thumb zieht oder auf den Temperaturslider klickt.
+Damit dieses Beispiel funktioniert, müssen wir ein Skript schreiben, das alle Tastatur- und Zeigerereignisse verarbeitet. Dazu gehören Event-Listener für `pointermove`, `pointerup`, `focus`, `blur` und `keydown`. Außerdem müssen wir Stile für den Standardzustand und für den fokussierten Reglergriff bzw. Schieberegler bereitstellen. Die Position des Griffs, die Werte von `aria-valuenow` und `aria-valuetext` sowie der Textinhalt des Elements mit der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) „temperatureValue“ müssen jedes Mal aktualisiert werden, wenn die Tasten <kbd>ArrowLeft</kbd>, <kbd>ArrowDown</kbd>, <kbd>ArrowRight</kbd>, <kbd>ArrowUp</kbd>, <kbd>Home</kbd>, <kbd>End</kbd> und optional <kbd>PageDown</kbd> und <kbd>PageUp</kbd> losgelassen werden. Dasselbe gilt, wenn Benutzer den Griff ziehen oder auf eine andere Weise auf den Temperaturschieberegler klicken.
 
-Mit semantischem HTML hätte dies geschrieben werden können als:
+Mit semantischem HTML hätte sich dies folgendermaßen umsetzen lassen:
 
 ```html
 <label for="temperature"> Temperature </label>
@@ -184,19 +194,9 @@ Mit semantischem HTML hätte dies geschrieben werden können als:
 }
 ```
 
-Durch die Verwendung von {{HTMLElement('input')}} erhalten wir ein bereits gestyltes Bereichseingabewidget mit Tastaturfokus, Fokusgestaltung, Tastaturinteraktionen und `value`, das bei Benutzerinteraktion kostenlos aktualisiert wird. Wir müssen immer noch JavaScript verwenden, um das `aria-valuetext` und den Wert des {{HTMLElement('output')}}-Elements zu ändern.
+Wenn wir {{HTMLElement('input')}} verwenden, erhalten wir ohne zusätzlichen Aufwand ein bereits gestaltetes Bereichseingabe-Widget mit Tastaturfokus, Fokus-Styling und Tastaturinteraktionen. Außerdem wird `value` bei Benutzerinteraktionen aktualisiert. Wir benötigen weiterhin JavaScript, um `aria-valuetext` und den Wert des {{HTMLElement('output')}}-Elements zu ändern.
 
-Es gibt einige Möglichkeiten, ein Bereichseingabeelement vertikal zu machen. In diesem Beispiel haben wir [CSS-Transformationen](/de/docs/Web/CSS/Reference/Properties/transform) verwendet.
-
-## Beste Praktiken
-
-Wenn der Slider den Ladefortschritt eines bestimmten Bereichs einer Seite beschreibt, fügen Sie das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut hinzu, um auf den Status des Sliders zu verweisen, und setzen Sie das [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)-Attribut auf `true` für den Bereich, bis er fertig geladen ist.
-
-HTML's `<input type="range">` hat implizit die `role` des `slider`. Verwenden Sie keine `aria-valuemax` oder `aria-valuemin` Attribute auf `<input type="range">` Elementen; verwenden Sie stattdessen `min` und `max`. Andernfalls gelten alle globalen `aria-*` Attribute und alle anderen `aria-*` Attribute, die auf die Slider-Rolle anwendbar sind.
-
-### HTML vorziehen
-
-Es wird empfohlen, einen nativen {{HTMLElement("input")}} vom Typ `range`, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), anstelle der `slider`-Rolle zu verwenden.
+Es gibt mehrere Möglichkeiten, eine Bereichseingabe vertikal darzustellen. In diesem Beispiel haben wir [CSS-Transformationen](/de/docs/Web/CSS/Reference/Properties/transform) verwendet.
 
 ## Spezifikationen
 
@@ -204,18 +204,18 @@ Es wird empfohlen, einen nativen {{HTMLElement("input")}} vom Typ `range`, [`<in
 
 ## Siehe auch
 
-- [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range),
-- HTML {{HTMLElement('progress')}}-Element
-- HTML {{HTMLElement('meter')}}-Element
-- Andere Bereichswidgets sind:
+- [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)
+- HTML-Element {{HTMLElement('progress')}}
+- HTML-Element {{HTMLElement('meter')}}
+- Weitere Bereichs-Widgets:
   - [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
   - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
-  - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (wenn fokusierbar)
+  - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (wenn fokussierbar)
   - [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
   - [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
-- W3C WAI-ARIA-Praktiken Beispiele:
-  - [Horizontaler Multi-Thumb-Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/)
-  - [Farbansicht-Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/)
-  - [Bewertungs-Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/)
-  - [Media-Such-Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/)
-  - [Vertikaler Temperatur-Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/)
+- Beispiele aus den W3C-WAI-ARIA-Praktiken:
+  - [Horizontaler Schieberegler mit mehreren Griffen](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/)
+  - [Schieberegler zur Farbanzeige](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/)
+  - [Schieberegler für Bewertungen](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/)
+  - [Schieberegler zum Navigieren in Medien](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/)
+  - [Vertikaler Temperaturschieberegler](https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/)

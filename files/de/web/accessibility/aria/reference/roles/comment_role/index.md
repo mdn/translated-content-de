@@ -1,21 +1,25 @@
 ---
-title: "ARIA: Rolle comment"
+title: "ARIA: comment-Rolle"
 short-title: comment
 slug: Web/Accessibility/ARIA/Reference/Roles/comment_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die Rolle `comment` bezeichnet semantisch einen Kommentar/Reaktion auf einige Inhalte auf der Seite oder auf einen vorherigen Kommentar.
+Die Rolle `comment` kennzeichnet semantisch einen Kommentar oder eine Reaktion auf einen Inhalt der Seite oder auf einen vorherigen Kommentar.
 
 > [!NOTE]
-> Die Rolle comment wird in WAI-ARIA 1.3 vorgeschlagen ([Neuester ARIA-Entwurf](https://w3c.github.io/aria/)), der sich noch in der Entwurfsphase befindet.
+> Die Rolle `comment` ist für WAI-ARIA 1.3 vorgeschlagen ([aktuellster ARIA-Entwurf](https://w3c.github.io/aria/)), das sich noch in der Entwurfsphase befindet.
+
+## Aspekte der Barrierefreiheit
+
+Keine.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt wird mit `<span role="mark">` ausgezeichnet.
+Im folgenden Beispiel gibt es einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt ist mit `<span role="mark">` ausgezeichnet.
 
-Der zugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die in einem `<div>` mit `role="comment"` eingebettet ist.
+Der zugehörige Kommentar ist mit einer HTML-Struktur ausgezeichnet, die von einem `<div>` mit `role="comment"` umschlossen wird.
 
 ```html
 <p>
@@ -31,11 +35,11 @@ Der zugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die in ein
 </div>
 ```
 
-Um den Kommentar mit dem kommentierten Text zu verknüpfen, müssen wir den kommentierten Text mit einem Element umschließen, das das [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)-Attribut enthält, dessen Wert die ID des Kommentars sein sollte.
+Um den Kommentar mit dem kommentierten Text zu verknüpfen, müssen wir den Text mit einem Element umschließen, das das Attribut [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) enthält. Dessen Wert sollte die ID des Kommentars sein.
 
 ### Mehrere Kommentare
 
-Da `aria-details` nun mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Anmerkung verknüpfen, wie folgt:
+Da `aria-details` inzwischen mehrere IDs akzeptieren kann, können wir mehrere Kommentare derselben Annotation zuordnen:
 
 ```html
 <p>
@@ -62,7 +66,7 @@ Da `aria-details` nun mehrere IDs akzeptieren kann, können wir mehrere Kommenta
 
 ### Verschachtelte Kommentare
 
-Es ist möglich, Kommentare ineinander zu verschachteln, wie folgt:
+Kommentare können ineinander verschachtelt werden:
 
 ```html
 <div role="comment" id="thread-1" data-author="chris">
@@ -79,10 +83,6 @@ Es ist möglich, Kommentare ineinander zu verschachteln, wie folgt:
   </div>
 </div>
 ```
-
-## Barrierefreiheitsbedenken
-
-Keine.
 
 ## Spezifikationen
 

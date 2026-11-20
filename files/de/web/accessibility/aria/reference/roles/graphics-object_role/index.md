@@ -3,27 +3,33 @@ title: "ARIA: Rolle graphics-object"
 short-title: graphics-object
 slug: Web/Accessibility/ARIA/Reference/Roles/graphics-object_role
 l10n:
-  sourceCommit: 370f1912b54d24bd7da541f8f2dd98c26d377121
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
 Die Rolle `graphics-object` kennzeichnet einen Abschnitt eines [`graphics-document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-document_role), der ein eigenständiges Objekt oder eine Unterkomponente mit semantischer Bedeutung darstellt.
 
 > [!NOTE]
-> Die Rolle `graphics-object` ist in der Spezifikation [WAI-ARIA Graphics Module](https://w3c.github.io/graphics-aria/) definiert.
-> Sie ist nicht Teil der grundlegenden [WAI-ARIA](https://w3c.github.io/aria/)-Spezifikation.
+> Die Rolle `graphics-object` ist in der Spezifikation des [WAI-ARIA Graphics Module](https://w3c.github.io/graphics-aria/) definiert.
+> Sie ist nicht Teil der zentralen [WAI-ARIA](https://w3c.github.io/aria/)-Spezifikation.
 
 ## Beschreibung
 
-Die Rolle `graphics-object` kennzeichnet einen eigenständigen Teil einer größeren Grafik, etwa eine Region auf einer Karte, einen Balken in einem Diagramm oder einen Knoten in einem Schaubild. Ein `graphics-object` kann selbst verschachtelte Unterkomponenten enthalten. Anders als ein [`graphics-document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-document_role) muss es nicht in sich abgeschlossen sein und führt keinen eigenen Navigationskontext ein.
+Die Rolle `graphics-object` kennzeichnet einen eigenständigen Teil einer größeren Grafik, beispielsweise eine Region auf einer Karte, einen Balken in einem Diagramm oder einen Knoten in einem Schaubild. Ein `graphics-object` kann selbst verschachtelte Unterkomponenten enthalten. Anders als ein [`graphics-document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/graphics-document_role) muss es nicht in sich abgeschlossen sein und führt keinen eigenen Navigationskontext ein.
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Ein zugänglicher Name ist optional und kann auch aus dem Inhalt des Elements abgeleitet werden. Verwenden Sie `aria-labelledby`, um auf eine Beschriftung zu verweisen, oder `aria-label`, um direkt eine anzugeben.
+  - : Ein zugänglicher Name ist optional und kann auch aus dem Inhalt des Elements abgeleitet werden. Verwenden Sie `aria-labelledby`, um auf eine Beschriftung zu verweisen, oder `aria-label`, um eine Beschriftung direkt anzugeben.
+
+## Bewährte Verfahren
+
+Verwenden Sie für Containerelemente, die eine Sammlung voneinander unabhängiger Objekte darstellen, stattdessen die Rollen [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) oder [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role).
+
+Weisen Sie diese Rolle nicht Gruppierungselementen zu, die ausschließlich der Gestaltung oder dem Layout dienen. Lassen Sie die Rolle in solchen Fällen weg oder verwenden Sie stattdessen `none` oder `presentation`.
 
 ## Beispiele
 
-In dieser vereinfachten Karte ist jeder Kontinent ein eigenständiges Objekt, das eine Form und eine Textbeschriftung enthält. Die Rolle `graphics-object` kennzeichnet jedes {{SVGElement("g")}} als bedeutungsvollen Teil der Karte, während die untergeordneten Inhalte erhalten bleiben. Eine Gruppe, die nur dazu dient, Elemente zu positionieren oder zu gestalten, benötigt diese Rolle nicht. Das äußere {{SVGElement("svg")}} stellt die Semantik des grafischen Dokuments bereit.
+In dieser vereinfachten Karte ist jeder Kontinent ein eigenständiges Objekt, das eine Form und eine Textbeschriftung enthält. Die Rolle `graphics-object` kennzeichnet jedes {{SVGElement("g")}} als bedeutungsvollen Teil der Karte, ohne dessen untergeordnete Inhalte zu verbergen. Eine Gruppe, die nur zur Positionierung oder Gestaltung von Elementen dient, benötigt diese Rolle nicht. Das äußere {{SVGElement("svg")}} stellt die Semantik des grafischen Dokuments bereit.
 
 ```html
 <svg aria-label="World map showing major continents" viewBox="0 0 900 420">
@@ -56,12 +62,6 @@ In dieser vereinfachten Karte ist jeder Kontinent ein eigenständiges Objekt, da
 ```
 
 {{EmbedLiveSample('Examples', 600, 360)}}
-
-## Bewährte Verfahren
-
-Verwenden Sie für Containerelemente, die eine Sammlung voneinander unabhängiger Objekte darstellen, stattdessen die Rollen [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) oder [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role).
-
-Weisen Sie diese Rolle keinen Gruppierungselementen zu, die ausschließlich der Gestaltung oder dem Layout dienen. Lassen Sie in solchen Fällen die Rolle weg oder verwenden Sie stattdessen `none` oder `presentation`.
 
 ## Spezifikationen
 

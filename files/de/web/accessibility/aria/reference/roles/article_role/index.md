@@ -1,12 +1,12 @@
 ---
-title: "ARIA: article Rolle"
+title: "ARIA: article-Rolle"
 short-title: article
 slug: Web/Accessibility/ARIA/Reference/Roles/article_role
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die `article`-Rolle zeigt einen Abschnitt einer Seite an, der problemlos allein auf einer Seite, in einem Dokument oder auf einer Website stehen könnte. Sie wird normalerweise auf verwandten Inhaltselementen wie Kommentaren, Forenbeiträgen, Zeitungsartikeln oder anderen auf einer Seite gruppierten Elementen gesetzt.
+Die Rolle `article` kennzeichnet einen Abschnitt einer Seite, der auch eigenständig auf einer Seite, in einem Dokument oder auf einer Website stehen könnte. Sie wird üblicherweise für zusammengehörige Inhaltseinheiten wie Kommentare, Forenbeiträge, Zeitungsartikel oder andere Elemente verwendet, die auf einer Seite gruppiert sind.
 
 ```html
 <div role="article">
@@ -18,12 +18,12 @@ Die `article`-Rolle zeigt einen Abschnitt einer Seite an, der problemlos allein 
 <div role="article">…</div>
 ```
 
-Dieses Beispiel zeigt zwei Artikel, die nebeneinander auf einer Seite angeordnet sind, die ähnlich strukturiert sind und miteinander verbunden sind.
+Dieses Beispiel zeigt zwei Artikel nebeneinander auf einer Seite. Sie könnten ähnlich strukturiert sein und stehen miteinander in Beziehung.
 
 > [!NOTE]
-> Verwenden Sie anstelle eines `<div>` mit einer `article`-Rolle das {{HTMLElement('article')}}-Element. **Immer das native Element verwenden, wenn verfügbar**
+> Verwenden Sie statt eines `<div>` mit der Rolle `article` das Element {{HTMLElement('article')}}. **Verwenden Sie immer das native Element, wenn es verfügbar ist.**
 
-Verwenden Sie nicht `role="article"`. Verwenden Sie stattdessen das `<article>`-Element.
+Verwenden Sie nicht `role="article"`, sondern das Element `<article>`.
 
 ```html
 <article>
@@ -37,24 +37,24 @@ Verwenden Sie nicht `role="article"`. Verwenden Sie stattdessen das `<article>`-
 
 ## Beschreibung
 
-Die `article`-Rolle [Dokumentenstrukturrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#1._document_structure_roles) bezeichnet einen Abschnitt eines Dokuments, einer Seite oder einer Website, der, wenn er allein stünde, als vollständiges Dokument, vollständige Seite oder vollständige Website betrachtet werden könnte. Ziel einer Reihe von Artikelsektionen ist es, ihre Beziehung zueinander anzuzeigen.
+Die `article`-[Rolle für die Dokumentstruktur](/de/docs/Web/Accessibility/ARIA/Reference/Roles#1._document_structure_roles) kennzeichnet einen Abschnitt eines Dokuments, einer Seite oder einer Website, der für sich genommen als vollständiges Dokument, vollständige Seite oder vollständige Website betrachtet werden könnte. Eine Gruppe von Artikelabschnitten soll ihre Beziehung zueinander verdeutlichen.
 
-Artikel werden nicht als navigierbares Landmarke angesehen, aber viele unterstützende Technologien, die Landmarken unterstützen, bieten auch eine Möglichkeit, zwischen Artikeln zu navigieren. Sie können auch die Anzeige von Verschachtelungsbeziehungen innerhalb von Artikeln unterstützen.
+Artikel gelten nicht als Navigations-Landmarks. Viele assistive Technologien, die Landmarks unterstützen, bieten jedoch auch eine Möglichkeit, zwischen Artikeln zu navigieren. Sie können außerdem verschachtelte Beziehungen zwischen Artikeln anzeigen.
 
-Artikel können verschachtelt werden, was bedeutet, dass ein verschachtelter Artikel direkt zu demjenigen Artikel gehört, in den er verschachtelt ist, aber nicht notwendigerweise zu denjenigen außerhalb der Verschachtelungshierarchie. Rufen Sie die Beispiele für spezifische Anwendungsfälle auf.
+Artikel können verschachtelt sein. Ein verschachtelter Artikel steht in direkter Beziehung zu dem Artikel, in dem er enthalten ist, aber nicht unbedingt zu Artikeln außerhalb dieser Verschachtelung. Konkrete Anwendungsfälle finden Sie in den Beispielen.
 
-Wenn ein Artikel Teil eines Feeds ist, kann er die Attribute [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset) und [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) enthalten, um anzuzeigen, welche Position dieser spezielle Artikel innerhalb des Feeds hat.
+Wenn ein Artikel Teil eines Feeds ist, können die Attribute [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset) und [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) gesetzt werden, um die Position dieses Artikels innerhalb des Feeds anzugeben.
 
-Innerhalb einer `application` oder eines anderen Widgets, das Vorleseprogramme und andere unterstützende Technologien in den Durchgangsmodus versetzt, kann ein Artikel verwendet werden, um anzuzeigen, dass diese wieder dazu übergehen sollten, den eingeschlossenen Inhalt als regulären Webinhalt zu behandeln.
+Innerhalb einer `application` oder eines anderen Widgets, das Screenreader und andere assistive Technologien in einen Durchreichmodus versetzt, kann ein Artikel signalisieren, dass sie den enthaltenen Inhalt wieder als regulären Webinhalt behandeln sollen.
 
-Anstatt die `article`-Rolle auf ein nicht-semantisches Element anzuwenden, sollte das {{HTMLElement('article')}}-Element verwendet werden. Benutzeragenten übersetzen dies in die geeigneten Barrierefreiheitsinformationen, genau wie bei der `article`-Rolle. Die Verwendung des {{HTMLElement('article')}}-Elements hilft auch Suchmaschinen, die Struktur einer Seite besser zu erkennen. Beispiele für geeignete Verwendungen der `role="article"` oder vorzugsweise `<article>` schließen Blogbeiträge, Forenbeiträge, Kommentare zu einem Forums- oder Blogbeitrag, jedes Element in einem Social Media-Feed ein.
+Statt die Rolle `article` einem nicht-semantischen Element zuzuweisen, sollten Sie das Element {{HTMLElement('article')}} verwenden. User Agents setzen es ebenso wie die Rolle `article` in die entsprechenden Informationen zur Barrierefreiheit um. Das Element {{HTMLElement('article')}} hilft auch Suchmaschinen, die Struktur einer Seite besser zu erkennen. Geeignete Anwendungsfälle für `role="article"` oder vorzugsweise `<article>` sind Blogbeiträge, Forenbeiträge, Kommentare zu Foren- oder Blogbeiträgen und Elemente in einem Social-Media-Feed.
 
-### Zugeordnete WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset)
-  - : Im Kontext eines Feeds gibt an, welche Position dieser spezielle Artikel innerhalb dieses Feeds hat, basierend auf einer Zählung ab 1.
+  - : Gibt im Kontext eines Feeds die Position dieses Artikels innerhalb des Feeds an. Die Zählung beginnt bei 1.
 - [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize)
-  - : Im Kontext eines Feeds gibt an, wie viele Artikel-Elemente es innerhalb dieses Feeds gibt.
+  - : Gibt im Kontext eines Feeds an, wie viele Artikel der Feed enthält.
 
 ### Tastaturinteraktionen
 
@@ -62,28 +62,29 @@ Diese Rolle unterstützt keine spezifischen Tastaturinteraktionen.
 
 ### Erforderliche JavaScript-Funktionen
 
-- Ereignishandler
-  - : Diese Rolle erfordert keine vorhandenen Ereignishandler.
+- Event-Handler
+  - : Für diese Rolle sind keine Event-Handler erforderlich.
 - Ändern von Attributwerten
-  - : Beim Erstellen eines Feeds die Attribute `aria-posinset` und `aria-setsize` auf jede Artikelrolle mit den entsprechenden Werten setzen, wobei zu beachten ist, dass `aria-posinset` 1-basiert ist.
+  - : Setzen Sie beim Erstellen eines Feeds die Attribute `aria-posinset` und `aria-setsize` für jede `article`-Rolle auf die entsprechenden Werte. Beachten Sie dabei, dass die Zählung bei `aria-posinset` mit 1 beginnt.
 
-> [!NOTE] > **Immer das native Element verwenden, wenn verfügbar.** Anstelle eines `<div>` mit der `article`-Rolle sollte das `<article>`-Element verwendet werden.
+> [!NOTE]
+> **Verwenden Sie immer das native Element, wenn es verfügbar ist.** Statt eines `<div>` mit der Rolle `article` sollten Sie das Element `<article>` verwenden.
+
+## Rangfolge
+
+Diese Rolle entspricht dem HTML-Element {{HTMLElement('article')}}. Verwenden Sie nach Möglichkeit dieses Element anstelle der Rolle. Für die untergeordneten Elemente dieser Rolle sind keine bestimmten Rollen erforderlich. Sie ist die einzige Rolle, die als direktes Kind eines Elements mit der Rolle [`feed`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role) zulässig ist.
 
 ## Beispiele
 
-- Die [Restaurantempfehlungen-Anzeige im Feed](https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed-display.html) zusammen mit ihrer separaten [Dokumentation](https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/) aus den WAI-ARIA 1.1-Erstellungspraxen für Feed-Designmuster
+- Die [Anzeige eines Feeds mit Restaurantempfehlungen](https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed-display.html) und ihre separate [Dokumentation](https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/) zum Feed-Entwurfsmuster der WAI-ARIA 1.1 Authoring Practices
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Reihenfolge der Priorität
-
-Diese Rolle entspricht dem {{HTMLElement('article')}}-Element in HTML, und dieses Element sollte stattdessen verwendet werden, falls möglich. Diese Rolle erfordert keine spezifischen Rollen unter ihren Kindern. Es ist die einzige Rolle, die als direktes Kind eines Elements mit der [`feed`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role)-Rolle erlaubt ist.
-
 ## Siehe auch
 
-- [`feed`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role)
-- [`section`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role)
-- Das {{HTMLElement('article')}}-Element
-- {{Glossary("RSS", "RSS")}} Glossareintrag
+- [Rolle `feed`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role)
+- [Rolle `section`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role)
+- Das Element {{HTMLElement('article')}}
+- {{Glossary("RSS", "RSS")}}-Glossareintrag

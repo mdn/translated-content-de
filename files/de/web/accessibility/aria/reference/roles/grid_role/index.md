@@ -3,14 +3,14 @@ title: "ARIA: grid-Rolle"
 short-title: grid
 slug: Web/Accessibility/ARIA/Reference/Roles/grid_role
 l10n:
-  sourceCommit: 96758f3d8ce1e5fbd9d58053bdef103eec1de108
+  sourceCommit: 5af4f6e12c119ea0d809b35b3fa3266a0fbe4ef4
 ---
 
-Die grid-Rolle ist für ein Widget vorgesehen, das eine oder mehrere Zeilen mit Zellen enthält. Die Position jeder Zelle ist von Bedeutung, und jede Zelle kann über die Tastatur fokussiert werden.
+Die `grid`-Rolle ist für ein Widget vorgesehen, das eine oder mehrere Zeilen mit Zellen enthält. Die Position jeder Zelle ist von Bedeutung, und Zellen können über die Tastatur fokussiert werden.
 
 ## Beschreibung
 
-Die `grid`-Rolle bezeichnet ein zusammengesetztes Widget mit einer oder mehreren Zeilen, die jeweils eine oder mehrere Zellen enthalten. Einige oder alle Zellen im Grid können durch zweidimensionale Navigation, etwa mit den Pfeiltasten, fokussiert werden.
+Die `grid`-Rolle bezeichnet ein zusammengesetztes Widget mit einer oder mehreren Zeilen, die jeweils eine oder mehrere Zellen enthalten. Einige oder alle Zellen des Grids können mithilfe einer zweidimensionalen Navigation, etwa über die Pfeiltasten, fokussiert werden.
 
 ```html
 <table role="grid" aria-labelledby="id-select-your-seat">
@@ -47,24 +47,24 @@ Die `grid`-Rolle bezeichnet ein zusammengesetztes Widget mit einer oder mehreren
 </table>
 ```
 
-Ein Grid-Widget enthält eine oder mehrere Zeilen mit Zellen, deren interaktive Inhalte thematisch zusammengehören. Es schreibt keine bestimmte visuelle Darstellung vor, setzt aber eine Beziehung zwischen den Elementen voraus. Die Anwendungsfälle lassen sich in zwei Kategorien einteilen: die Darstellung tabellarischer Informationen (Daten-Grids) und die Gruppierung anderer Widgets (Layout-Grids). Obwohl beide dieselben ARIA-Rollen, -Zustände und -Eigenschaften verwenden, ergeben sich aus ihren unterschiedlichen Inhalten und Zwecken wichtige Anforderungen an die Gestaltung der Tastaturinteraktion. Weitere Informationen finden Sie im [Leitfaden zu ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
+Ein Grid-Widget enthält eine oder mehrere Zeilen mit einer oder mehreren Zellen, deren interaktive Inhalte thematisch zusammengehören. Es schreibt keine bestimmte visuelle Darstellung vor, stellt aber eine Beziehung zwischen den Elementen her. Die Einsatzmöglichkeiten lassen sich in zwei Kategorien einteilen: die Darstellung tabellarischer Informationen (Datengrids) und die Gruppierung anderer Widgets (Layout-Grids). Obwohl Datengrids und Layout-Grids dieselben ARIA-Rollen, -Zustände und -Eigenschaften verwenden, ergeben sich aus ihren unterschiedlichen Inhalten und Zwecken wichtige Aspekte für die Gestaltung der Tastaturinteraktion. Weitere Informationen finden Sie im [Leitfaden zu ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
 
-Zellelemente haben die Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), es sei denn, sie sind Zeilen- oder Spaltenüberschriften. In diesem Fall haben sie die Rolle [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role) beziehungsweise [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role). Zellelemente müssen Elementen mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) zugeordnet sein. Zeilen können mithilfe der Rolle [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) gruppiert werden.
+Zellelemente haben die Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), sofern sie keine Zeilen- oder Spaltenüberschriften sind. In diesem Fall haben sie die Rolle [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role) beziehungsweise [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role). Zellelemente müssen Elementen mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) zugeordnet sein. Zeilen können mithilfe der Rolle [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) gruppiert werden.
 
-Ein Grid ist ein interaktives Widget. Daher müssen [Tastaturinteraktionen](#tastaturinteraktionen) implementiert werden.
+Das Grid ist ein interaktives Widget. Daher müssen [Tastaturinteraktionen](#tastaturinteraktionen) implementiert werden.
 
-Ein zugänglicher Name wird für die Rolle `grid` dringend empfohlen, auch wenn ARIA ihn nicht vorschreibt. Verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), um auf eine sichtbare Beschriftung zu verweisen, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn keine sichtbare Beschriftung vorhanden ist.
+Ein zugänglicher Name wird für die `grid`-Rolle dringend empfohlen, auch wenn ARIA ihn nicht vorschreibt. Verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), um auf eine sichtbare Beschriftung zu verweisen, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn keine sichtbare Beschriftung vorhanden ist.
 
 ### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
 #### Rollen
 
 - [treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) (Unterklasse)
-  - : Wenn ein Grid Zeilen enthält, die zum Ein- oder Ausblenden untergeordneter Zeilen auf- oder zugeklappt werden können, kann ein treegrid verwendet werden.
+  - : Wenn ein Grid Zeilen enthält, die erweitert oder reduziert werden können, um untergeordnete Zeilen ein- oder auszublenden, kann ein treegrid verwendet werden.
 - [row](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
   - : Eine Zeile innerhalb des Grids.
 - [rowgroup](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role)
-  - : Eine Gruppe, die eine oder mehrere [row](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)-Zeilen enthält.
+  - : Eine Gruppe, die eine oder mehrere Elemente mit der Rolle [row](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) enthält.
 
 #### Zustände und Eigenschaften
 
@@ -73,39 +73,43 @@ Ein zugänglicher Name wird für die Rolle `grid` dringend empfohlen, auch wenn 
 - [aria-multiselectable](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)
   - : Wenn `aria-multiselectable` auf `true` gesetzt ist, können mehrere Elemente im Grid ausgewählt werden. Der Standardwert ist `false`.
 - [aria-readonly](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)
-  - : Wenn das Grid die Bearbeitung von Zellinhalten unterstützt, die Bearbeitung aber für alle Zellen nicht verfügbar ist, kann [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly) auf `true` gesetzt werden. Der Standardwert ist `false`. Das Fehlen des Attributs bedeutet jedoch nicht, dass das Grid bearbeitbare Inhalte enthält. Lassen Sie das Attribut weg, wenn das Grid keine Bearbeitung von Zellinhalten unterstützt. Der für das Grid festgelegte Wert wird an seine gridcells weitergegeben und kann für einzelne gridcells überschrieben werden.
+  - : Wenn das Grid die Bearbeitung von Zellinhalten unterstützt, diese aber für alle Zellen nicht verfügbar ist, kann [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly) auf `true` gesetzt werden. Der Standardwert ist `false`. Wird das Attribut weggelassen, bedeutet das jedoch nicht, dass das Grid bearbeitbare Inhalte enthält. Lassen Sie das Attribut weg, wenn das Grid keine Bearbeitung von Zellinhalten unterstützt. Der für das Grid festgelegte Wert wird an seine gridcells weitergegeben und kann für einzelne gridcells überschrieben werden.
 
 > [!NOTE]
-> Für viele Anwendungsfälle genügt ein HTML-Element {{HTMLElement('table')}}, da es und die verschiedenen Tabellenelemente bereits viele ARIA-Rollen mitbringen.
+> Für viele Anwendungsfälle reicht ein HTML-Element {{HTMLElement('table')}} aus, da es und die verschiedenen Tabellenelemente bereits viele ARIA-Rollen mitbringen.
 
 ### Tastaturinteraktionen
 
-Wenn Tastaturnutzende zu einem Grid gelangen, navigieren sie mit den Tasten <kbd>links</kbd>, <kbd>rechts</kbd>, <kbd>oben</kbd> und <kbd>unten</kbd> durch Zeilen und Spalten. Um eine interaktive Komponente zu aktivieren, verwenden sie die <kbd>Eingabetaste</kbd> oder die <kbd>Leertaste</kbd>.
+Wenn Tastaturnutzende zu einem Grid gelangen, navigieren sie mit den Tasten <kbd>left</kbd>, <kbd>right</kbd>, <kbd>top</kbd> und <kbd>down</kbd> durch die Zeilen und Spalten. Um eine interaktive Komponente zu aktivieren, verwenden sie die Tasten <kbd>return</kbd> und <kbd>space</kbd>.
 
-| Taste                             | Aktion                                                                                                                                                                                                                                                                                                  |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>→</kbd>                      | Verschiebt den Fokus um eine Zelle nach rechts. Optional kann der Fokus bei Layout-Grids von der Zelle ganz rechts in einer Zeile zur ersten Zelle der nächsten Zeile wechseln. Befindet sich der Fokus auf der letzten Zelle des Grids, bleibt er dort.                                                |
-| <kbd>←</kbd>                      | Verschiebt den Fokus um eine Zelle nach links. Optional kann der Fokus bei Layout-Grids von der Zelle ganz links in einer Zeile zur letzten Zelle der vorherigen Zeile wechseln. Befindet sich der Fokus auf der ersten Zelle des Grids, bleibt er dort.                                                |
-| <kbd>↓</kbd>                      | Verschiebt den Fokus um eine Zelle nach unten. Optional kann der Fokus bei Layout-Grids von der untersten Zelle einer Spalte zur obersten Zelle der nächsten Spalte wechseln. Befindet sich der Fokus auf der letzten Zelle des Grids, bleibt er dort.                                                  |
-| <kbd>↑</kbd>                      | Verschiebt den Fokus um eine Zelle nach oben. Optional kann der Fokus bei Layout-Grids von der obersten Zelle einer Spalte zur untersten Zelle der vorherigen Spalte wechseln. Befindet sich der Fokus auf der ersten Zelle des Grids, bleibt er dort.                                                  |
-| <kbd>Page Down</kbd>              | Verschiebt den Fokus um eine von den Entwickelnden festgelegte Anzahl von Zeilen nach unten. Üblicherweise wird dabei so gescrollt, dass die unterste der derzeit sichtbaren Zeilen zu einer der ersten sichtbaren Zeilen wird. Befindet sich der Fokus in der letzten Zeile des Grids, bleibt er dort. |
-| <kbd>Page Up</kbd>                | Verschiebt den Fokus um eine von den Entwickelnden festgelegte Anzahl von Zeilen nach oben. Üblicherweise wird dabei so gescrollt, dass die oberste der derzeit sichtbaren Zeilen zu einer der letzten sichtbaren Zeilen wird. Befindet sich der Fokus in der ersten Zeile des Grids, bleibt er dort.   |
-| <kbd>Home</kbd>                   | Verschiebt den Fokus zur ersten Zelle der aktuell fokussierten Zeile.                                                                                                                                                                                                                                   |
-| <kbd>End</kbd>                    | Verschiebt den Fokus zur letzten Zelle der aktuell fokussierten Zeile.                                                                                                                                                                                                                                  |
-| <kbd>ctrl</kbd> + <kbd>Home</kbd> | Verschiebt den Fokus zur ersten Zelle der ersten Zeile.                                                                                                                                                                                                                                                 |
-| <kbd>ctrl</kbd> + <kbd>End</kbd>  | Verschiebt den Fokus zur letzten Zelle der letzten Zeile.                                                                                                                                                                                                                                               |
+| Taste                             | Aktion                                                                                                                                                                                                                                                                                                         |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>→</kbd>                      | Verschiebt den Fokus um eine Zelle nach rechts. Optional kann der Fokus bei Layout-Grids von der äußersten rechten Zelle einer Zeile zur ersten Zelle der nächsten Zeile wechseln. Befindet sich der Fokus auf der letzten Zelle des Grids, bleibt er unverändert.                                             |
+| <kbd>←</kbd>                      | Verschiebt den Fokus um eine Zelle nach links. Optional kann der Fokus bei Layout-Grids von der äußersten linken Zelle einer Zeile zur letzten Zelle der vorherigen Zeile wechseln. Befindet sich der Fokus auf der ersten Zelle des Grids, bleibt er unverändert.                                             |
+| <kbd>↓</kbd>                      | Verschiebt den Fokus um eine Zelle nach unten. Optional kann der Fokus bei Layout-Grids von der untersten Zelle einer Spalte zur obersten Zelle der nächsten Spalte wechseln. Befindet sich der Fokus auf der letzten Zelle des Grids, bleibt er unverändert.                                                  |
+| <kbd>↑</kbd>                      | Verschiebt den Fokus um eine Zelle nach oben. Optional kann der Fokus bei Layout-Grids von der obersten Zelle einer Spalte zur untersten Zelle der vorherigen Spalte wechseln. Befindet sich der Fokus auf der ersten Zelle des Grids, bleibt er unverändert.                                                  |
+| <kbd>Page Down</kbd>              | Verschiebt den Fokus um eine von den Entwickelnden festgelegte Anzahl von Zeilen nach unten. Üblicherweise wird dabei so gescrollt, dass die unterste der derzeit sichtbaren Zeilen zu einer der ersten sichtbaren Zeilen wird. Befindet sich der Fokus in der letzten Zeile des Grids, bleibt er unverändert. |
+| <kbd>Page Up</kbd>                | Verschiebt den Fokus um eine von den Entwickelnden festgelegte Anzahl von Zeilen nach oben. Üblicherweise wird dabei so gescrollt, dass die oberste der derzeit sichtbaren Zeilen zu einer der letzten sichtbaren Zeilen wird. Befindet sich der Fokus in der ersten Zeile des Grids, bleibt er unverändert.   |
+| <kbd>Home</kbd>                   | Verschiebt den Fokus zur ersten Zelle der Zeile, in der sich der Fokus befindet.                                                                                                                                                                                                                               |
+| <kbd>End</kbd>                    | Verschiebt den Fokus zur letzten Zelle der Zeile, in der sich der Fokus befindet.                                                                                                                                                                                                                              |
+| <kbd>ctrl</kbd> + <kbd>Home</kbd> | Verschiebt den Fokus zur ersten Zelle der ersten Zeile.                                                                                                                                                                                                                                                        |
+| <kbd>ctrl</kbd> + <kbd>End</kbd>  | Verschiebt den Fokus zur letzten Zelle der letzten Zeile.                                                                                                                                                                                                                                                      |
 
 Wenn Zellen, Zeilen oder Spalten ausgewählt werden können, werden häufig die folgenden Tastenkombinationen verwendet:
 
-| Tastenkombination                   | Aktion                                                                                                                                                                                                                            |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>ctrl</kbd> + <kbd>Space</kbd>  | Wählt die Spalte aus, die den Fokus enthält.                                                                                                                                                                                      |
-| <kbd>shift</kbd> + <kbd>Space</kbd> | Wählt die Zeile aus, die den Fokus enthält. Wenn das Grid eine Spalte mit Kontrollkästchen zur Auswahl von Zeilen enthält, kann diese Tastenkombination das entsprechende Kästchen aktivieren, auch wenn es nicht fokussiert ist. |
-| <kbd>ctrl</kbd> + <kbd>A</kbd>      | Wählt alle Zellen aus.                                                                                                                                                                                                            |
-| <kbd>shift</kbd> + <kbd>→</kbd>     | Erweitert die Auswahl um eine Zelle nach rechts.                                                                                                                                                                                  |
-| <kbd>shift</kbd> + <kbd>←</kbd>     | Erweitert die Auswahl um eine Zelle nach links.                                                                                                                                                                                   |
-| <kbd>shift</kbd> + <kbd>↓</kbd>     | Erweitert die Auswahl um eine Zelle nach unten.                                                                                                                                                                                   |
-| <kbd>shift</kbd> + <kbd>↑</kbd>     | Erweitert die Auswahl um eine Zelle nach oben.                                                                                                                                                                                    |
+| Tastenkombination                   | Aktion                                                                                                                                                                                                                                                   |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>ctrl</kbd> + <kbd>Space</kbd>  | Wählt die Spalte aus, in der sich der Fokus befindet.                                                                                                                                                                                                    |
+| <kbd>shift</kbd> + <kbd>Space</kbd> | Wählt die Zeile aus, in der sich der Fokus befindet. Enthält das Grid eine Spalte mit Kontrollkästchen zur Auswahl von Zeilen, kann mit dieser Tastenkombination das entsprechende Kontrollkästchen aktiviert werden, auch wenn es nicht fokussiert ist. |
+| <kbd>ctrl</kbd> + <kbd>A</kbd>      | Wählt alle Zellen aus.                                                                                                                                                                                                                                   |
+| <kbd>shift</kbd> + <kbd>→</kbd>     | Erweitert die Auswahl um eine Zelle nach rechts.                                                                                                                                                                                                         |
+| <kbd>shift</kbd> + <kbd>←</kbd>     | Erweitert die Auswahl um eine Zelle nach links.                                                                                                                                                                                                          |
+| <kbd>shift</kbd> + <kbd>↓</kbd>     | Erweitert die Auswahl um eine Zelle nach unten.                                                                                                                                                                                                          |
+| <kbd>shift</kbd> + <kbd>↑</kbd>     | Erweitert die Auswahl um eine Zelle nach oben.                                                                                                                                                                                                           |
+
+## Hinweise zur Barrierefreiheit
+
+Selbst wenn die Tastaturbedienung ordnungsgemäß implementiert ist, wissen manche Nutzende möglicherweise nicht, dass sie die Pfeiltasten verwenden müssen. Stellen Sie sicher, dass sich die benötigten Funktionen und Interaktionen am besten mit der `grid`-Rolle umsetzen lassen.
 
 ## Beispiele
 
@@ -359,13 +363,9 @@ document.querySelector("table").addEventListener("keydown", (event) => {
 
 ### Weitere Beispiele
 
-- [Beispiele für Daten-Grids](https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html)
+- [Beispiele für Datengrids](https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html)
 - [Beispiele für Layout-Grids](https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html)
 - [W3C/WAI-Tutorial: Tabellen](https://www.w3.org/WAI/tutorials/tables/)
-
-## Hinweise zur Barrierefreiheit
-
-Selbst wenn die Tastaturbedienung korrekt implementiert ist, wissen manche Nutzende möglicherweise nicht, dass sie die Pfeiltasten verwenden müssen. Stellen Sie sicher, dass sich die benötigte Funktionalität und Interaktion am besten mit der grid-Rolle umsetzen lässt.
 
 ## Spezifikationen
 
