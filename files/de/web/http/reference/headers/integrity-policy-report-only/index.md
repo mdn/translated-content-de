@@ -3,20 +3,22 @@ title: Integrity-Policy-Report-Only header
 short-title: Integrity-Policy-Report-Only
 slug: Web/HTTP/Reference/Headers/Integrity-Policy-Report-Only
 l10n:
-  sourceCommit: 5ab391405a364e5a512b8182c376261ee8a0bf18
+  sourceCommit: ea7722e995404f47bfaa0d7d0c011472d85aa972
 ---
 
-Der HTTP **`Integrity-Policy-Report-Only`** Antwort-Header ermöglicht es Website-Administratoren, Berichte über Ressourcen zu erstellen, die der Benutzer-Agent lädt und die die [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) Garantien verletzen würden, wenn die Integritätsrichtlinie durchgesetzt würde (unter Verwendung des {{HTTPHeader("Integrity-Policy")}} Headers).
+Der HTTP-Antwortheader **`Integrity-Policy-Report-Only`** ermöglicht es Website-Administratoren, Ressourcen zu melden, die der User Agent lädt und die gegen die Garantien von [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) verstoßen würden, wenn die Integritätsrichtlinie mit dem Header {{HTTPHeader("Integrity-Policy")}} durchgesetzt würde.
 
-Verstöße gegen die Richtlinie können mithilfe der [Reporting API](/de/docs/Web/API/Reporting_API) gemeldet werden. Berichte können auf der Seite beobachtet werden, auf der die Richtlinie durchgesetzt wird, unter Verwendung eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), und an Serverendpunkte gesendet werden, die in einem {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header definiert sind und mithilfe des [`endpoints`](#endpoints) Feldes ausgewählt werden. Weitere Informationen finden Sie unter [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport).
+Verstöße gegen die Richtlinie können über die [Reporting API](/de/docs/Web/API/Reporting_API) gemeldet werden.
+Berichte können auf der Seite, für die die Richtlinie gilt, mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet und an Server-Endpunkte gesendet werden. Diese Endpunkte werden in einem HTTP-Antwortheader {{HTTPHeader("Reporting-Endpoints")}} definiert und über das Feld [`endpoints`](#endpoints) ausgewählt.
+Weitere Informationen finden Sie unter [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport).
 
-Der Header ermöglicht es Entwicklern, [Integritätsrichtlinien](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) zu testen und alle Inhaltsprobleme zu beheben, bevor schließlich ein {{HTTPHeader("Integrity-Policy")}} Header bereitgestellt wird, um die Richtlinie durchzusetzen.
+Mit dem Header können Entwickler [Integritätsrichtlinien](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) testen und Probleme mit Inhalten beheben, bevor sie die Richtlinie schließlich mit einem Header {{HTTPHeader("Integrity-Policy")}} durchsetzen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
   </tbody>
 </table>
@@ -27,53 +29,60 @@ Der Header ermöglicht es Entwicklern, [Integritätsrichtlinien](/de/docs/Web/Se
 Integrity-Policy-Report-Only: blocked-destinations=(<destination>),sources=(<source>),endpoints=(<endpoint>)
 ```
 
-Die Header-Werte werden als strukturierte Felder-Dictionaries mit den folgenden Schlüsseln definiert:
+Die Headerwerte sind als strukturierte Feldwörterbücher mit den folgenden Schlüsseln definiert:
 
 - `blocked-destinations`
-  - : Eine Liste von [Request-Destinationen](/de/docs/Web/API/Request/destination), die gültige Integritäts-Metadaten enthalten müssen. Erlaubte Werte sind:
+  - : Eine Liste von [Anforderungszielen](/de/docs/Web/API/Request/destination), für die gültige Integritätsmetadaten vorhanden sein müssen.
+    Zulässige Werte sind:
     - `script`
-      - : Skript-Ressourcen.
+      - : Script-Ressourcen.
     - `style`
       - : Stylesheet-Ressourcen.
 
 - `sources` {{optional_inline}}
-  - : Eine Liste von Integritätsquellen, die Integritäts-Metadaten enthalten müssen. Erlaubte Werte sind:
+  - : Eine Liste von Integritätsquellen, die Integritätsmetadaten enthalten müssen.
+    Zulässige Werte sind:
     - `inline`
-      - : Die Integritäts-Metadatenquelle ist inline im Inhalt, wie das [integrity-Attribut](/de/docs/Web/API/HTMLScriptElement/integrity). Dies ist der Standard.
+      - : Die Quelle der Integritätsmetadaten befindet sich direkt im Inhalt, beispielsweise im [Attribut `integrity`](/de/docs/Web/API/HTMLScriptElement/integrity).
+        Dies ist der Standardwert.
 
-        Da dies der Standardwert und der einzige Wert ist, ist das Weglassen von `sources` gleichbedeutend mit der Angabe von `sources=(inline)`.
+        Da dies der Standardwert und zugleich der einzige zulässige Wert ist, ist das Weglassen von `sources` gleichbedeutend mit der Angabe von `sources=(inline)`.
 
 - `endpoints` {{optional_inline}}
-  - : Eine Liste von [Berichtsendpunkt-Namen](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#endpoint), die anzeigen, wohin Berichte gesendet werden. Die Berichtsendpunkte müssen in einem {{httpheader("Reporting-Endpoints")}} Header definiert werden.
+  - : Eine Liste von [Namen für Reporting-Endpunkte](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#endpoint), die angeben, wohin Berichte gesendet werden.
+    Die Reporting-Endpunkte müssen in einem Header {{httpheader("Reporting-Endpoints")}} definiert sein.
 
 ## Beispiele
 
-### Berichterstellung, wenn Skripte keine Integritäts-Metadaten haben
+### Berichte über Scripts ohne Integritätsmetadaten
 
-Dieses Beispiel zeigt ein Dokument, das an einen Serverendpunkt berichtet, wenn irgendein {{htmlelement("script")}} (oder `HTMLScriptElement`) kein `integrity`-Attribut angibt, oder wenn eine Skriptressource im [no-cors](/de/docs/Web/API/Request/mode#no-cors) Modus angefordert wird.
+Dieses Beispiel zeigt ein Dokument, das einen Bericht an einen Server-Endpunkt sendet, wenn ein {{htmlelement("script")}}-Element (oder `HTMLScriptElement`) kein `integrity`-Attribut angibt oder wenn eine Script-Ressource im Modus [no-cors](/de/docs/Web/API/Request/mode#no-cors) angefordert wird.
 
-Beachten Sie, dass der `integrity-endpoint`, der in `Integrity-Policy-Report-Only` verwendet wird, im {{httpheader("Reporting-Endpoints")}} Header definiert ist.
+Beachten Sie, dass der in `Integrity-Policy-Report-Only` verwendete Endpunkt `integrity-endpoint` im Header {{httpheader("Reporting-Endpoints")}} definiert ist.
 
 ```http
-Reporting-Endpoints: integrity-endpoint=https://example.com/integrity, backup-integrity-endpoint=https://report-provider.example/integrity
+Reporting-Endpoints: integrity-endpoint="https://example.com/integrity", backup-integrity-endpoint="https://report-provider.example/integrity"
 Integrity-Policy-Report-Only: blocked-destinations=(script), endpoints=(integrity-endpoint backup-integrity-endpoint)
 ```
 
-Die [Nutzdaten des Berichts](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) könnten folgendermaßen aussehen. Beachten Sie, dass die `body.reportOnly` Eigenschaft `true` ist, da dieser Bericht durch einen Verstoß gegen `Integrity-Policy-Report-Only` ausgelöst wurde.
+Die [Berichtsdaten](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) könnten wie folgt aussehen.
+Beachten Sie, dass die Eigenschaft `body.reportOnly` den Wert `true` hat, da dieser Bericht durch einen Verstoß gegen `Integrity-Policy-Report-Only` ausgelöst wurde.
 
 ```json
-{
-  "age": "176279",
-  "type": "integrity-violation",
-  "url": "https://example.com",
-  "body": {
-    "documentURL": "https://example.com",
-    "blockedURL": "https://example.com/main.js",
-    "destination": "script",
-    "reportOnly": "true"
-  },
-  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-}
+[
+  {
+    "age": 176279,
+    "type": "integrity-violation",
+    "url": "https://example.com",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+    "body": {
+      "documentURL": "https://example.com",
+      "blockedURL": "https://example.com/main.js",
+      "destination": "script",
+      "reportOnly": true
+    }
+  }
+]
 ```
 
 ## Spezifikationen
@@ -90,5 +99,5 @@ Die [Nutzdaten des Berichts](/de/docs/Web/API/Reporting_API#reporting_server_end
 - {{HTTPHeader("Reporting-Endpoints")}}
 - [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)
 - [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport)
-- [Integrity Policy](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) in [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
+- [Integritätsrichtlinie](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) in [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)
