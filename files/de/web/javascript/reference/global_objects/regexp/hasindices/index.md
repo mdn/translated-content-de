@@ -3,10 +3,10 @@ title: RegExp.prototype.hasIndices
 short-title: hasIndices
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: f2385bc25e8dc4c774d50bcf7f97e420d59c7a1a
 ---
 
-Die **`hasIndices`** Accessor-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt an, ob das `d`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die Accessor-Eigenschaft **`hasIndices`** von {{jsxref("RegExp")}}-Instanzen gibt an, ob bei diesem regulären Ausdruck das Flag `d` verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.hasIndices")}}
 
@@ -24,17 +24,19 @@ console.log(regex2.hasIndices);
 
 ## Beschreibung
 
-`RegExp.prototype.hasIndices` hat den Wert `true`, wenn das `d`-Flag verwendet wurde; andernfalls `false`. Das `d`-Flag weist darauf hin, dass das Ergebnis eines regulären Ausdrucks-Matches die Start- und End-Indizes der Teilstrings jeder Erfassungsgruppe enthalten soll. Es ändert die Interpretation oder das Match-Verhalten des regulären Ausdrucks in keiner Weise, sondern liefert nur zusätzliche Informationen im Matchergebnis.
+`RegExp.prototype.hasIndices` hat den Wert `true`, wenn das Flag `d` verwendet wurde; andernfalls hat die Eigenschaft den Wert `false`. Das Flag `d` bewirkt, dass das Ergebnis eines Treffers eines regulären Ausdrucks die Start- und Endindizes der Teilzeichenfolgen jeder Capture Group enthält. Es ändert weder die Interpretation des regulären Ausdrucks noch dessen Verhalten beim Abgleichen, sondern liefert lediglich zusätzliche Informationen im Ergebnis.
 
-Dieses Flag beeinflusst hauptsächlich den Rückgabewert von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec). Wenn das `d`-Flag vorhanden ist, hat das von `exec()` zurückgegebene Array eine zusätzliche `indices`-Eigenschaft, wie im [Rückgabewert](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#return_value) der Methode `exec()` beschrieben. Da alle anderen regex-bezogenen Methoden (wie {{jsxref("String.prototype.match()")}}) `exec()` intern aufrufen, geben sie auch die Indizes zurück, wenn der regex das `d`-Flag hat.
+Dieses Flag wirkt sich hauptsächlich auf den Rückgabewert von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) aus. Wenn das Flag `d` vorhanden ist, hat das von `exec()` zurückgegebene Array eine zusätzliche Eigenschaft `indices`, wie unter [Rückgabewert](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#return_value) der Methode `exec()` beschrieben. Da alle anderen Methoden, die reguläre Ausdrücke verwenden (etwa {{jsxref("String.prototype.match()")}}), intern `exec()` aufrufen, geben auch sie die Indizes zurück, wenn der reguläre Ausdruck das Flag `d` hat.
 
 Der Set-Accessor von `hasIndices` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
+Aus Gründen der Abwärtskompatibilität gilt `RegExp.prototype.hasIndices === undefined`, obwohl `RegExp.prototype` keine `RegExp`-Instanz ist. (Eigentlich wäre zu erwarten, dass der Getter einen `TypeError` auslöst, wenn der Wert von `this` keine `RegExp`-Instanz ist.)
+
 ## Beispiele
 
-Ein detaillierteres Anwendungsbeispiel finden Sie unter [Gruppen und Rückbezüge > Verwendung von Gruppen und Match-Indizes](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences#using_groups_and_match_indices).
+Ein ausführlicheres Anwendungsbeispiel finden Sie unter [Gruppen und Rückverweise > Gruppen und Trefferindizes verwenden](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences#using_groups_and_match_indices).
 
-### Verwendung von hasIndices
+### hasIndices verwenden
 
 ```js
 const str1 = "foo bar foo";

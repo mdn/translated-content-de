@@ -3,10 +3,51 @@ title: "`margin-trim` CSS property"
 short-title: margin-trim
 slug: Web/CSS/Reference/Properties/margin-trim
 l10n:
-  sourceCommit: bf7ff749b987d530e9a6c07f23ac66f94d968e57
+  sourceCommit: d5815e4cd86d8e9b54a8b7518abf86cc01f46db2
 ---
 
-Mit der Eigenschaft `margin-trim` kann ein Container die Margins seiner Kindelemente dort auf null reduzieren, wo sie an seine Ränder angrenzen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`margin-trim`** ermöglicht es einem Container, die Ränder seiner Kindelemente in Blockrichtung dort auf null zu setzen, wo sie an die Kanten des Containers angrenzen.
+
+{{InteractiveExample("CSS Demo: margin-trim")}}
+
+```css interactive-example-choice
+margin-trim: none;
+```
+
+```css interactive-example-choice
+margin-trim: block;
+```
+
+```css interactive-example-choice
+margin-trim: block-start;
+```
+
+```css interactive-example-choice
+margin-trim: block-end;
+```
+
+```html interactive-example
+<div class="example-wrapper" id="example-element">
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <p>Paragraph 3</p>
+</div>
+```
+
+```css interactive-example
+.example-wrapper {
+  border: 2px solid tomato;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: white;
+  background-color: slategrey;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+```
 
 ## Syntax
 
@@ -15,9 +56,9 @@ margin-trim: none;
 margin-trim: block;
 margin-trim: block-start;
 margin-trim: block-end;
-margin-trim: inline;
-margin-trim: inline-start;
-margin-trim: inline-end;
+
+/* Multiple values */
+margin-trim: block-start block-end;
 
 /* Global values */
 margin-trim: inherit;
@@ -29,28 +70,23 @@ margin-trim: unset;
 
 ### Werte
 
-Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
+Für diese Eigenschaft wird entweder das Schlüsselwort `none` oder `block` angegeben oder eines beziehungsweise beide der Schlüsselwörter `block-start` und `block-end`:
 
 - `none`
-  - : Der Container reduziert die Margins nicht.
+  - : Der Container setzt keine Ränder auf null.
 
 - `block`
-  - : Die Margins von Block-Kindelementen werden dort, wo sie an die Ränder des Containers angrenzen, auf null reduziert. Die Margins des Containers bleiben davon unberührt.
+  - : Die Ränder von Block-Kindelementen werden dort, wo sie an die Kanten des Containers angrenzen, auf null gesetzt. Die Ränder des Containers bleiben davon unberührt.
 
 - `block-start`
-  - : Der Margin des ersten Block-Kindelements am Rand des Containers wird auf null reduziert.
+  - : Der Rand des ersten Block-Kindelements an der Kante des Containers wird auf null gesetzt.
 
 - `block-end`
-  - : Der Margin des letzten Block-Kindelements am Rand des Containers wird auf null reduziert.
+  - : Der Rand des letzten Block-Kindelements an der Kante des Containers wird auf null gesetzt.
 
-- `inline`
-  - : Die Margins von Inline-Kindelementen werden dort, wo sie an die Ränder des Containers angrenzen, auf null reduziert. Der Abstand am Anfang und Ende der Zeile bleibt davon unberührt.
+## Beschreibung
 
-- `inline-start`
-  - : Der Margin zwischen dem Rand des Containers und dem ersten Inline-Kindelement wird auf null reduziert.
-
-- `inline-end`
-  - : Der Margin zwischen dem Rand des Containers und dem letzten Inline-Kindelement wird auf null reduziert.
+Zwischen Geschwisterelementen sind Ränder häufig erwünscht, nicht jedoch zwischen dem ersten oder letzten Kindelement und den Kanten seines Containers. Dort kann der Abstand stattdessen mit {{cssxref("padding")}} festgelegt werden. Ohne `margin-trim` sind zusätzliche Regeln erforderlich, um diese Ränder zu entfernen, etwa eine Regel, die mit der Pseudoklasse {{cssxref(":first-child")}} das erste Kindelement auswählt. Mit `margin-trim` setzt der Container die betreffenden Ränder selbst auf null – abhängig vom angegebenen Wert.
 
 ## Formale Definition
 
@@ -64,54 +100,38 @@ Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
 
 ### Grundlegende Verwendung
 
-Sobald diese Eigenschaft unterstützt wird, funktioniert sie voraussichtlich folgendermaßen:
+In diesem Beispiel hat jeder Absatz einen {{cssxref("margin")}}, der ihn von seinen Geschwisterelementen trennt. Wird für das `<section>`-Element `margin-trim: block-start` festgelegt, wird der obere Rand des ersten Absatzes auf null gesetzt, während die Ränder zwischen den Absätzen erhalten bleiben.
 
-Angenommen, Sie haben einen Container mit mehreren Inline-Kindelementen und möchten zwischen den Kindelementen jeweils einen Margin einfügen, ohne den Abstand am Ende der Zeile zu verändern. Dazu könnten Sie Folgendes verwenden:
+Das vereinfacht die Syntax, da der erste Absatz nicht mit der Pseudoklasse {{cssxref(":first-child")}} ausgewählt werden muss.
+
+```html
+<h2>Section Heading</h2>
+<section>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <p>Paragraph 3</p>
+</section>
+```
+
+Der `border` um das `<section>`-Element und die `background-color` der `<p>`-Elemente dienen lediglich dazu, das Entfernen des Randes sichtbar zu machen.
 
 ```css
-article {
-  background-color: red;
-  margin: 20px;
-  padding: 20px;
-  display: inline-block;
+section {
+  border: 2px solid tomato;
+  margin: 0;
+  padding: 0;
+  margin-trim: block-start;
 }
-
-article > span {
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  margin-right: 20px;
-  margin-left: 30px;
+p {
+  background-color: aliceblue;
+  padding: 0.5rem;
+  margin: 1rem;
 }
 ```
 
-Das Problem dabei ist, dass am rechten Ende der Zeile ein zusätzlicher Abstand von 20px entsteht. Um dies zu beheben, könnten Sie Folgendes tun:
+In Browsern, die `margin-trim` unterstützen, liegt der erste Absatz direkt am oberen Rahmen des Abschnitts an, während der Rand unterhalb des letzten Absatzes erhalten bleibt.
 
-```css
-span:last-child {
-  margin-right: 0;
-  margin-left: 0;
-}
-```
-
-Dafür eine weitere Regel schreiben zu müssen, ist umständlich und zudem wenig flexibel. Stattdessen könnte `margin-trim` das Problem lösen:
-
-```css
-article {
-  margin-trim: inline-end;
-  /* … */
-}
-```
-
-Entsprechend können Sie den linken Margin am Rand des Containers entfernen:
-
-```css
-article {
-  margin-trim: inline-start;
-  /* … */
-}
-```
+{{EmbedLiveSample('basic_usage','100%',270)}}
 
 ## Spezifikationen
 
@@ -124,3 +144,6 @@ article {
 ## Siehe auch
 
 - {{CSSxRef("margin")}}
+- Die Eigenschaften {{cssxref("margin-block-start")}} und {{cssxref("margin-block-end")}}
+- [Beherrschung des Zusammenfallens von Rändern](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
+- Modul [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model)

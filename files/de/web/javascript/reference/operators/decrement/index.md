@@ -2,10 +2,10 @@
 title: Dekrement (--)
 slug: Web/JavaScript/Reference/Operators/Decrement
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Dekrement-Operator (`--`)** dekrementiert (subtrahiert eins von) seinem Operanden und gibt den Wert vor oder nach dem Dekrement zurück, je nachdem, wo der Operator platziert ist.
+Der **Dekrement-Operator (`--`)** verringert seinen Operanden um eins und gibt abhängig von seiner Position den Wert vor oder nach der Verringerung zurück.
 
 {{InteractiveExample("JavaScript Demo: Decrement (--) operator")}}
 
@@ -30,15 +30,24 @@ x--
 --x
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+
+### Rückgabewert
+
+Eine Zahl oder ein BigInt-Wert. Die Postfix-Form (`x--`) gibt den numerischen Wert vor der Verringerung zurück. Die Präfix-Form (`--x`) gibt den Wert nach der Verringerung zurück.
+
 ## Beschreibung
 
-Der `--`-Operator ist überladen für zwei Arten von Operanden: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [wandelt er den Operanden in einen numerischen Wert um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und testet dessen Typ. Er führt einen BigInt-Dekrement durch, wenn der Operand zu einem BigInt wird; andernfalls wird ein Zahlen-Dekrement durchgeführt.
+Der Operator `--` ist für zwei Operandentypen überladen: Zahlen und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt den Operanden zunächst in einen numerischen Wert um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft dessen Typ. Ist der resultierende Wert ein BigInt-Wert, führt er eine BigInt-Dekrementierung durch; andernfalls eine Dekrementierung einer Zahl.
 
-Wird der Operator als Postfix verwendet, also nach dem Operanden (zum Beispiel `x--`), dekrementiert der Dekrement-Operator und gibt den Wert vor dem Dekrementieren zurück.
+In der Postfix-Form, bei der der Operator nach dem Operanden steht (beispielsweise `x--`), verringert der Dekrement-Operator den Operanden und gibt den Wert vor der Verringerung zurück.
 
-Wird der Operator als Präfix verwendet, also vor dem Operanden (zum Beispiel `--x`), dekrementiert der Dekrement-Operator und gibt den Wert nach dem Dekrementieren zurück.
+In der Präfix-Form, bei der der Operator vor dem Operanden steht (beispielsweise `--x`), verringert der Dekrement-Operator den Operanden und gibt den Wert nach der Verringerung zurück.
 
-Der Dekrement-Operator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften; d.h. gültige [Zuordnungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `--x` selbst wird zu einem Wert ausgewertet, nicht zu einer Referenz, daher können Sie keine mehreren Dekrement-Operatoren zusammenketten.
+Der Dekrement-Operator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften, also gültige [Zuweisungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `--x` selbst ergibt einen Wert und keine Referenz. Daher können Sie nicht mehrere Dekrement-Operatoren hintereinander anwenden.
 
 ```js-nolint example-bad
 --(--x); // SyntaxError: Invalid left-hand side expression in prefix operation
@@ -84,8 +93,8 @@ const y2 = --x2;
 - [Subtraktion (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Subtraction)
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
-- [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Restwert (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
+- [Potenzierung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
-- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

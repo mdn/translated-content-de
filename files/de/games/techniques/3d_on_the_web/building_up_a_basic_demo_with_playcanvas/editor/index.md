@@ -1,198 +1,180 @@
 ---
-title: Aufbau einer einfachen Demo mit dem PlayCanvas Editor
+title: Eine einfache Demo mit dem PlayCanvas-Editor erstellen
 slug: Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas/editor
 l10n:
-  sourceCommit: 815f1a18f44059500b337719295c6eda14b6228e
+  sourceCommit: d86a376c3e6e4761d747314a015fa6afe121600f
 ---
 
-Anstatt alles von Grund auf selbst zu programmieren, können Sie auch den Online-**PlayCanvas-Editor** verwenden. Dies kann eine angenehmere Arbeitsumgebung sein, wenn Sie nicht gerne programmieren.
+Statt alles von Grund auf zu programmieren, können Sie den **PlayCanvas-Editor** im Web verwenden. Wenn Sie nicht gern programmieren, kann das eine angenehmere Arbeitsumgebung sein.
 
 ## Ein Konto erstellen
 
-Der PlayCanvas Editor ist kostenlos — das Einzige, was Sie tun müssen, um zu beginnen, ist [Ihr Konto zu registrieren](https://login.playcanvas.com/signup) und sich einzuloggen:
+Der PlayCanvas-Editor kann für öffentliche Projekte kostenlos genutzt werden. Um loszulegen, müssen Sie lediglich [ein Konto erstellen](https://login.playcanvas.com/signup) und sich anmelden.
 
-![PlayCanvas Editor - Login](playcanvas-editor-login.png)
-
-Beim ersten Anmelden werden Sie direkt in den Editor geleitet und erhalten ein einfaches Einsteiger-Tutorial, bei dem Sie ein 3D-Rollballspiel bearbeiten. Sie können dieses abschließen, bevor Sie mit unserem Tutorial fortfahren, wenn Sie möchten. Wenn Sie bereit sind, mit unserem Tutorial fortzufahren, gehen Sie zu Ihrer Canvas-Startseite — zum Beispiel meine ist `https://playcanvas.com/end3r`. So sieht die Seite aus — Sie können Projekte erstellen und verwalten, deren Einstellungen ändern etc.
+Rufen Sie nach der Anmeldung Ihr Projekt-Dashboard unter `https://playcanvas.com/editor` auf. Dort können Sie Projekte erstellen und verwalten, ihre Einstellungen ändern und vieles mehr. Falls Sie nach der Registrierung direkt zu einem Beispielprojekt gelangen, klicken Sie oben links im Editor auf das PlayCanvas-Logo und wählen Sie _All Projects_, um das Dashboard zu öffnen.
 
 ## Ein neues Projekt erstellen
 
-Starten Sie ein brandneues Projekt, indem Sie auf die Schaltfläche _Neu_ klicken:
+Erstellen Sie ein neues Projekt, indem Sie in der Seitenleiste des Dashboards auf _New project_ klicken.
 
-![PlayCanvas Editor - Panel](playcanvas-editor-panel.png)
+![PlayCanvas-Editor – Dashboard](playcanvas-editor-panel.png)
 
-Das erscheinende Dialogfeld zeigt eine Reihe unterschiedlicher Optionen. Es gibt Starter-Kits, aber wir möchten keine Modelle laden oder ein Plattformspiel starten.
+Im daraufhin angezeigten Dialogfeld stehen mehrere Optionen zur Auswahl. Es gibt Starter-Kits, aber wir möchten weder Modelle laden noch ein Plattformspiel erstellen.
 
-1. Wir wollen klein anfangen, daher verwenden wir das leere Projekt — klicken Sie auf die Option "Blank Project" und geben Sie einen Namen dafür ein (wir verwenden "MDN Games demo").
-2. Geben Sie eine Beschreibung ein, wenn Sie möchten — es ist optional.
-3. Klicken Sie auf _Erstellen_, um es zu erstellen.
+1. Wir fangen klein an und verwenden deshalb ein leeres Projekt: Klicken Sie auf _Blank Project_ und geben Sie einen Namen ein (wir verwenden „MDN Games demo“).
+2. Geben Sie bei Bedarf eine Beschreibung ein. Dieser Schritt ist optional.
+3. Klicken Sie auf _Create project_, um das Projekt zu erstellen.
 
-![PlayCanvas Editor - Neues Projekt](playcanvas-editor-newproject.png)
+![PlayCanvas-Editor – Neues Projekt](playcanvas-editor-newproject.png)
 
-Als Nächstes sehen Sie die Seite Ihres Projekts — es gibt noch nicht viel. Durch Klicken auf die Schaltfläche _Editor_ starten wir den Online-PlayCanvas-Editor, in dem wir unsere Szene mit den Formen erstellen werden. Machen Sie das jetzt.
-
-![PlayCanvas Editor - Projekt](playcanvas-editor-project.png)
+Sobald das Projekt bereit ist, klicken Sie in der angezeigten Bestätigung auf _Open project_. Ihr neues Projekt wird in einem neuen Browser-Tab im PlayCanvas-Editor geöffnet. Dort erstellen wir unsere Szene.
 
 ## Die Szene erstellen
 
-So sieht die Szene initial im Editor aus. Auch wenn es ein leeres neues Projekt ist, müssen Sie nicht alles von Grund auf neu beginnen — die Kamera und das Richtungslicht sind bereits vorbereitet, sodass Sie sich nicht darum kümmern müssen.
+So sieht die Szene anfangs im Editor aus:
 
-![PlayCanvas Editor - Szene](playcanvas-editor-scene.png)
+![PlayCanvas-Editor – Szene](playcanvas-editor-scene.png)
 
-Jetzt zum kreativen Teil. Um ein Objekt zur Szene hinzuzufügen, müssen Sie auf die große Plus-Taste im oberen linken Bereich des Editors klicken, neben dem Text "Hierarchie". Wenn Sie mit der Maus über diese Schaltfläche fahren, wird das Label "Add Entity" angezeigt — genau das wollen wir tun. Ein Entität ist jedes Objekt, das in der Szene verwendet wird — es kann ein Objekt wie eine Box, ein Zylinder oder ein Kegel sein, aber es kann auch eine Kamera, Licht oder eine Tonquelle sein. Nach dem Klicken auf die Schaltfläche sehen Sie eine Dropdown-Liste mit einer Vielzahl verschiedener Entitäten. Klicken Sie auf _Box_ — sie wird der Szene hinzugefügt.
+Obwohl es sich um ein neues, leeres Projekt handelt, müssen wir nicht ganz von vorn anfangen: Die Kamera und das gerichtete Licht sind bereits eingerichtet.
+Die Szene enthält außerdem eine Box und eine Grundfläche. Wir erstellen eigene Formen. Wählen Sie deshalb im Bereich _Hierarchy_ die Entities _Box_ und _Plane_ aus (halten Sie <kbd>Ctrl</kbd> beziehungsweise unter macOS <kbd>Cmd</kbd> gedrückt, um beide auszuwählen) und drücken Sie <kbd>Delete</kbd>, um sie zu entfernen.
 
-![PlayCanvas Editor - Neue Box](playcanvas-editor-newbox.png)
+Nun zum kreativen Teil: Um der Szene eine Entity hinzuzufügen, klicken Sie oben im Bereich _Hierarchy_ auf die Plusschaltfläche. Wenn Sie den Mauszeiger darüber bewegen, erscheint die Beschriftung „Add Entity“ – genau das möchten wir tun. Eine Entity ist ein beliebiges Objekt in der Szene. Das kann eine Box, ein Zylinder oder ein Kegel sein, aber auch eine Kamera, ein Licht oder eine Tonquelle. Nach einem Klick auf die Schaltfläche erscheint ein Menü mit verschiedenen Entities. Wählen Sie _3D_ > _Box_ aus. Die Box wird der Szene hinzugefügt.
 
-Die Box wird mit den Standardwerten erstellt — Breite, Höhe und Tiefe sind auf 1 gesetzt, und sie befindet sich in der Mitte der Szene. Sie können sie herumschieben oder neue Werte im rechten Panel anwenden.
+![PlayCanvas-Editor – Neue Box](playcanvas-editor-newbox.png)
 
-![PlayCanvas Editor - Box](playcanvas-editor-box.png)
+Die Box wird mit Standardwerten erstellt: Breite, Höhe und Tiefe sind auf 1 gesetzt, und sie befindet sich in der Mitte der Szene. Sie können sie mit der Maus verschieben oder im Bereich _Inspector_ auf der rechten Seite neue Werte eingeben.
 
-Um der Szene einige Farben hinzuzufügen, benötigen wir ein neues Material, das auf der neu erstellten Box verwendet wird. Klicken Sie auf die Plus-Taste im Tab _Assets_ und klicken Sie auf die Option _Material_ im erscheinenden Dropdown-Menü, um ein neues Material zu erstellen.
+![PlayCanvas-Editor – Box](playcanvas-editor-box.png)
 
-![PlayCanvas Editor - Neues Material](playcanvas-editor-newmaterial.png)
+Um Farbe in die Szene zu bringen, benötigen wir ein neues Material für die Box. Klicken Sie im Bereich _Assets_ auf die Plusschaltfläche und wählen Sie im angezeigten Menü _Material_, um ein neues Material zu erstellen.
 
-Klicken Sie auf Ihr neues Material im Asset-Tab und der Inspektor für die Entität erscheint rechts auf dem Bildschirm. Bearbeiten Sie jetzt das Textfeld _Name_, um ihm einen eindeutigen Namen zu geben (wir haben _boxMaterial_ gewählt). Ein eindeutiger Name wird Ihnen helfen, sich zu erinnern, wofür dieses Material gedacht ist — wir werden später noch mehr hinzufügen!
+![PlayCanvas-Editor – Neues Material](playcanvas-editor-newmaterial.png)
 
-![PlayCanvas Editor - Box Material](playcanvas-editor-boxmaterial.png)
+Die Eigenschaften Ihres neuen Materials sollten nun rechts im Bereich _Inspector_ angezeigt werden. Falls nicht, klicken Sie im Bereich _Assets_ auf das Material. Bearbeiten Sie das Textfeld _Name_, um dem Material einen eindeutigen Namen zu geben (wir haben _boxMaterial_ gewählt). So können wir uns später leichter merken, wofür es gedacht ist – denn wir werden noch weitere Materialien hinzufügen!
 
-Um seine Farbe zu ändern, verwenden wir die _Diffuse_-Option im Entität-Inspektor. Klicken Sie auf _Diffuse_, dann wählen Sie das farbige Feld neben dem Farben-Label — es öffnet ein {{Glossary("color_wheel", "Farbrad")}}. Hier können Sie Ihre gewünschte Farbe auswählen oder sie im unteren Textfeld als Hex-Wert eingeben. Wir haben eine blaue Farbe mit dem Hex-Wert `0095DD` gewählt — geben Sie diesen Code im Textfeld ein und drücken Sie die Eingabetaste, damit er akzeptiert wird.
+![PlayCanvas-Editor – Material der Box](playcanvas-editor-boxmaterial.png)
+
+Um die Farbe zu ändern, verwenden wir den Abschnitt _Diffuse_ in den Materialeigenschaften. Klappen Sie _Diffuse_ auf und klicken Sie auf das farbige Feld neben _Color_. Dadurch öffnet sich ein Farbwähler. Dort können Sie die gewünschte Farbe anklicken oder unten im Textfeld als Hexadezimalwert eingeben. Wir haben ein Blau mit dem Hexadezimalwert `0095DD` gewählt. Geben Sie diesen Wert in das Textfeld ein und drücken Sie die Eingabetaste, um ihn zu übernehmen.
 
 > [!NOTE]
-> Ja, Sie haben es richtig gelesen — Sie müssen den Hex-Wert ohne das Hash/Grundzeichen eingeben.
+> Ja, Sie haben richtig gelesen: Sie müssen den Hexadezimalwert ohne das Rautezeichen eingeben.
 
-![PlayCanvas Editor - Diffuse-Farbe](playcanvas-editor-diffusecolor.png)
+![PlayCanvas-Editor – Diffuse-Farbe](playcanvas-editor-diffusecolor.png)
 
-Nun können wir das farbige Material auf die Form anwenden, indem wir sein Symbol vom unteren Teil des Bildschirms (der kleine Punkt links vom Namen des Materials — es kann ein wenig knifflig sein, es auszuwählen; einfach beharrlich bleiben) auf die Box in der Szene ziehen.
+Nun können wir das farbige Material auf die Form anwenden: Ziehen Sie die Miniaturansicht des Materials aus dem Bereich _Assets_ am unteren Bildschirmrand auf die Box in der Szene. Die Box wird blau:
 
-![PlayCanvas Editor - Box Ablegen](playcanvas-editor-boxdrop.png)
+![PlayCanvas-Editor – Material auf die Box ziehen](playcanvas-editor-boxdrop.png)
 
-An diesem Punkt haben wir eine blaue Box erstellt. Klicken Sie auf die Box, um ihre Entität-Seitenleiste aufzurufen — Sie werden Optionen zum Ändern ihrer Position, Rotation und Skalierung sehen. Versuchen Sie, die Rotationswerte X: 10 und Y: 20 anzuwenden.
+Damit haben wir eine blaue Box erstellt. Klicken Sie im Bereich _Hierarchy_ auf die Entity _Box_, um ihre Eigenschaften im _Inspector_ anzuzeigen. Dort finden Sie Optionen zum Ändern von Position, Rotation und Skalierung. Geben Sie für die Rotation die Werte X: 10 und Y: 20 ein.
 
-![PlayCanvas Editor - Rotation](playcanvas-editor-rotate.png)
+![PlayCanvas-Editor – Rotation](playcanvas-editor-rotate.png)
 
-Klicken Sie nun auf den Abspielpfeil in der oberen rechten Ecke der Szene, um die Szene zu starten und zu rendern — sie wird in einem separaten Browser-Tab geöffnet.
+Klicken Sie nun oben rechts im Ansichtsfenster auf _Launch_ (das Wiedergabesymbol), um die Szene zu starten und zu rendern. Sie wird in einem separaten Browser-Tab geöffnet.
 
-![PlayCanvas Editor - Start](playcanvas-editor-launch.png)
+![PlayCanvas-Editor – Starten](playcanvas-editor-launch.png)
 
-Das sieht großartig aus! Fügen wir der Szene weitere Formen hinzu, um sie interessanter aussehen zu lassen.
+Das sieht gut aus! Fügen wir der Szene weitere Formen hinzu, um sie interessanter zu gestalten.
 
-![PlayCanvas Editor - Box Rendern](playcanvas-editor-boxrender.png)
+![PlayCanvas-Editor – Gerenderte Box](playcanvas-editor-boxrender.png)
 
-## Hinzufügen weiterer Formen
+## Weitere Formen hinzufügen
 
-Um Platz für weitere Formen zu schaffen, bewegen Sie die Box nach links, um etwas Raum für die nächste Form zu schaffen. Sie können dies tun, indem Sie ihr einen X-Positionswert von -2 geben.
+Verschieben Sie die Box nach links, damit Platz für die nächste Form entsteht. Geben Sie dazu für ihre X-Position den Wert -2 ein.
 
-Das Hinzufügen anderer Formen erfolgt in einem sehr ähnlichen Prozess wie das Hinzufügen der Box. Klicken Sie im Hierarchie-Panel auf den Root-Ordner (um sicherzustellen, dass die neue Form im Root erscheint und nicht als Kind der Box) und klicken Sie dann auf die große _Add Entity_ (Plus)-Taste und wählen Sie Zylinder aus der Dropdown-Liste — es wird der Szene eine neue Zylinderform hinzugefügt.
+Weitere Formen fügen Sie ganz ähnlich wie die Box hinzu. Klicken Sie im Bereich _Hierarchy_ auf die Entity _Root_, damit die neue Form auf der obersten Ebene und nicht als untergeordnetes Element der Box eingefügt wird. Klicken Sie dann auf die Plusschaltfläche _Add Entity_ und wählen Sie im Menü _3D_ > _Cylinder_. Dadurch wird der Szene ein Zylinder hinzugefügt.
 
-![PlayCanvas Editor - Zylinder](playcanvas-editor-cylinder.png)
+![PlayCanvas-Editor – Zylinder](playcanvas-editor-cylinder.png)
 
-Folgen Sie nun denselben Schritten wie zuvor beim Färben des Würfels:
+Gehen Sie nun wie beim Einfärben der Box vor:
 
-- Erstellen Sie ein neues Material mit der _Add Asset_ (Plus)-Taste.
-- Stellen Sie sicher, dass das neue Material im Asset-Panel ausgewählt ist, um den Entität-Inspektor aufzurufen.
-- Geben Sie dem Material einen neuen Namen, wie `cylinderMaterial`.
-- Klicken Sie auf Diffuse, dann auf den Farbwähler — geben Sie ihm eine orange Farbe (wir haben FF9500 verwendet).
-- Ziehen Sie das `cylinderMaterial`-Symbol auf das Zylinderobjekt auf dem Bildschirm, um diese Farbe anzuwenden.
+- Erstellen Sie über die Plusschaltfläche im Bereich _Assets_ ein neues Material.
+- Stellen Sie sicher, dass das neue Material im Bereich _Assets_ ausgewählt ist, damit seine Eigenschaften im _Inspector_ erscheinen.
+- Geben Sie dem Material einen Namen, beispielsweise `cylinderMaterial`.
+- Klappen Sie _Diffuse_ auf und klicken Sie auf den Farbwähler. Wählen Sie Orange (wir haben `FF9500` verwendet).
+- Ziehen Sie die Miniaturansicht von `cylinderMaterial` auf den Zylinder in der Szene, um die Farbe anzuwenden.
 
-![PlayCanvas Editor - Zylinder Material](playcanvas-editor-cylindermaterial.png)
+![PlayCanvas-Editor – Material des Zylinders](playcanvas-editor-cylindermaterial.png)
 
-Verwenden Sie denselben Ansatz erneut, um ein Kegel zur Szene hinzuzufügen, ihm eine grau-gelbliche Farbe zu geben (wir verwendeten `#EAEFF2`). Sie sollten nun drei Formen auf Ihrer Szene haben, ähnlich wie im folgenden Screenshot.
+Gehen Sie genauso vor, um der Szene einen Kegel hinzuzufügen. Geben Sie ihm eine gräuliche Farbe (wir haben `#EAEFF2` verwendet) und für die X-Position den Wert 2. Der Kegel erscheint zunächst an derselben Stelle wie der Zylinder, sodass er in der Szene schwer anzuklicken ist. Wählen Sie stattdessen im Bereich _Hierarchy_ die Entity _Cone_, um ihre Eigenschaften im _Inspector_ anzuzeigen. Ihre Szene sollte nun drei Formen enthalten und ungefähr so aussehen:
 
-![PlayCanvas Editor - Kegel](playcanvas-editor-cone.png)
+![PlayCanvas-Editor – Kegel](playcanvas-editor-cone.png)
 
-## Animieren unserer Szene
+## Die Szene animieren
 
-Das Animieren von 3D-Modellen könnte als eine [fortgeschrittene](https://developer.playcanvas.com/en/tutorials/anim-blending/) Aufgabe angesehen werden, aber alles, was wir tun wollen, ist ein paar Eigenschaften eines gegebenen Objekts zu steuern — wir können dafür eine Skriptkomponente verwenden. Klicken Sie auf die Plus-Taste im Asset-Panel, wählen Sie die Skriptoption aus und benennen Sie Ihre neue Skriptdatei `boxAnimation.js`.
+3D-Modelle zu animieren, mag [fortgeschritten](https://developer.playcanvas.com/tutorials/anim-blending/) erscheinen. Wir möchten jedoch nur einige Eigenschaften eines Objekts steuern – dafür können wir eine Script-Komponente verwenden. Klicken Sie im Bereich _Assets_ auf die Plusschaltfläche, wählen Sie _Script_ und nennen Sie die neue Script-Datei `boxAnimation.mjs`. An der Dateiendung `.mjs` erkennt der Editor, dass das Script als JavaScript-Modul erstellt werden soll. Dies ist die empfohlene Vorgehensweise für PlayCanvas-Scripts.
 
-![PlayCanvas Editor - Box Animation](playcanvas-editor-boxanimation.png)
+![PlayCanvas-Editor – Animation der Box](playcanvas-editor-boxanimation.png)
 
-Wenn Sie doppelt auf diese klicken, werden Sie in einen Code-Editor verschoben. Wie Sie sehen können, enthält die Datei bereits einige Vorlagen-Code:
-
-```js
-pc.script.create("boxAnimation", (app) => {
-  class BoxAnimation {
-    constructor(entity) {
-      this.entity = entity;
-    }
-
-    // Called once after all resources are loaded and before the first update
-    initialize() {}
-
-    // Called every frame, dt is time in seconds since last update
-    update(dt) {}
-  }
-
-  return BoxAnimation;
-});
-```
-
-Der interessanteste Teil ist die `update()`-Funktion, in der wir jeden Code platzieren können, den wir in jedem Frame wiederholen lassen möchten. Fügen Sie die folgende Zeile in diese Funktion ein, um den Würfel in jedem Frame zu drehen:
+Doppelklicken Sie auf die Datei, um den Code-Editor zu öffnen. Die Datei enthält bereits grundlegenden Code: eine Klasse `BoxAnimation`, die die Klasse `Script` der Engine erweitert, einen `scriptName`, anhand dessen der Editor das Script identifiziert, sowie leere Methoden `initialize()` und `update()`. Besonders interessant ist die Methode `update()`: Dort können wir Code einfügen, der bei jedem Frame ausgeführt werden soll. Fügen Sie innerhalb dieser Methode die folgende Zeile ein, um die Box bei jedem Frame zu drehen:
 
 ```js
-this.entity.rotate(dt * 10, dt * 20, dt * 30);
+update(dt) {
+  this.entity.rotate(dt * 10, dt * 20, dt * 30);
+}
 ```
 
-In der obigen Zeile bezieht sich `this.entity` auf das Objekt, an das das Skript angehängt wird (die Box); durch die Verwendung der Variablen `dt`, die die vergangene Zeit seit dem vorherigen Frame enthält, können wir die Box um verschiedene Werte um alle drei Achsen drehen.
+`this.entity` verweist auf das Objekt, dem das Script zugewiesen wird (die Box). Mithilfe der Variablen `dt`, die die seit dem vorherigen Frame verstrichene Zeit enthält, können wir die Box um unterschiedliche Beträge entlang aller drei Achsen drehen.
 
-1. Speichern Sie die Änderungen mit dem Speichern-Schaltfläche oben rechts im Code-Editor, dann kehren Sie zum Haupteditor-Tab zurück. Folgen Sie hier diesen Schritten:
-2. Stellen Sie sicher, dass die Box in der Szene ausgewählt ist.
-3. Klicken Sie auf _Komponente hinzufügen_, dann auf _Skript_ im Entität-Inspektor.
-4. Am unteren Bildschirmrand sehen Sie die Liste der verfügbaren Skripte — aktuell gibt es nur `boxAnimation.js` — klicken Sie darauf, um das Animationsskript zum Box-Objekt hinzuzufügen.
+Speichern Sie die Änderungen über _Save File_ im Menü _File_ des Code-Editors (oder mit <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>) und wechseln Sie zurück zum Tab des Haupteditors. Gehen Sie dort wie folgt vor:
 
-![PlayCanvas Editor - Boxskript](playcanvas-editor-boxscript.png)
+1. Stellen Sie sicher, dass die Box in der Szene ausgewählt ist.
+2. Klicken Sie im _Inspector_ auf _Add Component_ und dann auf _Script_.
+3. Klicken Sie in der neuen _Script_-Komponente auf _Add Script_ und wählen Sie `boxAnimation` aus der Liste der verfügbaren Scripts. Dadurch wird das Animationsscript der Box hinzugefügt.
+
+![PlayCanvas-Editor – Script der Box](playcanvas-editor-boxscript.png)
 
 ### Der Zylinder
 
-Nun machen wir die gleichen Schritte für den Zylinder. Zuerst:
+Für den Zylinder gehen wir ähnlich vor. Zunächst:
 
-1. Erstellen Sie einen neuen Skript-Asset.
-2. Nennen Sie es `cylinderAnimation.js`.
-3. Doppelklicken Sie auf das Skript-Symbol, um den Code-Editor zu starten.
+1. Erstellen Sie ein neues Script-Asset.
+2. Nennen Sie es `cylinderAnimation.mjs`.
+3. Doppelklicken Sie auf das Script-Symbol, um den Code-Editor zu öffnen.
 
-Dieses Mal werden wir anstatt das Objekt zu rotieren, versuchen, es zu skalieren. Dafür benötigen wir einen Timer, um die gesamte Zeit zu speichern, die seit dem Start der Animation vergangen ist. Fügen Sie diesen Code der `initialize()`-Funktion hinzu:
+Diesmal skalieren wir das Objekt, statt es zu drehen. Dafür benötigen wir einen Timer, der die seit Beginn der Animation verstrichene Gesamtzeit speichert. Fügen Sie der Methode `initialize()` diesen Code hinzu:
 
 ```js
 this.timer = 0;
 ```
 
-Und diese zwei Zeilen zur `update()`-Funktion:
+Fügen Sie der Methode `update()` diese beiden Zeilen hinzu:
 
 ```js
 this.timer += dt;
 this.entity.setLocalScale(1, Math.abs(Math.sin(this.timer)), 1);
 ```
 
-Die `setLocalScale()`-Methode wendet die gegebenen Werte auf die X-, Y- und Z-Achsen des Objekts an. In unserem Fall modifizieren wir die Skalierung des Zylinders auf der Y-Achse und geben ihr als Wert den `Math.sin()` des Timers mit angewandetem `Math.abs()`, damit die Werte immer oberhalb der Null sind (0-1; Sinuswerte liegen normalerweise zwischen -1 und 1). Dies ergibt als Resultat einen schönen Skalierungseffekt.
+Die Methode `setLocalScale()` wendet die angegebenen Werte auf die X-, Y- und Z-Achse des Objekts an. In unserem Fall ändern wir die Skalierung des Zylinders entlang der Y-Achse. Dafür verwenden wir den Wert von `Math.sin()` für den Timer und wenden `Math.abs()` auf das Ergebnis an, damit der Wert nicht negativ wird (er liegt dann zwischen 0 und 1; Sinuswerte liegen normalerweise zwischen -1 und 1). So entsteht ein ansprechender Skalierungseffekt.
 
-Denken Sie daran, die `cylinderAnimation.js`-Datei dem Zylinderobjekt hinzuzufügen, um die angegebenen Animationen anzuwenden.
+Vergessen Sie nicht, dem Zylinder das Script `cylinderAnimation` hinzuzufügen, damit die Animation angewendet wird.
 
 ### Der Kegel
 
-Zeit, mit dem letzten Objekt zu spielen — dem Kegel. Erstellen Sie eine `coneAnimation.js`-Datei und doppelklicken Sie darauf, um sie im Editor zu öffnen.
+Jetzt ist das letzte Objekt an der Reihe: der Kegel. Erstellen Sie eine Datei namens `coneAnimation.mjs` und doppelklicken Sie darauf, um sie im Editor zu öffnen.
 
-Fügen Sie als nächstes die folgende Zeile in die `initialize()`-Funktion ein:
+Fügen Sie der Methode `initialize()` die folgende Zeile hinzu:
 
 ```js
 this.timer = 0;
 ```
 
-Um den Kegel vertikal zu bewegen, verwenden wir die `setPosition()`-Methode — fügen Sie den folgenden Code zur `update()`-Funktion hinzu:
+Wir möchten den Kegel auf und ab bewegen. Dafür verwenden wir die Methode `setPosition()`. Fügen Sie der Methode `update()` den folgenden Code hinzu:
 
 ```js
 this.timer += dt;
 this.entity.setPosition(2, Math.sin(this.timer * 2), 0);
 ```
 
-Die Position des Kegels wird in jedem Frame animiert, indem der `Math.sin()`-Wert des `timers` zu jedem Zeitpunkt übergeben wird — wir haben den `this.timer`-Wert verdoppelt, um es höher zu bewegen.
+Die Position des Kegels wird bei jedem Frame animiert, indem der jeweilige Wert von `Math.sin()` für den `timer` übergeben wird. Wir haben den Wert von `this.timer` verdoppelt, damit sich der Kegel weiter nach oben bewegt.
 
-Fügen Sie das Skript `coneAnimation.js` dem Kegelobjekt wie zuvor hinzu.
+Fügen Sie dem Kegel wie zuvor das Script `coneAnimation` hinzu.
 
-## Test the demo out
+## Die Demo ausprobieren
 
-Lassen Sie die Demo laufen, um die Effekte zu sehen — alle Formen sollten animiert werden. Herzlichen Glückwunsch, Sie haben das Tutorial abgeschlossen!
+Starten Sie die Demo, um die Effekte zu sehen – alle Formen sollten animiert sein. Herzlichen Glückwunsch, Sie haben das Tutorial abgeschlossen!
 
-![PlayCanvas Editor - Shapes](playcanvas-editor-shapes.png)
+![PlayCanvas-Editor – Formen](playcanvas-editor-shapes.png)
 
 ## Zusammenfassung
 
-Jetzt können Sie sich den [PlayCanvas Engine](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas/engine) Artikel ansehen, wenn Sie ihn noch nicht gesehen haben, zurück zur Seite [Einfache Demo mit PlayCanvas erstellen](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder eine Ebene höher zur Hauptseite [3D-Spiele im Web](/de/docs/Games/Techniques/3D_on_the_web) gehen.
+Falls Sie ihn noch nicht gelesen haben, können Sie sich jetzt den Artikel zur [PlayCanvas-Engine](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas/engine) ansehen. Sie können auch zur Seite [Eine einfache Demo mit PlayCanvas erstellen](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder zur übergeordneten Seite [3D-Spiele im Web](/de/docs/Games/Techniques/3D_on_the_web) zurückkehren.

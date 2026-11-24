@@ -2,10 +2,10 @@
 title: async function-Ausdruck
 slug: Web/JavaScript/Reference/Operators/async_function
 l10n:
-  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Die Schlüsselwörter **`async function`** können verwendet werden, um eine asynchrone Funktion innerhalb eines Ausdrucks zu definieren.
+Mit den Schlüsselwörtern **`async function`** können Sie eine asynchrone Funktion innerhalb eines Ausdrucks definieren.
 
 Sie können asynchrone Funktionen auch mit einer [`async function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder der [Pfeilfunktionssyntax](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definieren.
 
@@ -34,20 +34,24 @@ async function name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `async function` beginnen, um Mehrdeutigkeiten mit einer [`async function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function) zu vermeiden. Die Schlüsselwörter `async function` leiten nur dann einen Ausdruck ein, wenn sie in einem Kontext stehen, der keine Anweisungen zulässt.
+> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `async function` beginnen, damit sie nicht mit einer [`async function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function) verwechselt wird. Die Schlüsselwörter `async function` leiten nur dann einen Ausdruck ein, wenn sie in einem Kontext stehen, in dem keine Anweisungen zulässig sind.
 
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Der Name der Funktion. Er kann weggelassen werden; in diesem Fall ist die Funktion _anonym_. Der Name gilt nur innerhalb des Funktionskörpers.
+  - : Der Name der Funktion. Er kann weggelassen werden; in diesem Fall ist die Funktion _anonym_. Der Name ist nur innerhalb des Funktionskörpers verfügbar.
 - `paramN` {{optional_inline}}
-  - : Der Name eines formalen Parameters der Funktion. Zur Syntax der Parameter siehe die [Referenz zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters der Funktion. Zur Syntax von Parametern siehe die [Referenz zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
   - : Die Anweisungen, aus denen der Funktionskörper besteht.
 
+### Rückgabewert
+
+Ein {{jsxref("AsyncFunction")}}-Objekt.
+
 ## Beschreibung
 
-Ein `async function`-Ausdruck ist einer [`async function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function) sehr ähnlich und hat nahezu dieselbe Syntax. Der wichtigste Unterschied zwischen einem `async function`-Ausdruck und einer `async function`-Deklaration ist der _Funktionsname_: Bei `async function`-Ausdrücken kann er weggelassen werden, um _anonyme_ Funktionen zu erstellen. Ein `async function`-Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression) verwendet werden. Diese wird unmittelbar nach ihrer Definition ausgeführt und ermöglicht es Ihnen, [top-level await](/de/docs/Web/JavaScript/Guide/Modules#top-level_await) nachzubilden. Weitere Informationen finden Sie im Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions).
+Ein `async function`-Ausdruck ähnelt einer [`async function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function) sehr und hat fast dieselbe Syntax. Der wesentliche Unterschied ist der _Funktionsname_: Bei einem `async function`-Ausdruck kann er weggelassen werden, um eine _anonyme_ Funktion zu erstellen. Ein `async function`-Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression) verwendet werden. Diese wird sofort nach ihrer Definition ausgeführt und ermöglicht es Ihnen, [Top-Level-`await`](/de/docs/Web/JavaScript/Guide/Modules#top-level_await) nachzuahmen. Weitere Informationen finden Sie im Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions).
 
 ## Beispiele
 
@@ -85,7 +89,7 @@ add(10).then((v) => {
 
 ### Asynchrone IIFE
 
-Mit einer asynchronen {{Glossary("IIFE", "IIFE")}} können Sie [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) und [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) in Kontexten verwenden, in denen [top-level await](/de/docs/Web/JavaScript/Reference/Operators/await#top-level_await) nicht verfügbar ist. Hier verwenden wir eine [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), um die IIFE zu definieren. Sie können dafür aber auch `async function`-Ausdrücke verwenden.
+Mit einer asynchronen {{Glossary("IIFE", "IIFE")}} können Sie [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) und [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) in Kontexten verwenden, in denen [Top-Level-`await`](/de/docs/Web/JavaScript/Reference/Operators/await#top-level_await) nicht verfügbar ist. Hier verwenden wir eine [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), um die IIFE zu definieren; Sie können dafür aber auch einen `async function`-Ausdruck verwenden.
 
 ```js
 const getFileStream = async (url) => {

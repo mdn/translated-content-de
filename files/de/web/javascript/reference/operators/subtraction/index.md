@@ -2,7 +2,7 @@
 title: Subtraktion (-)
 slug: Web/JavaScript/Reference/Operators/Subtraction
 l10n:
-  sourceCommit: 6d8a46dd0cd65ede8afb18ad951567fe810d1995
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
 Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden und liefert ihre Differenz.
@@ -29,26 +29,37 @@ console.log(5 - true);
 x - y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 11 (Addition) oder höher. Sein Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 12 (Multiplikation) oder höher. Sein Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+
+### Rückgabewert
+
+Eine Zahl oder ein BigInt-Wert, der die Differenz zwischen `x` und `y` darstellt.
+
 ## Beschreibung
 
-Der Operator `-` ist für zwei Operandentypen überladen: Number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [konvertiert er beide Operanden in numerische Werte](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Wenn beide Operanden zu BigInt-Werten werden, führt er eine BigInt-Subtraktion durch; andernfalls führt er eine Number-Subtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt-Wert und der andere zu einem Number-Wert wird.
+Der Operator `-` ist für zwei Operandentypen überladen: Zahlen und [BigInt-Werte](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt zunächst beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Wenn beide Operanden zu BigInt-Werten werden, führt er eine BigInt-Subtraktion durch; andernfalls führt er eine Subtraktion von Zahlen durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt-Wert und der andere zu einer Zahl wird.
 
-Bei der Subtraktion von Number-Werten ist `x - y` als gleichwertig mit `x + -y` definiert. Daher gelten die Regeln der [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition):
+Bei der Subtraktion von Zahlen ist `x - y` als äquivalent zu `x + -y` definiert. Daher gelten die Regeln der [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition):
 
 - Wenn einer der Operanden `NaN` ist, ist das Ergebnis `NaN`.
 - `Infinity - Infinity` ergibt `NaN`.
-- Wenn das mathematische Ergebnis 0 ist, wird `0` zurückgegeben – außer bei `-0 - 0`. In diesem Fall wird `-0` zurückgegeben.
+- Wenn das mathematische Ergebnis 0 ist, wird `0` zurückgegeben. Eine Ausnahme ist `-0 - 0`: In diesem Fall wird `-0` zurückgegeben.
 
 ## Beispiele
 
-### Subtraktion mit Number-Werten
+### Subtraktion mit Zahlen
 
 ```js
 5 - 3; // 2
 3 - 5; // -2
 ```
 
-Andere Werte, die keine BigInt-Werte sind, werden in Number-Werte konvertiert:
+Andere Werte, die keine BigInt-Werte sind, werden in Zahlen umgewandelt:
 
 ```js
 "foo" - 3; // NaN; "foo" is converted to the number NaN
@@ -61,14 +72,14 @@ Andere Werte, die keine BigInt-Werte sind, werden in Number-Werte konvertiert:
 2n - 1n; // 1n
 ```
 
-Bei der Subtraktion können Sie BigInt- und Number-Operanden nicht kombinieren.
+Bei der Subtraktion können Sie BigInt-Werte und Zahlen nicht als Operanden mischen.
 
 ```js example-bad
 2n - 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 - 1n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um einen BigInt-Wert und einen Wert, der kein BigInt-Wert ist, zu subtrahieren, konvertieren Sie einen der Operanden:
+Um einen BigInt-Wert und einen Wert, der kein BigInt-Wert ist, voneinander zu subtrahieren, müssen Sie einen der beiden Operanden umwandeln:
 
 ```js
 2n - BigInt(1); // 1n

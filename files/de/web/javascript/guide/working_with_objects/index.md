@@ -2,26 +2,26 @@
 title: Arbeiten mit Objekten
 slug: Web/JavaScript/Guide/Working_with_objects
 l10n:
-  sourceCommit: 1474534461893381d54c502e655f334b5568e597
+  sourceCommit: 52efe757952fde32b197b8ae9395f8f2a3bc7a9f
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Keyed_collections", "Web/JavaScript/Guide/Using_classes")}}
 
-JavaScript ist auf einem objektbasierten Paradigma aufgebaut. Ein Objekt ist eine Sammlung von {{Glossary("Property/JavaScript", "Eigenschaften")}}, und eine Eigenschaft ist eine Verknüpfung zwischen einem Namen (oder _Schlüssel_) und einem Wert. Der Wert einer Eigenschaft kann eine Funktion sein, in diesem Fall spricht man von einer {{Glossary("Method", "Methode")}}.
+JavaScript basiert auf einem objektorientierten Paradigma. Ein Objekt ist eine Sammlung von {{Glossary("Property/JavaScript", "Eigenschaften")}}. Eine Eigenschaft verknüpft einen Namen (oder _Schlüssel_) mit einem Wert. Der Wert einer Eigenschaft kann eine Funktion sein; in diesem Fall wird die Eigenschaft als {{Glossary("Method", "Methode")}} bezeichnet.
 
-Objekte in JavaScript, ebenso wie in vielen anderen Programmiersprachen, können mit Objekten im echten Leben verglichen werden. In JavaScript ist ein Objekt eine eigenständige Entität mit Eigenschaften und Typ. Vergleichen Sie es zum Beispiel mit einer Tasse. Eine Tasse ist ein Objekt mit Eigenschaften. Eine Tasse hat eine Farbe, ein Design, ein Gewicht, ein Material, aus dem sie gemacht ist, usw. In gleicher Weise können JavaScript-Objekte Eigenschaften haben, die ihre Merkmale definieren.
+Wie in vielen anderen Programmiersprachen lassen sich Objekte in JavaScript mit Gegenständen des Alltags vergleichen. Ein JavaScript-Objekt ist eine eigenständige Einheit mit Eigenschaften und einem Typ. Nehmen Sie beispielsweise eine Tasse: Sie ist ein Gegenstand mit Eigenschaften wie Farbe, Design, Gewicht und Material. Ebenso können JavaScript-Objekte Eigenschaften haben, die ihre Merkmale festlegen.
 
-Zusätzlich zu Objekten, die im Browser vordefiniert sind, können Sie Ihre eigenen Objekte definieren. Dieses Kapitel beschreibt, wie man Objekte, Eigenschaften und Methoden verwendet und wie man eigene Objekte erstellt.
+Neben den im Browser vordefinierten Objekten können Sie eigene Objekte definieren. Dieses Kapitel beschreibt, wie Sie Objekte, Eigenschaften und Methoden verwenden und eigene Objekte erstellen.
 
-## Erstellen neuer Objekte
+## Neue Objekte erstellen
 
-Sie können ein Objekt mit einem [Objekt-Initializer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellen. Alternativ können Sie zuerst eine Konstruktorfunktion erstellen und dann ein Objekt instanziieren, indem Sie diese Funktion mit dem `new` Operator aufrufen.
+Sie können ein Objekt mit einem [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellen. Alternativ können Sie zunächst eine Konstruktorfunktion erstellen und dann ein Objekt instanziieren, indem Sie diese Funktion mit dem Operator `new` aufrufen.
 
-### Verwendung von Objekt-Initialisierern
+### Objektinitialisierer verwenden
 
-Objekt-Initialisierer werden auch _Objekt-Literale_ genannt. "Objekt-Initializer" ist konsistent mit der Terminologie, die in C++ verwendet wird.
+Objektinitialisierer werden auch _Objektliterale_ genannt. Der Begriff „Objektinitialisierer“ entspricht der in C++ verwendeten Terminologie.
 
-Die Syntax für ein Objekt mit einem Objekt-Initializer ist:
+Die Syntax für ein Objekt mit einem Objektinitialisierer lautet:
 
 ```js
 const obj = {
@@ -31,13 +31,13 @@ const obj = {
 };
 ```
 
-Jeder Eigenschaftsname vor dem Doppelpunkt ist entweder ein Bezeichner, ein Zahlenliteral oder ein Stringliteral und jeder `valueN` ist ein Ausdruck, dessen Wert dem Eigenschaftsnamen zugewiesen wird. Der Eigenschaftsname kann auch ein Ausdruck sein; berechnete Schlüssel müssen in eckige Klammern gesetzt werden. Die Referenz zum [Objekt-Initializer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) enthält eine detailliertere Erklärung der Syntax.
+Jeder Eigenschaftsname vor dem Doppelpunkt ist entweder ein Bezeichner, ein Zahlenliteral oder ein Zeichenfolgenliteral. Jedes `valueN` ist ein Ausdruck, dessen Wert der jeweiligen Eigenschaft zugewiesen wird. Der Eigenschaftsname kann ebenfalls ein Ausdruck sein; berechnete Schlüssel müssen in eckigen Klammern stehen. Die Referenz zum [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erläutert die Syntax ausführlicher.
 
-In diesem Beispiel wird das neu erstellte Objekt einer Variablen `obj` zugewiesen — das ist optional. Wenn Sie nicht auf dieses Objekt an anderer Stelle verweisen müssen, brauchen Sie es keiner Variablen zuzuweisen. (Beachten Sie, dass Sie das Objektliteral in Klammern setzen müssen, wenn das Objekt an einer Stelle erscheint, an der eine Anweisung erwartet wird, um es nicht mit einer Blockanweisung zu verwechseln.)
+In diesem Beispiel wird das neu erstellte Objekt der Variablen `obj` zugewiesen – das ist optional. Wenn Sie an anderer Stelle nicht auf dieses Objekt verweisen müssen, brauchen Sie es keiner Variablen zuzuweisen. (Beachten Sie, dass Sie das Objektliteral möglicherweise in Klammern setzen müssen, wenn das Objekt an einer Stelle steht, an der eine Anweisung erwartet wird. Andernfalls könnte das Literal mit einer Blockanweisung verwechselt werden.)
 
-Objekt-Initialisierer sind Ausdrücke, und jeder Objekt-Initializer führt dazu, dass jedes Mal, wenn die Anweisung, in der er erscheint, ausgeführt wird, ein neues Objekt erstellt wird. Identische Objekt-Initialisierer erstellen unterschiedliche Objekte, die nicht als gleichwertig angesehen werden.
+Objektinitialisierer sind Ausdrücke. Jedes Mal, wenn die Anweisung ausgeführt wird, in der ein Objektinitialisierer steht, entsteht ein neues Objekt. Identische Objektinitialisierer erzeugen unterschiedliche Objekte, die beim Vergleich nicht als gleich gelten.
 
-Die folgende Anweisung erstellt ein Objekt und weist es der Variablen `x` zu, wenn und nur wenn der Ausdruck `cond` wahr ist:
+Die folgende Anweisung erstellt ein Objekt und weist es der Variablen `x` genau dann zu, wenn der Ausdruck `cond` wahr ist:
 
 ```js
 let x;
@@ -56,16 +56,16 @@ const myHonda = {
 };
 ```
 
-Objekte, die mit Initialisierern erstellt werden, werden _einfache Objekte_ genannt, weil sie Instanzen von {{jsxref("Object")}} sind, aber keinem anderen Objekttyp angehören. Einige Objekttypen haben spezielle Initialisierer-Syntaxen — zum Beispiel [Array-Initialisierer](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) und [Regex-Literale](/de/docs/Web/JavaScript/Guide/Regular_expressions#creating_a_regular_expression).
+Mit Initialisierern erstellte Objekte heißen _einfache Objekte_, da sie Instanzen von {{jsxref("Object")}} sind, aber keine Instanzen eines anderen Objekttyps. Einige Objekttypen haben eine eigene Initialisierungssyntax – beispielsweise [Array-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Array_initializer) und [Literale für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions#creating_a_regular_expression).
 
-### Verwendung einer Konstruktorfunktion
+### Eine Konstruktorfunktion verwenden
 
 Alternativ können Sie ein Objekt in zwei Schritten erstellen:
 
-1. Definieren Sie den Objekttyp durch Schreiben einer Konstruktorfunktion. Es gibt eine starke Konvention, mit gutem Grund, den Anfangsbuchstaben groß zu schreiben.
-2. Erstellen Sie eine Instanz des Objekts mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new).
+1. Definieren Sie den Objekttyp, indem Sie eine Konstruktorfunktion schreiben. Es gibt gute Gründe für die weitverbreitete Konvention, den Namen mit einem Großbuchstaben beginnen zu lassen.
+2. Erstellen Sie mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) eine Instanz des Objekts.
 
-Um einen Objekttyp zu definieren, erstellen Sie eine Funktion für den Objekttyp, die seinen Namen, seine Eigenschaften und Methoden angibt. Angenommen, Sie möchten einen Objekttyp für Autos erstellen. Sie möchten, dass dieser Objekttyp `Car` genannt wird, und Sie möchten, dass er Eigenschaften für Marke, Modell und Jahr hat. Dazu würden Sie die folgende Funktion schreiben:
+Um einen Objekttyp zu definieren, erstellen Sie eine Funktion, die seinen Namen, seine Eigenschaften und seine Methoden festlegt. Angenommen, Sie möchten einen Objekttyp für Autos erstellen. Der Typ soll `Car` heißen und Eigenschaften für Hersteller, Modell und Baujahr haben. Dazu würden Sie die folgende Funktion schreiben:
 
 ```js
 function Car(make, model, year) {
@@ -75,24 +75,24 @@ function Car(make, model, year) {
 }
 ```
 
-Beachten Sie die Verwendung von `this`, um den Eigenschaften des Objekts basierend auf den an die Funktion übergebenen Werten Werte zuzuweisen.
+Beachten Sie, wie mit `this` den Eigenschaften des Objekts Werte zugewiesen werden, die auf den an die Funktion übergebenen Werten beruhen.
 
-Nun können Sie ein Objekt namens `myCar` wie folgt erstellen:
+Nun können Sie wie folgt ein Objekt namens `myCar` erstellen:
 
 ```js
 const myCar = new Car("Eagle", "Talon TSi", 1993);
 ```
 
-Diese Anweisung erstellt `myCar` und weist ihm die angegebenen Werte für seine Eigenschaften zu. Dann hat `myCar.make` den Wert des Strings `"Eagle"`, `myCar.model` den Wert des Strings `"Talon TSi"`, `myCar.year` den Wert der Ganzzahl `1993` usw. Die Reihenfolge der Argumente und Parameter sollte gleich sein.
+Diese Anweisung erstellt `myCar` und weist seinen Eigenschaften die angegebenen Werte zu. Danach ist der Wert von `myCar.make` die Zeichenfolge `"Eagle"`, der Wert von `myCar.model` die Zeichenfolge `"Talon TSi"` und der Wert von `myCar.year` die Ganzzahl `1993` usw. Die Reihenfolge der Argumente muss der Reihenfolge der Parameter entsprechen.
 
-Sie können eine beliebige Anzahl von `Car`-Objekten durch Aufrufe von `new` erstellen. Zum Beispiel,
+Durch Aufrufe von `new` können Sie beliebig viele `Car`-Objekte erstellen. Zum Beispiel:
 
 ```js
 const randCar = new Car("Nissan", "300ZX", 1992);
 const kenCar = new Car("Mazda", "Miata", 1990);
 ```
 
-Ein Objekt kann eine Eigenschaft haben, die selbst ein anderes Objekt ist. Angenommen, Sie definieren ein Objekt, das `Person` genannt wird, wie folgt:
+Eine Eigenschaft eines Objekts kann selbst ein anderes Objekt sein. Angenommen, Sie definieren ein Objekt namens `Person` wie folgt:
 
 ```js
 function Person(name, age, sex) {
@@ -102,14 +102,14 @@ function Person(name, age, sex) {
 }
 ```
 
-und instanziieren dann zwei neue `Person`-Objekte wie folgt:
+Anschließend instanziieren Sie zwei neue `Person`-Objekte:
 
 ```js
 const rand = new Person("Rand McKinnon", 33, "M");
 const ken = new Person("Ken Jones", 39, "M");
 ```
 
-Dann können Sie die Definition von `Car` um eine `owner` Eigenschaft erweiteren, die ein `Person`-Objekt übernimmt, wie folgt:
+Dann können Sie die Definition von `Car` so ändern, dass sie eine Eigenschaft `owner` enthält, die ein `Person`-Objekt aufnimmt:
 
 ```js
 function Car(make, model, year, owner) {
@@ -120,32 +120,32 @@ function Car(make, model, year, owner) {
 }
 ```
 
-Um die neuen Objekte zu instanziieren, verwenden Sie dann Folgendes:
+Um die neuen Objekte zu instanziieren, verwenden Sie anschließend Folgendes:
 
 ```js
 const car1 = new Car("Eagle", "Talon TSi", 1993, rand);
 const car2 = new Car("Nissan", "300ZX", 1992, ken);
 ```
 
-Beachten Sie, dass anstelle des Übergebens eines Literal-Strings oder -Ganzzahlwerts beim Erstellen der neuen Objekte die oben genannten Anweisungen die Objekte `rand` und `ken` als Argumente für die Besitzer übergeben. Wenn Sie dann herausfinden möchten, wie der Besitzer von `car2` heißt, können Sie auf die folgende Eigenschaft zugreifen:
+Beachten Sie, dass die obigen Anweisungen beim Erstellen der neuen Objekte statt einer literalen Zeichenfolge oder Ganzzahl die Objekte `rand` und `ken` als Argumente für die Eigentümer übergeben. Wenn Sie den Namen des Eigentümers von `car2` ermitteln möchten, können Sie auf die folgende Eigenschaft zugreifen:
 
 ```js
 car2.owner.name;
 ```
 
-Sie können jederzeit eine Eigenschaft zu einem zuvor definierten Objekt hinzufügen. Zum Beispiel, die Anweisung
+Sie können einem bereits definierten Objekt jederzeit eine Eigenschaft hinzufügen. Beispielsweise fügt die Anweisung
 
 ```js
 car1.color = "black";
 ```
 
-fügt `car1` die Eigenschaft `color` hinzu und weist ihr den Wert `"black"` zu. Dies wirkt sich jedoch nicht auf andere Objekte aus. Um die neue Eigenschaft zu allen Objekten desselben Typs hinzuzufügen, müssen Sie die Eigenschaft zur Definition des `Car`-Objekttyps hinzufügen.
+dem Objekt `car1` die Eigenschaft `color` hinzu und weist ihr den Wert `"black"` zu. Dies wirkt sich jedoch nicht auf andere Objekte aus. Um die neue Eigenschaft allen Objekten desselben Typs hinzuzufügen, müssen Sie sie der Definition des Objekttyps `Car` hinzufügen.
 
-Sie können auch die Syntax [`class`](/de/docs/Web/JavaScript/Reference/Classes) anstelle der `function`-Syntax verwenden, um eine Konstruktorfunktion zu definieren. Für weitere Informationen siehe den [Klassenteil](/de/docs/Web/JavaScript/Guide/Using_classes).
+Sie können eine Konstruktorfunktion auch mit der [`class`](/de/docs/Web/JavaScript/Reference/Classes)-Syntax statt mit der `function`-Syntax definieren. Weitere Informationen finden Sie im [Leitfaden zu Klassen](/de/docs/Web/JavaScript/Guide/Using_classes).
 
-### Verwendung der Object.create()-Methode
+### Die Methode Object.create() verwenden
 
-Objekte können auch mit der {{jsxref("Object.create()")}} Methode erstellt werden. Diese Methode kann sehr nützlich sein, weil sie es Ihnen erlaubt, das [Prototyp](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) Objekt für das Objekt, das Sie erstellen möchten, auszuwählen, ohne eine Konstruktorfunktion definieren zu müssen.
+Objekte können auch mit der Methode {{jsxref("Object.create()")}} erstellt werden. Diese Methode kann sehr nützlich sein, weil Sie damit das [Prototyp](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)-Objekt für das zu erstellende Objekt auswählen können, ohne eine Konstruktorfunktion definieren zu müssen.
 
 ```js
 // Animal properties and method encapsulation
@@ -169,9 +169,9 @@ fish.displayType(); // Logs: Fishes
 
 ## Objekte und Eigenschaften
 
-Ein JavaScript-Objekt verfügt über zugeordnete Eigenschaften. Objekteigenschaften sind grundsätzlich dasselbe wie Variablen, außer dass sie mit Objekten, nicht mit {{Glossary("Scope", "Scopes")}}, assoziiert sind. Die Eigenschaften eines Objekts definieren die Merkmale des Objekts.
+Mit einem JavaScript-Objekt sind Eigenschaften verknüpft. Objekteigenschaften funktionieren im Wesentlichen wie Variablen, sind aber Objekten und nicht {{Glossary("Scope", "Gültigkeitsbereichen")}} zugeordnet. Die Eigenschaften eines Objekts legen seine Merkmale fest.
 
-Zum Beispiel erstellt dieses Beispiel ein Objekt namens `myCar` mit Eigenschaften namens `make`, `model` und `year`, deren Werte auf `"Ford"`, `"Mustang"` und `1969` gesetzt wurden:
+Dieses Beispiel erstellt ein Objekt namens `myCar` mit den Eigenschaften `make`, `model` und `year`, denen die Werte `"Ford"`, `"Mustang"` und `1969` zugewiesen werden:
 
 ```js
 const myCar = {
@@ -181,11 +181,11 @@ const myCar = {
 };
 ```
 
-Wie JavaScript-Variablen sind Eigenschaftsnamen groß- und kleinschreibungssensitiv. Eigenschaftsnamen können nur Strings oder Symbole sein — alle Schlüssel werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), es sei denn, sie sind Symbole. [Array-Indizes](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array_indices) sind tatsächlich Eigenschaften mit Zeichenfolgenschlüsseln, die Ganzzahlen enthalten.
+Wie bei JavaScript-Variablen wird bei Eigenschaftsnamen zwischen Groß- und Kleinschreibung unterschieden. Eigenschaftsnamen können nur Zeichenfolgen oder Symbols sein – alle Schlüssel werden [in Zeichenfolgen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sofern sie keine Symbols sind. [Array-Indizes](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array_indices) sind tatsächlich Eigenschaften, deren Zeichenfolgenschlüssel Ganzzahlen enthalten.
 
-### Zugriff auf Eigenschaften
+### Auf Eigenschaften zugreifen
 
-Sie können auf eine Eigenschaft eines Objekts über seinen Eigenschaftsnamen zugreifen. [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) gibt es in zwei Syntaxen: _Punktnotation_ und _Klammernotation_. Zum Beispiel könnten Sie auf die Eigenschaften des `myCar` Objekts wie folgt zugreifen:
+Sie können über den Eigenschaftsnamen auf eine Eigenschaft eines Objekts zugreifen. Für [Eigenschaftszugriffe](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) gibt es zwei Schreibweisen: die _Punktnotation_ und die _Klammernotation_. Auf die Eigenschaften des Objekts `myCar` können Sie beispielsweise wie folgt zugreifen:
 
 ```js
 // Dot notation
@@ -199,7 +199,7 @@ myCar["model"] = "Mustang";
 myCar["year"] = 1969;
 ```
 
-Ein Objekt-Eigenschaftsname kann jeder JavaScript-String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einschließlich eines leeren Strings, sein. Sie können jedoch nicht die Punktnotation verwenden, um auf eine Eigenschaft zuzugreifen, deren Name kein gültiger JavaScript-Bezeichner ist. Zum Beispiel kann auf einen Eigenschaftsnamen, der ein Leerzeichen oder Bindestrich enthält, mit einer Zahl beginnt oder in einer Variablen enthalten ist, nur mit der Klammernotation zugegriffen werden. Diese Notation ist auch sehr nützlich, wenn Eigenschaftsnamen dynamisch bestimmt werden sollen, d.h. erst zur Laufzeit bestimmbar sind. Hier einige Beispiele:
+Der Name einer Objekteigenschaft kann eine beliebige JavaScript-Zeichenfolge oder ein [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) sein, auch eine leere Zeichenfolge. Mit der Punktnotation können Sie jedoch nicht auf eine Eigenschaft zugreifen, deren Name kein gültiger JavaScript-Bezeichner ist. Enthält ein Eigenschaftsname beispielsweise ein Leerzeichen oder einen Bindestrich, beginnt er mit einer Zahl oder ist er in einer Variablen gespeichert, ist der Zugriff nur mit der Klammernotation möglich. Diese Schreibweise ist auch nützlich, wenn Eigenschaftsnamen dynamisch bestimmt werden und somit erst zur Laufzeit feststehen. Beispiele:
 
 ```js
 const myObj = {};
@@ -227,9 +227,9 @@ console.log(myObj);
 console.log(myObj.myString); // 'This key is in variable str'
 ```
 
-Im obigen Code ist der Schlüssel `anotherObj` ein Objekt, das weder ein String noch ein Symbol ist. Wenn es zu `myObj` hinzugefügt wird, ruft JavaScript die {{jsxref("Object/toString", "toString()")}} Methode von `anotherObj` auf und verwendet das resultierende String als neuen Schlüssel.
+Im obigen Code ist der Schlüssel `anotherObj` ein Objekt, also weder eine Zeichenfolge noch ein Symbol. Wenn es `myObj` hinzugefügt wird, ruft JavaScript die Methode {{jsxref("Object/toString", "toString()")}} von `anotherObj` auf und verwendet die resultierende Zeichenfolge als neuen Schlüssel.
 
-Sie können auch auf Eigenschaften mit einem String-Wert zugreifen, der in einer Variablen gespeichert ist. Die Variable muss in der Klammernotation übergeben werden. Im obigen Beispiel hielt die Variable `str` `"myString"` und somit ist `"myString"` der Eigenschaftsname. Daher wird `myObj.str` als undefined zurückgegeben.
+Sie können auch über einen in einer Variablen gespeicherten Zeichenfolgenwert auf Eigenschaften zugreifen. Dazu muss die Variable in der Klammernotation verwendet werden. Im obigen Beispiel enthält die Variable `str` den Wert `"myString"`; der Eigenschaftsname lautet also `"myString"`. Daher gibt `myObj.str` den Wert `undefined` zurück.
 
 ```js
 str = "myString";
@@ -241,7 +241,7 @@ console.log(myObj[str]); // 'This key is in variable str'
 console.log(myObj.myString); // 'This key is in variable str'
 ```
 
-Dies ermöglicht den Zugriff auf jede Eigenschaft, die zur Laufzeit bestimmt wird:
+So können Sie auf jede beliebige Eigenschaft zugreifen, deren Name zur Laufzeit bestimmt wird:
 
 ```js
 let propertyName = "make";
@@ -254,23 +254,23 @@ myCar[propertyName] = "Mustang";
 console.log(myCar); // { make: 'Ford', model: 'Mustang' }
 ```
 
-Seien Sie jedoch vorsichtig, wenn Sie eckige Klammern verwenden, um auf Eigenschaften zuzugreifen, deren Namen durch externe Eingaben gegeben sind. Dies kann Ihren Code anfällig für [Objekt-Injektionsangriffe](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md) machen.
+Seien Sie jedoch vorsichtig, wenn Sie mit eckigen Klammern auf Eigenschaften zugreifen, deren Namen aus externen Eingaben stammen. Dadurch kann Ihr Code anfällig für [Object-Injection-Angriffe](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md) werden.
 
-Nicht existierende Eigenschaften eines Objekts haben den Wert {{jsxref("undefined")}} (und nicht [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)).
+Nicht vorhandene Eigenschaften eines Objekts haben den Wert {{jsxref("undefined")}} (und nicht [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)).
 
 ```js
 myCar.nonexistentProperty; // undefined
 ```
 
-### Aufzählen von Eigenschaften
+### Eigenschaften auflisten
 
-Es gibt drei native Möglichkeiten, Objekteigenschaften aufzulisten/durchzugehen:
+Es gibt drei integrierte Möglichkeiten, Objekteigenschaften aufzulisten oder zu durchlaufen:
 
-- [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleifen. Diese Methode durchläuft alle aufzählbaren String-Eigenschaften eines Objekts sowie seine Prototypkette.
-- {{jsxref("Object.keys()")}}. Diese Methode gibt ein Array mit nur den eigenen aufzählbaren String-Eigenschaftsnamen ("Schlüsseln") im Objekt `myObj` zurück, nicht jedoch die der Prototypkette.
-- {{jsxref("Object.getOwnPropertyNames()")}}. Diese Methode gibt ein Array zurück, das alle eigenen String-Eigenschaftsnamen im Objekt `myObj` enthält, unabhängig davon, ob sie aufzählbar sind oder nicht.
+- [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen. Damit werden alle aufzählbaren Zeichenfolgeneigenschaften eines Objekts sowie die seiner Prototypkette durchlaufen.
+- {{jsxref("Object.keys()")}}. Diese Methode gibt ein Array zurück, das nur die Namen („Schlüssel“) der eigenen aufzählbaren Zeichenfolgeneigenschaften des Objekts `myObj` enthält, nicht aber die der Prototypkette.
+- {{jsxref("Object.getOwnPropertyNames()")}}. Diese Methode gibt ein Array mit allen Namen eigener Zeichenfolgeneigenschaften des Objekts `myObj` zurück, unabhängig davon, ob sie aufzählbar sind.
 
-Sie können die Klammernotation mit [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) verwenden, um alle aufzählbaren Eigenschaften eines Objekts zu durchlaufen. Um zu veranschaulichen, wie dies funktioniert, zeigt die folgende Funktion die Eigenschaften des Objekts an, wenn Sie das Objekt und den Namen des Objekts als Argumente an die Funktion übergeben:
+Sie können die Klammernotation zusammen mit [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) verwenden, um alle aufzählbaren Eigenschaften eines Objekts zu durchlaufen. Die folgende Funktion veranschaulicht dies: Sie zeigt die Eigenschaften eines Objekts an, wenn Sie ihr das Objekt und dessen Namen als Argumente übergeben:
 
 ```js
 function showProps(obj, objName) {
@@ -286,7 +286,7 @@ function showProps(obj, objName) {
 }
 ```
 
-Der Begriff "eigene Eigenschaft" bezieht sich auf die Eigenschaften des Objekts, jedoch ohne die der Prototypkette. Daher würde der Funktionsaufruf `showProps(myCar, 'myCar')` Folgendes ausgeben:
+Der Begriff „eigene Eigenschaft“ bezeichnet eine Eigenschaft des Objekts, die nicht aus der Prototypkette stammt. Der Funktionsaufruf `showProps(myCar, 'myCar')` würde also Folgendes ausgeben:
 
 ```plain
 myCar.make = Ford
@@ -294,7 +294,7 @@ myCar.model = Mustang
 myCar.year = 1969
 ```
 
-Das obige ist äquivalent zu:
+Das Obige entspricht:
 
 ```js
 function showProps(obj, objName) {
@@ -306,7 +306,7 @@ function showProps(obj, objName) {
 }
 ```
 
-Es gibt keine native Methode, um alle geerbten Eigenschaften aufzulisten, einschließlich nicht aufzählbarer. Dies kann jedoch mit der folgenden Funktion erreicht werden:
+Es gibt keine integrierte Möglichkeit, alle geerbten Eigenschaften einschließlich der nicht aufzählbaren aufzulisten. Mit der folgenden Funktion ist dies jedoch möglich:
 
 ```js
 function listAllProperties(myObj) {
@@ -322,11 +322,11 @@ function listAllProperties(myObj) {
 }
 ```
 
-Für weitere Informationen siehe [Enumerierbarkeit und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties).
+Weitere Informationen finden Sie unter [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties).
 
-### Löschen von Eigenschaften
+### Eigenschaften löschen
 
-Sie können eine nicht geerbte Eigenschaft mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) Operator entfernen. Der folgende Code zeigt, wie man eine Eigenschaft entfernt.
+Mit dem Operator [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) können Sie eine nicht geerbte Eigenschaft entfernen. Der folgende Code zeigt, wie eine Eigenschaft entfernt wird.
 
 ```js
 // Creates a new object, myObj, with two properties, a and b.
@@ -339,11 +339,11 @@ console.log("a" in myObj); // false
 
 ## Vererbung
 
-Alle Objekte in JavaScript erben von mindestens einem anderen Objekt. Das Objekt, von dem geerbt wird, wird als Prototyp bezeichnet, und die geerbten Eigenschaften können im `prototype` des Konstruktors gefunden werden. Siehe [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) für weitere Informationen.
+Alle Objekte in JavaScript erben von mindestens einem anderen Objekt. Das Objekt, von dem geerbt wird, heißt Prototyp. Die geerbten Eigenschaften sind im `prototype`-Objekt des Konstruktors zu finden. Weitere Informationen finden Sie unter [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain).
 
 ### Eigenschaften für alle Objekte eines Typs definieren
 
-Sie können eine Eigenschaft zu allen Objekten hinzufügen, die durch einen bestimmten [Konstruktor](#verwendung_einer_konstruktorfunktion) erstellt wurden, indem Sie die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) Eigenschaft verwenden. Dies definiert eine Eigenschaft, die von allen Objekten des angegebenen Typs geteilt wird, anstatt nur von einer Instanz des Objekts. Der folgende Code fügt allen Objekten des Typs `Car` eine `color`-Eigenschaft hinzu und liest dann den Wert der Eigenschaft von einer Instanz `car1`.
+Über die Eigenschaft [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) können Sie allen Objekten, die mit einem bestimmten [Konstruktor](#eine_konstruktorfunktion_verwenden) erstellt wurden, eine Eigenschaft hinzufügen. Damit definieren Sie eine Eigenschaft, die alle Objekte des angegebenen Typs gemeinsam haben, statt nur eine einzelne Instanz. Der folgende Code fügt allen Objekten des Typs `Car` eine Eigenschaft `color` hinzu und liest anschließend deren Wert aus der Instanz `car1` aus.
 
 ```js
 Car.prototype.color = "red";
@@ -352,7 +352,7 @@ console.log(car1.color); // "red"
 
 ## Methoden definieren
 
-Eine _Methode_ ist eine Funktion, die mit einem Objekt assoziiert ist. Anders ausgedrückt, eine Methode ist eine Eigenschaft eines Objekts, die eine Funktion ist. Methoden werden definiert, wie normale Funktionen definiert werden, außer dass sie als Eigenschaft eines Objekts zugewiesen werden müssen. Siehe auch [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für weitere Details. Ein Beispiel ist:
+Eine _Methode_ ist eine Funktion, die einem Objekt zugeordnet ist – anders ausgedrückt: eine Eigenschaft eines Objekts, deren Wert eine Funktion ist. Methoden werden wie gewöhnliche Funktionen definiert, müssen aber einer Objekteigenschaft zugewiesen werden. Weitere Einzelheiten finden Sie unter [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions). Ein Beispiel:
 
 ```js
 objectName.methodName = functionName;
@@ -369,15 +369,15 @@ const myObj = {
 };
 ```
 
-wobei `objectName` ein existierendes Objekt ist, `methodName` der Name ist, den Sie der Methode zuweisen, und `functionName` der Name der Funktion ist.
+Dabei ist `objectName` ein vorhandenes Objekt, `methodName` der Name, den Sie der Methode zuweisen, und `functionName` der Name der Funktion.
 
-Sie können die Methode dann im Kontext des Objekts wie folgt aufrufen:
+Anschließend können Sie die Methode im Kontext des Objekts wie folgt aufrufen:
 
 ```js
 objectName.methodName(params);
 ```
 
-Methoden werden typischerweise auf dem `prototype` Objekt des Konstruktors definiert, sodass alle Objekte desselben Typs dieselbe Methode teilen. Zum Beispiel können Sie eine Funktion definieren, die die Eigenschaften der zuvor definierten `Car` Objekte formatiert und anzeigt.
+Methoden werden üblicherweise auf dem `prototype`-Objekt des Konstruktors definiert, damit alle Objekte desselben Typs dieselbe Methode verwenden. Sie können beispielsweise eine Funktion definieren, die die Eigenschaften der zuvor definierten `Car`-Objekte formatiert und anzeigt.
 
 ```js
 Car.prototype.displayCar = function () {
@@ -386,16 +386,16 @@ Car.prototype.displayCar = function () {
 };
 ```
 
-Beachten Sie die Verwendung von `this`, um auf das Objekt zu verweisen, zu dem die Methode gehört. Dann können Sie die `displayCar` Methode für jedes der Objekte wie folgt aufrufen:
+Beachten Sie, dass `this` auf das Objekt verweist, zu dem die Methode gehört. Anschließend können Sie die Methode `displayCar` für jedes der Objekte wie folgt aufrufen:
 
 ```js
 car1.displayCar();
 car2.displayCar();
 ```
 
-### Verwendung von this für Objektverweise
+### this für Objektverweise verwenden
 
-JavaScript hat ein spezielles Schlüsselwort, [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), das Sie in einer Methode verwenden können, um auf das aktuelle Objekt zu verweisen. Zum Beispiel, nehmen wir an, Sie haben zwei Objekte, `manager` und `intern`. Jedes Objekt hat seinen eigenen `name`, `age` und `job`. In der Funktion `sayHi()` beachten Sie die Verwendung von `this.name`. Wenn sie zu den zwei Objekten hinzugefügt wird, wird dieselbe Funktion die Nachricht mit dem Namen des jeweiligen Objekts, an das sie angehängt ist, ausgeben.
+JavaScript verfügt über ein besonderes Schlüsselwort, [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), mit dem Sie innerhalb einer Methode auf das aktuelle Objekt verweisen können. Angenommen, Sie haben zwei Objekte, `manager` und `intern`. Jedes Objekt hat eigene Eigenschaften `name`, `age` und `job`. Beachten Sie in der Funktion `sayHi()`, wie `this.name` verwendet wird. Wenn Sie dieselbe Funktion beiden Objekten hinzufügen, gibt sie jeweils eine Nachricht mit dem Namen des Objekts aus, dem sie zugeordnet ist.
 
 ```js
 const manager = {
@@ -421,18 +421,18 @@ manager.sayHi(); // Hello, my name is Karina
 intern.sayHi(); // Hello, my name is Tyrone
 ```
 
-`this` ist ein "versteckter Parameter" eines Funktionsaufrufs, der durch Angabe des Objekts vor der aufgerufenen Funktion übergeben wird. Zum Beispiel ist in `manager.sayHi()`, `this` das `manager` Objekt, weil `manager` vor der Funktion `sayHi()` kommt. Wenn Sie dieselbe Funktion von einem anderen Objekt aus aufrufen, ändert sich auch `this`. Wenn Sie andere Methoden verwenden, um die Funktion aufzurufen, wie {{jsxref("Function.prototype.call()")}} oder {{jsxref("Reflect.apply()")}}, können Sie den Wert von `this` explizit als Argument übergeben.
+`this` ist ein „versteckter Parameter“ eines Funktionsaufrufs. Sein Wert ergibt sich aus dem Objekt, das vor der aufgerufenen Funktion steht. Bei `manager.sayHi()` ist `this` beispielsweise das Objekt `manager`, weil `manager` vor der Funktion `sayHi()` steht. Wenn Sie über ein anderes Objekt auf dieselbe Funktion zugreifen, ändert sich auch `this`. Wenn Sie die Funktion auf andere Weise aufrufen, etwa mit {{jsxref("Function.prototype.call()")}} oder {{jsxref("Reflect.apply()")}}, können Sie den Wert von `this` ausdrücklich als Argument übergeben.
 
 ## Getter und Setter definieren
 
-Ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) ist eine Funktion, die mit einer Eigenschaft verbunden ist, die den Wert einer bestimmten Eigenschaft ermittelt. Ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) ist eine Funktion, die mit einer Eigenschaft verbunden ist, die den Wert einer bestimmten Eigenschaft festlegt. Gemeinsam können sie indirekt den Wert einer Eigenschaft darstellen.
+Ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) ist eine einer Eigenschaft zugeordnete Funktion, die den Wert einer bestimmten Eigenschaft abruft. Ein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) ist eine einer Eigenschaft zugeordnete Funktion, die den Wert einer bestimmten Eigenschaft setzt. Gemeinsam können sie den Wert einer Eigenschaft indirekt repräsentieren.
 
 Getter und Setter können entweder
 
-- innerhalb von [Objekt-Initialisierern](#verwendung_von_objekt-initialisierern) definiert werden, oder
-- später jedem bestehenden Objekt hinzugefügt werden.
+- innerhalb von [Objektinitialisierern](#objektinitialisierer_verwenden) definiert oder
+- später einem beliebigen vorhandenen Objekt hinzugefügt werden.
 
-Innerhalb von [Objekt-Initialisierern](#verwendung_von_objekt-initialisierern) werden Getter und Setter wie normale [Methoden](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) definiert, jedoch mit den Schlüsselwörtern `get` oder `set` davor. Die Getter-Methode darf keinen Parameter erwarten, während die Setter-Methode genau einen Parameter erwartet (den neuen Wert, der gesetzt werden soll). Ein Beispiel:
+Innerhalb von [Objektinitialisierern](#objektinitialisierer_verwenden) werden Getter und Setter wie gewöhnliche [Methoden](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) definiert, jedoch mit den vorangestellten Schlüsselwörtern `get` beziehungsweise `set`. Die Getter-Methode darf keinen Parameter erwarten, während die Setter-Methode genau einen Parameter erwartet: den neu zu setzenden Wert. Zum Beispiel:
 
 ```js
 const myObj = {
@@ -451,13 +451,13 @@ myObj.c = 50; // Calls the set c(x) method
 console.log(myObj.a); // 25
 ```
 
-Die Eigenschaften des `myObj` Objekts sind:
+Die Eigenschaften des Objekts `myObj` sind:
 
-- `myObj.a` — eine Zahl
-- `myObj.b` — ein Getter, der `myObj.a` plus 1 zurückgibt
-- `myObj.c` — ein Setter, der den Wert von `myObj.a` auf die Hälfte des Wertes setzt, auf den `myObj.c` gesetzt wird
+- `myObj.a` – eine Zahl
+- `myObj.b` – ein Getter, der `myObj.a` plus 1 zurückgibt
+- `myObj.c` – ein Setter, der `myObj.a` auf die Hälfte des Werts setzt, der `myObj.c` zugewiesen wird
 
-Getter und Setter können auch zu einem Objekt jederzeit nach der Erstellung mit der {{jsxref("Object.defineProperties()")}} Methode hinzugefügt werden. Der erste Parameter dieser Methode ist das Objekt, für das Sie den Getter oder Setter definieren möchten. Der zweite Parameter ist ein Objekt, dessen Eigenschaftsnamen die Namen der Getter oder Setter sind und deren Eigenschaftswerte Objekte zum Definieren der Getter- oder Setter-Funktionen sind. Hier ist ein Beispiel, das denselben Getter und Setter aus dem vorherigen Beispiel definiert:
+Getter und Setter können einem Objekt auch jederzeit nach seiner Erstellung mit der Methode {{jsxref("Object.defineProperties()")}} hinzugefügt werden. Der erste Parameter dieser Methode ist das Objekt, auf dem Sie den Getter oder Setter definieren möchten. Der zweite Parameter ist ein Objekt, dessen Eigenschaftsnamen die Namen der Getter oder Setter sind und dessen Eigenschaftswerte Objekte zur Definition der Getter- oder Setter-Funktionen sind. Das folgende Beispiel definiert denselben Getter und Setter wie im vorherigen Beispiel:
 
 ```js
 const myObj = { a: 0 };
@@ -479,11 +479,11 @@ myObj.c = 10; // Runs the setter, which assigns 10 / 2 (5) to the 'a' property
 console.log(myObj.b); // Runs the getter, which yields a + 1 or 6
 ```
 
-Welche der beiden Formen Sie wählen, hängt von Ihrem Programmierstil und der aktuellen Aufgabe ab. Wenn Sie die Definition des ursprünglichen Objekts ändern können, werden Sie wahrscheinlich Getter und Setter durch den ursprünglichen Initialisierer definieren. Diese Form ist kompakter und natürlicher. Wenn Sie jedoch später Getter und Setter hinzufügen müssen — vielleicht, weil Sie das spezielle Objekt nicht geschrieben haben — ist die zweite Form die einzige mögliche. Die zweite Form stellt die dynamische Natur von JavaScript besser dar, kann jedoch den Code schwer lesbar und verständlich machen.
+Welche der beiden Formen Sie wählen, hängt von Ihrem Programmierstil und der jeweiligen Aufgabe ab. Wenn Sie die Definition des ursprünglichen Objekts ändern können, werden Sie Getter und Setter wahrscheinlich im ursprünglichen Initialisierer definieren. Diese Form ist kompakter und naheliegender. Wenn Sie Getter und Setter jedoch erst später hinzufügen müssen – möglicherweise, weil Sie das betreffende Objekt nicht selbst geschrieben haben –, ist nur die zweite Form möglich. Sie spiegelt die dynamische Natur von JavaScript besser wider, kann aber die Lesbarkeit und Verständlichkeit des Codes beeinträchtigen.
 
 ## Objekte vergleichen
 
-In JavaScript sind Objekte ein Referenztyp. Zwei unterschiedliche Objekte sind niemals gleich, selbst wenn sie dieselben Eigenschaften haben. Nur der Vergleich des gleichen Objektverweises mit sich selbst ergibt true.
+In JavaScript sind Objekte Referenztypen. Zwei unterschiedliche Objekte sind niemals gleich, selbst wenn sie dieselben Eigenschaften haben. Nur der Vergleich einer Objektreferenz mit sich selbst ergibt `true`.
 
 ```js
 // Two variables, two distinct objects with the same properties
@@ -507,7 +507,7 @@ fruit.name = "grape";
 console.log(anotherFruit); // { name: "grape" }; not { name: "apple" }
 ```
 
-Für weitere Informationen über Vergleichsoperatoren siehe [Gleichheitsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#equality_operators).
+Weitere Informationen zu Vergleichsoperatoren finden Sie unter [Gleichheitsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#equality_operators).
 
 ## Siehe auch
 

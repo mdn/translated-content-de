@@ -1,13 +1,12 @@
 ---
-title: Bedingungsoperator (ternärer Operator)
+title: Bedingter (ternärer) Operator
 slug: Web/JavaScript/Reference/Operators/Conditional_operator
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **bedingte (ternäre) Operator** ist der einzige JavaScript-Operator, der drei Operanden benötigt:
-eine Bedingung gefolgt von einem Fragezeichen (`?`), dann ein Ausdruck, der ausgeführt wird, wenn die Bedingung {{Glossary("truthy", "wahrheitsgemäß (truthy)")}} ist, gefolgt von einem Doppelpunkt (`:`), und schließlich der Ausdruck, der ausgeführt wird, wenn die Bedingung {{Glossary("falsy", "falsch (falsy)")}} ist.
-Dieser Operator wird häufig als Alternative zu einem [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Statement verwendet.
+Der **bedingte (ternäre) Operator** ist der einzige JavaScript-Operator mit drei Operanden: einer Bedingung, gefolgt von einem Fragezeichen (`?`), einem Ausdruck, der ausgeführt wird, wenn die Bedingung {{Glossary("truthy", "truthy")}} ist, einem Doppelpunkt (`:`) und schließlich einem Ausdruck, der ausgeführt wird, wenn die Bedingung {{Glossary("falsy", "falsy")}} ist.
+Dieser Operator wird häufig als Alternative zu einer [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verwendet.
 
 {{InteractiveExample("JavaScript Demo: Conditional operator")}}
 
@@ -35,16 +34,15 @@ condition ? exprIfTrue : exprIfFalse
 ### Parameter
 
 - `condition`
-  - : Ein Ausdruck, dessen Wert als Bedingung genutzt wird.
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 3 (logisches OR oder Nullish Coalescing) oder höher, dessen Wert als Bedingung verwendet wird. Neben `false` sind folgende Werte falsy: `null`, `NaN`, `0`, `0n`, die leere Zeichenfolge (`""`) und `undefined`.
 - `exprIfTrue`
-  - : Ein Ausdruck, der ausgeführt wird, wenn die `condition` einen {{Glossary("truthy", "wahrheitsgemäßen (truthy)")}} Wert ergibt (einen, der `true` entspricht oder in `true` umgewandelt werden kann).
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 2 (Zuweisung) oder höher, der nur ausgewertet wird, wenn `condition` {{Glossary("truthy", "truthy")}} ist.
 - `exprIfFalse`
-  - : Ein Ausdruck, der ausgeführt wird, wenn die `condition` {{Glossary("falsy", "falsch (falsy)")}} ist (das heißt, einen Wert hat, der in `false` umgewandelt werden kann).
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 2 (Zuweisung) oder höher, der nur ausgewertet wird, wenn `condition` {{Glossary("falsy", "falsy")}} ist.
 
-## Beschreibung
+### Rückgabewert
 
-Neben `false` sind mögliche falsy Ausdrücke: `null`, `NaN`, `0`, der leere String (`""`) und `undefined`.
-Ist `condition` einer dieser Werte, wird das Ergebnis des bedingten Ausdrucks das Ergebnis der Ausführung des Ausdrucks `exprIfFalse` sein.
+Der Wert von `exprIfTrue`, wenn `condition` truthy ist, andernfalls der Wert von `exprIfFalse`.
 
 ## Beispiele
 
@@ -56,9 +54,9 @@ const beverage = age >= 21 ? "Beer" : "Juice";
 console.log(beverage); // "Beer"
 ```
 
-### Umgang mit null-Werten
+### Umgang mit Nullwerten
 
-Ein häufiges Anwendungsbeispiel ist der Umgang mit einem Wert, der `null` sein kann:
+Eine häufige Anwendung ist der Umgang mit einem Wert, der `null` sein kann:
 
 ```js
 const greeting = (person) => {
@@ -70,9 +68,9 @@ console.log(greeting({ name: "Alice" })); // "Howdy, Alice"
 console.log(greeting(null)); // "Howdy, stranger"
 ```
 
-### Bedingte Verkettungen
+### Verkettete Bedingungen
 
-Der ternäre Operator ist rechts-assoziativ, was bedeutet, dass er in folgender Weise "verkettet" werden kann, ähnlich einer `if … else if … else if … else`-Kette:
+Der ternäre Operator ist rechtsassoziativ. Das bedeutet, dass er wie eine `if … else if … else if … else`-Kette folgendermaßen „verkettet“ werden kann:
 
 ```js-nolint
 function example() {
@@ -110,7 +108,7 @@ function example() {
 ## Siehe auch
 
 - [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)
-- [Koaleszenz-Operator für Nullwerte (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Nullish-Coalescing-Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [Optionale Verkettung (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [Lernen: Entscheidungen im Code treffen — Bedingungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals)
-- [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators) Leitfaden
+- [Lernen: Entscheidungen im Code treffen – bedingte Anweisungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals)
+- Leitfaden zu [Ausdrücken und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators)

@@ -3,10 +3,10 @@ title: RegExp.prototype.global
 short-title: global
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/global
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: f2385bc25e8dc4c774d50bcf7f97e420d59c7a1a
 ---
 
-Die **`global`** Zugriffs-Property von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `g`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`global`**-Accessor-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt zurück, ob für diesen regulären Ausdruck das `g`-Flag verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.global")}}
 
@@ -24,15 +24,17 @@ console.log(regex2.global);
 
 ## Beschreibung
 
-`RegExp.prototype.global` hat den Wert `true`, wenn das `g`-Flag verwendet wurde; andernfalls `false`. Das `g`-Flag zeigt an, dass der reguläre Ausdruck auf alle möglichen Übereinstimmungen in einem String getestet werden soll. Jeder Aufruf von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) wird die [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex)-Eigenschaft aktualisieren, sodass der nächste Aufruf von `exec()` beim nächsten Zeichen beginnt.
+`RegExp.prototype.global` hat den Wert `true`, wenn das `g`-Flag verwendet wurde, andernfalls `false`. Das `g`-Flag gibt an, dass der reguläre Ausdruck auf alle möglichen Übereinstimmungen in einer Zeichenfolge geprüft werden soll. Jeder Aufruf von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) aktualisiert die Eigenschaft [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex), sodass der nächste Aufruf von `exec()` beim nächsten Zeichen beginnt.
 
-Einige Methoden, wie z. B. [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) und [`String.prototype.replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll), werden validieren, dass, wenn der Parameter ein Regex ist, es global ist. Die Methoden [`[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) und [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) des Regex (aufgerufen durch [`String.prototype.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match) und [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace)) würden ebenfalls unterschiedliche Verhaltensweisen zeigen, wenn das Regex global ist.
+Einige Methoden, etwa [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) und [`String.prototype.replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll), prüfen, ob ein als Parameter übergebener regulärer Ausdruck global ist. Auch die Methoden [`[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) und [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) des regulären Ausdrucks (die von [`String.prototype.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match) beziehungsweise [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) aufgerufen werden) verhalten sich anders, wenn der reguläre Ausdruck global ist.
 
-Der Set-Zugriff von `global` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `global` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+
+Aus Gründen der Abwärtskompatibilität gilt `RegExp.prototype.global === undefined`, obwohl `RegExp.prototype` keine `RegExp`-Instanz ist. (Eigentlich wäre zu erwarten, dass der Getter einen `TypeError` auslöst, wenn der `this`-Wert keine `RegExp`-Instanz ist.)
 
 ## Beispiele
 
-### Verwendung von global
+### global verwenden
 
 ```js
 const globalRegex = /foo/g;

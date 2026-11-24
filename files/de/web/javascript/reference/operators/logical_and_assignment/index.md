@@ -1,11 +1,11 @@
 ---
-title: Logisches UND Zuweisung (&&=)
+title: Logische UND-Zuweisung (&&=)
 slug: Web/JavaScript/Reference/Operators/Logical_AND_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **logische UND Zuweisungsoperator (`&&=`)** wertet nur den rechten Operanden aus und weist ihn dem linken zu, wenn der linke Operand {{Glossary("truthy", "truthy")}} ist.
+Der Operator für die **logische UND-Zuweisung (`&&=`)** wertet den rechten Operanden nur dann aus und weist ihn dem linken zu, wenn der linke Operand {{Glossary("truthy", "truthy")}} ist.
 
 {{InteractiveExample("JavaScript Demo: Logical AND assignment (&&=) operator")}}
 
@@ -28,18 +28,29 @@ console.log(b);
 x &&= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung). Er wird nur ausgewertet und `x` zugewiesen, wenn der ursprüngliche Wert von `x` {{Glossary("truthy", "truthy")}} ist.
+
+### Rückgabewert
+
+Der Wert von `y`, wenn der ursprüngliche Wert von `x` truthy ist; andernfalls der ursprüngliche Wert von `x`.
+
 ## Beschreibung
 
-Die logische UND Zuweisung [_abgekürzt_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), bedeutet, dass `x &&= y` gleichwertig ist mit `x && (x = y)`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+Bei der logischen UND-Zuweisung wird die Auswertung [kurzgeschlossen](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting). Das bedeutet, dass `x &&= y` gleichbedeutend mit `x && (x = y)` ist, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Es wird keine Zuweisung durchgeführt, wenn die linke Seite nicht truthy ist, aufgrund der Abkürzungslogik des [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) Operators. Zum Beispiel wirft das Folgende keinen Fehler, obwohl `x` eine `const` ist:
+Wenn die linke Seite nicht truthy ist, findet wegen der Kurzschlussauswertung des Operators für [logisches UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) keine Zuweisung statt. Das folgende Beispiel löst daher keinen Fehler aus, obwohl `x` mit `const` deklariert wurde:
 
 ```js
 const x = 0;
 x &&= 2;
 ```
 
-Auch würde das Folgende den Setter nicht auslösen:
+Auch das folgende Beispiel ruft den Setter nicht auf:
 
 ```js
 const x = {
@@ -54,7 +65,7 @@ const x = {
 x.value &&= 2;
 ```
 
-Tatsächlich, wenn `x` nicht truthy ist, wird `y` überhaupt nicht ausgewertet.
+Ist `x` nicht truthy, wird `y` überhaupt nicht ausgewertet.
 
 ```js
 const x = 0;
@@ -64,7 +75,7 @@ x &&= console.log("y evaluated");
 
 ## Beispiele
 
-### Verwendung der logischen UND Zuweisung
+### Logische UND-Zuweisung verwenden
 
 ```js
 let x = 0;
@@ -87,7 +98,7 @@ y &&= 0; // 0
 ## Siehe auch
 
 - [Logisches UND (`&&`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND)
-- [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Bitweise UND Zuweisung (`&=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
+- [Nullish-Coalescing-Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Bitweise UND-Zuweisung (`&=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
 - {{Glossary("Truthy", "Truthy")}}
 - {{Glossary("Falsy", "Falsy")}}

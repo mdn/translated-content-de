@@ -1,13 +1,13 @@
 ---
-title: Unäres Minus (-)
+title: Unäre Negation (-)
 slug: Web/JavaScript/Reference/Operators/Unary_negation
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **unäre Minus-Operator (`-`)** steht vor seinem Operanden und negiert ihn.
+Der Operator für die **unäre Negation (`-`)** steht vor seinem Operanden und negiert ihn.
 
-{{InteractiveExample("JavaScript Demo: Unäres Minus (-) Operator")}}
+{{InteractiveExample("JavaScript Demo: Unary negation (-) operator")}}
 
 ```js interactive-example
 const x = 4;
@@ -29,9 +29,18 @@ console.log(b);
 -x
 ```
 
+### Parameter
+
+- `x`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 14 (Präfixoperatoren) oder höher. Sein Wert wird [in eine Number oder einen BigInt umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion).
+
+### Rückgabewert
+
+Eine Number oder ein BigInt, die bzw. der den negierten numerischen Wert von `x` darstellt.
+
 ## Beschreibung
 
-Der `-` Operator ist für zwei Arten von Operanden überladen: Nummern und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er erzwingt zuerst, [dass der Operand in einen numerischen Wert umgewandelt wird](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft dann dessen Typ. Wenn der Operand zu einem BigInt wird, führt er die BigInt-Negation durch; andernfalls führt er die Negation einer Zahl durch.
+Der Operator `-` ist für zwei Operandentypen überladen: Number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt den Operanden zunächst in einen numerischen Wert um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft dessen Typ. Wird der Operand zu einem BigInt, führt der Operator eine BigInt-Negation durch; andernfalls eine Number-Negation.
 
 ## Beispiele
 
@@ -43,9 +52,9 @@ const y = -x;
 // y is -3; x is 3
 ```
 
-### Nicht-Zahlen negieren
+### Andere Werte als Zahlen negieren
 
-Der unäre Minus-Operator kann eine Nicht-Zahl in eine Zahl umwandeln.
+Der Operator für die unäre Negation kann einen Wert, der keine Zahl ist, in eine Zahl umwandeln.
 
 ```js
 const x = "4";
@@ -54,7 +63,7 @@ const y = -x;
 // y is -4
 ```
 
-BigInts können mit dem unären Minus-Operator negiert werden.
+Auch BigInts können mit dem Operator für die unäre Negation negiert werden.
 
 ```js
 const x = 4n;
@@ -77,8 +86,8 @@ const y = -x;
 - [Subtraktion (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Subtraction)
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
-- [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Restwert (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
+- [Potenzierung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

@@ -2,18 +2,18 @@
 title: JavaScript-Referenz
 slug: Web/JavaScript/Reference
 l10n:
-  sourceCommit: b251b9bd2932d837806d743051b60aeab778d0f1
+  sourceCommit: 52efe757952fde32b197b8ae9395f8f2a3bc7a9f
 ---
 
-Die JavaScript-Referenz dient als Nachschlagewerk für die JavaScript-Sprache. Die gesamte Sprache wird hier ausführlich beschrieben. Wenn Sie JavaScript-Code schreiben, werden Sie häufig auf diese Seiten zurückgreifen – daher der Titel „JavaScript-Referenz“.
+Die JavaScript-Referenz dient als Nachschlagewerk für Fakten über die Programmiersprache JavaScript. Hier wird die gesamte Sprache ausführlich beschrieben. Beim Schreiben von JavaScript-Code werden Sie häufig auf diese Seiten zurückgreifen – daher der Titel „JavaScript-Referenz“.
 
-JavaScript ist für den Einsatz in einer größeren Umgebung vorgesehen, etwa in einem Browser, in serverseitigen Skripten oder in ähnlichen Umgebungen. Diese Referenz ist weitgehend unabhängig von der jeweiligen Umgebung und nicht speziell auf Webbrowser ausgerichtet.
+JavaScript ist für den Einsatz in einer größeren Umgebung vorgesehen, etwa in einem Browser, in serverseitigen Skripten oder in ähnlichen Umgebungen. Diese Referenz versucht weitgehend, unabhängig von der jeweiligen Umgebung zu sein, und richtet sich nicht speziell an die Umgebung eines Webbrowsers.
 
-Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/JavaScript/Guide). Sobald Sie die Grundlagen sicher beherrschen, können Sie in der Referenz Einzelheiten zu bestimmten Objekten und Sprachkonstrukten nachschlagen.
+Wenn Sie neu bei JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/JavaScript/Guide). Sobald Sie die Grundlagen sicher beherrschen, können Sie die Referenz nutzen, um mehr über einzelne Objekte und Sprachkonstrukte zu erfahren.
 
 ## Integrierte Objekte
 
-[Integrierte Standardobjekte von JavaScript](/de/docs/Web/JavaScript/Reference/Global_Objects) mit ihren Methoden und Eigenschaften.
+[Standardmäßig integrierte JavaScript-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects) sowie ihre Methoden und Eigenschaften.
 
 ### Werteigenschaften
 
@@ -56,7 +56,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 - {{jsxref("URIError")}}
 - {{jsxref("InternalError")}} {{non-standard_inline}}
 
-### Zahlen und Datumsangaben
+### Zahlen und Datumswerte
 
 - {{jsxref("Number")}}
 - {{jsxref("BigInt")}}
@@ -152,7 +152,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 - {{jsxref("Statements/switch", "switch")}}
 - {{jsxref("Statements/try...catch", "try...catch")}}
 
-### Variablen deklarieren
+### Variablendeklarationen
 
 - {{jsxref("Statements/var", "var")}}
 - {{jsxref("Statements/let", "let")}}
@@ -177,7 +177,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 - {{jsxref("Statements/for-await...of", "for await...of")}}
 - {{jsxref("Statements/while", "while")}}
 
-### Sonstiges
+### Sonstige
 
 - {{jsxref("Statements/Empty", "Empty", "", 1)}}
 - {{jsxref("Statements/block", "Block", "", 1)}}
@@ -198,7 +198,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 
 - {{jsxref("this")}}
 - [Literale](/de/docs/Web/JavaScript/Reference/Lexical_grammar#literals)
-- {{jsxref("Array", "[]")}}
+- {{jsxref("Operators/Array_initializer", "[]")}}
 - {{jsxref("Operators/Object_initializer", "{}")}}
 - {{jsxref("Operators/function", "function")}}
 - {{jsxref("Operators/class", "class")}}
@@ -209,7 +209,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 - {{jsxref("Template_literals", "`string`")}}
 - {{jsxref("Operators/Grouping", "( )")}}
 
-### Ausdrücke auf der linken Seite
+### Linksseitige Ausdrücke
 
 - {{jsxref("Operators/Property_accessors", "Property accessors", "", 1)}}
 - {{jsxref("Operators/Optional_chaining", "?.")}}
@@ -222,7 +222,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 - {{jsxref("Operators/import/defer", "import.defer()")}}
 - {{jsxref("Operators/import/source", "import.source()")}}
 
-### Inkrementierung und Dekrementierung
+### Inkrement und Dekrement
 
 - {{jsxref("Operators/Increment", "A++")}}
 - {{jsxref("Operators/Decrement", "A--")}}
@@ -251,8 +251,8 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 
 ### Vergleichsoperatoren
 
-- {{jsxref("Operators/Less_than", "&lt;")}} (kleiner als)
-- {{jsxref("Operators/Greater_than", "&gt;")}} (größer als)
+- {{jsxref("Operators/Less_than", "&lt;")}} (Kleiner als)
+- {{jsxref("Operators/Greater_than", "&gt;")}} (Größer als)
 - {{jsxref("Operators/Less_than_or_equal", "&lt;=")}}
 - {{jsxref("Operators/Greater_than_or_equal", "&gt;=")}}
 - {{jsxref("instanceof")}}
@@ -347,24 +347,24 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 
 [Reguläre Ausdrücke in JavaScript.](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 
-- [Rückreferenz: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
+- [Rückverweis: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
 - [Erfassende Gruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Zeichenklassen-Escapesequenz: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
-- [Zeichen-Escapesequenz: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Escape-Sequenz für Zeichenklassen: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Zeichen-Escape-Sequenz: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Alternative: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
-- [Zusicherung für Eingabegrenzen: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+- [Prüfung auf Eingabegrenzen: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
 - [Literales Zeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
-- [Lookahead-Zusicherung: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
-- [Lookbehind-Zusicherung: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
+- [Vorausschauende Prüfung: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
+- [Rückblickende Prüfung: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
 - [Modifikator: `(?ims-ims:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier)
-- [Benannte Rückreferenz: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
+- [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
 - [Benannte erfassende Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
 - [Nicht erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
 - [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
-- [Unicode-Zeichenklassen-Escapesequenz: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
-- [Platzhalterzeichen: `.`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)
-- [Zusicherung für Wortgrenzen: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Unicode-Zeichenklassen-Escape-Sequenz: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
+- [Platzhalter: `.`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)
+- [Prüfung auf Wortgrenzen: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
 
 ## Weitere Referenzseiten
 
@@ -373,7 +373,7 @@ Wenn JavaScript neu für Sie ist, beginnen Sie mit dem [Leitfaden](/de/docs/Web/
 - {{jsxref("Lexical_grammar", "Lexical grammar", "", 1)}}
 - [Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures)
 - [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
-- [Nachgestellte Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas)
+- [Abschließende Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas)
 - [Fehler](/de/docs/Web/JavaScript/Reference/Errors)
 - {{jsxref("Strict_mode", "Strict mode", "", 1)}}
 - {{jsxref("Deprecated_and_obsolete_features", "Deprecated features", "", 1)}}

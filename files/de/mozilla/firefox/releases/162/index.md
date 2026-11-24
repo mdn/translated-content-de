@@ -1,13 +1,13 @@
 ---
-title: Versionshinweise für Firefox 162 für Entwickler (Nightly)
-short-title: Firefox 162 (Nightly)
+title: Versionshinweise zu Firefox 162 für Entwickler (Beta)
+short-title: Firefox 162 (Beta)
 slug: Mozilla/Firefox/Releases/162
 l10n:
-  sourceCommit: a15956e15e80eeb4641bb508c4b0f32940b8301d
+  sourceCommit: 5b678632840c829c7f0ac157372e46cfcb60bc91
 ---
 
 Dieser Artikel informiert über Änderungen in Firefox 162, die Entwickler betreffen.
-Firefox 162 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [8. Dezember 2026](https://whattrainisitnow.com/release/?version=162) veröffentlicht.
+Firefox 162 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [8. Dezember 2026](https://whattrainisitnow.com/release/?version=162).
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.

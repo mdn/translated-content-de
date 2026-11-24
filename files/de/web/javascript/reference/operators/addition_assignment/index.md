@@ -1,13 +1,13 @@
 ---
-title: Addition Assignment (+=)
+title: Additionszuweisung (+=)
 slug: Web/JavaScript/Reference/Operators/Addition_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Addition Assignment (`+=`)** Operator führt [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) durch (entweder numerische Addition oder String-Konkatenation) auf den zwei Operanden und weist das Ergebnis dem linken Operanden zu.
+Der Operator für die **Additionszuweisung (`+=`)** führt eine [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) (entweder eine numerische Addition oder eine Zeichenfolgenverkettung) mit den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Addition Assignment (+=) Operator")}}
+{{InteractiveExample("JavaScript Demo: Addition assignment (+=) operator")}}
 
 ```js interactive-example
 let a = 2;
@@ -26,20 +26,31 @@ console.log((b += " world")); // Concatenation
 x += y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in eine Zeichenfolge, einen BigInt oder eine Zahl umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 2 (Zuweisung) oder höher. Sein Wert wird in eine Zeichenfolge, einen BigInt oder eine Zahl umgewandelt.
+
+### Rückgabewert
+
+Die Zeichenfolge, der BigInt oder die Zahl, die durch [`x + y`](/de/docs/Web/JavaScript/Reference/Operators/Addition) unter Verwendung des ursprünglichen Werts von `x` entsteht.
+
 ## Beschreibung
 
-`x += y` ist gleichwertig mit `x = x + y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x += y` entspricht `x = x + y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Addition Assignment mit Zahlen
+### Additionszuweisung mit Zahlen
 
 ```js
 let bar = 5;
 bar += 2; // 7
 ```
 
-Andere nicht-String, nicht-BigInt-Werte werden zu Zahlen konvertiert:
+Andere Werte, die weder Zeichenfolgen noch BigInts sind, werden in Zahlen umgewandelt:
 
 ```js
 let baz = true;
@@ -47,7 +58,7 @@ baz += 1; // 2
 baz += false; // 2
 ```
 
-### Addition Assignment mit BigInts
+### Additionszuweisung mit BigInts
 
 ```js
 let x = 1n;
@@ -56,7 +67,7 @@ x += 2n; // 3n
 x += 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-### Addition Assignment mit Strings
+### Additionszuweisung mit Zeichenfolgen
 
 ```js
 let foo = "foo";

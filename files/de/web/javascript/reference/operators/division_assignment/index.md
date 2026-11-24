@@ -1,13 +1,13 @@
 ---
-title: Division-Zuweisung (/=)
+title: Divisionszuweisung (/=)
 slug: Web/JavaScript/Reference/Operators/Division_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Division-Zuweisungsoperator (`/=`)** führt eine [Division](/de/docs/Web/JavaScript/Reference/Operators/Division) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Divisionszuweisungsoperator (`/=`)** führt eine [Division](/de/docs/Web/JavaScript/Reference/Operators/Division) mit den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Division-Zuweisungsoperator (/=)")}}
+{{InteractiveExample("JavaScript Demo: Division assignment (/=) operator")}}
 
 ```js interactive-example
 let a = 3;
@@ -31,13 +31,24 @@ console.log(a);
 x /= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 2 (Zuweisung) oder höher. Sein Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+
+### Rückgabewert
+
+Die Zahl oder der BigInt-Wert, die beziehungsweise der sich aus [`x / y`](/de/docs/Web/JavaScript/Reference/Operators/Division) unter Verwendung des ursprünglichen Werts von `x` ergibt.
+
 ## Beschreibung
 
-`x /= y` ist gleichbedeutend mit `x = x / y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x /= y` ist gleichbedeutend mit `x = x / y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Division-Zuweisung mit Zahlen
+### Divisionszuweisung mit Zahlen
 
 ```js
 let bar = 5;
@@ -47,7 +58,7 @@ bar /= 2; // 1.25
 bar /= 0; // Infinity
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Werte, die keine BigInt-Werte sind, werden in Zahlen umgewandelt:
 
 ```js
 let bar = 5;
@@ -55,7 +66,7 @@ bar /= "2"; // 2.5
 bar /= "foo"; // NaN
 ```
 
-### Division-Zuweisung mit BigInts
+### Divisionszuweisung mit BigInt-Werten
 
 ```js
 let foo = 3n;

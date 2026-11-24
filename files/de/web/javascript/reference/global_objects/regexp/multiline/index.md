@@ -3,10 +3,10 @@ title: RegExp.prototype.multiline
 short-title: multiline
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/multiline
 l10n:
-  sourceCommit: 8f53af45fae665627a95ac50e177b15d0228b920
+  sourceCommit: f2385bc25e8dc4c774d50bcf7f97e420d59c7a1a
 ---
 
-Die **`multiline`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt an, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die Accessor-Eigenschaft **`multiline`** von {{jsxref("RegExp")}}-Instanzen gibt an, ob für diesen regulären Ausdruck das Flag `m` verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.multiline", "taller")}}
 
@@ -29,16 +29,18 @@ console.log(regex2.test("rugby\nfootball"));
 
 ## Beschreibung
 
-`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag gibt an, dass eine mehrzeilige Eingabezeichenkette als mehrere Zeilen behandelt werden soll. Zum Beispiel ändern sich bei Verwendung von `m` `^` und `$` von der Übereinstimmung nur am Anfang oder Ende der gesamten Zeichenkette zur Übereinstimmung am Anfang oder Ende jeder Zeile innerhalb der Zeichenkette.
+`RegExp.prototype.multiline` hat den Wert `true`, wenn das Flag `m` verwendet wurde; andernfalls hat die Eigenschaft den Wert `false`. Das Flag `m` bewirkt, dass eine Eingabezeichenfolge mit mehreren Zeilen als einzelne Zeilen behandelt wird. Wenn `m` verwendet wird, entsprechen `^` und `$` beispielsweise nicht mehr nur dem Anfang oder Ende der gesamten Zeichenfolge, sondern dem Anfang oder Ende einer beliebigen Zeile innerhalb der Zeichenfolge.
 
 > [!NOTE]
-> Um den Anfang und das Ende der gesamten Zeichenkette im `m`-Modus zu erfassen, verwenden Sie die [Puffergrenzen-Assertionen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion) `\A`, `\z` und `\Z`.
+> Um im `m`-Modus den Anfang und das Ende der gesamten Zeichenfolge abzugleichen, verwenden Sie die [Zusicherungen für Puffergrenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion) `\A`, `\z` und `\Z`.
 
-Der Set-Accessor von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der set-Accessor von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+
+Aus Gründen der Abwärtskompatibilität gilt `RegExp.prototype.multiline === undefined`, obwohl `RegExp.prototype` keine `RegExp`-Instanz ist. (Eigentlich wäre zu erwarten, dass der Getter einen `TypeError` auslöst, wenn der `this`-Wert keine `RegExp`-Instanz ist.)
 
 ## Beispiele
 
-### Verwendung von multiline
+### multiline verwenden
 
 ```js
 const regex = /^foo/m;

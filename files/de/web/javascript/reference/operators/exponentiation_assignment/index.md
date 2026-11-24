@@ -1,13 +1,13 @@
 ---
-title: Exponentialer Zuweisungsoperator (**=)
+title: Potenzierungszuweisung (**=)
 slug: Web/JavaScript/Reference/Operators/Exponentiation_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **exponentielle Zuweisungsoperator (`**=`)\*\* führt die [Exponenzierung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Potenzierungszuweisungsoperator (`**=`)** führt eine [Potenzierung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) mit den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Exponentialer Zuweisungsoperator (**=)")}}
+{{InteractiveExample("JavaScript Demo: Exponentiation assignment (**=) operator")}}
 
 ```js interactive-example
 let a = 3;
@@ -28,27 +28,38 @@ console.log((a **= "hello"));
 x **= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung). Sein Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+
+### Rückgabewert
+
+Die Zahl oder der BigInt-Wert, die bzw. der durch [`x ** y`](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) unter Verwendung des ursprünglichen Werts von `x` entsteht.
+
 ## Beschreibung
 
-`x **= y` ist äquivalent zu `x = x ** y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x **= y` entspricht `x = x ** y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Exponentielle Zuweisung mit Zahlen
+### Potenzierungszuweisung mit Zahlen
 
 ```js
 let bar = 5;
 bar **= 2; // 25
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Werte, die keine BigInt-Werte sind, werden in Zahlen umgewandelt:
 
 ```js
 let baz = 5;
 baz **= "foo"; // NaN
 ```
 
-### Exponentielle Zuweisung mit BigInts
+### Potenzierungszuweisung mit BigInt-Werten
 
 ```js
 let foo = 3n;
@@ -67,4 +78,4 @@ foo **= 1; // TypeError: Cannot mix BigInt and other types, use explicit convers
 ## Siehe auch
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Exponenzierung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Potenzierung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)

@@ -1,11 +1,11 @@
 ---
-title: Right shift assignment (>>=)
+title: Rechtsshift-Zuweisung (>>=)
 slug: Web/JavaScript/Reference/Operators/Right_shift_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Rechtsverschiebungs-Zuweisungsoperator (`>>=`)** führt eine [Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der Operator **Rechtsshift-Zuweisung (`>>=`)** führt eine [Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) mit den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{InteractiveExample("JavaScript Demo: Right shift assignment (>>=) operator")}}
 
@@ -29,13 +29,24 @@ console.log(b);
 x >>= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in eine [vorzeichenbehaftete 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) oder einen [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#bigint_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung). Sein Wert wird in eine [vorzeichenlose 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) oder einen [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#bigint_coercion) umgewandelt. Bei Zahlen bestimmen die fünf niederwertigsten Bits die Anzahl der Verschiebungsstellen. Bei BigInts kehrt eine negative Anzahl die Verschiebungsrichtung um.
+
+### Rückgabewert
+
+Die Zahl oder der BigInt, die bzw. der durch [`x >> y`](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) unter Verwendung des ursprünglichen Werts von `x` entsteht.
+
 ## Beschreibung
 
-`x >>= y` ist äquivalent zu `x = x >> y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x >>= y` entspricht `x = x >> y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Verwendung der Rechtsverschiebungs-Zuweisung
+### Rechtsshift-Zuweisung verwenden
 
 ```js
 let a = 5; //   (00000000000000000000000000000101)

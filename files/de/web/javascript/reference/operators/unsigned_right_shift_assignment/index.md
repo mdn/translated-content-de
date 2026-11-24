@@ -1,11 +1,11 @@
 ---
-title: Zuweisung mit vorzeichenloser Rechtsverschiebung (>>>=)
+title: Zuweisung mit vorzeichenfreier Rechtsverschiebung (>>>=)
 slug: Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment
 l10n:
-  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Zuweisungsoperator mit vorzeichenloser Rechtsverschiebung (`>>>=`)** führt eine [vorzeichenlose Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) mit den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Operator für die Zuweisung mit vorzeichenfreier Rechtsverschiebung (`>>>=`)** führt eine [vorzeichenfreie Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{InteractiveExample("JavaScript Demo: Unsigned right shift assignment (>>>=) operator")}}
 
@@ -29,13 +29,24 @@ console.log(b);
 x >>>= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in eine [vorzeichenlose 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung). Sein Wert wird in eine [vorzeichenlose 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt. Die fünf niederwertigsten Bits bestimmen die Anzahl der Verschiebungen.
+
+### Rückgabewert
+
+Die vorzeichenlose 32-Bit-Ganzzahl, die [`x >>> y`](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) unter Verwendung des ursprünglichen Werts von `x` erzeugt.
+
 ## Beschreibung
 
 `x >>>= y` entspricht `x = x >>> y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Zuweisung mit vorzeichenloser Rechtsverschiebung verwenden
+### Zuweisung mit vorzeichenfreier Rechtsverschiebung verwenden
 
 ```js
 let a = 5; // (00000000000000000000000000000101)
@@ -58,5 +69,5 @@ c >>>= 2n; // TypeError: BigInts have no unsigned right shift, use >> instead
 
 ## Siehe auch
 
-- [Zuweisungsoperatoren im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Vorzeichenlose Rechtsverschiebung (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift)
+- [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
+- [Vorzeichenfreie Rechtsverschiebung (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift)

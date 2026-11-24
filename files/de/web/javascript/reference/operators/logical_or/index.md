@@ -2,10 +2,10 @@
 title: Logisches ODER (||)
 slug: Web/JavaScript/Reference/Operators/Logical_OR
 l10n:
-  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der Operator **logisches ODER (`||`)** (logische Disjunktion) für eine Gruppe von Operanden ergibt genau dann `true`, wenn mindestens einer seiner Operanden `true` ist. Er wird üblicherweise mit booleschen (logischen) Werten verwendet und gibt in diesem Fall einen booleschen Wert zurück. Tatsächlich gibt der Operator `||` jedoch den Wert eines der angegebenen Operanden zurück. Wird er mit nicht-booleschen Werten verwendet, kann er daher einen nicht-booleschen Wert zurückgeben.
+Der Operator **logisches ODER (`||`)** (logische Disjunktion) ergibt für eine Menge von Operanden genau dann `true`, wenn mindestens einer seiner Operanden `true` ist. Er wird üblicherweise mit booleschen (logischen) Werten verwendet und gibt in diesem Fall einen booleschen Wert zurück. Tatsächlich gibt der Operator `||` jedoch den Wert eines der angegebenen Operanden zurück. Wird er mit nicht booleschen Werten verwendet, kann er daher einen nicht booleschen Wert zurückgeben.
 
 {{InteractiveExample("JavaScript Demo: Logical OR (||) operator", "shorter")}}
 
@@ -23,6 +23,17 @@ console.log(a > 0 || b > 0);
 x || y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 3 (logisches ODER). Ein hier verwendeter Ausdruck mit dem Nullish-Coalescing-Operator (`??`) muss in Klammern stehen.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 4 (logisches UND). Er wird nur ausgewertet, wenn `x` {{Glossary("falsy", "falsy")}} ist.
+
+### Rückgabewert
+
+Der Wert von `x`, wenn `x` {{Glossary("truthy", "truthy")}} ist, andernfalls der Wert von `y`.
+
 ## Beschreibung
 
 Wenn `x` in `true` umgewandelt werden kann, wird `x` zurückgegeben; andernfalls wird `y` zurückgegeben.
@@ -37,15 +48,15 @@ Beispiele für Ausdrücke, die in `false` umgewandelt werden können:
 - eine leere Zeichenfolge (`""` oder `''` oder ` `` `);
 - `undefined`.
 
-Obwohl der Operator `||` mit Operanden verwendet werden kann, die keine booleschen Werte sind, kann er als boolescher Operator betrachtet werden, da sein Rückgabewert immer in einen [booleschen primitiven Wert](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type) umgewandelt werden kann. Um seinen Rückgabewert (oder einen beliebigen Ausdruck) ausdrücklich in den entsprechenden booleschen Wert umzuwandeln, verwenden Sie den {{jsxref("Operators/Logical_NOT", "NOT operator", "", 1)}} zweimal oder den Konstruktor {{jsxref("Boolean/Boolean", "Boolean()")}}.
+Obwohl der Operator `||` mit Operanden verwendet werden kann, die keine booleschen Werte sind, kann er dennoch als boolescher Operator betrachtet werden: Sein Rückgabewert lässt sich immer in einen [booleschen primitiven Wert](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type) umwandeln. Um seinen Rückgabewert (oder allgemein einen beliebigen Ausdruck) ausdrücklich in den entsprechenden booleschen Wert umzuwandeln, verwenden Sie zweimal den {{jsxref("Operators/Logical_NOT", "NOT operator", "", 1)}} oder den Konstruktor {{jsxref("Boolean/Boolean", "Boolean()")}}.
 
 ### Kurzschlussauswertung
 
-Ein logischer ODER-Ausdruck wird von links nach rechts ausgewertet. Dabei wird anhand der folgenden Regel geprüft, ob eine „Kurzschlussauswertung“ möglich ist:
+Ein Ausdruck mit logischem ODER wird von links nach rechts ausgewertet. Dabei wird anhand der folgenden Regel geprüft, ob eine Kurzschlussauswertung möglich ist:
 
 `(some truthy expression) || expr` wird durch Kurzschlussauswertung auf den truthy-Ausdruck reduziert.
 
-Kurzschlussauswertung bedeutet, dass der Teil `expr` **nicht ausgewertet** wird. Daher treten auch keine möglichen Seiteneffekte auf (wenn `expr` beispielsweise ein Funktionsaufruf ist, wird die Funktion nicht aufgerufen). Das liegt daran, dass der Wert des Ausdrucks bereits nach der Auswertung des ersten Operanden feststeht. Ein Beispiel:
+Kurzschlussauswertung bedeutet, dass der Teil `expr` **nicht ausgewertet** wird. Mögliche Seiteneffekte treten daher nicht ein. Ist `expr` beispielsweise ein Funktionsaufruf, wird die Funktion nicht aufgerufen. Der Grund dafür ist, dass der Wert des gesamten Ausdrucks bereits nach der Auswertung des ersten Operanden feststeht. Das folgende Beispiel zeigt dies:
 
 ```js
 function A() {
@@ -64,7 +75,7 @@ console.log(B() || A());
 
 ### Operatorpriorität
 
-Die folgenden Ausdrücke mögen gleichwertig erscheinen, sind es aber nicht, da der Operator `&&` stärker bindet als der Operator `||` (siehe [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)).
+Die folgenden Ausdrücke mögen gleichwertig erscheinen, sind es aber nicht: Der Operator `&&` bindet stärker als der Operator `||` (siehe [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)).
 
 ```js-nolint
 true || false && false; // returns true; equivalent to true || (false && false)
@@ -91,33 +102,33 @@ false || varObject; // f || object returns varObject
 ```
 
 > [!NOTE]
-> Wenn Sie diesen Operator verwenden, um einer Variablen einen Standardwert zuzuweisen, beachten Sie, dass jeder _falsy_-Wert verworfen wird. Wenn Sie nur [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} ausschließen möchten, sollten Sie stattdessen den [Nullish-Coalescing-Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) verwenden.
+> Wenn Sie diesen Operator verwenden, um einer Variablen einen Standardwert zuzuweisen, beachten Sie, dass jeder _falsy_-Wert durch den Standardwert ersetzt wird. Wenn Sie nur [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} abfangen möchten, sollten Sie stattdessen [den Nullish-Coalescing-Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) verwenden.
 
-### Umwandlungsregeln für boolesche Werte
+### Umformungsregeln für boolesche Ausdrücke
 
-#### UND in ODER umwandeln
+#### UND in ODER umformen
 
-Die folgende Operation mit **booleschen Werten**:
+Der folgende Ausdruck mit **booleschen Werten**:
 
 ```js-nolint
 bCondition1 && bCondition2
 ```
 
-ist immer gleichbedeutend mit:
+ist immer gleichwertig mit:
 
 ```js-nolint
 !(!bCondition1 || !bCondition2)
 ```
 
-#### ODER in UND umwandeln
+#### ODER in UND umformen
 
-Die folgende Operation mit **booleschen Werten**:
+Der folgende Ausdruck mit **booleschen Werten**:
 
 ```js-nolint
 bCondition1 || bCondition2
 ```
 
-ist immer gleichbedeutend mit:
+ist immer gleichwertig mit:
 
 ```js-nolint
 !(!bCondition1 && !bCondition2)
@@ -125,15 +136,15 @@ ist immer gleichbedeutend mit:
 
 ### Verschachtelte Klammern entfernen
 
-Da logische Ausdrücke von links nach rechts ausgewertet werden, können Klammern unter Beachtung bestimmter Regeln immer aus einem komplexen Ausdruck entfernt werden.
+Da logische Ausdrücke von links nach rechts ausgewertet werden, können Klammern aus einem komplexen Ausdruck entfernt werden, sofern bestimmte Regeln beachtet werden.
 
-Die folgende zusammengesetzte Operation mit **booleschen Werten**:
+Der folgende zusammengesetzte Ausdruck mit **booleschen Werten**:
 
 ```js-nolint
 bCondition1 && (bCondition2 || bCondition3)
 ```
 
-ist immer gleichbedeutend mit:
+ist immer gleichwertig mit:
 
 ```js-nolint
 !(!bCondition1 || !bCondition2 && !bCondition3)

@@ -1,11 +1,11 @@
 ---
-title: Bitweises OR (|)
+title: Bitweises ODER (|)
 slug: Web/JavaScript/Reference/Operators/Bitwise_OR
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **bitweise OR (`|`)** Operator gibt eine Zahl oder einen BigInt zurück, deren binäre Darstellung in jeder Bitposition eine `1` hat, für die die entsprechenden Bits eines oder beider Operanden `1` sind.
+Der **bitweise ODER-Operator (`|`)** gibt eine Zahl oder einen BigInt zurück, deren beziehungsweise dessen Binärdarstellung an jeder Bitposition eine `1` enthält, an der das entsprechende Bit eines oder beider Operanden `1` ist.
 
 {{InteractiveExample("JavaScript Demo: Bitwise OR (|) operator", "shorter")}}
 
@@ -23,20 +23,31 @@ console.log(a | b); // 00000000000000000000000000000111
 x | y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 5 (bitweises ODER) oder höher. Sein Wert wird in eine [vorzeichenbehaftete 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) oder einen [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#bigint_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 6 (bitweises XOR) oder höher. Sein Wert wird in eine [vorzeichenbehaftete 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) oder einen [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#bigint_coercion) umgewandelt.
+
+### Rückgabewert
+
+Eine vorzeichenbehaftete 32-Bit-Ganzzahl oder ein BigInt mit einer `1` an jeder Bitposition, an der mindestens ein Operand eine `1` hat, und einer `0` an allen anderen Positionen.
+
 ## Beschreibung
 
-Der `|` Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator einen 32-Bit-Ganzzahl zurück. Für BigInts gibt der Operator einen BigInt zurück. Zuerst werden [beide Operanden in numerische Werte umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und deren Typen überprüft. Es wird eine BigInt-OR-Operation durchgeführt, wenn beide Operanden zu BigInts werden; andernfalls werden beide Operanden in [32-Bit-Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt und eine bitweise OR-Operation für Zahlen durchgeführt. Eine {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, aber der andere eine Zahl.
+Der Operator `|` ist für zwei Operandentypen überladen: Zahlen und [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Bei Zahlen gibt der Operator eine 32-Bit-Ganzzahl zurück, bei BigInts einen BigInt. Zunächst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Wenn beide Operanden zu BigInts werden, führt er ein bitweises ODER für BigInts aus. Andernfalls wandelt er beide Operanden in [32-Bit-Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) um und führt ein bitweises ODER für Zahlen aus. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt und der andere zu einer Zahl wird.
 
-Der Operator operiert auf den Bit-Darstellungen der Operanden im [Zweier-Komplement](https://de.wikipedia.org/wiki/Zweierkomplement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ zu _erstem Bit_, _zweites Bit_ zu _zweitem Bit_ usw. Der Operator wird auf jedes Bitpaar angewendet, und das Ergebnis wird bitweise konstruiert.
+Der Operator arbeitet mit den Bitdarstellungen der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit des ersten Operanden wird dem entsprechenden Bit des zweiten Operanden zugeordnet: das _erste Bit_ dem _ersten Bit_, das _zweite Bit_ dem _zweiten Bit_ und so weiter. Der Operator wird auf jedes Bitpaar angewendet, und das Ergebnis wird Bit für Bit zusammengesetzt.
 
-Die Wahrheitstabelle für die OR-Operation ist:
+Die Wahrheitstabelle für die ODER-Operation lautet:
 
-| x   | y   | x OR y |
-| --- | --- | ------ |
-| 0   | 0   | 0      |
-| 0   | 1   | 1      |
-| 1   | 0   | 1      |
-| 1   | 1   | 1      |
+| x   | y   | x ODER y |
+| --- | --- | -------- |
+| 0   | 0   | 0        |
+| 0   | 1   | 1        |
+| 1   | 0   | 1        |
+| 1   | 1   | 1        |
 
 ```plain
      9 (base 10) = 00000000000000000000000000001001 (base 2)
@@ -45,7 +56,7 @@ Die Wahrheitstabelle für die OR-Operation ist:
 14 | 9 (base 10) = 00000000000000000000000000001111 (base 2) = 15 (base 10)
 ```
 
-Zahlen mit mehr als 32 Bits werden bei den höchstwertigen Bits abgeschnitten. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl konvertiert:
+Bei Zahlen mit mehr als 32 Bit werden die höchstwertigen Bits verworfen. Beispielsweise wird die folgende Ganzzahl mit mehr als 32 Bit in eine 32-Bit-Ganzzahl umgewandelt:
 
 ```plain
 Before: 11100110111110100000000000000110000000000001
@@ -53,13 +64,13 @@ After:              10100000000000000110000000000001
 ```
 
 > [!WARNING]
-> Sie könnten sehen, dass Leute `| 0` verwenden, um Zahlen auf Ganzzahlen zu kürzen. Das bitweise OR einer beliebigen Zahl `x` mit `0` gibt `x` konvertiert zu einer 32-Bit-Ganzzahl zurück, was zusätzlich führende Bits für Zahlen außerhalb des Bereichs -2147483648 bis 2147483647 entfernt. Verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
+> Möglicherweise sehen Sie, dass `| 0` verwendet wird, um Zahlen auf Ganzzahlen zu kürzen. Das bitweise ODER einer beliebigen Zahl `x` mit `0` gibt `x` als 32-Bit-Ganzzahl zurück. Bei Zahlen außerhalb des Bereichs von -2147483648 bis 2147483647 werden dabei zusätzlich führende Bits entfernt. Verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
 
-Für BigInts gibt es keine Trunkierung. Konzeptionell verstehen Sie positive BigInts als mit einer unendlichen Anzahl von führenden `0`-Bits, und negative BigInts als mit einer unendlichen Anzahl von führenden `1`-Bits.
+Bei BigInts findet keine Kürzung statt. Stellen Sie sich positive BigInts als Werte mit unendlich vielen führenden `0`-Bits und negative BigInts als Werte mit unendlich vielen führenden `1`-Bits vor.
 
 ## Beispiele
 
-### Verwendung von bitweisem OR
+### Bitweises ODER verwenden
 
 ```js
 // 9  (00000000000000000000000000001001)
@@ -82,4 +93,4 @@ Für BigInts gibt es keine Trunkierung. Konzeptionell verstehen Sie positive Big
 ## Siehe auch
 
 - [Bitweise Operatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators)
-- [Bitweises OR-Zuweisung (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
+- [Zuweisung mit bitweisem ODER (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)

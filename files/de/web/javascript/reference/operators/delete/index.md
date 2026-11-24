@@ -2,10 +2,10 @@
 title: delete
 slug: Web/JavaScript/Reference/Operators/delete
 l10n:
-  sourceCommit: 5d53607e3645a456fce6564424823169157b74b1
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der Operator **`delete`** entfernt eine Eigenschaft aus einem Objekt. Wenn der Wert der Eigenschaft ein Objekt ist und keine weiteren Referenzen auf dieses Objekt vorhanden sind, wird das Objekt, auf das die Eigenschaft verwiesen hat, schließlich automatisch freigegeben.
+Der Operator **`delete`** entfernt eine Eigenschaft aus einem Objekt. Wenn der Wert der Eigenschaft ein Objekt ist und keine weiteren Referenzen auf dieses Objekt vorhanden sind, wird das in der Eigenschaft gespeicherte Objekt schließlich automatisch freigegeben.
 
 {{InteractiveExample("JavaScript Demo: delete operator")}}
 
@@ -27,19 +27,13 @@ console.log(employee.firstName);
 ## Syntax
 
 ```js-nolint
-delete object.property
-delete object[property]
+delete expression
 ```
-
-> [!NOTE]
-> Die Syntax erlaubt nach dem Operator `delete` eine größere Bandbreite an Ausdrücken, aber nur die oben gezeigten Formen führen zu einem sinnvollen Verhalten.
 
 ### Parameter
 
-- `object`
-  - : Der Name eines Objekts oder ein Ausdruck, der ein Objekt ergibt.
-- `property`
-  - : Die zu löschende Eigenschaft.
+- `expression`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 14 (Präfixoperatoren) oder höher, vorbehaltlich der [nachstehenden Einschränkungen](#beschreibung). Im Allgemeinen führen nur [Eigenschaftszugriffe](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) zu sinnvollem Verhalten.
 
 ### Rückgabewert
 
@@ -54,14 +48,14 @@ In allen Fällen `true`, außer wenn die Eigenschaft eine [eigene](/de/docs/Web/
 
 ## Beschreibung
 
-Der Operator `delete` hat dieselbe [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) wie andere unäre Operatoren, etwa [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof). Daher akzeptiert er jeden Ausdruck, der aus Operatoren mit höherer Priorität gebildet wird. Die folgenden Formen führen jedoch im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) bereits beim Parsen zu Syntaxfehlern:
+Der Operator `delete` hat dieselbe [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) wie andere unäre Operatoren, etwa [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof). Daher akzeptiert er jeden Ausdruck, der aus Operatoren mit höherer Priorität gebildet wird. Die folgenden Formen führen jedoch im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) bereits bei der Syntaxanalyse zu Fehlern:
 
 ```js-nolint example-bad
 delete identifier;
 delete object.#privateProperty;
 ```
 
-Da [Klassen](/de/docs/Web/JavaScript/Reference/Classes) automatisch im strikten Modus ausgeführt werden und auf [private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) nur innerhalb von Klassenkörpern zugegriffen werden darf, können private Elemente niemals gelöscht werden. `delete identifier` [kann funktionieren](#globale_eigenschaften_löschen), wenn `identifier` auf eine konfigurierbare Eigenschaft des globalen Objekts verweist. Sie sollten diese Form jedoch vermeiden und stattdessen [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) voranstellen.
+Da [Klassen](/de/docs/Web/JavaScript/Reference/Classes) automatisch im strikten Modus ausgeführt werden und auf [private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) nur innerhalb von Klassenkörpern zugegriffen werden darf, können private Elemente niemals gelöscht werden. Obwohl `delete identifier` [funktionieren kann](#löschen_globaler_eigenschaften), wenn `identifier` auf eine konfigurierbare Eigenschaft des globalen Objekts verweist, sollten Sie diese Form vermeiden und stattdessen [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) voranstellen.
 
 Andere Ausdrücke werden zwar akzeptiert, führen aber zu keinem sinnvollen Verhalten:
 
@@ -70,23 +64,23 @@ delete console.log(1);
 // Logs 1, returns true, but nothing deleted
 ```
 
-Der Operator `delete` entfernt eine bestimmte Eigenschaft aus einem Objekt. Bei erfolgreichem Löschen gibt er `true` zurück, andernfalls `false`. Entgegen einer verbreiteten Annahme – möglicherweise bedingt durch andere Programmiersprachen wie [delete in C++](https://learn.microsoft.com/en-us/cpp/cpp/delete-operator-cpp?view=msvc-170) – hat der Operator `delete` **nichts** mit der direkten Freigabe von Speicher zu tun. Die Speicherverwaltung erfolgt indirekt, indem Referenzen aufgehoben werden. Weitere Einzelheiten finden Sie auf der Seite zur [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management).
+Der Operator `delete` entfernt eine bestimmte Eigenschaft aus einem Objekt. Bei erfolgreichem Löschen gibt er `true` zurück, andernfalls `false`. Entgegen einer verbreiteten Annahme (möglicherweise aufgrund anderer Programmiersprachen wie bei [delete in C++](https://learn.microsoft.com/en-us/cpp/cpp/delete-operator-cpp?view=msvc-170)) hat der Operator `delete` **nichts** mit der direkten Freigabe von Speicher zu tun. Die Speicherverwaltung erfolgt indirekt durch das Aufheben von Referenzen. Weitere Einzelheiten finden Sie auf der Seite zur [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management).
 
 Beachten Sie die folgenden Fälle:
 
-- Wenn die Eigenschaft, die Sie löschen möchten, nicht existiert, hat `delete` keine Wirkung und gibt `true` zurück.
-- `delete` wirkt sich nur auf eigene Eigenschaften aus. Wenn eine Eigenschaft mit demselben Namen in der Prototypenkette des Objekts vorhanden ist, verwendet das Objekt nach dem Löschen die Eigenschaft aus der Prototypenkette.
-- Nicht konfigurierbare Eigenschaften können nicht entfernt werden. Dazu gehören Eigenschaften eingebauter Objekte wie {{jsxref("Math")}}, {{jsxref("Array")}} und {{jsxref("Object")}} sowie Eigenschaften, die mit Methoden wie {{jsxref("Object.defineProperty()")}} als nicht konfigurierbar erstellt wurden.
-- Das Löschen von Variablen, einschließlich Funktionsparametern, funktioniert nie. `delete variable` löst im strikten Modus einen {{jsxref("SyntaxError")}} aus und hat außerhalb des strikten Modus keine Wirkung.
+- Wenn die Eigenschaft, die Sie löschen möchten, nicht existiert, hat `delete` keine Auswirkung und gibt `true` zurück.
+- `delete` wirkt sich nur auf eigene Eigenschaften aus. Wenn in der Prototypkette des Objekts eine Eigenschaft mit demselben Namen vorhanden ist, verwendet das Objekt nach dem Löschen die Eigenschaft aus der Prototypkette.
+- Nicht konfigurierbare Eigenschaften können nicht entfernt werden. Dazu gehören Eigenschaften integrierter Objekte wie {{jsxref("Math")}}, {{jsxref("Array")}} und {{jsxref("Object")}} sowie Eigenschaften, die mit Methoden wie {{jsxref("Object.defineProperty()")}} als nicht konfigurierbar erstellt wurden.
+- Das Löschen von Variablen, einschließlich Funktionsparametern, funktioniert nie. `delete variable` löst im strikten Modus einen {{jsxref("SyntaxError")}} aus und hat außerhalb des strikten Modus keine Auswirkung.
   - Variablen, die mit {{jsxref("Statements/var", "var")}} deklariert wurden, können weder aus dem globalen Gültigkeitsbereich noch aus dem Gültigkeitsbereich einer Funktion gelöscht werden. Sie können zwar dem {{Glossary("Global_object", "globalen Objekt")}} zugeordnet sein, sind aber nicht konfigurierbar.
   - Variablen, die mit {{jsxref("Statements/let", "let")}} oder {{jsxref("Statements/const", "const")}} deklariert wurden, können nicht aus dem Gültigkeitsbereich gelöscht werden, in dem sie definiert wurden, da sie keinem Objekt zugeordnet sind.
 
 ## Beispiele
 
-### delete verwenden
+### Verwendung von delete
 
 > [!NOTE]
-> Das folgende Beispiel verwendet Funktionen, die nur außerhalb des strikten Modus verfügbar sind, etwa das implizite Erstellen globaler Variablen und das Löschen von Bezeichnern. Im strikten Modus sind diese Vorgänge nicht erlaubt.
+> Das folgende Beispiel verwendet Funktionen, die nur außerhalb des strikten Modus verfügbar sind, etwa das implizite Erstellen globaler Variablen und das Löschen von Bezeichnern. Beides ist im strikten Modus verboten.
 
 ```js
 // Creates the property empCount on the global scope.
@@ -126,9 +120,9 @@ function f() {
 }
 ```
 
-### delete und die Prototypenkette
+### delete und die Prototypkette
 
-Im folgenden Beispiel löschen wir eine eigene Eigenschaft eines Objekts, während eine Eigenschaft mit demselben Namen in der Prototypenkette verfügbar ist:
+Im folgenden Beispiel löschen wir eine eigene Eigenschaft eines Objekts, während in der Prototypkette eine Eigenschaft mit demselben Namen vorhanden ist:
 
 ```js
 function Foo() {
@@ -160,7 +154,7 @@ delete Foo.prototype.bar; // returns true
 console.log(foo.bar); // undefined
 ```
 
-### Array-Elemente löschen
+### Löschen von Array-Elementen
 
 Wenn Sie ein Array-Element löschen, bleibt die `length` des Arrays unverändert. Das gilt auch, wenn Sie das letzte Element des Arrays löschen.
 
@@ -172,7 +166,7 @@ delete trees[3];
 console.log(3 in trees); // false
 ```
 
-Dadurch entsteht ein [Array mit Lücken](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays), das einen leeren Eintrag enthält. Wenn ein Array-Element weiterhin vorhanden sein, aber den Wert `undefined` haben soll, verwenden Sie den Wert `undefined` anstelle des Operators `delete`. Im folgenden Beispiel wird `trees[3]` der Wert `undefined` zugewiesen, das Array-Element bleibt jedoch vorhanden:
+Dadurch entsteht ein [Array mit Lücken](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) mit einem leeren Platz. Wenn ein Array-Element weiterhin existieren, aber den Wert `undefined` haben soll, verwenden Sie den Wert `undefined` statt des Operators `delete`. Im folgenden Beispiel wird `trees[3]` der Wert `undefined` zugewiesen, das Array-Element bleibt jedoch vorhanden:
 
 ```js
 const trees = ["redwood", "bay", "cedar", "oak", "maple"];
@@ -180,7 +174,7 @@ trees[3] = undefined;
 console.log(3 in trees); // true
 ```
 
-Wenn Sie stattdessen ein Array-Element entfernen und dabei den Inhalt des Arrays verändern möchten, verwenden Sie die Methode {{jsxref("Array/splice", "splice()")}}. Im folgenden Beispiel wird `trees[3]` mit {{jsxref("Array/splice", "splice()")}} vollständig aus dem Array entfernt:
+Wenn Sie stattdessen ein Array-Element entfernen und dabei den Inhalt des Arrays ändern möchten, verwenden Sie die Methode {{jsxref("Array/splice", "splice()")}}. Im folgenden Beispiel wird `trees[3]` mit {{jsxref("Array/splice", "splice()")}} vollständig aus dem Array entfernt:
 
 ```js
 const trees = ["redwood", "bay", "cedar", "oak", "maple"];
@@ -188,9 +182,9 @@ trees.splice(3, 1);
 console.log(trees); // ["redwood", "bay", "cedar", "maple"]
 ```
 
-### Nicht konfigurierbare Eigenschaften löschen
+### Löschen nicht konfigurierbarer Eigenschaften
 
-Wenn eine Eigenschaft als nicht konfigurierbar markiert ist, hat `delete` keine Wirkung und gibt `false` zurück. Im strikten Modus wird dadurch ein `TypeError` ausgelöst.
+Wenn eine Eigenschaft als nicht konfigurierbar gekennzeichnet ist, hat `delete` keine Auswirkung und gibt `false` zurück. Im strikten Modus wird dadurch ein `TypeError` ausgelöst.
 
 ```js
 const Employee = {};
@@ -220,9 +214,9 @@ delete globalThis.nameOther; // return false
 
 Im strikten Modus würde dies eine Ausnahme auslösen.
 
-### Globale Eigenschaften löschen
+### Löschen globaler Eigenschaften
 
-Wenn eine globale Eigenschaft konfigurierbar ist (beispielsweise weil sie durch direkte Zuweisung erstellt wurde), kann sie gelöscht werden. Spätere Zugriffe auf sie als globale Variable führen dann zu einem {{jsxref("ReferenceError")}}.
+Wenn eine globale Eigenschaft konfigurierbar ist (beispielsweise weil sie durch eine direkte Eigenschaftszuweisung erstellt wurde), kann sie gelöscht werden. Spätere Zugriffe auf sie als globale Variable lösen dann einen {{jsxref("ReferenceError")}} aus.
 
 ```js
 globalThis.globalVar = 1;

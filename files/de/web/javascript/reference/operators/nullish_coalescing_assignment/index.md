@@ -1,11 +1,11 @@
 ---
-title: Nullish-Zuweisung (??=)
+title: Nullish-Coalescing-Zuweisung (??=)
 slug: Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Nullish-Zuweisungsoperator (`??=`)**, auch bekannt als **logischer Nullish-Zuweisungsoperator**, wertet nur den rechten Operand aus und weist den linken Operand nur dann zu, wenn der linke Operand {{Glossary("nullish", "nullish")}} (`null` oder `undefined`) ist.
+Der **Nullish-Coalescing-Zuweisungsoperator (`??=`)**, auch **logischer Nullish-Zuweisungsoperator** genannt, wertet den rechten Operanden nur dann aus und weist ihn der linken Seite zu, wenn der linke Operand {{Glossary("nullish", "nullish")}} ist (`null` oder `undefined`).
 
 {{InteractiveExample("JavaScript Demo: Nullish coalescing assignment (??=) operator")}}
 
@@ -27,18 +27,29 @@ console.log(a.duration);
 x ??= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von 2 (Zuweisung) oder höher. Er wird nur dann ausgewertet und `x` zugewiesen, wenn der ursprüngliche Wert von `x` `null` oder `undefined` ist.
+
+### Rückgabewert
+
+Der Wert von `y`, wenn der ursprüngliche Wert von `x` `null` oder `undefined` ist; andernfalls der ursprüngliche Wert von `x`.
+
 ## Beschreibung
 
-Die Nullish-Zuweisung führt [_Short-Circuiting_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting) durch, was bedeutet, dass `x ??= y` äquivalent zu `x ?? (x = y)` ist, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+Die Nullish-Coalescing-Zuweisung verwendet [_Kurzschlussauswertung_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting). Das bedeutet, dass `x ??= y` gleichbedeutend mit `x ?? (x = y)` ist, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Es wird keine Zuweisung durchgeführt, wenn die linke Seite nicht nullish ist, aufgrund des Short-Circuiting des [Nullish-Zusammenführungsoperators](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing). Zum Beispiel wirft das folgende Beispiel keinen Fehler, obwohl `x` `const` ist:
+Wenn die linke Seite nicht nullish ist, erfolgt aufgrund der Kurzschlussauswertung des [Nullish-Coalescing-Operators](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) keine Zuweisung. Beispielsweise löst der folgende Code keinen Fehler aus, obwohl `x` mit `const` deklariert wurde:
 
 ```js
 const x = 1;
 x ??= 2;
 ```
 
-Ebenso würde das Folgende den Setter nicht auslösen:
+Auch im folgenden Beispiel wird der Setter nicht aufgerufen:
 
 ```js
 const x = {
@@ -53,7 +64,7 @@ const x = {
 x.value ??= 2;
 ```
 
-Tatsächlich wird `y` überhaupt nicht ausgewertet, wenn `x` nicht nullish ist.
+Wenn `x` nicht nullish ist, wird `y` überhaupt nicht ausgewertet.
 
 ```js
 const x = 1;
@@ -63,9 +74,9 @@ x ??= console.log("y evaluated");
 
 ## Beispiele
 
-### Verwendung der Nullish-Zuweisung
+### Nullish-Coalescing-Zuweisung verwenden
 
-Sie können den Nullish-Zuweisungsoperator verwenden, um Standardwerte für Objekteigenschaften anzuwenden. Im Vergleich zur Verwendung von Destrukturierung und [Standardwerten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#default_value) wendet `??=` auch den Standardwert an, wenn die Eigenschaft den Wert `null` hat.
+Sie können den Nullish-Coalescing-Zuweisungsoperator verwenden, um Objekteigenschaften Standardwerte zuzuweisen. Im Vergleich zur Verwendung von Destrukturierung und [Standardwerten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#default_value) wird der Standardwert mit `??=` auch dann zugewiesen, wenn die Eigenschaft den Wert `null` hat.
 
 ```js
 function config(options) {
@@ -88,7 +99,7 @@ config({}); // { duration: 100, speed: 25 }
 
 ## Siehe auch
 
-- [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Nullish-Coalescing-Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - {{Glossary("Nullish", "Nullish")}}
 - {{Glossary("Truthy", "Truthy")}}
 - {{Glossary("Falsy", "Falsy")}}

@@ -2,10 +2,10 @@
 title: Restzuweisung (%=)
 slug: Web/JavaScript/Reference/Operators/Remainder_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **Restzuweisungsoperator (`%=`)** führt eine [Restoperation](/de/docs/Web/JavaScript/Reference/Operators/Remainder) mit den zwei Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der Operator **Restzuweisung (`%=`)** berechnet den [Rest](/de/docs/Web/JavaScript/Reference/Operators/Remainder) der beiden Operanden und weist das Ergebnis dem linken Operanden zu.
 
 {{InteractiveExample("JavaScript Demo: Remainder assignment (%=) operator")}}
 
@@ -28,13 +28,24 @@ console.log((a %= "hello"));
 x %= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung). Sein Wert wird in [eine Zahl oder einen BigInt-Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) umgewandelt.
+
+### Rückgabewert
+
+Die Zahl oder der BigInt-Wert, die bzw. der sich aus [`x % y`](/de/docs/Web/JavaScript/Reference/Operators/Remainder) unter Verwendung des ursprünglichen Werts von `x` ergibt.
+
 ## Beschreibung
 
 `x %= y` ist gleichbedeutend mit `x = x % y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Verwendung der Restzuweisung
+### Restzuweisung verwenden
 
 ```js
 let bar = 5;

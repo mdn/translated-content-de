@@ -2,12 +2,12 @@
 title: Spread-Syntax (...)
 slug: Web/JavaScript/Reference/Operators/Spread_syntax
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 52efe757952fde32b197b8ae9395f8f2a3bc7a9f
 ---
 
-Die **Spread-Syntax (`...`)** ermöglicht es, ein Iterables, wie ein Array oder einen String, an Stellen zu erweitern, an denen null oder mehr Argumente (bei Funktionsaufrufen) oder Elemente (bei Array-Literalen) erwartet werden. In einem Objektliteral enumeriert die Spread-Syntax die Eigenschaften eines Objekts und fügt die Schlüssel-Wert-Paare dem erstellten Objekt hinzu.
+Die **Spread-Syntax (`...`)** ermöglicht es, ein iterierbares Objekt wie ein Array oder einen String dort zu entfalten, wo null oder mehr Argumente (bei Funktionsaufrufen) oder Elemente (in Array-Literalen) erwartet werden. In einem Objekt-Literal zählt die Spread-Syntax die Eigenschaften eines Objekts auf und fügt die Schlüssel-Wert-Paare dem neu erstellten Objekt hinzu.
 
-Die Spread-Syntax sieht genau wie die Rest-Syntax aus. In gewisser Weise ist die Spread-Syntax das Gegenteil der Rest-Syntax. Die Spread-Syntax "erweitert" ein Array in seine Elemente, während die Rest-Syntax mehrere Elemente sammelt und in ein einziges Element "kondensiert". Siehe [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) und [Rest-Eigenschaft](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#rest_properties_and_rest_elements).
+Die Spread-Syntax sieht genauso aus wie die Rest-Syntax. In gewisser Weise ist die Spread-Syntax das Gegenteil der Rest-Syntax: Die Spread-Syntax „entfaltet“ ein Array in seine Elemente, während die Rest-Syntax mehrere Elemente sammelt und zu einem einzigen Element zusammenfasst. Siehe [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) und [Rest-Eigenschaft](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#rest_properties_and_rest_elements).
 
 {{InteractiveExample("JavaScript Demo: Spread syntax (...)")}}
 
@@ -33,46 +33,57 @@ myFunction(a, ...iterableObj, b)
 { ...obj, key: 'value' }
 ```
 
+### Parameter
+
+- `iterableObj`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung), der zu einem [iterierbaren Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) ausgewertet wird.
+- `obj`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung), dessen eigene aufzählbare Eigenschaften in das Objekt-Literal kopiert werden.
+
+### Rückgabewert
+
+Die Spread-Syntax hat keinen eigenen Rückgabewert. In einem Aufruf oder Array-Literal wird jeder Wert aus `iterableObj` zu einem separaten Argument oder Array-Element. In einem Objekt-Literal werden durch die Spread-Syntax die Eigenschaftsschlüssel und ihre Werte aus `obj` kopiert.
+
 ## Beschreibung
 
-Spread-Syntax kann verwendet werden, wenn alle Elemente aus einem Objekt oder Array in einem neuen Array oder Objekt enthalten sein sollen oder einzeln in einer Argumentenliste eines Funktionsaufrufs angewendet werden sollen. Es gibt drei verschiedene Orte, die die Spread-Syntax akzeptieren:
+Die Spread-Syntax kann verwendet werden, wenn alle Elemente eines Objekts oder Arrays in ein neues Array oder Objekt aufgenommen oder einzeln als Argumente in einem Funktionsaufruf übergeben werden sollen. Die Spread-Syntax kann an drei verschiedenen Stellen verwendet werden:
 
-- [Funktionsargumente](#spread_in_funktionsaufrufen) Liste (`myFunction(a, ...iterableObj, b)`)
-- [Array-Literale](#spread_in_array-literalen) (`[1, ...iterableObj, '4', 'five', 6]`)
-- [Objektliterale](#spread_in_objekt-literalen) (`{ ...obj, key: 'value' }`)
+- [Argumentliste eines Funktionsaufrufs](#spread-syntax_in_funktionsaufrufen) (`myFunction(a, ...iterableObj, b)`)
+- [Array-Literale](#spread-syntax_in_array-literalen) (`[1, ...iterableObj, '4', 'five', 6]`)
+- [Objekt-Literale](#spread-syntax_in_objekt-literalen) (`{ ...obj, key: 'value' }`)
 
-Obwohl die Syntax gleich aussieht, haben sie leicht unterschiedliche Semantiken.
+Obwohl die Syntax gleich aussieht, unterscheidet sich ihre Semantik je nach Verwendung geringfügig.
 
-Nur [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols) Werte, wie {{jsxref("Array")}} und {{jsxref("String")}}, können in [Array-Literalen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) und Argumentenlisten erweitert werden. Viele Objekte sind nicht iterierbar, einschließlich aller [einfachen Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object), die keine [`Symbol.iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) Methode besitzen:
+Nur [iterierbare](/de/docs/Web/JavaScript/Reference/Iteration_protocols) Werte wie {{jsxref("Array")}} und {{jsxref("String")}} können in [Array-Initialisierern](/de/docs/Web/JavaScript/Reference/Operators/Array_initializer) und Argumentlisten entfaltet werden. Viele Objekte sind nicht iterierbar, darunter alle [einfachen Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object) ohne eine [`Symbol.iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode:
 
 ```js example-bad
 const obj = { key1: "value1" };
 const array = [...obj]; // TypeError: obj is not iterable
 ```
 
-Andererseits enumeriert das Erweitern in [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) [die eigenen Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties#traversing_object_properties) des Werts. Bei typischen Arrays sind alle Indizes aufzählbare eigene Eigenschaften, sodass Arrays in Objekte übertragen werden können.
+Bei der Verwendung in [Objekt-Literalen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) werden dagegen die eigenen Eigenschaften des Werts [aufgezählt](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties#traversing_object_properties). Bei gewöhnlichen Arrays sind alle Indizes eigene aufzählbare Eigenschaften. Daher können Arrays in Objekte entfaltet werden.
 
 ```js
 const array = [1, 2, 3];
 const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
 ```
 
-Alle [Primitive](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_values) können in Objekten erweitert werden. Nur Strings haben aufzählbare eigene Eigenschaften, und das Erweitern von allem anderen erstellt keine Eigenschaften im neuen Objekt.
+Alle [primitiven Werte](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_values) können in Objekte entfaltet werden. Nur Strings haben eigene aufzählbare Eigenschaften; das Entfalten anderer primitiver Werte erzeugt keine Eigenschaften im neuen Objekt.
 
 ```js
 const obj = { ...true, ..."test", ...10 };
 // { '0': 't', '1': 'e', '2': 's', '3': 't' }
 ```
 
-Wenn Sie die Spread-Syntax für Funktionsaufrufe verwenden, beachten Sie die Möglichkeit, das Argumentlängenlimit der JavaScript-Engine zu überschreiten. Siehe {{jsxref("Function.prototype.apply()")}} für weitere Details.
+Beachten Sie bei der Verwendung der Spread-Syntax für Funktionsaufrufe, dass die Begrenzung der Argumentanzahl der JavaScript-Engine überschritten werden kann. Weitere Einzelheiten finden Sie unter {{jsxref("Function.prototype.apply()")}}.
 
 ## Beispiele
 
-### Spread in Funktionsaufrufen
+### Spread-Syntax in Funktionsaufrufen
 
-#### Apply() ersetzen
+#### apply() ersetzen
 
-Es ist üblich, {{jsxref("Function.prototype.apply()")}} in Fällen zu verwenden, in denen Sie die Elemente eines Arrays als Argumente an eine Funktion übergeben möchten.
+{{jsxref("Function.prototype.apply()")}} wird häufig verwendet, wenn die Elemente eines Arrays als Argumente an eine Funktion übergeben werden sollen.
 
 ```js
 function myFunction(x, y, z) {}
@@ -80,7 +91,7 @@ const args = [0, 1, 2];
 myFunction.apply(null, args);
 ```
 
-Mit Spread-Syntax kann das oben stehende wie folgt geschrieben werden:
+Mit der Spread-Syntax lässt sich das obige Beispiel so schreiben:
 
 ```js
 function myFunction(x, y, z) {}
@@ -88,7 +99,7 @@ const args = [0, 1, 2];
 myFunction(...args);
 ```
 
-Jedes Argument in der Argumentenliste kann die Spread-Syntax verwenden, und die Spread-Syntax kann mehrmals verwendet werden.
+Die Spread-Syntax kann für jedes Argument in der Argumentliste und auch mehrfach verwendet werden.
 
 ```js
 function myFunction(v, w, x, y, z) {}
@@ -96,20 +107,20 @@ const args = [0, 1];
 myFunction(-1, ...args, 2, ...[3]);
 ```
 
-#### Apply für den new-Operator
+#### Verwendung mit dem new-Operator
 
-Beim Aufrufen eines Konstruktors mit {{jsxref("new")}} ist es nicht möglich, ein Array und `apply()` **direkt** zu verwenden, da `apply()` die Zielmethode _aufruft_, anstatt sie zu _konstruieren_, was unter anderem bedeutet, dass [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) `undefined` sein wird. Dank der Spread-Syntax kann ein Array jedoch problemlos mit `new` verwendet werden:
+Beim Aufruf eines Konstruktors mit {{jsxref("new")}} ist es nicht möglich, ein Array und `apply()` **direkt** zu verwenden. `apply()` _ruft_ die Zielfunktion auf, statt ein Objekt mit ihr zu _konstruieren_. Das bedeutet unter anderem, dass [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) den Wert `undefined` hat. Dank der Spread-Syntax lässt sich ein Array jedoch problemlos mit `new` verwenden:
 
 ```js
 const dateFields = [1970, 0, 1]; // 1 Jan 1970
 const d = new Date(...dateFields);
 ```
 
-### Spread in Array-Literalen
+### Spread-Syntax in Array-Literalen
 
-#### Ein mächtigeres Array-Literal
+#### Ein leistungsfähigeres Array-Literal
 
-Ohne Spread-Syntax reicht die Array-Literal-Syntax nicht mehr aus, um ein neues Array mit einem vorhandenen Array als Teil davon zu erstellen. Stattdessen muss imperativer Code verwendet werden, der eine Kombination aus Methoden wie {{jsxref("Array/push", "push()")}}, {{jsxref("Array/splice", "splice()")}}, {{jsxref("Array/concat", "concat()")}} usw. beinhaltet. Mit Spread-Syntax wird dies viel knapper:
+Ohne die Spread-Syntax reicht die Syntax für Array-Literale nicht aus, um ein neues Array zu erstellen, das ein vorhandenes Array als Bestandteil enthält. Stattdessen muss imperativer Code mit einer Kombination von Methoden wie {{jsxref("Array/push", "push()")}}, {{jsxref("Array/splice", "splice()")}} und {{jsxref("Array/concat", "concat()")}} verwendet werden. Mit der Spread-Syntax geht das wesentlich kürzer:
 
 ```js
 const parts = ["shoulders", "knees"];
@@ -117,11 +128,11 @@ const lyrics = ["head", ...parts, "and", "toes"];
 //  ["head", "shoulders", "knees", "and", "toes"]
 ```
 
-Genau wie bei der Spread-Syntax für Argumentenlisten kann `...` überall im Array-Literal verwendet werden und kann mehrmals verwendet werden.
+Wie bei Argumentlisten kann `...` an jeder Stelle im Array-Literal und auch mehrfach verwendet werden.
 
-#### Kopieren eines Arrays
+#### Ein Array kopieren
 
-Sie können die Spread-Syntax verwenden, um eine {{Glossary("shallow_copy", "flache Kopie")}} eines Arrays zu erstellen. Jedes Array-Element behält seine Identität bei, ohne kopiert zu werden.
+Mit der Spread-Syntax können Sie eine {{Glossary("shallow_copy", "flache Kopie")}} eines Arrays erstellen. Jedes Array-Element behält dabei seine Identität und wird nicht selbst kopiert.
 
 ```js
 const arr = [1, 2, 3];
@@ -132,7 +143,7 @@ arr2.push(4);
 // arr remains unaffected
 ```
 
-Die Spread-Syntax geht effektiv eine Ebene tief beim Kopieren eines Arrays. Daher ist sie möglicherweise nicht geeignet zum Kopieren mehrdimensionaler Arrays. Dasselbe gilt für {{jsxref("Object.assign()")}} — keine native Operation in JavaScript führt ein Deep-Klonen durch. Die Web-API-Methode [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) ermöglicht das tiefe Kopieren von Werten bestimmter [unterstützter Typen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types). Weitere Details finden Sie unter {{Glossary("Shallow_copy", "flache Kopie")}}.
+Beim Kopieren eines Arrays wirkt die Spread-Syntax nur eine Ebene tief. Daher eignet sie sich möglicherweise nicht zum Kopieren mehrdimensionaler Arrays. Dasselbe gilt für {{jsxref("Object.assign()")}} – in JavaScript gibt es keine native Operation zum tiefen Klonen. Die Web-API-Methode [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) ermöglicht das tiefe Kopieren von Werten bestimmter [unterstützter Typen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types). Weitere Einzelheiten finden Sie unter {{Glossary("Shallow_copy", "Flache Kopie")}}.
 
 ```js example-bad
 const a = [[1], [2], [3]];
@@ -146,9 +157,9 @@ console.log(a);
 // [[], [2], [3]]
 ```
 
-#### Ein besserer Weg, um Arrays zu verketten
+#### Arrays einfacher verketten
 
-{{jsxref("Array.prototype.concat()")}} wird oft verwendet, um ein Array an das Ende eines bestehenden Arrays anzufügen. Ohne Spread-Syntax wird dies so gemacht:
+{{jsxref("Array.prototype.concat()")}} wird häufig verwendet, um ein Array an das Ende eines bestehenden Arrays anzuhängen. Ohne die Spread-Syntax geschieht das so:
 
 ```js
 let arr1 = [0, 1, 2];
@@ -158,7 +169,7 @@ const arr2 = [3, 4, 5];
 arr1 = arr1.concat(arr2);
 ```
 
-Mit Spread-Syntax wird daraus:
+Mit der Spread-Syntax sieht das so aus:
 
 ```js
 let arr1 = [0, 1, 2];
@@ -168,7 +179,7 @@ arr1 = [...arr1, ...arr2];
 // arr1 is now [0, 1, 2, 3, 4, 5]
 ```
 
-{{jsxref("Array.prototype.unshift()")}} wird oft verwendet, um ein Array von Werten am Anfang eines bestehenden Arrays einzufügen. Ohne Spread-Syntax wird dies so gemacht:
+{{jsxref("Array.prototype.unshift()")}} wird häufig verwendet, um ein Array von Werten am Anfang eines bestehenden Arrays einzufügen. Ohne die Spread-Syntax geschieht das so:
 
 ```js
 const arr1 = [0, 1, 2];
@@ -179,7 +190,7 @@ Array.prototype.unshift.apply(arr1, arr2);
 console.log(arr1); // [3, 4, 5, 0, 1, 2]
 ```
 
-Mit Spread-Syntax wird daraus:
+Mit der Spread-Syntax sieht das so aus:
 
 ```js
 let arr1 = [0, 1, 2];
@@ -190,11 +201,11 @@ console.log(arr1); // [3, 4, 5, 0, 1, 2]
 ```
 
 > [!NOTE]
-> Im Gegensatz zu `unshift()` wird hierbei ein neues `arr1` erstellt, anstatt das ursprüngliche Array `arr1` direkt zu verändern.
+> Anders als `unshift()` erstellt dies ein neues `arr1`, statt das ursprüngliche Array `arr1` direkt zu verändern.
 
-#### Bedingtes Hinzufügen von Werten zu einem Array
+#### Werte bedingt zu einem Array hinzufügen
 
-Sie können ein Element in einem Array-Literal abhängig von einer Bedingung vorhanden oder abwesend machen, indem Sie einen [Bedingungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) verwenden.
+Mit einem [bedingten Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) können Sie abhängig von einer Bedingung ein Element in ein Array-Literal aufnehmen oder weglassen.
 
 ```js
 const isSummer = false;
@@ -202,20 +213,20 @@ const fruits = ["apple", "banana", ...(isSummer ? ["watermelon"] : [])];
 // ['apple', 'banana']
 ```
 
-Wenn die Bedingung `false` ist, erweitern wir ein leeres Array, sodass nichts zum endgültigen Array hinzugefügt wird. Beachten Sie, dass dies anders ist als Folgendes:
+Wenn die Bedingung `false` ist, wird ein leeres Array entfaltet, sodass dem endgültigen Array nichts hinzugefügt wird. Beachten Sie den Unterschied zum folgenden Beispiel:
 
 ```js
 const fruits = ["apple", "banana", isSummer ? "watermelon" : undefined];
 // ['apple', 'banana', undefined]
 ```
 
-In diesem Fall wird ein zusätzliches `undefined`-Element hinzugefügt, wenn `isSummer` `false` ist, und dieses Element wird von Methoden wie {{jsxref("Array.prototype.map()")}} besucht.
+In diesem Fall wird ein zusätzliches Element mit dem Wert `undefined` hinzugefügt, wenn `isSummer` den Wert `false` hat. Dieses Element wird von Methoden wie {{jsxref("Array.prototype.map()")}} verarbeitet.
 
-### Spread in Objekt-Literalen
+### Spread-Syntax in Objekt-Literalen
 
-#### Kopieren und Zusammenführen von Objekten
+#### Objekte kopieren und zusammenführen
 
-Sie können die Spread-Syntax verwenden, um mehrere Objekte in einem neuen Objekt zusammenzuführen.
+Mit der Spread-Syntax können Sie mehrere Objekte zu einem neuen Objekt zusammenführen.
 
 ```js
 const obj1 = { foo: "bar", x: 42 };
@@ -225,16 +236,16 @@ const mergedObj = { ...obj1, ...obj2 };
 // { foo: "bar", x: 42, bar: "baz", y: 13 }
 ```
 
-Ein einzelnes Spread erstellt eine flache Kopie des ursprünglichen Objekts (aber ohne nicht-auflistbare Eigenschaften und ohne das Prototypenobjekt zu kopieren), ähnlich wie beim [Kopieren eines Arrays](#kopieren_eines_arrays).
+Ein einzelner Spread-Ausdruck erstellt eine flache Kopie des ursprünglichen Objekts (allerdings ohne nicht aufzählbare Eigenschaften und ohne den Prototyp zu kopieren), ähnlich wie beim [Kopieren eines Arrays](#ein_array_kopieren).
 
 ```js
 const clonedObj = { ...obj1 };
 // { foo: "bar", x: 42 }
 ```
 
-#### Überschreiben von Eigenschaften
+#### Eigenschaften überschreiben
 
-Wenn ein Objekt in ein anderes Objekt erweitert wird, oder wenn mehrere Objekte in ein Objekt erweitert werden und dabei Eigenschaften mit identischen Namen aufeinandertreffen, nimmt die Eigenschaft den zuletzt zugewiesenen Wert an und bleibt an der Position, an der sie ursprünglich gesetzt wurde.
+Wenn ein Objekt in ein anderes oder mehrere Objekte in ein einziges Objekt entfaltet werden und dabei Eigenschaften mit identischen Namen vorkommen, erhält die Eigenschaft den zuletzt zugewiesenen Wert. Ihre ursprüngliche Position bleibt dabei erhalten.
 
 ```js
 const obj1 = { foo: "bar", x: 42 };
@@ -243,9 +254,9 @@ const obj2 = { foo: "baz", y: 13 };
 const mergedObj = { x: 41, ...obj1, ...obj2, y: 9 }; // { x: 42, foo: "baz", y: 9 }
 ```
 
-#### Bedingtes Hinzufügen von Eigenschaften zu einem Objekt
+#### Eigenschaften bedingt zu einem Objekt hinzufügen
 
-Sie können ein Element in einem Objektliteral abhängig von einer Bedingung vorhanden oder abwesend machen, indem Sie einen [Bedingungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) verwenden.
+Mit einem [bedingten Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) können Sie abhängig von einer Bedingung eine Eigenschaft in ein Objekt-Literal aufnehmen oder weglassen.
 
 ```js
 const isSummer = false;
@@ -257,7 +268,7 @@ const fruits = {
 // { apple: 10, banana: 5 }
 ```
 
-Der Fall, in dem die Bedingung `false` ist, ist ein leeres Objekt, so dass nichts in das endgültige Objekt erweitert wird. Beachten Sie, dass dies anders ist als Folgendes:
+Wenn die Bedingung `false` ist, wird ein leeres Objekt verwendet, sodass dem endgültigen Objekt nichts hinzugefügt wird. Beachten Sie den Unterschied zum folgenden Beispiel:
 
 ```js
 const fruits = {
@@ -268,9 +279,9 @@ const fruits = {
 // { apple: 10, banana: 5, watermelon: undefined }
 ```
 
-In diesem Fall ist die `watermelon`-Eigenschaft immer vorhanden und wird von Methoden wie {{jsxref("Object.keys()")}} besucht.
+In diesem Fall ist die Eigenschaft `watermelon` immer vorhanden und wird von Methoden wie {{jsxref("Object.keys()")}} erfasst.
 
-Da auch Primitive in Objekte erweitert werden können, und aus der Beobachtung heraus, dass alle {{Glossary("falsy", "falsy")}} Werte keine auflistbaren Eigenschaften besitzen, können Sie einfach einen [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) Operator verwenden:
+Da auch primitive Werte in Objekte entfaltet werden können und alle {{Glossary("falsy", "falsy-Werte")}} keine aufzählbaren Eigenschaften haben, können Sie einfach den Operator für [logisches UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) verwenden:
 
 ```js
 const isSummer = false;
@@ -281,11 +292,11 @@ const fruits = {
 };
 ```
 
-In diesem Fall, wenn `isSummer` irgendein falsy Wert ist, wird keine Eigenschaft im `fruits`-Objekt erstellt.
+Wenn `isSummer` in diesem Fall einen beliebigen falsy-Wert hat, wird im Objekt `fruits` keine Eigenschaft erstellt.
 
 #### Vergleich mit Object.assign()
 
-Beachten Sie, dass {{jsxref("Object.assign()")}} verwendet werden kann, um ein Objekt zu verändern, während die Spread-Syntax dies nicht kann.
+Beachten Sie, dass {{jsxref("Object.assign()")}} ein Objekt verändern kann, die Spread-Syntax dagegen nicht.
 
 ```js
 const obj1 = { foo: "bar", x: 42 };
@@ -293,7 +304,7 @@ Object.assign(obj1, { x: 1337 });
 console.log(obj1); // { foo: "bar", x: 1337 }
 ```
 
-Zusätzlich löst {{jsxref("Object.assign()")}} Setter auf dem Zielobjekt aus, während die Spread-Syntax dies nicht tut.
+Außerdem löst {{jsxref("Object.assign()")}} Setter auf dem Zielobjekt aus, die Spread-Syntax hingegen nicht.
 
 ```js
 const objectAssign = Object.assign(
@@ -315,7 +326,7 @@ const spread = {
 // Nothing is logged; spread.foo is 1
 ```
 
-Sie können die {{jsxref("Object.assign()")}} Funktion nicht naiv durch ein einfaches Erweitern nachbilden:
+Die Funktion {{jsxref("Object.assign()")}} lässt sich nicht einfach durch einen einzigen Spread-Ausdruck nachimplementieren:
 
 ```js
 const obj1 = { foo: "bar", x: 42 };
@@ -329,7 +340,7 @@ const mergedObj2 = merge({}, obj1, obj2);
 // { 0: {}, 1: { foo: 'bar', x: 42 }, 2: { foo: 'baz', y: 13 } }
 ```
 
-Im obigen Beispiel funktioniert die Spread-Syntax nicht wie erwartet: Sie erweitert ein _Array_ von Argumenten in das Objektliteral, aufgrund des Restparameters. Hier ist eine Implementierung von `merge` mit der Spread-Syntax, deren Verhalten ähnlich wie {{jsxref("Object.assign()")}} ist, außer dass sie keine Setter auslöst, noch irgendein Objekt verändert:
+Im obigen Beispiel funktioniert die Spread-Syntax nicht wie möglicherweise erwartet: Wegen des Rest-Parameters wird ein _Array_ von Argumenten in das Objekt-Literal entfaltet. Die folgende Implementierung von `merge` verwendet die Spread-Syntax. Ihr Verhalten ähnelt dem von {{jsxref("Object.assign()")}}, allerdings löst sie keine Setter aus und verändert kein Objekt:
 
 ```js
 const obj1 = { foo: "bar", x: 42 };
@@ -351,6 +362,6 @@ const mergedObj = merge(obj1, obj2);
 
 ## Siehe auch
 
-- [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [Rest-Eigenschaft](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#rest_properties_and_rest_elements)
 - {{jsxref("Function.prototype.apply()")}}

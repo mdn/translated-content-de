@@ -1,11 +1,11 @@
 ---
-title: Bitweises UND-Zuweisung (&=)
+title: Bitweise UND-Zuweisung (&=)
 slug: Web/JavaScript/Reference/Operators/Bitwise_AND_assignment
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 20093e6d064fe1a7efd57e70b99b4af9bb5fa970
 ---
 
-Der **bitweise UND-Zuweisungsoperator (`&=`)** führt ein [bitweises UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Operator für bitweise UND-Zuweisung (`&=`)** führt ein [bitweises UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) mit den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
 {{InteractiveExample("JavaScript Demo: Bitwise AND assignment (&=) operator", "shorter")}}
 
@@ -23,13 +23,24 @@ console.log(a); // 00000000000000000000000000000001
 x &= y
 ```
 
+### Parameter
+
+- `x`
+  - : Ein gültiges Zuweisungsziel, beispielsweise ein [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Sein aktueller Wert wird in eine [vorzeichenbehaftete 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) oder einen [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#bigint_coercion) umgewandelt.
+- `y`
+  - : Ein Ausdruck mit einer [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table) von mindestens 2 (Zuweisung). Sein Wert wird in eine [vorzeichenbehaftete 32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) oder einen [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#bigint_coercion) umgewandelt.
+
+### Rückgabewert
+
+Die Zahl oder der BigInt-Wert, die bzw. der sich aus [`x & y`](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) unter Verwendung des ursprünglichen Werts von `x` ergibt.
+
 ## Beschreibung
 
-`x &= y` entspricht `x = x & y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x &= y` entspricht `x = x & y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Verwendung des bitweisen UND-Zuweisungsoperators
+### Bitweise UND-Zuweisung verwenden
 
 ```js
 let a = 5;
@@ -51,5 +62,5 @@ b &= 2n; // 0n
 
 ## Siehe auch
 
-- [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
+- [Zuweisungsoperatoren im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
 - [Bitweises UND (`&`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND)
