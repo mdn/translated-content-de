@@ -2,26 +2,26 @@
 title: Scroll-Container
 slug: Glossary/Scroll_container
 l10n:
-  sourceCommit: 1b3149a690cab7de2dfdfd24c273339a606982b0
+  sourceCommit: 72813e874d34cf328f39ab025448d9e06d921254
 ---
 
-Ein **Scroll-Container** ist eine Elementbox, deren Inhalt gescrollt werden kann, unabhängig davon, ob Scrollleisten vorhanden sind. Eine Elementbox wird zum Scroll-Container, wenn ihre Eigenschaft {{cssxref("overflow")}} (oder {{cssxref("overflow-x")}} oder {{cssxref("overflow-y")}}) auf `scroll`, `auto` oder `hidden` gesetzt ist.
+Ein **Scroll-Container** ist eine Elementbox, deren Inhalt gescrollt werden kann – unabhängig davon, ob Scrollleisten vorhanden sind. Eine Elementbox wird zum Scroll-Container, wenn ihre Eigenschaft {{cssxref("overflow")}} (oder {{cssxref("overflow-x")}} oder {{cssxref("overflow-y")}}) auf `scroll`, `auto` oder `hidden` gesetzt ist.
 
 Der jeweilige `overflow`-Wert eines Scroll-Containers bestimmt, wann Scrollleisten angezeigt werden:
 
-- `scroll`: Scrollleisten werden immer angezeigt, sofern die Plattform sie darstellt.
+- `scroll`: Scrollleisten werden immer angezeigt, sofern die Plattform sie anzeigt.
 - `auto`: Scrollleisten werden nur angezeigt, wenn der Inhalt über die Box hinausragt.
 - `hidden`: Es werden keine Scrollleisten angezeigt, und Benutzer können den Inhalt nicht direkt scrollen. Er kann jedoch weiterhin programmgesteuert gescrollt werden, beispielsweise mit [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo) oder indem ein darin enthaltenes Element den Fokus erhält.
 
 Ein Scroll-Container:
 
-- Erzeugt immer einen neuen Blockformatierungskontext. Dadurch umfasst er Floats, und seine Außenabstände fallen nicht mit den Außenabständen seiner Kindelemente zusammen.
+- Erzeugt stets einen neuen Blockformatierungskontext. Dadurch umfasst er Floats, und seine Außenabstände fallen nicht mit den Außenabständen seiner Kindelemente zusammen.
 - Dient als Referenzbox für Nachfahren, deren {{cssxref("position")}} auf `sticky` gesetzt ist.
 - Hat als Flex- oder Grid-Element eine automatische Mindestgröße von 0 und kann daher kleiner als sein Inhalt werden.
 
 ## Scrollport
 
-Ein Scroll-Container hat einen **Scrollport** – den sichtbaren Bereich des Scroll-Containers, der mit seiner Padding-Box übereinstimmt. Beim Scrollen wird Inhalt in den Scrollport hinein- und aus ihm herausbewegt.
+Ein Scroll-Container hat einen **Scrollport** – den sichtbaren Teil des Scroll-Containers. Er entspricht der Padding-Box des Scroll-Containers. Durch Scrollen wird Inhalt in den Scrollport hinein- oder aus ihm herausbewegt.
 
 ## Siehe auch
 

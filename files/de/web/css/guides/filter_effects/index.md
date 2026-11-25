@@ -3,14 +3,14 @@ title: CSS-Filtereffekte
 short-title: Filter effects
 slug: Web/CSS/Guides/Filter_effects
 l10n:
-  sourceCommit: 35958cdccf9d974ee47bb2ba282466725cae3416
+  sourceCommit: 5a1da3161b739a7bc7f110fbd38721376c9bb27f
 ---
 
-Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es, die Darstellung eines Elements zu verarbeiten, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
+Mit den Eigenschaften des Moduls **CSS-Filtereffekte** können Sie festlegen, wie die Darstellung eines Elements verarbeitet wird, bevor es im Dokument angezeigt wird. Dazu gehören beispielsweise das Weichzeichnen und das Ändern der Farbintensität eines Elements.
 
-## Filtereffekte in Aktion
+## Filtereffekte ausprobieren
 
-Experimentieren Sie mit den verschiedenen Schiebereglern, um Filtereffekte auf das Bild unten anzuwenden.
+Passen Sie die verschiedenen Schieberegler an, um Filtereffekte auf das Bild unten anzuwenden.
 
 ```html hidden live-sample___filters
 <article>
@@ -157,7 +157,7 @@ const controls = document.querySelectorAll("input");
 const output = document.querySelector("output");
 
 for (control of controls) {
-  control.addEventListener("change", () => {
+  control.addEventListener("input", () => {
     /* do function */
     changeCSS();
   });
@@ -241,38 +241,72 @@ function sepia() {
 ### Eigenschaften
 
 - {{cssxref("backdrop-filter")}}
+- {{cssxref("color-interpolation-filters")}}
 - {{cssxref("filter")}}
+- {{cssxref("flood-color")}}
+- {{cssxref("flood-opacity")}}
+- {{cssxref("lighting-color")}}
 
 ### Funktionen
 
-- {{cssxref("filter-function/blur", "blur()")}}
-- {{cssxref("filter-function/brightness", "brightness()")}}
-- {{cssxref("filter-function/contrast", "contrast()")}}
-- {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-- {{cssxref("filter-function/grayscale", "grayscale()")}}
-- {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-- {{cssxref("filter-function/invert", "invert()")}}
-- {{cssxref("filter-function/opacity", "opacity()")}}
-- {{cssxref("filter-function/saturate", "saturate()")}}
-- {{cssxref("filter-function/sepia", "sepia()")}}
+- {{cssxref("filter()")}}
+- {{cssxref("filter-function")}}-Funktionen
+  - {{cssxref("filter-function/blur", "blur()")}}
+  - {{cssxref("filter-function/brightness", "brightness()")}}
+  - {{cssxref("filter-function/contrast", "contrast()")}}
+  - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
+  - {{cssxref("filter-function/grayscale", "grayscale()")}}
+  - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
+  - {{cssxref("filter-function/invert", "invert()")}}
+  - {{cssxref("filter-function/opacity", "opacity()")}}
+  - {{cssxref("filter-function/saturate", "saturate()")}}
+  - {{cssxref("filter-function/sepia", "sepia()")}}
+
+### Datentypen
+
+- {{cssxref("filter-function")}}-Datentyp
+
+### SVG-Elemente
+
+- {{SVGElement("filter")}}
+- SVG-Filterprimitive:
+  - {{SVGElement("feSpotLight")}}
+  - {{SVGElement("feBlend")}}
+  - {{SVGElement("feColorMatrix")}}
+  - {{SVGElement("feComponentTransfer")}}
+  - {{SVGElement("feComposite")}}
+  - {{SVGElement("feConvolveMatrix")}}
+  - {{SVGElement("feDiffuseLighting")}}
+  - {{SVGElement("feDisplacementMap")}}
+  - {{SVGElement("feDropShadow")}}
+  - {{SVGElement("feFlood")}}
+  - {{SVGElement("feGaussianBlur")}}
+  - {{SVGElement("feImage")}}
+  - {{SVGElement("feMerge")}}
+  - {{SVGElement("feMorphology")}}
+  - {{SVGElement("feOffset")}}
+  - {{SVGElement("feSpecularLighting")}}
+  - {{SVGElement("feTile")}}
+  - {{SVGElement("feTurbulence")}}
 
 ## Leitfäden
 
-- [Using CSS filter effects](/de/docs/Web/CSS/Guides/Filter_effects/Using)
-  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellenreihenfolge und Wertinteraktionen.
+- [CSS-Filtereffekte verwenden](/de/docs/Web/CSS/Guides/Filter_effects/Using)
+  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filtern, mit Erläuterungen zu Filterwerten, der Reihenfolge der Anwendung und den Wechselwirkungen zwischen Werten.
+- [Effekte mit SVG-Filtern anwenden](/de/docs/Web/SVG/Guides/Filters)
+  - : Filter können die Pixel, die ein Element zeichnet, weichzeichnen, verschieben, neu einfärben und kombinieren – sowohl in SVG- als auch in HTML-Inhalten.
 
 ## Verwandte Konzepte
 
-- {{cssxref("image")}} Datentyp
-- {{cssxref("filter-function")}} Datentyp
+- {{cssxref("image")}}-Datentyp
+- Glossarbegriff {{Glossary("interpolation", "Interpolation")}}
 
-- {{cssxref("background-image")}} CSS-Eigenschaft
-- {{cssxref("background-blend-mode")}} CSS-Eigenschaft
-- {{cssxref("mix-blend-mode")}} CSS-Eigenschaft
+Modul [CSS-Compositing und -Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending)
 
-- {{Glossary("interpolation", "Interpolation")}} Glossarbegriff
-
-- [`color-interpolation-filters`](/de/docs/Web/SVG/Reference/Attribute/color-interpolation-filters) SVG-Eigenschaft
+- {{cssxref("background-image")}}
+- {{cssxref("background-blend-mode")}}
+- {{cssxref("isolation")}}
+- {{cssxref("mix-blend-mode")}}
 
 ## Spezifikationen
 
@@ -280,5 +314,9 @@ function sepia() {
 
 ## Siehe auch
 
-- Eigenschaften im [CSS-Kompositions- und Blendmodul](/de/docs/Web/CSS/Guides/Compositing_and_blending) ermöglichen das Mischen der Hintergrundebenen eines Elements miteinander und das Mischen eines Elements mit seinem Container
-- Das SVG-Element {{SVGElement("filter")}} und die SVG-Filterprimitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}
+- {{cssxref("box-shadow")}}
+- {{cssxref("opacity")}}
+- Leitfaden [Relative Farben verwenden](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- Modul [CSS-Compositing und -Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending)
+- SVG-Eigenschaft {{svgattr("color-interpolation-filters")}}
+- [Skalierbare Vektorgrafiken (SVG)](/de/docs/Web/SVG/Guides)

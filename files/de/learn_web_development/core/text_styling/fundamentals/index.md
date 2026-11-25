@@ -1,14 +1,14 @@
 ---
 title: Grundlagen der Text- und Schriftgestaltung
-short-title: Grundlagen der Text- und Schriftgestaltung
+short-title: Grundlagen zu Text und Schrift
 slug: Learn_web_development/Core/Text_styling/Fundamentals
 l10n:
-  sourceCommit: 87adaa5384b1015690f3435ce0ba64ac097764eb
+  sourceCommit: b3c44f17a31e9d408d5a457ae7db82b0f7d6b6e8
 ---
 
 {{NextMenu("Learn_web_development/Core/Text_styling/Styling_lists", "Learn_web_development/Core/Text_styling")}}
 
-In diesem Artikel beginnen wir Ihre Reise zur Beherrschung der Textgestaltung mit {{Glossary("CSS", "CSS")}}. Hier gehen wir im Detail auf alle grundlegenden Elemente der Text- und Schriftgestaltung ein, darunter die Einstellung von Schriftgewicht, -familie und -stil, die Kurzschrift für Schriften, Textausrichtung und andere Effekte sowie Zeilen- und Buchstabenabstand.
+In diesem Artikel beginnen Sie, die Textgestaltung mit {{Glossary("CSS", "CSS")}} zu erlernen. Wir behandeln die Grundlagen der Text- und Schriftgestaltung ausführlich: Schriftstärke, Schriftfamilie und Schriftstil, die Kurzschreibweise für Schrift-Eigenschaften, Textausrichtung und weitere Effekte sowie Zeilen- und Buchstabenabstände.
 
 <table>
   <tbody>
@@ -18,42 +18,42 @@ In diesem Artikel beginnen wir Ihre Reise zur Beherrschung der Textgestaltung mi
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Inhalte mit HTML strukturieren</a
         > und
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS-Styling</a>.
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen der CSS-Gestaltung</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verständnis der Konzepte von Schriftfamilien, Schriftstapeln und webbasierten Schriften.</li>
-          <li>Festlegen von Schriftfarbe, -gewicht, -größe und -stil.</li>
-          <li>Festlegen der Textausrichtung, -umwandlung und -dekoration.</li>
-          <li>Festlegen der Zeilenhöhe.</li>
-          <li>Erkennen, dass es mehrere andere Schrift- und Textgestaltungsprojekte gibt, und zur weiteren Erkundung ermutigt werden.</li>
+          <li>Die Konzepte von Schriftfamilien, Schriftlisten und websicheren Schriftarten verstehen.</li>
+          <li>Schriftfarbe, -stärke, -größe und -stil festlegen.</li>
+          <li>Textausrichtung, Texttransformation und Textdekoration festlegen.</li>
+          <li>Die Zeilenhöhe festlegen.</li>
+          <li>Wissen, dass es weitere Eigenschaften zur Schrift- und Textgestaltung gibt, und diese selbst erkunden.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Was ist an der Textgestaltung mit CSS beteiligt?
+## Was gehört zur Textgestaltung mit CSS?
 
-Text innerhalb eines Elements wird innerhalb des [Inhaltskastens](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements angeordnet. Er beginnt oben links im Inhaltsbereich (oder oben rechts bei RTL-Sprachinhalten) und fließt zum Ende der Zeile. Wenn das Ende erreicht ist, geht er zur nächsten Zeile hinunter und fließt wieder zum Ende. Dieses Muster wiederholt sich, bis der gesamte Inhalt im Kasten platziert wurde. Textinhalte verhalten sich effektiv wie eine Reihe von Inline-Elementen, die auf benachbarten Linien angeordnet sind und keine Zeilenumbrüche erzeugen, bis das Ende der Zeile erreicht ist oder Sie manuell einen Zeilenumbruch mit dem {{htmlelement("br")}}-Element erzwingen.
-
-> [!NOTE]
-> Wenn Ihnen der obige Absatz verwirrend vorkommt, macht das nichts — gehen Sie zurück und lesen Sie unseren Artikel zum [Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) noch einmal durch, um Ihre Kenntnisse über die Theorie des Boxmodells aufzufrischen, bevor Sie weitermachen.
-
-Die CSS-Eigenschaften, die zum Stylen von Text verwendet werden, fallen im Allgemeinen in zwei Kategorien, die wir in diesem Artikel separat betrachten werden:
-
-- **Schriftstile**: Eigenschaften, die die Schrift eines Textes beeinflussen, z.B. welche Schrift angewendet wird, ihre Größe und ob sie fett, kursiv usw. ist.
-- **Textlayout-Stile**: Eigenschaften, die den Abstand und andere Layoutmerkmale des Textes beeinflussen und die Möglichkeit geben, z.B. den Abstand zwischen Zeilen und Buchstaben zu manipulieren und wie der Text innerhalb des Inhaltskastens ausgerichtet wird.
+Text innerhalb eines Elements wird in dessen [Inhaltsbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) angeordnet. Er beginnt links oben im Inhaltsbereich (bei Text in Sprachen mit Schreibrichtung von rechts nach links rechts oben) und verläuft bis zum Ende der Zeile. Dort setzt er sich in der nächsten Zeile fort. Dieses Muster wiederholt sich, bis der gesamte Inhalt in der Box angeordnet ist. Textinhalt verhält sich dabei wie eine Folge von Inline-Elementen, die nebeneinander in Zeilen angeordnet werden. Ein Zeilenumbruch entsteht erst am Zeilenende oder wenn Sie ihn mit dem Element {{htmlelement("br")}} ausdrücklich erzwingen.
 
 > [!NOTE]
-> Bedenken Sie, dass der Text innerhalb eines Elements als eine einzige Entität beeinflusst wird. Sie können keine Textunterabschnitte auswählen und gestalten, es sei denn, Sie wickeln sie in ein entsprechendes Element ein (wie etwa ein {{htmlelement("span")}} oder {{htmlelement("strong")}}), oder verwenden ein textsspezifisches Pseudoelement wie {{cssxref("::first-letter")}} (wählt den ersten Buchstaben des Textes eines Elements aus), {{cssxref("::first-line")}} (wählt die erste Zeile des Textes eines Elements aus) oder {{cssxref("::selection")}} (wählt den Text aus, der derzeit vom Cursor hervorgehoben wird).
+> Falls Sie dieser Absatz verwirrt, ist das kein Problem. Lesen Sie vor dem Fortfahren noch einmal unseren Artikel zum [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model), um die Grundlagen aufzufrischen.
 
-## Schriften
+Die CSS-Eigenschaften zur Textgestaltung lassen sich im Allgemeinen in zwei Kategorien einteilen, die wir in diesem Artikel getrennt betrachten:
 
-Lassen Sie uns direkt zu den Eigenschaften übergehen, um Schriften zu gestalten. In diesem Beispiel wenden wir einige CSS-Eigenschaften auf das folgende HTML-Beispiel an:
+- **Schriftstile**: Eigenschaften, die die Schrift eines Textes beeinflussen, etwa die verwendete Schriftart, ihre Größe und ob sie fett oder kursiv erscheint.
+- **Eigenschaften für das Textlayout**: Eigenschaften, die Abstände und andere Aspekte des Textlayouts beeinflussen. Damit können Sie beispielsweise den Abstand zwischen Zeilen und Buchstaben oder die Ausrichtung des Textes innerhalb der Inhaltsbox verändern.
+
+> [!NOTE]
+> Beachten Sie, dass der Text innerhalb eines Elements als Ganzes von diesen Eigenschaften beeinflusst wird. Sie können einzelne Textabschnitte nur dann auswählen und gestalten, wenn Sie sie in ein geeignetes Element einschließen (etwa {{htmlelement("span")}} oder {{htmlelement("strong")}}) oder ein textspezifisches Pseudoelement verwenden. Beispiele sind {{cssxref("::first-letter")}} (wählt den ersten Buchstaben des Textes eines Elements aus), {{cssxref("::first-line")}} (wählt die erste Textzeile eines Elements aus) und {{cssxref("::selection")}} (wählt den aktuell markierten Text aus).
+
+## Schriftarten
+
+Sehen wir uns die Eigenschaften zur Schriftgestaltung an. In diesem Beispiel wenden wir einige CSS-Eigenschaften auf das folgende HTML-Beispiel an:
 
 ```html live-sample___0unstyled live-sample___1color live-sample___2fonts live-sample___3font-style live-sample___4shadows live-sample___5text-align live-sample___6line-height live-sample___7letter-word-spacing
 <h1>Tommy the cat</h1>
@@ -71,9 +71,9 @@ Lassen Sie uns direkt zu den Eigenschaften übergehen, um Schriften zu gestalten
 
 ### Farbe
 
-Die {{cssxref("color")}}-Eigenschaft legt die Farbe des Vordergrundinhalts der ausgewählten Elemente fest, was normalerweise der Text ist, aber auch ein paar andere Dinge einschließen kann, wie z.B. eine Unter- oder Überlinie, die mit der {{cssxref("text-decoration")}}-Eigenschaft auf den Text gesetzt wird.
+Die Eigenschaft {{cssxref("color")}} legt die Farbe des Vordergrundinhalts der ausgewählten Elemente fest. Das ist in der Regel der Text, kann aber auch anderes umfassen, etwa eine Unter- oder Überstreichung, die mit der Eigenschaft {{cssxref("text-decoration")}} hinzugefügt wurde.
 
-`color` kann jede [CSS-Farbenheitseinheit](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) akzeptieren, zum Beispiel:
+`color` akzeptiert jeden [CSS-Farbwert](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color), zum Beispiel:
 
 ```css live-sample___1color live-sample___2fonts live-sample___3font-style live-sample___4shadows live-sample___5text-align live-sample___6line-height live-sample___7letter-word-spacing
 p {
@@ -81,13 +81,13 @@ p {
 }
 ```
 
-Das wird dazu führen, dass die Absätze rot werden, anstatt dem standardmäßigen Browser-Standard von schwarz, wie folgt:
+Dadurch werden die Absätze rot statt in der standardmäßig vom Browser verwendeten Farbe Schwarz dargestellt:
 
 {{ EmbedLiveSample('1color', '100%', 230) }}
 
 ### Schriftfamilien
 
-Um eine andere Schrift für Ihren Text festzulegen, verwenden Sie die {{cssxref("font-family")}}-Eigenschaft — diese erlaubt Ihnen, eine Schriftart (oder eine Liste von Schriften) anzugeben, die der Browser auf die ausgewählten Elemente anwenden soll. Der Browser wird nur dann eine Schriftart anwenden, wenn sie auf dem Gerät verfügbar ist, auf dem die Website angezeigt wird; wenn nicht, wird er einfach eine browser [Standard-Schriftart](#standardschriftarten) verwenden. Ein einfaches Beispiel sieht so aus:
+Um für Ihren Text eine andere Schriftart festzulegen, verwenden Sie die Eigenschaft {{cssxref("font-family")}}. Damit geben Sie eine Schriftart (oder eine Liste von Schriftarten) an, die der Browser auf die ausgewählten Elemente anwenden soll. Der Browser verwendet eine Schriftart nur, wenn sie auf dem Gerät verfügbar ist, auf dem die Website aufgerufen wird. Andernfalls verwendet er eine [Standardschriftart](#standardschriftarten). Ein einfaches Beispiel sieht so aus:
 
 ```css
 p {
@@ -95,18 +95,18 @@ p {
 }
 ```
 
-Dies würde alle Absätze auf einer Seite dazu bringen, die Schrift Arial zu übernehmen, die auf jedem Computer zu finden ist.
+Damit verwenden alle Absätze auf der Seite die Schriftart Arial, die auf jedem Computer zu finden ist.
 
 > [!NOTE]
-> Scrimbas [Web-sichere Schriften](https://scrimba.com/learn-html-and-css-c0p/~01r?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> Lektion bietet einen interaktiven Leitfaden, warum Schriften wichtig sind, web-sichere Schriften und wie man Schriften in CSS anwendet — nebst einer Herausforderung, um Ihr Wissen zu testen.
+> Scrimbas interaktive Lerneinheit [Websichere Schriftarten](https://scrimba.com/learn-html-and-css-c0p/~01r?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> erklärt, warum Schriftarten wichtig sind, welche Schriftarten websicher sind und wie Sie Schriftarten in CSS angeben. Außerdem enthält sie eine Aufgabe, mit der Sie Ihr Wissen prüfen können.
 
-#### Websichere Schriften
+#### Websichere Schriftarten
 
-Apropos Verfügbarkeit von Schriften: Es gibt nur eine bestimmte Anzahl von Schriften, die allgemein auf allen Systemen verfügbar sind und daher ohne große Sorge verwendet werden können. Diese sind die sogenannten **websicheren Schriften**.
+Was die Verfügbarkeit von Schriftarten betrifft, gibt es nur eine begrenzte Anzahl, die im Allgemeinen auf allen Systemen vorhanden ist und daher weitgehend bedenkenlos verwendet werden kann. Das sind die sogenannten **websicheren Schriftarten**.
 
-Meistens wollen wir als Webentwickler die Schriften, die zur Anzeige unserer Textinhalte verwendet werden sollen, genauer steuern. Das Problem ist, einen Weg zu finden, um zu wissen, welche Schrift auf dem Computer verfügbar ist, den unsere Webseiten betrachten. Es gibt keine Möglichkeit, dies in jedem Fall zu wissen, aber die websicheren Schriften sind dafür bekannt, auf nahezu allen gängigen Betriebssystemen (Windows, macOS, den gängigsten Linux-Distributionen, Android und iOS) verfügbar zu sein.
+Als Webentwickler möchten wir meist genauer steuern, in welchen Schriftarten unsere Textinhalte angezeigt werden. Das Problem besteht darin, zu wissen, welche Schriftarten auf dem Computer verfügbar sind, auf dem unsere Webseiten betrachtet werden. Das lässt sich nicht in jedem Fall feststellen. Websichere Schriftarten sind jedoch auf nahezu allen Geräten mit den am häufigsten verwendeten Betriebssystemen verfügbar (Windows, macOS, die gängigsten Linux-Distributionen, Android und iOS).
 
-Die Liste der tatsächlichen websicheren Schriften wird sich mit der Weiterentwicklung von Betriebssystemen ändern, aber es ist vernünftig, die folgenden Schriften als sicher zu betrachten, zumindest momentan (viele von ihnen wurden durch die Microsoft-Initiative _[Core fonts for the Web](https://en.wikipedia.org/wiki/Core_fonts_for_the_Web)_ in den späten 90ern und frühen 2000ern populär gemacht):
+Die Liste der tatsächlich websicheren Schriftarten ändert sich mit der Entwicklung der Betriebssysteme. Zumindest derzeit können die folgenden Schriftarten aber als websicher gelten. Viele davon wurden durch Microsofts Initiative _[Core fonts for the Web](https://en.wikipedia.org/wiki/Core_fonts_for_the_Web)_ Ende der 1990er- und Anfang der 2000er-Jahre verbreitet:
 
 <table class="standard-table no-markdown">
   <thead>
@@ -121,21 +121,21 @@ Die Liste der tatsächlichen websicheren Schriften wird sich mit der Weiterentwi
       <td>Arial</td>
       <td>sans-serif</td>
       <td>
-        Es wird oft als beste Praxis angesehen, auch <em>Helvetica</em> als
-        bevorzugte Alternative zu <em>Arial</em> hinzuzufügen, da,
-        obwohl ihre Schriftbilder nahezu identisch sind, <em>Helvetica</em>
-        als schöner geformt angesehen wird, auch wenn <em>Arial</em>
-        breiter verfügbar ist.
+        Es gilt oft als bewährte Vorgehensweise, <em>Helvetica</em> als
+        bevorzugte Alternative zu <em>Arial</em> anzugeben. Obwohl die
+        Schriftbilder nahezu identisch sind, wird die Form von
+        <em>Helvetica</em> häufig als ansprechender angesehen.
+        <em>Arial</em> ist allerdings weiter verbreitet.
       </td>
     </tr>
     <tr>
       <td>Courier New</td>
       <td>monospace</td>
       <td>
-        Einige Betriebssysteme haben eine alternative (möglicherweise ältere)
-        Version der Schriftart <em>Courier New</em> namens <em>Courier</em>.
-        Es wird als beste Praxis angesehen, beide mit <em>Courier New</em>
-        als bevorzugte Alternative zu verwenden.
+        Einige Betriebssysteme verfügen über eine alternative, möglicherweise
+        ältere Version von <em>Courier New</em> namens <em>Courier</em>.
+        Es gilt als bewährte Vorgehensweise, beide anzugeben, wobei
+        <em>Courier New</em> bevorzugt wird.
       </td>
     </tr>
     <tr>
@@ -147,18 +147,18 @@ Die Liste der tatsächlichen websicheren Schriften wird sich mit der Weiterentwi
       <td>Times New Roman</td>
       <td>serif</td>
       <td>
-        Einige Betriebssysteme haben eine alternative (möglicherweise ältere)
-        Version der Schriftart <em>Times New Roman</em> namens <em>Times</em>.
-        Es wird als beste Praxis angesehen, beide mit <em>Times New Roman</em>
-        als bevorzugte Alternative zu verwenden.
+        Einige Betriebssysteme verfügen über eine alternative, möglicherweise
+        ältere Version von <em>Times New Roman</em> namens <em>Times</em>.
+        Es gilt als bewährte Vorgehensweise, beide anzugeben, wobei
+        <em>Times New Roman</em> bevorzugt wird.
       </td>
     </tr>
     <tr>
       <td>Trebuchet MS</td>
       <td>sans-serif</td>
       <td>
-        Sie sollten vorsichtig sein, diese Schriftart zu verwenden — sie ist
-        auf mobilen Betriebssystemen nicht weit verbreitet.
+        Verwenden Sie diese Schriftart mit Bedacht: Sie ist auf mobilen
+        Betriebssystemen nicht weit verbreitet.
       </td>
     </tr>
     <tr>
@@ -170,14 +170,14 @@ Die Liste der tatsächlichen websicheren Schriften wird sich mit der Weiterentwi
 </table>
 
 > [!NOTE]
-> Unter verschiedenen Ressourcen pflegt die Website [cssfontstack.com](https://www.cssfontstack.com/) eine Liste von websicheren Schriften, die auf Windows und macOS verfügbar sind, was Ihnen bei der Entscheidung helfen kann, was Sie als sicher für Ihre Nutzung betrachten.
+> Die Website [cssfontstack.com](https://www.cssfontstack.com/) bietet unter anderem eine Liste websicherer Schriftarten für Windows und macOS. Sie kann Ihnen bei der Entscheidung helfen, welche Schriftarten Sie für Ihren Anwendungsfall als sicher ansehen.
 
 > [!NOTE]
-> Es gibt eine Möglichkeit, eine benutzerdefinierte Schrift zusammen mit einer Webseite herunterzuladen, um die Schriftverwendung nach Belieben anzupassen: **Web-Schriften**. Dies ist etwas komplexer, und wir werden es in einem [separaten Artikel](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts) später im Modul diskutieren.
+> Es gibt eine Möglichkeit, eine eigene Schriftart zusammen mit einer Webseite herunterzuladen. Damit können Sie die verwendeten Schriftarten frei anpassen: **Webfonts**. Das ist etwas komplexer; wir behandeln es später im Modul in einem [eigenen Artikel](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts).
 
 #### Standardschriftarten
 
-CSS definiert fünf generische Namen für Schriften: `serif`, `sans-serif`, `monospace`, `cursive`, und `fantasy`. Diese sind sehr generisch und das genaue Schriftbild, das aus diesen generischen Namen verwendet wird, kann zwischen jedem Browser und jedem Betriebssystem, auf dem sie angezeigt werden, variieren. Es stellt ein _Worst-Case-Szenario_ dar, bei dem der Browser sein Bestes tun wird, um eine Schrift bereitzustellen, die angemessen aussieht. `Serif`, `sans-serif`, und `monospace` sind ziemlich vorhersehbar und sollten etwas Vernünftiges bereitstellen. Andrerseits sind `cursive` und `fantasy` weniger vorhersehbar, und wir empfehlen, sie sehr sorgfältig zu verwenden und während ihrer Nutzung regelmäßig zu testen.
+CSS definiert fünf generische Namen für Schriftarten: `serif`, `sans-serif`, `monospace`, `cursive` und `fantasy`. Diese Namen sind sehr allgemein. Welche konkrete Schriftart dafür verwendet wird, kann je nach Browser und Betriebssystem variieren. Sie stellen eine Art _Notlösung_ dar: Der Browser versucht, eine möglichst passende Schriftart bereitzustellen. `serif`, `sans-serif` und `monospace` liefern recht vorhersehbare und brauchbare Ergebnisse. `cursive` und `fantasy` sind dagegen weniger vorhersehbar. Wir empfehlen, sie nur mit Bedacht zu verwenden und das Ergebnis jeweils zu testen.
 
 Die fünf Namen sind wie folgt definiert:
 
@@ -193,8 +193,8 @@ Die fünf Namen sind wie folgt definiert:
     <tr>
       <td><code>serif</code></td>
       <td>
-        Schriften, die Serifen haben (die Verzierungen und andere kleine Details,
-        die Sie an den Enden der Striche in einigen Schriftarten sehen).
+        Schriftarten mit Serifen (kleinen Verzierungen und anderen Details an
+        den Enden der Striche mancher Schriftarten).
       </td>
       <td id="serif-example">
         <pre class="brush: html hidden">My big red elephant</pre>
@@ -208,7 +208,7 @@ body {
     </tr>
     <tr>
       <td><code>sans-serif</code></td>
-      <td>Schriften, die keine Serifen haben.</td>
+      <td>Schriftarten ohne Serifen.</td>
       <td id="sans-serif-example">
         <pre class="brush: html hidden">My big red elephant</pre>
         <pre class="brush: css hidden">
@@ -222,8 +222,8 @@ body {
     <tr>
       <td><code>monospace</code></td>
       <td>
-        Schriften, bei denen jedes Zeichen die gleiche Breite hat, typischerweise
-        in Programmcode-Auflistungen verwendet.
+        Schriftarten, bei denen jedes Zeichen gleich breit ist. Sie werden
+        typischerweise zur Darstellung von Code verwendet.
       </td>
       <td id="monospace-example">
         <pre class="brush: html hidden">My big red elephant</pre>
@@ -238,8 +238,8 @@ body {
     <tr>
       <td><code>cursive</code></td>
       <td>
-        Schriften, die beabsichtigt sind, Handschrift nachzuahmen, mit fließenden,
-        verbundenen Strichen.
+        Schriftarten, die mit fließenden, verbundenen Strichen eine
+        Handschrift nachahmen sollen.
       </td>
       <td id="cursive-example">
         <pre class="brush: html hidden">My big red elephant</pre>
@@ -253,7 +253,7 @@ body {
     </tr>
     <tr>
       <td><code>fantasy</code></td>
-      <td>Schriften, die zur Dekoration gedacht sind.</td>
+      <td>Dekorative Schriftarten.</td>
       <td id="fantasy-example">
         <pre class="brush: html hidden">My big red elephant</pre>
         <pre class="brush: css hidden">
@@ -267,9 +267,9 @@ body {
   </tbody>
 </table>
 
-#### Schriftstapel
+#### Schriftlisten
 
-Da Sie die Verfügbarkeit der Schriften auf Ihren Webseiten nicht garantieren können (sogar eine Web-Schrift könnte aus irgendeinem Grund fehlschlagen), können Sie einen **Schriftstapel** angeben, damit der Browser mehrere Schriften zur Auswahl hat. Dies beinhaltet einen `font-family`-Wert, der aus mehreren durch Kommata getrennten Schriftarten besteht, z.B.
+Da Sie nicht garantieren können, dass die gewünschten Schriftarten auf den Geräten Ihrer Besucher verfügbar sind (selbst das Laden eines Webfonts _kann_ aus irgendeinem Grund fehlschlagen), können Sie eine **Schriftliste** angeben. So hat der Browser mehrere Schriftarten zur Auswahl. Dazu erhält `font-family` einen Wert aus mehreren durch Kommas getrennten Schriftartnamen, zum Beispiel:
 
 ```css
 p {
@@ -277,19 +277,19 @@ p {
 }
 ```
 
-In einem solchen Fall beginnt der Browser am Anfang der Liste und prüft, ob diese Schriftart auf dem Rechner verfügbar ist. Wenn ja, wendet er diese Schrift auf die ausgewählten Elemente an. Wenn nicht, wird zur nächsten Schrift weitergegangen, und so weiter.
+Der Browser beginnt am Anfang der Liste und prüft, ob die erste Schriftart auf dem Gerät verfügbar ist. Falls ja, wendet er sie auf die ausgewählten Elemente an. Falls nicht, prüft er die nächste Schriftart und fährt so fort.
 
-Es ist eine gute Idee, einen geeigneten generischen Schriftartnamen am Ende des Stapels anzugeben, damit, wenn keine der aufgelisteten Schriften verfügbar ist, der Browser zumindest etwas annähernd Geeignetes bereitstellen kann. Um diesen Punkt hervorzuheben, werden Absätze mit der standardmäßigen Serifenschrift des Browsers widergegeben, wenn keine andere Option verfügbar ist — normalerweise Times New Roman — das ist nicht gut für eine Sans-Serif-Schrift!
+Am Ende der Liste sollten Sie einen passenden generischen Schriftartnamen angeben. Wenn keine der aufgeführten Schriftarten verfügbar ist, kann der Browser so zumindest eine ungefähr passende Schriftart verwenden. Ohne eine solche Angabe erhalten Absätze möglicherweise die standardmäßige Serifenschrift des Browsers – meist Times New Roman. Das ist keine gute Wahl, wenn Sie eine serifenlose Schrift wünschen!
 
 > [!NOTE]
-> Während Sie Schriftartnamen verwenden können, die ein Leerzeichen enthalten, wie `Trebuchet MS`, ohne den Namen zu zitieren, wird empfohlen, Schriftartnamen, die Leerzeichen, Ziffern oder Interpunktionszeichen außer Bindestrichen enthalten, zu zitieren, um Fehler beim Escaping zu vermeiden.
+> Schriftfamiliennamen mit Leerzeichen, etwa `Trebuchet MS`, können zwar ohne Anführungszeichen verwendet werden. Um Fehler beim Escaping zu vermeiden, empfiehlt es sich jedoch, Namen in Anführungszeichen zu setzen, wenn sie Leerraum, Ziffern oder Satzzeichen außer Bindestrichen enthalten.
 
 > [!WARNING]
-> Jeder Schriftartname, der als generischer Familienname oder CSS-weites Schlüsselwort missverstanden werden könnte, muss zitiert werden. Während die Schriftartnamen als {{cssxref("custom-ident")}} oder {{cssxref("string")}} enthalten sein können, müssen Schriftartnamen, die zufällig denselben Namen wie ein CSS-weitwertigwert oder die generischen Schriftennamen haben, wie `sans-serif` oder `fantasy`, als Zeichenfolge in Anführungszeichen aufgenommen werden. Andernfalls wird der Schriftartname als CSS-Schlüsselwort oder generischer Familienname interpretiert. Bei der Verwendung als Schlüsselwörter dürfen die generischen Schriften - `serif`, `sans-serif`, `monospace`, `cursive` und `fantasy` - und die globalen CSS-Schlüsselwörter NICHT in Anführungszeichen gesetzt werden, da Zeichenfolgen nicht als CSS-Schlüsselwörter interpretiert werden.
+> Jeder Schriftfamilienname, der mit dem Namen einer generischen Schriftfamilie oder einem globalen CSS-Schlüsselwort verwechselt werden könnte, muss in Anführungszeichen stehen. Schriftfamiliennamen können zwar als {{cssxref("custom-ident")}} oder als {{cssxref("string")}} angegeben werden. Namen, die mit einem globalen CSS-Eigenschaftswert wie `initial` oder `inherit` oder mit einem generischen Schriftfamiliennamen wie `sans-serif` oder `fantasy` übereinstimmen, müssen jedoch als Zeichenfolge in Anführungszeichen stehen. Andernfalls wird der Schriftfamilienname als entsprechendes CSS-Schlüsselwort oder als generischer Schriftfamilienname interpretiert. Wenn sie als Schlüsselwörter verwendet werden, dürfen die generischen Schriftfamiliennamen – `serif`, `sans-serif`, `monospace`, `cursive` und `fantasy` – sowie die globalen CSS-Schlüsselwörter NICHT in Anführungszeichen stehen, da Zeichenfolgen nicht als CSS-Schlüsselwörter interpretiert werden.
 
-#### Ein Beispiel für font-family
+#### Ein Beispiel für `font-family`
 
-Lassen Sie uns unser vorheriges Beispiel erweitern, indem wir den Absätzen eine Sans-Serif-Schrift geben:
+Ergänzen wir unser bisheriges Beispiel, sodass die Absätze eine serifenlose Schrift erhalten:
 
 ```css live-sample___2fonts live-sample___3font-style live-sample___4shadows live-sample___5text-align live-sample___6line-height live-sample___7letter-word-spacing
 p {
@@ -298,21 +298,21 @@ p {
 }
 ```
 
-Dies liefert das folgende Ergebnis:
+Das ergibt folgendes Ergebnis:
 
 {{ EmbedLiveSample('2fonts', '100%', 220) }}
 
 ### Schriftgröße
 
-In unserem vorherigen Modulartikel zu [CSS-Werten und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) haben wir Länge und Größe der Einheiten überprüft. Die Schriftgröße (eingestellt mit der {{cssxref("font-size")}}-Eigenschaft) kann Werte annehmen, die in den meisten dieser Einheiten gemessen werden (und andere, wie [Prozentsätze](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#percentages)); jedoch sind die häufigsten Einheiten, die Sie zum Vergrößern des Textes verwenden werden:
+Im Artikel [CSS-Werte und -Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) des vorherigen Moduls haben wir Längen- und Größeneinheiten behandelt. Die mit {{cssxref("font-size")}} festgelegte Schriftgröße kann Werte in den meisten dieser Einheiten annehmen (sowie weitere Werte, etwa [Prozentangaben](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#percentages)). Am häufigsten werden Sie jedoch die folgenden Einheiten zur Festlegung der Textgröße verwenden:
 
-- `px` (Pixel): Die Anzahl der Pixel, die der Text hoch sein soll. Dies ist eine absolute Einheit — sie resultiert in demselben finalen berechneten Wert für die Schrift auf der Seite in nahezu jeder Situation.
-- `em`s: 1 `em` entspricht der auf das übergeordnete Element der aktuellen Elemente eingestellten Schriftgröße (genauer gesagt, die Breite eines Großbuchstabens M, der im übergeordneten Element enthalten ist). Dies kann schwierig zu berechnen sein, wenn Sie viele verschachtelte Elemente mit verschiedenen Schriftgrößen haben, aber es ist machbar, wie Sie unten sehen werden. Warum sich die Mühe machen? Es ist ganz natürlich, sobald Sie sich daran gewöhnt haben, und Sie können `em` verwenden, um alles zu skalieren, nicht nur Text. Sie können eine gesamte Website mit `em` skalieren, was die Wartung erleichtert.
-- `rem`s: Diese funktionieren genauso wie `em`, außer dass 1 `rem` der Schriftgröße entspricht, die auf das Wurzelelement des Dokuments (d.h. {{htmlelement("html")}}) festgelegt ist, nicht auf das übergeordnete Element. Dies macht die Berechnung der Schriftgrößen viel einfacher.
+- `px` (Pixel): Gibt an, wie viele Pixel hoch der Text sein soll. Dies ist eine absolute Einheit: Der endgültige berechnete Wert für die Schrift auf der Seite ist in nahezu jeder Situation gleich.
+- `em`: 1 `em` entspricht der Schriftgröße des übergeordneten Elements des Elements, das wir gestalten (genauer gesagt der Breite eines großen M innerhalb des übergeordneten Elements). Wenn viele verschachtelte Elemente unterschiedliche Schriftgrößen haben, kann die Berechnung schwierig werden. Sie ist aber möglich, wie Sie unten sehen werden. Warum sollte man sich damit befassen? Sobald Sie sich daran gewöhnt haben, ist die Verwendung recht intuitiv. Außerdem können Sie mit `em` nicht nur Text, sondern sämtliche Größen festlegen. Eine ganze Website kann mit `em` dimensioniert werden, was die Wartung erleichtert.
+- `rem`: Funktioniert ähnlich wie `em`. Allerdings entspricht 1 `rem` der Schriftgröße des Wurzelelements des Dokuments (also {{htmlelement("html")}}) und nicht der des übergeordneten Elements. Dadurch lassen sich Schriftgrößen viel leichter berechnen.
 
-Die `font-size` eines Elements wird vom übergeordneten Element dieses Elements vererbt. Dies beginnt alles mit dem Wurzelelement des gesamten Dokuments — {{htmlelement("html")}} — dessen standardmäßige `font-size` auf `16px` browserübergreifend eingestellt ist. Jeder Absatz (oder ein anderes Element, das nicht von anderen Browsern unterschiedlich skaliert ist) innerhalb des Wurzelelements wird eine endgültige Größe von `16px` haben. Andere Elemente können unterschiedliche Standardgrößen haben. Zum Beispiel hat ein {{htmlelement("Heading_Elements", "h1")}} Element standardmäßig eine Größe von `2em`, so dass es eine endgültige Größe von `32px` hat.
+Die `font-size` eines Elements wird von seinem übergeordneten Element geerbt. Ausgangspunkt ist das Wurzelelement des gesamten Dokuments – {{htmlelement("html")}} –, dessen standardmäßige `font-size` browserübergreifend `16px` beträgt. Jeder Absatz innerhalb des Wurzelelements (oder jedes andere Element, für das der Browser keine abweichende Größe festlegt) hat damit eine endgültige Größe von `16px`. Andere Elemente können andere Standardgrößen haben. Für ein {{htmlelement("Heading_Elements", "h1")}}-Element ist beispielsweise standardmäßig eine Größe von `2em` festgelegt; seine endgültige Größe beträgt daher `32px`.
 
-Dinge werden komplizierter, wenn Sie die Schriftgröße verschachtelter Elemente ändern. Zum Beispiel, wenn Sie ein {{htmlelement("article")}}-Element auf Ihrer Seite haben und dessen `font-size` auf 1.5 `em` setzen (die in einer endgültigen Größe von 24 `px` errechnet wird), und dann die Absätze innerhalb der `<article>`-Elemente auf eine berechnete Schriftgröße von 20 `px` setzen wollen, welchen `em`-Wert würden Sie verwenden?
+Komplizierter wird es, wenn Sie die Schriftgröße verschachtelter Elemente ändern. Angenommen, Ihre Seite enthält ein {{htmlelement("article")}}-Element, dessen `font-size` Sie auf `1.5em` setzen (das ergibt eine endgültige Größe von `24px`). Die Absätze innerhalb des `<article>`-Elements sollen eine berechnete Schriftgröße von 20 `px` haben. Welchen `em`-Wert müssten Sie verwenden?
 
 ```html
 <!-- document base font-size is 16px -->
@@ -323,38 +323,38 @@ Dinge werden komplizierter, wenn Sie die Schriftgröße verschachtelter Elemente
 </article>
 ```
 
-Sie müssten seinen `em`-Wert auf 20/24 setzen, oder 0.83333333 `em`. Die Mathematik kann kompliziert sein, also müssen Sie vorsichtig sein, wie Sie Dinge gestalten. Es ist am besten, `rem` zu verwenden, wo immer möglich, um die Dinge einfach zu halten und das Setzen der `font-size` von Container-Elementen, wo möglich, zu vermeiden.
+Sie müssten den `em`-Wert auf 20/24, also 0,83333333 `em`, setzen. Solche Berechnungen können kompliziert werden; gestalten Sie Ihre Elemente daher mit Bedacht. Verwenden Sie nach Möglichkeit `rem`, um die Berechnungen einfach zu halten, und vermeiden Sie es, für Container-Elemente eine `font-size` festzulegen.
 
-### Schriftstil, Schriftgewicht, Textumwandlung und Textdekoration
+### Schriftstil, Schriftstärke, Texttransformation und Textdekoration
 
-CSS bietet vier allgemeine Eigenschaften, um das visuelle Gewicht / die Betonung des Textes zu ändern:
+CSS bietet vier häufig verwendete Eigenschaften, mit denen Sie die Darstellung und Hervorhebung von Text verändern können:
 
-- {{cssxref("font-style")}}: Wird verwendet, um kursiven Text ein- oder auszuschalten. Mögliche Werte sind wie folgt (Sie werden dies selten verwenden, es sei denn, Sie wollen aus irgendeinem Grund einige Kursiv-Stile ausschalten):
-  - `normal`: Setzt den Text auf den normalen Font (schaltet bestehende Kursivschrift aus).
-  - `italic`: Setzt den Text so, dass die kursivierte Version des Fonts verwendet wird, wenn verfügbar; falls nicht, wird sie eine Kursivschrift mit oblique simulieren.
-  - `oblique`: Setzt den Text so, dass er eine simulierte Version eines kursivierten Fonts verwendet, der durch Schrägstellen der normalen Version erstellt wurde.
+- {{cssxref("font-style")}}: Schaltet die kursive Darstellung von Text ein oder aus. Folgende Werte sind möglich (Sie werden diese Eigenschaft selten benötigen, außer Sie möchten beispielsweise eine vorhandene kursive Formatierung entfernen):
+  - `normal`: Verwendet die normale Schriftvariante (und hebt eine vorhandene kursive Darstellung auf).
+  - `italic`: Verwendet die kursive Variante der Schriftart, sofern sie verfügbar ist. Andernfalls wird die kursive Darstellung durch eine Schrägstellung simuliert.
+  - `oblique`: Verwendet eine simulierte kursive Variante, die durch Schrägstellen der normalen Schrift erzeugt wird.
 
-- {{cssxref("font-weight")}}: Setzt, wie fett der Text ist. Dies hat viele verfügbare Werte, falls Sie viele Schriftvarianten verfügbar haben (wie _-light_, _-normal_, _-bold_, _-extrabold_, _-black_, etc.), aber realistischerweise werden Sie sie selten verwenden, außer `normal` und `bold`:
-  - `normal`, `bold`: Normales und fettes Schriftgewicht.
-  - `lighter`, `bolder`: Setzt die Fettung des aktuellen Elements auf einen Schritt leichter oder schwerer als die Fettung des übergeordneten Elements.
-  - `100` – `900`: Numerische Fettungswerte, die definierteren als die obigen Schlüsselwörter, wenn nötig.
+- {{cssxref("font-weight")}}: Legt fest, wie fett der Text dargestellt wird. Es stehen viele Werte zur Verfügung, falls zahlreiche Schriftvarianten vorhanden sind (etwa _-light_, _-normal_, _-bold_, _-extrabold_ oder _-black_). In der Praxis werden Sie aber meist nur `normal` und `bold` verwenden:
+  - `normal`, `bold`: Normale beziehungsweise fette Schriftstärke.
+  - `lighter`, `bolder`: Stellt den Text des aktuellen Elements eine Stufe dünner beziehungsweise fetter dar als den Text seines übergeordneten Elements.
+  - `100` – `900`: Numerische Werte für die Schriftstärke, die bei Bedarf eine feinere Abstufung als die genannten Schlüsselwörter ermöglichen.
 
-- {{cssxref("text-transform")}}: Ermöglicht Ihnen, Ihre Schrift transformieren zu lassen. Zu den Werten gehören:
-  - `none`: Verhindert jegliche Umwandlung.
+- {{cssxref("text-transform")}}: Ermöglicht die Umwandlung der Groß- und Kleinschreibung sowie weitere Texttransformationen. Mögliche Werte sind:
+  - `none`: Verhindert jede Transformation.
   - `uppercase`: Wandelt den gesamten Text in Großbuchstaben um.
   - `lowercase`: Wandelt den gesamten Text in Kleinbuchstaben um.
-  - `capitalize`: Wandelt alle Wörter um, damit der erste Buchstabe groß geschrieben wird.
-  - `full-width`: Wandelt alle Glyphen so um, dass sie in ein festes quadratisches Format geschrieben werden, ähnlich wie bei einer Monospace-Schrift, was die Ausrichtung von z.B. lateinischen Zeichen zusammen mit asiatischen Spracheglyphen (wie Chinesisch, Japanisch, Koreanisch) ermöglicht.
+  - `capitalize`: Schreibt den ersten Buchstaben jedes Wortes groß.
+  - `full-width`: Stellt alle Glyphen innerhalb eines Quadrats mit fester Breite dar, ähnlich einer nichtproportionalen Schrift. So lassen sich beispielsweise lateinische Zeichen an Glyphen asiatischer Schriftsysteme (wie Chinesisch, Japanisch und Koreanisch) ausrichten.
 
-- {{cssxref("text-decoration")}}: Setzt / hebt Textdekorationen auf Schriften auf (Sie werden dies hauptsächlich verwenden, um die standardmäßige Unterstreichung auf Links beim Styling aufzuheben). Verfügbare Werte sind:
-  - `none`: Hebt jegliche bereits vorhandene Textdekorationen auf.
+- {{cssxref("text-decoration")}}: Fügt Textdekorationen hinzu oder entfernt sie. Sie werden diese Eigenschaft vor allem verwenden, um beim Gestalten von Links deren standardmäßige Unterstreichung zu entfernen. Verfügbare Werte sind:
+  - `none`: Entfernt vorhandene Textdekorationen.
   - `underline`: Unterstreicht den Text.
-  - `overline`: Gibt dem Text eine Überlinie.
-  - `line-through`: Verpasst dem Text eine durchgestrichene Linie.
+  - `overline`: Überstreicht den Text.
+  - `line-through`: Streicht den Text durch.
 
-  Beachten Sie, dass {{cssxref("text-decoration")}} mehrere Werte gleichzeitig akzeptieren kann, wenn Sie mehrere Dekorationen gleichzeitig hinzufügen möchten, z.B. `text-decoration: underline overline`. Beachten Sie auch, dass {{cssxref("text-decoration")}} eine Kurzform für {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-style")}}, und {{cssxref("text-decoration-color")}} ist. Sie können Kombinationen dieser Eigenschaftswerte verwenden, um interessante Effekte zu erzeugen, z.B.: `text-decoration: line-through red wavy`.
+  Beachten Sie, dass {{cssxref("text-decoration")}} mehrere Werte gleichzeitig akzeptiert, wenn Sie mehrere Dekorationen hinzufügen möchten, beispielsweise `text-decoration: underline overline`. Außerdem ist {{cssxref("text-decoration")}} eine Kurzschreibweise für {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-style")}} und {{cssxref("text-decoration-color")}}. Durch Kombination dieser Eigenschaftswerte lassen sich interessante Effekte erzielen, zum Beispiel `text-decoration: line-through red wavy`.
 
-Lassen Sie uns einige dieser Eigenschaften zu unserem Beispiel hinzufügen:
+Fügen wir unserem Beispiel einige dieser Eigenschaften hinzu:
 
 ```css live-sample___3font-style live-sample___4shadows live-sample___5text-align live-sample___6line-height live-sample___7letter-word-spacing
 html {
@@ -377,28 +377,28 @@ p {
 }
 ```
 
-Unser neues Ergebnis sieht so aus:
+Das neue Ergebnis sieht so aus:
 
 {{ EmbedLiveSample('3font-style', '100%', 260) }}
 
-### Textschlagschatten
+### Schlagschatten für Text
 
-Sie können Textschirmungen mit der {{cssxref("text-shadow")}}-Eigenschaft anwenden. Diese nimmt bis zu vier Werte an, wie im Beispiel unten gezeigt:
+Mit der Eigenschaft {{cssxref("text-shadow")}} können Sie Text einen Schlagschatten geben. Sie akzeptiert bis zu vier Werte, wie das folgende Beispiel zeigt:
 
 ```css
 text-shadow: 4px 4px 5px red;
 ```
 
-Die vier Eigenschaften sind wie folgt:
+Die vier Werte sind:
 
-1. Der horizontale Versatz des Schattens vom ursprünglichen Text — dies kann die meisten verfügbaren CSS [Längen und Größeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths) annehmen, aber Sie werden meistens `px` verwenden; positive Werte bewegen den Schatten nach rechts, und negative Werte nach links. Dieser Wert muss enthalten sein.
-2. Der vertikale Versatz des Schattens vom ursprünglichen Text. Dies verhält sich ähnlich wie der horizontale Versatz, außer dass er den Schatten nach oben/unten bewegt, nicht nach links/rechts. Dieser Wert muss enthalten sein.
-3. Der Weichzeichnungsradius: ein höherer Wert bedeutet, dass der Schatten weiter streut. Wenn dieser Wert nicht enthalten ist, wird er standardmäßig auf 0 gesetzt, was bedeutet, dass keine Weichzeichnung vorhanden ist. Dies kann die meisten verfügbaren CSS [Längen und Größeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths) annehmen.
-4. Die Grundfarbe des Schattens, die jede [CSS-Farbeneinheit](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) annehmen kann. Wenn nicht enthalten, wird es standardmäßig [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword), d.h. die Farbe des Schattens wird von der {{cssxref("color")}}-Eigenschaft des Elements übernommen.
+1. Der horizontale Versatz des Schattens gegenüber dem ursprünglichen Text. Er kann in den meisten verfügbaren CSS-[Längen- und Größeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths) angegeben werden; meist verwenden Sie `px`. Positive Werte verschieben den Schatten nach rechts, negative nach links. Dieser Wert ist erforderlich.
+2. Der vertikale Versatz des Schattens gegenüber dem ursprünglichen Text. Er funktioniert wie der horizontale Versatz, verschiebt den Schatten aber nach oben oder unten statt nach links oder rechts. Dieser Wert ist ebenfalls erforderlich.
+3. Der Unschärferadius: Je höher der Wert, desto weiter wird der Schatten verteilt. Wird er nicht angegeben, gilt der Standardwert 0; der Schatten ist dann nicht unscharf. Für diesen Wert können die meisten verfügbaren CSS-[Längen- und Größeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths) verwendet werden.
+4. Die Grundfarbe des Schattens. Sie kann als beliebiger [CSS-Farbwert](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) angegeben werden. Wird sie nicht angegeben, gilt standardmäßig [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword): Der Schatten übernimmt dann die durch {{cssxref("color")}} festgelegte Farbe des Elements.
 
 #### Mehrere Schatten
 
-Sie können einem Text mehrere Schatten hinzufügen, indem Sie mehrere Schattenswerte durch Kommas trennen, z.B.:
+Sie können demselben Text mehrere Schatten geben, indem Sie mehrere durch Kommas getrennte Schattenwerte angeben, zum Beispiel:
 
 ```css live-sample___4shadows live-sample___5text-align live-sample___6line-height live-sample___7letter-word-spacing
 h1 {
@@ -408,27 +408,27 @@ h1 {
 }
 ```
 
-Wenn wir dies auf das {{htmlelement("Heading_Elements", "&lt;h1>")}}-Element in unserem Tommy The Cat-Beispiel anwenden würden, hätten wir dieses Ergebnis:
+Wenn wir dies auf das {{htmlelement("Heading_Elements", "&lt;h1>")}}-Element in unserem Beispiel mit Tommy der Katze anwenden, erhalten wir folgendes Ergebnis:
 
 {{ EmbedLiveSample('4shadows', '100%', 260) }}
 
 > [!NOTE]
-> Sie können interessantere Beispiele für die Verwendung von `text-shadow` im Sitepoint-Artikel [Mondlicht mit CSS text-shadow](https://www.sitepoint.com/moonlighting-css-text-shadow/) sehen.
+> Weitere interessante Beispiele für die Verwendung von `text-shadow` finden Sie im SitePoint-Artikel [Moonlighting with CSS text-shadow](https://www.sitepoint.com/moonlighting-css-text-shadow/).
 
 ## Textlayout
 
-Nachdem wir die grundlegenden Schriftsarten behandelt haben, werfen wir einen Blick auf Eigenschaften, die wir zur Beeinflussung des Textlayouts verwenden können.
+Nachdem wir die grundlegenden Schrifteigenschaften behandelt haben, sehen wir uns Eigenschaften an, mit denen Sie das Textlayout beeinflussen können.
 
 ### Textausrichtung
 
-Die {{cssxref("text-align")}}-Eigenschaft wird verwendet, um zu steuern, wie Text innerhalb seines enthaltenden Inhaltskastens ausgerichtet wird. Die verfügbaren Werte sind unten aufgelistet. Sie funktionieren im Wesentlichen genauso wie in einem regulären Textverarbeitungsprogramm:
+Mit der Eigenschaft {{cssxref("text-align")}} steuern Sie, wie Text innerhalb der umgebenden Inhaltsbox ausgerichtet wird. Die verfügbaren Werte sind unten aufgeführt. Sie funktionieren weitgehend wie in einem gewöhnlichen Textverarbeitungsprogramm:
 
-- `left`: Links ausrichten des Textes.
-- `right`: Rechts ausrichten des Textes.
-- `center`: Zentrieren des Textes.
-- `justify`: Verteilt den Text, indem die Abstände zwischen den Wörtern so variiert werden, dass alle Zeilen des Textes die gleiche Breite haben. Sie müssen dies sorgfältig verwenden — es kann schrecklich aussehen, insbesondere wenn es auf einen Absatz mit vielen langen Wörtern angewendet wird. Wenn Sie dies verwenden möchten, sollten Sie in Betracht ziehen, etwas anderes damit zu verwenden, wie {{cssxref("hyphens")}}, um einige der längeren Wörter über Zeilen hinweg zu teilen.
+- `left`: Richtet den Text linksbündig aus.
+- `right`: Richtet den Text rechtsbündig aus.
+- `center`: Zentriert den Text.
+- `justify`: Verteilt den Text, indem die Abstände zwischen den Wörtern angepasst werden, sodass alle Textzeilen gleich breit sind. Verwenden Sie diesen Wert mit Bedacht: Besonders bei Absätzen mit vielen langen Wörtern kann das Ergebnis unschön aussehen. Wenn Sie Blocksatz verwenden, sollten Sie zusätzlich beispielsweise {{cssxref("hyphens")}} einsetzen, um längere Wörter am Zeilenende zu trennen.
 
-Wenn wir `text-align: center;` auf das {{htmlelement("Heading_Elements", "&lt;h1>")}}-Element in unserem Beispiel anwenden würden, hätten wir folgendas Ergebnis:
+Wenn wir `text-align: center;` auf das {{htmlelement("Heading_Elements", "&lt;h1>")}}-Element unseres Beispiels anwenden, erhalten wir folgendes Ergebnis:
 
 ```css hidden live-sample___5text-align live-sample___6line-height live-sample___7letter-word-spacing
 h1 {
@@ -440,7 +440,7 @@ h1 {
 
 ### Zeilenhöhe
 
-Die {{cssxref("line-height")}}-Eigenschaft legt die Höhe jeder Textzeile fest. Diese Eigenschaft kann nicht nur die meisten [Längen- und Größeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths) annehmen, sondern auch einen einheitslosen Wert, der als Multiplikator fungiert und allgemein als beste Option gilt. Mit einem einheitslosen Wert wird die {{cssxref("font-size")}} multipliziert und resultiert in der `line-height`. Fließtext sieht im Allgemeinen schöner aus und ist leichter zu lesen, wenn die Zeilen auseinander abgesetzt sind. Die empfohlene Zeilenhöhe liegt bei etwa 1.5 – 2 (doppelter Zeilenabstand). Um unsere Zeilen von Text auf das 1,6-fache der Höhe der Schrift festzulegen, würden wir verwenden:
+Die Eigenschaft {{cssxref("line-height")}} legt die Höhe jeder Textzeile fest. Sie akzeptiert nicht nur die meisten [Längen- und Größeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths), sondern auch einen Wert ohne Einheit. Dieser wirkt als Multiplikator und gilt im Allgemeinen als beste Wahl. Dabei wird {{cssxref("font-size")}} mit dem einheitenlosen Wert multipliziert; das Ergebnis ist die `line-height`. Fließtext sieht meist ansprechender aus und lässt sich leichter lesen, wenn zwischen den Zeilen mehr Platz ist. Empfohlen wird eine Zeilenhöhe von etwa 1,5 bis 2 (doppelter Zeilenabstand). Um die Zeilenhöhe auf das 1,6-Fache der Schriftgröße festzulegen, verwenden wir:
 
 ```css live-sample___6line-height live-sample___7letter-word-spacing
 p {
@@ -448,15 +448,15 @@ p {
 }
 ```
 
-Wenn wir dies auf die {{htmlelement("p")}}-Elemente in unserem Beispiel anwenden, würden wir dieses Ergebnis erhalten:
+Auf die {{htmlelement("p")}}-Elemente unseres Beispiels angewendet, ergibt das:
 
 {{ EmbedLiveSample('6line-height', '100%', 300) }}
 
-### Zwischenraum zwischen Buchstaben und Wörtern
+### Buchstaben- und Wortabstände
 
-Die {{cssxref("letter-spacing")}} und {{cssxref("word-spacing")}}-Eigenschaften ermöglichen es Ihnen, den Abstand zwischen Buchstaben und Wörtern in Ihrem Text festzulegen. Sie werden diese nicht sehr oft verwenden, könnten aber einen Nutzen darin finden, einen bestimmten Look zu erzeugen oder die Lesbarkeit einer besonders dichten Schrift zu verbessern. Sie können die meisten [Längeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths) annehmen.
+Mit {{cssxref("letter-spacing")}} und {{cssxref("word-spacing")}} legen Sie die Abstände zwischen den Buchstaben und Wörtern Ihres Textes fest. Sie werden diese Eigenschaften nicht oft verwenden, können damit aber eine bestimmte Wirkung erzielen oder die Lesbarkeit einer besonders gedrängten Schrift verbessern. Beide akzeptieren die meisten [Längeneinheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#lengths).
 
-Um dies zu veranschaulichen, könnten wir dem ersten Satz eines jeden {{htmlelement("p")}}-Elements in unserem HTML-Beispiel etwas Wort- und Buchstabenabstand hinzufügen mit:
+Zur Veranschaulichung können wir die Wort- und Buchstabenabstände in der ersten Zeile jedes {{htmlelement("p")}}-Elements unseres HTML-Beispiels wie folgt verändern:
 
 ```css live-sample___7letter-word-spacing
 p::first-line {
@@ -465,53 +465,53 @@ p::first-line {
 }
 ```
 
-Das rendert unser HTML als:
+Unser HTML wird dann so dargestellt:
 
 {{ EmbedLiveSample('7letter-word-spacing', '100%', 330) }}
 
 ### Weitere interessante Eigenschaften
 
-Die oben genannten Eigenschaften geben Ihnen eine Vorstellung davon, wie Sie anfangen können, Text auf einer Webseite zu gestalten, aber es gibt viele weitere Eigenschaften, die Sie verwenden könnten. Wir wollten hier nur die wichtigsten abdecken. Sobald Sie sich an die obigen gewöhnt haben, sollten Sie auch Folgendes erkunden:
+Die bisher vorgestellten Eigenschaften zeigen Ihnen, wie Sie mit der Textgestaltung auf einer Webseite beginnen können. Es gibt jedoch noch viele weitere Eigenschaften. Hier wollten wir nur die wichtigsten behandeln. Wenn Sie mit den genannten Eigenschaften vertraut sind, sollten Sie auch die folgenden erkunden:
 
 Schriftstile:
 
-- {{cssxref("font-variant")}}: Zwischen kleinen Großbuchstaben und normalen Schriftenalternativen wechseln.
-- {{cssxref("font-kerning")}}: Schriftkerning-Optionen ein- und ausschalten.
-- {{cssxref("font-feature-settings")}}: Verschiedene [OpenType](https://en.wikipedia.org/wiki/OpenType) Schriftmerkmale ein- und ausschalten.
-- {{cssxref("font-variant-alternates")}}: Die Verwendung alternativer Glyphen für eine bestimmte Schriftart steuern.
-- {{cssxref("font-variant-caps")}}: Die Verwendung alternativer Großbuchstabendecodierung steuern.
-- {{cssxref("font-variant-east-asian")}}: Die Verwendung alternativer Glyphen für ostasiatische Schrifttypen steuern, wie Japanisch und Chinesisch.
-- {{cssxref("font-variant-ligatures")}}: Steuert, welche Ligaturen und kontextuellen Formen im Text verwendet werden.
-- {{cssxref("font-variant-numeric")}}: Die Verwendung alternativer Glyphen für Zahlen, Brüche und Ordnungsmarker steuern.
-- {{cssxref("font-variant-position")}}: Die Verwendung alternativer Glyphen in kleineren Größen, die als Hoch- oder Tiefstellungszeichen positioniert sind, steuern.
-- {{cssxref("font-size-adjust")}}: Die visuelle Größe der Schrift unabhängig von ihrer tatsächlichen Schriftgröße anpassen.
-- {{cssxref("font-stretch")}}: Zwischen möglichen Alternativen gestreckter Versionen einer bestimmten Schriftart wechseln.
-- {{cssxref("text-underline-position")}}: Die Position der mit der `text-decoration-line`-Eigenschaft `underline` gesetzten Unterstreichungen angeben.
-- {{cssxref("text-rendering")}}: Versuchen Sie, einige Textwiedergabe-Optimierungen durchzuführen.
+- {{cssxref("font-variant")}}: Zwischen Kapitälchen und normalen Schriftvarianten wechseln.
+- {{cssxref("font-kerning")}}: Unterschneidung für Schriftarten ein- und ausschalten.
+- {{cssxref("font-feature-settings")}}: Verschiedene [OpenType](https://en.wikipedia.org/wiki/OpenType)-Schriftfunktionen ein- und ausschalten.
+- {{cssxref("font-variant-alternates")}}: Die Verwendung alternativer Glyphen einer bestimmten Schrift steuern.
+- {{cssxref("font-variant-caps")}}: Die Verwendung alternativer Großbuchstaben-Glyphen steuern.
+- {{cssxref("font-variant-east-asian")}}: Die Verwendung alternativer Glyphen für ostasiatische Schriften wie Japanisch und Chinesisch steuern.
+- {{cssxref("font-variant-ligatures")}}: Steuern, welche Ligaturen und kontextabhängigen Formen im Text verwendet werden.
+- {{cssxref("font-variant-numeric")}}: Die Verwendung alternativer Glyphen für Zahlen, Brüche und Ordinalzeichen steuern.
+- {{cssxref("font-variant-position")}}: Die Verwendung kleinerer alternativer Glyphen steuern, die hoch- oder tiefgestellt angezeigt werden.
+- {{cssxref("font-size-adjust")}}: Die wahrgenommene Schriftgröße unabhängig von der tatsächlichen Schriftgröße anpassen.
+- {{cssxref("font-stretch")}}: Zwischen verfügbaren, unterschiedlich breiten Varianten einer Schriftart wechseln.
+- {{cssxref("text-underline-position")}}: Die Position von Unterstreichungen festlegen, die mit dem Wert `underline` der Eigenschaft `text-decoration-line` erzeugt werden.
+- {{cssxref("text-rendering")}}: Versuchen, die Textdarstellung zu optimieren.
 
-Textlayout-Stile:
+Eigenschaften für das Textlayout:
 
-- {{cssxref("text-indent")}}: Angeben, wie viel horizontaler Raum vor Beginn der ersten Zeile des Textinhalts gelassen werden soll.
-- {{cssxref("text-overflow")}}: Definieren, wie überlaufender Inhalt, der nicht angezeigt wird, den Benutzern angezeigt wird.
-- {{cssxref("white-space")}}: Definieren, wie Leerzeichen und zugehörige Zeilenumbrüche innerhalb des Elements behandelt werden.
-- {{cssxref("word-break")}}: Angeben, ob Zeilen innerhalb von Wörtern gebrochen werden sollen.
-- {{cssxref("direction")}}: Definieren der Textrichtung. (Dies hängt von der Sprache ab und in der Regel ist es besser, HTML dies regeln zu lassen, da es mit dem Textinhalt verbunden ist.)
-- {{cssxref("hyphens")}}: Silbentrennung für unterstützte Sprachen ein- und ausschalten.
-- {{cssxref("line-break")}}: Zeilenbrechung für asiatische Sprachen lockern oder stärken.
-- {{cssxref("text-align-last")}}: Angeben, wie die letzte Zeile eines Blocks oder einer Zeile direkt vor einem erzwungenen Zeilenumbruch ausgerichtet wird.
-- {{cssxref("text-orientation")}}: Die Ausrichtung des Textes in einer Zeile definieren.
-- {{cssxref("overflow-wrap")}}: Angeben, ob der Browser Zeilen innerhalb von Wörtern brechen kann, um Überlauf zu verhindern.
-- {{cssxref("writing-mode")}}: Definieren, ob Textzeilen horizontal oder vertikal angeordnet sind und in welche Richtung nachfolgende Zeilen fließen.
+- {{cssxref("text-indent")}}: Festlegen, wie viel horizontaler Platz vor dem Beginn der ersten Zeile des Textinhalts frei bleibt.
+- {{cssxref("text-overflow")}}: Festlegen, wie abgeschnittener, nicht angezeigter Inhalt Nutzern signalisiert wird.
+- {{cssxref("white-space")}}: Festlegen, wie Leerraum und damit verbundene Zeilenumbrüche innerhalb des Elements behandelt werden.
+- {{cssxref("word-break")}}: Festlegen, ob Zeilen innerhalb von Wörtern umgebrochen werden dürfen.
+- {{cssxref("direction")}}: Die Textrichtung festlegen. (Sie hängt von der Sprache ab; meist ist es besser, dies HTML zu überlassen, da die Richtung zum Textinhalt gehört.)
+- {{cssxref("hyphens")}}: Die Silbentrennung für unterstützte Sprachen ein- und ausschalten.
+- {{cssxref("line-break")}}: Die Regeln für Zeilenumbrüche in asiatischen Sprachen lockern oder verschärfen.
+- {{cssxref("text-align-last")}}: Festlegen, wie die letzte Zeile eines Blocks oder eine Zeile unmittelbar vor einem erzwungenen Zeilenumbruch ausgerichtet wird.
+- {{cssxref("text-orientation")}}: Die Ausrichtung des Textes innerhalb einer Zeile festlegen.
+- {{cssxref("overflow-wrap")}}: Festlegen, ob der Browser Zeilen innerhalb von Wörtern umbrechen darf, um einen Überlauf zu verhindern.
+- {{cssxref("writing-mode")}}: Festlegen, ob Textzeilen horizontal oder vertikal angeordnet werden und in welche Richtung die folgenden Zeilen verlaufen.
 
-## Schrift-Kurzschrift
+## Kurzschreibweise für Schrift-Eigenschaften
 
-Viele Schrifteigenschaften können auch über die Kurzschrifteigenschaft {{cssxref("font")}} eingestellt werden. Diese werden in der folgenden Reihenfolge geschrieben: {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}, {{cssxref("font-stretch")}}, {{cssxref("font-size")}}, {{cssxref("line-height")}}, und {{cssxref("font-family")}}.
+Viele Schrifteigenschaften lassen sich auch mit der Kurzschreibweise {{cssxref("font")}} festlegen. Die Werte werden in folgender Reihenfolge geschrieben: {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}, {{cssxref("font-stretch")}}, {{cssxref("font-size")}}, {{cssxref("line-height")}} und {{cssxref("font-family")}}.
 
-Unter all diesen Eigenschaften sind nur `font-size` und `font-family` erforderlich, wenn die Kurzschrifteigenschaft `font` verwendet wird.
+Von diesen Eigenschaften sind bei Verwendung der `font`-Kurzschreibweise nur `font-size` und `font-family` erforderlich.
 
-Ein Schrägstrich muss zwischen die Eigenschaften {{cssxref("font-size")}} und {{cssxref("line-height")}} gesetzt werden.
+Zwischen {{cssxref("font-size")}} und {{cssxref("line-height")}} muss ein Schrägstrich stehen.
 
-Ein vollständiges Beispiel würde so aussehen:
+Ein vollständiges Beispiel sieht so aus:
 
 ```css
 font:
@@ -520,14 +520,14 @@ font:
   sans-serif;
 ```
 
-## Spielen mit Textgestaltung
+## Mit Textgestaltung experimentieren
 
-OK, jetzt sind Sie dran. Für diese Aufgabe haben wir keine spezifischen Übungen für Sie. Wir möchten nur, dass Sie einige Schrift-/Textlayout-Eigenschaften ausprobieren. Sehen Sie selbst, was Sie herausfinden können!
+Jetzt sind Sie an der Reihe. Für diese Aufgabe gibt es keine festen Übungen. Probieren Sie einfach verschiedene Eigenschaften für Schrift und Textlayout aus und sehen Sie, welche Ergebnisse Sie erzielen können!
 
-1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie einige Deklarationen in die bereitgestellte leere `p { }`-Regel ein, um die Gestaltung des bereitgestellten Textes zu ändern. Seien Sie so kreativ, wie Sie möchten.
+1. Klicken Sie im folgenden Codeblock auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
+2. Ergänzen Sie die leere Regel `p { }` um einige Deklarationen, um die Gestaltung des vorgegebenen Textes zu ändern. Seien Sie dabei so kreativ, wie Sie möchten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Beziehen Sie sich auf die vorherigen Abschnitte im Artikel, um mehr Informationen über die Schrift- und Textstile zu finden, die Sie festlegen können.
+Falls Ihnen ein Fehler unterläuft, können Sie Ihre Änderungen mit der Schaltfläche _Reset_ im MDN Playground zurücksetzen. In den vorherigen Abschnitten dieses Artikels finden Sie weitere Informationen zu den verfügbaren Schrift- und Textstilen.
 
 ```html live-sample___fonts_text
 <p>Some sample text for your delight</p>
@@ -543,11 +543,11 @@ p {
 
 ## Zusammenfassung
 
-Wir hoffen, dass Sie Spaß daran hatten, mit Text in diesem Artikel zu spielen! Der nächste Artikel wird Ihnen alles Wissenswerte über die Gestaltung von HTML-Listen bereitstellen.
+Wir hoffen, dass Ihnen das Experimentieren mit Text in diesem Artikel Spaß gemacht hat! Im nächsten Artikel erfahren Sie alles Wichtige über die Gestaltung von HTML-Listen.
 
 ## Siehe auch
 
 - [Alles über die CSS-Eigenschaft font-family](https://explainers.dev/font-family/), explainers.dev
-- [Web-sichere Schriften](https://scrimba.com/the-frontend-developer-career-path-c0j/~02b?via=mdn), Scrimba <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
+- [Websichere Schriftarten](https://scrimba.com/the-frontend-developer-career-path-c0j/~02b?via=mdn), Scrimba <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
 
 {{NextMenu("Learn_web_development/Core/Text_styling/Styling_lists", "Learn_web_development/Core/Text_styling")}}

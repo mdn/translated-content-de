@@ -3,20 +3,64 @@ title: CSS-Typ `<alpha-value>`
 short-title: <alpha-value>
 slug: Web/CSS/Reference/Values/alpha-value
 l10n:
-  sourceCommit: bc838d9946a95b501a9ce3e522929eebcce7a3e5
+  sourceCommit: bb5ced11c285b1039e5ee64484ca5609e45a2e93
 ---
 
-Der **`<alpha-value>`**-[CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) stellt einen Wert dar, der entweder ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein kann und den **{{Glossary("alpha", "Alphakanal")}}** beziehungsweise die **Transparenz** einer Farbe angibt.
+Der **`<alpha-value>`**-[CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) stellt einen Wert dar, der entweder ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein kann. Er gibt den **{{Glossary("alpha", "Alphakanal")}}** beziehungsweise die **Transparenz** einer Farbe an.
+
+## Zugehörige Funktionen
+
+Dieser Datentyp wird von den folgenden CSS-Funktionen als Parameter akzeptiert:
+
+- {{cssxref("alpha()")}}
+- {{cssxref("color()")}}
+- {{cssxref("device-cmyk()")}}
+- {{cssxref("hsl()")}}
+- {{cssxref("hsl()", "hsla()")}}
+- {{cssxref("hwb()")}}
+- {{cssxref("lab()")}}
+- {{cssxref("lch()")}}
+- {{cssxref("oklab()")}}
+- {{cssxref("oklch()")}}
+- {{cssxref("rgb()")}}
+- {{cssxref("rgb()", "rgba()")}}
 
 ## Syntax
 
-Der Wert eines `<alpha-value>` wird entweder als {{cssxref("number")}} oder als {{cssxref("percentage")}} angegeben.
+```css
+/* <number> values */
+0
+0.125
+0.5
+1
 
-Bei einer Angabe als Zahl liegt der sinnvolle Bereich zwischen 0 (vollständig transparent) und 1.0 (vollständig deckend), mit Dezimalwerten dazwischen. Beispielsweise bedeutet 0.5, dass die Vordergrund- und die Hintergrundfarbe jeweils zur Hälfte verwendet werden. Werte außerhalb des Bereichs von 0 bis 1 sind zulässig, werden aber auf diesen Bereich [begrenzt](<https://en.wikipedia.org/wiki/Clamping_(graphics)>).
+/* <percentage> values */
+0%
+12.5%
+50%
+100%
+```
 
-Wird der Alphawert als Prozentsatz angegeben, entspricht 0% vollständiger Transparenz und 100% vollständiger Deckkraft.
+### Werte
 
-## Interpolation
+Dieser Datentyp wird als einer der folgenden Werte angegeben:
+
+- {{cssxref("number")}}
+  - : Ein positiver Wert zwischen `0` und `1`, einschließlich der Grenzwerte.
+- {{cssxref("percentage")}}
+  - : Ein `<percentage>` zwischen `0%` und `100%`, einschließlich der Grenzwerte.
+
+Werte außerhalb dieser Bereiche sind zwar gültig, werden aber auf den jeweils nächstgelegenen Grenzwert begrenzt.
+
+## Beschreibung
+
+Ein `<alpha-value>` wird entweder als {{cssxref("number")}} oder als {{cssxref("percentage")}} angegeben.
+
+Bei Angabe als Zahl reicht der sinnvolle Bereich von `0` (vollständig transparent) bis `1.0` (vollständig deckend), mit Dezimalwerten dazwischen. Beispielsweise bedeutet `0.5`, dass die Vordergrundfarbe und die Hintergrundfarbe jeweils zur Hälfte verwendet werden. Werte außerhalb des Bereichs von `0` bis `1` sind zulässig, werden aber auf diesen Bereich begrenzt.
+
+Wird der Alphawert als Prozentwert angegeben, entspricht `0%` vollständiger Transparenz und `100%` vollständiger Deckkraft.
+
+### Interpolation
 
 Bei Animationen werden Werte des CSS-Datentyps `<alpha-value>` als reelle Gleitkommazahlen {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die der Animation zugeordnete [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) bestimmt.
 
@@ -28,22 +72,11 @@ Bei Animationen werden Werte des CSS-Datentyps `<alpha-value>` als reelle Gleitk
 
 ### Deckkraft der Textfarbe festlegen
 
-Die Funktion [`rgb()`](/de/docs/Web/CSS/Reference/Values/color_value/rgb) akzeptiert einen vierten, optionalen Wert zur Angabe eines Alphawerts.
-Das folgende Beispiel zeigt, wie Sie mithilfe des Alphawerts eine Farbe mit 60% Deckkraft anwenden:
+Das Beispiel zeigt, wie eine Farbe mit `60%` Deckkraft angewendet wird. Dazu wird `<alpha-value>` als Parameter innerhalb einer {{cssxref("rgb()")}}-Funktion verwendet, die einen optionalen vierten Parameter für den Alphawert akzeptiert:
 
 ```css
 /* <rgb()> */
 color: rgb(34 12 64 / 60%);
-```
-
-### Schwellenwert für eine Bildform festlegen
-
-Hier wird ein Alphawert verwendet, um zu bestimmen, welche Teile eines Bildes als Teil einer Form gelten:
-
-```css
-/* shape-image-threshold */
-shape-image-threshold: 70%;
-shape-image-threshold: 0.7;
 ```
 
 ## Spezifikationen

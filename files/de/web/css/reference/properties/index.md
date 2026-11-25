@@ -3,10 +3,11 @@ title: CSS-Eigenschaften
 short-title: Properties
 slug: Web/CSS/Reference/Properties
 l10n:
-  sourceCommit: 28f2781de2dbb8e81be94c87ff81fd0442cb4736
+  sourceCommit: 2f5d0e19eb706f36f837b84855f581f4bd087d15
 ---
 
-Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations) verwendet wird und es Ihnen ermöglicht, bestimmte Aspekte der ausgewählten Elemente zu gestalten. Zum Beispiel wird die {{CSSxRef("opacity")}}-Eigenschaft verwendet, um die Transparenz eines ausgewählten Elements festzulegen, sodass Sie steuern können, ob der Inhalt hinter diesem Element sichtbar ist:
+Eine [CSS](/de/docs/Web/CSS)-**_Eigenschaft_** ist ein Parameter in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations), mit dem Sie bestimmte Aspekte ausgewählter Elemente gestalten können.
+Mit der Eigenschaft {{CSSxRef("opacity")}} legen Sie beispielsweise die Deckkraft eines ausgewählten Elements fest und können so steuern, ob Inhalte hinter diesem Element sichtbar sind:
 
 ```css
 /* Set 0.8 opacity on <img> elements */
@@ -15,7 +16,9 @@ img {
 }
 ```
 
-Jede Eigenschaft hat einen Namen (z.B. `opacity`), einen Wert (z.B. `0.8`) und ein definiertes Verhalten bei der Darstellung des Dokuments. CSS definiert auch Kurzschreibweisen für Eigenschaften, sodass Sie mehrere verwandte Eigenschaften in einer einzigen Deklaration angeben können. Zum Beispiel ist die {{CSSxRef("margin")}}-Eigenschaft eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}, wodurch der Rand aller vier Seiten eines Elements festgelegt wird:
+Jede Eigenschaft hat einen Namen (z. B. `opacity`), einen Wert (z. B. `0.8`) und ein definiertes Verhalten bei der Darstellung des Dokuments.
+CSS definiert auch Kurzschreibweisen für Eigenschaften, mit denen Sie mehrere zusammengehörige Eigenschaften in einer einzigen Deklaration angeben können.
+Die Eigenschaft {{CSSxRef("margin")}} ist beispielsweise eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}. Damit legen Sie die Außenabstände an allen vier Seiten eines Elements fest:
 
 ```css
 /* Give <img> elements 1rem of margin */
@@ -32,9 +35,9 @@ selector {
 }
 ```
 
-## Alphabetisches Verzeichnis der Eigenschaften
+## Alphabetischer Index der Eigenschaften
 
-Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen unter anderem:
+Zu den Standardeigenschaften, die in CSS-Spezifikationen definiert sind, gehören die folgenden:
 
 ### Verschiedenes
 
@@ -305,6 +308,7 @@ Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen unter ande
 - {{CSSxRef("height")}}
 - {{CSSxRef("hyphenate-character")}}
 - {{CSSxRef("hyphenate-limit-chars")}}
+- {{CSSxRef("hyphenate-limit-lines")}}
 - {{CSSxRef("hyphens")}}
 - {{CSSxRef("image-orientation")}}
 - {{CSSxRef("image-rendering")}}
@@ -602,9 +606,9 @@ Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen unter ande
 
 ### Nicht standardisierte Eigenschaften
 
-Nicht standardisierte, mit einem Vendor-Prefix versehene Eigenschaften umfassen:
+Zu den nicht standardisierten Eigenschaften mit Anbieterpräfix gehören:
 
-#### `-moz-` Präfix
+#### Präfix `-moz-`
 
 - {{CSSxRef("-moz-float-edge")}}
 - {{CSSxRef("-moz-force-broken-image-icon")}}
@@ -612,7 +616,7 @@ Nicht standardisierte, mit einem Vendor-Prefix versehene Eigenschaften umfassen:
 - {{CSSxRef("-moz-user-focus")}}
 - {{CSSxRef("-moz-user-input")}}
 
-#### `-webkit-` Präfix
+#### Präfix `-webkit-`
 
 - {{CSSxRef("-webkit-box-reflect")}}
 - {{CSSxRef("-webkit-border-before")}} (Kurzschreibweise)
@@ -638,6 +642,6 @@ Nicht standardisierte, mit einem Vendor-Prefix versehene Eigenschaften umfassen:
 
 - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
 - [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
-- [Firefox (-moz-) Vendor-Präfix CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [WebKit (-webkit-) Vendor-Präfix CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
-- {{Glossary("Vendor_prefix", "Vendor-Prefix")}}
+- [Firefox-CSS-Erweiterungen mit Anbieterpräfix (-moz-)](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- [WebKit-CSS-Erweiterungen mit Anbieterpräfix (-webkit-)](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- {{Glossary("Vendor_prefix", "Anbieterpräfix")}}
