@@ -1,20 +1,31 @@
 ---
-title: CSS-Typ `<hue-interpolation-method>`
+title: "`<hue-interpolation-method>` CSS-Typ"
 short-title: <hue-interpolation-method>
 slug: Web/CSS/Reference/Values/hue-interpolation-method
 l10n:
-  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
+  sourceCommit: 42994d9657fd9771d5c45579521d947ba5babc05
 ---
 
 Der [CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) **`<hue-interpolation-method>`** beschreibt den Algorithmus zur Interpolation zwischen {{cssxref("hue")}}-Werten.
-Die Interpolationsmethode legt fest, wie anhand eines Farbkreises ein Mittelpunkt zwischen zwei Farbtonwerten gefunden wird.
-Sie wird als Bestandteil des Datentyps {{CSSXref("&lt;color-interpolation-method&gt;")}} verwendet.
 
-Bei der Interpolation von `<hue>`-Werten ist [`shorter`](#shorter) der Standardalgorithmus.
+## Zugehörige Eigenschaften und Funktionen
+
+Dieser Datentyp wird als Wert der folgenden CSS-Eigenschaft akzeptiert:
+
+- {{cssxref("color-interpolation")}}
+
+Dieser Datentyp wird auch als Parameter der folgenden CSS-Funktionen akzeptiert:
+
+- {{cssxref("color-mix()")}}
+- {{cssxref("conic-gradient()")}}
+- {{cssxref("linear-gradient()")}}
+- {{cssxref("font-palette/palette-mix","palette-mix()")}}
+- {{cssxref("radial-gradient()")}}
+- {{cssxref("repeating-conic-gradient()")}}
+- {{cssxref("repeating-linear-gradient()")}}
+- {{cssxref("repeating-radial-gradient()")}}
 
 ## Syntax
-
-Ein `<hue-interpolation-method>`-Wert besteht aus dem Namen eines Algorithmus zur Farbtoninterpolation, gefolgt vom wörtlichen Token `hue`:
 
 ```plain
 shorter hue
@@ -25,55 +36,87 @@ decreasing hue
 
 ### Werte
 
-Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}, die den Umfang in zwei mögliche Bögen für die Interpolation teilen. Beide Bögen beginnen am ersten Radius und enden am zweiten Radius; einer verläuft jedoch im Uhrzeigersinn, der andere gegen den Uhrzeigersinn.
+Dieser Datentyp wird durch den Namen eines Algorithmus zur Farbtoninterpolation angegeben, gefolgt vom wörtlichen Token `hue`. Mögliche Werte sind:
+
+- `shorter hue`
+  - : Gibt an, dass der kürzere Kreisbogen verwendet werden soll. Dies ist die Standardeinstellung.
+
+- `longer hue`
+  - : Gibt an, dass der längere Kreisbogen verwendet werden soll.
+
+- `increasing hue`
+  - : Gibt an, dass ein Kreisbogen im Uhrzeigersinn verwendet werden soll.
+
+- `decreasing hue`
+  - : Gibt an, dass ein Kreisbogen gegen den Uhrzeigersinn verwendet werden soll.
+
+## Beschreibung
+
+Der Datentyp `<hue-interpolation-method>` legt den Algorithmus zur Interpolation zwischen {{cssxref("hue")}}-Werten fest. Die Interpolationsmethode bestimmt anhand eines Farbkreises, wie ein Mittelpunkt zwischen zwei Farbtonwerten ermittelt wird.
+Er wird als Bestandteil des Datentyps {{CSSXref("&lt;color-interpolation-method&gt;")}} verwendet.
+
+Ein `<hue-interpolation-method>`-Wert besteht aus dem Namen eines Algorithmus zur Farbtoninterpolation – `longer`, `shorter`, `increase` oder `decrease` – gefolgt vom wörtlichen Token `hue`. Bei der Interpolation von `<hue>`-Werten wird standardmäßig der Algorithmus [`shorter`](#shorter) verwendet.
+
+### Farbtonalgorithmen
+
+Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}. Diese teilen den Umfang in zwei mögliche Kreisbögen für die Interpolation. Beide Kreisbögen beginnen am ersten Radius und enden am zweiten; einer verläuft jedoch im Uhrzeigersinn und der andere gegen den Uhrzeigersinn.
+
+Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 360deg)` normiert sind, gibt es vier Algorithmen, die bestimmen, welcher Kreisbogen bei der Interpolation von `θ1` nach `θ2` verwendet wird.
 
 > [!NOTE]
-> Die folgenden Beschreibungen und Abbildungen beziehen sich auf Farbkreise, bei denen die Farbtonwinkel im Uhrzeigersinn zunehmen. Beachten Sie, dass es auch Farbkreise gibt, bei denen zunehmende Winkel gegen den Uhrzeigersinn verlaufen.
+> Die folgenden Beschreibungen und Abbildungen beziehen sich auf Farbkreise, in denen die Farbtonwinkel im Uhrzeigersinn zunehmen. Es gibt auch Farbkreise, in denen zunehmende Winkel gegen den Uhrzeigersinn verlaufen.
 
-Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 360deg)` normiert sind, gibt es vier Algorithmen, die bestimmen, welcher Bogen bei der Interpolation von `θ1` nach `θ2` verwendet wird:
+#### Kürzerer Kreisbogen
 
-- `shorter`
-  - : Verwendet den kürzeren Bogen. Fallen die beiden Radien zusammen, reduziert sich der Bogen auf einen einzelnen Punkt. Sind beide Bögen gleich lang:
-    - Wenn `θ1 < θ2`, wird der Bogen im Uhrzeigersinn verwendet;
-    - wenn `θ1 > θ2`, wird der Bogen gegen den Uhrzeigersinn verwendet.
+Wenn `shorter hue` angegeben ist oder die Standardeinstellung verwendet wird, wird der kürzere Kreisbogen verwendet. Fallen die beiden Radien zusammen, reduziert sich der Kreisbogen auf einen einzelnen Punkt. Sind beide Kreisbögen gleich lang, gilt:
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                       | `θ1 = 135deg`, `θ2 = 45deg`                                       |
-    | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-    | ![shorter mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![shorter mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
+- Wenn `θ1 < θ2`, wird der Kreisbogen im Uhrzeigersinn verwendet.
 
-- `longer`
-  - : Verwendet den längeren Bogen. Fallen die beiden Radien zusammen:
-    - Wenn `θ1 ≤ θ2`, umfasst der Bogen den gesamten Umfang und verläuft im Uhrzeigersinn.
-    - Wenn `θ1 > θ2`, umfasst der Bogen den gesamten Umfang und verläuft gegen den Uhrzeigersinn.
+- Wenn `θ1 > θ2`, wird der Kreisbogen gegen den Uhrzeigersinn verwendet.
 
-    Sind beide Bögen gleich lang:
-    - Wenn `θ1 < θ2`, wird der Bogen im Uhrzeigersinn verwendet;
-    - wenn `θ1 > θ2`, wird der Bogen gegen den Uhrzeigersinn verwendet.
+| `θ1 = 45deg`, `θ2 = 135deg`                                       | `θ1 = 135deg`, `θ2 = 45deg`                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ![shorter bei θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![shorter bei θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                     | `θ1 = 135deg`, `θ2 = 45deg`                                     |
-    | --------------------------------------------------------------- | --------------------------------------------------------------- |
-    | ![longer mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![longer mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
+#### Längerer Kreisbogen
 
-- `increasing`
-  - : Verwendet den Bogen im Uhrzeigersinn. Fallen die beiden Radien zusammen, reduziert sich der Bogen auf einen einzelnen Punkt.
+Wenn `longer hue` angegeben ist, wird der längere Kreisbogen verwendet. Fallen die beiden Radien zusammen, gilt:
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                         |
-    | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
-    | ![increasing mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![increasing mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
+- Wenn `θ1 > θ2`, entspricht der Kreisbogen dem gesamten Umfang und verläuft gegen den Uhrzeigersinn.
 
-- `decreasing`
-  - : Verwendet den Bogen gegen den Uhrzeigersinn. Fallen die beiden Radien zusammen, reduziert sich der Bogen auf einen einzelnen Punkt.
+Sind beide Kreisbögen gleich lang, gilt:
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                         | `θ1 = 135deg`, `θ2 = 45deg`                                          |
-    | ------------------------------------------------------------------- | -------------------------------------------------------------------- |
-    | ![decreasing mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![decreasing mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
+- Wenn `θ1 < θ2`, wird der Kreisbogen im Uhrzeigersinn verwendet.
+- Wenn `θ1 > θ2`, wird der Kreisbogen gegen den Uhrzeigersinn verwendet.
 
-Da nur zwei Bögen zur Auswahl stehen, sind diese Algorithmen unter bestimmten Bedingungen paarweise gleichwertig. Genauer gesagt:
+| `θ1 = 45deg`, `θ2 = 135deg`                                     | `θ1 = 135deg`, `θ2 = 45deg`                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- |
+| ![longer bei θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![longer bei θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
 
-- Wenn `0deg < θ2 - θ1 < 180deg` oder `θ2 - θ1 < -180deg`, sind `shorter` und `increasing` gleichwertig, während `longer` und `decreasing` gleichwertig sind.
-- Wenn `-180deg < θ2 - θ1 < 0deg` oder `θ2 - θ1 > 180deg`, sind `shorter` und `decreasing` gleichwertig, während `longer` und `increasing` gleichwertig sind.
+#### Zunehmender Farbton
 
-Eine Besonderheit von `increasing` und `decreasing` ist, dass der Bogen nicht wie bei `shorter` und `longer` auf die andere Seite wechselt, wenn die Differenz der Farbtonwinkel während eines Übergangs oder einer Animation den Wert `180deg` überschreitet.
+Wenn `increasing hue` angegeben ist, wird der Kreisbogen im Uhrzeigersinn verwendet. Fallen die beiden Radien zusammen, reduziert sich der Kreisbogen auf einen einzelnen Punkt.
+
+| `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                         |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| ![increasing bei θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![increasing bei θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
+
+#### Abnehmender Farbton
+
+Wenn `decreasing hue` angegeben ist, wird der Kreisbogen gegen den Uhrzeigersinn verwendet. Fallen die beiden Radien zusammen, reduziert sich der Kreisbogen auf einen einzelnen Punkt.
+
+| `θ1 = 45deg`, `θ2 = 135deg`                                         | `θ1 = 135deg`, `θ2 = 45deg`                                          |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| ![decreasing bei θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![decreasing bei θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
+
+### Paarweise gleichwertige Algorithmen
+
+Da nur zwei Kreisbögen zur Auswahl stehen, sind diese Algorithmen unter bestimmten Umständen paarweise gleichwertig. Im Einzelnen gilt:
+
+- Wenn `0deg < θ2 - θ1 < 180deg` oder `θ2 - θ1 < -180deg`, sind `shorter` und `increasing` gleichwertig, ebenso `longer` und `decreasing`.
+- Wenn `-180deg < θ2 - θ1 < 0deg` oder `θ2 - θ1 > 180deg`, sind `shorter` und `decreasing` gleichwertig, ebenso `longer` und `increasing`.
+
+Eine Besonderheit von `increasing` und `decreasing` ist, dass der Kreisbogen bei einer Transition oder Animation nicht wie bei `shorter` und `longer` auf die andere Seite wechselt, wenn die Differenz der Farbtonwinkel `180deg` überschreitet.
 
 ## Formale Syntax
 
@@ -81,7 +124,7 @@ Eine Besonderheit von `increasing` und `decreasing` ist, dass der Bogen nicht wi
 
 ## Beispiele
 
-### Vergleich der Algorithmen zur Farbtoninterpolation
+### Algorithmen zur Farbtoninterpolation vergleichen
 
 Das folgende Beispiel zeigt, wie sich verschiedene Algorithmen zur Farbtoninterpolation in einem {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} auswirken.
 

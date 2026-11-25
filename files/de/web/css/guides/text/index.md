@@ -3,10 +3,10 @@ title: CSS-Text
 short-title: Text
 slug: Web/CSS/Guides/Text
 l10n:
-  sourceCommit: 2f5d0e19eb706f36f837b84855f581f4bd087d15
+  sourceCommit: a32e2ce750837a97815278ef91aa07d3d3f73719
 ---
 
-Das Modul **CSS-Text** definiert, wie Text verarbeitet wird, etwa durch Zeilenumbrüche, Blocksatz und Ausrichtung, den Umgang mit Leerraum und die Umwandlung von Text.
+Das Modul **CSS-Text** definiert, wie Text verarbeitet wird, etwa durch Zeilenumbrüche, Blocksatz und Ausrichtung, den Umgang mit Leerraum sowie Texttransformationen.
 
 ## Referenz
 
@@ -27,6 +27,7 @@ Das Modul **CSS-Text** definiert, wie Text verarbeitet wird, etwa durch Zeilenum
 - {{cssxref("text-indent")}}
 - {{cssxref("text-justify")}}
 - {{cssxref("text-autospace")}}
+- {{cssxref("text-autospace-size")}}
 - {{cssxref("text-spacing-trim")}} {{Experimental_Inline}}
 - {{cssxref("text-transform")}}
 - {{cssxref("text-wrap")}}
@@ -36,15 +37,16 @@ Das Modul **CSS-Text** definiert, wie Text verarbeitet wird, etwa durch Zeilenum
 - {{cssxref("white-space-collapse")}}
 - {{cssxref("word-break")}}
 - {{cssxref("word-spacing")}}
+- {{cssxref("wrap-inside")}}
 
-Die Spezifikation definiert außerdem die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-group-align`, `text-spacing`, `word-space-transform`, `wrap-after` und `wrap-before`, die bislang von keinem Browser unterstützt werden.
+Die Spezifikation definiert außerdem die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-group-align`, `text-spacing`, `word-space-transform`, `wrap-after` und `wrap-before`, die noch von keinem Browser unterstützt werden.
 
 ## Leitfäden
 
-- [Text umbrechen und trennen](/de/docs/Web/CSS/Guides/Text/Wrapping_breaking_text)
-  - : Ein Leitfaden zu den verschiedenen Möglichkeiten, überlaufenden Text in CSS zu behandeln.
+- [Text umbrechen und Zeilenumbrüche einfügen](/de/docs/Web/CSS/Guides/Text/Wrapping_breaking_text)
+  - : Ein Leitfaden zu den verschiedenen Möglichkeiten, mit überlaufendem Text in CSS umzugehen.
 - [Umgang mit Leerraum](/de/docs/Web/CSS/Guides/Text/Whitespace)
-  - : Ein Leitfaden zu den verschiedenen CSS-Eigenschaften, die die Darstellung von Leerraum im DOM steuern, sowie zu möglichen Fallstricken und deren Vermeidung.
+  - : Ein Leitfaden zu den verschiedenen CSS-Eigenschaften, die die Darstellung von Leerraum im DOM steuern, einschließlich möglicher Fallstricke und deren Vermeidung.
 
 ## Verwandte Konzepte
 

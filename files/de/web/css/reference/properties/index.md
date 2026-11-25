@@ -3,11 +3,11 @@ title: CSS-Eigenschaften
 short-title: Properties
 slug: Web/CSS/Reference/Properties
 l10n:
-  sourceCommit: 2f5d0e19eb706f36f837b84855f581f4bd087d15
+  sourceCommit: eeebbb874aeb67641b37122adf7aac42c5b8f45a
 ---
 
 Eine [CSS](/de/docs/Web/CSS)-**_Eigenschaft_** ist ein Parameter in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations), mit dem Sie bestimmte Aspekte ausgewählter Elemente gestalten können.
-Mit der Eigenschaft {{CSSxRef("opacity")}} legen Sie beispielsweise die Deckkraft eines ausgewählten Elements fest und können so steuern, ob Inhalte hinter diesem Element sichtbar sind:
+Mit der Eigenschaft {{CSSxRef("opacity")}} legen Sie beispielsweise die Deckkraft eines ausgewählten Elements fest. So können Sie steuern, ob Inhalte hinter diesem Element sichtbar sind:
 
 ```css
 /* Set 0.8 opacity on <img> elements */
@@ -17,8 +17,8 @@ img {
 ```
 
 Jede Eigenschaft hat einen Namen (z. B. `opacity`), einen Wert (z. B. `0.8`) und ein definiertes Verhalten bei der Darstellung des Dokuments.
-CSS definiert auch Kurzschreibweisen für Eigenschaften, mit denen Sie mehrere zusammengehörige Eigenschaften in einer einzigen Deklaration angeben können.
-Die Eigenschaft {{CSSxRef("margin")}} ist beispielsweise eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}. Damit legen Sie die Außenabstände an allen vier Seiten eines Elements fest:
+CSS definiert außerdem Kurzschreibweisen für Eigenschaften, mit denen Sie mehrere zusammengehörige Eigenschaften in einer einzigen Deklaration angeben können.
+Die Eigenschaft {{CSSxRef("margin")}} ist beispielsweise eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}. Damit legen Sie den Außenabstand an allen vier Seiten eines Elements fest:
 
 ```css
 /* Give <img> elements 1rem of margin */
@@ -37,9 +37,9 @@ selector {
 
 ## Alphabetischer Index der Eigenschaften
 
-Zu den Standardeigenschaften, die in CSS-Spezifikationen definiert sind, gehören die folgenden:
+Zu den durch CSS-Spezifikationen definierten Standardeigenschaften gehören:
 
-### Verschiedenes
+### Sonstiges
 
 - [Benutzerdefinierte Eigenschaften (`--*`): CSS-Variablen](/de/docs/Web/CSS/Reference/Properties/--*)
 
@@ -598,6 +598,7 @@ Zu den Standardeigenschaften, die in CSS-Spezifikationen definiert sind, gehöre
 - {{CSSxRef("will-change")}}
 - {{CSSxRef("word-break")}}
 - {{CSSxRef("word-spacing")}}
+- {{CSSxRef("wrap-inside")}}
 - {{CSSxRef("writing-mode")}}
 - {{CSSxRef("x")}}
 - {{CSSxRef("y")}}
@@ -606,7 +607,7 @@ Zu den Standardeigenschaften, die in CSS-Spezifikationen definiert sind, gehöre
 
 ### Nicht standardisierte Eigenschaften
 
-Zu den nicht standardisierten Eigenschaften mit Anbieterpräfix gehören:
+Zu den nicht standardisierten Eigenschaften mit Herstellerpräfix gehören:
 
 #### Präfix `-moz-`
 
@@ -642,6 +643,6 @@ Zu den nicht standardisierten Eigenschaften mit Anbieterpräfix gehören:
 
 - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
 - [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
-- [Firefox-CSS-Erweiterungen mit Anbieterpräfix (-moz-)](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [WebKit-CSS-Erweiterungen mit Anbieterpräfix (-webkit-)](/de/docs/Web/CSS/Reference/Webkit_extensions)
-- {{Glossary("Vendor_prefix", "Anbieterpräfix")}}
+- [CSS-Erweiterungen für Firefox mit Herstellerpräfix (-moz-)](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- [CSS-Erweiterungen für WebKit mit Herstellerpräfix (-webkit-)](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- {{Glossary("Vendor_prefix", "Herstellerpräfix")}}
