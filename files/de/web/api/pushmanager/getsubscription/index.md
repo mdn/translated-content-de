@@ -1,16 +1,16 @@
 ---
-title: "PushManager: getSubscription() Methode"
+title: "PushManager: Methode getSubscription()"
 short-title: getSubscription()
 slug: Web/API/PushManager/getSubscription
 l10n:
-  sourceCommit: 3a91caa0ebbc5131ed75afe0e5168cd5bffc0976
+  sourceCommit: 306ea44240e8d3019883cca081ac13752edb721a
 ---
 
 {{ApiRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`PushManager.getSubscription()`** Methode des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces ruft ein bestehendes Push-Abonnement ab.
+Die Methode **`PushManager.getSubscription()`** der Schnittstelle [`PushManager`](/de/docs/Web/API/PushManager) ruft ein bestehendes Push-Abonnement ab.
 
-Sie gibt ein {{jsxref("Promise")}} zurück, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt aufgelöst wird, das Details eines bestehenden Abonnements enthält. Wenn kein bestehendes Abonnement vorhanden ist, wird es zu einem `null`-Wert aufgelöst.
+Sie gibt ein {{jsxref("Promise")}} zurück, das mit einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt erfüllt wird, das Details zu einem bestehenden Abonnement enthält. Wenn kein Abonnement besteht, wird das Promise mit `null` erfüllt.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt oder `null` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt oder `null` erfüllt wird.
 
 ## Beispiele
 
-Dieser Code-Ausschnitt stammt aus einem [Beispiel für Push-Messaging und Benachrichtigungen](https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications). (Keine Live-Demo verfügbar.)
+Dieser Codeausschnitt stammt aus einem [Beispiel für Push-Nachrichten und Benachrichtigungen](https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications). (Eine Live-Demo ist nicht verfügbar.)
 
 ```js
 // We need the service worker registration to check for a subscription
@@ -48,7 +48,7 @@ navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
         return;
       }
 
-      // Keep your server in sync with the latest subscriptionId
+      // Keep your server in sync with the latest subscription
       sendSubscriptionToServer(subscription);
 
       showCurlCommand(subscription);

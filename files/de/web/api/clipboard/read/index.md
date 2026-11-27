@@ -1,16 +1,16 @@
 ---
-title: "Clipboard: read()-Methode"
+title: "Clipboard: Methode read()"
 short-title: read()
 slug: Web/API/Clipboard/read
 l10n:
-  sourceCommit: 7b8a3c0a4ab5b4b0c605641e8b64c8da42d8dd51
+  sourceCommit: 9274067a31863bf4ce49bd8dc3a2623e1f3f7590
 ---
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`read()`**-Methode der [`Clipboard`](/de/docs/Web/API/Clipboard)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer Kopie des Zwischenablageninhalts erfüllt wird.
+Die Methode **`read()`** der Schnittstelle [`Clipboard`](/de/docs/Web/API/Clipboard) gibt ein {{jsxref("Promise")}} zurück, das mit einer Kopie des Inhalts der Zwischenablage erfüllt wird.
 
-Jedes Element aus der Zwischenablage kann verschiedene Repräsentationen des kopierten Objekts bereitstellen. So können Anwendungen die Typen verarbeiten, die sie verstehen, und für andere Typen auf eine alternative Repräsentation zurückgreifen. Das ist flexibler als [`readText()`](/de/docs/Web/API/Clipboard/readText), das nur Text zurückgeben kann.
+Jeder Eintrag aus der Zwischenablage kann verschiedene Repräsentationen des kopierten Objekts bereitstellen. Dadurch können Anwendungen die Formate verarbeiten, die sie verstehen, und bei anderen Formaten auf eine alternative Repräsentation zurückgreifen. Das ist flexibler als [`readText()`](/de/docs/Web/API/Clipboard/readText), das nur Text zurückgeben kann.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ read(formats)
 ### Parameter
 
 - `formats` {{optional_inline}}
-  - : Ein optionales Objekt mit der folgenden Eigenschaft:
+  - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `unsanitized` {{optional_inline}}
-      - : Ein {{jsxref("Array")}} aus Zeichenfolgen mit MIME-Typen von Datenformaten, die beim Lesen aus der Zwischenablage nicht bereinigt werden sollen.
+      - : Ein {{jsxref("Array")}} von Strings mit MIME-Typen von Datenformaten, die beim Lesen aus der Zwischenablage nicht bereinigt werden sollen.
 
-        Manche Browser bereinigen Daten beim Lesen aus der Zwischenablage, um zu verhindern, dass schädliche Inhalte in das Dokument eingefügt werden. Chrome (und andere Chromium-basierte Browser) entfernt beispielsweise `<script>`-Tags und andere potenziell gefährliche Inhalte aus HTML-Daten. Verwenden Sie das Array `unsanitized`, um eine Liste von MIME-Typen anzugeben, die nicht bereinigt werden sollen.
+        Bestimmte Browser bereinigen Daten aus der Zwischenablage beim Lesen, um zu verhindern, dass schädliche Inhalte in das Dokument eingefügt werden. Beispielsweise bereinigt Chrome (wie auch andere Chromium-basierte Browser) HTML-Daten, indem es `<script>`-Tags und andere potenziell gefährliche Inhalte entfernt. Verwenden Sie das Array `unsanitized`, um eine Liste von MIME-Typen anzugeben, die nicht bereinigt werden sollen.
 
 ### Rückgabewert
 
@@ -39,9 +39,9 @@ Ein {{jsxref("Promise")}}, das mit einem Array von [`ClipboardItem`](/de/docs/We
 
 ## Beschreibung
 
-Das erfüllte Promise liefert ein Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Instanzen, die die verschiedenen aus der Zwischenablage gelesenen Elemente repräsentieren. Jedes `ClipboardItem` kann eine oder mehrere Repräsentationen des kopierten Objekts enthalten, die jeweils einem [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types) zugeordnet sind. Eine Webanwendung liest die Formate eines Elements und wählt die beste Repräsentation aus, die sie verarbeiten kann. Beispielsweise könnte ein Element für einen benutzerdefinierten Datentyp in der Zwischenablage eine benutzerdefinierte Repräsentation, eine HTML-Version und eine Nur-Text-Version enthalten. Eine Anwendung, die das benutzerdefinierte Format versteht, kann es direkt verwenden; andernfalls kann sie auf die Text- oder HTML-Version zurückgreifen.
+Das erfüllte Promise liefert ein Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Instanzen, die die verschiedenen aus der Zwischenablage gelesenen Einträge repräsentieren. Jedes `ClipboardItem` kann eine oder mehrere Repräsentationen des kopierten Objekts enthalten, die jeweils einem [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types) zugeordnet sind. Eine Webanwendung liest die verfügbaren Formate eines Eintrags und wählt die für sie am besten geeignete Repräsentation aus. Beispielsweise könnte ein Eintrag für einen benutzerdefinierten Datentyp eine benutzerdefinierte Repräsentation, eine HTML-Version und eine reine Textversion enthalten. Eine Anwendung, die das benutzerdefinierte Format versteht, kann es direkt verwenden. Andernfalls kann sie auf die Text- oder HTML-Version zurückgreifen.
 
-Browser unterstützen üblicherweise das Lesen von Text, HTML und PNG-Bilddaten und können auch benutzerdefinierte Webformate unterstützen (siehe den Abschnitt [Browser-Kompatibilität](/de/docs/Web/API/ClipboardItem#browser_compatibility) zu `ClipboardItem`).
+Browser unterstützen üblicherweise das Lesen von Text-, HTML- und PNG-Bilddaten und unterstützen möglicherweise benutzerdefinierte Webformate (siehe den Abschnitt [Browser-Kompatibilität](/de/docs/Web/API/ClipboardItem#browser_compatibility) zu `ClipboardItem`).
 
 ## Sicherheitsaspekte
 
@@ -57,7 +57,7 @@ Dieses Beispiel kopiert Text als einzelnes [`ClipboardItem`](/de/docs/Web/API/Cl
 
 #### HTML
 
-Zunächst definieren wir das Element `source`, das die HTML-Repräsentation der Daten enthält, die wir kopieren werden. Mit den folgenden Schaltflächen wird der HTML-Inhalt kopiert beziehungsweise werden die zurückgegebenen Elemente aus der Zwischenablage gelesen und protokolliert.
+Zuerst definieren wir das Element `source`, das die HTML-Repräsentation der zu kopierenden Daten enthält. Mit den folgenden Schaltflächen wird das HTML kopiert beziehungsweise werden die zurückgegebenen Zwischenablageeinträge gelesen und protokolliert.
 
 ```html
 <div id="source">
@@ -67,7 +67,7 @@ Zunächst definieren wir das Element `source`, das die HTML-Repräsentation der 
 <button id="inspect" type="button">Read clipboard item</button>
 ```
 
-Außerdem gibt es ausgeblendeten Code für ein Protokollfeld, der für das Beispiel nicht relevant ist.
+Außerdem gibt es Code für ein ausgeblendetes Protokollfeld, der für das Beispiel nicht relevant ist.
 
 ```html hidden
 <pre id="log"></pre>
@@ -121,7 +121,7 @@ copyButton.addEventListener("click", async () => {
 });
 ```
 
-Die Schaltfläche „Read“ ruft `read()` auf und protokolliert alle MIME-Typen, die jedes zurückgegebene `ClipboardItem` enthält. Anschließend ruft sie mit `getType()` die Daten jedes Formats ab und protokolliert sie.
+Die Schaltfläche „Read“ ruft `read()` auf und protokolliert alle MIME-Typen, die jedes zurückgegebene `ClipboardItem` enthält. Anschließend ruft sie die Daten der einzelnen Formate mit `getType()` ab und protokolliert sie.
 
 ```js
 const inspectButton = document.querySelector("#inspect");
@@ -145,12 +145,12 @@ inspectButton.addEventListener("click", async () => {
 
 #### Ergebnis
 
-Klicken Sie zuerst auf die Schaltfläche „Copy“, um das Element sowohl als Text als auch als HTML zu kopieren. Klicken Sie dann auf die Schaltfläche „Read clipboard item“, um es wieder auszulesen und die Formate des Elements aufzulisten.
+Klicken Sie zuerst auf die Schaltfläche „Copy“, um das Element sowohl als Text als auch als HTML zu kopieren. Klicken Sie dann auf „Read clipboard item“, um den Eintrag wieder auszulesen und seine Formate aufzulisten.
 
 {{EmbedLiveSample("Reading multiple formats from the clipboard", "100%", "320", "", "", "", "clipboard-read; clipboard-write")}}
 
 > [!NOTE]
-> Erteilen Sie die Berechtigung zum Kopieren und Einfügen, falls Sie dazu aufgefordert werden.
+> Erteilen Sie bei entsprechender Aufforderung die Berechtigung zum Kopieren und Einfügen.
 
 ### Bilddaten aus der Zwischenablage lesen
 
@@ -228,18 +228,18 @@ async function pasteImage() {
 
 #### Ergebnis
 
-Kopieren Sie das Schmetterlingsbild links, indem Sie mit der rechten Maustaste auf das Bild klicken und im Kontextmenü „Bild kopieren“ auswählen. Klicken Sie dann auf den leeren Rahmen rechts. Das Beispiel ruft die Bilddaten aus der Zwischenablage ab und zeigt das Bild im leeren Rahmen an.
+Kopieren Sie das Schmetterlingsbild links, indem Sie mit der rechten Maustaste darauf klicken und im Kontextmenü „Bild kopieren“ auswählen. Klicken Sie dann auf den leeren Rahmen rechts. Das Beispiel ruft die Bilddaten aus der Zwischenablage ab und zeigt das Bild im leeren Rahmen an.
 
 {{EmbedLiveSample("Reading image data from clipboard", "100%", "250", "", "", "", "clipboard-read")}}
 
 > [!NOTE]
-> Erteilen Sie die Berechtigung zum Einfügen des Bildes, falls Sie dazu aufgefordert werden.
+> Erteilen Sie bei entsprechender Aufforderung die Berechtigung zum Einfügen des Bildes.
 
 ### Daten aus der Zwischenablage lesen
 
 Dieses Beispiel verwendet die Methode `read()`, um Daten aus der Zwischenablage zu lesen und die dort gespeicherten Daten zu protokollieren.
 
-Im Unterschied zum vorherigen Beispiel zeigt es [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekte mit Text-, HTML- und Bilddaten an, statt nur Bilder darzustellen.
+Anders als das vorherige Beispiel zeigt es [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekte mit Text-, HTML- und Bilddaten an, statt nur Bilder zu berücksichtigen.
 
 #### HTML
 
@@ -294,7 +294,7 @@ reload.addEventListener("click", () => {
 });
 ```
 
-Der übrige Code liest die Zwischenablage aus, wenn auf das Zielelement geklickt wird, und zeigt jedes [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) zusammen mit seinem MIME-Typ an. Er protokolliert einen Fehler, wenn die Methode `read()` nicht verwendet werden kann oder die Zwischenablage einen anderen MIME-Typ enthält.
+Der übrige Code liest die Zwischenablage aus, wenn auf das Zielelement geklickt wird, und zeigt jeden [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Eintrag zusammen mit seinem MIME-Typ an. Er protokolliert einen Fehler, wenn die Methode `read()` nicht verwendet werden kann oder die Zwischenablage einen anderen MIME-Typ enthält.
 
 ```js
 const destinationDiv = document.querySelector("#destination");
@@ -340,15 +340,15 @@ async function pasteData() {
 
 #### Ergebnis
 
-Kopieren Sie etwas Text oder das Schmetterlingsbild (JPG) unten. Um ein Bild zu kopieren, klicken Sie mit der rechten Maustaste darauf und wählen Sie im Kontextmenü „Bild kopieren“. Wählen Sie anschließend den angegebenen Rahmen unten aus, um die Informationen aus der Zwischenablage dort einzufügen.
+Kopieren Sie etwas Text oder das Schmetterlingsbild (JPG) unten. Um ein Bild zu kopieren, klicken Sie mit der rechten Maustaste darauf und wählen Sie im Kontextmenü „Bild kopieren“. Wählen Sie anschließend den markierten Rahmen unten aus, um die Daten aus der Zwischenablage dort einzufügen.
 
 {{EmbedLiveSample("Reading data from the clipboard", "100%", "500", "", "", "", "clipboard-read")}}
 
 Hinweise:
 
-- Obwohl das Schmetterlingsbild eine JPG-Datei ist, liegt es beim Lesen aus der Zwischenablage als PNG vor.
+- Obwohl das Schmetterlingsbild eine JPG-Datei ist, wird es aus der Zwischenablage als PNG gelesen.
 - Falls Sie dazu aufgefordert werden, müssen Sie die Berechtigung zum Einfügen des Bildes erteilen.
-- In Chromium-Browsern funktioniert dies möglicherweise nicht, da dem Beispiel-Frame die Berechtigungen `clipboard-read` und `clipboard-write` über die [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy) nicht erteilt wurden ([diese werden von Chromium-Browsern benötigt](/de/docs/Web/API/Clipboard_API#security_considerations)).
+- In Chromium-Browsern funktioniert dies möglicherweise nicht, weil dem Beispiel-Frame die Berechtigungen {{httpheader("Permissions-Policy/clipboard-read", "clipboard-read")}} und {{httpheader("Permissions-Policy/clipboard-write", "clipboard-write")}} der [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy) nicht erteilt wurden. Siehe [Sicherheitsaspekte der Clipboard API](/de/docs/Web/API/Clipboard_API#security_considerations).
 
 ### Unbereinigtes HTML aus der Zwischenablage lesen
 
@@ -444,13 +444,13 @@ pasteUnsanitizedButton.addEventListener("click", async () => {
 
 #### Ergebnis
 
-Klicken Sie zuerst auf die Schaltfläche „Copy HTML“, um den HTML-Code aus dem ersten Textfeld in die Zwischenablage zu schreiben. Klicken Sie dann entweder auf „Paste HTML“ oder auf „Paste unsanitized HTML“, um den bereinigten beziehungsweise unbereinigten HTML-Code in das zweite Textfeld einzufügen.
+Klicken Sie zuerst auf „Copy HTML“, um den HTML-Code aus dem ersten Textfeld in die Zwischenablage zu schreiben. Klicken Sie dann entweder auf „Paste HTML“ oder auf „Paste unsanitized HTML“, um den bereinigten beziehungsweise unbereinigten HTML-Code in das zweite Textfeld einzufügen.
 
 {{EmbedLiveSample("Reading unsanitized HTML from the clipboard", "100%", "250", "", "", "", "clipboard-read; clipboard-write")}}
 
 ### Ein benutzerdefiniertes Format aus der Zwischenablage lesen
 
-Dieses Beispiel verwendet denselben Code wie [Benutzerdefinierte Formate lesen und schreiben](/de/docs/Web/API/Clipboard_API#reading_and_writing_custom_formats) in der Übersicht zur Clipboard API, zeigt aber nur den Code, der speziell für `read()` relevant ist. Weitere Einzelheiten finden Sie in jenem Beispiel.
+Dieses Beispiel verwendet denselben Code wie [Benutzerdefinierte Formate lesen und schreiben](/de/docs/Web/API/Clipboard_API#reading_and_writing_custom_formats) in der Übersicht zur Clipboard API, zeigt jedoch nur den für `read()` spezifischen Code. Weitere Einzelheiten finden Sie in jenem Beispiel.
 
 #### HTML
 
@@ -617,7 +617,7 @@ reload.addEventListener("click", () => {
 });
 ```
 
-Hier definieren wir den benutzerdefinierten Medientyp („MIME-Typ“), den wir im folgenden Code verwenden. Außerdem prüfen wir mit [`ClipboardItem.supports()`](/de/docs/Web/API/ClipboardItem/supports_static), ob dieses Format unterstützt wird, und protokollieren das Ergebnis. Das Beispiel funktioniert unabhängig davon; falls das Format nicht unterstützt wird, können wir den benutzerdefinierten Typ lediglich nicht schreiben oder lesen.
+Hier definieren wir den benutzerdefinierten Medien- beziehungsweise MIME-Typ, den wir im folgenden Code verwenden. Außerdem prüfen wir mit [`ClipboardItem.supports()`](/de/docs/Web/API/ClipboardItem/supports_static), ob dieses Format unterstützt wird, und protokollieren das Ergebnis. Beachten Sie, dass dieses Beispiel in beiden Fällen funktioniert. Wenn das Format nicht unterstützt wird, können wir den benutzerdefinierten Typ lediglich nicht schreiben oder lesen.
 
 ```js
 const customType = "web text/x-mdn-inventory+json";
@@ -670,7 +670,7 @@ document.addEventListener("copy", (event) => {
 });
 ```
 
-Dieser Code zeigt den Event-Listener für die Schaltfläche, mit der der Inhalt der Zwischenablage in das Feld „Your app“ eingefügt wird. Er liest die Zwischenablage, ruft das erste Element ab, prüft, ob es unseren oben definierten benutzerdefinierten Typ enthält, und ruft dann dessen Repräsentation ab. Anschließend erstellt er daraus die Tabelle und schreibt sie in das Feld.
+Dieser Code zeigt den Listener für die Schaltfläche, mit der der Inhalt der Zwischenablage in das Feld „Your app“ eingefügt wird. Er liest die Zwischenablage aus, ruft den ersten Eintrag ab, prüft, ob dieser den oben definierten benutzerdefinierten Typ enthält, und ruft anschließend diese Repräsentation ab. Daraus erstellt er die Tabelle und schreibt sie in das Feld.
 
 ```js
 const targetApp = document.querySelector("#target_app");
@@ -696,7 +696,7 @@ pasteAppButton.addEventListener("click", async () => {
 });
 ```
 
-Der Event-Handler der Schaltfläche „Arbitrary rich text target“ geht genauso vor, verwendet aber die Repräsentation `text/html` und stellt sie mit `innerHTML` dar. Da das kopierte HTML nur `item` und `quantity` enthält, zeigt dieses Zielfeld eine Tabelle ohne `SKU`-Spalte.
+Der Handler für die Schaltfläche „Arbitrary rich text target“ geht genauso vor, verwendet aber die Repräsentation `text/html` und rendert sie mit `innerHTML`. Da das kopierte HTML nur `item` und `quantity` enthält, zeigt dieses Ziel eine Tabelle ohne `SKU`-Spalte an.
 
 ```js
 const targetRichtext = document.querySelector("#target_richtext");
@@ -740,12 +740,12 @@ pastePlaintextButton.addEventListener("click", async () => {
 
 #### Ergebnis
 
-Klicken Sie auf die Schaltfläche „Copy“ oder wählen Sie die Tabelle aus und kopieren Sie sie manuell, um sie als HTML, Nur-Text und – sofern unterstützt – im benutzerdefinierten Format zu kopieren. Klicken Sie dann auf jede der drei „Paste“-Schaltflächen, um zu vergleichen, was die einzelnen Zielfelder abrufen. Klicken Sie auf „Reload“, um das Beispiel zurückzusetzen.
+Klicken Sie auf „Copy“ oder wählen Sie die Tabelle aus und kopieren Sie sie manuell, um sie als HTML, reinen Text und – sofern unterstützt – im benutzerdefinierten Format zu kopieren. Klicken Sie dann auf jede der drei „Paste“-Schaltflächen, um zu vergleichen, was die jeweiligen Ziele abrufen. Klicken Sie auf „Reload“, um das Beispiel zurückzusetzen.
 
 {{EmbedLiveSample("Reading a custom format from the clipboard", "100%", "450", "", "", "", "clipboard-read; clipboard-write")}}
 
 > [!NOTE]
-> Erteilen Sie die Berechtigung zum Kopieren und Einfügen, falls Sie dazu aufgefordert werden.
+> Erteilen Sie bei entsprechender Aufforderung die Berechtigung zum Kopieren und Einfügen.
 
 ## Spezifikationen
 

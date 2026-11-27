@@ -3,12 +3,12 @@ title: "ServiceWorkerRegistration: pushManager-Eigenschaft"
 short-title: pushManager
 slug: Web/API/ServiceWorkerRegistration/pushManager
 l10n:
-  sourceCommit: 3a91caa0ebbc5131ed75afe0e5168cd5bffc0976
+  sourceCommit: 306ea44240e8d3019883cca081ac13752edb721a
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushManager`**-Eigenschaft des schreibgeschützten [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das [`PushManager`](/de/docs/Web/API/PushManager)-Interface zurück, das zur Verwaltung von Push-Abonnements verwendet wird; dies umfasst die Unterstützung für das Abonnieren, das Abrufen eines aktiven Abonnements und den Zugriff auf den Status der Push-Berechtigung.
+Die schreibgeschützte Eigenschaft **`pushManager`** der Schnittstelle [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) gibt eine Referenz auf die Schnittstelle [`PushManager`](/de/docs/Web/API/PushManager) zur Verwaltung von Push-Abonnements zurück. Dazu gehören das Erstellen eines Abonnements, das Abrufen eines aktiven Abonnements und der Zugriff auf den Berechtigungsstatus für Push-Benachrichtigungen.
 
 ## Wert
 
@@ -28,7 +28,6 @@ navigator.serviceWorker
   .then((serviceWorkerRegistration) => {
     serviceWorkerRegistration.pushManager.subscribe().then(
       (pushSubscription) => {
-        console.log(pushSubscription.subscriptionId);
         console.log(pushSubscription.endpoint);
         // The push subscription details needed by the application
         // server are now available, and can be sent to it using,
